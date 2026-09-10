@@ -1,0 +1,162 @@
+/* Audio keeps playback and speed controls at a steady size. */
+.audio-player {
+  padding: 1.25rem;
+  background: var(--sheet);
+  border: 1px solid var(--sheet-line);
+  border-radius: var(--radius-surface);
+}
+.audio-main {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.play-button {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--action);
+  color: var(--button-text);
+}
+.play-button svg {
+  display: block;
+}
+.play-button-small {
+  width: 1.75rem;
+  height: 1.75rem;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+.play-button-small svg {
+  width: 12px;
+  height: 12px;
+}
+.question-audio {
+  display: inline-block;
+}
+.situation {
+  margin-bottom: 1rem;
+}
+.situation p {
+  margin: 0;
+}
+.situation .instruction {
+  font-size: var(--text-small);
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+.pictures {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.pictures[data-count='2'],
+.pictures[data-count='3'] {
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+}
+.picture {
+  margin: 0;
+}
+.picture img {
+  display: block;
+  width: 100%;
+  max-width: 38rem;
+  height: auto;
+  border-radius: 0.5rem;
+}
+.waveform {
+  position: relative;
+  height: 3rem;
+  flex: 1;
+  min-width: 0;
+}
+.waveform-bars {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.waveform i {
+  display: block;
+  flex: 1;
+  min-width: 1px;
+  background: var(--wave);
+  border-radius: 1px;
+  pointer-events: none;
+}
+.waveform .heard {
+  background: var(--muted);
+}
+.audio-seek {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.waveform-timeline .audio-seek {
+  opacity: 1;
+  top: 50%;
+  height: 1.5rem;
+  transform: translateY(-50%);
+  accent-color: var(--muted);
+}
+.waveform:has(input:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+.audio-meta {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+  margin-top: 0.875rem;
+}
+.audio-time {
+  font-size: var(--text-small);
+  font-variant-numeric: tabular-nums;
+}
+/* Playback speed is a small secondary control at the right of the time row, without a visible label. */
+#audio-speed {
+  margin-left: auto;
+}
+#audio-speed .segments {
+  padding: 3px;
+}
+#audio-speed .segment {
+  width: auto;
+  min-width: 2.75rem;
+  min-height: 1.625rem;
+  padding: 0 0.625rem;
+  font-size: 0.75rem;
+}
+#audio-speed .selection-indicator {
+  top: 3px;
+  bottom: 3px;
+}
+.audio-caption {
+  margin-top: 0.75rem;
+}
+summary {
+  cursor: pointer;
+  min-height: 2.5rem;
+  padding: 0.5rem 0;
+}
+.transcript {
+  margin-top: 1rem;
+  font-size: var(--text-small);
+  color: var(--muted);
+}
+.transcript p {
+  margin-top: 0.5rem;
+  font-size: var(--text-body);
+  color: var(--ink);
+  line-height: 1.8;
+}

@@ -1,0 +1,107 @@
+/* Supporting documents and exercise report dialog. */
+.about,
+.privacy-document {
+  max-width: 42rem;
+}
+.about p + p,
+.privacy-document p + p {
+  margin-top: 1rem;
+}
+.privacy-document h2 {
+  margin: 2rem 0 0.75rem;
+}
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 0.35);
+  z-index: 50;
+  opacity: 1;
+  transition: opacity 180ms ease;
+}
+.dialog-backdrop[data-starting-style],
+.dialog-backdrop[data-ending-style] {
+  opacity: 0;
+}
+.report-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  z-index: 51;
+  width: min(32rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-surface);
+  background: var(--sheet);
+  color: var(--ink);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    height 200ms ease;
+}
+.report-dialog[data-starting-style],
+.report-dialog[data-ending-style] {
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+}
+.report-content {
+  padding: 1.5rem;
+}
+.dialog-close {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.25rem;
+  background: transparent;
+  color: var(--muted);
+}
+.dialog-close:hover {
+  background: var(--quiet);
+  color: var(--ink);
+}
+.report-confirmation {
+  margin-top: 0.25rem;
+}
+.report-receipt {
+  display: grid;
+  justify-items: start;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.report-privacy {
+  margin-top: 0.75rem;
+}
+.dialog-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+.issue-report {
+  margin-top: 1rem;
+  font-size: var(--text-small);
+}
+.issue-report fieldset {
+  margin-bottom: 1rem;
+}
+.issue-option {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-height: 2.5rem;
+}
+.issue-report textarea {
+  min-height: 5rem;
+}
+.issue-report .actions {
+  margin-top: 1rem;
+}

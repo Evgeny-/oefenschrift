@@ -1,0 +1,330 @@
+/* Navigation: one alignment, one active state, settings kept together. */
+.app-shell {
+  --sidebar-width: 12rem;
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  max-width: 72rem;
+  margin: 0 auto;
+  min-height: 100dvh;
+}
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100dvh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.25rem;
+  border-right: 1px solid var(--line);
+  background: var(--paper);
+  min-width: 0;
+}
+.wordmark {
+  align-self: flex-start;
+  margin: 0 0 1.5rem -0.2em;
+  padding: 0 0.2em;
+  color: var(--ink);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  line-height: 1.3;
+  background: linear-gradient(transparent 55%, var(--mark) 55%, var(--mark) 92%, transparent 92%);
+}
+.sidebar #level-control {
+  display: grid;
+  justify-items: start;
+  gap: 0.375rem;
+  margin-bottom: 2rem;
+}
+.sidebar #level-control .segment {
+  width: 2.25rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+.sidebar > nav {
+  display: grid;
+  gap: 0.25rem;
+}
+.utility-nav {
+  margin-top: 1.5rem;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+  position: relative;
+  border: 0;
+  background: none;
+  text-align: left;
+  padding: 0.5rem 0;
+  min-height: 2.5rem;
+  width: 100%;
+  font-size: var(--text-body);
+  line-height: 1.5;
+  font-weight: 400;
+  border-radius: 0.25rem;
+  color: var(--muted);
+}
+.nav-link:hover {
+  color: var(--ink);
+}
+.nav-link[aria-current='page'] {
+  color: var(--ink);
+  font-weight: 600;
+}
+/* Reserve the bold width in advance, so the current link changes weight without moving its neighbours. */
+.nav-label {
+  display: inline-grid;
+}
+.nav-label::after {
+  content: attr(data-label);
+  font-weight: 600;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+.nav-icon {
+  flex: none;
+  opacity: 0.7;
+  overflow: visible;
+}
+.nav-icon * {
+  transform-box: view-box;
+}
+.nav-link[aria-current='page'] .nav-icon {
+  opacity: 1;
+}
+/* Each icon moves once when the learner navigates to its section (not on page load, not on hover): the book opens,
+   the headphones nod, the pen writes, the microphone sounds, the mill turns, the
+   stopwatch sweeps and the bars grow. */
+.nav-icon[data-animate] .book-left {
+  transform-origin: 12px 12px;
+  animation: icon-open 560ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.nav-icon[data-animate] .book-right {
+  transform-origin: 12px 12px;
+  animation: icon-open 560ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.nav-icon[data-animate] .phones {
+  animation: icon-nod 620ms ease-in-out;
+}
+.nav-icon[data-animate] .pen {
+  transform-origin: 4.5px 19.5px;
+  animation: icon-tilt 560ms ease-in-out;
+}
+.nav-icon[data-animate] .pen-line {
+  stroke-dasharray: 8;
+  animation: icon-write 480ms 120ms ease-out backwards;
+}
+.wave {
+  opacity: 0;
+  transform-origin: 12px 11px;
+}
+.nav-icon[data-animate] .wave {
+  animation: icon-wave 700ms ease-out;
+}
+.nav-icon[data-animate] .wave-right {
+  animation-delay: 80ms;
+}
+.nav-icon[data-animate] .sails {
+  transform-origin: 12px 9px;
+  animation: icon-turn 900ms cubic-bezier(0.25, 0.7, 0.2, 1);
+}
+.nav-icon[data-animate] .hand {
+  transform-origin: 12px 13px;
+  animation: icon-sweep 800ms cubic-bezier(0.3, 0.6, 0.2, 1);
+}
+.nav-icon[data-animate] .bar {
+  transform-origin: 12px 19px;
+  animation: icon-grow 520ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+.nav-icon[data-animate] .bar:nth-child(2) {
+  animation-delay: 60ms;
+}
+.nav-icon[data-animate] .bar:nth-child(3) {
+  animation-delay: 120ms;
+}
+.nav-icon[data-animate] .bar:nth-child(4) {
+  animation-delay: 180ms;
+}
+@keyframes icon-open {
+  0% {
+    transform: scaleX(0.35);
+  }
+  60% {
+    transform: scaleX(1.06);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes icon-nod {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(1.4px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(1.2px);
+  }
+}
+@keyframes icon-tilt {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  40% {
+    transform: rotate(-9deg);
+  }
+}
+@keyframes icon-write {
+  from {
+    stroke-dashoffset: 8;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes icon-wave {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+}
+@keyframes icon-turn {
+  from {
+    transform: rotate(-90deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+@keyframes icon-sweep {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+@keyframes icon-grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+.sidebar .control-label,
+.preferences-choices .control-label {
+  font-size: var(--text-micro);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.mobile-preferences {
+  display: none;
+}
+.side-settings {
+  display: grid;
+  gap: 1rem;
+  margin-top: auto;
+  padding: 2rem 0 0;
+}
+.side-settings .segment-field,
+.preferences-choices .segment-field {
+  display: grid;
+  justify-items: start;
+  gap: 0.3rem;
+}
+.side-settings .segment,
+.preferences-choices .segment {
+  width: 2.25rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+.side-settings .segments {
+  padding: 2px;
+}
+.side-settings .segment {
+  width: 1.75rem;
+  min-width: 1.75rem;
+  min-height: 1.75rem;
+}
+.side-settings .segment svg {
+  width: 14px;
+  height: 14px;
+}
+.side-settings .segment .language-flag {
+  width: 18px;
+  height: 18px;
+}
+.side-settings .selection-indicator {
+  top: 2px;
+  bottom: 2px;
+}
+.workspace {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100dvh;
+}
+.set-position {
+  color: var(--muted);
+  font-size: var(--text-small);
+  white-space: nowrap;
+}
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem var(--inset) 0;
+  min-height: 4rem;
+}
+main {
+  min-width: 0;
+  flex: 1;
+  padding: 2rem var(--inset) 2.5rem;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-top: auto;
+  padding: 1.25rem var(--inset) 1.5rem;
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+}
+.storage-notice {
+  margin: 1rem var(--inset) 0;
+  padding: 0.75rem;
+  color: var(--error);
+  background: var(--quiet);
+  font-size: var(--text-small);
+}
