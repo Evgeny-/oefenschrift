@@ -18,15 +18,17 @@ export type OptionBuilder=(t:ReturnType<typeof tokens>)=>Record<string,any>;
 export default function Chart({build,height=240,label}:{build:OptionBuilder;height?:number;label:string}){
   const ref=useRef<HTMLDivElement>(null);
   useEffect(()=>{
-    let chart:any=null,disposed=false,observer:ResizeObserver|null=null;
+    let chart:any=null,disposed=false,observer:ResizeObserver|null=null,themes:MutationObserver|null=null;
     load().then(core=>{
       if(disposed||!ref.current)return;
       chart=core.init(ref.current,null,{renderer:'canvas'});
-      const t=tokens();
-      chart.setOption({textStyle:{fontFamily:t.font,color:t.muted},animationDuration:300,...build(t)});
+      const paint=()=>{const t=tokens();chart.setOption({textStyle:{fontFamily:t.font,color:t.muted},animationDuration:300,...build(t)},true);};
+      paint();
       observer=new ResizeObserver(()=>chart?.resize());observer.observe(ref.current);
+      // The theme switch changes the tokens in place; repaint with the new palette.
+      themes=new MutationObserver(paint);themes.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
     });
-    return ()=>{disposed=true;observer?.disconnect();chart?.dispose();};
+    return ()=>{disposed=true;observer?.disconnect();themes?.disconnect();chart?.dispose();};
   },[build]);
   return <div ref={ref} className="chart" style={{height}} role="img" aria-label={label}/>;
 }

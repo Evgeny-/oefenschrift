@@ -3,6 +3,8 @@ import type {ServerBuild} from 'react-router';
 import {createRequestHandler} from '@react-router/express';
 import {randomBytes} from 'node:crypto';
 import {createServer} from 'node:http';
+// A local .env (see .env.example) supplies keys and admin settings; real environment variables win.
+try{process.loadEnvFile('.env');}catch{}
 const development=process.env.NODE_ENV!=='production',port=Number(process.env.PORT||8766);
 const app=express();app.disable('x-powered-by');
 app.use((req,res,next)=>{
