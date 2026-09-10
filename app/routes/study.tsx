@@ -70,8 +70,14 @@ export function loader({ request, params }) {
   // The first page sets the session pass the paid calls require; a browser that already
   // has a young one keeps it, so its allowance for today carries over.
   const pass = ensurePass(request, renderedAt);
+  // Tabs opened before the shared layout was deployed make unfiltered data requests
+  // and expect content here. Keep those tabs working until their next document load;
+  // the current router sends _routes when it reuses the shared layout's catalogue.
+  const legacyNavigation =
+    requestUrl.pathname.endsWith('.data') && !requestUrl.searchParams.has('_routes');
   return respond(
     {
+      ...(legacyNavigation ? { catalogue, practiceSets } : {}),
       initialState,
       renderedAt,
       services: {
@@ -129,5 +135,5 @@ export function shouldRevalidate({ currentUrl, nextUrl, defaultShouldRevalidate 
 export default function Study() {
   const data = useLoaderData<typeof loader>();
   const content = useRouteLoaderData<typeof studyLayoutLoader>('routes/study-layout');
-  return <App {...content!} {...data} />;
+  return <App {...data} {...content!} />;
 }

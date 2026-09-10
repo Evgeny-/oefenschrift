@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
+import { UNSAFE_decodeViaTurboStream as decodeRouteData } from 'react-router';
 
 const origin = process.env.TEST_ORIGIN;
 assert.ok(origin, 'Use npm run test:production to start an isolated server.');
@@ -50,6 +51,11 @@ for (const [path, expected] of [
   checks.push(`${path}: ${expected} with cache prevention`);
 }
 const plainHTML = (html) => html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '');
+const legacyResponse = await fetch(site + '/en/a2/speaking.data');
+const { value: legacyData } = await decodeRouteData(legacyResponse.body, globalThis);
+assert.equal(legacyData['routes/study'].data.catalogue.length, bank.length);
+assert.ok(legacyData['routes/study'].data.practiceSets.length);
+checks.push('An already-open tab can still read the previous route-data shape until reload');
 for (const part of ['reading', 'listening', 'writing', 'speaking', 'knm']) {
   const item = bank.find((item) => item.part === part),
     path = '/exercise/' + encodeURIComponent(item.id);
