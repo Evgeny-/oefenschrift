@@ -38,7 +38,7 @@ The candidate was rejected. Its exact source, usage, full synthetic outputs and 
 
 OpenRouter routes requests to model providers. It can prioritize latency or token throughput and supports provider allowlists and fallbacks. Its latency and throughput preferences are explicitly not guarantees. A route optimized for time to first token may not minimize the time until a complete structured answer is available. Moving this app there would need its own measurement with the chosen model, provider and output format. [OpenRouter provider routing](https://openrouter.ai/docs/guides/routing/provider-selection).
 
-A local presence-only search checked 20 `.env` and `.env.*` files under `/Users/evgeny.nikiforov/Projects`, including the authorized CBT-bot file. It found no assignment named `OPENROUTER_API_KEY`. Hidden Git, dependency and virtual-environment directories were excluded. This does not establish whether a key exists in a password manager, shell configuration, another directory or under another variable name. No credential values were printed, and no OpenRouter request was made.
+A local presence-only search checked 20 `.env` and `.env.*` files under the local projects folder, including the authorised credentials file. It found no assignment named `OPENROUTER_API_KEY`. Hidden Git, dependency and virtual-environment directories were excluded. This does not establish whether a key exists in a password manager, shell configuration, another directory or under another variable name. No credential values were printed, and no OpenRouter request was made.
 
 ## Next useful work
 
@@ -48,7 +48,7 @@ The next grader evaluation should separate criterion decisions from rewrite qual
 
 ## Repeating a bounded check
 
-`python3 scripts/benchmark_feedback.py --model gpt-5.4-nano --output tmp/feedback-benchmark/new-run.json` makes exactly three paid calls using synthetic fixtures. The tool reads the existing authorized credential source, never logs keys, and leaves app configuration unchanged. It can also accept `--model gpt-4.1-mini`. Calls use the Responses API with strict structured output and `store:false`; GPT-5 nano uses `reasoning.effort=none`, while the non-reasoning GPT-4.1 mini request omits that parameter. Both model pages document structured-output support.
+`npm run feedback:evaluate -- --output tmp/feedback-benchmark/new-run.json --cases a2_missing_day complete_route_preserved irrelevant_instruction` makes exactly three paid calls using synthetic fixtures. The tool reads the existing authorized credential source, never logs keys, and leaves app configuration unchanged. It can also accept `--model gpt-4.1-mini`. Calls use the Responses API with strict structured output and `store:false`; GPT-5 nano uses `reasoning.effort=none`, while the non-reasoning GPT-4.1 mini request omits that parameter. Both model pages document structured-output support.
 
 Two offline regression tests check model-parameter compatibility and rejection of a fabricated evidence quote. They do not call a provider.
 

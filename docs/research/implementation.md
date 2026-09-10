@@ -1,6 +1,6 @@
 # Current implementation, 9 September 2026
 
-The source project is `/Users/evgeny.nikiforov/Projects/inburgering`. The old Documents/ChatGPT path is a compatibility symlink. The service remains local at port 8766 and opens in Firefox.
+The source project is the project directory. The old Documents/ChatGPT path is a compatibility symlink. The service remains local at port 8766 and opens in Firefox.
 
 ## Interface and learning flow
 

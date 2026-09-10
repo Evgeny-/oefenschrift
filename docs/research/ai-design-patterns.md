@@ -34,7 +34,7 @@ The unslop-ui copy advertises precise percentages from a large Reddit analysis. 
 
 ## Our skill
 
-Created `design-with-restraint` at `/Users/evgeny.nikiforov/.codex/skills/design-with-restraint/SKILL.md`. Its supporting source notes record exact commits and caveats. It separates reusable review guidance from the project's preferences in `DESIGN.md`. The skill validator passed. Its practical first application is the local demo; aesthetic success still needs user review.
+Created a local `design-with-restraint` skill. Its supporting source notes record exact commits and caveats. It separates reusable review guidance from the project's preferences in `DESIGN.md`. The skill validator passed. Its practical first application is the local demo; aesthetic success still needs user review.
 
 ## Libraries
 

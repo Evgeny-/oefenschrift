@@ -29,7 +29,7 @@ test('bad storage and stale sessions cannot break the catalogue',()=>{
 });
 test('original and reviewed questions have valid answer keys and exact sample evidence',()=>{
  assert.equal(new Set(catalogue.map(i=>i.id)).size,catalogue.length);
- for(const item of catalogue){if(item.questions){for(const q of item.questions){assert.ok(q.options[q.answer]);assert.ok(q.explanation);assert.equal(Object.keys(q.options).length,3);}if(item.part==='listening'){assert.ok(item.audio);assert.ok(fs.existsSync(new URL('../demo/'+item.audio,import.meta.url)));assert.ok(item.duration>1);}}else{assert.equal(item.criteria.length,item.quotes.length);for(const quote of item.quotes)if(quote)assert.ok(item.sample.includes(quote));}}
+ for(const item of catalogue){if(item.questions){for(const q of item.questions){assert.ok(q.options[q.answer]);assert.ok(q.explanation);assert.equal(Object.keys(q.options).length,3);}if(item.part==='listening'){assert.ok(item.audio);assert.ok(fs.existsSync(new URL('../assets/'+item.audio,import.meta.url)));assert.ok(item.duration>1);}}else{assert.equal(item.criteria.length,item.quotes.length);for(const quote of item.quotes)if(quote)assert.ok(item.sample.includes(quote));}}
 });
 test('AI completion stays distinct from answer accuracy and self review after reload',()=>{
  const s=defaults(),id='A2:writing:afspraak:1';s.records[id]={completed:true,kind:'ai',at:100};s.reviews[id]=[true,false,true];

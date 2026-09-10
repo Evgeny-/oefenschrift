@@ -1,7 +1,7 @@
 // Generate listening audio, question audio and speaking prompts from reviewed scripts.
 //
 //   tsx scripts/audio.ts                 report what would be generated (dry run)
-//   tsx scripts/audio.ts --generate      generate missing clips into demo/audio and update the manifest
+//   tsx scripts/audio.ts --generate      generate missing clips into assets/audio and update the manifest
 //   tsx scripts/audio.ts --generate --apply
 //                                        also write audio fields into content/catalogue.json
 //   tsx scripts/audio.ts --file x.json --generate --out tmp/audio [--voices config/voices.json]
@@ -26,7 +26,7 @@ const args = process.argv.slice(2);
 const flag = (name: string) => args.includes(name);
 const option = (name: string, fallback: string) => { const i = args.indexOf(name); return i >= 0 && args[i + 1] ? args[i + 1] : fallback; };
 const GENERATE = flag('--generate'), APPLY = flag('--apply');
-const OUT = option('--out', 'demo/audio');
+const OUT = option('--out', 'assets/audio');
 const TMP = 'tmp/audio';
 const config = JSON.parse(readFileSync('config/services.json', 'utf8'));
 const voices = JSON.parse(readFileSync(option('--voices', 'config/voices.json'), 'utf8'));

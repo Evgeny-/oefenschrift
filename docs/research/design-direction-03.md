@@ -6,7 +6,7 @@ the same underlying template, with system typefaces, rounded cards on a tinted b
 between a green and a blue accent. This direction starts from the material instead of from a layout, so the
 two can be compared side by side rather than merged.
 
-The clickable result is [`design/oefenplek-prototype.html`](../design/oefenplek-prototype.html), a single
+The clickable result is [`design/oefenplek-prototype.html`](../design-archive/oefenplek-prototype.html), a single
 self-contained file covering ten screens.
 
 ## The thesis

@@ -10,13 +10,16 @@ export default function useSelectionIndicator(value){
   },[]);
   useLayoutEffect(()=>{
     const container=ref.current;if(!container)return;
-    let active=true;
+    // Only the measurement caused by a new value may slide; later corrections (fonts
+    // loading, late styles, resizes) move the indicator without a transition.
+    let active=true,chosen=true;
     const measure=()=>{
       if(!active)return;
       const choice=[...container.querySelectorAll<HTMLElement>('[data-choice]')].find(node=>node.dataset.choice===String(value));
       if(!choice)return;
       const bounds=choice.getBoundingClientRect(),parent=container.getBoundingClientRect();
-      const next={x:bounds.left-parent.left-container.clientLeft,width:bounds.width};
+      const next={x:bounds.left-parent.left-container.clientLeft,width:bounds.width,silent:!chosen};
+      chosen=false;
       setPosition(old=>old?.x===next.x&&old?.width===next.width?old:next);
     };
     measure();const observer=new ResizeObserver(measure);observer.observe(container);
@@ -24,5 +27,5 @@ export default function useSelectionIndicator(value){
     document.fonts?.ready.then(measure);
     return ()=>{active=false;observer.disconnect();};
   },[value]);
-  return {ref,style:position?{width:position.width,transform:`translateX(${position.x}px)`}:undefined,positioned:!!position,animated};
+  return {ref,style:position?{width:position.width,transform:`translateX(${position.x}px)`,...(position.silent?{transition:'none'}:{})}:undefined,positioned:!!position,animated};
 }

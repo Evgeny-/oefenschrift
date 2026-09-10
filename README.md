@@ -30,7 +30,7 @@ Open [the app](http://127.0.0.1:8766/a2/reading) or [operations](http://127.0.0.
 | `npm run illustrate:generate` | Generate exercise pictures from image briefs in the house style of `config/illustration.json` |
 | `npm run hints:refresh "<reason>"` | Re-record the sentence-starter review hash after a catalogue change that touched no open task |
 
-See [infrastructure and APIs](research/infrastructure.md) for configuration, database migrations, backups, admin endpoints and current limits. The browser runner accepts `FIREFOX_BINARY` and writes its logs and screenshots to `tmp/`. Routine tests use mocked feedback and synthetic credentials. CI runs `npm run check` on Node 24.
+See [infrastructure and APIs](docs/research/infrastructure.md) for configuration, database migrations, backups, admin endpoints and current limits. The browser runner accepts `FIREFOX_BINARY` and writes its logs and screenshots to `tmp/`. Routine tests use mocked feedback and synthetic credentials. CI runs `npm run check` on Node 24.
 
 ## Application and data
 
@@ -50,41 +50,41 @@ The catalogue has 77 original exercises: 42 language exercises targeting A2, 27 
 
 Speaking uses microphone recording and one editable transcript. Stopping a recording sends it to ElevenLabs Scribe v2, as explained by the information icon beside Record. There is no upload button. Type instead can be opened and closed without losing its draft. Playback reuses the listening controls and generates a waveform from the actual recording. Audio is limited to two minutes and 6 MB; the server validates it with `ffprobe` and deletes the temporary file.
 
-Feedback uses the existing GPT-5.4 nano configuration. A strict structured response and exact evidence checks support one canonical assessment with Dutch and English explanations. Switching language preserves its decisions. Suggested answers and their changes remain visible, with placeholders for missing information. Missing criteria open immediately. The model can still make semantic mistakes; see [feedback evaluation](research/feedback-consistency-2026-09-10.md). A judgment that fails verification (a quote that is not in the answer, a wrong criteria count, an incomplete response) is retried once with a corrective note before the learner sees an error; the server log in `tmp/local-server.log` names the reason without the answer text. Quotes that differ in spacing, punctuation, quote marks, diacritics or case, or with one changed word, resolve to the exact span in the answer. If the retry still quotes words that are not in the answer, the verdict stands without a highlight for that criterion (logged as unlocated evidence); structural problems still fail closed. Local result caches last at most 30 minutes. Neither this feedback nor speech recognition establishes an official score or pronunciation assessment.
+Feedback uses the existing GPT-5.4 nano configuration. A strict structured response and exact evidence checks support one canonical assessment with Dutch and English explanations. Switching language preserves its decisions. Suggested answers and their changes remain visible, with placeholders for missing information. Missing criteria open immediately. The model can still make semantic mistakes; see [feedback evaluation](docs/research/feedback-consistency-2026-09-10.md). A judgment that fails verification (a quote that is not in the answer, a wrong criteria count, an incomplete response) is retried once with a corrective note before the learner sees an error; the server log in `tmp/local-server.log` names the reason without the answer text. Quotes that differ in spacing, punctuation, quote marks, diacritics or case, or with one changed word, resolve to the exact span in the answer. If the retry still quotes words that are not in the answer, the verdict stands without a highlight for that criterion (logged as unlocated evidence); structural problems still fail closed. Local result caches last at most 30 minutes. Neither this feedback nor speech recognition establishes an official score or pronunciation assessment.
 
 The interface keeps the contained sidebar, Public Sans, charcoal dark mode and saturated yellow actions. The root now follows the browser default with interface sizes tuned to the previous feel, while Dutch study material uses a larger reading size on a lifted paper sheet labelled with its text type. The wordmark carries the evidence marker, navigation links have small stroke icons, catalogue rows name their texts and end with a progress ring, and the footer spreads across the column. Closed questions accept A/B/C or 1/2/3 and Enter; on phones the question floats as a bottom sheet over the text. Listening transcripts open after checking. Set results group mistakes by skill and offer a focused retry of only the missed questions that keeps the first score. Progress can be exported and imported as JSON. Missing points in a suggested written answer are inserted before the sign-off. Timer and report controls sit beside the exercise metadata. Speaking groups Record, its information icon and Type instead; partial hints open under Sentence starters. Mobile layouts keep levels and all subject links visible. Design decisions are recorded in [DESIGN.md](DESIGN.md).
 
 - [Exercise blueprint](content/blueprint.md), what each exercise must look like per exam part
-- [Exam blueprints and content gap analysis](research/exam-blueprints-2026-09-10.md), the official formats measured against the current bank
-- [Voice audition](research/voice-audition-2026-09-10.md), Dutch voices for multi-voice listening audio
-- [Content creation and validation](research/content-workflow.md)
+- [Exam blueprints and content gap analysis](docs/research/exam-blueprints-2026-09-10.md), the official formats measured against the current bank
+- [Voice audition](docs/research/voice-audition-2026-09-10.md), Dutch voices for multi-voice listening audio
+- [Content creation and validation](docs/research/content-workflow.md)
 - [Editorial rubric](content/reviews/rubric.md)
-- [Next steps](research/next-steps.md)
-- [Feedback latency measurements](research/feedback-latency.md)
-- [Practice-set behavior](research/practice-sets-and-controls-2026-09-10.md)
-- [SEO changes and remaining work](research/seo-2026-09-10.md)
-- [Design research](research/ai-design-patterns.md)
+- [Next steps](docs/research/next-steps.md)
+- [Feedback latency measurements](docs/research/feedback-latency.md)
+- [Practice-set behavior](docs/research/practice-sets-and-controls-2026-09-10.md)
+- [SEO changes and remaining work](docs/research/seo-2026-09-10.md)
+- [Design research](docs/research/ai-design-patterns.md)
 
 ## Reference material
 
 The local `reference-private/` folder contains 63 official files, approximately 635 MB: 48 NT2 PDFs, 12 NT2 media archives, and 3 A2 writing PDFs. The NT2 material covers 2023-2025 for reading, listening, writing and speaking at B1 and B2. The reference files and extracted text are excluded from Git. Their copyright remains with the respective owners.
 
-- [Feasibility assessment](research/feasibility.md)
-- [Public service plan](research/service-plan.md), exam scope, audio and AI feedback, costs and delivery stages
-- [Prompt for another design agent](research/design-agent-prompt.md), concise concept and data sources
-- [Second design direction](research/design-direction-02.md), rationale and design guidance
-- [Third design direction](research/design-direction-03.md), an alternative concept developed in parallel
-- [Clickable prototype for direction 03](design/oefenplek-prototype.html), ten screens in one self-contained file; open it directly in a browser
-- [Original A2 reading pilot](pilots/a2-reading-001.md), eight questions for your review
-- [A2 pilot as structured data](pilots/a2-reading-001.json)
-- [Original B1 reading pilot](pilots/b1-reading-001.md), eight questions with explanations
-- [Pilot as structured data](pilots/b1-reading-001.json)
+- [Feasibility assessment](docs/research/feasibility.md)
+- [Public service plan](docs/research/service-plan.md), exam scope, audio and AI feedback, costs and delivery stages
+- [Prompt for another design agent](docs/research/design-agent-prompt.md), concise concept and data sources
+- [Second design direction](docs/research/design-direction-02.md), rationale and design guidance
+- [Third design direction](docs/research/design-direction-03.md), an alternative concept developed in parallel
+- [Clickable prototype for direction 03](docs/design-archive/oefenplek-prototype.html), ten screens in one self-contained file; open it directly in a browser
+- [Original A2 reading pilot](docs/pilots/a2-reading-001.md), eight questions for your review
+- [A2 pilot as structured data](docs/pilots/a2-reading-001.json)
+- [Original B1 reading pilot](docs/pilots/b1-reading-001.md), eight questions with explanations
+- [Pilot as structured data](docs/pilots/b1-reading-001.json)
 - [Local download manifest](reference-private/manifest.json), with source URLs and SHA-256 hashes
 - [Local file inventory](reference-private/inventory.json), with PDF page counts and media archive contents
 - [Official A2 and KNM practice links](reference-private/duo-practice-links.json)
 
 We are starting user review at A2. Both pilots are original drafts, shorter than an official paper, with no validated pass threshold or official score conversion. Their target levels have not been validated by an NT2 teacher or learner study.
 
-`scripts/download_references.py` downloads the files offered by the public NT2 download catalogue and the A2 writing links on DUO's practice page. It can resume by checking existing local files. It does not export the A2/KNM online players or the separate NT2 individual-task bank.
+`tools/download_references.py` downloads the files offered by the public NT2 download catalogue and the A2 writing links on DUO's practice page. It can resume by checking existing local files. It does not export the A2/KNM online players or the separate NT2 individual-task bank.
 
 The intended workflow is to study the official material locally, define task specifications, and write new content. Distribution of official material requires a separate rights decision. A personal-study copy does not confer permission to publish it or close adaptations.

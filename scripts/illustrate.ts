@@ -1,7 +1,7 @@
 // Generate exercise illustrations from image briefs in the house style (config/illustration.json).
 //
 //   tsx scripts/illustrate.ts                       report what would be generated (dry run)
-//   tsx scripts/illustrate.ts --generate            generate missing images into demo/images and update the manifest
+//   tsx scripts/illustrate.ts --generate            generate missing images into assets/images and update the manifest
 //   tsx scripts/illustrate.ts --generate --apply    also write image fields into content/catalogue.json
 //   tsx scripts/illustrate.ts --file x.json --generate --out tmp/images
 //
@@ -20,7 +20,7 @@ const args = process.argv.slice(2);
 const flag = (name: string) => args.includes(name);
 const option = (name: string, fallback: string) => { const i = args.indexOf(name); return i >= 0 && args[i + 1] ? args[i + 1] : fallback; };
 const GENERATE = flag('--generate'), APPLY = flag('--apply');
-const OUT = option('--out', 'demo/images'), SOURCE_DIR = option('--source-dir', 'content/images-source');
+const OUT = option('--out', 'assets/images'), SOURCE_DIR = option('--source-dir', 'content/images-source');
 const services = JSON.parse(readFileSync('config/services.json', 'utf8'));
 const style = JSON.parse(readFileSync(option('--style', 'config/illustration.json'), 'utf8'));
 

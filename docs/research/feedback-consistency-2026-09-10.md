@@ -29,9 +29,9 @@ Artifacts:
 - [Diagnostic replays](feedback-canonical-retries.json)
 - [Mini comparison](feedback-canonical-mini-results.json)
 - [Final nano smoke check](feedback-final-nano-smoke.json)
-- [Evaluation script](../scripts/evaluate_feedback.py)
+- [Evaluation script](../../scripts/evaluate-feedback.ts)
 
-A fresh full run is explicit: `python3 scripts/evaluate_feedback.py --output tmp/feedback-evaluation.json`. It makes 12 paid requests. Use `--cases` for a bounded subset and `--model` for a controlled comparison. Inspect the bilingual prose and revisions as well as boolean checks. The next useful grading work is a Dutch-reviewed test set covering causal contradictions, negation, partial fulfillment and grammatical corrections that must preserve meaning.
+A fresh full run is explicit: `npm run feedback:evaluate -- --output tmp/feedback-evaluation.json`. It makes 12 paid requests. Use `--cases` for a bounded subset and `--model` for a controlled comparison. Inspect the bilingual prose and revisions as well as boolean checks. The next useful grading work is a Dutch-reviewed test set covering causal contradictions, negation, partial fulfillment and grammatical corrections that must preserve meaning.
 
 ## Local regression checks
 
