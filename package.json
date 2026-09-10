@@ -10,7 +10,7 @@
     "test:browser": "tsx scripts/prepare.ts && tsx tests/browser/run.ts",
     "content:verify": "tsx scripts/content.ts",
     "db:backup": "tsx scripts/database-backup.ts",
-    "check": "npm run typecheck && npm test && npm run build",
+    "check": "npm run typecheck && npm run format:check && npm run lint:size && npm test && npm run build",
     "content:integrate": "tsx scripts/content.ts --write",
     "test:production": "npm run build && tsx tests/browser/run.ts --production",
     "audio": "tsx scripts/audio.ts",
@@ -20,7 +20,10 @@
     "illustrate": "tsx scripts/illustrate.ts",
     "illustrate:generate": "tsx scripts/illustrate.ts --generate",
     "hints:refresh": "tsx scripts/hints-refresh.ts",
-    "feedback:evaluate": "tsx scripts/evaluate-feedback.ts"
+    "feedback:evaluate": "tsx scripts/evaluate-feedback.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint:size": "tsx scripts/check-size.ts"
   },
   "dependencies": {
     "@base-ui/react": "1.8.0",
@@ -40,6 +43,7 @@
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "esbuild": "0.28.2",
+    "prettier": "3.6.2",
     "tsx": "4.23.13",
     "typescript": "6.0.2",
     "vite": "8.2.2"
