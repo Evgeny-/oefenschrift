@@ -1,0 +1,3513 @@
+[
+  {
+    "id": "A2:reading:p1:1",
+    "level": "A2",
+    "part": "reading",
+    "title": "Een bericht van de fietsenmaker",
+    "text": "Beste mevrouw Bakker,\n\nUw fiets is klaar. U kunt hem vandaag tot 18.00 uur ophalen. Morgen zijn wij gesloten. Vanaf donderdag bent u weer welkom.\n\nDe reparatie kost 28 euro. U kunt met uw bankpas of contant betalen. Neem het bonnetje mee dat u kreeg toen u de fiets bracht. Bent u het bonnetje kwijt? Neem dan uw identiteitsbewijs mee.\n\nMet vriendelijke groet,\nFietsenwinkel De Hoek",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "find_available_day",
+        "prompt": "Mevrouw Bakker kan vandaag niet komen. Wanneer kan zij haar fiets ophalen?",
+        "options": {
+          "A": "Morgen voor 18.00 uur.",
+          "B": "Vanaf donderdag.",
+          "C": "Alleen vandaag."
+        },
+        "answer": "B",
+        "explanation": "Morgen is de winkel gesloten. Vanaf donderdag kan mevrouw Bakker weer komen.",
+        "evidence": "Morgen zijn wij gesloten. Vanaf donderdag bent u weer welkom."
+      },
+      {
+        "id": "q2",
+        "skill": "understand_alternative",
+        "prompt": "Mevrouw Bakker heeft haar bonnetje niet meer. Wat moet zij meenemen?",
+        "options": {
+          "A": "Haar identiteitsbewijs.",
+          "B": "Haar eigen fietssleutel.",
+          "C": "Een foto van haar fiets."
+        },
+        "answer": "A",
+        "explanation": "Wie het bonnetje kwijt is, moet volgens het bericht een identiteitsbewijs meenemen. Een sleutel of foto wordt niet genoemd als vervanging.",
+        "evidence": "Bent u het bonnetje kwijt? Neem dan uw identiteitsbewijs mee."
+      }
+    ],
+    "type": "message",
+    "revision": "c1:a8e80686a7f69c65"
+  },
+  {
+    "id": "A2:reading:p2:1",
+    "level": "A2",
+    "part": "reading",
+    "title": "Samen eten in het buurthuis",
+    "text": "Op vrijdag 16 oktober eten we samen in buurthuis De Linde. Iedereen uit de buurt is welkom. We beginnen om 18.30 uur. Een maaltijd kost 6 euro. Kinderen tot en met 11 jaar betalen 3 euro.\n\nWilt u mee-eten? Meld u uiterlijk woensdag 14 oktober aan bij de balie. U betaalt op vrijdag, als u binnenkomt.\n\nEr is soep met brood en daarna een warme maaltijd. Eet u geen vlees? Vertel dat bij uw aanmelding. Dan maakt de kok een maaltijd zonder vlees voor u.",
+    "questions": [
+      {
+        "id": "q3",
+        "skill": "distinguish_registration_and_payment",
+        "prompt": "Wanneer betaalt u voor het eten?",
+        "options": {
+          "A": "Op woensdag, bij uw aanmelding.",
+          "B": "Op vrijdag, na de maaltijd.",
+          "C": "Op vrijdag, als u binnenkomt."
+        },
+        "answer": "C",
+        "explanation": "Aanmelden moet uiterlijk woensdag. Betalen doet u op vrijdag bij binnenkomst, dus vóór het eten.",
+        "evidence": "U betaalt op vrijdag, als u binnenkomt."
+      },
+      {
+        "id": "q4",
+        "skill": "find_required_action",
+        "prompt": "U wilt een maaltijd zonder vlees. Wat moet u doen?",
+        "options": {
+          "A": "Zelf een maaltijd meenemen.",
+          "B": "Dit zeggen als u zich aanmeldt.",
+          "C": "Wachten tot de kok het eten brengt."
+        },
+        "answer": "B",
+        "explanation": "Vertel bij de aanmelding dat u geen vlees eet. De kok kan daar dan rekening mee houden.",
+        "evidence": "Eet u geen vlees? Vertel dat bij uw aanmelding."
+      }
+    ],
+    "type": "notice",
+    "revision": "c1:c7027a4045cca59d"
+  },
+  {
+    "id": "A2:reading:p3:1",
+    "level": "A2",
+    "part": "reading",
+    "title": "Een e-mail over de zwemles",
+    "text": "Beste ouders,\n\nDe zwemles van zaterdag begint deze week om 10.30 uur in plaats van 10.00 uur. De les duurt, zoals altijd, 45 minuten.\n\nDe kleine kleedkamer wordt geschilderd. Gebruik daarom de grote kleedkamer naast de ingang. De kinderen moeten vijf minuten voor de les klaarstaan bij het zwembad.\n\nU mag tijdens de les in het café wachten. Na de les haalt u uw kind op bij de grote kleedkamer. Volgende week begint de les weer op de gewone tijd.\n\nGroeten,\nHet team van zwembad De Golf",
+    "questions": [
+      {
+        "id": "q5",
+        "skill": "distinguish_changed_and_usual_time",
+        "prompt": "Hoe laat begint de zwemles deze zaterdag?",
+        "options": {
+          "A": "Om 10.00 uur.",
+          "B": "Om 10.25 uur.",
+          "C": "Om 10.30 uur."
+        },
+        "answer": "C",
+        "explanation": "Deze week begint de les om 10.30 uur. Om 10.25 uur moeten de kinderen klaarstaan. 10.00 uur is de gewone begintijd.",
+        "evidence": "Beste ouders,\n\nDe zwemles van zaterdag begint deze week om 10.30 uur in plaats van 10.00 uur."
+      },
+      {
+        "id": "q6",
+        "skill": "find_location",
+        "prompt": "Waar haalt u uw kind na de les op?",
+        "options": {
+          "A": "Bij de grote kleedkamer.",
+          "B": "In het café van het zwembad.",
+          "C": "Bij de kleine kleedkamer."
+        },
+        "answer": "A",
+        "explanation": "Na de les haalt u uw kind op bij de grote kleedkamer. Het café is de plek waar ouders kunnen wachten. De kleine kleedkamer wordt geschilderd.",
+        "evidence": "Na de les haalt u uw kind op bij de grote kleedkamer."
+      }
+    ],
+    "type": "email",
+    "revision": "c1:c5060a3c302bc6d8"
+  },
+  {
+    "id": "A2:reading:p4:1",
+    "level": "A2",
+    "part": "reading",
+    "title": "Werken in een bloemenwinkel",
+    "text": "Bloemenwinkel Roos zoekt hulp voor de zaterdag. U werkt van 9.00 tot 13.00 uur. U helpt klanten, pakt bloemen in en houdt de winkel netjes.\n\nU hoeft nog niet eerder in een bloemenwinkel te hebben gewerkt. Wij leggen uit wat u moet doen. Het is wel belangrijk dat u Nederlands kunt spreken met klanten.\n\nWilt u bij ons werken? Stuur vóór 20 november een e-mail naar werken@bloemenwinkel.example. Schrijf daarin uw naam, uw telefoonnummer en waarom u dit werk wilt doen. Langskomen om te reageren is niet nodig.",
+    "questions": [
+      {
+        "id": "q7",
+        "skill": "understand_requirement",
+        "prompt": "Wat is belangrijk als u hier wilt werken?",
+        "options": {
+          "A": "Dat u Nederlands kunt spreken met klanten.",
+          "B": "Dat u al in een bloemenwinkel hebt gewerkt.",
+          "C": "Dat u ook op zaterdagavond kunt werken."
+        },
+        "answer": "A",
+        "explanation": "U moet met klanten Nederlands kunnen spreken. Ervaring in een bloemenwinkel is niet nodig. De werktijd eindigt om 13.00 uur.",
+        "evidence": "Het is wel belangrijk dat u Nederlands kunt spreken met klanten."
+      },
+      {
+        "id": "q8",
+        "skill": "find_application_method",
+        "prompt": "Hoe laat u weten dat u dit werk wilt doen?",
+        "options": {
+          "A": "U belt de winkel op zaterdag.",
+          "B": "U stuurt vóór 20 november een e-mail.",
+          "C": "U gaat na 20 november naar de winkel."
+        },
+        "answer": "B",
+        "explanation": "In de advertentie staat dat u vóór 20 november een e-mail moet sturen. Langskomen is niet nodig; bellen wordt niet als manier van reageren genoemd.",
+        "evidence": "Stuur vóór 20 november een e-mail naar werken@bloemenwinkel.example."
+      }
+    ],
+    "type": "advertisement",
+    "revision": "c1:699fc80c935b94c3"
+  },
+  {
+    "id": "B1:reading:p1:1",
+    "level": "B1",
+    "part": "reading",
+    "title": "Gereedschap delen in de wijk",
+    "text": "In buurthuis De Brug kunnen bewoners sinds april gereedschap lenen. Het idee kwam van bewoner Karim, die voor één klus een dure boormachine had gekocht. Daarna lag het apparaat bijna een jaar in zijn kast. Hij vroeg zich af of buren hun spullen samen konden gebruiken. Het buurthuis stelde een kamer beschikbaar. Inmiddels staan daar ruim zestig apparaten.\n\nDe eerste maand mocht iedereen zonder afspraak langskomen. Dat leek handig, maar op zaterdag ontstonden lange rijen. Sommige bezoekers kwamen voor een apparaat dat al was uitgeleend. Daarom moeten bewoners nu vooraf reserveren. Wie thuis geen internet heeft, kan op donderdag telefonisch een reservering maken. Het afhalen gebeurt nog steeds op zaterdag.\n\nVrijwilliger Els controleert elk apparaat voordat het opnieuw wordt uitgeleend. Bij het afhalen legt ze uit hoe het werkt. Volgens haar voorkomt dat schade en ongelukken. Een korte uitleg is echter niet voor iedereen voldoende. Daarom organiseert ze vanaf volgende maand ook oefenavonden. Daar kunnen beginners met enkele eenvoudige apparaten werken terwijl een vrijwilliger meekijkt.\n\nLeden betalen twaalf euro per jaar. Voor een apparaat vragen de vrijwilligers daarnaast een bedrag dat de lener terugkrijgt als het apparaat op tijd en onbeschadigd terugkomt. Het buurthuis gebruikt de jaarlijkse bijdrage om apparaten te onderhouden. Karim zou graag meer leden ontvangen, maar vindt dat de voorraad eerst moet groeien. 'Als mensen steeds horen dat iets niet beschikbaar is, proberen ze het na een tijdje niet meer.' De vrijwilligers zoeken daarom vooral extra apparaten waar veel vraag naar is.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "identify_reason",
+        "prompt": "Waarom moeten bewoners tegenwoordig vooraf reserveren?",
+        "options": {
+          "A": "De vrijwilligers willen alle uitleg voortaan telefonisch geven.",
+          "B": "Bezoekers moesten wachten of kwamen voor niets naar het buurthuis.",
+          "C": "Het buurthuis heeft op zaterdag geen ruimte meer voor bezoekers."
+        },
+        "answer": "B",
+        "evidence_paragraphs": [
+          2
+        ],
+        "explanation": "Er waren lange rijen en sommige bezoekers vonden het gewenste apparaat niet. A verwart telefonisch reserveren met uitleg geven. C klopt niet: afhalen gebeurt nog steeds op zaterdag.",
+        "evidence": "Dat leek handig, maar op zaterdag ontstonden lange rijen. Sommige bezoekers kwamen voor een apparaat dat al was uitgeleend. Daarom moeten bewoners nu vooraf reserveren."
+      },
+      {
+        "id": "q2",
+        "skill": "distinguish_payments",
+        "prompt": "Welk bedrag krijgt een lid terug als alles volgens afspraak verloopt?",
+        "options": {
+          "A": "Het bedrag dat bij het lenen van een apparaat wordt betaald.",
+          "B": "De bijdrage die ieder jaar voor het lidmaatschap wordt betaald.",
+          "C": "Het bedrag dat het buurthuis voor het onderhoud heeft betaald."
+        },
+        "answer": "A",
+        "evidence_paragraphs": [
+          4
+        ],
+        "explanation": "Het extra bedrag bij het lenen wordt terugbetaald als het apparaat op tijd en onbeschadigd terugkomt. De jaarlijkse bijdrage is voor onderhoud. Over terugbetaling van onderhoudskosten staat niets in de tekst.",
+        "evidence": "Voor een apparaat vragen de vrijwilligers daarnaast een bedrag dat de lener terugkrijgt als het apparaat op tijd en onbeschadigd terugkomt."
+      },
+      {
+        "id": "q3",
+        "skill": "infer_speakers_priority",
+        "prompt": "Wat vindt Karim belangrijk voordat er meer leden komen?",
+        "options": {
+          "A": "Dat vrijwilligers op meer dagen uitleg kunnen geven.",
+          "B": "Dat bewoners meer betalen voor hun lidmaatschap.",
+          "C": "Dat veelgevraagde apparaten vaker beschikbaar zijn."
+        },
+        "answer": "C",
+        "evidence_paragraphs": [
+          4
+        ],
+        "explanation": "Karim wil eerst de voorraad vergroten, omdat herhaalde teleurstelling mensen kan laten afhaken. Hij vraagt niet om hogere bijdragen of extra uitlegdagen.",
+        "evidence": "Karim zou graag meer leden ontvangen, maar vindt dat de voorraad eerst moet groeien."
+      }
+    ],
+    "type": "text",
+    "revision": "c1:7020cb38ba4e7225"
+  },
+  {
+    "id": "B1:reading:p2:1",
+    "level": "B1",
+    "part": "reading",
+    "title": "Zelf een dienst ruilen",
+    "text": "Bij verpakkingsbedrijf Morgenpak kunnen medewerkers sinds kort via een app een dienst ruilen. Vroeger moesten ze daarvoor altijd naar hun teamleider. Vooral als die vrij was, duurde het soms dagen voordat iemand antwoord kreeg. De nieuwe werkwijze is drie maanden op proef.\n\nEen medewerker zet in de app welke dienst hij wil ruilen. Een collega kan daarop reageren. De ruil is pas geldig wanneer de teamleider deze heeft goedgekeurd. Die controleert of er tijdens elke dienst voldoende mensen met de juiste opleiding aanwezig zijn. Een medewerker die alleen dozen inpakt, mag bijvoorbeeld niet zomaar de plaats innemen van iemand die een machine bedient.\n\nFatima heeft de app al twee keer gebruikt. Ze vindt het prettig dat ze snel ziet welke collega wil helpen. Toch kijkt ze ook altijd naar het definitieve rooster. 'Vorige week dacht een collega dat zijn ruil rond was. De ander had ja gezegd, maar de teamleider had nog niet gereageerd. Gelukkig ontdekten ze het op tijd.'\n\nEr zijn ook medewerkers die geen app op hun eigen telefoon willen installeren. Zij kunnen een computer in de kantine gebruiken. De teamleider helpt wie het systeem nog niet begrijpt. Tijdens de proef mogen medewerkers bovendien een ruil op papier aanvragen. Het bedrijf wil pas na afloop beslissen of die mogelijkheid blijft bestaan.\n\nDe directie kijkt bij de beoordeling van de proef naar meer dan het aantal aanvragen. Ze wil ook weten of medewerkers sneller duidelijkheid krijgen en of er minder fouten in de bezetting ontstaan. Als mensen veel aanvragen indienen maar lang op goedkeuring wachten, is het doel volgens de directie nog niet bereikt.",
+    "questions": [
+      {
+        "id": "q4",
+        "skill": "identify_condition",
+        "prompt": "Wanneer mag een medewerker ervan uitgaan dat een dienst is geruild?",
+        "options": {
+          "A": "Zodra een collega in de app met de ruil akkoord gaat.",
+          "B": "Nadat de teamleider toestemming voor de ruil heeft gegeven.",
+          "C": "Wanneer de aanvraag enkele dagen in de app heeft gestaan."
+        },
+        "answer": "B",
+        "evidence_paragraphs": [
+          2,
+          3
+        ],
+        "explanation": "Instemming van een collega is nog niet genoeg. De teamleider moet de bezetting en opleidingen controleren en de ruil goedkeuren. Een wachttijd maakt een aanvraag niet automatisch geldig.",
+        "evidence": "De ruil is pas geldig wanneer de teamleider deze heeft goedgekeurd."
+      },
+      {
+        "id": "q5",
+        "skill": "distinguish_current_rule_from_future_decision",
+        "prompt": "Wat staat er over aanvragen op papier?",
+        "options": {
+          "A": "Die mogen tijdens de proef, maar daarna misschien niet meer.",
+          "B": "Die zijn alleen toegestaan als de computer in de kantine kapot is.",
+          "C": "Die blijven ook na de proef voor alle medewerkers mogelijk."
+        },
+        "answer": "A",
+        "evidence_paragraphs": [
+          4
+        ],
+        "explanation": "Papieren aanvragen zijn tijdens de proef toegestaan. Het bedrijf beslist later of dat zo blijft. De tekst stelt geen voorwaarde over een kapotte computer.",
+        "evidence": "Tijdens de proef mogen medewerkers bovendien een ruil op papier aanvragen."
+      },
+      {
+        "id": "q6",
+        "skill": "understand_evaluation_criterion",
+        "prompt": "Waarom kijkt de directie ook hoe lang medewerkers op goedkeuring wachten?",
+        "options": {
+          "A": "Ze wil weten welke medewerkers de meeste diensten overnemen.",
+          "B": "Ze wil bepalen hoeveel mensen nog een opleiding moeten volgen.",
+          "C": "Ze wil vaststellen of de nieuwe werkwijze sneller zekerheid geeft."
+        },
+        "answer": "C",
+        "evidence_paragraphs": [
+          1,
+          5
+        ],
+        "explanation": "De oude aanpak gaf soms pas na dagen duidelijkheid. Sneller zekerheid krijgen is daarom een doel van de proef. Het aantal overgenomen diensten en de behoefte aan opleidingen beantwoorden deze vraag niet.",
+        "evidence": "Ze wil ook weten of medewerkers sneller duidelijkheid krijgen en of er minder fouten in de bezetting ontstaan."
+      }
+    ],
+    "type": "text",
+    "revision": "c1:0d86620d8a794fee"
+  },
+  {
+    "id": "B1:reading:p3:1",
+    "level": "B1",
+    "part": "reading",
+    "title": "Een bakfiets lenen bij De Wielkamer",
+    "text": "Reserveren\nLeden kunnen een bakfiets maximaal drie dagen lenen. Reserveer via de website. Uw reservering is pas bevestigd wanneer u een e-mail met een reserveringsnummer ontvangt. Neem dat nummer en uw identiteitsbewijs mee bij het afhalen.\n\nAfhalen en terugbrengen\nDe balie is op werkdagen open van 9.00 tot 17.00 uur. Op zaterdag sluit de balie om 13.00 uur. Op zondag is de balie gesloten. Buiten openingstijden mag u de fiets uitsluitend terugbrengen als u vooraf een code voor de afgesloten fietsenstalling hebt gekregen. U kunt de fiets daar niet afhalen.\n\nAnnuleren\nAnnuleren is gratis tot 24 uur vóór de afgesproken afhaaltijd. Bij een latere annulering betaalt u tien euro. Kunt u de fiets niet gebruiken doordat De Wielkamer een technisch probleem ontdekt? Dan vervalt uw reservering zonder kosten.\n\nEen probleem onderweg\nStop met fietsen als u denkt dat er iets kapot is. Bel het telefoonnummer op uw leenbewijs. Laat de fiets alleen repareren nadat een medewerker daarvoor toestemming heeft gegeven. Bewaar de rekening. Zonder voorafgaande toestemming betaalt De Wielkamer de reparatiekosten niet terug.",
+    "questions": [
+      {
+        "id": "q7",
+        "skill": "combine_schedule_and_exception",
+        "prompt": "Joris wil zijn fiets zaterdag om 16.00 uur terugbrengen. Wat moet hij vooraf regelen?",
+        "options": {
+          "A": "Een reserveringsnummer voor een nieuwe leenperiode.",
+          "B": "Een toegangscode voor de afgesloten fietsenstalling.",
+          "C": "Een afspraak om de fiets zondag bij de balie af te geven."
+        },
+        "answer": "B",
+        "evidence_sections": [
+          "Afhalen en terugbrengen"
+        ],
+        "explanation": "Zaterdag om 16.00 uur is de balie gesloten. Terugbrengen buiten openingstijden kan met een vooraf verstrekte code. Een nieuw reserveringsnummer is daarvoor niet bedoeld; zondag is de balie ook dicht.",
+        "evidence": "Buiten openingstijden mag u de fiets uitsluitend terugbrengen als u vooraf een code voor de afgesloten fietsenstalling hebt gekregen."
+      },
+      {
+        "id": "q8",
+        "skill": "find_required_prior_action",
+        "prompt": "Onderweg breekt een onderdeel. Een fietsenmaker kan het meteen repareren. Wat moet de lener eerst doen om vergoeding mogelijk te maken?",
+        "options": {
+          "A": "Toestemming vragen aan een medewerker van De Wielkamer.",
+          "B": "De reparatie betalen en daarna de rekening naar De Wielkamer sturen.",
+          "C": "De reservering annuleren via de website van De Wielkamer."
+        },
+        "answer": "A",
+        "evidence_sections": [
+          "Een probleem onderweg"
+        ],
+        "explanation": "Voor vergoeding is voorafgaande toestemming nodig. Alleen een rekening bewaren of opsturen is onvoldoende. Annuleren is geen procedure voor een defect tijdens het gebruik.",
+        "evidence": "Laat de fiets alleen repareren nadat een medewerker daarvoor toestemming heeft gegeven."
+      }
+    ],
+    "type": "text",
+    "revision": "c1:264c76f80ceca775"
+  },
+  {
+    "id": "A2:listening:tandarts:1",
+    "level": "A2",
+    "part": "listening",
+    "type": "audio",
+    "title": "Een bericht van de tandarts",
+    "text": "Goedemorgen, u spreekt met de tandartspraktijk. Uw afspraak is donderdag om elf uur. Kunt u tien minuten eerder komen? Neem uw identiteitsbewijs mee. Tot donderdag.",
+    "audio": "audio/d2b059fc991e45c9.mp3",
+    "duration": 12.486530612244898,
+    "peaks": [
+      0.611,
+      0.521,
+      0.658,
+      0.443,
+      0.569,
+      0.414,
+      0.651,
+      0.566,
+      0.653,
+      0.674,
+      0.252,
+      0.341,
+      0.591,
+      0.08,
+      0.08,
+      0.08,
+      0.08,
+      0.704,
+      0.529,
+      0.561,
+      0.362,
+      0.529,
+      0.76,
+      0.85,
+      0.631,
+      0.689,
+      0.409,
+      0.792,
+      0.591,
+      0.52,
+      0.1,
+      0.08,
+      0.08,
+      0.08,
+      0.542,
+      0.217,
+      0.89,
+      0.437,
+      0.448,
+      0.469,
+      0.725,
+      0.765,
+      0.08,
+      0.08,
+      0.08,
+      1.0,
+      0.595,
+      0.712,
+      0.262,
+      0.511,
+      0.312,
+      0.476,
+      0.314,
+      0.314,
+      0.08,
+      0.08,
+      0.08,
+      0.677,
+      0.08,
+      0.711,
+      0.326,
+      0.336,
+      0.08,
+      0.08
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Hoe laat moet u bij de praktijk zijn?",
+        "options": {
+          "A": "Om 10.50 uur.",
+          "B": "Om 11.00 uur.",
+          "C": "Om 11.10 uur."
+        },
+        "answer": "A",
+        "explanation": "De afspraak is om elf uur. U moet tien minuten eerder komen: om 10.50 uur.",
+        "evidence": "Uw afspraak is donderdag om elf uur. Kunt u tien minuten eerder komen?"
+      }
+    ],
+    "voice": "ElevenLabs · Dutch",
+    "revision": "c1:8e074b21fe5b3078"
+  },
+  {
+    "id": "A2:listening:buurthuis:1",
+    "level": "A2",
+    "part": "listening",
+    "type": "audio",
+    "title": "Taalles in het buurthuis",
+    "text": "Goedemiddag. De taalles in het buurthuis begint morgen om half tien. De les is deze week in lokaal drie, op de eerste verdieping. Neem een pen en uw schrift mee. De koffie is gratis. Tot morgen.",
+    "audio": "audio/130eff02cd98d92d.mp3",
+    "duration": 15.777959183673469,
+    "peaks": [
+      0.94,
+      0.742,
+      0.104,
+      0.08,
+      0.08,
+      0.08,
+      0.239,
+      0.67,
+      0.476,
+      0.688,
+      0.631,
+      0.709,
+      0.18,
+      0.702,
+      0.799,
+      0.279,
+      0.912,
+      0.445,
+      0.57,
+      0.08,
+      0.08,
+      0.437,
+      0.268,
+      0.512,
+      0.439,
+      0.577,
+      0.814,
+      1.0,
+      0.545,
+      0.567,
+      0.529,
+      0.08,
+      0.08,
+      0.355,
+      0.47,
+      0.519,
+      0.609,
+      0.08,
+      0.08,
+      0.08,
+      0.08,
+      0.419,
+      0.174,
+      0.829,
+      0.345,
+      0.722,
+      0.487,
+      0.227,
+      0.08,
+      0.08,
+      0.08,
+      0.655,
+      0.375,
+      0.282,
+      0.538,
+      0.23,
+      0.08,
+      0.08,
+      0.08,
+      0.08,
+      0.34,
+      0.544,
+      0.217,
+      0.08
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Waar is de taalles deze week?",
+        "options": {
+          "A": "In lokaal één.",
+          "B": "In lokaal drie.",
+          "C": "In de ruimte bij de koffie."
+        },
+        "answer": "B",
+        "explanation": "In het bericht staat dat de les deze week in lokaal drie is, op de eerste verdieping.",
+        "evidence": "De les is deze week in lokaal drie, op de eerste verdieping."
+      }
+    ],
+    "voice": "ElevenLabs · Dutch",
+    "revision": "c1:4e540a82acf4a9ba"
+  },
+  {
+    "id": "A2:writing:afspraak:1",
+    "part": "writing",
+    "level": "A2",
+    "title": "Een afspraak verzetten",
+    "type": "message",
+    "prompt": "U hebt morgen een afspraak met uw buurvrouw. U kunt niet komen. Schrijf haar een kort bericht.",
+    "criteria": [
+      [
+        "Zeg dat u niet kunt komen.",
+        "Say that you cannot come."
+      ],
+      [
+        "Vertel waarom.",
+        "Give a reason."
+      ],
+      [
+        "Stel een andere dag voor.",
+        "Suggest another day."
+      ]
+    ],
+    "sample": "Ik kan morgen niet komen. Mijn kind is ziek.",
+    "quotes": [
+      "Ik kan morgen niet komen.",
+      "Mijn kind is ziek.",
+      null
+    ],
+    "model": "Beste buurvrouw, ik kan morgen niet komen. Mijn kind is ziek. Kan ik vrijdag komen? Groeten, Sara",
+    "revision": "c1:b7763c8a945b845b"
+  },
+  {
+    "id": "A2:writing:bibliotheekpas:1",
+    "part": "writing",
+    "level": "A2",
+    "title": "Een nieuwe bibliotheekpas",
+    "type": "message",
+    "prompt": "U bent uw bibliotheekpas kwijt. Schrijf een bericht aan de bibliotheek.",
+    "criteria": [
+      [
+        "Zeg dat u uw pas kwijt bent.",
+        "Say that you have lost your card."
+      ],
+      [
+        "Schrijf uw naam.",
+        "Give your name."
+      ],
+      [
+        "Vraag om een nieuwe pas.",
+        "Ask for a new card."
+      ]
+    ],
+    "sample": "Ik ben mijn bibliotheekpas kwijt. Mijn naam is Sara de Vries.",
+    "quotes": [
+      "Ik ben mijn bibliotheekpas kwijt.",
+      "Mijn naam is Sara de Vries.",
+      null
+    ],
+    "model": "Beste medewerker, ik ben mijn bibliotheekpas kwijt. Mijn naam is Sara de Vries. Kan ik een nieuwe pas krijgen? Groeten, Sara",
+    "revision": "c1:ef2bf2a647f63203"
+  },
+  {
+    "id": "A2:speaking:buurvrouw:1",
+    "part": "speaking",
+    "level": "A2",
+    "title": "Bel uw buurvrouw",
+    "type": "message",
+    "prompt": "U kunt morgen niet naar uw buurvrouw. Spreek een kort bericht in.",
+    "criteria": [
+      [
+        "Zeg dat u niet kunt komen.",
+        "Say that you cannot come."
+      ],
+      [
+        "Vertel waarom.",
+        "Give a reason."
+      ],
+      [
+        "Stel een andere dag voor.",
+        "Suggest another day."
+      ]
+    ],
+    "sample": "Ik kan morgen niet komen. Mijn kind is ziek.",
+    "quotes": [
+      "Ik kan morgen niet komen.",
+      "Mijn kind is ziek.",
+      null
+    ],
+    "model": "Hallo, ik kan morgen niet komen. Mijn kind is ziek. Kan ik vrijdag komen?",
+    "revision": "c1:48baad032e6f965a"
+  },
+  {
+    "id": "A2:speaking:te-laat:1",
+    "part": "speaking",
+    "level": "A2",
+    "title": "U komt later",
+    "type": "message",
+    "prompt": "U komt te laat op uw werk. Bel uw collega en spreek een bericht in.",
+    "criteria": [
+      [
+        "Zeg dat u te laat komt.",
+        "Say that you will be late."
+      ],
+      [
+        "Vertel waarom.",
+        "Give a reason."
+      ],
+      [
+        "Zeg hoe laat u er bent.",
+        "Say when you will arrive."
+      ]
+    ],
+    "sample": "Ik kom te laat. Mijn bus rijdt niet.",
+    "quotes": [
+      "Ik kom te laat.",
+      "Mijn bus rijdt niet.",
+      null
+    ],
+    "model": "Hallo, ik kom te laat. Mijn bus rijdt niet. Ik ben er om tien uur.",
+    "revision": "c1:db38b0231080a3b1"
+  },
+  {
+    "id": "A2:reading:batch001-pakketpunt:1",
+    "level": "A2",
+    "part": "reading",
+    "title": "Uw pakket ligt klaar",
+    "type": "message",
+    "text": "Beste meneer El Amrani,\n\nWij konden uw pakket vandaag niet bij u thuis bezorgen. Morgen kunt u het pakket tussen 12.00 en 19.00 uur ophalen bij Pakketpunt West, Marktstraat 18. Het pakket blijft daar vijf dagen.\n\nNeem de code 6049 en een identiteitsbewijs mee.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Wat moet meneer El Amrani meenemen naar het pakketpunt?",
+        "options": {
+          "A": "Alleen zijn adres.",
+          "B": "De code en een identiteitsbewijs.",
+          "C": "Een betaalpas en de code."
+        },
+        "answer": "B",
+        "explanation": "In het bericht staat dat hij de code 6049 en een identiteitsbewijs moet meenemen.",
+        "evidence": "Neem de code 6049 en een identiteitsbewijs mee."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wanneer kan hij het pakket ophalen?",
+        "options": {
+          "A": "Vandaag om 12.00 uur.",
+          "B": "Morgen vóór 10.00 uur.",
+          "C": "Morgen tussen 12.00 en 19.00 uur."
+        },
+        "answer": "C",
+        "explanation": "In het bericht staat dat hij het pakket morgen tussen 12.00 en 19.00 uur kan ophalen.",
+        "evidence": "Morgen kunt u het pakket tussen 12.00 en 19.00 uur ophalen bij Pakketpunt West, Marktstraat 18."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "revision": "c1:ba4ae0eab8031305"
+  },
+  {
+    "id": "A2:reading:batch001-sporthal:1",
+    "level": "A2",
+    "part": "reading",
+    "title": "Andere ingang van de sporthal",
+    "type": "notice",
+    "text": "LET OP\n\nDe hoofdingang van Sporthal Noord is van 3 tot en met 7 maart dicht. In deze week gebruikt iedereen de ingang aan de Parkweg. Deze ingang is achter het gebouw.\n\nKomt u met de fiets? Zet uw fiets bij de Parkweg. De fietsenrekken bij de hoofdingang kunt u deze week niet gebruiken. De lessen en wedstrijden beginnen op de gewone tijden.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Waar moet u van 3 tot en met 7 maart naar binnen?",
+        "options": {
+          "A": "Bij de Parkweg.",
+          "B": "Bij de hoofdingang.",
+          "C": "Naast de fietsenrekken aan de voorkant."
+        },
+        "answer": "A",
+        "explanation": "In deze week gebruikt iedereen de ingang aan de Parkweg, achter het gebouw.",
+        "evidence": "In deze week gebruikt iedereen de ingang aan de Parkweg."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat verandert er aan de lessen en wedstrijden?",
+        "options": {
+          "A": "Ze beginnen later.",
+          "B": "Ze gaan niet door.",
+          "C": "De begintijden blijven hetzelfde."
+        },
+        "answer": "C",
+        "explanation": "De tekst zegt dat de lessen en wedstrijden op de gewone tijden beginnen.",
+        "evidence": "De lessen en wedstrijden beginnen op de gewone tijden."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "revision": "c1:eaa73b38983172c8"
+  },
+  {
+    "id": "A2:listening:batch001-markt:1",
+    "level": "A2",
+    "part": "listening",
+    "title": "Een bericht op de markt",
+    "type": "audio",
+    "text": "Dames en heren, de markt sluit vandaag een uur eerder door de harde wind. U kunt tot drie uur boodschappen doen. De bus bij de hoofdingang vertrekt wel op de gewone tijd, om kwart over vier. Let goed op uw tassen en loop rustig naar de uitgang.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Hoe laat sluit de markt vandaag?",
+        "options": {
+          "A": "Om drie uur.",
+          "B": "Om vier uur.",
+          "C": "Om kwart over vier."
+        },
+        "answer": "A",
+        "explanation": "In het bericht hoort u dat mensen tot drie uur boodschappen kunnen doen.",
+        "evidence": "U kunt tot drie uur boodschappen doen."
+      },
+      {
+        "id": "q2",
+        "prompt": "Waarom sluit de markt eerder?",
+        "options": {
+          "A": "Omdat de bus eerder vertrekt.",
+          "B": "Omdat het hard waait.",
+          "C": "Omdat er weinig bezoekers zijn."
+        },
+        "answer": "B",
+        "explanation": "De markt sluit eerder door de harde wind.",
+        "evidence": "Dames en heren, de markt sluit vandaag een uur eerder door de harde wind."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "audio": "audio/34bafb1b453ab55e.mp3",
+    "duration": 16.744489795918366,
+    "peaks": [
+      0.511,
+      0.242,
+      0.649,
+      0.425,
+      0.678,
+      0.856,
+      0.575,
+      0.546,
+      0.727,
+      0.6,
+      0.636,
+      0.763,
+      0.802,
+      0.697,
+      0.551,
+      0.651,
+      0.08,
+      0.441,
+      0.672,
+      0.557,
+      0.796,
+      1.0,
+      0.54,
+      0.465,
+      0.231,
+      0.08,
+      0.08,
+      0.134,
+      0.557,
+      0.273,
+      0.638,
+      0.689,
+      0.413,
+      0.463,
+      0.661,
+      0.739,
+      0.517,
+      0.592,
+      0.57,
+      0.08,
+      0.08,
+      0.738,
+      0.625,
+      0.824,
+      0.287,
+      0.08,
+      0.08,
+      0.08,
+      0.08,
+      0.08,
+      0.559,
+      0.538,
+      0.217,
+      0.817,
+      0.462,
+      0.08,
+      0.625,
+      0.775,
+      0.783,
+      0.537,
+      0.68,
+      0.393,
+      0.093,
+      0.08
+    ],
+    "voice": "ElevenLabs · Dutch",
+    "revision": "c1:8f443b891fdc93fe"
+  },
+  {
+    "id": "A2:listening:batch001-schoolreis:1",
+    "level": "A2",
+    "part": "listening",
+    "title": "Voicemail van school",
+    "type": "audio",
+    "text": "Hallo, u spreekt met basisschool De Regenboog. Morgen gaat groep zes naar het museum. De kinderen moeten om acht uur op school zijn. De bus vertrekt om kwart over acht. Geef uw kind brood en drinken mee. Een regenjas is niet nodig, want de kinderen blijven de hele dag binnen.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Hoe laat moeten de kinderen op school zijn?",
+        "options": {
+          "A": "Om acht uur.",
+          "B": "Om kwart over acht.",
+          "C": "Om half negen."
+        },
+        "answer": "A",
+        "explanation": "De kinderen moeten om acht uur aanwezig zijn. De bus vertrekt een kwartier later.",
+        "evidence": "De kinderen moeten om acht uur op school zijn."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat moeten de kinderen meenemen?",
+        "options": {
+          "A": "Geld voor de bus.",
+          "B": "Een regenjas.",
+          "C": "Brood en drinken."
+        },
+        "answer": "C",
+        "explanation": "De school vraagt ouders om brood en drinken mee te geven.",
+        "evidence": "Geef uw kind brood en drinken mee."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "audio": "audio/ca02e45d280306ea.mp3",
+    "duration": 20.92408163265306,
+    "peaks": [
+      0.967,
+      0.159,
+      0.509,
+      0.368,
+      0.464,
+      0.386,
+      0.7,
+      0.736,
+      0.112,
+      0.08,
+      0.08,
+      0.08,
+      0.623,
+      0.766,
+      0.335,
+      0.237,
+      0.554,
+      0.824,
+      0.884,
+      0.08,
+      0.08,
+      0.08,
+      0.476,
+      0.215,
+      0.303,
+      0.408,
+      0.356,
+      0.359,
+      0.283,
+      0.08,
+      0.08,
+      0.33,
+      0.47,
+      0.454,
+      0.46,
+      0.588,
+      0.749,
+      0.332,
+      0.08,
+      0.08,
+      0.49,
+      0.435,
+      0.442,
+      1.0,
+      0.515,
+      0.411,
+      0.201,
+      0.08,
+      0.08,
+      0.08,
+      0.47,
+      0.635,
+      0.711,
+      0.265,
+      0.39,
+      0.466,
+      0.237,
+      0.601,
+      0.596,
+      0.611,
+      0.619,
+      0.536,
+      0.333,
+      0.08
+    ],
+    "voice": "ElevenLabs · Dutch",
+    "revision": "c1:7b10340a40e1a544"
+  },
+  {
+    "id": "A2:writing:batch001-ladder:1",
+    "level": "A2",
+    "part": "writing",
+    "title": "Vraag een ladder",
+    "type": "message",
+    "prompt": "U wilt thuis een lamp vervangen. U hebt geen ladder. Schrijf een kort bericht aan uw buurman Tom.",
+    "criteria": [
+      [
+        "Vraag of u zijn ladder mag lenen.",
+        "Ask if you may borrow his ladder."
+      ],
+      [
+        "Zeg waarvoor u de ladder nodig hebt.",
+        "Say what you need the ladder for."
+      ],
+      [
+        "Zeg wanneer u de ladder terugbrengt.",
+        "Say when you will return the ladder."
+      ]
+    ],
+    "sample": "Hoi Tom, mag ik jouw ladder lenen? Ik wil een lamp vervangen.",
+    "quotes": [
+      "mag ik jouw ladder lenen?",
+      "Ik wil een lamp vervangen.",
+      null
+    ],
+    "model": "Hoi Tom, mag ik jouw ladder lenen? Ik wil een lamp vervangen. Ik breng de ladder vanavond terug. Groeten, Lina",
+    "status": "ai-editorially-reviewed",
+    "revision": "c1:9868c75a665740b0"
+  },
+  {
+    "id": "A2:writing:batch001-cursus:1",
+    "level": "A2",
+    "part": "writing",
+    "title": "Een vraag over een kookcursus",
+    "type": "message",
+    "prompt": "U ziet een advertentie voor een kookcursus. U wilt meedoen. Schrijf een kort bericht aan de docent.",
+    "criteria": [
+      [
+        "Zeg dat u wilt meedoen.",
+        "Say that you want to take part."
+      ],
+      [
+        "Vraag op welke dag de cursus is.",
+        "Ask which day the course takes place."
+      ],
+      [
+        "Vraag wat de cursus kost.",
+        "Ask how much the course costs."
+      ]
+    ],
+    "sample": "Goedemiddag, ik wil graag meedoen met de kookcursus. Op welke dag is de cursus?",
+    "quotes": [
+      "ik wil graag meedoen met de kookcursus.",
+      "Op welke dag is de cursus?",
+      null
+    ],
+    "model": "Goedemiddag, ik wil graag meedoen met de kookcursus. Op welke dag is de cursus en wat kost de cursus? Met vriendelijke groet, Amir",
+    "status": "ai-editorially-reviewed",
+    "revision": "c1:693ef75ae9ad650c"
+  },
+  {
+    "id": "A2:speaking:batch001-apotheek:1",
+    "level": "A2",
+    "part": "speaking",
+    "title": "Vraag hulp bij de apotheek",
+    "type": "message",
+    "prompt": "U bent bij de apotheek. U hebt sinds gisteren hoofdpijn. Vraag de medewerker om hulp.",
+    "criteria": [
+      [
+        "Zeg dat u hoofdpijn hebt.",
+        "Say that you have a headache."
+      ],
+      [
+        "Zeg sinds wanneer u hoofdpijn hebt.",
+        "Say since when you have had a headache."
+      ],
+      [
+        "Vraag wat u kunt doen.",
+        "Ask what you can do."
+      ]
+    ],
+    "sample": "Goedemiddag, ik heb hoofdpijn. De hoofdpijn begon gisteren.",
+    "quotes": [
+      "ik heb hoofdpijn.",
+      "De hoofdpijn begon gisteren.",
+      null
+    ],
+    "model": "Goedemiddag, ik heb sinds gisteren hoofdpijn. Wat kan ik het beste doen?",
+    "status": "ai-editorially-reviewed",
+    "revision": "c1:a6b771bdf94c43b1"
+  },
+  {
+    "id": "A2:speaking:batch001-koelkast:1",
+    "level": "A2",
+    "part": "speaking",
+    "title": "Bel over een kapotte koelkast",
+    "type": "message",
+    "prompt": "Uw koelkast is kapot. Bel de reparateur en spreek een kort bericht in.",
+    "criteria": [
+      [
+        "Zeg wat er kapot is.",
+        "Say what is broken."
+      ],
+      [
+        "Leg uit wat het probleem is.",
+        "Explain what the problem is."
+      ],
+      [
+        "Vraag wanneer iemand kan komen.",
+        "Ask when someone can come."
+      ]
+    ],
+    "sample": "Hallo, mijn koelkast is kapot. De koelkast wordt niet meer koud.",
+    "quotes": [
+      "mijn koelkast is kapot.",
+      "De koelkast wordt niet meer koud.",
+      null
+    ],
+    "model": "Hallo, mijn koelkast is kapot en wordt niet meer koud. Wanneer kan iemand langskomen?",
+    "status": "ai-editorially-reviewed",
+    "revision": "c1:ad24718445217917"
+  },
+  {
+    "id": "A2:reading:batch002-wasserette:1",
+    "level": "A2",
+    "part": "reading",
+    "title": "De wasserette is verbouwd",
+    "type": "notice",
+    "text": "Wasserette Fris is weer open. De grote machines staan nu achter in de winkel. U betaalt eerst bij de automaat naast de deur. De automaat neemt alleen bankpassen aan. Wasmiddel kunt u zelf meenemen of voor 1 euro bij de balie kopen. Op woensdag sluit de wasserette om 17.00 uur.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Hoe kunt u bij de automaat betalen?",
+        "options": {
+          "A": "Alleen met een bankpas.",
+          "B": "Alleen met munten.",
+          "C": "Met een briefje van 10 euro."
+        },
+        "answer": "A",
+        "explanation": "De automaat neemt alleen bankpassen aan.",
+        "evidence": "De automaat neemt alleen bankpassen aan."
+      },
+      {
+        "id": "q2",
+        "prompt": "Waar staan de grote machines?",
+        "options": {
+          "A": "Naast de deur.",
+          "B": "Achter in de winkel.",
+          "C": "Bij de balie."
+        },
+        "answer": "B",
+        "explanation": "De grote machines staan achter in de winkel.",
+        "evidence": "De grote machines staan nu achter in de winkel."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:4d2df3db16460291"
+  },
+  {
+    "id": "A2:reading:batch002-huisarts:1",
+    "level": "A2",
+    "part": "reading",
+    "title": "Nieuwe afspraak bij de huisarts",
+    "type": "email",
+    "text": "Beste mevrouw Jansen, uw afspraak van dinsdag kan niet doorgaan omdat dokter De Wit ziek is. We hebben een nieuwe afspraak voor u gemaakt op donderdag 14 mei om 9.20 uur bij dokter Smit. Kunt u dan niet? Bel ons vóór woensdag 12.00 uur. U hoeft niet opnieuw te vertellen waarvoor u komt.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Waarom gaat de afspraak op dinsdag niet door?",
+        "options": {
+          "A": "Mevrouw Jansen is ziek.",
+          "B": "Dokter De Wit is ziek.",
+          "C": "De praktijk is verhuisd."
+        },
+        "answer": "B",
+        "explanation": "De afspraak vervalt omdat dokter De Wit ziek is.",
+        "evidence": "Beste mevrouw Jansen, uw afspraak van dinsdag kan niet doorgaan omdat dokter De Wit ziek is."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat moet mevrouw Jansen doen als donderdag niet lukt?",
+        "options": {
+          "A": "Vóór woensdag 12.00 uur bellen.",
+          "B": "Donderdag naar dokter De Wit gaan.",
+          "C": "Een nieuwe reden voor haar bezoek schrijven."
+        },
+        "answer": "A",
+        "explanation": "Zij moet vóór woensdag om 12.00 uur bellen.",
+        "evidence": "Bel ons vóór woensdag 12.00 uur."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:a268139fb9d0cadd"
+  },
+  {
+    "id": "A2:reading:batch002-speelgoed:1",
+    "level": "A2",
+    "part": "reading",
+    "title": "Speelgoed ruilen",
+    "type": "advertisement",
+    "text": "Hebt u speelgoed dat uw kind niet meer gebruikt? Kom zaterdag naar wijkcentrum Kompas. Breng tussen 10.00 en 11.00 uur maximaal vijf schone stukken speelgoed. U krijgt voor elk goed stuk een bon. Van 12.00 tot 14.00 uur kunt u met de bonnen ander speelgoed kiezen. Knuffels nemen we niet aan.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Wanneer brengt u speelgoed naar het wijkcentrum?",
+        "options": {
+          "A": "Tussen 10.00 en 11.00 uur.",
+          "B": "Tussen 11.00 en 12.00 uur.",
+          "C": "Tussen 12.00 en 14.00 uur."
+        },
+        "answer": "A",
+        "explanation": "Speelgoed inleveren kan tussen 10.00 en 11.00 uur.",
+        "evidence": "Breng tussen 10.00 en 11.00 uur maximaal vijf schone stukken speelgoed."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat mag u niet meenemen?",
+        "options": {
+          "A": "Schoon speelgoed.",
+          "B": "Vijf stukken speelgoed.",
+          "C": "Knuffels."
+        },
+        "answer": "C",
+        "explanation": "Knuffels worden niet aangenomen.",
+        "evidence": "Knuffels nemen we niet aan."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:b10ec5a7aed428ae"
+  },
+  {
+    "id": "B1:reading:batch002-volkstuin:1",
+    "level": "B1",
+    "part": "reading",
+    "title": "Een tuin delen",
+    "type": "article",
+    "text": "Volkstuinvereniging Morgenrood begint met gedeelde tuinen. Leden die weinig tijd hebben, werken met een ander huishouden op één tuin. De vereniging koppelt mensen met vergelijkbare wensen.\n\nDe proef duurt één seizoen. Deelnemers betalen ieder de helft van de gewone huur en gaan samen naar een startbijeenkomst. Tijdens die bijeenkomst spreken ze af wie water geeft en hoe ze de oogst verdelen. Een begeleider belt na een maand. Bij een conflict zoekt die eerst met beide huishoudens naar een oplossing. Pas als dat niet lukt, kan de vereniging de samenwerking stoppen.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Voor wie zijn de gedeelde tuinen vooral bedoeld?",
+        "options": {
+          "A": "Voor leden met weinig tijd om alleen een tuin te verzorgen.",
+          "B": "Voor mensen die gratis willen tuinieren.",
+          "C": "Voor huishoudens die al samen huren."
+        },
+        "answer": "A",
+        "explanation": "Het plan helpt leden die wel willen tuinieren maar weinig tijd hebben.",
+        "evidence": "Leden die weinig tijd hebben, werken met een ander huishouden op één tuin."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat regelen deelnemers tijdens de startbijeenkomst?",
+        "options": {
+          "A": "De koppeling met een huishouden.",
+          "B": "Afspraken over het werk en de oogst.",
+          "C": "Een heel seizoen zonder huur."
+        },
+        "answer": "B",
+        "explanation": "Zij maken afspraken over verzorging en verdeling van de oogst.",
+        "evidence": "Tijdens die bijeenkomst spreken ze af wie water geeft en hoe ze de oogst verdelen."
+      },
+      {
+        "id": "q3",
+        "prompt": "Wat gebeurt er eerst bij een conflict?",
+        "options": {
+          "A": "De tuin gaat naar nieuwe leden.",
+          "B": "De vereniging stopt de samenwerking.",
+          "C": "Een begeleider probeert een oplossing te vinden."
+        },
+        "answer": "C",
+        "explanation": "Stoppen kan pas nadat begeleiding geen oplossing heeft gebracht.",
+        "evidence": "Bij een conflict zoekt die eerst met beide huishoudens naar een oplossing."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:cf0e8f98ebbc8bfa"
+  },
+  {
+    "id": "B1:reading:batch002-buurtbus:1",
+    "level": "B1",
+    "part": "reading",
+    "title": "Proef met een buurtbus",
+    "type": "news",
+    "text": "Vanaf juni rijdt buurtbus 518 op vrijdag en zaterdag tot middernacht. De gemeente start de proef omdat dorpsbewoners na 19.00 uur moeilijk thuiskomen vanaf het station. Een avondrit moet uiterlijk een uur vooraf via website of telefoon worden gereserveerd. Overdag blijft de dienstregeling gelijk en is reserveren niet nodig.\n\nNa vier maanden bekijkt de gemeente het gebruik en te late annuleringen. Een lege gereserveerde rit kost geld. De gemeente beslist over voortzetting nadat ook chauffeurs en dorpsraden hun ervaringen hebben gedeeld.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Waarom komt er een avondbus?",
+        "options": {
+          "A": "Dorpsbewoners kunnen dan vanaf het station thuiskomen.",
+          "B": "De bussen zijn overdag te vol.",
+          "C": "Chauffeurs willen later beginnen."
+        },
+        "answer": "A",
+        "explanation": "De proef helpt inwoners die na 19.00 uur moeilijk thuiskomen.",
+        "evidence": "De gemeente start de proef omdat dorpsbewoners na 19.00 uur moeilijk thuiskomen vanaf het station."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wanneer moet een reiziger reserveren?",
+        "options": {
+          "A": "Voor elke rit.",
+          "B": "Voor een avondrit op vrijdag of zaterdag.",
+          "C": "Alleen overdag."
+        },
+        "answer": "B",
+        "explanation": "Reserveren geldt voor de nieuwe avondritten.",
+        "evidence": "Een avondrit moet uiterlijk een uur vooraf via website of telefoon worden gereserveerd."
+      },
+      {
+        "id": "q3",
+        "prompt": "Waarvan hangt voortzetting mede af?",
+        "options": {
+          "A": "Van gebruik en ervaringen van betrokkenen.",
+          "B": "Alleen van het aantal chauffeurs.",
+          "C": "Van een route naar meer dorpen."
+        },
+        "answer": "A",
+        "explanation": "De gemeente beoordeelt gebruik, annuleringen en ervaringen.",
+        "evidence": "Na vier maanden bekijkt de gemeente het gebruik en te late annuleringen. Een lege gereserveerde rit kost geld. De gemeente beslist over voortzetting nadat ook chauffeurs en dorpsraden hun ervaringen hebben gedeeld."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:61f2bf6c8c967f87"
+  },
+  {
+    "id": "B1:reading:batch002-cursusfonds:1",
+    "level": "B1",
+    "part": "reading",
+    "title": "Bijdrage voor een cursus",
+    "type": "information",
+    "text": "Werknemers van zorgorganisatie Linde kunnen jaarlijks maximaal 300 euro aanvragen voor een passende cursus. De leidinggevende moet de aanvraag vóór inschrijving beoordelen. Na goedkeuring schrijft de werknemer zich zelf in en betaalt de rekening.\n\nDe organisatie vergoedt het bedrag na ontvangst van het certificaat en betaalbewijs. Wie zonder geldige reden stopt, krijgt niets. Bij ziekte kan uitstel worden aangevraagd. Na goedkeuring blijft het bedrag drie maanden gereserveerd. Zonder inschrijving vervalt die reservering.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Wat moet vóór inschrijving gebeuren?",
+        "options": {
+          "A": "De leidinggevende beoordeelt de aanvraag.",
+          "B": "De werknemer stuurt het certificaat.",
+          "C": "De organisatie betaalt de rekening."
+        },
+        "answer": "A",
+        "explanation": "Beoordeling door de leidinggevende komt vóór inschrijving.",
+        "evidence": "De leidinggevende moet de aanvraag vóór inschrijving beoordelen."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wanneer volgt vergoeding?",
+        "options": {
+          "A": "Meteen na goedkeuring.",
+          "B": "Na certificaat en betaalbewijs.",
+          "C": "Drie maanden vóór de cursus."
+        },
+        "answer": "B",
+        "explanation": "Beide documenten zijn nodig voor vergoeding.",
+        "evidence": "De organisatie vergoedt het bedrag na ontvangst van het certificaat en betaalbewijs."
+      },
+      {
+        "id": "q3",
+        "prompt": "Waarom moet iemand zich binnen drie maanden inschrijven?",
+        "options": {
+          "A": "Anders vervalt het gereserveerde bedrag.",
+          "B": "Anders wordt de cursus duurder.",
+          "C": "Anders geldt het certificaat niet."
+        },
+        "answer": "A",
+        "explanation": "De budgetreservering duurt drie maanden.",
+        "evidence": "Na goedkeuring blijft het bedrag drie maanden gereserveerd."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:6a0ae91b06c97607"
+  },
+  {
+    "id": "A2:listening:batch002-trein:1",
+    "level": "A2",
+    "part": "listening",
+    "title": "Omroepbericht op het station",
+    "type": "audio",
+    "text": "Dames en heren, de trein van 14.10 uur naar Zwolle vertrekt vandaag niet van spoor vier maar van spoor zeven. De vertrektijd blijft hetzelfde. Reizigers naar Amersfoort stappen ook in deze trein. De lift naar spoor zeven vindt u naast de boekwinkel.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Van welk spoor vertrekt de trein?",
+        "options": {
+          "A": "Van spoor vier.",
+          "B": "Van spoor zeven.",
+          "C": "Van spoor veertien."
+        },
+        "answer": "B",
+        "explanation": "De trein vertrekt vandaag van spoor zeven.",
+        "evidence": "Dames en heren, de trein van 14.10 uur naar Zwolle vertrekt vandaag niet van spoor vier maar van spoor zeven."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat blijft hetzelfde?",
+        "options": {
+          "A": "De vertrektijd.",
+          "B": "Het spoor.",
+          "C": "De plaats van de lift."
+        },
+        "answer": "A",
+        "explanation": "De vertrektijd blijft 14.10 uur.",
+        "evidence": "De vertrektijd blijft hetzelfde."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "audio": "audio/8abb1546a05f41d1.mp3",
+    "duration": 19.408979591836733,
+    "peaks": [
+      0.546,
+      0.581,
+      0.604,
+      0.546,
+      0.818,
+      0.409,
+      0.796,
+      0.639,
+      0.8,
+      0.797,
+      0.78,
+      0.676,
+      0.08,
+      0.456,
+      0.568,
+      0.781,
+      0.784,
+      0.544,
+      0.739,
+      0.849,
+      0.718,
+      0.964,
+      0.504,
+      0.492,
+      1.0,
+      0.165,
+      0.08,
+      0.08,
+      0.454,
+      0.431,
+      0.365,
+      0.396,
+      0.517,
+      0.147,
+      0.08,
+      0.08,
+      0.08,
+      0.08,
+      0.523,
+      0.283,
+      0.67,
+      0.579,
+      0.185,
+      0.586,
+      0.871,
+      0.375,
+      0.291,
+      0.144,
+      0.08,
+      0.08,
+      0.08,
+      0.08,
+      0.367,
+      0.592,
+      0.532,
+      0.712,
+      0.677,
+      0.647,
+      0.785,
+      0.817,
+      0.629,
+      0.223,
+      0.134,
+      0.08
+    ],
+    "voice": "ElevenLabs · Dutch",
+    "revision": "c1:5ee68ab5221c513b"
+  },
+  {
+    "id": "A2:listening:batch002-bakker:1",
+    "level": "A2",
+    "part": "listening",
+    "title": "Telefoon van de bakker",
+    "type": "audio",
+    "text": "Goedemiddag, u spreekt met Bakkerij Molen. U hebt voor vrijdag een taart besteld. De aardbeien zijn vandaag niet gekomen. We kunnen een chocoladetaart maken of uw bestelling naar zaterdag verplaatsen. Wilt u ons vóór vijf uur terugbellen? Daarna sluiten we.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Wat is er niet gekomen?",
+        "options": {
+          "A": "De chocolade.",
+          "B": "De taartdoos.",
+          "C": "De aardbeien."
+        },
+        "answer": "C",
+        "explanation": "De bakker zegt dat de aardbeien niet zijn gekomen.",
+        "evidence": "De aardbeien zijn vandaag niet gekomen."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat moet de klant vóór vijf uur doen?",
+        "options": {
+          "A": "Terugbellen.",
+          "B": "De taart ophalen.",
+          "C": "Naar de winkel schrijven."
+        },
+        "answer": "A",
+        "explanation": "De bakker vraagt de klant terug te bellen.",
+        "evidence": "Wilt u ons vóór vijf uur terugbellen?"
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "audio": "audio/3e30ac2004f63078.mp3",
+    "duration": 20.19265306122449,
+    "peaks": [
+      0.57,
+      0.72,
+      0.346,
+      0.594,
+      0.374,
+      0.587,
+      1.0,
+      0.08,
+      0.08,
+      0.347,
+      0.79,
+      0.348,
+      0.651,
+      0.644,
+      0.739,
+      0.393,
+      0.3,
+      0.08,
+      0.08,
+      0.08,
+      0.354,
+      0.653,
+      0.776,
+      0.159,
+      0.919,
+      0.693,
+      0.789,
+      0.433,
+      0.095,
+      0.08,
+      0.08,
+      0.672,
+      0.846,
+      0.657,
+      0.643,
+      0.537,
+      0.515,
+      0.411,
+      0.454,
+      0.607,
+      0.854,
+      0.696,
+      0.678,
+      0.445,
+      0.473,
+      0.218,
+      0.08,
+      0.08,
+      0.08,
+      0.652,
+      0.369,
+      0.115,
+      0.709,
+      0.652,
+      0.34,
+      0.776,
+      0.554,
+      0.08,
+      0.08,
+      0.08,
+      0.723,
+      0.376,
+      0.162,
+      0.08
+    ],
+    "voice": "ElevenLabs · Dutch",
+    "revision": "c1:b9a0b9eabdde4093"
+  },
+  {
+    "id": "A2:listening:batch002-zwembad:1",
+    "level": "A2",
+    "part": "listening",
+    "title": "Uitleg in het zwembad",
+    "type": "audio",
+    "text": "Welkom in zwembad De Plons. Uw jas en tas kunt u in kastje 36 leggen. Voor het kastje hebt u een munt van één euro nodig. Na het zwemmen krijgt u de munt terug. De douches zijn links van de kleedkamers. Het warme bad is vandaag dicht.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Wat hebt u nodig voor het kastje?",
+        "options": {
+          "A": "Een munt van één euro.",
+          "B": "Een bankpas.",
+          "C": "Een kaartje van de balie."
+        },
+        "answer": "A",
+        "explanation": "Voor het kastje is een munt van één euro nodig.",
+        "evidence": "Voor het kastje hebt u een munt van één euro nodig."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat kunt u vandaag niet gebruiken?",
+        "options": {
+          "A": "De douches.",
+          "B": "Het warme bad.",
+          "C": "De kleedkamers."
+        },
+        "answer": "B",
+        "explanation": "Het warme bad is vandaag dicht.",
+        "evidence": "Het warme bad is vandaag dicht."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "audio": "audio/ef36cd4ab035f156.mp3",
+    "duration": 17.78938775510204,
+    "peaks": [
+      0.621,
+      0.209,
+      0.9,
+      0.654,
+      0.836,
+      0.146,
+      0.08,
+      0.08,
+      0.771,
+      0.238,
+      0.657,
+      0.624,
+      0.609,
+      0.679,
+      0.791,
+      0.842,
+      0.357,
+      0.286,
+      0.08,
+      0.08,
+      0.192,
+      0.278,
+      0.612,
+      0.359,
+      0.549,
+      0.676,
+      0.677,
+      0.823,
+      1.0,
+      0.556,
+      0.163,
+      0.08,
+      0.08,
+      0.08,
+      0.08,
+      0.414,
+      0.259,
+      0.811,
+      0.524,
+      0.46,
+      0.935,
+      0.242,
+      0.743,
+      0.08,
+      0.08,
+      0.103,
+      0.634,
+      0.453,
+      0.582,
+      0.413,
+      0.885,
+      0.625,
+      0.595,
+      0.08,
+      0.08,
+      0.08,
+      0.442,
+      0.59,
+      0.364,
+      0.471,
+      0.664,
+      0.403,
+      0.132,
+      0.08
+    ],
+    "voice": "ElevenLabs · Dutch",
+    "revision": "c1:e13f3e2c0089943c"
+  },
+  {
+    "id": "B1:listening:batch002-werkoverleg:1",
+    "level": "B1",
+    "part": "listening",
+    "title": "Verandering in het werkoverleg",
+    "type": "audio",
+    "text": "Hoi allemaal, het werkoverleg van donderdag begint om half elf in plaats van tien uur, omdat onze leverancier om tien uur eerst uitleg geeft over het nieuwe bestelsysteem. We vergaderen in de grote zaal beneden; daar werkt het scherm beter. Lees vooraf het stappenplan dat ik vanmorgen heb gemaild. Vragen over oude bestellingen bewaren we voor volgende week, zodat we donderdag genoeg tijd hebben om te oefenen. Wie die ochtend bij een klant werkt, kan vrijdag om negen uur extra uitleg volgen.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Waarom begint het overleg later?",
+        "options": {
+          "A": "De zaal is om tien uur bezet.",
+          "B": "De leverancier geeft eerst uitleg.",
+          "C": "Iedereen bezoekt eerst een klant."
+        },
+        "answer": "B",
+        "explanation": "De leverancier geeft eerst uitleg over het nieuwe systeem.",
+        "evidence": "Hoi allemaal, het werkoverleg van donderdag begint om half elf in plaats van tien uur, omdat onze leverancier om tien uur eerst uitleg geeft over het nieuwe bestelsysteem."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat moeten medewerkers vooraf doen?",
+        "options": {
+          "A": "Het stappenplan lezen.",
+          "B": "Oude bestellingen invoeren.",
+          "C": "De zaal controleren."
+        },
+        "answer": "A",
+        "explanation": "Het stappenplan is vooraf per e-mail gestuurd.",
+        "evidence": "Lees vooraf het stappenplan dat ik vanmorgen heb gemaild."
+      },
+      {
+        "id": "q3",
+        "prompt": "Voor wie is er vrijdag extra uitleg?",
+        "options": {
+          "A": "Voor iedereen met oude bestellingen.",
+          "B": "Voor wie donderdagochtend bij een klant is.",
+          "C": "Voor de leverancier."
+        },
+        "answer": "B",
+        "explanation": "Medewerkers die donderdagochtend bij een klant werken kunnen vrijdag komen.",
+        "evidence": "Wie die ochtend bij een klant werkt, kan vrijdag om negen uur extra uitleg volgen."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "audio": "audio/4fb75c57dcb45277.mp3",
+    "duration": 36.72816326530612,
+    "peaks": [
+      1.0,
+      0.224,
+      0.08,
+      0.08,
+      0.574,
+      0.271,
+      0.613,
+      0.575,
+      0.62,
+      0.562,
+      0.683,
+      0.374,
+      0.589,
+      0.387,
+      0.486,
+      0.837,
+      0.635,
+      0.697,
+      0.649,
+      0.851,
+      0.485,
+      0.08,
+      0.08,
+      0.298,
+      0.278,
+      0.361,
+      0.628,
+      0.44,
+      0.598,
+      0.649,
+      0.08,
+      0.08,
+      0.64,
+      0.71,
+      0.508,
+      0.777,
+      0.577,
+      0.849,
+      0.08,
+      0.08,
+      0.356,
+      0.528,
+      0.716,
+      0.679,
+      0.767,
+      0.731,
+      0.466,
+      0.487,
+      0.738,
+      0.65,
+      0.614,
+      0.41,
+      0.08,
+      0.08,
+      0.519,
+      0.597,
+      0.618,
+      0.536,
+      0.579,
+      0.577,
+      0.754,
+      0.637,
+      0.312,
+      0.102
+    ],
+    "voice": "ElevenLabs · Dutch",
+    "revision": "c1:890653cedf8e8afd"
+  },
+  {
+    "id": "B1:listening:batch002-lekkage:1",
+    "level": "B1",
+    "part": "listening",
+    "title": "Gesprek over een lekkage",
+    "type": "audio",
+    "text": "Bewoner: Sinds vannacht druppelt water uit het plafond van mijn slaapkamer. Ik heb de hoofdkraan dichtgedraaid, maar het stopt niet.\nMedewerker: Waarschijnlijk komt het water uit de woning boven u. Een monteur komt tussen één en drie uur. Kunt u thuisblijven?\nBewoner: Om twee uur haal ik mijn dochter op. Mijn buurman kan de deur openen.\nMedewerker: Geef mij zijn naam en nummer. Zet een emmer onder de plek, maar raak de lamp ernaast niet aan.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Waarom hielp de hoofdkraan waarschijnlijk niet?",
+        "options": {
+          "A": "Het water komt vermoedelijk van boven.",
+          "B": "De verkeerde kamer is genoemd.",
+          "C": "De monteur opende de kraan."
+        },
+        "answer": "A",
+        "explanation": "De medewerker vermoedt dat het water uit de bovenwoning komt.",
+        "evidence": "Medewerker: Waarschijnlijk komt het water uit de woning boven u."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wie kan de monteur binnenlaten?",
+        "options": {
+          "A": "De dochter.",
+          "B": "De medewerker.",
+          "C": "De buurman."
+        },
+        "answer": "C",
+        "explanation": "De buurman kan de deur openen.",
+        "evidence": "Mijn buurman kan de deur openen."
+      },
+      {
+        "id": "q3",
+        "prompt": "Wat mag de bewoner niet aanraken?",
+        "options": {
+          "A": "De emmer.",
+          "B": "De lamp bij de lekkage.",
+          "C": "De hoofdkraan."
+        },
+        "answer": "B",
+        "explanation": "De medewerker waarschuwt voor de lamp.",
+        "evidence": "Zet een emmer onder de plek, maar raak de lamp ernaast niet aan."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "audio": "audio/7cda988c6a04dd4b.mp3",
+    "duration": 35.42204081632653,
+    "peaks": [
+      0.574,
+      0.08,
+      0.08,
+      0.596,
+      0.687,
+      1.0,
+      0.52,
+      0.826,
+      0.722,
+      0.176,
+      0.553,
+      0.708,
+      0.664,
+      0.612,
+      0.214,
+      0.08,
+      0.08,
+      0.955,
+      0.147,
+      0.08,
+      0.463,
+      0.685,
+      0.648,
+      0.849,
+      0.518,
+      0.596,
+      0.838,
+      0.726,
+      0.753,
+      0.087,
+      0.08,
+      0.373,
+      0.634,
+      0.34,
+      0.08,
+      0.494,
+      0.882,
+      0.08,
+      0.08,
+      0.581,
+      0.912,
+      0.896,
+      0.212,
+      0.407,
+      0.979,
+      0.741,
+      0.178,
+      0.08,
+      0.83,
+      0.125,
+      0.08,
+      0.322,
+      0.538,
+      0.55,
+      0.665,
+      0.277,
+      0.08,
+      0.345,
+      0.733,
+      0.681,
+      0.63,
+      0.739,
+      0.643,
+      0.171
+    ],
+    "voice": "ElevenLabs · Dutch",
+    "revision": "c1:c6ed4b6473767f6d"
+  },
+  {
+    "id": "B1:listening:batch002-festival:1",
+    "level": "B1",
+    "part": "listening",
+    "title": "Informatie voor vrijwilligers",
+    "type": "audio",
+    "text": "Welkom, vrijwilligers. Meld je zaterdag om half negen bij de blauwe tent, ook als je dienst later begint. Daar krijg je een hesje en lunchbon. Zonder bon geeft de keuken geen lunch. Bij regen verplaatsen we de kinderactiviteiten naar de sportzaal. Alleen de coördinator neemt dat besluit; zet zelf geen materialen binnen. Na je dienst lever je het hesje in bij de informatiebalie. De lunchbon hoef je niet terug te brengen.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Waarom moeten vrijwilligers hun lunchbon bewaren?",
+        "options": {
+          "A": "Ze moeten hem later inleveren.",
+          "B": "Zonder bon krijgen ze geen lunch.",
+          "C": "De bon toont hun starttijd."
+        },
+        "answer": "B",
+        "explanation": "De keuken geeft alleen lunch met een bon.",
+        "evidence": "Zonder bon geeft de keuken geen lunch."
+      },
+      {
+        "id": "q2",
+        "prompt": "Het regent en een vrijwilliger wil de kinderactiviteiten naar binnen brengen. Wat moet de vrijwilliger eerst doen?",
+        "options": {
+          "A": "Wachten op het besluit van de coördinator.",
+          "B": "Zelf de materialen naar binnen zetten.",
+          "C": "Toestemming aan de keuken vragen."
+        },
+        "answer": "A",
+        "explanation": "Alleen de coördinator besluit over de verplaatsing; de vrijwilliger moet daarop wachten.",
+        "evidence": "Alleen de coördinator neemt dat besluit; zet zelf geen materialen binnen."
+      },
+      {
+        "id": "q3",
+        "prompt": "Waar moet het hesje na de dienst heen?",
+        "options": {
+          "A": "Naar de blauwe tent.",
+          "B": "Naar de keuken.",
+          "C": "Naar de informatiebalie."
+        },
+        "answer": "C",
+        "explanation": "Het hesje wordt bij de informatiebalie ingeleverd.",
+        "evidence": "Na je dienst lever je het hesje in bij de informatiebalie."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "audio": "audio/cd7637c69054ff29.mp3",
+    "duration": 32.02612244897959,
+    "peaks": [
+      0.837,
+      0.888,
+      0.301,
+      0.08,
+      0.08,
+      0.66,
+      0.632,
+      0.534,
+      0.565,
+      0.722,
+      0.584,
+      0.603,
+      0.529,
+      0.58,
+      0.324,
+      0.08,
+      0.409,
+      0.498,
+      0.383,
+      0.573,
+      0.706,
+      0.08,
+      0.08,
+      0.45,
+      0.731,
+      0.593,
+      0.71,
+      0.08,
+      0.08,
+      0.298,
+      0.549,
+      0.557,
+      0.47,
+      0.39,
+      0.547,
+      0.622,
+      0.513,
+      0.08,
+      0.323,
+      0.395,
+      0.719,
+      0.799,
+      0.433,
+      0.08,
+      0.478,
+      0.597,
+      0.699,
+      0.086,
+      0.08,
+      0.08,
+      0.738,
+      0.653,
+      1.0,
+      0.538,
+      0.704,
+      0.773,
+      0.523,
+      0.137,
+      0.08,
+      0.534,
+      0.77,
+      0.73,
+      0.608,
+      0.08
+    ],
+    "voice": "ElevenLabs · Dutch",
+    "revision": "c1:203f4700e19fdd6c"
+  },
+  {
+    "id": "A2:writing:batch002-sleutel:1",
+    "level": "A2",
+    "part": "writing",
+    "title": "Een gevonden sleutel",
+    "type": "message",
+    "prompt": "U hebt een sleutel gevonden in de hal van uw flat. Schrijf een bericht voor uw buren.",
+    "criteria": [
+      [
+        "Zeg waar u de sleutel hebt gevonden.",
+        "Say where you found the key."
+      ],
+      [
+        "Beschrijf de sleutel.",
+        "Describe the key."
+      ],
+      [
+        "Zeg hoe de eigenaar u kan bereiken.",
+        "Say how the owner can reach you."
+      ]
+    ],
+    "sample": "Ik heb in de hal een sleutel gevonden. Er zit een rode ring aan.",
+    "quotes": [
+      "in de hal een sleutel gevonden.",
+      "Er zit een rode ring aan.",
+      null
+    ],
+    "model": "Ik heb in de hal een sleutel gevonden. Er zit een rode ring aan. De eigenaar kan aanbellen bij nummer 24.",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:63c9543de0e0ef15"
+  },
+  {
+    "id": "A2:writing:batch002-schoenen:1",
+    "level": "A2",
+    "part": "writing",
+    "title": "Schoenen terugbrengen",
+    "type": "message",
+    "prompt": "U hebt gisteren schoenen gekocht. Ze zijn te klein. Schrijf een bericht aan de winkel.",
+    "criteria": [
+      [
+        "Zeg wanneer u de schoenen kocht.",
+        "Say when you bought the shoes."
+      ],
+      [
+        "Leg uit wat het probleem is.",
+        "Explain the problem."
+      ],
+      [
+        "Vraag of u ze kunt ruilen.",
+        "Ask whether you can exchange them."
+      ]
+    ],
+    "sample": "Ik heb de schoenen gisteren gekocht. Ze zijn te klein.",
+    "quotes": [
+      "gisteren gekocht.",
+      "Ze zijn te klein.",
+      null
+    ],
+    "model": "Ik heb de schoenen gisteren gekocht. Ze zijn te klein. Kan ik ze voor een grotere maat ruilen?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:fea2bdf04b21e9e4"
+  },
+  {
+    "id": "A2:writing:batch002-plant:1",
+    "level": "A2",
+    "part": "writing",
+    "title": "Vraag Noor om uw plant water te geven",
+    "type": "message",
+    "prompt": "U gaat een week op reis. Schrijf een bericht aan uw vriendin Noor over uw plant.",
+    "criteria": [
+      [
+        "Zeg hoe lang u weg bent.",
+        "Say how long you will be away."
+      ],
+      [
+        "Vraag of Noor de plant water geeft.",
+        "Ask Noor to water the plant."
+      ],
+      [
+        "Zeg waar de sleutel ligt.",
+        "Say where the key is."
+      ]
+    ],
+    "sample": "Hoi Noor, ik ben een week weg. Wil jij mijn plant water geven?",
+    "quotes": [
+      "ik ben een week weg.",
+      "Wil jij mijn plant water geven?",
+      null
+    ],
+    "model": "Hoi Noor, ik ben een week weg. Wil jij mijn plant water geven? De sleutel ligt bij mijn buurvrouw.",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:54f761fa80623a7c"
+  },
+  {
+    "id": "B1:writing:batch002-rooster:1",
+    "level": "B1",
+    "part": "writing",
+    "title": "Een probleem met het rooster",
+    "type": "message",
+    "prompt": "Uw werkgever heeft u woensdagavond ingeroosterd, maar u volgt dan een vaste opleiding. Schrijf uw leidinggevende.",
+    "criteria": [
+      [
+        "Leg uit waarom u niet kunt werken.",
+        "Explain why you cannot work."
+      ],
+      [
+        "Noem een andere dienst die u kunt werken.",
+        "Name another shift you can work."
+      ],
+      [
+        "Vraag om bevestiging van de wijziging.",
+        "Ask for confirmation of the change."
+      ]
+    ],
+    "sample": "Woensdagavond volg ik mijn vaste opleiding en kan ik niet werken. Ik kan donderdagavond overnemen.",
+    "quotes": [
+      "Woensdagavond volg ik mijn vaste opleiding en kan ik niet werken.",
+      "Ik kan donderdagavond overnemen.",
+      null
+    ],
+    "model": "Woensdagavond volg ik mijn vaste opleiding en kan ik niet werken. Ik kan donderdagavond overnemen. Kun je bevestigen dat het rooster wordt aangepast?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:d43feaa9ea78842e"
+  },
+  {
+    "id": "B1:writing:batch002-geluid:1",
+    "level": "B1",
+    "part": "writing",
+    "title": "Geluid in de bibliotheek",
+    "type": "message",
+    "prompt": "Bezoekers bellen vaak in de stille studieruimte. Schrijf een bericht aan de bibliotheek.",
+    "criteria": [
+      [
+        "Beschrijf het probleem.",
+        "Describe the problem."
+      ],
+      [
+        "Leg uit welk gevolg dit voor u heeft.",
+        "Explain how this affects you."
+      ],
+      [
+        "Stel een oplossing voor.",
+        "Suggest a solution."
+      ]
+    ],
+    "sample": "In de stille studieruimte bellen bezoekers vaak. Daardoor kan ik mij moeilijk concentreren.",
+    "quotes": [
+      "In de stille studieruimte bellen bezoekers vaak.",
+      "Daardoor kan ik mij moeilijk concentreren.",
+      null
+    ],
+    "model": "In de stille studieruimte bellen bezoekers vaak. Daardoor kan ik mij moeilijk concentreren. Kunt u een duidelijk bord ophangen en bezoekers aanspreken?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:50ecc186cb5d41f8"
+  },
+  {
+    "id": "B1:writing:batch002-buurtfeest:1",
+    "level": "B1",
+    "part": "writing",
+    "title": "Help mee met het buurtfeest",
+    "type": "message",
+    "prompt": "De organisatie van het buurtfeest zoekt helpers. U wilt helpen en hebt vragen. Schrijf een bericht.",
+    "criteria": [
+      [
+        "Zeg met welke taak u wilt helpen.",
+        "Say which task you want to help with."
+      ],
+      [
+        "Vertel wanneer u beschikbaar bent.",
+        "Say when you are available."
+      ],
+      [
+        "Vraag of er vooraf een bijeenkomst is.",
+        "Ask whether there is a meeting beforehand."
+      ]
+    ],
+    "sample": "Ik wil graag helpen bij de kinderspellen. Op zaterdag ben ik vanaf tien uur beschikbaar.",
+    "quotes": [
+      "Ik wil graag helpen bij de kinderspellen.",
+      "Op zaterdag ben ik vanaf tien uur beschikbaar.",
+      null
+    ],
+    "model": "Ik wil graag helpen bij de kinderspellen. Op zaterdag ben ik vanaf tien uur beschikbaar. Is er vooraf een bijeenkomst voor helpers?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:0f2e963cb84e91dc"
+  },
+  {
+    "id": "A2:speaking:batch002-kapper:1",
+    "level": "A2",
+    "part": "speaking",
+    "title": "Maak een afspraak bij de kapper",
+    "type": "message",
+    "prompt": "U belt de kapper. U wilt deze week uw haar laten knippen. Spreek een bericht in.",
+    "criteria": [
+      [
+        "Zeg waarvoor u belt.",
+        "Say why you are calling."
+      ],
+      [
+        "Zeg op welke dag u kunt.",
+        "Say which day you are available."
+      ],
+      [
+        "Vraag hoe laat u kunt komen.",
+        "Ask what time you can come."
+      ]
+    ],
+    "sample": "Hallo, ik wil mijn haar laten knippen. Ik kan donderdag.",
+    "quotes": [
+      "ik wil mijn haar laten knippen.",
+      "Ik kan donderdag.",
+      null
+    ],
+    "model": "Hallo, ik wil mijn haar laten knippen. Ik kan donderdag. Hoe laat kan ik komen?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:1da19d7d1096244f"
+  },
+  {
+    "id": "A2:speaking:batch002-portemonnee:1",
+    "level": "A2",
+    "part": "speaking",
+    "title": "Vraag naar uw portemonnee",
+    "type": "message",
+    "prompt": "U hebt uw portemonnee misschien in een café laten liggen. Bel het café.",
+    "criteria": [
+      [
+        "Zeg wanneer u in het café was.",
+        "Say when you were at the café."
+      ],
+      [
+        "Beschrijf uw portemonnee.",
+        "Describe your wallet."
+      ],
+      [
+        "Vraag of de medewerker hem heeft gevonden.",
+        "Ask whether the employee found it."
+      ]
+    ],
+    "sample": "Ik was gisteren in uw café. Mijn portemonnee is klein en blauw.",
+    "quotes": [
+      "Ik was gisteren in uw café.",
+      "Mijn portemonnee is klein en blauw.",
+      null
+    ],
+    "model": "Ik was gisteren in uw café. Mijn portemonnee is klein en blauw. Hebt u hem gevonden?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:0db0abff078b3bf6"
+  },
+  {
+    "id": "A2:speaking:batch002-burenpakket:1",
+    "level": "A2",
+    "part": "speaking",
+    "title": "Een pakket voor de buren",
+    "type": "message",
+    "prompt": "De bezorger heeft een pakket voor uw buren bij u gebracht. Vertel uw buren wat zij moeten weten.",
+    "criteria": [
+      [
+        "Zeg dat u hun pakket hebt.",
+        "Say that you have their parcel."
+      ],
+      [
+        "Zeg wanneer zij het kunnen ophalen.",
+        "Say when they can collect it."
+      ],
+      [
+        "Zeg bij welk huisnummer u woont.",
+        "Say your house number."
+      ]
+    ],
+    "sample": "Hallo, ik heb jullie pakket. Jullie kunnen het vanavond ophalen.",
+    "quotes": [
+      "ik heb jullie pakket.",
+      "Jullie kunnen het vanavond ophalen.",
+      null
+    ],
+    "model": "Hallo, ik heb jullie pakket. Jullie kunnen het vanavond ophalen. Ik woon op nummer 16.",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:29da3656251bb969"
+  },
+  {
+    "id": "B1:speaking:batch002-fietsroute:1",
+    "level": "B1",
+    "part": "speaking",
+    "title": "Leg een veilige fietsroute uit",
+    "type": "message",
+    "prompt": "Een nieuwe collega wil naar het werk fietsen. De korte route heeft veel druk verkeer. Geef advies.",
+    "criteria": [
+      [
+        "Beschrijf het probleem met de korte route.",
+        "Describe the problem with the short route."
+      ],
+      [
+        "Leg een veiligere route uit.",
+        "Explain a safer route."
+      ],
+      [
+        "Noem hoeveel extra tijd die route kost.",
+        "Say how much extra time that route takes."
+      ]
+    ],
+    "sample": "De korte route gaat langs een erg drukke weg. Je kunt beter door het park en langs het kanaal fietsen.",
+    "quotes": [
+      "De korte route gaat langs een erg drukke weg.",
+      "Je kunt beter door het park en langs het kanaal fietsen.",
+      null
+    ],
+    "model": "De korte route gaat langs een erg drukke weg. Je kunt beter door het park en langs het kanaal fietsen. Die route kost tien minuten extra.",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:b65370d639bd90d3"
+  },
+  {
+    "id": "B1:speaking:batch002-cursusgemist:1",
+    "level": "B1",
+    "part": "speaking",
+    "title": "U hebt een cursusavond gemist",
+    "type": "message",
+    "prompt": "U hebt door ziekte een belangrijke cursusavond gemist. Bel een medecursist en vraag hulp.",
+    "criteria": [
+      [
+        "Leg uit waarom u er niet was.",
+        "Explain why you were absent."
+      ],
+      [
+        "Vraag wat er is behandeld.",
+        "Ask what was covered."
+      ],
+      [
+        "Stel een moment voor om de aantekeningen te bekijken.",
+        "Suggest a time to look at the notes."
+      ]
+    ],
+    "sample": "Ik was gisteren ziek en kon niet naar de cursus komen. Kun je vertellen wat jullie hebben behandeld?",
+    "quotes": [
+      "Ik was gisteren ziek en kon niet naar de cursus komen.",
+      "Kun je vertellen wat jullie hebben behandeld?",
+      null
+    ],
+    "model": "Ik was gisteren ziek en kon niet komen. Kun je vertellen wat jullie hebben behandeld? Ik kan morgenavond je aantekeningen bekijken.",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:30fcec5be62407ec"
+  },
+  {
+    "id": "B1:speaking:batch002-teamtaak:1",
+    "level": "B1",
+    "part": "speaking",
+    "title": "Bespreek de verdeling van een teamtaak",
+    "type": "message",
+    "prompt": "U organiseert met een collega een informatieavond. U merkt dat u bijna al het werk doet. Bespreek dit.",
+    "criteria": [
+      [
+        "Leg uit welk werk u al hebt gedaan.",
+        "Explain what work you have already done."
+      ],
+      [
+        "Vraag uw collega een concrete taak over te nemen.",
+        "Ask your colleague to take over a specific task."
+      ],
+      [
+        "Stel voor wanneer u de voortgang bespreekt.",
+        "Suggest when to discuss progress."
+      ]
+    ],
+    "sample": "Ik heb de zaal geregeld en alle uitnodigingen verstuurd. Kun jij de presentatie en hand-outs maken?",
+    "quotes": [
+      "Ik heb de zaal geregeld en alle uitnodigingen verstuurd.",
+      "Kun jij de presentatie en hand-outs maken?",
+      null
+    ],
+    "model": "Ik heb de zaal geregeld en alle uitnodigingen verstuurd. Kun jij de presentatie en hand-outs maken? Laten we vrijdagmiddag de voortgang bespreken.",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:81e9956d78701bb5"
+  },
+  {
+    "id": "A2:knm:batch003-inschrijven:1",
+    "level": "A2",
+    "part": "knm",
+    "title": "Inschrijven bij de gemeente",
+    "type": "information",
+    "text": "Marek komt in Nederland wonen en blijft langer dan vier maanden. Hij moet zich binnen vijf dagen na aankomst inschrijven bij de gemeente waar hij woont. Bij de inschrijving krijgt hij een burgerservicenummer (BSN). Dat nummer gebruikt hij bij contact met de overheid en voor zorg.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Waar moet Marek zich inschrijven?",
+        "options": {
+          "A": "Bij zijn gemeente.",
+          "B": "Bij zijn werkgever.",
+          "C": "Bij de rechtbank."
+        },
+        "answer": "A",
+        "evidence": "inschrijven bij de gemeente waar hij woont",
+        "explanation": "Marek schrijft zich in bij de gemeente waar hij woont."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat krijgt hij bij de inschrijving?",
+        "options": {
+          "A": "Een rijbewijs.",
+          "B": "Een BSN.",
+          "C": "Een zorgverzekering."
+        },
+        "answer": "B",
+        "evidence": "Bij de inschrijving krijgt hij een burgerservicenummer (BSN).",
+        "explanation": "De gemeente geeft hem bij de inschrijving een BSN."
+      }
+    ],
+    "sourceNote": "Government.nl: residents staying longer than four months register with the municipality within five days and receive a BSN.",
+    "sourceUrl": "https://www.government.nl/faq/when-should-i-register-with-the-personal-records-database-as-a-resident",
+    "sourceReviewedAt": "2026-09-09",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:eb3bdb68cbba5a3c"
+  },
+  {
+    "id": "A2:knm:batch003-verhuizing:1",
+    "level": "A2",
+    "part": "knm",
+    "title": "Een verhuizing doorgeven",
+    "type": "information",
+    "text": "Sofia verhuist naar een ander adres. Zij geeft haar nieuwe adres door aan de gemeente. Dat mag vanaf vier weken vóór de verhuizing en moet uiterlijk vijf dagen erna. Zij neemt een geldig identiteitsbewijs en bewijs van bewoning mee, bijvoorbeeld haar huurcontract.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Aan welke organisatie geeft Sofia haar nieuwe adres door?",
+        "options": {
+          "A": "Aan de gemeente.",
+          "B": "Aan de huisarts.",
+          "C": "Aan de bank."
+        },
+        "answer": "A",
+        "evidence": "Zij geeft haar nieuwe adres door aan de gemeente.",
+        "explanation": "Een adreswijziging wordt aan de gemeente gemeld."
+      },
+      {
+        "id": "q2",
+        "prompt": "Welk document kan bewijzen dat zij daar woont?",
+        "options": {
+          "A": "Een kassabon.",
+          "B": "Een huurcontract.",
+          "C": "Een bibliotheekpas."
+        },
+        "answer": "B",
+        "evidence": "bijvoorbeeld haar huurcontract",
+        "explanation": "Een huurcontract kan als bewijs van bewoning dienen."
+      }
+    ],
+    "sourceNote": "Government.nl: report a change of address to the municipality between four weeks before and five days after moving, with ID and proof of occupancy.",
+    "sourceUrl": "https://www.government.nl/faq/how-do-i-inform-the-municipality-of-a-change-of-address",
+    "sourceReviewedAt": "2026-09-09",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:42ca7d9eba6a3a8c"
+  },
+  {
+    "id": "A2:knm:batch003-digid:1",
+    "level": "A2",
+    "part": "knm",
+    "title": "Veilig omgaan met DigiD",
+    "type": "information",
+    "text": "DigiD is een persoonlijke digitale inlog voor veel overheidsdiensten. Fatima vraagt hulp aan haar broer bij een online aanvraag. Zij geeft hem haar gebruikersnaam en wachtwoord niet. Als iemand zaken voor haar regelt, kan zij die persoon officieel machtigen. Die persoon gebruikt dan een eigen inlog.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Waarvoor gebruikt Fatima DigiD?",
+        "options": {
+          "A": "Om online bij overheidsdiensten in te loggen.",
+          "B": "Om in winkels te betalen.",
+          "C": "Om met de bus te reizen."
+        },
+        "answer": "A",
+        "evidence": "digitale inlog voor veel overheidsdiensten",
+        "explanation": "DigiD wordt gebruikt om online bij veel overheidsdiensten in te loggen."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat doet zij als haar broer zaken voor haar regelt?",
+        "options": {
+          "A": "Zij geeft haar wachtwoord.",
+          "B": "Zij machtigt hem officieel.",
+          "C": "Zij vraagt een tweede identiteit aan."
+        },
+        "answer": "B",
+        "evidence": "kan zij die persoon officieel machtigen",
+        "explanation": "Zij kan haar broer machtigen; hij gebruikt zijn eigen inlog."
+      }
+    ],
+    "sourceNote": "Government.nl: DigiD proves identity online; do not share login details and use DigiD authorisation for a representative.",
+    "sourceUrl": "https://www.government.nl/themes/government-and-democracy/online-access-to-public-services-european-economic-area-eidas/digid/digid-applications-from-the-netherlands",
+    "sourceReviewedAt": "2026-09-09",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:e859fa96765eadcc"
+  },
+  {
+    "id": "A2:knm:batch003-zorgverzekering:1",
+    "level": "A2",
+    "part": "knm",
+    "title": "De basisverzekering",
+    "type": "information",
+    "text": "Wie in Nederland woont of werkt, moet meestal een Nederlandse basisverzekering voor zorg hebben. Deze verzekering vergoedt onder meer zorg van de huisarts en het ziekenhuis volgens het basispakket. Een aanvullende verzekering is niet verplicht.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Welke verzekering is meestal verplicht?",
+        "options": {
+          "A": "Een reisverzekering.",
+          "B": "Een basisverzekering voor zorg.",
+          "C": "Een verzekering voor een fiets."
+        },
+        "answer": "B",
+        "evidence": "moet meestal een Nederlandse basisverzekering voor zorg hebben",
+        "explanation": "Voor wie hier woont of werkt is de basisverzekering meestal verplicht."
+      },
+      {
+        "id": "q2",
+        "prompt": "Welke verzekering is niet verplicht?",
+        "options": {
+          "A": "De aanvullende verzekering.",
+          "B": "De basisverzekering.",
+          "C": "Geen enkele verzekering."
+        },
+        "answer": "A",
+        "evidence": "Een aanvullende verzekering is niet verplicht.",
+        "explanation": "Aanvullende zorgverzekering is een keuze."
+      }
+    ],
+    "sourceNote": "Government.nl: people who live or work in the Netherlands must take out standard health insurance; supplementary insurance is optional.",
+    "sourceUrl": "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance",
+    "sourceReviewedAt": "2026-09-09",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:b8739f80e2879b13"
+  },
+  {
+    "id": "A2:knm:batch003-noodnummer:1",
+    "level": "A2",
+    "part": "knm",
+    "title": "Wanneer belt u 112?",
+    "type": "information",
+    "text": "Het alarmnummer 112 is voor spoed wanneer iedere seconde telt, bijvoorbeeld bij brand, direct levensgevaar of een ernstig ongeluk. Bij een niet-urgente politiezaak belt u 0900-8844. De centralist van 112 vraagt wat er is gebeurd en welke hulp nodig is.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Er staat een huis in brand. Welk nummer belt u?",
+        "options": {
+          "A": "112.",
+          "B": "0900-8844.",
+          "C": "De gemeente."
+        },
+        "answer": "A",
+        "evidence": "112 is voor spoed wanneer iedere seconde telt, bijvoorbeeld bij brand",
+        "explanation": "Brand is een spoedsituatie waarvoor 112 bedoeld is."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat vertelt u aan de centralist?",
+        "options": {
+          "A": "Alleen uw leeftijd.",
+          "B": "Wat er is gebeurd en welke hulp nodig is.",
+          "C": "Wanneer u morgen thuis bent."
+        },
+        "answer": "B",
+        "evidence": "wat er is gebeurd en welke hulp nodig is",
+        "explanation": "De centralist heeft informatie over de gebeurtenis en benodigde hulp nodig."
+      }
+    ],
+    "sourceNote": "Government.nl: call 112 for urgent, potentially life-threatening situations; tell the operator what happened and what help is needed.",
+    "sourceUrl": "https://www.government.nl/faq/emergency-number-112/when-can-i-call-112",
+    "sourceReviewedAt": "2026-09-09",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:94101d8f21145d04"
+  },
+  {
+    "id": "A2:knm:batch003-leerplicht:1",
+    "level": "A2",
+    "part": "knm",
+    "title": "Een kind en school",
+    "type": "information",
+    "text": "Kinderen van 5 tot 16 jaar moeten in Nederland naar school. Is een kind ziek, dan melden ouders dit bij de school. Voor verlof vanwege een bruiloft of begrafenis moeten ouders vooraf toestemming vragen aan het hoofd van de school.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Een kind van 8 is ziek. Wat doen de ouders?",
+        "options": {
+          "A": "Zij melden dit bij de school.",
+          "B": "Zij schrijven het kind uit bij de gemeente.",
+          "C": "Zij wachten tot de volgende maand."
+        },
+        "answer": "A",
+        "evidence": "Is een kind ziek, dan melden ouders dit bij de school.",
+        "explanation": "Ouders melden ziekte bij de school."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat doen ouders vóór verlof voor een bruiloft?",
+        "options": {
+          "A": "Een nieuwe school kiezen.",
+          "B": "Toestemming vragen aan het hoofd van de school.",
+          "C": "Alleen de andere ouders informeren."
+        },
+        "answer": "B",
+        "evidence": "vooraf toestemming vragen aan het hoofd van de school",
+        "explanation": "Voor dit verlof is vooraf toestemming nodig."
+      }
+    ],
+    "sourceNote": "Government.nl: children aged 5 to 16 attend school; illness is reported and leave for weddings or funerals requires advance permission.",
+    "sourceUrl": "https://www.government.nl/themes/education/compulsory-school-attendance/exemptions-from-compulsory-school-attendance",
+    "sourceReviewedAt": "2026-09-09",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:ff9496bed8e34d0f"
+  },
+  {
+    "id": "A2:knm:batch003-stemmen:1",
+    "level": "A2",
+    "part": "knm",
+    "title": "Stemmen bij de gemeente",
+    "type": "information",
+    "text": "Wie mag stemmen voor de gemeenteraad, ontvangt vóór de verkiezing een stempas. In het stemlokaal laat de kiezer de stempas en een identiteitsdocument zien. Dit document mag maximaal vijf jaar verlopen zijn. In het stemhokje vult de kiezer het stembiljet in en daarna doet die het biljet in de stembus.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Wat neemt een kiezer mee naar het stemlokaal?",
+        "options": {
+          "A": "Een stempas en identiteitsdocument.",
+          "B": "Een huurcontract en bankpas.",
+          "C": "Een brief van de huisarts."
+        },
+        "answer": "A",
+        "evidence": "de stempas en een identiteitsdocument",
+        "explanation": "De kiezer neemt een stempas en identiteitsdocument mee. Het identiteitsdocument mag maximaal vijf jaar verlopen zijn."
+      },
+      {
+        "id": "q2",
+        "prompt": "Waar vult de kiezer het stembiljet in?",
+        "options": {
+          "A": "Bij de gemeente thuis.",
+          "B": "In het stemhokje.",
+          "C": "Samen met een medewerker."
+        },
+        "answer": "B",
+        "evidence": "In het stemhokje vult de kiezer het stembiljet in",
+        "explanation": "De kiezer vult het stembiljet in het stemhokje in."
+      }
+    ],
+    "sourceNote": "Government.nl: municipal voters bring a voting pass and identity document; the identity document may be expired by no more than five years. They fill in the ballot in the voting booth.",
+    "sourceUrl": "https://www.government.nl/faq/elections/what-do-i-need-to-vote-in-the-municipal-elections",
+    "sourceReviewedAt": "2026-09-09",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:6ee712367175e439"
+  },
+  {
+    "id": "A2:knm:batch003-discriminatie:1",
+    "level": "A2",
+    "part": "knm",
+    "title": "Hulp bij discriminatie",
+    "type": "information",
+    "text": "Iedereen in Nederland heeft recht op gelijke behandeling. Iemand die discriminatie ervaart, kan advies of hulp vragen bij een antidiscriminatievoorziening in de eigen regio. Elke gemeente heeft zo’n voorziening. Bij bedreiging of een ander strafbaar feit kan iemand ook aangifte doen bij de politie.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Waar kan iemand advies vragen over discriminatie?",
+        "options": {
+          "A": "Bij een antidiscriminatievoorziening.",
+          "B": "Alleen bij een supermarkt.",
+          "C": "Bij een sportclub zonder klachtenpunt."
+        },
+        "answer": "A",
+        "evidence": "advies of hulp vragen bij een antidiscriminatievoorziening",
+        "explanation": "De regionale antidiscriminatievoorziening geeft advies en hulp."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat kan iemand bij de politie doen als er ook een strafbaar feit is?",
+        "options": {
+          "A": "Een verzekering afsluiten.",
+          "B": "Aangifte doen.",
+          "C": "Een stempas aanvragen."
+        },
+        "answer": "B",
+        "evidence": "kan iemand ook aangifte doen bij de politie",
+        "explanation": "Bij een strafbaar feit is aangifte bij de politie mogelijk."
+      }
+    ],
+    "sourceNote": "Government.nl: everyone is entitled to equal treatment; local antidiscrimination services advise and assist, and criminal offences can be reported to police.",
+    "sourceUrl": "https://www.government.nl/themes/migration-and-travel/discrimination/reporting-discrimination",
+    "sourceReviewedAt": "2026-09-09",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:4cafa5e52e7c35f2"
+  },
+  {
+    "id": "A2:reading:batch003-dierenarts:1",
+    "level": "A2",
+    "part": "reading",
+    "title": "Medicijnen voor de kat",
+    "type": "email",
+    "text": "Beste mevrouw Koç, de medicijnen voor uw kat liggen vanaf vrijdag klaar. Geef de kat elke ochtend één tablet bij het eten. De eerste tablet geeft u zaterdag. Kom na tien dagen terug voor controle. Bel eerder als de kat niet meer eet. De praktijk is vrijdag open tot 18.00 uur.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Wanneer geeft mevrouw Koç de eerste tablet?",
+        "options": {
+          "A": "Vrijdag.",
+          "B": "Zaterdag.",
+          "C": "Na tien dagen."
+        },
+        "answer": "B",
+        "evidence": "De eerste tablet geeft u zaterdag.",
+        "explanation": "De eerste tablet is voor zaterdag."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wanneer moet zij eerder bellen?",
+        "options": {
+          "A": "Als de kat niet meer eet.",
+          "B": "Als de praktijk om 18.00 uur sluit.",
+          "C": "Als de kat één tablet krijgt."
+        },
+        "answer": "A",
+        "evidence": "Bel eerder als de kat niet meer eet.",
+        "explanation": "Niet eten is de reden om eerder te bellen."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:01d130d82a612987"
+  },
+  {
+    "id": "A2:reading:batch003-lift:1",
+    "level": "A2",
+    "part": "reading",
+    "title": "Werk aan de lift",
+    "type": "notice",
+    "text": "De lift in flat Parkzicht is dinsdag van 8.00 tot 16.00 uur buiten gebruik. Een monteur vervangt een onderdeel. Kunt u moeilijk traplopen? Bel vóór maandag 15.00 uur met de beheerder. Die kan samen met u een oplossing zoeken. Zet dinsdag geen spullen in de hal.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Wanneer werkt de lift niet?",
+        "options": {
+          "A": "Maandagmiddag.",
+          "B": "Dinsdag overdag.",
+          "C": "Dinsdag na 16.00 uur."
+        },
+        "answer": "B",
+        "evidence": "dinsdag van 8.00 tot 16.00 uur buiten gebruik",
+        "explanation": "De lift is dinsdag tussen 8.00 en 16.00 uur buiten gebruik."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat doet iemand die moeilijk traploopt?",
+        "options": {
+          "A": "Vóór maandag 15.00 uur bellen.",
+          "B": "Spullen in de hal zetten.",
+          "C": "Zelf de lift repareren."
+        },
+        "answer": "A",
+        "evidence": "Bel vóór maandag 15.00 uur met de beheerder.",
+        "explanation": "De beheerder kan na een tijdig telefoontje een oplossing zoeken."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:8420fa59d122cb2e"
+  },
+  {
+    "id": "A2:reading:batch003-bibliobus:1",
+    "level": "A2",
+    "part": "reading",
+    "title": "De bibliobus komt later",
+    "type": "message",
+    "text": "Vanaf volgende week komt de bibliobus op donderdag om 15.30 uur naar het dorpsplein. Dat is een half uur later dan vroeger. De bus blijft tot 17.00 uur. Boeken terugbrengen is gratis. Voor het lenen hebt u uw bibliotheekpas nodig. Op feestdagen komt de bus niet.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Hoe laat komt de bibliobus vanaf volgende week?",
+        "options": {
+          "A": "Om 15.00 uur.",
+          "B": "Om 15.30 uur.",
+          "C": "Om 17.00 uur."
+        },
+        "answer": "B",
+        "evidence": "om 15.30 uur naar het dorpsplein",
+        "explanation": "De nieuwe aankomsttijd is 15.30 uur."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat hebt u nodig om boeken te lenen?",
+        "options": {
+          "A": "Een identiteitsbewijs.",
+          "B": "Geld.",
+          "C": "Een bibliotheekpas."
+        },
+        "answer": "C",
+        "evidence": "Voor het lenen hebt u uw bibliotheekpas nodig.",
+        "explanation": "Voor lenen is de bibliotheekpas nodig."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:273fd49589aedcc8"
+  },
+  {
+    "id": "A2:reading:batch003-kantine:1",
+    "level": "A2",
+    "part": "reading",
+    "title": "Lunch bestellen op het werk",
+    "type": "information",
+    "text": "Bestel uw lunch vóór 10.30 uur via het formulier in de kantine. Kies soep of een broodje en schrijf uw naam erbij. U betaalt bij het ophalen tussen 12.00 en 12.30 uur. Op vrijdag is er geen soep. Hebt u een allergie? Bespreek dit eerst met de kok.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Wanneer betaalt u voor de lunch?",
+        "options": {
+          "A": "Bij het bestellen.",
+          "B": "Bij het ophalen.",
+          "C": "Na 12.30 uur."
+        },
+        "answer": "B",
+        "evidence": "U betaalt bij het ophalen tussen 12.00 en 12.30 uur.",
+        "explanation": "Betalen gebeurt tijdens het ophalen."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat doet u bij een allergie?",
+        "options": {
+          "A": "Alleen uw naam opschrijven.",
+          "B": "Op vrijdag soep kiezen.",
+          "C": "Eerst met de kok praten."
+        },
+        "answer": "C",
+        "evidence": "Bespreek dit eerst met de kok.",
+        "explanation": "Een allergie moet eerst met de kok worden besproken."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:130d1b9d3dd14a41"
+  },
+  {
+    "id": "B1:reading:batch003-deelauto:1",
+    "level": "B1",
+    "part": "reading",
+    "title": "Nieuwe regels voor de deelauto",
+    "type": "information",
+    "text": "Bewonersvereniging De Haven heeft twee deelauto’s. Vanaf april moeten gebruikers voor vertrek foto’s maken van zichtbare schade en die in de app zetten. Zo kan de vereniging bepalen wanneer schade is ontstaan. Wie zonder melding vertrekt, kan later verantwoordelijk worden gehouden.\n\nEen reservering mag tot twee uur vooraf gratis worden geannuleerd. Daarna kost annuleren vijf euro, behalve als de vereniging de auto door een technisch probleem niet kan leveren. Na gebruik moet de accu minstens 30 procent vol zijn. Is dat niet haalbaar door een defecte laadpaal, dan meldt de gebruiker dit direct in de app.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Waarom moeten gebruikers vóór vertrek foto’s maken?",
+        "options": {
+          "A": "Om vast te leggen wanneer schade al aanwezig was.",
+          "B": "Om de auto gemakkelijker te reserveren.",
+          "C": "Om de accu te controleren."
+        },
+        "answer": "A",
+        "evidence": "Zo kan de vereniging bepalen wanneer schade is ontstaan.",
+        "explanation": "De foto’s helpen vaststellen wanneer schade is ontstaan."
+      },
+      {
+        "id": "q2",
+        "prompt": "Wanneer kost een late annulering niets?",
+        "options": {
+          "A": "Als de gebruiker geen laadpaal vindt.",
+          "B": "Als de vereniging de auto door techniek niet levert.",
+          "C": "Als de reservering al is begonnen."
+        },
+        "answer": "B",
+        "evidence": "behalve als de vereniging de auto door een technisch probleem niet kan leveren",
+        "explanation": "Bij een technisch leveringsprobleem geldt de vijf euro niet."
+      },
+      {
+        "id": "q3",
+        "prompt": "De accu blijft door een kapotte laadpaal onder 30 procent. Wat moet de gebruiker doen?",
+        "options": {
+          "A": "De auto zonder bericht achterlaten.",
+          "B": "Zelf een nieuwe accu kopen.",
+          "C": "Het defect direct in de app melden."
+        },
+        "answer": "C",
+        "evidence": "dan meldt de gebruiker dit direct in de app",
+        "explanation": "Bij een defecte laadpaal moet direct een melding volgen."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:46cb083ac7dd3b48"
+  },
+  {
+    "id": "B1:reading:batch003-stage:1",
+    "level": "B1",
+    "part": "reading",
+    "title": "Een stageplaats kiezen",
+    "type": "email",
+    "text": "Beste cursisten, volgende maand kiezen jullie een stageplaats. Bekijk eerst de beschrijvingen in het portaal. Geef uiterlijk 12 februari drie voorkeuren op. Eén keuze is onvoldoende, omdat sommige organisaties maar één stagiair kunnen plaatsen.\n\nDe opleiding probeert iedereen bij een voorkeur te plaatsen, maar kan dit niet beloven. Reistijd en benodigde begeleiding tellen ook mee. Op 20 februari ontvangt u de voorlopige indeling. Neem daarna nog geen contact op met de organisatie. De indeling is pas definitief na het gesprek met uw docent. Wie geen voorkeuren doorgeeft, krijgt een beschikbare plaats toegewezen.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Waarom moet een cursist drie voorkeuren opgeven?",
+        "options": {
+          "A": "Sommige organisaties hebben weinig plaatsen.",
+          "B": "Iedere stage duurt drie maanden.",
+          "C": "De docent kiest drie opleidingen."
+        },
+        "answer": "A",
+        "evidence": "sommige organisaties maar één stagiair kunnen plaatsen",
+        "explanation": "Meerdere voorkeuren zijn nodig doordat plaatsen beperkt zijn."
+      },
+      {
+        "id": "q2",
+        "prompt": "Waarom mag de cursist op 20 februari nog niet bellen?",
+        "options": {
+          "A": "De organisatie kent de reistijd niet.",
+          "B": "De indeling is nog voorlopig.",
+          "C": "Het portaal is dan gesloten."
+        },
+        "answer": "B",
+        "evidence": "De indeling is pas definitief na het gesprek met uw docent.",
+        "explanation": "Eerst volgt nog een gesprek met de docent."
+      },
+      {
+        "id": "q3",
+        "prompt": "Wat gebeurt er zonder voorkeuren?",
+        "options": {
+          "A": "De cursist krijgt een beschikbare plaats.",
+          "B": "De stage wordt automatisch uitgesteld.",
+          "C": "De cursist kiest na 20 februari alsnog eerst."
+        },
+        "answer": "A",
+        "evidence": "Wie geen voorkeuren doorgeeft, krijgt een beschikbare plaats toegewezen.",
+        "explanation": "Zonder voorkeur wijst de opleiding een beschikbare plek toe."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:2e337ab688232ac1"
+  },
+  {
+    "id": "B1:reading:batch003-warmtefonds:1",
+    "level": "B1",
+    "part": "reading",
+    "title": "Samen energie besparen",
+    "type": "article",
+    "text": "Woningcorporatie WoonGoed biedt huurders een gratis gesprek over energiegebruik. Een adviseur bekijkt waar warmte verloren gaat en geeft kleine materialen, zoals tochtstrips. Huurders betalen daarvoor niets en hoeven geen contract te tekenen.\n\nGrotere aanpassingen, zoals nieuw glas, worden niet tijdens het gesprek uitgevoerd. De adviseur schrijft ze in een rapport. WoonGoed bepaalt daarna welke werkzaamheden mogelijk zijn en wanneer. Een huurder kan zich aanmelden, maar krijgt niet automatisch alle aanpassingen uit het rapport. Bewoners met hoge energiekosten krijgen bij de planning voorrang. Het gesprek heeft geen invloed op de huurprijs.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Wat gebeurt er tijdens het gesprek?",
+        "options": {
+          "A": "De adviseur plaatst direct nieuw glas.",
+          "B": "De adviseur onderzoekt warmteverlies en geeft kleine materialen.",
+          "C": "De huurder ondertekent een onderhoudscontract."
+        },
+        "answer": "B",
+        "evidence": "Een adviseur bekijkt waar warmte verloren gaat en geeft kleine materialen",
+        "explanation": "Het gesprek bestaat uit advies en kleine hulpmiddelen."
+      },
+      {
+        "id": "q2",
+        "prompt": "Waarom leidt aanmelden niet automatisch tot alle grote aanpassingen?",
+        "options": {
+          "A": "WoonGoed beslist later wat mogelijk is.",
+          "B": "De huurder moet eerst meer huur betalen.",
+          "C": "Alleen de adviseur mag zich aanmelden."
+        },
+        "answer": "A",
+        "evidence": "WoonGoed bepaalt daarna welke werkzaamheden mogelijk zijn en wanneer.",
+        "explanation": "De corporatie beoordeelt de grotere werkzaamheden later."
+      },
+      {
+        "id": "q3",
+        "prompt": "Wie krijgt bij de planning voorrang?",
+        "options": {
+          "A": "Bewoners met hoge energiekosten.",
+          "B": "Bewoners die een contract tekenen.",
+          "C": "Iedereen die nieuw glas vraagt."
+        },
+        "answer": "A",
+        "evidence": "Bewoners met hoge energiekosten krijgen bij de planning voorrang.",
+        "explanation": "Hoge energiekosten bepalen de voorrang."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:285b6252b1af368d"
+  },
+  {
+    "id": "B1:reading:batch003-ouderavond:1",
+    "level": "B1",
+    "part": "reading",
+    "title": "Een andere vorm voor de ouderavond",
+    "type": "news",
+    "text": "Basisschool Het Anker vervangt één grote ouderavond door korte gesprekken per klas. Vorig jaar konden veel ouders de lange bijeenkomst niet bijwonen. Bovendien bleven algemene vragen liggen, omdat de presentatie uitliep.\n\nOuders kiezen nu via een formulier een gesprek om 18.30, 19.15 of 20.00 uur. De leerkracht bespreekt nieuws uit de klas; persoonlijke vragen over een kind horen in een aparte afspraak. Ouders kunnen vooraf algemene vragen insturen. Vragen die in meerdere klassen leven, beantwoordt de directeur later in één nieuwsbrief. Na afloop vraagt de school of deze aanpak toegankelijker was.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Waarom verandert de school de ouderavond?",
+        "options": {
+          "A": "De vorige vorm werkte voor veel ouders niet goed.",
+          "B": "Leerkrachten willen geen vragen meer krijgen.",
+          "C": "De directeur wil minder nieuwsbrieven sturen."
+        },
+        "answer": "A",
+        "evidence": "Vorig jaar konden veel ouders de lange bijeenkomst niet bijwonen.",
+        "explanation": "Veel ouders konden de lange bijeenkomst niet bijwonen en vragen bleven liggen."
+      },
+      {
+        "id": "q2",
+        "prompt": "Waar bespreekt een ouder een persoonlijke vraag over het eigen kind?",
+        "options": {
+          "A": "In de nieuwsbrief.",
+          "B": "Tijdens een aparte afspraak.",
+          "C": "In het formulier voor algemene vragen."
+        },
+        "answer": "B",
+        "evidence": "persoonlijke vragen over een kind horen in een aparte afspraak",
+        "explanation": "Persoonlijke vragen horen niet in het klassengesprek."
+      },
+      {
+        "id": "q3",
+        "prompt": "Wat gebeurt met een vraag die in veel klassen speelt?",
+        "options": {
+          "A": "De directeur beantwoordt die later in een nieuwsbrief.",
+          "B": "Elke ouder krijgt direct een persoonlijk gesprek.",
+          "C": "De vraag wordt niet behandeld."
+        },
+        "answer": "A",
+        "evidence": "beantwoordt de directeur later in één nieuwsbrief",
+        "explanation": "Veel voorkomende vragen worden centraal beantwoord."
+      }
+    ],
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:6bffd9deec7a037a"
+  },
+  {
+    "id": "A2:writing:batch003-container:1",
+    "level": "A2",
+    "part": "writing",
+    "title": "Een verkeerde afvalcontainer",
+    "type": "message",
+    "prompt": "U hebt van de gemeente een nieuwe afvalcontainer gekregen, maar hij hoort bij een ander huis. Schrijf de gemeente.",
+    "criteria": [
+      [
+        "Zeg wat er verkeerd is.",
+        "Say what is wrong."
+      ],
+      [
+        "Noem het nummer op de container.",
+        "Give the number on the container."
+      ],
+      [
+        "Vraag wat u moet doen.",
+        "Ask what you should do."
+      ]
+    ],
+    "sample": "De nieuwe container hoort niet bij mijn huis. Op de container staat nummer 48.",
+    "quotes": [
+      "De nieuwe container hoort niet bij mijn huis.",
+      "Op de container staat nummer 48.",
+      null
+    ],
+    "model": "De nieuwe container hoort niet bij mijn huis. Op de container staat nummer 48. Wat moet ik nu doen?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:280765ecad63575c"
+  },
+  {
+    "id": "A2:writing:batch003-sportles:1",
+    "level": "A2",
+    "part": "writing",
+    "title": "Stoppen met een sportles",
+    "type": "message",
+    "prompt": "U wilt volgende maand stoppen met uw sportles. Schrijf de sportclub.",
+    "criteria": [
+      [
+        "Zeg met welke les u stopt.",
+        "Say which class you are stopping."
+      ],
+      [
+        "Zeg vanaf wanneer u stopt.",
+        "Say from when you are stopping."
+      ],
+      [
+        "Vraag om een bevestiging.",
+        "Ask for confirmation."
+      ]
+    ],
+    "sample": "Ik wil stoppen met de yogales. Vanaf 1 november kom ik niet meer.",
+    "quotes": [
+      "Ik wil stoppen met de yogales.",
+      "Vanaf 1 november kom ik niet meer.",
+      null
+    ],
+    "model": "Ik wil stoppen met de yogales. Vanaf 1 november kom ik niet meer. Kunt u dit bevestigen?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:fad5c635a9092642"
+  },
+  {
+    "id": "A2:writing:batch003-logeerkamer:1",
+    "level": "A2",
+    "part": "writing",
+    "title": "Vraag naar een logeerkamer",
+    "type": "message",
+    "prompt": "Uw familie komt een weekend op bezoek. Een buurthuis verhuurt een logeerkamer. Schrijf het buurthuis.",
+    "criteria": [
+      [
+        "Zeg wanneer uw familie komt.",
+        "Say when your family is coming."
+      ],
+      [
+        "Vraag of de kamer vrij is.",
+        "Ask whether the room is available."
+      ],
+      [
+        "Vraag wat één nacht kost.",
+        "Ask how much one night costs."
+      ]
+    ],
+    "sample": "Mijn familie komt op 8 en 9 juni. Is de logeerkamer dan vrij?",
+    "quotes": [
+      "Mijn familie komt op 8 en 9 juni.",
+      "Is de logeerkamer dan vrij?",
+      null
+    ],
+    "model": "Mijn familie komt op 8 en 9 juni. Is de logeerkamer dan vrij? Wat kost één nacht?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:139dcaa27ca02bec"
+  },
+  {
+    "id": "A2:writing:batch003-loonstrook:1",
+    "level": "A2",
+    "part": "writing",
+    "title": "Een vraag over uw loonstrook",
+    "type": "message",
+    "prompt": "Op uw loonstrook staan minder uren dan u hebt gewerkt. Schrijf uw werkgever.",
+    "criteria": [
+      [
+        "Zeg hoeveel uren u werkte.",
+        "Say how many hours you worked."
+      ],
+      [
+        "Zeg hoeveel uren op de loonstrook staan.",
+        "Say how many hours appear on the payslip."
+      ],
+      [
+        "Vraag om controle.",
+        "Ask for a check."
+      ]
+    ],
+    "sample": "Ik heb vorige maand 80 uur gewerkt. Op mijn loonstrook staan 72 uur.",
+    "quotes": [
+      "Ik heb vorige maand 80 uur gewerkt.",
+      "Op mijn loonstrook staan 72 uur.",
+      null
+    ],
+    "model": "Ik heb vorige maand 80 uur gewerkt. Op mijn loonstrook staan 72 uur. Kunt u dit controleren?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:69eec61297002f29"
+  },
+  {
+    "id": "B1:writing:batch003-verkeerssituatie:1",
+    "level": "B1",
+    "part": "writing",
+    "title": "Onveilige oversteekplaats",
+    "type": "message",
+    "prompt": "Bij uw huis steken veel kinderen een drukke straat over. Auto’s rijden er vaak te snel. Schrijf de gemeente.",
+    "criteria": [
+      [
+        "Beschrijf de onveilige situatie.",
+        "Describe the unsafe situation."
+      ],
+      [
+        "Leg uit wanneer het probleem vooral speelt.",
+        "Explain when the problem is worst."
+      ],
+      [
+        "Stel een concrete maatregel voor.",
+        "Suggest a concrete measure."
+      ]
+    ],
+    "sample": "Veel kinderen steken hier over terwijl auto’s te snel rijden. Het is vooral druk vlak voor school begint.",
+    "quotes": [
+      "Veel kinderen steken hier over terwijl auto’s te snel rijden.",
+      "Het is vooral druk vlak voor school begint.",
+      null
+    ],
+    "model": "Veel kinderen steken hier over terwijl auto’s te snel rijden. Het is vooral druk vlak voor school begint. Kunt u een zebrapad of snelheidsremmer plaatsen?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:d54a05453776e477"
+  },
+  {
+    "id": "B1:writing:batch003-opleiding:1",
+    "level": "B1",
+    "part": "writing",
+    "title": "Vraag om studietijd",
+    "type": "message",
+    "prompt": "U volgt naast uw werk een opleiding die bij uw functie past. Binnenkort hebt u een examen. Schrijf uw leidinggevende.",
+    "criteria": [
+      [
+        "Leg uit waarom de opleiding nuttig is voor uw werk.",
+        "Explain why the course is useful for your job."
+      ],
+      [
+        "Vraag om een concreet moment voor studietijd.",
+        "Ask for a specific study period."
+      ],
+      [
+        "Leg uit hoe u uw werk opvangt.",
+        "Explain how your work will be covered."
+      ]
+    ],
+    "sample": "De opleiding helpt mij om klanten beter te adviseren. Mag ik volgende vrijdagmiddag gebruiken om voor het examen te leren?",
+    "quotes": [
+      "De opleiding helpt mij om klanten beter te adviseren.",
+      "Mag ik volgende vrijdagmiddag gebruiken om voor het examen te leren?",
+      null
+    ],
+    "model": "De opleiding helpt mij om klanten beter te adviseren. Mag ik volgende vrijdagmiddag studeren? Ik rond mijn dringende werk donderdag af en draag de telefoon over aan Bilal.",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:86ea5a0712acd8a0"
+  },
+  {
+    "id": "B1:writing:batch003-reparatie:1",
+    "level": "B1",
+    "part": "writing",
+    "title": "Reparatie duurt langer",
+    "type": "message",
+    "prompt": "U bracht uw laptop voor reparatie weg. De afgesproken datum is voorbij en u hebt hem nodig voor uw werk. Schrijf de reparateur.",
+    "criteria": [
+      [
+        "Noem de afgesproken datum.",
+        "Give the agreed date."
+      ],
+      [
+        "Leg uit waarom u de laptop snel nodig hebt.",
+        "Explain why you need the laptop soon."
+      ],
+      [
+        "Vraag om een oplossing met een termijn.",
+        "Ask for a solution with a timeframe."
+      ]
+    ],
+    "sample": "We hadden afgesproken dat mijn laptop op 12 april klaar zou zijn. Ik heb hem dagelijks nodig voor mijn werk.",
+    "quotes": [
+      "op 12 april klaar zou zijn.",
+      "Ik heb hem dagelijks nodig voor mijn werk.",
+      null
+    ],
+    "model": "We hadden afgesproken dat mijn laptop op 12 april klaar zou zijn. Ik heb hem dagelijks nodig voor mijn werk. Kunt u hem uiterlijk vrijdag repareren of mij tijdelijk een laptop lenen?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:31288c110e41275b"
+  },
+  {
+    "id": "B1:writing:batch003-vrijwilligersrooster:1",
+    "level": "B1",
+    "part": "writing",
+    "title": "Verbeter het vrijwilligersrooster",
+    "type": "message",
+    "prompt": "Bij uw vrijwilligerswerk vallen diensten vaak onverwacht uit. Schrijf de coördinator met een voorstel.",
+    "criteria": [
+      [
+        "Beschrijf wat er misgaat.",
+        "Describe what goes wrong."
+      ],
+      [
+        "Leg uit welk gevolg dit heeft.",
+        "Explain the consequence."
+      ],
+      [
+        "Stel een praktische werkwijze voor.",
+        "Suggest a practical procedure."
+      ]
+    ],
+    "sample": "Vrijwilligers melden zich soms pas op dezelfde dag af. Daardoor staat de balie af en toe zonder medewerker.",
+    "quotes": [
+      "Vrijwilligers melden zich soms pas op dezelfde dag af.",
+      "Daardoor staat de balie af en toe zonder medewerker.",
+      null
+    ],
+    "model": "Vrijwilligers melden zich soms pas op dezelfde dag af. Daardoor staat de balie soms zonder medewerker. Ik stel een reservelijst voor die de coördinator bij een afmelding direct kan bellen.",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:5dcb3bb7ca27692c"
+  },
+  {
+    "id": "A2:speaking:batch003-tramkaart:1",
+    "level": "A2",
+    "part": "speaking",
+    "title": "Vraag hulp met een kaartautomaat",
+    "type": "message",
+    "prompt": "U staat bij een kaartautomaat voor de tram. U begrijpt het scherm niet. Vraag een medewerker om hulp.",
+    "criteria": [
+      [
+        "Zeg waar u naartoe wilt.",
+        "Say where you want to go."
+      ],
+      [
+        "Zeg wat u niet begrijpt.",
+        "Say what you do not understand."
+      ],
+      [
+        "Vraag om hulp bij het kopen van een kaartje.",
+        "Ask for help buying a ticket."
+      ]
+    ],
+    "sample": "Ik wil naar het centrum. Ik begrijp niet welke knop ik moet kiezen.",
+    "quotes": [
+      "Ik wil naar het centrum.",
+      "Ik begrijp niet welke knop ik moet kiezen.",
+      null
+    ],
+    "model": "Ik wil naar het centrum. Ik begrijp niet welke knop ik moet kiezen. Kunt u mij helpen een kaartje te kopen?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:a03977634b6c2390"
+  },
+  {
+    "id": "A2:speaking:batch003-jas:1",
+    "level": "A2",
+    "part": "speaking",
+    "title": "Een jas verwisseld",
+    "type": "message",
+    "prompt": "Na een bijeenkomst hebt u per ongeluk de verkeerde jas meegenomen. Bel de organisatie.",
+    "criteria": [
+      [
+        "Zeg wat er is gebeurd.",
+        "Say what happened."
+      ],
+      [
+        "Beschrijf uw eigen jas.",
+        "Describe your own coat."
+      ],
+      [
+        "Vraag wanneer u kunt langskomen.",
+        "Ask when you can come by."
+      ]
+    ],
+    "sample": "Ik heb na de bijeenkomst de verkeerde jas meegenomen. Mijn jas is lang en groen.",
+    "quotes": [
+      "Ik heb na de bijeenkomst de verkeerde jas meegenomen.",
+      "Mijn jas is lang en groen.",
+      null
+    ],
+    "model": "Ik heb na de bijeenkomst de verkeerde jas meegenomen. Mijn jas is lang en groen. Wanneer kan ik langskomen om de jassen te wisselen?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:c620f29a0ba4ce96"
+  },
+  {
+    "id": "A2:speaking:batch003-monteur:1",
+    "level": "A2",
+    "part": "speaking",
+    "title": "De monteur is te laat",
+    "type": "message",
+    "prompt": "Een monteur zou tussen 9.00 en 11.00 uur komen. Het is nu 11.30 uur. Bel het bedrijf.",
+    "criteria": [
+      [
+        "Zeg hoe laat de afspraak was.",
+        "Say when the appointment was."
+      ],
+      [
+        "Zeg dat de monteur er nog niet is.",
+        "Say that the technician has not arrived."
+      ],
+      [
+        "Vraag hoe laat de monteur komt.",
+        "Ask when the technician will arrive."
+      ]
+    ],
+    "sample": "De afspraak was tussen negen en elf uur. De monteur is er nog niet.",
+    "quotes": [
+      "De afspraak was tussen negen en elf uur.",
+      "De monteur is er nog niet.",
+      null
+    ],
+    "model": "De afspraak was tussen negen en elf uur. De monteur is er nog niet. Hoe laat komt hij?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:fd8b8be3ef6c3d38"
+  },
+  {
+    "id": "A2:speaking:batch003-speeltuin:1",
+    "level": "A2",
+    "part": "speaking",
+    "title": "Waarschuw bij de speeltuin",
+    "type": "message",
+    "prompt": "U ziet dat een hek bij de speeltuin kapot is. Bel de gemeente.",
+    "criteria": [
+      [
+        "Zeg wat er kapot is.",
+        "Say what is broken."
+      ],
+      [
+        "Zeg waar het probleem is.",
+        "Say where the problem is."
+      ],
+      [
+        "Leg uit waarom het gevaarlijk is.",
+        "Explain why it is dangerous."
+      ]
+    ],
+    "sample": "Het hek is kapot. Het staat naast de speeltuin aan de Lindenstraat.",
+    "quotes": [
+      "Het hek is kapot.",
+      "Het staat naast de speeltuin aan de Lindenstraat.",
+      null
+    ],
+    "model": "Het hek is kapot. Het staat naast de speeltuin aan de Lindenstraat. Kleine kinderen kunnen nu de straat oplopen.",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:8cb7315e5b96f3cf"
+  },
+  {
+    "id": "B1:speaking:batch003-werkdruk:1",
+    "level": "B1",
+    "part": "speaking",
+    "title": "Bespreek uw werkdruk",
+    "type": "message",
+    "prompt": "U krijgt deze week meer taken dan u kunt afmaken. Bespreek dit met uw leidinggevende.",
+    "criteria": [
+      [
+        "Leg uit welke taken tegelijk af moeten.",
+        "Explain which tasks are due at the same time."
+      ],
+      [
+        "Beschrijf het risico voor het werk.",
+        "Describe the risk to the work."
+      ],
+      [
+        "Vraag welke taak voorrang heeft.",
+        "Ask which task has priority."
+      ]
+    ],
+    "sample": "Vrijdag moeten zowel het maandrapport als de planning klaar zijn. Als ik beide alleen doe, is de kans op fouten groot.",
+    "quotes": [
+      "Vrijdag moeten zowel het maandrapport als de planning klaar zijn.",
+      "Als ik beide alleen doe, is de kans op fouten groot.",
+      null
+    ],
+    "model": "Vrijdag moeten zowel het maandrapport als de planning klaar zijn. Als ik beide alleen doe, is de kans op fouten groot. Welke taak moet ik eerst afmaken?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:b49ef85da3f720b0"
+  },
+  {
+    "id": "B1:speaking:batch003-buurtvergadering:1",
+    "level": "B1",
+    "part": "speaking",
+    "title": "Reageer op een plan voor de straat",
+    "type": "message",
+    "prompt": "Tijdens een buurtvergadering stelt iemand voor alle parkeerplaatsen weg te halen voor meer groen. Geef uw mening.",
+    "criteria": [
+      [
+        "Noem een voordeel van meer groen.",
+        "Name an advantage of more greenery."
+      ],
+      [
+        "Leg uit welk probleem volledig verwijderen geeft.",
+        "Explain the problem caused by removing all spaces."
+      ],
+      [
+        "Doe een compromisvoorstel.",
+        "Make a compromise proposal."
+      ]
+    ],
+    "sample": "Meer bomen maken de straat koeler in de zomer. Zonder parkeerplaatsen kunnen oudere bewoners moeilijk dichtbij parkeren.",
+    "quotes": [
+      "Meer bomen maken de straat koeler in de zomer.",
+      "Zonder parkeerplaatsen kunnen oudere bewoners moeilijk dichtbij parkeren.",
+      null
+    ],
+    "model": "Meer bomen maken de straat koeler in de zomer. Zonder parkeerplaatsen kunnen oudere bewoners moeilijk dichtbij parkeren. Laten we de helft vergroenen en enkele plaatsen voor hen bewaren.",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:fa6cbcbc39393359"
+  },
+  {
+    "id": "B1:speaking:batch003-inwerken:1",
+    "level": "B1",
+    "part": "speaking",
+    "title": "Help een nieuwe collega beter inwerken",
+    "type": "message",
+    "prompt": "Een nieuwe collega krijgt verschillende instructies van meerdere mensen en maakt daardoor fouten. Bespreek een oplossing met uw team.",
+    "criteria": [
+      [
+        "Beschrijf waardoor de fouten ontstaan.",
+        "Describe what causes the mistakes."
+      ],
+      [
+        "Stel één duidelijke vorm van begeleiding voor.",
+        "Suggest one clear form of guidance."
+      ],
+      [
+        "Leg uit hoe u controleert of dit helpt.",
+        "Explain how you will check whether it helps."
+      ]
+    ],
+    "sample": "De nieuwe collega hoort van iedereen iets anders en raakt daardoor in de war. Ik stel voor dat één collega hem de eerste maand begeleidt.",
+    "quotes": [
+      "De nieuwe collega hoort van iedereen iets anders en raakt daardoor in de war.",
+      "Ik stel voor dat één collega hem de eerste maand begeleidt.",
+      null
+    ],
+    "model": "De nieuwe collega hoort van iedereen iets anders en raakt daardoor in de war. Ik stel voor dat één collega hem de eerste maand begeleidt. Na twee weken bespreken we samen welke fouten nog voorkomen.",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:cdf7dae65bd7ecd5"
+  },
+  {
+    "id": "B1:speaking:batch003-cursuslocatie:1",
+    "level": "B1",
+    "part": "speaking",
+    "title": "Stel een andere cursuslocatie voor",
+    "type": "message",
+    "prompt": "Uw avondcursus is verhuisd naar een plek die na 21.00 uur slecht bereikbaar is met het openbaar vervoer. Bespreek dit met de docent.",
+    "criteria": [
+      [
+        "Leg uit wat er misgaat met de terugreis.",
+        "Explain the return travel problem."
+      ],
+      [
+        "Noem wie daar last van hebben.",
+        "Say who is affected."
+      ],
+      [
+        "Stel een haalbaar alternatief voor.",
+        "Suggest a feasible alternative."
+      ]
+    ],
+    "sample": "Na de les rijdt er nog maar één bus per uur. Meerdere cursisten zonder auto komen daardoor erg laat thuis.",
+    "quotes": [
+      "Na de les rijdt er nog maar één bus per uur.",
+      "Meerdere cursisten zonder auto komen daardoor erg laat thuis.",
+      null
+    ],
+    "model": "Na de les rijdt er nog maar één bus per uur. Meerdere cursisten zonder auto komen daardoor erg laat thuis. Kunnen we een lokaal bij het station gebruiken of de les een halfuur eerder laten eindigen?",
+    "status": "ai-editorially-reviewed",
+    "targetLevelValidated": false,
+    "revision": "c1:04c0c442c1a4ff57"
+  }
+]

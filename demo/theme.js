@@ -1,0 +1,1 @@
+(()=>{function t(e,s=!1){return e==="dark"||e!=="light"&&s?"dark":"light"}var r="system";try{r=JSON.parse(localStorage.getItem("inburgering.study.v2")??localStorage.getItem("samen.study.v1"))?.settings?.theme}catch{}document.documentElement.dataset.theme=t(r,matchMedia("(prefers-color-scheme: dark)").matches);})();

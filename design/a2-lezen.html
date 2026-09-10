@@ -1,0 +1,319 @@
+<title>Proefset 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&display=swap">
+<style>
+/* Oefenplek - A2 lezen, proefset 1.
+   Light by default and single-theme on purpose; the night palette can return
+   later as an opt-in. Every colour is painted explicitly so the page holds
+   on either host ground. */
+:root{
+  color-scheme:light;
+  --paper:#FCFBF8; --ink:#1A1917; --body:#3B3934; --dim:#96938A;
+  --rule:#E3E0D7; --rule-soft:#EDEAE2;
+  --mk:#FFE79E; --mk-line:#E0BB49; --strike:#BFBAAD;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none !important}
+body{margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Libre Franklin",Helvetica,Arial,sans-serif; font-size:15px; line-height:1.5;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
+h1,h2,p{margin:0}
+button{font:inherit; color:inherit; background:none; border:0; cursor:pointer; text-align:left}
+:where(button):focus-visible{outline:2px solid var(--ink); outline-offset:3px; border-radius:1px}
+
+.app{min-height:100vh; padding:clamp(30px,5vw,74px) clamp(18px,5vw,74px) clamp(60px,9vw,110px)}
+.col{max-width:648px; margin:0 auto; display:grid; gap:clamp(30px,4.6vw,44px)}
+
+.head{display:flex; align-items:baseline; justify-content:space-between; gap:20px}
+.wm{font-size:15px; font-weight:600; letter-spacing:-.022em}
+.count{font-size:13px; color:var(--dim); font-variant-numeric:tabular-nums; letter-spacing:.02em}
+.count b{color:var(--ink); font-weight:500}
+
+.stage{display:grid; gap:clamp(28px,4.2vw,40px)}
+.text{display:grid; gap:14px}
+.kicker{font-size:10.5px; font-weight:500; letter-spacing:.19em; text-transform:uppercase; color:var(--dim)}
+.body{font-size:17px; line-height:1.72; color:var(--body); max-width:58ch}
+.body p + p{margin-top:.85em}
+.pf{background-image:linear-gradient(var(--mk),var(--mk)); background-repeat:no-repeat;
+  background-size:0 100%; box-decoration-break:clone; -webkit-box-decoration-break:clone;
+  padding:.07em .13em; margin:0 -.13em; border-radius:1px;
+  transition:background-size .45s cubic-bezier(.22,.7,.3,1), color .45s}
+.pf.on{background-size:100% 100%; box-shadow:inset 0 -1px 0 var(--mk-line); color:var(--ink)}
+
+.ask{display:grid; gap:clamp(22px,3vw,30px)}
+.q{font-size:clamp(25px,3.4vw,33px); font-weight:600; line-height:1.18; letter-spacing:-.028em;
+  text-wrap:balance; max-width:22ch}
+
+.opts{border-top:1px solid var(--rule)}
+.opt{display:grid; grid-template-columns:27px 1fr; align-items:baseline; width:100%;
+  padding:18px 2px 18px 0; border-bottom:1px solid var(--rule);
+  transition:opacity .3s ease, box-shadow .12s, padding-left .12s}
+.opt .l{font-size:11.5px; font-weight:600; letter-spacing:.1em; color:var(--dim);
+  padding:.26em .3em .22em; margin-left:-.3em; border-radius:1px;
+  background-image:linear-gradient(var(--mk),var(--mk)); background-repeat:no-repeat;
+  background-size:0 100%; transition:background-size .45s cubic-bezier(.22,.7,.3,1), color .2s}
+.opt .x{font-size:17.5px; line-height:1.42; color:var(--body); transition:color .2s}
+.opt:hover .x,.opt:hover .l{color:var(--ink)}
+.opt[aria-pressed="true"]{box-shadow:inset 2px 0 0 var(--ink); padding-left:14px}
+.opt[aria-pressed="true"] .l,.opt[aria-pressed="true"] .x{color:var(--ink)}
+.opts.done .opt{pointer-events:none; box-shadow:none; padding-left:0}
+.opts.done .opt:not(.key){opacity:.3}
+.opts.done .opt.mine:not(.key){opacity:.62}
+.opts.done .opt.mine:not(.key) .x{text-decoration:line-through; text-decoration-thickness:1px;
+  text-decoration-color:var(--strike)}
+.opts.done .opt.key .l{background-size:100% 100%; color:var(--ink);
+  box-shadow:inset 0 -1px 0 var(--mk-line)}
+.opts.done .opt.key .x{color:var(--ink)}
+
+.resolve{display:grid; gap:21px}
+.foot{display:flex; align-items:center; gap:22px; flex-wrap:wrap; min-height:40px}
+.go{border:1px solid #D9D5CB; border-radius:2px; padding:11px 22px; font-size:14px;
+  font-weight:500; letter-spacing:.01em; transition:border-color .14s, color .14s}
+.go:hover{border-color:var(--ink)}
+.go[disabled]{color:#B9B5AA; border-color:#EAE7DE; cursor:default}
+.link{font-size:14px; color:var(--dim); box-shadow:inset 0 -1px 0 var(--rule); padding-bottom:2px}
+.link:hover{color:var(--ink); box-shadow:inset 0 -1px 0 var(--ink)}
+.exp{font-size:15.5px; line-height:1.6; color:#5C5951; max-width:58ch}
+.exp b{color:var(--ink); font-weight:600}
+
+/* end of set */
+.misses{border-top:1px solid var(--rule)}
+.miss{display:grid; grid-template-columns:27px 1fr; align-items:baseline;
+  padding:17px 0; border-bottom:1px solid var(--rule)}
+.miss .n{font-size:11.5px; font-weight:600; color:var(--dim); font-variant-numeric:tabular-nums}
+.miss .mq{font-size:16px; line-height:1.4; color:var(--ink)}
+.miss .ma{font-size:14.5px; line-height:1.5; color:var(--dim); margin-top:4px}
+.miss .ma s{text-decoration:line-through; text-decoration-thickness:1px; text-decoration-color:var(--strike)}
+.miss .ma b{color:var(--ink); font-weight:500}
+.allgood{font-size:16px; color:var(--body); padding:17px 0; border-bottom:1px solid var(--rule)}
+
+.text,.ask{transition:opacity .15s ease, transform .15s ease}
+.out{opacity:0; transform:translateY(4px)}
+@media (prefers-reduced-motion:reduce){
+  .pf,.opt,.opt .l,.text,.ask{transition:none}
+  .out{transform:none}
+}
+</style>
+
+<div class="app">
+  <div class="col">
+
+    <div class="head">
+      <span class="wm">oefenplek</span>
+      <span class="count"><b id="pos">1</b> / <span id="tot">8</span></span>
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="text" id="text">
+        <p class="kicker" id="kicker"></p>
+        <div class="body" id="body"></div>
+      </div>
+      <div class="ask" id="ask">
+        <h1 class="q" id="q"></h1>
+        <div class="opts" id="opts"></div>
+      </div>
+      <div class="resolve">
+        <div class="foot"><button class="go" id="go" disabled>Nakijken</button></div>
+        <p class="exp" id="exp" hidden></p>
+      </div>
+    </div>
+
+    <div class="stage" id="end" hidden>
+      <div class="text"><p class="kicker">Klaar</p></div>
+      <div class="ask">
+        <h1 class="q" id="score"></h1>
+        <div class="misses" id="misses"></div>
+      </div>
+      <div class="resolve">
+        <p class="exp">Geen slaaggrens: dit is oefenmateriaal, geen officieel examen.</p>
+        <div class="foot">
+          <button class="go" id="again">Herhaal de foute vragen</button>
+          <button class="link" id="restart">Opnieuw beginnen</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* Passages and questions: pilots/a2-reading-001.json, verbatim.
+   The .pf spans mark the sentence that proves each key. */
+var P = [
+{kind:"Bericht", html:
+ '<p>Beste mevrouw Bakker,</p>'+
+ '<p>Uw fiets is klaar. U kunt hem vandaag tot 18.00 uur ophalen. <span class="pf" data-ev="q1">Morgen zijn wij gesloten. Vanaf donderdag bent u weer welkom.</span></p>'+
+ '<p>De reparatie kost 28 euro. U kunt met uw bankpas of contant betalen. Neem het bonnetje mee dat u kreeg toen u de fiets bracht. <span class="pf" data-ev="q2">Bent u het bonnetje kwijt? Neem dan uw identiteitsbewijs mee.</span></p>'+
+ '<p>Met vriendelijke groet,<br>Fietsenwinkel De Hoek</p>'},
+{kind:"Mededeling", html:
+ '<p>Op vrijdag 16 oktober eten we samen in buurthuis De Linde. Iedereen uit de buurt is welkom. We beginnen om 18.30 uur. Een maaltijd kost 6 euro. Kinderen tot en met 11 jaar betalen 3 euro.</p>'+
+ '<p>Wilt u mee-eten? Meld u uiterlijk woensdag 14 oktober aan bij de balie. <span class="pf" data-ev="q3">U betaalt op vrijdag, als u binnenkomt.</span></p>'+
+ '<p>Er is soep met brood en daarna een warme maaltijd. <span class="pf" data-ev="q4">Eet u geen vlees? Vertel dat bij uw aanmelding.</span> Dan maakt de kok een maaltijd zonder vlees voor u.</p>'},
+{kind:"E-mail", html:
+ '<p>Beste ouders,</p>'+
+ '<p><span class="pf" data-ev="q5">De zwemles van zaterdag begint deze week om 10.30 uur in plaats van 10.00 uur.</span> De les duurt, zoals altijd, 45 minuten.</p>'+
+ '<p>De kleine kleedkamer wordt geschilderd. Gebruik daarom de grote kleedkamer naast de ingang. De kinderen moeten vijf minuten voor de les klaarstaan bij het zwembad.</p>'+
+ '<p>U mag tijdens de les in het caf\u00e9 wachten. <span class="pf" data-ev="q6">Na de les haalt u uw kind op bij de grote kleedkamer.</span> Volgende week begint de les weer op de gewone tijd.</p>'+
+ '<p>Groeten,<br>Het team van zwembad De Golf</p>'},
+{kind:"Advertentie", html:
+ '<p>Bloemenwinkel Roos zoekt hulp voor de zaterdag. U werkt van 9.00 tot 13.00 uur. U helpt klanten, pakt bloemen in en houdt de winkel netjes.</p>'+
+ '<p>U hoeft nog niet eerder in een bloemenwinkel te hebben gewerkt. Wij leggen uit wat u moet doen. <span class="pf" data-ev="q7">Het is wel belangrijk dat u Nederlands kunt spreken met klanten.</span></p>'+
+ '<p>Wilt u bij ons werken? <span class="pf" data-ev="q8">Stuur v\u00f3\u00f3r 20 november een e-mail naar werken@bloemenwinkel.example.</span> Schrijf daarin uw naam, uw telefoonnummer en waarom u dit werk wilt doen. Langskomen om te reageren is niet nodig.</p>'}
+];
+
+var Q = [
+{id:"q1", p:0, key:"B",
+ prompt:"Mevrouw Bakker kan vandaag niet komen. Wanneer kan zij haar fiets ophalen?",
+ opts:{A:"Morgen voor 18.00 uur.", B:"Vanaf donderdag.", C:"Alleen vandaag."},
+ why:"Morgen is de winkel gesloten. Vanaf donderdag kan mevrouw Bakker weer komen."},
+{id:"q2", p:0, key:"A",
+ prompt:"Mevrouw Bakker heeft haar bonnetje niet meer. Wat moet zij meenemen?",
+ opts:{A:"Haar identiteitsbewijs.", B:"Haar eigen fietssleutel.", C:"Een foto van haar fiets."},
+ why:"Wie het bonnetje kwijt is, moet volgens het bericht een identiteitsbewijs meenemen. Een sleutel of foto wordt niet genoemd als vervanging."},
+{id:"q3", p:1, key:"C",
+ prompt:"Wanneer betaalt u voor het eten?",
+ opts:{A:"Op woensdag, bij uw aanmelding.", B:"Op vrijdag, na de maaltijd.", C:"Op vrijdag, als u binnenkomt."},
+ why:"Aanmelden moet uiterlijk woensdag. Betalen doet u op vrijdag bij binnenkomst, dus v\u00f3\u00f3r het eten."},
+{id:"q4", p:1, key:"B",
+ prompt:"U wilt een maaltijd zonder vlees. Wat moet u doen?",
+ opts:{A:"Zelf een maaltijd meenemen.", B:"Dit zeggen als u zich aanmeldt.", C:"Wachten tot de kok het eten brengt."},
+ why:"Vertel bij de aanmelding dat u geen vlees eet. De kok kan daar dan rekening mee houden."},
+{id:"q5", p:2, key:"C",
+ prompt:"Hoe laat begint de zwemles deze zaterdag?",
+ opts:{A:"Om 10.00 uur.", B:"Om 10.25 uur.", C:"Om 10.30 uur."},
+ why:"Deze week begint de les om 10.30 uur. Om 10.25 uur moeten de kinderen klaarstaan. 10.00 uur is de gewone begintijd."},
+{id:"q6", p:2, key:"A",
+ prompt:"Waar haalt u uw kind na de les op?",
+ opts:{A:"Bij de grote kleedkamer.", B:"In het caf\u00e9 van het zwembad.", C:"Bij de kleine kleedkamer."},
+ why:"Na de les haalt u uw kind op bij de grote kleedkamer. Het caf\u00e9 is de plek waar ouders kunnen wachten. De kleine kleedkamer wordt geschilderd."},
+{id:"q7", p:3, key:"A",
+ prompt:"Wat is belangrijk als u hier wilt werken?",
+ opts:{A:"Dat u Nederlands kunt spreken met klanten.", B:"Dat u al in een bloemenwinkel hebt gewerkt.", C:"Dat u ook op zaterdagavond kunt werken."},
+ why:"U moet met klanten Nederlands kunnen spreken. Ervaring in een bloemenwinkel is niet nodig. De werktijd eindigt om 13.00 uur."},
+{id:"q8", p:3, key:"B",
+ prompt:"Hoe laat u weten dat u dit werk wilt doen?",
+ opts:{A:"U belt de winkel op zaterdag.", B:"U stuurt v\u00f3\u00f3r 20 november een e-mail.", C:"U gaat na 20 november naar de winkel."},
+ why:"In de advertentie staat dat u v\u00f3\u00f3r 20 november een e-mail moet sturen. Langskomen is niet nodig; bellen wordt niet als manier van reageren genoemd."}
+];
+
+var $ = function(id){ return document.getElementById(id); };
+var stage=$("stage"), endS=$("end"), text=$("text"), ask=$("ask"), body=$("body"),
+    kicker=$("kicker"), qEl=$("q"), opts=$("opts"), go=$("go"), exp=$("exp"),
+    pos=$("pos"), tot=$("tot");
+
+var order = [0,1,2,3,4,5,6,7], at = 0, pIdx = -1, checked = false, picked = null, answers = {};
+
+function q(){ return Q[order[at]]; }
+
+function render(){
+  var x = q();
+  if(pIdx !== x.p){
+    pIdx = x.p;
+    kicker.textContent = P[x.p].kind;
+    body.innerHTML = P[x.p].html;
+  } else {
+    Array.prototype.forEach.call(body.querySelectorAll(".pf.on"), function(e){ e.classList.remove("on"); });
+  }
+  pos.textContent = at + 1;
+  tot.textContent = order.length;
+  qEl.textContent = x.prompt;
+  opts.className = "opts";
+  opts.innerHTML = ["A","B","C"].map(function(L){
+    return '<button class="opt" data-o="'+L+'" aria-pressed="false">'+
+           '<span class="l">'+L+'</span><span class="x">'+x.opts[L]+'</span></button>';
+  }).join("");
+  exp.hidden = true;
+  go.disabled = true;
+  go.textContent = "Nakijken";
+  checked = false; picked = null;
+}
+
+function check(){
+  var x = q();
+  checked = true;
+  answers[x.id] = picked;
+  opts.classList.add("done");
+  Array.prototype.forEach.call(opts.children, function(o){
+    if(o.dataset.o === x.key) o.classList.add("key");
+    if(o.dataset.o === picked) o.classList.add("mine");
+  });
+  var ev = body.querySelector('.pf[data-ev="'+x.id+'"]');
+  if(ev) requestAnimationFrame(function(){ ev.classList.add("on"); });
+  exp.innerHTML = "<b>Het antwoord is " + x.key + ".</b> " + x.why;
+  exp.hidden = false;
+  go.textContent = (at + 1 < order.length) ? "Volgende" : "Bekijk het resultaat";
+}
+
+function advance(){
+  if(at + 1 >= order.length){ finish(); return; }
+  var moving = Q[order[at + 1]].p !== q().p;
+  var nodes = moving ? [text, ask] : [ask];
+  nodes.forEach(function(n){ n.classList.add("out"); });
+  setTimeout(function(){
+    at++; render();
+    nodes.forEach(function(n){ n.classList.remove("out"); });
+    window.scrollTo({top:0, behavior:"smooth"});
+  }, 150);
+}
+
+function finish(){
+  var right = 0, rows = "";
+  order.forEach(function(idx){
+    var x = Q[idx], mine = answers[x.id];
+    if(mine === x.key){ right++; return; }
+    rows += '<div class="miss"><span class="n">' + (idx + 1) + '</span><div>' +
+            '<p class="mq">' + x.prompt + '</p>' +
+            '<p class="ma"><s>' + x.opts[mine] + '</s> &nbsp;<b>' + x.opts[x.key] + '</b></p>' +
+            '</div></div>';
+  });
+  $("score").textContent = right + " van " + order.length + " goed.";
+  $("misses").innerHTML = rows || '<p class="allgood">Alles goed. Niets om terug te kijken.</p>';
+  $("again").hidden = !rows;
+  stage.hidden = true;
+  endS.hidden = false;
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function start(list){
+  order = list; at = 0; pIdx = -1; answers = {};
+  endS.hidden = true; stage.hidden = false;
+  render();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+opts.addEventListener("click", function(e){
+  var b = e.target.closest(".opt"); if(!b || checked) return;
+  picked = b.dataset.o;
+  Array.prototype.forEach.call(opts.children, function(o){
+    o.setAttribute("aria-pressed", String(o === b));
+  });
+  go.disabled = false;
+});
+
+go.addEventListener("click", function(){
+  if(checked) advance(); else if(picked) check();
+});
+
+$("again").addEventListener("click", function(){
+  start(order.filter(function(idx){ return answers[Q[idx].id] !== Q[idx].key; }));
+});
+$("restart").addEventListener("click", function(){ start([0,1,2,3,4,5,6,7]); });
+
+document.addEventListener("keydown", function(e){
+  if(stage.hidden || e.metaKey || e.ctrlKey || e.altKey) return;
+  var k = e.key.toUpperCase();
+  if(!checked && (k === "A" || k === "B" || k === "C")){
+    var b = opts.querySelector('.opt[data-o="' + k + '"]');
+    if(b){ b.click(); e.preventDefault(); }
+  } else if(e.key === "Enter" && !go.disabled){
+    go.click(); e.preventDefault();
+  }
+});
+
+render();
+})();
+</script>

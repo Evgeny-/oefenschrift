@@ -1,0 +1,1 @@
+export function loader({request}){return new Response(`User-agent: *\nDisallow: /ops\nDisallow: /api/\nSitemap: ${new URL(request.url).origin}/sitemap.xml\n`,{headers:{'Content-Type':'text/plain; charset=utf-8'}});}

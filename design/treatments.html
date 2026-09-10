@@ -1,0 +1,317 @@
+<title>Drie stijlen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<style>
+/* ── page frame: quiet, theme-aware, no chrome ───────────────────────── */
+:root{
+  color-scheme:light;
+  --pg:#EDEDEA; --pg-fg:#1A1B1A; --pg-dim:#787B78; --pg-line:#D6D7D3;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){ color-scheme:dark;
+    --pg:#0E0F0E; --pg-fg:#E9EAE7; --pg-dim:#83867F; --pg-line:#262825; }
+}
+:root[data-theme="dark"]{ color-scheme:dark;
+  --pg:#0E0F0E; --pg-fg:#E9EAE7; --pg-dim:#83867F; --pg-line:#262825; }
+
+*,*::before,*::after{box-sizing:border-box}
+body{background:var(--pg); color:var(--pg-fg);
+  font-family:"Instrument Sans",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased; margin:0}
+h1,h2,h3,p{margin:0}
+button{font:inherit; color:inherit; background:none; border:0; cursor:pointer; text-align:left}
+:where(button):focus-visible{outline:2px solid currentColor; outline-offset:3px}
+
+.wrap{max-width:1000px; margin:0 auto; padding:44px 24px 88px; display:grid; gap:44px}
+.intro{display:grid; gap:9px; max-width:60ch}
+.intro h1{font-size:23px; font-weight:600; letter-spacing:-.02em}
+.intro p{color:var(--pg-dim); font-size:14.5px; line-height:1.6}
+.cap{display:flex; gap:14px; align-items:baseline; padding-bottom:13px; flex-wrap:wrap}
+.cap b{font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-weight:600}
+.cap span{font-size:13.5px; color:var(--pg-dim)}
+
+/* ── shared structure of the mocked screen ───────────────────────────── */
+.scr{background:var(--bg); color:var(--fg); font-family:var(--f-ui);
+  padding:var(--pad); overflow:hidden}
+.col{max-width:var(--col); margin:0 auto; display:grid; gap:var(--gap)}
+.head{display:flex; align-items:center; justify-content:space-between; gap:20px}
+.wm{font-family:var(--f-wm); font-size:var(--wm-size); letter-spacing:var(--wm-track);
+  font-weight:var(--wm-weight); color:var(--fg)}
+.prog{display:flex; gap:5px; align-items:center}
+.prog i{display:block; width:13px; height:1px; background:var(--line)}
+.prog i.now{background:var(--fg); height:2px}
+.ptitle{font-family:var(--f-tx); font-size:var(--t-size); font-weight:var(--t-weight);
+  letter-spacing:-.01em; color:var(--fg)}
+.ptext{font-family:var(--f-tx); font-size:var(--p-size); line-height:var(--p-lead); color:var(--p-fg)}
+.ptext p + p{margin-top:.9em}
+.pf{background-image:linear-gradient(var(--mk),var(--mk)); background-repeat:no-repeat;
+  background-size:0 100%; box-decoration-break:clone; -webkit-box-decoration-break:clone;
+  padding:.06em .12em; margin:0 -.12em; border-radius:1px;
+  transition:background-size .45s cubic-bezier(.22,.7,.3,1)}
+.pf.on{background-size:100% 100%; box-shadow:inset 0 -1px 0 var(--mk-line)}
+.pf.preset{transition:none}
+.q{font-family:var(--f-q); font-size:var(--q-size); font-weight:var(--q-weight);
+  line-height:1.28; letter-spacing:var(--q-track); color:var(--fg); text-wrap:balance}
+.opts{display:grid; gap:var(--opt-gap)}
+.opt{display:grid; grid-template-columns:var(--ltr-col) 1fr; gap:var(--ltr-gap);
+  align-items:baseline; width:100%; padding:var(--opt-pad); border-radius:var(--opt-radius);
+  border:1px solid transparent; transition:opacity .3s, background .15s, border-color .15s}
+.opt .l{font-family:var(--f-ltr); font-size:var(--ltr-size); color:var(--dim);
+  font-weight:var(--ltr-weight); font-variant-numeric:tabular-nums}
+.opt .x{font-family:var(--f-tx); font-size:var(--o-size); line-height:1.4; color:var(--fg)}
+.foot{display:flex; align-items:center; gap:18px; min-height:38px}
+.exp{font-family:var(--f-ui); font-size:var(--e-size); line-height:1.55; color:var(--dim)}
+.exp b{color:var(--fg); font-weight:600}
+
+/* ══ A · inkt op papier ══════════════════════════════════════════════ */
+.t-a{--bg:#FCFBF8; --fg:#1A1917; --p-fg:#1A1917; --dim:#928F87; --line:#E2DFD6;
+  --mk:#FFE79E; --mk-line:#E3BE4B;
+  --f-ui:"Newsreader",Georgia,serif; --f-tx:"Newsreader",Georgia,serif;
+  --f-q:"Newsreader",Georgia,serif; --f-ltr:"Newsreader",Georgia,serif; --f-wm:"Newsreader",Georgia,serif;
+  --pad:clamp(34px,6vw,78px); --col:552px; --gap:44px;
+  --wm-size:17px; --wm-weight:400; --wm-track:.01em;
+  --t-size:17px; --t-weight:500; --p-size:19.5px; --p-lead:1.78;
+  --q-size:23px; --q-weight:400; --q-track:-.005em;
+  --opt-gap:4px; --opt-pad:7px 0 7px 0; --opt-radius:0;
+  --ltr-col:22px; --ltr-gap:14px; --ltr-size:15px; --ltr-weight:400;
+  --o-size:18.5px; --e-size:16px}
+.t-a .ptitle{font-style:italic; font-weight:400; color:#5E5B54}
+.t-a .opt:hover .x{text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1px;
+  text-decoration-color:#CFCBC1}
+.t-a .opt[aria-pressed="true"] .l{color:#1A1917}
+.t-a .opt[aria-pressed="true"] .x{box-shadow:inset 0 -1px 0 #1A1917}
+.t-a .opts.done .opt{pointer-events:none}
+.t-a .opts.done .opt:not(.key){opacity:.28}
+.t-a .opts.done .opt.mine:not(.key){opacity:.66}
+.t-a .opts.done .opt.mine:not(.key) .x{text-decoration:line-through; text-decoration-thickness:1px; text-decoration-color:#C0BBAE}
+.t-a .opts.done .opt.key .l{color:#1A1917}
+.t-a .go{font-family:"Newsreader",Georgia,serif; font-size:17px; color:#1A1917;
+  box-shadow:inset 0 -1px 0 #1A1917; padding-bottom:2px}
+.t-a .go:hover{box-shadow:inset 0 -2px 0 #1A1917}
+.t-a .go[disabled]{color:#B6B2A8; box-shadow:inset 0 -1px 0 #DCD8CE; cursor:default}
+.t-a .exp{font-style:italic; color:#5E5B54}
+
+/* ══ B · zacht daglicht ══════════════════════════════════════════════ */
+.t-b{--bg:#F1F0EC; --fg:#22251F; --p-fg:#22251F; --dim:#7B7F76; --line:#DFDED7;
+  --mk:#F7E7AE; --mk-line:#D6B85C;
+  --f-ui:"Instrument Sans",sans-serif; --f-tx:"Instrument Sans",sans-serif;
+  --f-q:"Instrument Sans",sans-serif; --f-ltr:"Instrument Sans",sans-serif; --f-wm:"Instrument Sans",sans-serif;
+  --pad:clamp(26px,4vw,52px); --col:600px; --gap:30px;
+  --wm-size:15px; --wm-weight:600; --wm-track:-.02em;
+  --t-size:15px; --t-weight:600; --p-size:17.5px; --p-lead:1.72;
+  --q-size:21px; --q-weight:600; --q-track:-.022em;
+  --opt-gap:7px; --opt-pad:15px 17px; --opt-radius:11px;
+  --ltr-col:19px; --ltr-gap:13px; --ltr-size:13.5px; --ltr-weight:600;
+  --o-size:16.5px; --e-size:14.5px}
+.t-b .card{background:#FEFEFD; border-radius:20px; padding:clamp(26px,4vw,44px);
+  box-shadow:0 1px 2px rgb(34 37 31 / .05), 0 26px 50px -42px rgb(34 37 31 / .55); display:grid; gap:30px}
+.t-b .ptitle{color:#6C7168}
+.t-b .ptext{background:#F6F5F1; border-radius:14px; padding:22px 24px}
+.t-b .opt{border-color:#E6E5DE; background:#FEFEFD}
+.t-b .opt:hover{border-color:#C9CFC6; background:#F8F9F6}
+.t-b .opt[aria-pressed="true"]{border-color:#4C6E60; background:#EDF3EF}
+.t-b .opt[aria-pressed="true"] .l{color:#4C6E60}
+.t-b .opts.done .opt{pointer-events:none}
+.t-b .opts.done .opt:not(.key):not(.mine){opacity:.42}
+.t-b .opts.done .opt.key{border-color:#4C6E60; background:#EAF1EC}
+.t-b .opts.done .opt.key .l{color:#4C6E60}
+.t-b .opts.done .opt.mine:not(.key){border-color:#B0685A; background:#F7ECE8}
+.t-b .opts.done .opt.mine:not(.key) .l{color:#B0685A}
+.t-b .go{background:#2E3B33; color:#F4F5F1; border-radius:999px; padding:11px 22px; font-weight:500; font-size:14.5px}
+.t-b .go:hover{background:#4C6E60}
+.t-b .go[disabled]{background:#DFDED7; color:#9FA39A; cursor:default}
+.t-b .exp{background:#F6F5F1; border-radius:12px; padding:16px 18px}
+
+/* ══ C · nachtlicht ═════════════════════════════════════════════════ */
+.t-c{--bg:#121110; --fg:#F3F0E9; --p-fg:#CFCBC0; --dim:#7E7A70; --line:#2B2926;
+  --mk:rgb(232 179 60 / .30); --mk-line:rgb(232 179 60 / .78);
+  --f-ui:"Archivo",sans-serif; --f-tx:"Archivo",sans-serif;
+  --f-q:"Instrument Serif",Georgia,serif; --f-ltr:"Archivo",sans-serif; --f-wm:"Archivo",sans-serif;
+  --pad:clamp(30px,5vw,72px); --col:660px; --gap:38px;
+  --wm-size:14px; --wm-weight:500; --wm-track:.02em;
+  --t-size:12px; --t-weight:500; --p-size:17px; --p-lead:1.75;
+  --q-size:34px; --q-weight:400; --q-track:-.01em;
+  --opt-gap:0; --opt-pad:17px 2px; --opt-radius:0;
+  --ltr-col:24px; --ltr-gap:16px; --ltr-size:12px; --ltr-weight:500;
+  --o-size:17px; --e-size:14.5px}
+.t-c .ptitle{letter-spacing:.16em; text-transform:uppercase; color:#7E7A70}
+.t-c .opt{border-bottom:1px solid #2B2926; border-radius:0}
+.t-c .opts{border-top:1px solid #2B2926}
+.t-c .opt:hover .x{color:#fff}
+.t-c .opt[aria-pressed="true"] .l{color:#E8B33C}
+.t-c .opt[aria-pressed="true"] .x{color:#fff}
+.t-c .opts.done .opt{pointer-events:none}
+.t-c .opts.done .opt:not(.key){opacity:.3}
+.t-c .opts.done .opt.mine:not(.key){opacity:.66}
+.t-c .opts.done .opt.mine:not(.key) .x{text-decoration:line-through; text-decoration-thickness:1px; text-decoration-color:#6B655B}
+.t-c .opts.done .opt.key .l{color:#E8B33C}
+.t-c .opts.done .opt.key .x{color:#fff}
+.t-c .go{border:1px solid #45413B; border-radius:2px; padding:10px 20px; font-size:13.5px;
+  letter-spacing:.04em; color:#F3F0E9}
+.t-c .go:hover{border-color:#E8B33C; color:#E8B33C}
+.t-c .go[disabled]{color:#57534C; border-color:#2B2926; cursor:default}
+.t-c .exp{color:#A5A096}
+.t-c .exp b{color:#F3F0E9}
+
+@media (max-width:620px){
+  .wrap{padding:28px 14px 60px; gap:32px}
+  .t-c{--q-size:27px}
+}
+@media (prefers-reduced-motion:reduce){ .pf{transition:none} }
+</style>
+<style>.grp{display:grid; gap:15px}.qgrp{display:grid; gap:22px}</style>
+
+<div class="wrap">
+
+  <div class="intro">
+    <h1>One question, three ways</h1>
+    <p>The same question from the A2 reading set, three times. Everything that was not needed in order to read and answer is gone: no menu, no status bar, no section labels, no disclaimers on the working screen. Pick an answer, then check it — the sentence that proves it lights up in the text.</p>
+  </div>
+
+  <!-- ══════════════ A ══════════════ -->
+  <section>
+    <div class="cap"><b>A &middot; Ink on paper</b><span>One serif for everything. No boxes, no rules. Wrong answers simply fade away.</span></div>
+    <div class="scr t-a" data-state="done">
+      <div class="col">
+        <div class="head">
+          <span class="wm">oefenplek</span>
+          <span class="prog" aria-label="Vraag 1 van 8"><i class="now"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="grp">
+          <p class="ptitle">Een bericht van de fietsenmaker</p>
+          <div class="ptext">
+            <p>Beste mevrouw Bakker,</p>
+            <p>Uw fiets is klaar. U kunt hem vandaag tot 18.00 uur ophalen. <span class="pf on preset">Morgen zijn wij gesloten. Vanaf donderdag bent u weer welkom.</span></p>
+            <p>De reparatie kost 28 euro. U kunt met uw bankpas of contant betalen.</p>
+          </div>
+        </div>
+        <div class="qgrp">
+          <h3 class="q">Mevrouw Bakker kan vandaag niet komen. Wanneer kan zij haar fiets ophalen?</h3>
+          <div class="opts done">
+            <button class="opt mine" data-o="A" aria-pressed="true"><span class="l">A</span><span class="x">Morgen voor 18.00 uur.</span></button>
+            <button class="opt key" data-o="B" aria-pressed="false"><span class="l">B</span><span class="x">Vanaf donderdag.</span></button>
+            <button class="opt" data-o="C" aria-pressed="false"><span class="l">C</span><span class="x">Alleen vandaag.</span></button>
+          </div>
+        </div>
+        <div class="foot"><button class="go">Volgende</button></div>
+        <p class="exp"><b>Het antwoord is B.</b> Morgen is de winkel gesloten. Vanaf donderdag kan zij komen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ B ══════════════ -->
+  <section>
+    <div class="cap"><b>B &middot; Soft daylight</b><span>One card, muted colour, rounded edges. The gentlest of the three on a phone.</span></div>
+    <div class="scr t-b">
+      <div class="col">
+        <div class="card">
+          <div class="head">
+            <span class="wm">oefenplek</span>
+            <span class="prog" aria-label="Vraag 1 van 8"><i class="now"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+          <div class="grp">
+            <p class="ptitle">Een bericht van de fietsenmaker</p>
+            <div class="ptext">
+              <p>Beste mevrouw Bakker,</p>
+              <p>Uw fiets is klaar. U kunt hem vandaag tot 18.00 uur ophalen. <span class="pf">Morgen zijn wij gesloten. Vanaf donderdag bent u weer welkom.</span></p>
+              <p>De reparatie kost 28 euro. U kunt met uw bankpas of contant betalen.</p>
+            </div>
+          </div>
+          <div class="qgrp">
+            <h3 class="q">Mevrouw Bakker kan vandaag niet komen. Wanneer kan zij haar fiets ophalen?</h3>
+            <div class="opts">
+              <button class="opt" data-o="A" aria-pressed="false"><span class="l">A</span><span class="x">Morgen voor 18.00 uur.</span></button>
+              <button class="opt" data-o="B" aria-pressed="false"><span class="l">B</span><span class="x">Vanaf donderdag.</span></button>
+              <button class="opt" data-o="C" aria-pressed="false"><span class="l">C</span><span class="x">Alleen vandaag.</span></button>
+            </div>
+          </div>
+          <div class="foot"><button class="go" disabled>Nakijken</button></div>
+          <p class="exp" hidden><b>Het antwoord is B.</b> Morgen is de winkel gesloten. Vanaf donderdag kan zij komen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ C ══════════════ -->
+  <section>
+    <div class="cap"><b>C &middot; Night</b><span>Dark ground, large headline, amber marker. The most opinionated of the three.</span></div>
+    <div class="scr t-c">
+      <div class="col">
+        <div class="head">
+          <span class="wm">oefenplek</span>
+          <span class="prog" aria-label="Vraag 1 van 8"><i class="now"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="grp">
+          <p class="ptitle">Bericht</p>
+          <div class="ptext">
+            <p>Beste mevrouw Bakker,</p>
+            <p>Uw fiets is klaar. U kunt hem vandaag tot 18.00 uur ophalen. <span class="pf">Morgen zijn wij gesloten. Vanaf donderdag bent u weer welkom.</span></p>
+            <p>De reparatie kost 28 euro. U kunt met uw bankpas of contant betalen.</p>
+          </div>
+        </div>
+        <div class="qgrp">
+          <h3 class="q">Mevrouw Bakker kan vandaag niet komen. Wanneer kan zij haar fiets ophalen?</h3>
+          <div class="opts">
+            <button class="opt" data-o="A" aria-pressed="false"><span class="l">A</span><span class="x">Morgen voor 18.00 uur.</span></button>
+            <button class="opt" data-o="B" aria-pressed="false"><span class="l">B</span><span class="x">Vanaf donderdag.</span></button>
+            <button class="opt" data-o="C" aria-pressed="false"><span class="l">C</span><span class="x">Alleen vandaag.</span></button>
+          </div>
+        </div>
+        <div class="foot"><button class="go" disabled>Nakijken</button></div>
+        <p class="exp" hidden><b>Het antwoord is B.</b> Morgen is de winkel gesloten. Vanaf donderdag kan zij komen.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+document.querySelectorAll(".scr").forEach(function(scr){
+  var opts = scr.querySelector(".opts"),
+      go   = scr.querySelector(".go"),
+      exp  = scr.querySelector(".exp"),
+      pf   = scr.querySelector(".pf"),
+      done = scr.dataset.state === "done",
+      picked = null;
+
+  function reset(){
+    done = false; picked = null;
+    opts.classList.remove("done");
+    opts.querySelectorAll(".opt").forEach(function(o){
+      o.classList.remove("key","mine");
+      o.setAttribute("aria-pressed","false");
+    });
+    pf.classList.remove("on","preset");
+    exp.hidden = true;
+    go.disabled = true;
+    go.textContent = "Nakijken";
+  }
+
+  function check(){
+    done = true;
+    opts.classList.add("done");
+    opts.querySelectorAll(".opt").forEach(function(o){
+      if(o.dataset.o === "B") o.classList.add("key");
+      if(o === picked) o.classList.add("mine");
+    });
+    pf.classList.remove("preset");
+    requestAnimationFrame(function(){ pf.classList.add("on"); });
+    exp.hidden = false;
+    go.textContent = "Volgende";
+  }
+
+  opts.addEventListener("click", function(e){
+    var b = e.target.closest(".opt"); if(!b || done) return;
+    picked = b;
+    opts.querySelectorAll(".opt").forEach(function(o){
+      o.setAttribute("aria-pressed", String(o === b));
+    });
+    go.disabled = false;
+  });
+
+  go.addEventListener("click", function(){
+    if(done) reset(); else if(picked) check();
+  });
+});
+</script>

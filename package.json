@@ -1,0 +1,50 @@
+{
+  "name": "inburgering",
+  "private": true,
+  "scripts": {
+    "dev": "tsx scripts/prepare.ts && tsx watch server/index.ts",
+    "build": "tsx scripts/prepare.ts && react-router build",
+    "start": "NODE_ENV=production tsx server/index.ts",
+    "typecheck": "react-router typegen && tsc --noEmit",
+    "test": "tsx --test tests/*.test.mjs tests/*.test.ts",
+    "test:browser": "tsx scripts/prepare.ts && tsx tests/browser/run.ts",
+    "content:verify": "tsx scripts/content.ts",
+    "db:backup": "tsx scripts/database-backup.ts",
+    "check": "npm run typecheck && npm test && npm run build",
+    "content:integrate": "tsx scripts/content.ts --write",
+    "test:production": "npm run build && tsx tests/browser/run.ts --production",
+    "audio": "tsx scripts/audio.ts",
+    "audio:generate": "tsx scripts/audio.ts --generate",
+    "admin:password": "tsx scripts/admin-password.ts",
+    "batch:check": "tsx scripts/batch-check.ts",
+    "illustrate": "tsx scripts/illustrate.ts",
+    "illustrate:generate": "tsx scripts/illustrate.ts --generate",
+    "hints:refresh": "tsx scripts/hints-refresh.ts"
+  },
+  "dependencies": {
+    "@base-ui/react": "1.8.0",
+    "@react-router/express": "8.3.1",
+    "@react-router/node": "8.3.1",
+    "echarts": "^5.6.0",
+    "express": "5.1.0",
+    "isbot": "5.2.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-router": "8.3.1"
+  },
+  "devDependencies": {
+    "@react-router/dev": "8.3.1",
+    "@types/express": "5.0.6",
+    "@types/node": "24.13.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "esbuild": "0.28.2",
+    "tsx": "4.23.13",
+    "typescript": "6.0.2",
+    "vite": "8.2.2"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22.22.0"
+  }
+}

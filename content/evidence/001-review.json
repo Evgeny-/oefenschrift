@@ -1,0 +1,23 @@
+{
+  "review_id": "existing-closed-evidence-review-001",
+  "source": "content/evidence/001-existing.json",
+  "source_sha256": "d448d511c13bb5cbf435c82dadeb298e9d111149315a5ed32b2cbe8c57874ba2",
+  "catalogue": "content/catalogue.json",
+  "review_type": "AI editorial and exact-substring review",
+  "verdict": "pass",
+  "ready_for_integration": true,
+  "checks": {
+    "json_parses": true,
+    "catalogue_closed_items": 25,
+    "evidence_items": 25,
+    "catalogue_closed_questions": 56,
+    "evidence_questions": 56,
+    "missing_items": 0,
+    "extra_items": 0,
+    "missing_questions": 0,
+    "non_verbatim_quotes": 0,
+    "invalid_answer_keys": 0
+  },
+  "evidence_assessment": "Each quote is an exact substring of its current catalogue item and supports the corresponding keyed answer. The underlying closed items were also covered by the pilot, batch 001, and batch 002 editorial reviews.",
+  "limitations": "This is an AI editorial review. The evidence mapping makes answer support traceable but does not validate language level, difficulty, official equivalence, or learner performance. Any change to the evidence file or catalogue source invalidates this hash gate and requires review."
+}

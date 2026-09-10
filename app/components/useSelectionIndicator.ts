@@ -1,0 +1,28 @@
+import {useLayoutEffect,useRef,useState} from 'react';
+
+// Decorative motion follows the real controls; their semantics stay with Base UI.
+export default function useSelectionIndicator(value){
+  const ref=useRef<HTMLDivElement>(null),[position,setPosition]=useState(null),[animated,setAnimated]=useState(false);
+  useLayoutEffect(()=>{
+    let active=true,first,second;
+    Promise.resolve(document.fonts?.ready).then(()=>{if(active)first=requestAnimationFrame(()=>{second=requestAnimationFrame(()=>{if(active)setAnimated(true);});});});
+    return ()=>{active=false;cancelAnimationFrame(first);cancelAnimationFrame(second);};
+  },[]);
+  useLayoutEffect(()=>{
+    const container=ref.current;if(!container)return;
+    let active=true;
+    const measure=()=>{
+      if(!active)return;
+      const choice=[...container.querySelectorAll<HTMLElement>('[data-choice]')].find(node=>node.dataset.choice===String(value));
+      if(!choice)return;
+      const bounds=choice.getBoundingClientRect(),parent=container.getBoundingClientRect();
+      const next={x:bounds.left-parent.left-container.clientLeft,width:bounds.width};
+      setPosition(old=>old?.x===next.x&&old?.width===next.width?old:next);
+    };
+    measure();const observer=new ResizeObserver(measure);observer.observe(container);
+    container.querySelectorAll<HTMLElement>('[data-choice]').forEach(node=>observer.observe(node));
+    document.fonts?.ready.then(measure);
+    return ()=>{active=false;observer.disconnect();};
+  },[value]);
+  return {ref,style:position?{width:position.width,transform:`translateX(${position.x}px)`}:undefined,positioned:!!position,animated};
+}

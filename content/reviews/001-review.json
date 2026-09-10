@@ -1,0 +1,91 @@
+{
+  "review_id": "batch001-editorial-review",
+  "source": "content/batches/001-original.json",
+  "source_sha256": "f433aa6c6339d7343078d72cee6b792b517d143fa8223466cb21a6d3ec0ad29c",
+  "review_type": "AI editorial review",
+  "rubric": "content/reviews/rubric.md",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 8,
+    "counts_by_part": {
+      "reading": 2,
+      "listening": 2,
+      "writing": 2,
+      "speaking": 2
+    },
+    "official_equivalence_claim": false
+  },
+  "items": [
+    {
+      "id": "A2:reading:batch001-pakketpunt:1",
+      "verdict": "pass",
+      "evidence": [
+        "q1 answer B follows from: ‘Neem de code 6049 en een identiteitsbewijs mee.’",
+        "q2 answer C follows from: ‘Morgen kunt u het pakket tussen 12.00 en 19.00 uur ophalen.’"
+      ]
+    },
+    {
+      "id": "A2:reading:batch001-sporthal:1",
+      "verdict": "pass",
+      "evidence": [
+        "q1 answer A follows from: ‘In deze week gebruikt iedereen de ingang aan de Parkweg.’",
+        "q2 answer C follows from: ‘De lessen en wedstrijden beginnen op de gewone tijden.’"
+      ]
+    },
+    {
+      "id": "A2:listening:batch001-markt:1",
+      "verdict": "pass",
+      "evidence": [
+        "q1 answer A follows from: ‘U kunt tot drie uur boodschappen doen.’",
+        "q2 answer B follows from: ‘de markt sluit vandaag een uur eerder door de harde wind.’"
+      ]
+    },
+    {
+      "id": "A2:listening:batch001-schoolreis:1",
+      "verdict": "pass",
+      "evidence": [
+        "q1 answer A follows from: ‘De kinderen moeten om acht uur op school zijn.’",
+        "q2 answer C follows from: ‘Geef uw kind brood en drinken mee.’"
+      ]
+    },
+    {
+      "id": "A2:writing:batch001-ladder:1",
+      "verdict": "pass",
+      "evidence": [
+        "The prompt establishes the lamp and missing ladder; the three criteria ask for permission, purpose, and return time.",
+        "The two non-null quotes occur verbatim in the sample; the null marks the omitted return time. The model supplies all three goals."
+      ]
+    },
+    {
+      "id": "A2:writing:batch001-cursus:1",
+      "verdict": "pass",
+      "evidence": [
+        "The three criteria directly cover joining, the day, and the price requested by the task.",
+        "The two non-null quotes occur verbatim in the sample; the null marks the omitted price question. The model supplies all three goals."
+      ]
+    },
+    {
+      "id": "A2:speaking:batch001-apotheek:1",
+      "verdict": "pass",
+      "evidence": [
+        "The prompt gives the setting, symptom, and duration; the criteria require the symptom, its duration, and a request for help.",
+        "The two non-null quotes occur verbatim in the sample; the null marks the omitted request for help. The model supplies all three goals."
+      ]
+    },
+    {
+      "id": "A2:speaking:batch001-koelkast:1",
+      "verdict": "pass",
+      "evidence": [
+        "The criteria turn the call into three clear goals: name the appliance, describe the fault, and ask when someone can come.",
+        "The two non-null quotes occur verbatim in the sample; the null marks the omitted appointment question. The model supplies all three goals."
+      ]
+    }
+  ],
+  "limitations": [
+    "This review assesses editorial quality, answer logic, schema consistency, and apparent A2 suitability. It is not an independent human difficulty calibration and does not establish equivalence with an official exam.",
+    "The listening items were reviewed as transcripts. Their future audio still needs a full listening check for pronunciation, pacing, numeric clarity, and answer-revealing emphasis."
+  ]
+}

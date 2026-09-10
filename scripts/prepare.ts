@@ -1,0 +1,10 @@
+import {cp,mkdir} from 'node:fs/promises';
+import {existsSync} from 'node:fs';
+import {build} from 'esbuild';
+import {checkContent} from './content';
+await checkContent();
+await mkdir('public',{recursive:true});
+await cp('demo/fonts','public/fonts',{recursive:true});
+await cp('demo/audio','public/audio',{recursive:true});
+if(existsSync('demo/images'))await cp('demo/images','public/images',{recursive:true});
+await build({entryPoints:['app/theme-init.ts'],outfile:'public/theme.js',bundle:true,minify:true,format:'iife'});

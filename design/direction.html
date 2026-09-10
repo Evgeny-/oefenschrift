@@ -1,0 +1,210 @@
+<title>Oefenplek Lezen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&family=Fira+Sans:wght@400;500;600&display=swap">
+<style>
+/* ── page frame ──────────────────────────────────────────────────────── */
+:root{ color-scheme:light; --pg:#E7E5DF; --pg-fg:#1E1D1A; --pg-dim:#7C7A72; }
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){ color-scheme:dark; --pg:#121211; --pg-fg:#E8E7E2; --pg-dim:#84837B; } }
+:root[data-theme="dark"]{ color-scheme:dark; --pg:#121211; --pg-fg:#E8E7E2; --pg-dim:#84837B; }
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0; background:var(--pg); color:var(--pg-fg);
+  font-family:"Libre Franklin",Helvetica,Arial,sans-serif; font-size:15px; line-height:1.5;
+  -webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0}
+button{font:inherit; color:inherit; background:none; border:0; cursor:pointer; text-align:left}
+:where(button):focus-visible{outline:2px solid currentColor; outline-offset:3px}
+
+.wrap{max-width:940px; margin:0 auto; padding:42px 22px 84px; display:grid; gap:40px}
+.intro{display:grid; gap:9px; max-width:62ch}
+.intro h1{font-size:22px; font-weight:600; letter-spacing:-.022em}
+.intro p{color:var(--pg-dim); font-size:14.5px; line-height:1.6}
+.cap{display:flex; gap:13px; align-items:baseline; flex-wrap:wrap; padding-bottom:12px}
+.cap b{font-size:11.5px; letter-spacing:.15em; text-transform:uppercase; font-weight:600}
+.cap span{font-size:13.5px; color:var(--pg-dim)}
+
+/* ── the screen ──────────────────────────────────────────────────────── */
+.scr{
+  --paper:#FCFBF8; --ink:#1A1917; --body:#3B3934; --dim:#96938A;
+  --rule:#E3E0D7; --mk:#FFE79E; --mk-line:#E0BB49;
+  background:var(--paper); color:var(--ink); padding:clamp(32px,5vw,74px);
+  font-family:var(--face); overflow:hidden;
+}
+.scr.franklin{--face:"Libre Franklin",Helvetica,Arial,sans-serif}
+.scr.fira{--face:"Fira Sans",Helvetica,Arial,sans-serif}
+
+.col{max-width:648px; margin:0 auto; display:grid; gap:42px}
+.head{display:flex; align-items:baseline; justify-content:space-between; gap:20px}
+.wm{font-size:15px; font-weight:600; letter-spacing:-.022em}
+.count{font-size:13px; color:var(--dim); font-variant-numeric:tabular-nums; letter-spacing:.02em}
+.count b{color:var(--ink); font-weight:500}
+
+.text{display:grid; gap:14px}
+.kicker{font-size:10.5px; font-weight:500; letter-spacing:.19em; text-transform:uppercase; color:var(--dim)}
+.body{font-size:17px; line-height:1.72; color:var(--body); max-width:58ch}
+.body p + p{margin-top:.85em}
+.pf{background-image:linear-gradient(var(--mk),var(--mk)); background-repeat:no-repeat;
+  background-size:0 100%; box-decoration-break:clone; -webkit-box-decoration-break:clone;
+  padding:.07em .13em; margin:0 -.13em; border-radius:1px; color:var(--ink);
+  transition:background-size .45s cubic-bezier(.22,.7,.3,1)}
+.pf.on{background-size:100% 100%; box-shadow:inset 0 -1px 0 var(--mk-line)}
+.pf.preset{transition:none}
+
+.ask{display:grid; gap:30px}
+.q{font-size:clamp(25px,3.4vw,33px); font-weight:600; line-height:1.18; letter-spacing:-.028em;
+  text-wrap:balance; max-width:22ch}
+
+.opts{border-top:1px solid var(--rule)}
+.opt{display:grid; grid-template-columns:27px 1fr; align-items:baseline; width:100%;
+  padding:18px 2px 18px 0; border-bottom:1px solid var(--rule);
+  transition:opacity .3s ease, box-shadow .12s}
+.opt .l{font-size:11.5px; font-weight:600; letter-spacing:.1em; color:var(--dim);
+  padding:.1em .18em; margin-left:-.18em; border-radius:1px;
+  background-image:linear-gradient(var(--mk),var(--mk)); background-repeat:no-repeat;
+  background-size:0 100%; transition:background-size .45s cubic-bezier(.22,.7,.3,1)}
+.opt .x{font-size:17.5px; line-height:1.42; color:var(--body)}
+.opt:hover .x{color:var(--ink)}
+.opt:hover .l{color:var(--ink)}
+.opt[aria-pressed="true"]{box-shadow:inset 2px 0 0 var(--ink); padding-left:14px}
+.opt[aria-pressed="true"] .l,.opt[aria-pressed="true"] .x{color:var(--ink)}
+
+.opts.done .opt{pointer-events:none; box-shadow:none; padding-left:0}
+.opts.done .opt:not(.key){opacity:.3}
+.opts.done .opt.mine:not(.key){opacity:.62}
+.opts.done .opt.mine:not(.key) .x{text-decoration:line-through; text-decoration-thickness:1px;
+  text-decoration-color:#BFBAAD}
+.opts.done .opt.key .l{background-size:100% 100%; color:var(--ink); box-shadow:inset 0 -1px 0 var(--mk-line)}
+.opts.done .opt.key .x{color:var(--ink)}
+.opt .l.preset,.opts.done .opt.key .l.preset{transition:none}
+
+.foot{display:flex; align-items:center; gap:20px; min-height:40px}
+.go{border:1px solid #D9D5CB; border-radius:2px; padding:11px 22px; font-size:14px;
+  font-weight:500; letter-spacing:.01em; transition:border-color .14s, color .14s}
+.go:hover{border-color:var(--ink)}
+.go[disabled]{color:#B9B5AA; border-color:#EAE7DE; cursor:default}
+.exp{font-size:15.5px; line-height:1.6; color:#5C5951; max-width:58ch}
+.exp b{color:var(--ink); font-weight:600}
+
+@media (max-width:620px){ .wrap{padding:26px 12px 56px; gap:30px} .col{gap:32px} }
+@media (prefers-reduced-motion:reduce){ .pf,.opt .l{transition:none} }
+</style>
+
+<div class="wrap">
+
+  <div class="intro">
+    <h1>C's structure, A's paper, plainer type</h1>
+    <p>The large question, the hairline rows and the kicker label come from the dark treatment. The warm paper, ink and yellow marker come from the light one. Both screens below are identical apart from the typeface, which is the one thing still open. The first opens on an answer that was wrong; press <i>Volgende</i> to reset either of them.</p>
+  </div>
+
+  <section>
+    <div class="cap"><b>Libre Franklin</b><span>A Franklin Gothic revival. Editorial authority at large sizes, invisible at small ones.</span></div>
+    <div class="scr franklin" data-state="done">
+      <div class="col">
+        <div class="head">
+          <span class="wm">oefenplek</span>
+          <span class="count"><b>1</b> / 8</span>
+        </div>
+        <div class="text">
+          <p class="kicker">Bericht</p>
+          <div class="body">
+            <p>Beste mevrouw Bakker,</p>
+            <p>Uw fiets is klaar. U kunt hem vandaag tot 18.00 uur ophalen. <span class="pf on preset">Morgen zijn wij gesloten. Vanaf donderdag bent u weer welkom.</span></p>
+            <p>De reparatie kost 28 euro. U kunt met uw bankpas of contant betalen.</p>
+          </div>
+        </div>
+        <div class="ask">
+          <h3 class="q">Mevrouw Bakker kan vandaag niet komen. Wanneer kan zij haar fiets ophalen?</h3>
+          <div class="opts done">
+            <button class="opt mine" data-o="A" aria-pressed="true"><span class="l">A</span><span class="x">Morgen voor 18.00 uur.</span></button>
+            <button class="opt key" data-o="B" aria-pressed="false"><span class="l preset">B</span><span class="x">Vanaf donderdag.</span></button>
+            <button class="opt" data-o="C" aria-pressed="false"><span class="l">C</span><span class="x">Alleen vandaag.</span></button>
+          </div>
+        </div>
+        <div class="foot"><button class="go">Volgende</button></div>
+        <p class="exp"><b>Het antwoord is B.</b> Morgen is de winkel gesloten. Vanaf donderdag kan zij komen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cap"><b>Fira Sans</b><span>Humanist, drawn for small screens. Warmer and slightly rounder at reading size.</span></div>
+    <div class="scr fira">
+      <div class="col">
+        <div class="head">
+          <span class="wm">oefenplek</span>
+          <span class="count"><b>1</b> / 8</span>
+        </div>
+        <div class="text">
+          <p class="kicker">Bericht</p>
+          <div class="body">
+            <p>Beste mevrouw Bakker,</p>
+            <p>Uw fiets is klaar. U kunt hem vandaag tot 18.00 uur ophalen. <span class="pf">Morgen zijn wij gesloten. Vanaf donderdag bent u weer welkom.</span></p>
+            <p>De reparatie kost 28 euro. U kunt met uw bankpas of contant betalen.</p>
+          </div>
+        </div>
+        <div class="ask">
+          <h3 class="q">Mevrouw Bakker kan vandaag niet komen. Wanneer kan zij haar fiets ophalen?</h3>
+          <div class="opts">
+            <button class="opt" data-o="A" aria-pressed="false"><span class="l">A</span><span class="x">Morgen voor 18.00 uur.</span></button>
+            <button class="opt" data-o="B" aria-pressed="false"><span class="l">B</span><span class="x">Vanaf donderdag.</span></button>
+            <button class="opt" data-o="C" aria-pressed="false"><span class="l">C</span><span class="x">Alleen vandaag.</span></button>
+          </div>
+        </div>
+        <div class="foot"><button class="go" disabled>Nakijken</button></div>
+        <p class="exp" hidden><b>Het antwoord is B.</b> Morgen is de winkel gesloten. Vanaf donderdag kan zij komen.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+document.querySelectorAll(".scr").forEach(function(scr){
+  var opts = scr.querySelector(".opts"),
+      go   = scr.querySelector(".go"),
+      exp  = scr.querySelector(".exp"),
+      pf   = scr.querySelector(".pf"),
+      done = scr.dataset.state === "done",
+      picked = null;
+
+  function reset(){
+    done = false; picked = null;
+    opts.classList.remove("done");
+    opts.querySelectorAll(".opt").forEach(function(o){
+      o.classList.remove("key","mine");
+      o.setAttribute("aria-pressed","false");
+      o.querySelector(".l").classList.remove("preset");
+    });
+    pf.classList.remove("on","preset");
+    exp.hidden = true;
+    go.disabled = true;
+    go.textContent = "Nakijken";
+  }
+
+  function check(){
+    done = true;
+    opts.classList.add("done");
+    opts.querySelectorAll(".opt").forEach(function(o){
+      if(o.dataset.o === "B") o.classList.add("key");
+      if(o === picked) o.classList.add("mine");
+    });
+    pf.classList.remove("preset");
+    requestAnimationFrame(function(){ pf.classList.add("on"); });
+    exp.hidden = false;
+    go.textContent = "Volgende";
+  }
+
+  opts.addEventListener("click", function(e){
+    var b = e.target.closest(".opt"); if(!b || done) return;
+    picked = b;
+    opts.querySelectorAll(".opt").forEach(function(o){
+      o.setAttribute("aria-pressed", String(o === b));
+    });
+    go.disabled = false;
+  });
+
+  go.addEventListener("click", function(){ if(done) reset(); else if(picked) check(); });
+});
+</script>

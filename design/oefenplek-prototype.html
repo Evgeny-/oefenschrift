@@ -1,0 +1,1678 @@
+<title>Oefenplek</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<style>
+/* ============================================================
+   OEFENPLEK — design concept, clickable prototype
+   Ink on paper. The only colour in the interface is the colour
+   a person would mark on the page: yellow for the evidence,
+   pale blue for their own answer.
+   ============================================================ */
+
+:root{
+  color-scheme: light;
+  --ground:#E6E9E8;
+  --sheet:#FCFDFD;
+  --sheet-2:#EFF3F2;
+  --ink:#14191B;
+  --ink-2:#4E5A5C;
+  --ink-3:#7A8889;
+  --rule:#CED6D5;
+  --rule-2:#E0E6E5;
+  --brand:#0E4750;
+  --brand-2:#0A363D;
+  --brand-ink:#FFFFFF;
+  --brand-wash:#DCE7E7;
+  --mark:#F5E272;
+  --mark-line:#D9BE1F;
+  --pick:#CBDCE6;
+  --good:#2C6A4F;
+  --good-wash:#E3EEE8;
+  --bad:#9E3B2C;
+  --bad-wash:#F5E5E1;
+  --note:#8A6D18;
+  --shadow: 0 1px 0 rgb(20 25 27 / .04), 0 18px 40px -34px rgb(20 25 27 / .55);
+  --sans:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --serif:"Literata",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#101516;
+    --sheet:#181E20;
+    --sheet-2:#1E2527;
+    --ink:#E7EBEA;
+    --ink-2:#A2AEAF;
+    --ink-3:#7B8889;
+    --rule:#2C3537;
+    --rule-2:#232B2D;
+    --brand:#6FC5CF;
+    --brand-2:#8FD6DE;
+    --brand-ink:#08262B;
+    --brand-wash:#17302F;
+    --mark:rgb(242 222 87 / .22);
+    --mark-line:rgb(242 222 87 / .60);
+    --pick:rgb(126 182 212 / .22);
+    --good:#84C7A0;
+    --good-wash:rgb(132 199 160 / .12);
+    --bad:#E39181;
+    --bad-wash:rgb(227 145 129 / .12);
+    --note:#D8BC63;
+    --shadow: 0 1px 0 rgb(0 0 0 / .3), 0 18px 40px -34px rgb(0 0 0 / .9);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#101516; --sheet:#181E20; --sheet-2:#1E2527;
+  --ink:#E7EBEA; --ink-2:#A2AEAF; --ink-3:#7B8889;
+  --rule:#2C3537; --rule-2:#232B2D;
+  --brand:#6FC5CF; --brand-2:#8FD6DE; --brand-ink:#08262B; --brand-wash:#17302F;
+  --mark:rgb(242 222 87 / .22); --mark-line:rgb(242 222 87 / .60);
+  --pick:rgb(126 182 212 / .22);
+  --good:#84C7A0; --good-wash:rgb(132 199 160 / .12);
+  --bad:#E39181; --bad-wash:rgb(227 145 129 / .12);
+  --note:#D8BC63;
+  --shadow: 0 1px 0 rgb(0 0 0 / .3), 0 18px 40px -34px rgb(0 0 0 / .9);
+}
+
+/* ---------- base ---------- */
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:52px;
+}
+*,*::before,*::after{box-sizing:border-box}
+h1,h2,h3,h4,p,ul,ol,figure{margin:0;padding:0}
+ul,ol{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+:where(button,a,input,textarea,select,[tabindex]):focus-visible{
+  outline:2px solid var(--brand); outline-offset:2px; border-radius:2px;
+}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* ---------- stage & app ---------- */
+.stage{padding:22px 20px 26px}
+.app{
+  container-type:inline-size;
+  max-width:1160px;
+  margin:0 auto;
+  background:var(--ground);
+}
+body.vp-phone .stage{padding-top:30px}
+body.vp-phone .app{
+  max-width:404px;
+  border:1px solid var(--rule);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  background:var(--ground);
+}
+body.vp-phone .stage::after{
+  content:"402 × device width";
+  display:block; text-align:center; margin-top:12px;
+  font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3);
+}
+
+/* ---------- top bar ---------- */
+.top{
+  display:flex; align-items:center; gap:20px;
+  padding:14px 26px 13px;
+  border-bottom:1px solid var(--rule);
+}
+.brand{display:flex; align-items:baseline; gap:9px; letter-spacing:-.02em}
+.mark{
+  font-weight:600; font-size:19px; line-height:1;
+  background-image:linear-gradient(var(--mark),var(--mark));
+  background-repeat:no-repeat;
+  background-position:0 .62em;
+  background-size:100% .42em;
+  padding:0 .12em;
+}
+.brand small{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
+.top nav{display:flex; gap:2px; margin-left:auto}
+.top nav button{
+  font-size:13.5px; color:var(--ink-2); padding:7px 11px; border-radius:3px;
+}
+.top nav button:hover{color:var(--ink); background:var(--sheet-2)}
+.top nav button[aria-current="page"]{color:var(--ink); box-shadow:inset 0 -2px 0 var(--brand)}
+.helptog{
+  display:flex; align-items:center; gap:7px; font-size:12px; color:var(--ink-2);
+  border:1px solid var(--rule); border-radius:3px; padding:5px 9px;
+}
+.helptog b{font-weight:600; color:var(--ink)}
+.helptog[aria-pressed="true"]{border-color:var(--brand); color:var(--ink); background:var(--brand-wash)}
+
+/* ---------- context bar ---------- */
+.ctx{border-bottom:1px solid var(--rule); background:var(--sheet-2)}
+.ctx-in{
+  display:flex; align-items:center; gap:14px; padding:9px 26px;
+  font-size:12px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-2);
+}
+.ctx-in .sep{color:var(--rule)}
+.ctx-in strong{font-weight:600; color:var(--ink); letter-spacing:.06em}
+.ctx-in .right{margin-left:auto; display:flex; gap:14px; align-items:center; text-transform:none; letter-spacing:0; font-size:12.5px}
+.ctx-in .right button{color:var(--ink-2); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--rule)}
+.ctx-in .right button:hover{color:var(--ink); text-decoration-color:var(--brand)}
+.bar{height:2px; background:var(--rule-2)}
+.bar i{display:block; height:2px; background:var(--brand); transition:width .35s cubic-bezier(.2,.7,.3,1)}
+
+/* ---------- shared type ---------- */
+.eyebrow{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:500}
+.display{
+  font-size:38px; line-height:1.06; letter-spacing:-.028em; font-weight:600;
+  text-wrap:balance; max-width:19ch;
+}
+.lede{font-size:16px; color:var(--ink-2); max-width:62ch; line-height:1.55}
+.serif{font-family:var(--serif)}
+.en{color:var(--ink-3)}
+.hint-en{
+  display:none; font-size:13.5px; color:var(--ink-3); line-height:1.5;
+  border-left:2px solid var(--rule); padding-left:11px; margin-top:9px;
+}
+body.help-en .hint-en{display:block}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--brand); color:var(--brand-ink);
+  font-size:14px; font-weight:500; padding:10px 17px; border-radius:3px;
+  min-height:40px; white-space:nowrap;
+}
+.btn:hover{background:var(--brand-2)}
+.btn.ghost{background:none; color:var(--ink); border:1px solid var(--rule)}
+.btn.ghost:hover{background:var(--sheet-2); border-color:var(--ink-3)}
+.btn.quiet{background:none; color:var(--ink-2); padding:10px 8px}
+.btn.quiet:hover{color:var(--ink)}
+.btn[disabled]{opacity:.42; cursor:default; pointer-events:none}
+.btn.sm{font-size:13px; padding:7px 12px; min-height:34px}
+
+/* ---------- start screen ---------- */
+.screen{padding:34px 26px 44px}
+.start-head{display:grid; gap:16px; padding-bottom:30px}
+.start-head .lede strong{font-weight:600; color:var(--ink)}
+.levels{display:flex; gap:0; border:1px solid var(--rule); border-radius:3px; width:max-content; overflow:hidden}
+.levels button{
+  font-size:13px; padding:8px 15px; color:var(--ink-2); border-right:1px solid var(--rule);
+}
+.levels button:last-child{border-right:0}
+.levels button[aria-pressed="true"]{background:var(--ink); color:var(--ground); font-weight:500}
+.levels button[disabled]{opacity:.45; cursor:default}
+.levels button small{font-size:10px; letter-spacing:.08em; text-transform:uppercase; margin-left:6px; color:var(--ink-3)}
+
+.resume{
+  display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+  background:var(--sheet); border:1px solid var(--rule); border-left:3px solid var(--brand);
+  padding:13px 16px; margin-bottom:26px;
+}
+.resume p{font-size:14px}
+.resume .btn{margin-left:auto}
+
+.parts-h{
+  display:grid; grid-template-columns:1.15fr 1.35fr .95fr auto; gap:18px;
+  padding:0 2px 8px; border-bottom:1px solid var(--ink);
+  font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3);
+}
+.part{
+  display:grid; grid-template-columns:1.15fr 1.35fr .95fr auto; gap:18px; align-items:center;
+  padding:17px 2px; border-bottom:1px solid var(--rule-2);
+}
+.part:hover{background:var(--sheet)}
+.p-name{display:flex; flex-direction:column; gap:2px}
+.p-name b{font-size:19px; font-weight:600; letter-spacing:-.01em}
+.p-name span{font-size:12.5px; color:var(--ink-3)}
+.p-meta{font-size:13.5px; color:var(--ink-2)}
+.p-status{display:flex; align-items:center; gap:9px; font-size:12.5px; color:var(--ink-2)}
+.sq{width:8px; height:8px; flex:none; background:var(--ink-3)}
+.sq.ready{background:var(--brand)}
+.sq.draft{background:var(--mark-line)}
+.p-act{display:flex; gap:8px; justify-content:flex-end}
+
+.disclosure{
+  margin-top:30px; padding-top:18px; border-top:1px solid var(--rule);
+  display:grid; gap:8px; max-width:70ch; font-size:13px; color:var(--ink-2); line-height:1.6;
+}
+.disclosure b{color:var(--ink); font-weight:600}
+.disclosure a{text-decoration-color:var(--rule); text-underline-offset:3px}
+
+/* ---------- workbench: sheet + question column ---------- */
+.work{display:grid; grid-template-columns:minmax(0,1.16fr) minmax(330px,.88fr); gap:0; align-items:start}
+.sheet{
+  background:var(--sheet); border:1px solid var(--rule); box-shadow:var(--shadow);
+  padding:30px 34px 34px; position:sticky; top:16px;
+}
+.sheet-h{display:grid; gap:6px; padding-bottom:16px; margin-bottom:18px; border-bottom:1px solid var(--rule-2)}
+.sheet-h .kind{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3)}
+.sheet-h h2{font-family:var(--serif); font-size:23px; font-weight:600; line-height:1.2; letter-spacing:-.01em}
+.prose{font-family:var(--serif); font-size:18.5px; line-height:1.68; color:var(--ink)}
+.prose p{margin-bottom:1.05em}
+.prose p:last-child{margin-bottom:0}
+body.plainface .prose,
+body.plainface .sheet-h h2,
+body.plainface .q{font-family:var(--sans); letter-spacing:-.005em}
+body.plainface .prose{font-size:18px; line-height:1.72}
+
+/* evidence marker: a highlighter sweep */
+.ev{background-image:linear-gradient(var(--mark),var(--mark)); background-repeat:no-repeat;
+    background-size:0 100%; box-decoration-break:clone; -webkit-box-decoration-break:clone;
+    padding:.08em .1em; margin:0 -.1em; border-radius:1px;
+    transition:background-size .42s cubic-bezier(.22,.7,.3,1);}
+.ev.on{background-size:100% 100%; box-shadow:inset 0 -1px 0 var(--mark-line)}
+.gl{
+  font:inherit; padding:0; border-bottom:1px dotted var(--ink-3);
+  text-underline-offset:2px;
+}
+.gl:hover{border-bottom-color:var(--brand); background:var(--brand-wash)}
+.gl[aria-expanded="true"]{background:var(--brand-wash); border-bottom-color:var(--brand)}
+.gloss{
+  display:block; font-family:var(--sans); font-size:13px; line-height:1.5;
+  color:var(--ink-2); background:var(--sheet-2); border-left:2px solid var(--brand);
+  padding:8px 12px; margin:.5em 0 1em;
+}
+.gloss b{color:var(--ink); font-weight:600}
+
+.qcol{padding:4px 0 0 34px; border-left:1px solid var(--rule); min-height:420px}
+.qmeta{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+.qmeta .eyebrow{white-space:nowrap}
+.qmeta .tag{
+  margin-left:auto; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink-3); border:1px solid var(--rule); padding:3px 7px;
+}
+.q{font-family:var(--serif); font-size:21px; line-height:1.4; font-weight:600; letter-spacing:-.012em; margin-bottom:4px}
+
+.opts{margin:18px 0 22px; border-top:1px solid var(--rule-2)}
+.opt{
+  display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:start; width:100%;
+  text-align:left; padding:14px 12px 14px 2px; border-bottom:1px solid var(--rule-2);
+}
+.opt:hover{background:var(--sheet)}
+.opt .ltr{
+  width:26px; height:26px; display:grid; place-items:center; flex:none;
+  border:1px solid var(--rule); font-size:12.5px; font-weight:600; letter-spacing:.02em;
+  color:var(--ink-2); background:var(--sheet);
+}
+.opt .txt{font-family:var(--serif); font-size:17px; line-height:1.45; padding-top:2px}
+.opt[aria-pressed="true"] .ltr{background:var(--ink); color:var(--ground); border-color:var(--ink)}
+.opt[aria-pressed="true"]{background:var(--pick)}
+.opts.done .opt{cursor:default}
+.opts.done .opt:hover{background:none}
+.opts.done .opt.picked{background:var(--pick)}
+.opts.done .opt.key .ltr{background:var(--good); border-color:var(--good); color:#fff}
+.opts.done .opt.key{box-shadow:inset 3px 0 0 var(--good)}
+.opts.done .opt.wrongpick .ltr{background:var(--bad); border-color:var(--bad); color:#fff}
+.opts.done .opt.wrongpick{box-shadow:inset 3px 0 0 var(--bad)}
+.opt .verdict{grid-column:2; font-size:13px; color:var(--ink-2); line-height:1.5; padding-top:2px}
+.opt .verdict b{color:var(--ink); font-weight:600}
+
+.acts{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+.acts .right{margin-left:auto; display:flex; gap:8px}
+
+.fb{margin-top:24px; border-top:1px solid var(--ink); padding-top:18px; display:grid; gap:14px}
+.fb h4{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:500}
+.fb .why{font-family:var(--serif); font-size:16.5px; line-height:1.55}
+.fb .quote{
+  font-family:var(--serif); font-size:15.5px; line-height:1.55; color:var(--ink);
+  border-left:3px solid var(--mark-line); padding:2px 0 2px 13px; background:var(--sheet);
+}
+.fb .quote em{font-style:normal; background:var(--mark); padding:.05em .1em}
+.fb .pointer{font-size:12.5px; color:var(--ink-3); display:flex; align-items:center; gap:7px}
+.fb .pointer::before{content:"←"; font-size:14px; color:var(--mark-line)}
+.savebox{display:flex; align-items:center; gap:9px; font-size:13.5px; color:var(--ink-2)}
+.savebox input{accent-color:var(--brand); width:16px; height:16px}
+</style>
+<style>
+/* ---------- generic layout helpers ---------- */
+.page-h{display:grid; gap:10px; padding-bottom:24px; margin-bottom:24px; border-bottom:1px solid var(--ink)}
+.page-h h1{font-size:28px; font-weight:600; letter-spacing:-.022em; line-height:1.15}
+.two{display:grid; grid-template-columns:minmax(0,1.16fr) minmax(330px,.88fr); gap:0; align-items:start}
+.col-r{padding:0 0 0 34px; border-left:1px solid var(--rule)}
+.stack{display:grid; gap:16px}
+.stack-lg{display:grid; gap:26px}
+.note{
+  font-size:13px; line-height:1.6; color:var(--ink-2);
+  border-left:2px solid var(--mark-line); padding:2px 0 2px 12px;
+}
+.note b{color:var(--ink); font-weight:600}
+.rowlist{border-top:1px solid var(--rule)}
+.rowlist li{display:grid; grid-template-columns:auto 1fr auto; gap:14px; align-items:center;
+  padding:12px 2px; border-bottom:1px solid var(--rule-2); font-size:14px}
+.rowlist .n{width:24px; height:24px; display:grid; place-items:center; border:1px solid var(--rule);
+  font-size:12px; font-weight:600; color:var(--ink-2)}
+.rowlist .n.ok{background:var(--good); border-color:var(--good); color:#fff}
+.rowlist .n.no{background:var(--bad); border-color:var(--bad); color:#fff}
+.rowlist .r{color:var(--ink-2); font-size:13px; display:flex; gap:10px; align-items:center}
+
+/* ---------- review ---------- */
+.score{display:flex; align-items:flex-end; gap:20px; flex-wrap:wrap; margin-bottom:6px}
+.score .big{font-size:52px; font-weight:600; letter-spacing:-.035em; line-height:.9}
+.score .of{font-size:15px; color:var(--ink-2); padding-bottom:5px}
+.mistakes{display:grid; gap:0; border-top:1px solid var(--ink)}
+.mis{display:grid; grid-template-columns:1fr auto; gap:14px; align-items:baseline;
+  padding:15px 2px; border-bottom:1px solid var(--rule-2)}
+.mis b{font-size:16px; font-weight:600}
+.mis p{font-size:13.5px; color:var(--ink-2); margin-top:3px; max-width:56ch}
+.mis .cnt{font-size:13px; color:var(--ink-3); white-space:nowrap}
+
+/* ---------- audio ---------- */
+.player{background:var(--sheet); border:1px solid var(--rule); box-shadow:var(--shadow); padding:22px 24px}
+.player .prow{display:flex; align-items:center; gap:16px}
+.playbtn{
+  width:46px; height:46px; flex:none; border-radius:50%; background:var(--brand); color:var(--brand-ink);
+  display:grid; place-items:center; font-size:15px;
+}
+.playbtn:hover{background:var(--brand-2)}
+.wave{display:flex; align-items:center; gap:2px; height:38px; flex:1; overflow:hidden}
+.wave i{flex:1; background:var(--rule); min-width:2px; border-radius:1px; transition:background .12s}
+.wave i.on{background:var(--brand)}
+.player .time{font-size:12.5px; color:var(--ink-2); white-space:nowrap}
+.player .prow2{display:flex; align-items:center; gap:18px; margin-top:16px; padding-top:14px;
+  border-top:1px solid var(--rule-2); font-size:12.5px; color:var(--ink-2); flex-wrap:wrap}
+.speed{display:flex; border:1px solid var(--rule); border-radius:3px; overflow:hidden}
+.speed button{font-size:12px; padding:5px 10px; border-right:1px solid var(--rule); color:var(--ink-2)}
+.speed button:last-child{border-right:0}
+.speed button[aria-pressed="true"]{background:var(--ink); color:var(--ground)}
+.plays{margin-left:auto; letter-spacing:.06em; text-transform:uppercase; font-size:11px}
+.demoflag{
+  display:inline-flex; align-items:center; gap:7px; font-size:11px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--note); border:1px dashed var(--mark-line); padding:4px 9px;
+}
+.transcript{background:var(--sheet-2); border:1px solid var(--rule-2); padding:18px 20px}
+.transcript .line{display:grid; grid-template-columns:78px 1fr; gap:14px; padding:5px 0;
+  font-family:var(--serif); font-size:16px; line-height:1.55}
+.transcript .who{font-family:var(--sans); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-3); padding-top:5px}
+
+/* ---------- writing & speaking ---------- */
+.task{background:var(--sheet); border:1px solid var(--rule); box-shadow:var(--shadow); padding:26px 30px}
+.task .assign{font-family:var(--serif); font-size:18.5px; line-height:1.6}
+.reqs{display:grid; gap:0; margin-top:18px; border-top:1px solid var(--rule-2)}
+.req{display:grid; grid-template-columns:22px 1fr auto; gap:12px; align-items:start;
+  padding:11px 0; border-bottom:1px solid var(--rule-2); font-size:14.5px}
+.req .box{width:18px; height:18px; margin-top:2px; border:1px solid var(--rule); display:grid; place-items:center;
+  font-size:11px; color:transparent; background:var(--sheet)}
+.req.met .box{background:var(--good); border-color:var(--good); color:#fff}
+.req.miss .box{background:var(--bad-wash); border-color:var(--bad); color:var(--bad)}
+.req .ev{font-size:12.5px; color:var(--ink-2); font-family:var(--serif)}
+.req .st{font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); white-space:nowrap; padding-top:3px}
+.req.met .st{color:var(--good)}
+.req.miss .st{color:var(--bad)}
+textarea.answer{
+  width:100%; min-height:150px; resize:vertical;
+  font-family:var(--serif); font-size:17px; line-height:1.6; color:var(--ink);
+  background:var(--sheet); border:1px solid var(--rule); padding:16px 18px;
+}
+textarea.answer:focus{border-color:var(--brand); outline:none; box-shadow:0 0 0 2px var(--brand-wash)}
+.wcount{font-size:12px; color:var(--ink-3); display:flex; gap:14px; margin-top:8px}
+.consent{border:1px solid var(--rule); background:var(--sheet); padding:20px 22px; display:grid; gap:12px}
+.consent h4{font-size:15px; font-weight:600}
+.consent dl{display:grid; grid-template-columns:auto 1fr; gap:7px 16px; font-size:13.5px; align-items:baseline}
+.consent dt{color:var(--ink-3); font-size:11px; letter-spacing:.11em; text-transform:uppercase; white-space:nowrap}
+.consent dd{color:var(--ink-2); margin:0}
+.allow{font-size:12.5px; color:var(--ink-2); display:flex; align-items:center; gap:9px}
+.allow .pips{display:flex; gap:3px}
+.allow .pips i{width:16px; height:5px; background:var(--brand)}
+.allow .pips i.spent{background:var(--rule)}
+.fixes{display:grid; gap:0; border-top:1px solid var(--rule-2)}
+.fix{padding:13px 0; border-bottom:1px solid var(--rule-2); font-size:14px; display:grid; gap:5px}
+.fix .was{font-family:var(--serif); font-size:16px}
+.fix .was s{text-decoration:line-through; text-decoration-color:var(--bad); text-decoration-thickness:1.5px; color:var(--ink-2)}
+.fix .was ins{text-decoration:none; background:var(--good-wash); box-shadow:inset 0 -1px 0 var(--good); padding:.05em .12em}
+.fix .why{font-size:13px; color:var(--ink-2)}
+.model{background:var(--sheet-2); border:1px solid var(--rule-2); padding:18px 20px;
+  font-family:var(--serif); font-size:16.5px; line-height:1.62}
+.recbar{display:flex; align-items:center; gap:16px; flex-wrap:wrap}
+.recbtn{width:52px; height:52px; border-radius:50%; background:var(--bad); display:grid; place-items:center; flex:none}
+.recbtn i{width:16px; height:16px; background:#fff; border-radius:3px; display:block}
+.recbtn.idle i{border-radius:50%}
+.deny{border:1px dashed var(--rule); padding:16px 18px; display:grid; gap:8px; font-size:13.5px; color:var(--ink-2)}
+.deny b{color:var(--ink); font-weight:600; font-size:14.5px}
+
+/* ---------- mock exam ---------- */
+.exambar{display:flex; align-items:center; gap:16px; padding:11px 26px;
+  background:var(--ink); color:var(--ground); border-bottom:1px solid var(--ink)}
+.exambar .t{font-size:12px; letter-spacing:.1em; text-transform:uppercase; opacity:.72}
+.exambar .clock{font-size:17px; font-weight:600; letter-spacing:.01em}
+.exambar .right{margin-left:auto; display:flex; gap:10px; align-items:center}
+.exambar .btn.ghost{border-color:rgb(255 255 255 / .28); color:var(--ground)}
+.exambar .btn.ghost:hover{background:rgb(255 255 255 / .1)}
+.navstrip{display:flex; gap:5px; flex-wrap:wrap; padding:14px 0 0}
+.navstrip button{width:32px; height:32px; border:1px solid var(--rule); font-size:12.5px; font-weight:500;
+  color:var(--ink-2); background:var(--sheet)}
+.navstrip button.done{background:var(--ink); color:var(--ground); border-color:var(--ink)}
+.navstrip button.flag{border-color:var(--mark-line); box-shadow:inset 0 -3px 0 var(--mark-line)}
+.navstrip button[aria-current="true"]{outline:2px solid var(--brand); outline-offset:1px}
+.rules{display:grid; gap:0; border-top:1px solid var(--rule)}
+.rules li{display:grid; grid-template-columns:150px 1fr; gap:16px; padding:12px 2px;
+  border-bottom:1px solid var(--rule-2); font-size:14px}
+.rules dt, .rules .k{font-size:11px; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-3); padding-top:3px}
+
+/* ---------- knm & your work ---------- */
+.prov{display:grid; gap:9px; font-size:12.5px; color:var(--ink-2); border-top:1px solid var(--rule); padding-top:14px}
+.prov div{display:grid; grid-template-columns:130px 1fr; gap:14px}
+.prov .k{font-size:11px; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-3)}
+.themes{display:flex; flex-wrap:wrap; gap:6px}
+.themes button{border:1px solid var(--rule); font-size:13px; padding:6px 12px; color:var(--ink-2)}
+.themes button[aria-pressed="true"]{background:var(--ink); color:var(--ground); border-color:var(--ink)}
+.datarow{display:grid; grid-template-columns:1fr auto; gap:16px; align-items:center;
+  padding:15px 2px; border-bottom:1px solid var(--rule-2)}
+.datarow p{font-size:13px; color:var(--ink-2); margin-top:3px; max-width:52ch}
+.datarow b{font-size:15px; font-weight:600}
+.danger{color:var(--bad); border-color:color-mix(in oklab, var(--bad) 45%, transparent)}
+.danger:hover{background:var(--bad-wash)}
+
+/* ---------- prototype chrome ---------- */
+.proto{
+  position:fixed; left:0; right:0; bottom:0; z-index:40;
+  background:#0C1113; color:#E7EBEA; border-top:1px solid #2A3436;
+  display:flex; align-items:center; gap:10px; padding:0 12px; height:52px;
+  font-family:var(--sans); font-size:12.5px;
+}
+.proto .label{font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#7B8889; white-space:nowrap; padding-right:4px}
+.proto .chips{display:flex; gap:4px; overflow-x:auto; flex:1; scrollbar-width:thin; padding:8px 0}
+.proto .chips button{
+  white-space:nowrap; padding:6px 11px; border-radius:2px; color:#9FADAE; border:1px solid transparent;
+}
+.proto .chips button:hover{color:#fff; background:#1A2224}
+.proto .chips button[aria-current="page"]{background:#E7EBEA; color:#0C1113; font-weight:500}
+.proto .tools{display:flex; gap:6px; align-items:center; flex:none; border-left:1px solid #2A3436; padding-left:10px}
+.proto .tools button{padding:6px 10px; color:#9FADAE; border:1px solid #2A3436; border-radius:2px}
+.proto .tools button:hover{color:#fff; border-color:#4A5658}
+.proto .tools button[aria-pressed="true"]{background:#E7EBEA; color:#0C1113; border-color:#E7EBEA}
+
+.notes{
+  position:fixed; inset:0 0 52px auto; z-index:45; width:min(520px,100%);
+  background:var(--sheet); border-left:1px solid var(--rule); box-shadow:-24px 0 60px -40px rgb(0 0 0 / .6);
+  overflow-y:auto; padding:28px 30px 40px;
+}
+.notes h2{font-size:22px; font-weight:600; letter-spacing:-.02em; margin-bottom:4px}
+.notes h3{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
+  margin:26px 0 10px; padding-bottom:7px; border-bottom:1px solid var(--rule)}
+.notes p{font-size:14px; line-height:1.62; color:var(--ink-2); margin-bottom:11px; max-width:56ch}
+.notes p strong{color:var(--ink); font-weight:600}
+.notes ul{display:grid; gap:9px}
+.notes li{font-size:13.5px; line-height:1.55; color:var(--ink-2); padding-left:15px; position:relative}
+.notes li::before{content:""; position:absolute; left:0; top:.62em; width:6px; height:1px; background:var(--ink-3)}
+.notes .close{position:absolute; top:20px; right:22px; font-size:13px; color:var(--ink-2)}
+.swatches{display:flex; gap:0; margin:6px 0 4px; border:1px solid var(--rule)}
+.swatches i{flex:1; height:42px; display:block}
+.swatch-cap{display:flex; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3)}
+.swatch-cap span{flex:1; padding-top:5px}
+
+/* ---------- responsive (container-driven, so the phone toggle reflows for real) ---------- */
+@container (max-width: 900px){
+  .work,.two{grid-template-columns:minmax(0,1fr); gap:24px}
+  .qcol,.col-r{padding-left:0; border-left:0; border-top:1px solid var(--rule); padding-top:22px; min-height:0}
+  .sheet{position:static}
+  .parts-h{display:none}
+  .part{grid-template-columns:1fr; gap:9px; padding:18px 2px}
+  .p-act{justify-content:flex-start}
+  .screen{padding:26px 20px 40px}
+  .top{padding:13px 20px}
+  .ctx-in{padding:9px 20px}
+  .exambar{padding:11px 20px}
+  .display{font-size:31px}
+  .sheet{padding:24px 22px 26px}
+}
+@container (max-width: 640px){
+  .top{gap:12px; flex-wrap:wrap}
+  .top nav{margin-left:0; order:3; width:100%; overflow-x:auto}
+  .helptog{margin-left:auto}
+  .brand small{display:none}
+  .ctx-in{flex-wrap:wrap; gap:8px 12px}
+  .ctx-in .right{width:100%; margin-left:0}
+  .display{font-size:27px; max-width:none}
+  .prose{font-size:17.5px}
+  .q{font-size:19px}
+  .score .big{font-size:42px}
+  .rules li{grid-template-columns:1fr; gap:4px}
+  .consent dl{grid-template-columns:1fr; gap:2px 0}
+  .consent dd{margin-bottom:7px}
+  .rowlist li{grid-template-columns:auto 1fr; }
+  .rowlist .r{grid-column:2; }
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important; transition-duration:.001ms !important}
+  .ev{transition:none}
+}
+</style>
+<div class="stage">
+<div class="app" id="app">
+
+  <header class="top">
+    <button class="brand" data-go="start" aria-label="Oefenplek — start">
+      <span class="mark">oefenplek</span>
+      <small>A2 &amp; KNM</small>
+    </button>
+    <nav>
+      <button data-go="start" data-nav="start" aria-current="page">Practise</button>
+      <button data-go="mockset" data-nav="mock">Mock exam</button>
+      <button data-go="work" data-nav="work">Your work</button>
+    </nav>
+    <button class="helptog" id="helptog" aria-pressed="false">Help in <b>English</b></button>
+  </header>
+
+  <div class="ctx" id="ctx" hidden>
+    <div class="ctx-in">
+      <span id="ctx-part">Lezen</span><span class="sep">/</span>
+      <strong id="ctx-mode">Oefenen</strong><span class="sep">/</span>
+      <span id="ctx-pos" class="tnum">Vraag 1 van 8</span>
+      <span class="right">
+        <button id="plainface-btn">Eenvoudig lettertype</button>
+        <button data-go="start">Stoppen</button>
+      </span>
+    </div>
+    <div class="bar"><i id="ctx-bar" style="width:0%"></i></div>
+  </div>
+
+  <main>
+
+  <!-- ══════════════════════════ START ══════════════════════════ -->
+  <section class="screen" id="s-start">
+    <div class="start-head">
+      <p class="eyebrow">Gratis oefenen &middot; geen account</p>
+      <h1 class="display">Oefenen voor het inburgeringsexamen</h1>
+      <p class="lede">Free practice for the Dutch integration exams. Start straight away, no sign-up.
+        <strong>Every answer is explained with the sentence in the text that proves it.</strong></p>
+      <div class="levels" role="group" aria-label="Level">
+        <button aria-pressed="true">A2</button>
+        <button aria-pressed="false">KNM</button>
+        <button disabled>B1 <small>later</small></button>
+        <button disabled>B2 <small>later</small></button>
+      </div>
+    </div>
+
+    <div class="resume">
+      <p><strong>Lezen &middot; proefset 1</strong> — u stopte bij vraag 5. <span class="en">Saved on this device.</span></p>
+      <button class="btn sm" data-go="read" data-resume="1">Verder oefenen</button>
+    </div>
+
+    <div class="parts-h">
+      <span>Onderdeel</span><span>Wat u oefent</span><span>Status</span><span></span>
+    </div>
+    <ol>
+      <li class="part">
+        <div class="p-name"><b>Lezen</b><span>Reading</span></div>
+        <div class="p-meta">8 vragen &middot; 4 teksten &middot; ± 12 minuten</div>
+        <div class="p-status"><i class="sq ready"></i>Klaar om te oefenen</div>
+        <div class="p-act"><button class="btn sm" data-go="read">Oefenen</button><button class="btn sm ghost" data-go="mockset">Proefexamen</button></div>
+      </li>
+      <li class="part">
+        <div class="p-name"><b>Luisteren</b><span>Listening</span></div>
+        <div class="p-meta">1 voorbeeldopgave &middot; audio met transcript</div>
+        <div class="p-status"><i class="sq draft"></i>Voorbeeld, in ontwikkeling</div>
+        <div class="p-act"><button class="btn sm" data-go="listen">Bekijken</button><button class="btn sm ghost" disabled>Proefexamen</button></div>
+      </li>
+      <li class="part">
+        <div class="p-name"><b>Schrijven</b><span>Writing</span></div>
+        <div class="p-meta">1 taak &middot; checklist en voorbeeldantwoord &middot; feedback optioneel</div>
+        <div class="p-status"><i class="sq draft"></i>Voorbeeld, in ontwikkeling</div>
+        <div class="p-act"><button class="btn sm" data-go="write">Bekijken</button><button class="btn sm ghost" disabled>Proefexamen</button></div>
+      </li>
+      <li class="part">
+        <div class="p-name"><b>Spreken</b><span>Speaking</span></div>
+        <div class="p-meta">1 taak &middot; opnemen en terugluisteren op uw eigen apparaat</div>
+        <div class="p-status"><i class="sq draft"></i>Voorbeeld, in ontwikkeling</div>
+        <div class="p-act"><button class="btn sm" data-go="speak">Bekijken</button><button class="btn sm ghost" disabled>Proefexamen</button></div>
+      </li>
+      <li class="part">
+        <div class="p-name"><b>KNM</b><span>Kennis Nederlandse Maatschappij</span></div>
+        <div class="p-meta">1 vraag &middot; met bron en datum van de laatste controle</div>
+        <div class="p-status"><i class="sq draft"></i>Feiten gecontroleerd 12 aug 2026</div>
+        <div class="p-act"><button class="btn sm" data-go="knm">Bekijken</button><button class="btn sm ghost" disabled>Proefexamen</button></div>
+      </li>
+    </ol>
+
+    <div class="disclosure">
+      <p><b>Oefenplek is niet DUO.</b> Dit is eigen oefenmateriaal. Het is geen officieel examen en u krijgt hier geen officiële uitslag. Kijk voor uw eigen inburgering op <a href="https://inburgeren.nl">inburgeren.nl</a> en Mijn Inburgering.</p>
+      <p class="en">Oefenplek is not DUO. This is our own practice material — not an official exam, and no official result. Counts and status labels above say exactly how much has been written and reviewed so far.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ LEZEN — OEFENEN ══════════════════════════ -->
+  <section class="screen" id="s-read" hidden>
+    <div class="work">
+      <article class="sheet">
+        <div class="sheet-h">
+          <span class="kind" id="p-kind">Bericht</span>
+          <h2 id="p-title">Een bericht van de fietsenmaker</h2>
+        </div>
+        <div class="prose" id="p-text"></div>
+      </article>
+
+      <div class="qcol">
+        <div class="qmeta">
+          <span class="eyebrow" id="q-num">Vraag 1 van 8</span>
+          <span class="tag" id="q-tag">Dagen en tijden</span>
+        </div>
+        <h3 class="q" id="q-text"></h3>
+        <p class="hint-en" id="q-en"></p>
+
+        <div class="opts" id="opts"></div>
+
+        <div class="acts" id="acts">
+          <button class="btn" id="check-btn" disabled>Nakijken</button>
+          <button class="btn quiet" id="skip-btn">Sla over</button>
+        </div>
+
+        <div class="fb" id="fb" hidden>
+          <div>
+            <h4>Waarom dit antwoord</h4>
+            <p class="why serif" id="fb-why"></p>
+            <p class="hint-en" id="fb-why-en"></p>
+          </div>
+          <div>
+            <h4>In de tekst</h4>
+            <p class="quote" id="fb-quote"></p>
+            <p class="pointer">De zin staat geel gemarkeerd in de tekst hiernaast</p>
+          </div>
+          <label class="savebox"><input type="checkbox" id="fb-save"> Bewaar deze vraag om later te herhalen</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ OVERZICHT ══════════════════════════ -->
+  <section class="screen" id="s-review" hidden>
+    <div class="page-h">
+      <p class="eyebrow">Lezen &middot; proefset 1 &middot; oefenen</p>
+      <h1>Wat ging goed, wat nog niet</h1>
+    </div>
+
+    <div class="two">
+      <div class="stack-lg">
+        <div>
+          <div class="score">
+            <span class="big tnum" id="rv-score">6</span>
+            <span class="of">van 8 vragen goed<br><span class="en" id="rv-time">Tijd: 9 minuten 40 seconden</span></span>
+          </div>
+          <p class="note" style="margin-top:16px"><b>Geen slaaggrens.</b> Dit is oefenmateriaal, geen officieel examen. Wij zetten uw score niet om naar een DUO-score en voorspellen niet of u slaagt.
+            <span class="hint-en">No pass mark. This is practice material. We do not convert your score to an official DUO score and we do not predict whether you will pass.</span></p>
+        </div>
+
+        <div>
+          <h4 class="eyebrow" style="margin-bottom:12px">Waar het misging</h4>
+          <div class="mistakes" id="rv-mistakes"></div>
+        </div>
+
+        <div class="acts">
+          <button class="btn" data-go="read" data-repeatq="1">Herhaal de 2 foute vragen</button>
+          <button class="btn ghost" data-go="read" data-restart="1">Opnieuw beginnen</button>
+          <button class="btn quiet" data-go="start">Terug naar start</button>
+        </div>
+      </div>
+
+      <div class="col-r stack">
+        <h4 class="eyebrow">Vraag voor vraag</h4>
+        <ol class="rowlist" id="rv-list"></ol>
+        <p class="note">Klik op een vraag om de tekst, uw antwoord en de uitleg terug te zien.</p>
+      </div>
+    </div>
+  </section>
+  <!-- ══════════════════════════ LUISTEREN ══════════════════════════ -->
+  <section class="screen" id="s-listen" hidden>
+    <div class="page-h">
+      <p class="eyebrow">Luisteren &middot; oefenen &middot; opgave 1</p>
+      <h1>Een bericht op de voicemail</h1>
+      <p class="lede">Luister naar het bericht en kies één antwoord. In oefenmodus mag u zo vaak luisteren als u wilt en langzamer afspelen.</p>
+      <p class="hint-en">Listen and choose one answer. In practice mode you may replay as often as you like and slow the audio down. In a mock exam the audio plays twice at normal speed.</p>
+    </div>
+
+    <div class="two">
+      <div class="stack-lg">
+        <div class="player">
+          <div class="prow">
+            <button class="playbtn" id="play-btn" aria-label="Afspelen">&#9654;</button>
+            <div class="wave" id="wave" aria-hidden="true"></div>
+            <span class="time tnum" id="play-time">0:00 / 0:24</span>
+          </div>
+          <div class="prow2">
+            <span>Snelheid</span>
+            <div class="speed" role="group" aria-label="Afspeelsnelheid">
+              <button aria-pressed="false" data-speed="0.75">0,75×</button>
+              <button aria-pressed="true" data-speed="1">1×</button>
+              <button aria-pressed="false" data-speed="1.25">1,25×</button>
+            </div>
+            <span class="plays tnum" id="play-count">2× beluisterd</span>
+          </div>
+        </div>
+
+        <p class="demoflag">Demo &middot; in dit ontwerp klinkt nog geen geluid</p>
+
+        <div class="stack">
+          <h4 class="eyebrow">Transcript</h4>
+          <p class="note">In oefenmodus verschijnt het transcript nadat u hebt geantwoord. In een proefexamen niet.</p>
+          <div class="transcript" id="transcript" hidden>
+            <div class="line"><span class="who">Stem</span><span>Goedemiddag, u spreekt met de bibliotheek van Zwolle. Het boek dat u gereserveerd hebt, ligt voor u klaar. <span class="ev on">U kunt het ophalen tot en met vrijdag 24 april.</span> Daarna gaat het boek terug naar de plank. Neem uw bibliotheekpas mee. Tot ziens!</span></div>
+          </div>
+          <button class="btn ghost sm" id="tr-btn">Toon transcript</button>
+        </div>
+      </div>
+
+      <div class="col-r stack">
+        <span class="eyebrow">Vraag 1 van 1</span>
+        <h3 class="q">Tot wanneer ligt het boek klaar?</h3>
+        <p class="hint-en">Until when is the book being held for you?</p>
+        <div class="opts" id="l-opts">
+          <button class="opt" data-o="A"><span class="ltr">A</span><span class="txt">Tot 14 april.</span></button>
+          <button class="opt" data-o="B"><span class="ltr">B</span><span class="txt">Tot en met vrijdag 24 april.</span></button>
+          <button class="opt" data-o="C"><span class="ltr">C</span><span class="txt">Alleen vandaag.</span></button>
+        </div>
+        <div class="acts"><button class="btn" id="l-check" disabled>Nakijken</button></div>
+        <div class="fb" id="l-fb" hidden>
+          <div>
+            <h4>Waarom B</h4>
+            <p class="why serif">In het bericht staat: tot en met vrijdag 24 april. <em>Tot en met</em> betekent: die vrijdag hoort er nog bij. In A staat een ander getal: 14 in plaats van 24. Dat verschil hoort u in het woord: <em>vier</em>tien of <em>vier</em>entwintig.</p>
+            <p class="hint-en">The message says “tot en met vrijdag 24 april”. “Tot en met” means that Friday is included. Option A swaps 24 for 14 — the kind of number pair worth replaying slowly.</p>
+          </div>
+          <div>
+            <h4>Nog een keer luisteren?</h4>
+            <p class="note">Speel het fragment op 0,75× af en let alleen op de datum. Daarna op 1×.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ SCHRIJVEN ══════════════════════════ -->
+  <section class="screen" id="s-write" hidden>
+    <div class="page-h">
+      <p class="eyebrow">Schrijven &middot; taak 1 van 4 &middot; een kort bericht</p>
+      <h1>Een e-mail aan de tandarts</h1>
+    </div>
+
+    <div class="two">
+      <div class="stack-lg">
+        <div class="task">
+          <p class="assign"><b>Situatie.</b> U hebt dinsdag om 14.00 uur een afspraak bij de tandarts. U kunt niet komen, want u moet die dag werken. Schrijf een e-mail van 35 tot 45 woorden.</p>
+          <div class="reqs" id="w-reqs">
+            <div class="req" data-r="1"><span class="box">&#10003;</span><span>Zeg dat u dinsdag niet kunt komen.</span><span class="st"></span></div>
+            <div class="req" data-r="2"><span class="box">&#10003;</span><span>Zeg waarom u niet kunt komen.</span><span class="st"></span></div>
+            <div class="req" data-r="3"><span class="box">&#10003;</span><span>Vraag om een nieuwe afspraak.</span><span class="st"></span></div>
+            <div class="req" data-r="4"><span class="box">&#10003;</span><span>Schrijf wanneer u wel kunt komen.</span><span class="st"></span></div>
+          </div>
+        </div>
+
+        <div class="stack">
+          <h4 class="eyebrow">Uw antwoord</h4>
+          <textarea class="answer" id="w-text" spellcheck="false">Beste tandarts,
+
+Ik heb dinsdag om 14.00 uur een afspraak. Ik kan niet komen, want ik moet die dag werk. Kan ik een nieuwe afspraak maken? Ik hoor graag van u.
+
+Met vriendelijke groet,
+Amina Haddad</textarea>
+          <div class="wcount"><span class="tnum" id="w-count">36 woorden</span><span>Gevraagd: 35–45</span><span>Automatisch bewaard op dit apparaat</span></div>
+        </div>
+
+        <div class="acts">
+          <button class="btn ghost" id="w-self">Zelf nakijken met de checklist</button>
+          <button class="btn" id="w-ask">Vraag AI-feedback</button>
+        </div>
+
+        <div class="note"><b>A2 Schrijven is nu nog een papieren examen.</b> Typen is nuttig om te oefenen, maar het is niet hetzelfde als schrijven met de hand. Print de taak en schrijf hem ook een keer met de pen.
+          <span class="hint-en">The A2 writing exam is currently taken on paper. Typing is useful practice, but print the task and write it by hand at least once.</span>
+        </div>
+      </div>
+
+      <div class="col-r stack-lg">
+        <div class="consent" id="w-consent" hidden>
+          <h4>Voordat u feedback vraagt</h4>
+          <dl>
+            <dt>Wat gaat weg</dt><dd>Uw tekst hierboven, de opdracht en het beoordelingsmodel.</dd>
+            <dt>Waarheen</dt><dd>Via onze server naar een taalmodel. Uw naam en e-mailadres gaan niet mee.</dd>
+            <dt>Bewaren</dt><dd>Wij verwijderen de tekst na de beoordeling, uiterlijk binnen 24 uur.</dd>
+            <dt>Let op</dt><dd>Dit is een schatting, geen officiële beoordeling van DUO.</dd>
+          </dl>
+          <div class="allow">
+            <span class="pips" aria-hidden="true"><i class="spent"></i><i class="spent"></i><i class="spent"></i><i></i><i></i></span>
+            <span class="tnum">3 van 5 gratis beoordelingen vandaag gebruikt</span>
+          </div>
+          <div class="acts">
+            <button class="btn" id="w-send">Verstuur en vraag feedback</button>
+            <button class="btn quiet" id="w-cancel">Liever niet</button>
+          </div>
+        </div>
+
+        <div id="w-fb" hidden class="stack-lg">
+          <div class="stack">
+            <h4 class="eyebrow">Feedback &middot; schatting, geen officiële uitslag</h4>
+            <p class="note"><b>Taakuitvoering: 3 van de 4 punten gedaan.</b> Uw Nederlands is goed te begrijpen. Eén gevraagd punt ontbreekt nog — dat weegt in het echte examen zwaar.</p>
+          </div>
+          <div class="stack">
+            <h4 class="eyebrow">Wat u wel en niet hebt gedaan</h4>
+            <div class="reqs">
+              <div class="req met"><span class="box">&#10003;</span><span>Zeg dat u niet kunt komen<br><span class="ev on">„Ik kan niet komen”</span></span><span class="st">Gedaan</span></div>
+              <div class="req met"><span class="box">&#10003;</span><span>Zeg waarom<br><span class="ev on">„want ik moet die dag werk”</span></span><span class="st">Gedaan</span></div>
+              <div class="req met"><span class="box">&#10003;</span><span>Vraag een nieuwe afspraak<br><span class="ev on">„Kan ik een nieuwe afspraak maken?”</span></span><span class="st">Gedaan</span></div>
+              <div class="req miss"><span class="box">&#33;</span><span>Schrijf wanneer u wel kunt<br><span class="ev">Dit staat nergens in uw tekst.</span></span><span class="st">Ontbreekt</span></div>
+            </div>
+          </div>
+          <div class="stack">
+            <h4 class="eyebrow">Twee verbeteringen in uw eigen zinnen</h4>
+            <div class="fixes">
+              <div class="fix">
+                <p class="was">„…want ik moet die dag <s>werk</s> <ins>werken</ins>.”</p>
+                <p class="why">Na <b>moet</b> komt het hele werkwoord: <i>moet werken</i>, <i>moet komen</i>, <i>moet bellen</i>.</p>
+              </div>
+              <div class="fix">
+                <p class="was">„<s>Beste tandarts</s>, <ins>Geachte heer/mevrouw</ins>,”</p>
+                <p class="why">Aan een praktijk schrijft u meestal <b>Geachte heer/mevrouw</b> of de naam van de tandarts. Niet fout, wel netter.</p>
+              </div>
+            </div>
+          </div>
+          <div class="stack">
+            <h4 class="eyebrow">Eén mogelijke uitwerking &middot; niet het enige goede antwoord</h4>
+            <div class="model">Geachte heer/mevrouw,<br><br>Ik heb dinsdag om 14.00 uur een afspraak. Helaas kan ik niet komen, want ik moet die dag werken. Kan ik een nieuwe afspraak maken? Ik kan op donderdag of vrijdag na 17.00 uur.<br><br>Met vriendelijke groet,<br>Amina Haddad</div>
+            <p class="note">Uw eigen tekst blijft staan. Wij schrijven hem niet voor u om naar mooier Nederlands dan het examen vraagt.</p>
+          </div>
+        </div>
+
+        <div id="w-selfcheck" hidden class="stack">
+          <h4 class="eyebrow">Zelf nakijken</h4>
+          <p class="note">Lees uw tekst nog een keer en vink af wat u écht hebt opgeschreven. Daarna ziet u een voorbeeldantwoord. Hiervoor is geen AI nodig en geen internetverbinding.</p>
+          <div class="reqs">
+            <label class="req"><span class="box">&#10003;</span><span>Ik heb geschreven dat ik niet kan komen.</span><span class="st">Vink af</span></label>
+            <label class="req"><span class="box">&#10003;</span><span>Ik heb geschreven waarom.</span><span class="st">Vink af</span></label>
+            <label class="req"><span class="box">&#10003;</span><span>Ik heb om een nieuwe afspraak gevraagd.</span><span class="st">Vink af</span></label>
+            <label class="req"><span class="box">&#10003;</span><span>Ik heb geschreven wanneer ik wel kan.</span><span class="st">Vink af</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ SPREKEN ══════════════════════════ -->
+  <section class="screen" id="s-speak" hidden>
+    <div class="page-h">
+      <p class="eyebrow">Spreken &middot; taak 1 &middot; reageren op een vraag</p>
+      <h1>Uw buurvrouw vraagt om hulp</h1>
+    </div>
+
+    <div class="two">
+      <div class="stack-lg">
+        <div class="task">
+          <p class="assign"><b>U hoort.</b> „Hoi! Ik ga zaterdag verhuizen. Kun jij misschien helpen?”</p>
+          <p class="assign" style="margin-top:14px"><b>U kunt zaterdag niet.</b> Wat zegt u? U hebt 30 seconden.</p>
+        </div>
+
+        <div class="player">
+          <div class="prow">
+            <button class="playbtn" aria-label="Luister naar de vraag">&#9654;</button>
+            <div class="wave" aria-hidden="true" id="wave2"></div>
+            <span class="time tnum">0:00 / 0:06</span>
+          </div>
+          <div class="prow2"><span class="demoflag">Demo &middot; er klinkt nog geen geluid</span></div>
+        </div>
+
+        <div class="stack">
+          <h4 class="eyebrow">Uw antwoord opnemen</h4>
+          <div class="recbar">
+            <button class="recbtn idle" id="rec-btn" aria-label="Opname starten"><i></i></button>
+            <div class="stack" style="gap:5px">
+              <b id="rec-state">Klaar om op te nemen</b>
+              <span class="en tnum" id="rec-time">Maximaal 30 seconden &middot; blijft op dit apparaat</span>
+            </div>
+            <div class="acts" style="margin-left:auto"><button class="btn ghost sm" id="rec-play" disabled>Terugluisteren</button><button class="btn quiet sm" id="rec-again" disabled>Opnieuw</button></div>
+          </div>
+          <div class="wave" id="wave3" aria-hidden="true" style="height:52px"></div>
+        </div>
+
+        <div class="deny">
+          <b>Als uw microfoon niet werkt</b>
+          <span>Uw browser vraagt eerst om toestemming. Geeft u die niet, dan kunt u de taak nog steeds lezen, het voorbeeldantwoord beluisteren en de checklist gebruiken. Oefenen hardop werkt ook zonder opname.</span>
+        </div>
+      </div>
+
+      <div class="col-r stack-lg">
+        <div class="stack">
+          <h4 class="eyebrow">Checklist &middot; luister uw opname terug</h4>
+          <div class="reqs">
+            <label class="req"><span class="box">&#10003;</span><span>Ik zeg duidelijk dat ik niet kan.</span><span class="st">Vink af</span></label>
+            <label class="req"><span class="box">&#10003;</span><span>Ik zeg waarom.</span><span class="st">Vink af</span></label>
+            <label class="req"><span class="box">&#10003;</span><span>Ik bied iets anders aan, bijvoorbeeld een andere dag.</span><span class="st">Vink af</span></label>
+          </div>
+        </div>
+
+        <div class="stack">
+          <h4 class="eyebrow">Eén mogelijk antwoord</h4>
+          <div class="model">„Wat vervelend, zaterdag kan ik niet. Ik moet dan werken. Zondag ben ik wel vrij. Zal ik dan komen helpen?”</div>
+          <p class="note">Er zijn meer goede antwoorden. Vergelijk de inhoud, niet de exacte woorden.</p>
+        </div>
+
+        <div class="stack">
+          <h4 class="eyebrow">Optioneel &middot; AI-feedback</h4>
+          <p class="note">Uw opname blijft op dit apparaat, tenzij u hier zelf op drukt.</p>
+          <button class="btn ghost" id="sp-ask">Stuur mijn opname op voor feedback</button>
+          <div id="sp-fb" hidden class="stack-lg">
+            <div class="stack">
+              <h4 class="eyebrow">Stap 1 &middot; klopt dit transcript?</h4>
+              <div class="transcript">
+                <div class="line"><span class="who">U zei</span><span>Sorry, zaterdag kan ik niet, ik moet <span class="ev on">werk</span>. Misschien zondag?</span></div>
+              </div>
+              <p class="note">Het gele woord is onzeker herkend. Verbeter het als het niet klopt — anders beoordelen we iets wat u niet gezegd hebt.
+                <span class="hint-en">The highlighted word was recognised with low confidence. Correct it before we judge your answer, otherwise the feedback is about a word you never said.</span></p>
+              <div class="acts"><button class="btn sm">Transcript klopt</button><button class="btn ghost sm">Ik heb iets anders gezegd</button></div>
+            </div>
+            <div class="stack">
+              <h4 class="eyebrow">Stap 2 &middot; inhoud</h4>
+              <div class="reqs">
+                <div class="req met"><span class="box">&#10003;</span><span>U zegt dat u niet kunt</span><span class="st">Gedaan</span></div>
+                <div class="req met"><span class="box">&#10003;</span><span>U noemt een reden</span><span class="st">Gedaan</span></div>
+                <div class="req miss"><span class="box">&#33;</span><span>U biedt zondag aan als vraag, niet als aanbod: „Misschien zondag?” is nog geen duidelijk voorstel.</span><span class="st">Bijna</span></div>
+              </div>
+              <p class="note"><b>Over uw uitspraak zeggen wij hier niets.</b> Een transcript kan onduidelijke spraak goed raden en fouten gladstrijken. Uitspraakbeoordeling is een apart onderzoek en staat nog niet in dit ontwerp.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ══════════════════════════ PROEFEXAMEN — INSTELLEN ══════════════════════════ -->
+  <section class="screen" id="s-mockset" hidden>
+    <div class="page-h">
+      <p class="eyebrow">Proefexamen</p>
+      <h1>Lezen A2 &middot; vaste set 1</h1>
+      <p class="lede">Een proefexamen lijkt op het echte examen: dezelfde vragen voor iedereen, een klok, en geen hulp tijdens het maken.</p>
+    </div>
+
+    <div class="two">
+      <div class="stack-lg">
+        <ul class="rules">
+          <li><span class="k">Vorm</span><span>Een vaste set van 8 vragen bij 4 teksten. Iedereen krijgt dezelfde vragen in dezelfde volgorde. Wij stellen niet elke keer een nieuwe set samen.</span></li>
+          <li><span class="k">Tijd</span><span><b class="tnum">20 minuten.</b> De klok loopt door. U kunt terug naar eerdere vragen.</span></li>
+          <li><span class="k">Hulp</span><span>Geen uitleg, geen woordhulp, geen Engelse hulp, geen langzamer audio. Die komen terug zodra u hebt ingeleverd.</span></li>
+          <li><span class="k">Uitslag</span><span>Na het inleveren ziet u per vraag het goede antwoord met de zin uit de tekst. <b>Wij geven geen slaaggrens en zetten uw score niet om naar een DUO-score.</b></span></li>
+          <li><span class="k">Onderbreken</span><span>Sluit u het tabblad, dan blijven uw antwoorden en de resterende tijd op dit apparaat staan.</span></li>
+        </ul>
+
+        <div class="acts">
+          <button class="btn" data-go="mock">Start het proefexamen</button>
+          <button class="btn quiet" data-go="read">Liever oefenen met uitleg</button>
+        </div>
+      </div>
+
+      <div class="col-r stack">
+        <h4 class="eyebrow">Waarom dit geen echt examen is</h4>
+        <p class="note">Het echte A2-examen Lezen duurt 65 minuten en bevat meer teksten dan deze set. Onze tijd van 20 minuten hoort bij ónze kortere set. Het is een redactionele schatting, geen officiële norm.</p>
+        <p class="note">Deze vragen zijn zelf geschreven en nog niet getoetst bij leerders. Wij weten dus niet of ze even moeilijk zijn als het echte examen.
+          <span class="hint-en">These questions are originally written and have not yet been trialled with learners, so we cannot claim they match the real exam's difficulty.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ PROEFEXAMEN — TIJDENS ══════════════════════════ -->
+  <section class="screen" id="s-mock" hidden style="padding:0">
+    <div class="exambar">
+      <span class="t">Proefexamen &middot; Lezen A2</span>
+      <span class="clock tnum" id="mk-clock">18:42</span>
+      <span class="right">
+        <span class="t tnum">Vraag 3 van 8</span>
+        <button class="btn ghost sm" id="mk-submit">Inleveren</button>
+      </span>
+    </div>
+
+    <div style="padding:30px 26px 44px">
+      <div class="work">
+        <article class="sheet">
+          <div class="sheet-h"><span class="kind">Mededeling</span><h2>Samen eten in het buurthuis</h2></div>
+          <div class="prose">
+            <p>Op vrijdag 16 oktober eten we samen in buurthuis De Linde. Iedereen uit de buurt is welkom. We beginnen om 18.30 uur. Een maaltijd kost 6 euro. Kinderen tot en met 11 jaar betalen 3 euro.</p>
+            <p>Wilt u mee-eten? Meld u uiterlijk woensdag 14 oktober aan bij de balie. U betaalt op vrijdag, als u binnenkomt.</p>
+            <p>Er is soep met brood en daarna een warme maaltijd. Eet u geen vlees? Vertel dat bij uw aanmelding. Dan maakt de kok een maaltijd zonder vlees voor u.</p>
+          </div>
+        </article>
+
+        <div class="qcol">
+          <div class="qmeta"><span class="eyebrow">Vraag 3</span></div>
+          <h3 class="q">Wanneer betaalt u voor het eten?</h3>
+          <div class="opts" id="mk-opts">
+            <button class="opt" data-o="A"><span class="ltr">A</span><span class="txt">Op woensdag, bij uw aanmelding.</span></button>
+            <button class="opt" data-o="B"><span class="ltr">B</span><span class="txt">Op vrijdag, na de maaltijd.</span></button>
+            <button class="opt" data-o="C"><span class="ltr">C</span><span class="txt">Op vrijdag, als u binnenkomt.</span></button>
+          </div>
+          <div class="acts">
+            <button class="btn ghost sm" id="mk-flag">Markeer om terug te komen</button>
+            <span class="right"><button class="btn quiet sm">Vorige</button><button class="btn sm">Volgende</button></span>
+          </div>
+
+          <div class="navstrip" id="mk-nav" role="group" aria-label="Ga naar vraag"></div>
+          <p class="note" style="margin-top:16px">Zwart = beantwoord &middot; gele streep = gemarkeerd &middot; leeg = nog niet gedaan</p>
+
+          <div class="consent" id="mk-confirm" hidden style="margin-top:22px">
+            <h4>Inleveren?</h4>
+            <p style="font-size:14px; color:var(--ink-2)"><b class="tnum">2 vragen</b> hebt u nog niet beantwoord: vraag 6 en 7. Na het inleveren kunt u niets meer veranderen, maar ziet u wel alle uitleg.</p>
+            <div class="acts">
+              <button class="btn" data-go="review">Ja, inleveren</button>
+              <button class="btn quiet" id="mk-cancel">Terug naar het examen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ KNM ══════════════════════════ -->
+  <section class="screen" id="s-knm" hidden>
+    <div class="page-h">
+      <p class="eyebrow">KNM &middot; Kennis van de Nederlandse Maatschappij</p>
+      <h1>Gezondheidszorg</h1>
+      <div class="themes" role="group" aria-label="Thema">
+        <button aria-pressed="true">Gezondheidszorg</button>
+        <button aria-pressed="false">Werk en inkomen</button>
+        <button aria-pressed="false">Wonen</button>
+        <button aria-pressed="false">Onderwijs</button>
+        <button aria-pressed="false">Instanties</button>
+        <button aria-pressed="false">Geschiedenis</button>
+      </div>
+    </div>
+
+    <div class="two">
+      <div class="stack-lg">
+        <article class="sheet">
+          <div class="sheet-h"><span class="kind">Situatie</span><h2>U bent ziek</h2></div>
+          <div class="prose"><p>U bent al drie dagen ziek. U hebt koorts en u wilt naar een dokter. U woont sinds kort in Nederland.</p></div>
+        </article>
+        <div class="note"><b>KNM is in juli 2025 veranderd.</b> Wij houden per vraag bij wanneer de feiten voor het laatst zijn gecontroleerd, en tegen welke officiële bron.</div>
+      </div>
+
+      <div class="col-r stack">
+        <span class="eyebrow">Vraag 1 van 1</span>
+        <h3 class="q">Wat doet u eerst?</h3>
+        <div class="opts" id="k-opts">
+          <button class="opt" data-o="A"><span class="ltr">A</span><span class="txt">U gaat naar het ziekenhuis.</span></button>
+          <button class="opt" data-o="B"><span class="ltr">B</span><span class="txt">U belt uw huisarts.</span></button>
+          <button class="opt" data-o="C"><span class="ltr">C</span><span class="txt">U gaat naar de apotheek.</span></button>
+        </div>
+        <div class="acts"><button class="btn" id="k-check" disabled>Nakijken</button></div>
+        <div class="fb" id="k-fb" hidden>
+          <div>
+            <h4>Waarom B</h4>
+            <p class="why serif">In Nederland gaat u eerst naar de <b>huisarts</b>. De huisarts helpt u zelf of stuurt u door naar het ziekenhuis. Naar het ziekenhuis gaat u meestal alleen met een verwijzing, of bij een noodgeval. Bij de apotheek haalt u medicijnen, vaak met een recept van de dokter.</p>
+            <p class="hint-en">In the Netherlands the huisarts (family doctor) is the first point of contact. You normally only go to a hospital with a referral, or in an emergency. A pharmacy dispenses medicine, usually on a prescription.</p>
+          </div>
+          <div class="prov">
+            <div><span class="k">Bron</span><span><a href="https://inburgeren.nl/examen-doen/inhoud-kennisexamens.jsp">inburgeren.nl &middot; inhoud kennisexamens</a></span></div>
+            <div><span class="k">Gecontroleerd</span><span class="tnum">12 augustus 2026</span></div>
+            <div><span class="k">Door</span><span>Redactie &middot; nog niet door een externe deskundige nagekeken</span></div>
+          </div>
+          <p class="note"><b>Dit gaat over het examen, niet over uw eigen situatie.</b> Wat u persoonlijk moet doen voor uw inburgering, staat in Mijn Inburgering of hoort u bij uw gemeente. Wij kunnen dat niet voor u bepalen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ JOUW WERK ══════════════════════════ -->
+  <section class="screen" id="s-work" hidden>
+    <div class="page-h">
+      <p class="eyebrow">Op dit apparaat</p>
+      <h1>Your work</h1>
+      <p class="lede">U hebt geen account. Alles hieronder staat in deze browser, op dit apparaat. Wij bewaren er niets van op onze server.</p>
+    </div>
+
+    <div class="two">
+      <div class="stack-lg">
+        <div>
+          <div class="datarow">
+            <div><b>Voortgang</b><p class="tnum">12 vragen beantwoord &middot; 4 vragen in uw herhaalrij &middot; laatst geoefend vandaag</p></div>
+            <button class="btn ghost sm">Bekijken</button>
+          </div>
+          <div class="datarow">
+            <div><b>Opnames</b><p>2 opnames bij Spreken. Deze zijn nooit verstuurd.</p></div>
+            <button class="btn ghost sm">Beluisteren</button>
+          </div>
+          <div class="datarow">
+            <div><b>AI-feedback vandaag</b><p class="tnum">3 van 5 gebruikt. Morgen weer 5. Oefenen, uitleg en voorbeeldantwoorden blijven altijd onbeperkt.</p></div>
+            <span class="allow"><span class="pips" aria-hidden="true"><i class="spent"></i><i class="spent"></i><i class="spent"></i><i></i><i></i></span></span>
+          </div>
+          <div class="datarow">
+            <div><b>Uw gegevens</b><p>Neem alles mee als een bestand, of wis het in één keer. Wissen kan niet ongedaan worden gemaakt.</p></div>
+            <span class="acts"><button class="btn ghost sm">Exporteren</button><button class="btn ghost sm danger">Alles wissen</button></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-r stack-lg">
+        <div class="stack">
+          <h4 class="eyebrow">Account &middot; optioneel</h4>
+          <p class="note">Een account is alleen nodig om uw voortgang op meer apparaten te gebruiken, bijvoorbeeld telefoon en laptop. Zonder account kunt u alles oefenen.</p>
+          <button class="btn ghost">Maak een account</button>
+        </div>
+        <div class="stack">
+          <h4 class="eyebrow">Wat wij niet doen</h4>
+          <ul class="rowlist" style="border-top:0">
+            <li style="grid-template-columns:1fr"><span>Wij vragen geen BSN, V-nummer of DUO-gegevens.</span></li>
+            <li style="grid-template-columns:1fr"><span>Wij sturen geen opnames weg zonder dat u erop drukt.</span></li>
+            <li style="grid-template-columns:1fr"><span>Wij verkopen geen gegevens en plaatsen geen advertentiecookies.</span></li>
+            <li style="grid-template-columns:1fr"><span>Wij zeggen niet of u gaat slagen. Dat kunnen wij niet weten.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+</div>
+</div>
+
+<!-- ══════════════════════════ DESIGN NOTES ══════════════════════════ -->
+<aside class="notes" id="notes" hidden aria-label="Design notes">
+  <button class="close" id="notes-close">Sluiten &times;</button>
+  <h2>The design direction</h2>
+  <p class="en">Notes for the review, not part of the product.</p>
+
+  <h3>The thesis</h3>
+  <p><strong>Every answer is explained by pointing back at the text.</strong> The material never leaves the screen; the feedback attaches to it. That single promise sets the layout (a sheet of study material with the interface in its margin), the identity (a highlighted word), and the one decorative decision in the whole design (the marker sweep).</p>
+
+  <h3>Colour</h3>
+  <div class="swatches" aria-hidden="true">
+    <i style="background:#E6E9E8"></i><i style="background:#FCFDFD"></i><i style="background:#14191B"></i><i style="background:#0E4750"></i><i style="background:#F5E272"></i><i style="background:#2C6A4F"></i><i style="background:#9E3B2C"></i>
+  </div>
+  <div class="swatch-cap"><span>Ground</span><span>Sheet</span><span>Ink</span><span>Petrol</span><span>Marker</span><span>Goed</span><span>Fout</span></div>
+  <p>Cool grey daylight, not cream. The interface is ink on paper: the only colour a learner sees is colour they would put there themselves — <strong>yellow marks the evidence, pale blue marks their own answer</strong> — plus green and red, reserved strictly for right and wrong so they never compete with the brand.</p>
+
+  <h3>Type</h3>
+  <p><strong>Archivo</strong> — a sturdy grotesque with the flavour of Dutch public signage — carries the whole interface, headings included. <strong>Literata</strong>, a serif built for on-screen reading, carries every word of Dutch study material. This inverts the usual serif-headline convention on purpose: the material is the subject here, the interface is scaffolding around it. A <em>Eenvoudig lettertype</em> control in the exercise bar switches the material to sans for anyone who reads it more easily that way.</p>
+
+  <h3>Language</h3>
+  <p>Interface labels in English, everything a learner must read in simple Dutch, and English help behind one switch in the top bar. Turn it on and translations appear under the questions, the explanations and the honest notices — never instead of the Dutch.</p>
+
+  <h3>What the design refuses to do</h3>
+  <ul>
+    <li>No readiness percentage, no pass prediction, no converted DUO score. The review screen shows what you did and where it went wrong, and says plainly that there is no pass mark.</li>
+    <li>No streaks, badges, mascots or confetti. The exam is a legal obligation for most people using this; treating it as a game would be a misread of the room.</li>
+    <li>Nothing recorded or uploaded without an explicit action, and the consent panel names what is sent, to whom, and for how long it is kept.</li>
+    <li>Status labels on the home screen state the real state of the content — one worked reading set, single examples elsewhere — instead of implying a full bank exists.</li>
+  </ul>
+
+  <h3>Content in this prototype</h3>
+  <p>The reading task is the eight-question A2 pilot from <code>pilots/a2-reading-001.json</code>, unchanged, with evidence spans and per-option explanations added. Listening, writing, speaking and KNM tasks are newly written for this mockup at the same level. No official DUO or NT2 material is reproduced anywhere in this file.</p>
+
+  <h3>Open questions for you</h3>
+  <ul>
+    <li><strong>The name.</strong> <em>Oefenplek</em> is a placeholder — a plain Dutch word an A2 learner can read, and a place rather than an app. Alternatives worth testing: <em>Het Lokaal</em>, <em>Stap</em>, or keeping <em>Samen</em>. The domain has not been checked.</li>
+    <li><strong>Dutch-first or English-first navigation?</strong> This build labels navigation in English and everything else in Dutch. The opposite is defensible.</li>
+    <li><strong>How prominent should the mock exam be?</strong> It is currently a peer of practice. It could be deliberately harder to reach until the blueprint audit is done.</li>
+  </ul>
+</aside>
+
+<!-- ══════════════════════════ PROTOTYPE CHROME ══════════════════════════ -->
+<div class="proto">
+  <span class="label">Prototype</span>
+  <div class="chips" id="chips">
+    <button data-go="start" aria-current="page">Start</button>
+    <button data-go="read">Lezen</button>
+    <button data-go="review">Overzicht</button>
+    <button data-go="listen">Luisteren</button>
+    <button data-go="write">Schrijven</button>
+    <button data-go="speak">Spreken</button>
+    <button data-go="mockset">Proefexamen</button>
+    <button data-go="mock">In het examen</button>
+    <button data-go="knm">KNM</button>
+    <button data-go="work">Jouw werk</button>
+  </div>
+  <div class="tools">
+    <button id="vp-btn" aria-pressed="false">Telefoon</button>
+    <button id="notes-btn" aria-pressed="false">Notes</button>
+  </div>
+</div>
+<script>
+(function(){
+"use strict";
+var $ = function(s,r){return (r||document).querySelector(s)};
+var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+
+/* ─────────────────────────── content ───────────────────────────
+   Reading task = pilots/a2-reading-001.json, verbatim.
+   Evidence spans and per-option explanations added for this design.
+   ──────────────────────────────────────────────────────────────── */
+var PASSAGES = [
+ {kind:"Bericht", title:"Een bericht van de fietsenmaker", html:
+  '<p>Beste mevrouw Bakker,</p>'+
+  '<p>Uw fiets is klaar. U kunt hem vandaag tot 18.00 uur ophalen. <span class="ev" data-ev="q1">Morgen zijn wij gesloten. Vanaf donderdag bent u weer welkom.</span></p>'+
+  '<p>De <button class="gl" data-g="reparatie — repair; the work done to fix something" aria-expanded="false">reparatie</button> kost 28 euro. U kunt met uw bankpas of <button class="gl" data-g="contant — in cash" aria-expanded="false">contant</button> betalen. Neem het <button class="gl" data-g="bonnetje — receipt; the small slip you get as proof" aria-expanded="false">bonnetje</button> mee dat u kreeg toen u de fiets bracht. <span class="ev" data-ev="q2">Bent u het bonnetje kwijt? Neem dan uw <button class="gl" data-g="identiteitsbewijs — proof of identity, such as a passport or ID card" aria-expanded="false">identiteitsbewijs</button> mee.</span></p>'+
+  '<p>Met vriendelijke groet,<br>Fietsenwinkel De Hoek</p>'},
+ {kind:"Mededeling", title:"Samen eten in het buurthuis", html:
+  '<p>Op vrijdag 16 oktober eten we samen in <button class="gl" data-g="buurthuis — community centre; a neighbourhood place for shared activities" aria-expanded="false">buurthuis</button> De Linde. Iedereen uit de buurt is welkom. We beginnen om 18.30 uur. Een maaltijd kost 6 euro. Kinderen tot en met 11 jaar betalen 3 euro.</p>'+
+  '<p>Wilt u mee-eten? Meld u <button class="gl" data-g="uiterlijk — at the latest; no later than" aria-expanded="false">uiterlijk</button> woensdag 14 oktober aan bij de balie. <span class="ev" data-ev="q3">U betaalt op vrijdag, als u binnenkomt.</span></p>'+
+  '<p>Er is soep met brood en daarna een warme maaltijd. <span class="ev" data-ev="q4">Eet u geen vlees? Vertel dat bij uw <button class="gl" data-g="aanmelding — registration; signing up for something" aria-expanded="false">aanmelding</button>.</span> Dan maakt de kok een maaltijd zonder vlees voor u.</p>'},
+ {kind:"E-mail", title:"Een e-mail over de zwemles", html:
+  '<p>Beste ouders,</p>'+
+  '<p><span class="ev" data-ev="q5">De zwemles van zaterdag begint deze week om 10.30 uur in plaats van 10.00 uur.</span> De les duurt, zoals altijd, 45 minuten.</p>'+
+  '<p>De kleine <button class="gl" data-g="kleedkamer — changing room" aria-expanded="false">kleedkamer</button> wordt geschilderd. Gebruik daarom de grote kleedkamer naast de ingang. De kinderen moeten vijf minuten voor de les <button class="gl" data-g="klaarstaan — to be ready and waiting" aria-expanded="false">klaarstaan</button> bij het zwembad.</p>'+
+  '<p>U mag tijdens de les in het café wachten. <span class="ev" data-ev="q6">Na de les haalt u uw kind op bij de grote kleedkamer.</span> Volgende week begint de les weer op de gewone tijd.</p>'+
+  '<p>Groeten,<br>Het team van zwembad De Golf</p>'},
+ {kind:"Advertentie", title:"Werken in een bloemenwinkel", html:
+  '<p>Bloemenwinkel Roos zoekt hulp voor de zaterdag. U werkt van 9.00 tot 13.00 uur. U helpt klanten, pakt bloemen in en houdt de winkel <button class="gl" data-g="netjes — tidy; neat" aria-expanded="false">netjes</button>.</p>'+
+  '<p>U hoeft nog niet eerder in een bloemenwinkel te hebben gewerkt. Wij leggen uit wat u moet doen. <span class="ev" data-ev="q7">Het is wel belangrijk dat u Nederlands kunt spreken met klanten.</span></p>'+
+  '<p>Wilt u bij ons werken? <span class="ev" data-ev="q8">Stuur vóór 20 november een e-mail naar werken@bloemenwinkel.example.</span> Schrijf daarin uw naam, uw telefoonnummer en waarom u dit werk wilt doen. <button class="gl" data-g="langskomen — to drop by; to come to the shop in person" aria-expanded="false">Langskomen</button> om te reageren is niet nodig.</p>'}
+];
+
+var Q = [
+ {id:"q1", p:0, tag:"Dagen en tijden",
+  prompt:"Mevrouw Bakker kan vandaag niet komen. Wanneer kan zij haar fiets ophalen?",
+  promptEn:"Mrs Bakker cannot come today. When can she collect her bicycle?",
+  opts:{A:"Morgen voor 18.00 uur.", B:"Vanaf donderdag.", C:"Alleen vandaag."}, key:"B",
+  verd:{A:"Morgen is de winkel gesloten.", B:"Goed. Vanaf donderdag is de winkel weer open.", C:"Vandaag kan zij juist niet komen."},
+  why:"Morgen is de winkel gesloten. Vanaf donderdag kan mevrouw Bakker weer komen.",
+  whyEn:"The shop is closed tomorrow. From Thursday she is welcome again.",
+  quote:'Morgen zijn wij gesloten. <em>Vanaf donderdag</em> bent u weer welkom.'},
+ {id:"q2", p:0, tag:"Als … dan",
+  prompt:"Mevrouw Bakker heeft haar bonnetje niet meer. Wat moet zij meenemen?",
+  promptEn:"Mrs Bakker has lost her receipt. What must she bring?",
+  opts:{A:"Haar identiteitsbewijs.", B:"Haar eigen fietssleutel.", C:"Een foto van haar fiets."}, key:"A",
+  verd:{A:"Goed. Zonder bonnetje neemt u uw identiteitsbewijs mee.", B:"Een fietssleutel staat niet in het bericht.", C:"Een foto staat niet in het bericht."},
+  why:"Wie het bonnetje kwijt is, moet volgens het bericht een identiteitsbewijs meenemen. Een sleutel of foto wordt niet genoemd als vervanging.",
+  whyEn:"If you have lost the receipt, the message asks for proof of identity. A key or a photo is never offered as a replacement.",
+  quote:'Bent u het bonnetje kwijt? Neem dan uw <em>identiteitsbewijs</em> mee.'},
+ {id:"q3", p:1, tag:"Twee handelingen uit elkaar houden",
+  prompt:"Wanneer betaalt u voor het eten?",
+  promptEn:"When do you pay for the meal?",
+  opts:{A:"Op woensdag, bij uw aanmelding.", B:"Op vrijdag, na de maaltijd.", C:"Op vrijdag, als u binnenkomt."}, key:"C",
+  verd:{A:"Woensdag meldt u zich aan. Betalen doet u dan nog niet.", B:"U betaalt bij binnenkomst, dus vóór het eten.", C:"Goed. Betalen doet u vrijdag bij binnenkomst."},
+  why:"Aanmelden moet uiterlijk woensdag. Betalen doet u op vrijdag bij binnenkomst, dus vóór het eten.",
+  whyEn:"You register by Wednesday at the latest. You pay on Friday as you come in — before the meal, not after.",
+  quote:'U betaalt <em>op vrijdag, als u binnenkomt</em>.'},
+ {id:"q4", p:1, tag:"Wat moet u doen?",
+  prompt:"U wilt een maaltijd zonder vlees. Wat moet u doen?",
+  promptEn:"You want a meal without meat. What must you do?",
+  opts:{A:"Zelf een maaltijd meenemen.", B:"Dit zeggen als u zich aanmeldt.", C:"Wachten tot de kok het eten brengt."}, key:"B",
+  verd:{A:"Zelf eten meenemen staat er niet.", B:"Goed. Zeg het bij uw aanmelding.", C:"De kok weet het pas als u het zelf zegt."},
+  why:"Vertel bij de aanmelding dat u geen vlees eet. De kok kan daar dan rekening mee houden.",
+  whyEn:"Say when you register that you do not eat meat, so the cook can take it into account.",
+  quote:'Eet u geen vlees? <em>Vertel dat bij uw aanmelding.</em>'},
+ {id:"q5", p:2, tag:"Dagen en tijden",
+  prompt:"Hoe laat begint de zwemles deze zaterdag?",
+  promptEn:"What time does the swimming lesson start this Saturday?",
+  opts:{A:"Om 10.00 uur.", B:"Om 10.25 uur.", C:"Om 10.30 uur."}, key:"C",
+  verd:{A:"10.00 uur is de gewone tijd, maar niet deze week.", B:"Om 10.25 uur moeten de kinderen klaarstaan; de les begint later.", C:"Goed. Deze week begint de les om 10.30 uur."},
+  why:"Deze week begint de les om 10.30 uur. Om 10.25 uur moeten de kinderen klaarstaan. 10.00 uur is de gewone begintijd.",
+  whyEn:"This week the lesson starts at 10.30. 10.25 is when the children must be ready; 10.00 is the usual starting time.",
+  quote:'De zwemles van zaterdag begint deze week om <em>10.30 uur</em> in plaats van 10.00 uur.'},
+ {id:"q6", p:2, tag:"Plaatsen",
+  prompt:"Waar haalt u uw kind na de les op?",
+  promptEn:"Where do you collect your child after the lesson?",
+  opts:{A:"Bij de grote kleedkamer.", B:"In het café van het zwembad.", C:"Bij de kleine kleedkamer."}, key:"A",
+  verd:{A:"Goed. Na de les bij de grote kleedkamer.", B:"In het café wacht u tijdens de les.", C:"De kleine kleedkamer wordt geschilderd."},
+  why:"Na de les haalt u uw kind op bij de grote kleedkamer. Het café is de plek waar ouders kunnen wachten. De kleine kleedkamer wordt geschilderd.",
+  whyEn:"After the lesson you collect your child at the large changing room. The café is where parents wait during the lesson; the small changing room is being painted.",
+  quote:'<em>Na de les</em> haalt u uw kind op bij de <em>grote kleedkamer</em>.'},
+ {id:"q7", p:3, tag:"Voorwaarden",
+  prompt:"Wat is belangrijk als u hier wilt werken?",
+  promptEn:"What matters if you want this job?",
+  opts:{A:"Dat u Nederlands kunt spreken met klanten.", B:"Dat u al in een bloemenwinkel hebt gewerkt.", C:"Dat u ook op zaterdagavond kunt werken."}, key:"A",
+  verd:{A:"Goed. Nederlands spreken met klanten is de eis.", B:"Ervaring is juist niet nodig; zij leggen het uit.", C:"U werkt van 9.00 tot 13.00 uur, niet 's avonds."},
+  why:"U moet met klanten Nederlands kunnen spreken. Ervaring in een bloemenwinkel is niet nodig. De werktijd eindigt om 13.00 uur.",
+  whyEn:"You must be able to speak Dutch with customers. Experience is explicitly not required, and the shift ends at 13.00.",
+  quote:'Het is wel belangrijk dat u <em>Nederlands kunt spreken</em> met klanten.'},
+ {id:"q8", p:3, tag:"Wat moet u doen?",
+  prompt:"Hoe laat u weten dat u dit werk wilt doen?",
+  promptEn:"How do you let them know you want this job?",
+  opts:{A:"U belt de winkel op zaterdag.", B:"U stuurt vóór 20 november een e-mail.", C:"U gaat na 20 november naar de winkel."}, key:"B",
+  verd:{A:"Bellen wordt niet genoemd als manier om te reageren.", B:"Goed. Een e-mail, vóór 20 november.", C:"Na 20 november is te laat, en langskomen hoeft niet."},
+  why:"In de advertentie staat dat u vóór 20 november een e-mail moet sturen. Langskomen is niet nodig; bellen wordt niet als manier van reageren genoemd.",
+  whyEn:"The advert asks for an email before 20 November. Coming by in person is not needed, and phoning is not offered as a way to respond.",
+  quote:'<em>Stuur vóór 20 november een e-mail</em> naar werken@bloemenwinkel.example.'}
+];
+
+var ADVICE = {
+ "Dagen en tijden":"Deze teksten noemen vaak een gewone tijd én een uitzondering. Zoek eerst het woord dat de verandering aankondigt: deze week, in plaats van, vanaf, morgen.",
+ "Als … dan":"Let op de vraag met een vraagteken midden in de tekst. Daarna staat wat u dan moet doen.",
+ "Twee handelingen uit elkaar houden":"Aanmelden en betalen gebeuren op verschillende momenten. Zoek bij elke handeling apart wanneer die plaatsvindt.",
+ "Wat moet u doen?":"Zoek het werkwoord dat u een opdracht geeft: vertel, stuur, meld, neem mee.",
+ "Voorwaarden":"Let op wat wél moet en wat juist niet hoeft. Woorden als wel, niet, hoeft niet en belangrijk sturen het antwoord.",
+ "Plaatsen":"Eén tekst noemt vaak drie plaatsen. Koppel elke plaats aan het moment: vóór, tijdens of na."
+};
+
+/* ─────────────────────────── state & navigation ─────────────────────────── */
+var state = {answers:{}, queue:[0,1,2,3,4,5,6,7], qi:0, checked:false, repeat:{}};
+var DEMO = {q1:"B",q2:"A",q3:"A",q4:"B",q5:"B",q6:"A",q7:"A",q8:"B"};
+var NAVOF = {start:"start",read:"start",review:"start",listen:"start",write:"start",speak:"start",knm:"start",mockset:"mock",mock:"mock",work:"work"};
+
+function go(name, opts){
+  opts = opts || {};
+  $$(".screen").forEach(function(s){ s.hidden = (s.id !== "s-"+name); });
+  $$("#chips button").forEach(function(b){
+    if(b.dataset.go===name){ b.setAttribute("aria-current","page"); } else { b.removeAttribute("aria-current"); }
+  });
+  $$(".top nav button").forEach(function(b){
+    if(b.dataset.nav===NAVOF[name]){ b.setAttribute("aria-current","page"); } else { b.removeAttribute("aria-current"); }
+  });
+  if(name==="read"){
+    if(opts.restart){ state.answers={}; state.queue=[0,1,2,3,4,5,6,7]; state.qi=0; }
+    if(opts.resume){ state.queue=[0,1,2,3,4,5,6,7]; state.qi=4; }
+    if(opts.repeatq){ var w=wrongIdx(); state.queue = w.length?w:[0,1,2,3,4,5,6,7]; state.qi=0; }
+    renderQ();
+  }
+  if(name==="review") renderReview();
+  if(name==="mock") startClock(); else stopClock();
+  var ctx=$("#ctx"); ctx.hidden = (name!=="read");
+  window.scrollTo({top:0, behavior:"instant"});
+}
+document.addEventListener("click", function(e){
+  var t = e.target.closest("[data-go]"); if(!t) return;
+  go(t.dataset.go, {restart:t.dataset.restart, resume:t.dataset.resume, repeatq:t.dataset.repeatq});
+});
+
+/* ─────────────────────────── reading exercise ─────────────────────────── */
+var ptext=$("#p-text"), opts=$("#opts"), fb=$("#fb"), checkBtn=$("#check-btn"), skipBtn=$("#skip-btn");
+var curP = -1;
+
+function cur(){ return Q[state.queue[state.qi]]; }
+
+function renderQ(){
+  var q = cur(), n = state.qi+1, total = state.queue.length;
+  if(q.p !== curP){
+    curP = q.p;
+    $("#p-kind").textContent = PASSAGES[q.p].kind;
+    $("#p-title").textContent = PASSAGES[q.p].title;
+    ptext.innerHTML = PASSAGES[q.p].html;
+  } else {
+    $$(".ev.on", ptext).forEach(function(m){ m.classList.remove("on"); });
+  }
+  $("#q-num").textContent = "Vraag "+n+" van "+total;
+  $("#q-tag").textContent = q.tag;
+  $("#q-text").textContent = q.prompt;
+  $("#q-en").textContent = q.promptEn;
+  $("#ctx-pos").textContent = "Vraag "+n+" van "+total;
+  $("#ctx-bar").style.width = Math.round(((n-1)/total)*100)+"%";
+
+  state.checked = false;
+  opts.className = "opts";
+  opts.innerHTML = ["A","B","C"].map(function(L){
+    return '<button class="opt" data-o="'+L+'" aria-pressed="false"><span class="ltr">'+L+'</span><span class="txt">'+q.opts[L]+'</span></button>';
+  }).join("");
+  fb.hidden = true;
+  $("#fb-save").checked = !!state.repeat[q.id];
+  checkBtn.textContent = "Nakijken";
+  checkBtn.disabled = true;
+  skipBtn.hidden = false;
+}
+
+opts.addEventListener("click", function(e){
+  var b = e.target.closest(".opt"); if(!b || state.checked) return;
+  $$(".opt", opts).forEach(function(o){ o.setAttribute("aria-pressed", String(o===b)); });
+  checkBtn.disabled = false;
+});
+
+checkBtn.addEventListener("click", function(){
+  var q = cur();
+  if(!state.checked){
+    var picked = $(".opt[aria-pressed='true']", opts);
+    if(!picked) return;
+    var choice = picked.dataset.o;
+    state.answers[q.id] = choice;
+    state.checked = true;
+    opts.classList.add("done");
+    $$(".opt", opts).forEach(function(o){
+      var L = o.dataset.o;
+      if(L===q.key) o.classList.add("key");
+      if(L===choice){ o.classList.add("picked"); if(L!==q.key) o.classList.add("wrongpick"); }
+      var v = document.createElement("span");
+      v.className = "verdict";
+      v.innerHTML = (L===q.key ? "<b>Goed antwoord.</b> " : "") + q.verd[L].replace(/^Goed\. /,"");
+      o.appendChild(v);
+      o.setAttribute("aria-disabled","true");
+    });
+    var m = $('.ev[data-ev="'+q.id+'"]', ptext);
+    if(m) requestAnimationFrame(function(){ m.classList.add("on"); });
+    $("#fb-why").textContent = q.why;
+    $("#fb-why-en").textContent = q.whyEn;
+    $("#fb-quote").innerHTML = q.quote;
+    fb.hidden = false;
+    skipBtn.hidden = true;
+    checkBtn.textContent = (state.qi+1 < state.queue.length) ? "Volgende vraag" : "Bekijk het overzicht";
+  } else {
+    if(state.qi+1 < state.queue.length){ state.qi++; renderQ(); }
+    else { go("review"); }
+  }
+});
+skipBtn.addEventListener("click", function(){
+  if(state.qi+1 < state.queue.length){ state.qi++; renderQ(); } else { go("review"); }
+});
+$("#fb-save").addEventListener("change", function(e){ state.repeat[cur().id] = e.target.checked; });
+
+ptext.addEventListener("click", function(e){
+  var g = e.target.closest(".gl"); if(!g) return;
+  var open = g.getAttribute("aria-expanded")==="true";
+  $$(".gloss", ptext).forEach(function(n){ n.remove(); });
+  $$('.gl[aria-expanded="true"]', ptext).forEach(function(n){ n.setAttribute("aria-expanded","false"); });
+  if(open) return;
+  g.setAttribute("aria-expanded","true");
+  var parts = g.dataset.g.split(" — ");
+  var el = document.createElement("span");
+  el.className = "gloss";
+  el.innerHTML = "<b>"+parts[0]+"</b> — "+parts[1];
+  g.closest("p").after(el);
+});
+
+/* ─────────────────────────── review ─────────────────────────── */
+function given(){ return Object.keys(state.answers).length ? state.answers : DEMO; }
+function wrongIdx(){
+  var a = given(), out = [];
+  Q.forEach(function(q,i){ if(a[q.id] && a[q.id]!==q.key) out.push(i); });
+  return out;
+}
+function renderReview(){
+  var a = given(), right = 0, groups = {};
+  var list = Q.map(function(q,i){
+    var mine = a[q.id], ok = mine===q.key;
+    if(ok) right++;
+    if(mine && !ok){ groups[q.tag] = (groups[q.tag]||0)+1; }
+    return '<li><span class="n '+(mine?(ok?"ok":"no"):"")+'">'+(i+1)+'</span>'+
+      '<span>'+q.prompt+'</span>'+
+      '<span class="r tnum">'+(mine? (ok? mine : mine+" &rarr; "+q.key) : "—")+'</span></li>';
+  }).join("");
+  $("#rv-score").textContent = right;
+  $("#rv-list").innerHTML = list;
+  var keys = Object.keys(groups);
+  $("#rv-mistakes").innerHTML = keys.length ? keys.map(function(k){
+    return '<div class="mis"><div><b>'+k+'</b><p>'+ADVICE[k]+'</p></div><span class="cnt tnum">'+groups[k]+' van '+
+      Q.filter(function(q){return q.tag===k;}).length+' vragen fout</span></div>';
+  }).join("") : '<div class="mis"><div><b>Niets fout.</b><p>Alle vragen goed. Probeer daarna een proefexamen met de klok erbij.</p></div></div>';
+  $$('[data-repeatq]').forEach(function(b){
+    var n = wrongIdx().length;
+    b.textContent = n ? ("Herhaal de "+n+" foute "+(n===1?"vraag":"vragen")) : "Nog een keer alle vragen";
+  });
+}
+$("#rv-list").addEventListener("click", function(e){
+  var li = e.target.closest("li"); if(!li) return;
+  var i = $$("#rv-list li").indexOf(li);
+  state.queue = [0,1,2,3,4,5,6,7]; state.qi = i; go("read");
+});
+/* ─────────────────────────── simple one-question blocks ─────────────────────────── */
+function simpleQuestion(optsSel, btnSel, fbSel, key, verds){
+  var box = $(optsSel), btn = $(btnSel), panel = $(fbSel), done = false;
+  box.addEventListener("click", function(e){
+    var b = e.target.closest(".opt"); if(!b || done) return;
+    $$(".opt", box).forEach(function(o){ o.setAttribute("aria-pressed", String(o===b)); });
+    btn.disabled = false;
+  });
+  btn.addEventListener("click", function(){
+    if(done) return;
+    var picked = $(".opt[aria-pressed='true']", box); if(!picked) return;
+    done = true; box.classList.add("done");
+    $$(".opt", box).forEach(function(o){
+      var L = o.dataset.o;
+      if(L===key) o.classList.add("key");
+      if(o===picked){ o.classList.add("picked"); if(L!==key) o.classList.add("wrongpick"); }
+      var v = document.createElement("span"); v.className="verdict"; v.textContent = verds[L];
+      o.appendChild(v);
+    });
+    panel.hidden = false;
+    btn.disabled = true; btn.textContent = "Nagekeken";
+  });
+}
+simpleQuestion("#l-opts", "#l-check", "#l-fb", "B", {
+  A:"14 april staat niet in het bericht. Luister nog eens naar het getal.",
+  B:"Goed antwoord. Tot en met vrijdag 24 april.",
+  C:"Alleen vandaag is te kort; er wordt een datum genoemd."
+});
+simpleQuestion("#k-opts", "#k-check", "#k-fb", "B", {
+  A:"Naar het ziekenhuis gaat u meestal met een verwijzing van de huisarts.",
+  B:"Goed antwoord. De huisarts is de eerste stap.",
+  C:"Bij de apotheek haalt u medicijnen, vaak met een recept."
+});
+
+/* ─────────────────────────── waveforms & players ─────────────────────────── */
+function buildWave(el, n, seed){
+  if(!el) return;
+  var h = "";
+  for(var i=0;i<n;i++){
+    var v = Math.abs(Math.sin((i+seed)*0.7) * Math.cos((i+seed)*0.19)) * 0.78 + 0.14;
+    h += '<i style="height:'+Math.round(v*100)+'%"></i>';
+  }
+  el.innerHTML = h;
+}
+buildWave($("#wave"), 64, 1);
+buildWave($("#wave2"), 40, 7);
+buildWave($("#wave3"), 52, 3);
+
+var playT = null, plays = 2;
+$("#play-btn").addEventListener("click", function(){
+  var bars = $$("#wave i"), btn = this, step = 0;
+  if(playT){ clearInterval(playT); playT=null; btn.innerHTML="&#9654;"; return; }
+  btn.innerHTML = "&#9646;&#9646;";
+  playT = setInterval(function(){
+    step++;
+    bars.forEach(function(b,i){ b.classList.toggle("on", i <= step); });
+    $("#play-time").textContent = "0:"+String(Math.min(24,Math.round(step*24/bars.length))).padStart(2,"0")+" / 0:24";
+    if(step >= bars.length){
+      clearInterval(playT); playT=null; btn.innerHTML="&#9654;";
+      bars.forEach(function(b){ b.classList.remove("on"); });
+      $("#play-time").textContent = "0:00 / 0:24";
+      plays++; $("#play-count").textContent = plays+"× beluisterd";
+    }
+  }, 70);
+});
+$$(".speed button").forEach(function(b){
+  b.addEventListener("click", function(){
+    $$(".speed button").forEach(function(o){ o.setAttribute("aria-pressed", String(o===b)); });
+  });
+});
+$("#tr-btn").addEventListener("click", function(){
+  var t = $("#transcript");
+  t.hidden = !t.hidden;
+  this.textContent = t.hidden ? "Toon transcript" : "Verberg transcript";
+});
+
+/* ─────────────────────────── writing ─────────────────────────── */
+var wText = $("#w-text");
+function countWords(){
+  var n = wText.value.trim().split(/\s+/).filter(Boolean).length;
+  $("#w-count").textContent = n + " woorden";
+}
+wText.addEventListener("input", countWords); countWords();
+$("#w-ask").addEventListener("click", function(){ $("#w-consent").hidden=false; $("#w-selfcheck").hidden=true; });
+$("#w-cancel").addEventListener("click", function(){ $("#w-consent").hidden=true; });
+$("#w-send").addEventListener("click", function(){
+  var b=this; b.textContent="Bezig met beoordelen…"; b.disabled=true;
+  setTimeout(function(){
+    $("#w-consent").hidden=true; $("#w-fb").hidden=false;
+    b.textContent="Verstuur en vraag feedback"; b.disabled=false;
+  }, 700);
+});
+$("#w-self").addEventListener("click", function(){ $("#w-selfcheck").hidden=false; $("#w-consent").hidden=true; $("#w-fb").hidden=true; });
+$$(".req").forEach(function(r){
+  if(r.tagName!=="LABEL") return;
+  r.addEventListener("click", function(){ r.classList.toggle("met"); });
+});
+
+/* ─────────────────────────── speaking ─────────────────────────── */
+var recOn=false, recT=null, recSec=0;
+$("#rec-btn").addEventListener("click", function(){
+  var b=this, bars=$$("#wave3 i");
+  if(!recOn){
+    recOn=true; recSec=0; b.classList.remove("idle");
+    $("#rec-state").textContent="Bezig met opnemen…";
+    recT=setInterval(function(){
+      recSec++;
+      $("#rec-time").textContent="0:"+String(recSec).padStart(2,"0")+" / 0:30 · blijft op dit apparaat";
+      bars.forEach(function(x,i){ x.classList.toggle("on", i < Math.round(recSec/30*bars.length)); });
+      if(recSec>=30) $("#rec-btn").click();
+    },140);
+  } else {
+    recOn=false; clearInterval(recT); b.classList.add("idle");
+    $("#rec-state").textContent="Opname klaar · "+recSec+" seconden";
+    $("#rec-time").textContent="Alleen op dit apparaat. Nog niet verstuurd.";
+    $("#rec-play").disabled=false; $("#rec-again").disabled=false;
+  }
+});
+$("#rec-again").addEventListener("click", function(){
+  $$("#wave3 i").forEach(function(x){ x.classList.remove("on"); });
+  $("#rec-state").textContent="Klaar om op te nemen";
+  $("#rec-time").textContent="Maximaal 30 seconden · blijft op dit apparaat";
+  $("#rec-play").disabled=true; this.disabled=true;
+});
+$("#sp-ask").addEventListener("click", function(){ $("#sp-fb").hidden=false; this.disabled=true; this.textContent="Verstuurd voor feedback"; });
+
+/* ─────────────────────────── mock exam ─────────────────────────── */
+var mkState = {done:[1,2,3,4,5,8], flag:[5], cur:3};
+function renderNav(){
+  $("#mk-nav").innerHTML = [1,2,3,4,5,6,7,8].map(function(n){
+    var c = "";
+    if(mkState.done.indexOf(n)>-1) c += " done";
+    if(mkState.flag.indexOf(n)>-1) c += " flag";
+    return '<button class="'+c.trim()+'"'+(n===mkState.cur?' aria-current="true"':'')+'>'+n+'</button>';
+  }).join("");
+}
+renderNav();
+$("#mk-nav").addEventListener("click", function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  mkState.cur = parseInt(b.textContent,10); renderNav();
+});
+$("#mk-flag").addEventListener("click", function(){
+  var i = mkState.flag.indexOf(mkState.cur);
+  if(i>-1){ mkState.flag.splice(i,1); this.textContent="Markeer om terug te komen"; }
+  else { mkState.flag.push(mkState.cur); this.textContent="Markering weghalen"; }
+  renderNav();
+});
+$("#mk-opts").addEventListener("click", function(e){
+  var b=e.target.closest(".opt"); if(!b) return;
+  $$(".opt", this).forEach(function(o){ o.setAttribute("aria-pressed", String(o===b)); });
+  if(mkState.done.indexOf(mkState.cur)===-1){ mkState.done.push(mkState.cur); renderNav(); }
+});
+$("#mk-submit").addEventListener("click", function(){ $("#mk-confirm").hidden=false; });
+$("#mk-cancel").addEventListener("click", function(){ $("#mk-confirm").hidden=true; });
+
+var clockT=null, clockLeft=18*60+42;
+function startClock(){
+  stopClock();
+  clockT = setInterval(function(){
+    clockLeft = Math.max(0, clockLeft-1);
+    $("#mk-clock").textContent = Math.floor(clockLeft/60)+":"+String(clockLeft%60).padStart(2,"0");
+  }, 1000);
+}
+function stopClock(){ if(clockT){ clearInterval(clockT); clockT=null; } }
+
+/* ─────────────────────────── global controls ─────────────────────────── */
+$("#helptog").addEventListener("click", function(){
+  var on = document.body.classList.toggle("help-en");
+  this.setAttribute("aria-pressed", String(on));
+});
+$("#plainface-btn").addEventListener("click", function(){
+  var on = document.body.classList.toggle("plainface");
+  this.textContent = on ? "Gewoon lettertype" : "Eenvoudig lettertype";
+});
+$("#vp-btn").addEventListener("click", function(){
+  var on = document.body.classList.toggle("vp-phone");
+  this.setAttribute("aria-pressed", String(on));
+  this.textContent = on ? "Bureaublad" : "Telefoon";
+});
+$("#notes-btn").addEventListener("click", function(){
+  var n = $("#notes"); n.hidden = !n.hidden;
+  this.setAttribute("aria-pressed", String(!n.hidden));
+});
+$("#notes-close").addEventListener("click", function(){
+  $("#notes").hidden = true; $("#notes-btn").setAttribute("aria-pressed","false");
+});
+document.addEventListener("keydown", function(e){
+  if(e.key==="Escape" && !$("#notes").hidden){ $("#notes-close").click(); }
+});
+
+renderQ();
+})();
+</script>

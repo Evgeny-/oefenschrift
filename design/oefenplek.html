@@ -1,0 +1,707 @@
+<title>Oefenplek A2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&display=swap">
+<style>
+/* Oefenplek - A2 practice site.
+   One measure (648px), one typeface, ink on warm paper, one yellow pen.
+   Light by default and single-theme on purpose; every colour is painted
+   explicitly so the page holds on either host ground. */
+:root{
+  color-scheme:light;
+  --paper:#FCFBF8; --ink:#1A1917; --body:#3B3934; --dim:#96938A; --faint:#B9B5AA;
+  --rule:#E3E0D7; --rule-soft:#EDEAE2; --field:#F6F4EE;
+  --mk:#FFE79E; --mk-line:#E0BB49; --strike:#BFBAAD;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none !important}
+body{margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Libre Franklin",Helvetica,Arial,sans-serif; font-size:15px; line-height:1.5;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
+h1,h2,p{margin:0}
+button{font:inherit; color:inherit; background:none; border:0; cursor:pointer; text-align:left}
+input,textarea{font:inherit; color:inherit}
+:where(button,textarea,input):focus-visible{outline:2px solid var(--ink); outline-offset:3px; border-radius:1px}
+.measure{max-width:648px; margin:0 auto}
+
+/* ── site header ─────────────────────────────────────────────────────── */
+.top{border-bottom:1px solid var(--rule); padding:0 clamp(18px,5vw,74px)}
+.top .measure{display:flex; align-items:baseline; gap:26px; padding:19px 0 17px; flex-wrap:wrap}
+.wm{font-size:15px; font-weight:600; letter-spacing:-.022em}
+.top nav{display:flex; gap:19px; margin-left:auto; flex-wrap:wrap}
+.top nav button{font-size:13.5px; color:var(--dim); padding-bottom:2px}
+.top nav button:hover{color:var(--ink)}
+.top nav button[aria-current="page"]{color:var(--ink); box-shadow:inset 0 -1px 0 var(--ink)}
+
+/* ── page & shared blocks ────────────────────────────────────────────── */
+.page{padding:clamp(28px,4.6vw,58px) clamp(18px,5vw,74px) clamp(64px,9vw,112px)}
+.view,.flow{display:grid; gap:clamp(28px,4.2vw,40px)}
+.bar{display:flex; align-items:baseline; justify-content:space-between; gap:20px}
+.kicker{font-size:10.5px; font-weight:500; letter-spacing:.19em; text-transform:uppercase; color:var(--dim)}
+.count{font-size:12.5px; color:var(--dim); font-variant-numeric:tabular-nums}
+.count b{color:var(--ink); font-weight:500}
+.text{display:grid; gap:14px}
+.body{font-size:17px; line-height:1.72; color:var(--body); max-width:58ch}
+.body p + p{margin-top:.85em}
+.pf{background-image:linear-gradient(var(--mk),var(--mk)); background-repeat:no-repeat;
+  background-size:0 100%; box-decoration-break:clone; -webkit-box-decoration-break:clone;
+  padding:.07em .13em; margin:0 -.13em; border-radius:1px;
+  transition:background-size .45s cubic-bezier(.22,.7,.3,1), color .45s}
+.pf.on{background-size:100% 100%; box-shadow:inset 0 -1px 0 var(--mk-line); color:var(--ink)}
+.ask{display:grid; gap:clamp(22px,3vw,30px)}
+.q{font-size:clamp(25px,3.4vw,33px); font-weight:600; line-height:1.18; letter-spacing:-.028em;
+  text-wrap:balance; max-width:22ch}
+.lede{font-size:17px; line-height:1.6; color:var(--body); max-width:52ch}
+.fine{font-size:13px; line-height:1.6; color:var(--dim); max-width:56ch}
+.resolve{display:grid; gap:21px}
+.foot{display:flex; align-items:center; gap:22px; flex-wrap:wrap; min-height:40px}
+.go{border:1px solid #D9D5CB; border-radius:2px; padding:11px 22px; font-size:14px;
+  font-weight:500; transition:border-color .14s, color .14s}
+.go:hover{border-color:var(--ink)}
+.go[disabled]{color:var(--faint); border-color:#EAE7DE; cursor:default}
+.link{font-size:14px; color:var(--dim); box-shadow:inset 0 -1px 0 var(--rule); padding-bottom:2px}
+.link:hover{color:var(--ink); box-shadow:inset 0 -1px 0 var(--ink)}
+.exp{font-size:15.5px; line-height:1.6; color:#5C5951; max-width:58ch}
+.exp b{color:var(--ink); font-weight:600}
+.caption{font-size:10.5px; font-weight:500; letter-spacing:.19em; text-transform:uppercase; color:var(--dim)}
+
+/* ── answer rows ─────────────────────────────────────────────────────── */
+.opts{border-top:1px solid var(--rule)}
+.opt{display:grid; grid-template-columns:27px 1fr; align-items:baseline; width:100%;
+  padding:18px 2px 18px 0; border-bottom:1px solid var(--rule);
+  transition:opacity .3s ease, box-shadow .12s, padding-left .12s}
+.opt .l{font-size:11.5px; font-weight:600; letter-spacing:.1em; color:var(--dim);
+  padding:.26em .3em .22em; margin-left:-.3em; border-radius:1px;
+  background-image:linear-gradient(var(--mk),var(--mk)); background-repeat:no-repeat;
+  background-size:0 100%; transition:background-size .45s cubic-bezier(.22,.7,.3,1), color .2s}
+.opt .x{font-size:17.5px; line-height:1.42; color:var(--body); transition:color .2s}
+.opt:hover .x,.opt:hover .l{color:var(--ink)}
+.opt[aria-pressed="true"]{box-shadow:inset 2px 0 0 var(--ink); padding-left:14px}
+.opt[aria-pressed="true"] .l,.opt[aria-pressed="true"] .x{color:var(--ink)}
+.opts.done .opt{pointer-events:none; box-shadow:none; padding-left:0}
+.opts.done .opt:not(.key){opacity:.3}
+.opts.done .opt.mine:not(.key){opacity:.62}
+.opts.done .opt.mine:not(.key) .x{text-decoration:line-through; text-decoration-thickness:1px;
+  text-decoration-color:var(--strike)}
+.opts.done .opt.key .l{background-size:100% 100%; color:var(--ink); box-shadow:inset 0 -1px 0 var(--mk-line)}
+.opts.done .opt.key .x{color:var(--ink)}
+
+/* ── generic hairline list: home, requirements, checklist, corrections ── */
+.list{border-top:1px solid var(--rule)}
+.item{display:grid; grid-template-columns:27px 1fr; align-items:baseline; width:100%;
+  padding:16px 0; border-bottom:1px solid var(--rule)}
+.item .mk{font-size:11.5px; font-weight:600; color:var(--dim); font-variant-numeric:tabular-nums;
+  line-height:1.6}
+.item .t{font-size:16.5px; line-height:1.45; color:var(--body)}
+.item .sub{font-size:14px; line-height:1.5; color:var(--dim); margin-top:5px}
+.item .sub s{text-decoration:line-through; text-decoration-thickness:1px; text-decoration-color:var(--strike)}
+.item .sub b{color:var(--ink); font-weight:500}
+.item.met .mk{color:var(--ink)}
+.item.met .t{color:var(--ink)}
+.item.miss .mk{color:var(--mk-line)}
+.item.miss .t{color:var(--ink)}
+button.item{text-align:left}
+button.item:hover .t{color:var(--ink)}
+.item .quote{background-image:linear-gradient(var(--mk),var(--mk)); background-repeat:no-repeat;
+  background-size:100% 100%; padding:.07em .13em; border-radius:1px; color:var(--ink)}
+
+/* ── home rows ───────────────────────────────────────────────────────── */
+.row{display:grid; grid-template-columns:1fr auto 22px; align-items:baseline; gap:16px; width:100%;
+  padding:19px 0; border-bottom:1px solid var(--rule)}
+.row .rn{font-size:20px; font-weight:500; letter-spacing:-.018em}
+.row .rm{font-size:13.5px; color:var(--dim); font-variant-numeric:tabular-nums}
+.row .ar{font-size:15px; color:var(--faint); justify-self:end; transition:transform .16s, color .16s}
+.row:hover .ar{transform:translateX(4px); color:var(--ink)}
+
+/* ── audio player ────────────────────────────────────────────────────── */
+.player{border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:22px 0}
+.prow{display:flex; align-items:center; gap:20px}
+.play{width:44px; height:44px; flex:none; border-radius:50%; background:var(--ink); color:var(--paper);
+  display:grid; place-items:center; font-size:13px; transition:transform .12s}
+.play:hover{transform:scale(1.04)}
+.wave{display:flex; align-items:center; gap:2px; height:34px; flex:1; min-width:0}
+.wave i{flex:1; min-width:2px; background:var(--rule); border-radius:1px; transition:background .1s}
+.wave i.on{background:var(--ink)}
+.time{font-size:12.5px; color:var(--dim); font-variant-numeric:tabular-nums; white-space:nowrap}
+.prow2{display:flex; align-items:center; gap:16px; margin-top:16px; font-size:12.5px; color:var(--dim); flex-wrap:wrap}
+.speed{display:flex; gap:0; border:1px solid var(--rule); border-radius:2px; overflow:hidden}
+.speed button{font-size:12px; padding:4px 9px; color:var(--dim); border-right:1px solid var(--rule)}
+.speed button:last-child{border-right:0}
+.speed button[aria-pressed="true"]{background:var(--ink); color:var(--paper)}
+.plays{margin-left:auto; font-variant-numeric:tabular-nums}
+.demo{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--mk-line)}
+
+/* ── writing & speaking ──────────────────────────────────────────────── */
+.write{width:100%; min-height:186px; resize:vertical; background:var(--field);
+  border:1px solid var(--rule); border-radius:2px; padding:18px 20px;
+  font-size:17px; line-height:1.68; color:var(--ink)}
+.write:focus{border-color:var(--ink); outline:none}
+.wc{display:flex; gap:18px; margin-top:9px; font-size:12.5px; color:var(--dim); font-variant-numeric:tabular-nums}
+.model{background:var(--field); border-left:2px solid var(--mk-line); padding:18px 20px;
+  font-size:16.5px; line-height:1.68; color:var(--ink)}
+.rec{display:flex; align-items:center; gap:20px; flex-wrap:wrap}
+.recbtn{width:52px; height:52px; flex:none; border-radius:50%; background:var(--ink);
+  display:grid; place-items:center; transition:transform .12s}
+.recbtn:hover{transform:scale(1.04)}
+.recbtn i{display:block; width:15px; height:15px; border-radius:50%; background:var(--paper);
+  transition:border-radius .18s, width .18s, height .18s}
+.recbtn.live i{border-radius:2px; width:14px; height:14px}
+.recstate{display:grid; gap:3px}
+.recstate b{font-size:15px; font-weight:500}
+.recstate span{font-size:12.5px; color:var(--dim); font-variant-numeric:tabular-nums}
+.rec .acts{margin-left:auto; display:flex; gap:18px}
+
+@media (max-width:620px){
+  .top nav{margin-left:0; width:100%; gap:16px}
+  .row{grid-template-columns:1fr auto; gap:6px 14px}
+  .row .ar{display:none}
+}
+.text,.ask{transition:opacity .15s ease, transform .15s ease}
+.out{opacity:0; transform:translateY(4px)}
+@media (prefers-reduced-motion:reduce){
+  .pf,.opt,.opt .l,.text,.ask,.play,.recbtn,.row .ar{transition:none}
+  .out{transform:none}
+}
+</style>
+<header class="top">
+  <div class="measure">
+    <button class="wm" data-go="home">oefenplek</button>
+    <nav>
+      <button data-go="lezen">Lezen</button>
+      <button data-go="luisteren">Luisteren</button>
+      <button data-go="schrijven">Schrijven</button>
+      <button data-go="spreken">Spreken</button>
+      <button data-go="knm">KNM</button>
+    </nav>
+  </div>
+</header>
+
+<main class="page"><div class="measure">
+
+<!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; HOME &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+<section class="view" id="v-home">
+  <div class="text">
+    <p class="kicker">A2 en KNM</p>
+    <h1 class="q">Oefenen voor het inburgeringsexamen.</h1>
+  </div>
+  <p class="lede">Gratis en zonder account. Bij elk antwoord ziet u de zin die het bewijst, geel gemarkeerd in de tekst.</p>
+  <div class="list">
+    <button class="row" data-go="lezen"><span class="rn">Lezen</span><span class="rm">4 teksten &middot; 8 vragen</span><span class="ar">&rarr;</span></button>
+    <button class="row" data-go="luisteren"><span class="rn">Luisteren</span><span class="rm">1 opgave</span><span class="ar">&rarr;</span></button>
+    <button class="row" data-go="schrijven"><span class="rn">Schrijven</span><span class="rm">1 taak</span><span class="ar">&rarr;</span></button>
+    <button class="row" data-go="spreken"><span class="rn">Spreken</span><span class="rm">1 taak</span><span class="ar">&rarr;</span></button>
+    <button class="row" data-go="knm"><span class="rn">KNM</span><span class="rm">1 vraag</span><span class="ar">&rarr;</span></button>
+  </div>
+  <p class="fine">Origineel oefenmateriaal, geen officieel examen van DUO en geen offici&#235;le uitslag. Wat u doet blijft op dit apparaat staan.</p>
+</section>
+
+<!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; LEZEN &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+<section class="view" id="v-lezen" hidden>
+  <div id="lz-stage" class="flow">
+    <div class="text" id="lz-text">
+      <div class="bar">
+        <span class="kicker" id="lz-kicker"></span>
+        <span class="count"><b id="lz-pos">1</b> / <span id="lz-tot">8</span></span>
+      </div>
+      <div class="body" id="lz-body"></div>
+    </div>
+    <div class="ask" id="lz-ask">
+      <h1 class="q" id="lz-q"></h1>
+      <div class="opts" id="lz-opts"></div>
+    </div>
+    <div class="resolve">
+      <div class="foot"><button class="go" id="lz-go" disabled>Nakijken</button></div>
+      <p class="exp" id="lz-exp" hidden></p>
+    </div>
+  </div>
+
+  <div id="lz-end" class="flow" hidden>
+    <p class="kicker">Klaar</p>
+    <div class="ask">
+      <h1 class="q" id="lz-score"></h1>
+      <div class="list" id="lz-misses"></div>
+    </div>
+    <div class="resolve">
+      <p class="exp">Geen slaaggrens: dit is oefenmateriaal, geen officieel examen.</p>
+      <div class="foot">
+        <button class="go" id="lz-again">Herhaal de foute vragen</button>
+        <button class="link" id="lz-restart">Opnieuw beginnen</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; LUISTEREN &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+<section class="view" id="v-luisteren" hidden>
+  <div class="text">
+    <div class="bar">
+      <span class="kicker">Voicemail</span>
+      <span class="count"><b>1</b> / 1</span>
+    </div>
+    <div class="player" data-player data-seconds="24">
+      <div class="prow">
+        <button class="play" data-play aria-label="Afspelen">&#9654;</button>
+        <div class="wave" data-wave aria-hidden="true"></div>
+        <span class="time" data-time>0:00 / 0:24</span>
+      </div>
+      <div class="prow2">
+        <span>Snelheid</span>
+        <div class="speed" role="group" aria-label="Afspeelsnelheid">
+          <button aria-pressed="false" data-speed>0,75&times;</button>
+          <button aria-pressed="true" data-speed>1&times;</button>
+          <button aria-pressed="false" data-speed>1,25&times;</button>
+        </div>
+        <span class="demo">Demo, geen geluid</span>
+        <span class="plays" data-plays>0&times; beluisterd</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ask">
+    <h1 class="q">Tot wanneer ligt het boek klaar?</h1>
+    <div class="opts" id="lu-opts">
+      <button class="opt" data-o="A" aria-pressed="false"><span class="l">A</span><span class="x">Tot 14 april.</span></button>
+      <button class="opt" data-o="B" aria-pressed="false"><span class="l">B</span><span class="x">Tot en met vrijdag 24 april.</span></button>
+      <button class="opt" data-o="C" aria-pressed="false"><span class="l">C</span><span class="x">Alleen vandaag.</span></button>
+    </div>
+  </div>
+
+  <div class="resolve">
+    <div class="foot"><button class="go" id="lu-go" disabled>Nakijken</button></div>
+    <p class="exp" id="lu-exp" hidden><b>Het antwoord is B.</b> In het bericht staat: tot en met vrijdag 24 april. &#8222;Tot en met&#8221; betekent dat die vrijdag er nog bij hoort. In A staat 14 in plaats van 24; dat verschil zit in &#233;&#233;n klank.</p>
+    <div id="lu-tr" hidden style="display:grid; gap:12px">
+      <p class="caption">Transcript</p>
+      <div class="body">Goedemiddag, u spreekt met de bibliotheek van Zwolle. Het boek dat u gereserveerd hebt, ligt voor u klaar. <span class="pf on">U kunt het ophalen tot en met vrijdag 24 april.</span> Daarna gaat het boek terug naar de plank. Neem uw bibliotheekpas mee. Tot ziens!</div>
+    </div>
+  </div>
+</section>
+
+<!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; SCHRIJVEN &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+<section class="view" id="v-schrijven" hidden>
+  <div class="text">
+    <div class="bar">
+      <span class="kicker">Een bericht schrijven</span>
+      <span class="count"><b>1</b> / 1</span>
+    </div>
+  </div>
+  <div class="ask">
+    <h1 class="q">Schrijf een e-mail aan de tandarts.</h1>
+    <div class="body">U hebt dinsdag om 14.00 uur een afspraak. U kunt niet komen, want u moet die dag werken. Schrijf 35 tot 45 woorden.</div>
+    <div class="list" id="sc-reqs">
+      <div class="item" data-r="1"><span class="mk">1</span><div><p class="t">Zeg dat u dinsdag niet kunt komen.</p><p class="sub" hidden><span class="quote">&#8222;Ik kan niet komen&#8221;</span></p></div></div>
+      <div class="item" data-r="2"><span class="mk">2</span><div><p class="t">Zeg waarom u niet kunt komen.</p><p class="sub" hidden><span class="quote">&#8222;want ik moet die dag werk&#8221;</span></p></div></div>
+      <div class="item" data-r="3"><span class="mk">3</span><div><p class="t">Vraag om een nieuwe afspraak.</p><p class="sub" hidden><span class="quote">&#8222;Kan ik een nieuwe afspraak maken?&#8221;</span></p></div></div>
+      <div class="item" data-r="4"><span class="mk">4</span><div><p class="t">Schrijf wanneer u wel kunt komen.</p><p class="sub" hidden>Dit staat niet in uw tekst. E&#233;n zin is genoeg: <b>&#8222;Ik kan op donderdag of vrijdag na 17.00 uur.&#8221;</b></p></div></div>
+    </div>
+  </div>
+
+  <div>
+    <textarea class="write" id="sc-text" spellcheck="false">Beste tandarts,
+
+Ik heb dinsdag om 14.00 uur een afspraak. Ik kan niet komen, want ik moet die dag werk. Kan ik een nieuwe afspraak maken? Ik hoor graag van u.
+
+Met vriendelijke groet,
+Amina Haddad</textarea>
+    <div class="wc"><span id="sc-wc">36 woorden</span><span>Gevraagd: 35 tot 45</span><span>Bewaard op dit apparaat</span></div>
+  </div>
+
+  <div class="resolve">
+    <div class="foot"><button class="go" id="sc-check">Nakijken met de checklist</button></div>
+    <p class="exp" id="sc-verdict" hidden><b>Drie van de vier punten staan erin.</b> Uw Nederlands is goed te begrijpen. Het vierde punt ontbreekt, en dat weegt in het echte examen zwaar.</p>
+    <div id="sc-after" hidden style="display:grid; gap:26px">
+      <div style="display:grid; gap:12px">
+        <p class="caption">E&#233;n mogelijke uitwerking</p>
+        <div class="model">Geachte heer/mevrouw,<br><br>Ik heb dinsdag om 14.00 uur een afspraak. Helaas kan ik niet komen, want ik moet die dag werken. Kan ik een nieuwe afspraak maken? Ik kan op donderdag of vrijdag na 17.00 uur.<br><br>Met vriendelijke groet,<br>Amina Haddad</div>
+        <p class="fine">Er zijn meer goede antwoorden. Vergelijk wat u gezegd hebt, niet de exacte woorden.</p>
+      </div>
+      <div class="resolve">
+        <p class="fine">Wilt u ook taalfeedback? Uw tekst gaat dan naar een taalmodel. Wij bewaren hem niet en versturen niets zonder deze klik.</p>
+        <div class="foot"><button class="go" id="sc-ai">Vraag taalfeedback</button></div>
+        <div id="sc-fixes" hidden style="display:grid; gap:12px">
+          <p class="caption">Twee verbeteringen in uw eigen zinnen</p>
+          <div class="list">
+            <div class="item"><span class="mk">1</span><div><p class="t">&#8222;&#8230;want ik moet die dag <s>werk</s> <b>werken</b>.&#8221;</p><p class="sub">Na <b>moet</b> komt het hele werkwoord: moet werken, moet komen, moet bellen.</p></div></div>
+            <div class="item"><span class="mk">2</span><div><p class="t">&#8222;<s>Beste tandarts</s>, <b>Geachte heer/mevrouw</b>,&#8221;</p><p class="sub">Aan een praktijk schrijft u meestal Geachte heer/mevrouw. Niet fout, wel netter.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; SPREKEN &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+<section class="view" id="v-spreken" hidden>
+  <div class="text">
+    <div class="bar">
+      <span class="kicker">Reageren</span>
+      <span class="count"><b>1</b> / 1</span>
+    </div>
+    <div class="player" data-player data-seconds="6">
+      <div class="prow">
+        <button class="play" data-play aria-label="Luister naar de vraag">&#9654;</button>
+        <div class="wave" data-wave aria-hidden="true"></div>
+        <span class="time" data-time>0:00 / 0:06</span>
+      </div>
+      <div class="prow2"><span class="demo">Demo, geen geluid</span><span class="plays" data-plays>0&times; beluisterd</span></div>
+    </div>
+  </div>
+
+  <div class="ask">
+    <h1 class="q">Uw buurvrouw vraagt of u zaterdag kunt helpen met verhuizen.</h1>
+    <div class="body">&#8222;Hoi! Ik ga zaterdag verhuizen. Kun jij misschien helpen?&#8221; U kunt zaterdag niet. Wat zegt u? U hebt 30 seconden.</div>
+  </div>
+
+  <div style="display:grid; gap:18px">
+    <div class="rec">
+      <button class="recbtn" id="sp-rec" aria-label="Opname starten"><i></i></button>
+      <div class="recstate">
+        <b id="sp-state">Klaar om op te nemen</b>
+        <span id="sp-time">Maximaal 30 seconden &middot; blijft op dit apparaat</span>
+      </div>
+      <div class="acts">
+        <button class="link" id="sp-play" disabled>Terugluisteren</button>
+        <button class="link" id="sp-redo" disabled>Opnieuw</button>
+      </div>
+    </div>
+    <div class="wave" id="sp-wave" aria-hidden="true" style="height:44px"></div>
+  </div>
+
+  <div class="ask">
+    <div class="list" id="sp-list">
+      <button class="item"><span class="mk">1</span><p class="t">Ik zeg duidelijk dat ik niet kan.</p></button>
+      <button class="item"><span class="mk">2</span><p class="t">Ik zeg waarom.</p></button>
+      <button class="item"><span class="mk">3</span><p class="t">Ik bied iets anders aan, bijvoorbeeld een andere dag.</p></button>
+    </div>
+    <p class="fine">Luister uw opname terug en vink af wat u echt gezegd hebt.</p>
+  </div>
+
+  <div class="resolve">
+    <div class="foot"><button class="go" id="sp-modelbtn">Toon een mogelijk antwoord</button></div>
+    <div id="sp-model" hidden style="display:grid; gap:12px">
+      <div class="model">&#8222;Wat vervelend, zaterdag kan ik niet. Ik moet dan werken. Zondag ben ik wel vrij. Zal ik dan komen helpen?&#8221;</div>
+      <p class="fine">Over uw uitspraak zeggen wij niets. Een transcript kan onduidelijke spraak goed raden en fouten gladstrijken; uitspraak beoordelen is een apart onderzoek.</p>
+    </div>
+  </div>
+</section>
+
+<!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; KNM &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+<section class="view" id="v-knm" hidden>
+  <div class="text">
+    <div class="bar">
+      <span class="kicker">Gezondheidszorg</span>
+      <span class="count"><b>1</b> / 1</span>
+    </div>
+    <div class="body">U bent al drie dagen ziek. U hebt koorts en u wilt naar een dokter. U woont sinds kort in Nederland.</div>
+  </div>
+
+  <div class="ask">
+    <h1 class="q">Wat doet u eerst?</h1>
+    <div class="opts" id="kn-opts">
+      <button class="opt" data-o="A" aria-pressed="false"><span class="l">A</span><span class="x">U gaat naar het ziekenhuis.</span></button>
+      <button class="opt" data-o="B" aria-pressed="false"><span class="l">B</span><span class="x">U belt uw huisarts.</span></button>
+      <button class="opt" data-o="C" aria-pressed="false"><span class="l">C</span><span class="x">U gaat naar de apotheek.</span></button>
+    </div>
+  </div>
+
+  <div class="resolve">
+    <div class="foot"><button class="go" id="kn-go" disabled>Nakijken</button></div>
+    <div id="kn-fb" hidden style="display:grid; gap:16px">
+      <p class="exp"><b>Het antwoord is B.</b> In Nederland gaat u eerst naar de huisarts. Die helpt u zelf of stuurt u door naar het ziekenhuis. Naar het ziekenhuis gaat u met een verwijzing, of bij een noodgeval. Bij de apotheek haalt u medicijnen, vaak met een recept.</p>
+      <p class="fine">Bron: inburgeren.nl, inhoud kennisexamens &middot; feiten gecontroleerd 12 augustus 2026 &middot; KNM is in juli 2025 veranderd. Wat u zelf moet doen voor uw inburgering staat in Mijn Inburgering of hoort u bij uw gemeente.</p>
+    </div>
+  </div>
+</section>
+
+</div></main>
+<script>
+(function(){
+"use strict";
+var $ = function(id){ return document.getElementById(id); };
+var all = function(sel, r){ return Array.prototype.slice.call((r||document).querySelectorAll(sel)); };
+
+/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 navigation \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 */
+function go(name){
+  all(".view").forEach(function(v){ v.hidden = (v.id !== "v-" + name); });
+  all(".top nav button").forEach(function(b){
+    if(b.dataset.go === name) b.setAttribute("aria-current","page"); else b.removeAttribute("aria-current");
+  });
+  window.scrollTo({top:0, behavior:"instant"});
+}
+document.addEventListener("click", function(e){
+  var t = e.target.closest("[data-go]"); if(!t) return;
+  go(t.dataset.go);
+});
+
+/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 lezen \u2014 pilots/a2-reading-001.json, verbatim \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 */
+var P = [
+{kind:"Bericht", html:
+ '<p>Beste mevrouw Bakker,</p>'+
+ '<p>Uw fiets is klaar. U kunt hem vandaag tot 18.00 uur ophalen. <span class="pf" data-ev="q1">Morgen zijn wij gesloten. Vanaf donderdag bent u weer welkom.</span></p>'+
+ '<p>De reparatie kost 28 euro. U kunt met uw bankpas of contant betalen. Neem het bonnetje mee dat u kreeg toen u de fiets bracht. <span class="pf" data-ev="q2">Bent u het bonnetje kwijt? Neem dan uw identiteitsbewijs mee.</span></p>'+
+ '<p>Met vriendelijke groet,<br>Fietsenwinkel De Hoek</p>'},
+{kind:"Mededeling", html:
+ '<p>Op vrijdag 16 oktober eten we samen in buurthuis De Linde. Iedereen uit de buurt is welkom. We beginnen om 18.30 uur. Een maaltijd kost 6 euro. Kinderen tot en met 11 jaar betalen 3 euro.</p>'+
+ '<p>Wilt u mee-eten? Meld u uiterlijk woensdag 14 oktober aan bij de balie. <span class="pf" data-ev="q3">U betaalt op vrijdag, als u binnenkomt.</span></p>'+
+ '<p>Er is soep met brood en daarna een warme maaltijd. <span class="pf" data-ev="q4">Eet u geen vlees? Vertel dat bij uw aanmelding.</span> Dan maakt de kok een maaltijd zonder vlees voor u.</p>'},
+{kind:"E-mail", html:
+ '<p>Beste ouders,</p>'+
+ '<p><span class="pf" data-ev="q5">De zwemles van zaterdag begint deze week om 10.30 uur in plaats van 10.00 uur.</span> De les duurt, zoals altijd, 45 minuten.</p>'+
+ '<p>De kleine kleedkamer wordt geschilderd. Gebruik daarom de grote kleedkamer naast de ingang. De kinderen moeten vijf minuten voor de les klaarstaan bij het zwembad.</p>'+
+ '<p>U mag tijdens de les in het caf\u00e9 wachten. <span class="pf" data-ev="q6">Na de les haalt u uw kind op bij de grote kleedkamer.</span> Volgende week begint de les weer op de gewone tijd.</p>'+
+ '<p>Groeten,<br>Het team van zwembad De Golf</p>'},
+{kind:"Advertentie", html:
+ '<p>Bloemenwinkel Roos zoekt hulp voor de zaterdag. U werkt van 9.00 tot 13.00 uur. U helpt klanten, pakt bloemen in en houdt de winkel netjes.</p>'+
+ '<p>U hoeft nog niet eerder in een bloemenwinkel te hebben gewerkt. Wij leggen uit wat u moet doen. <span class="pf" data-ev="q7">Het is wel belangrijk dat u Nederlands kunt spreken met klanten.</span></p>'+
+ '<p>Wilt u bij ons werken? <span class="pf" data-ev="q8">Stuur v\u00f3\u00f3r 20 november een e-mail naar werken@bloemenwinkel.example.</span> Schrijf daarin uw naam, uw telefoonnummer en waarom u dit werk wilt doen. Langskomen om te reageren is niet nodig.</p>'}
+];
+
+var Q = [
+{id:"q1", p:0, key:"B", prompt:"Mevrouw Bakker kan vandaag niet komen. Wanneer kan zij haar fiets ophalen?",
+ opts:{A:"Morgen voor 18.00 uur.", B:"Vanaf donderdag.", C:"Alleen vandaag."},
+ why:"Morgen is de winkel gesloten. Vanaf donderdag kan mevrouw Bakker weer komen."},
+{id:"q2", p:0, key:"A", prompt:"Mevrouw Bakker heeft haar bonnetje niet meer. Wat moet zij meenemen?",
+ opts:{A:"Haar identiteitsbewijs.", B:"Haar eigen fietssleutel.", C:"Een foto van haar fiets."},
+ why:"Wie het bonnetje kwijt is, moet volgens het bericht een identiteitsbewijs meenemen. Een sleutel of foto wordt niet genoemd als vervanging."},
+{id:"q3", p:1, key:"C", prompt:"Wanneer betaalt u voor het eten?",
+ opts:{A:"Op woensdag, bij uw aanmelding.", B:"Op vrijdag, na de maaltijd.", C:"Op vrijdag, als u binnenkomt."},
+ why:"Aanmelden moet uiterlijk woensdag. Betalen doet u op vrijdag bij binnenkomst, dus v\u00f3\u00f3r het eten."},
+{id:"q4", p:1, key:"B", prompt:"U wilt een maaltijd zonder vlees. Wat moet u doen?",
+ opts:{A:"Zelf een maaltijd meenemen.", B:"Dit zeggen als u zich aanmeldt.", C:"Wachten tot de kok het eten brengt."},
+ why:"Vertel bij de aanmelding dat u geen vlees eet. De kok kan daar dan rekening mee houden."},
+{id:"q5", p:2, key:"C", prompt:"Hoe laat begint de zwemles deze zaterdag?",
+ opts:{A:"Om 10.00 uur.", B:"Om 10.25 uur.", C:"Om 10.30 uur."},
+ why:"Deze week begint de les om 10.30 uur. Om 10.25 uur moeten de kinderen klaarstaan. 10.00 uur is de gewone begintijd."},
+{id:"q6", p:2, key:"A", prompt:"Waar haalt u uw kind na de les op?",
+ opts:{A:"Bij de grote kleedkamer.", B:"In het caf\u00e9 van het zwembad.", C:"Bij de kleine kleedkamer."},
+ why:"Na de les haalt u uw kind op bij de grote kleedkamer. Het caf\u00e9 is de plek waar ouders kunnen wachten. De kleine kleedkamer wordt geschilderd."},
+{id:"q7", p:3, key:"A", prompt:"Wat is belangrijk als u hier wilt werken?",
+ opts:{A:"Dat u Nederlands kunt spreken met klanten.", B:"Dat u al in een bloemenwinkel hebt gewerkt.", C:"Dat u ook op zaterdagavond kunt werken."},
+ why:"U moet met klanten Nederlands kunnen spreken. Ervaring in een bloemenwinkel is niet nodig. De werktijd eindigt om 13.00 uur."},
+{id:"q8", p:3, key:"B", prompt:"Hoe laat u weten dat u dit werk wilt doen?",
+ opts:{A:"U belt de winkel op zaterdag.", B:"U stuurt v\u00f3\u00f3r 20 november een e-mail.", C:"U gaat na 20 november naar de winkel."},
+ why:"In de advertentie staat dat u v\u00f3\u00f3r 20 november een e-mail moet sturen. Langskomen is niet nodig; bellen wordt niet als manier van reageren genoemd."}
+];
+
+var lzText=$("lz-text"), lzAsk=$("lz-ask"), lzBody=$("lz-body"), lzOpts=$("lz-opts"),
+    lzGo=$("lz-go"), lzExp=$("lz-exp"), lzStage=$("lz-stage"), lzEnd=$("lz-end");
+var order=[0,1,2,3,4,5,6,7], at=0, pIdx=-1, checked=false, picked=null, answers={};
+function cur(){ return Q[order[at]]; }
+
+function lzRender(){
+  var x = cur();
+  if(pIdx !== x.p){
+    pIdx = x.p;
+    $("lz-kicker").textContent = P[x.p].kind;
+    lzBody.innerHTML = P[x.p].html;
+  } else {
+    all(".pf.on", lzBody).forEach(function(e){ e.classList.remove("on"); });
+  }
+  $("lz-pos").textContent = at + 1;
+  $("lz-tot").textContent = order.length;
+  $("lz-q").textContent = x.prompt;
+  lzOpts.className = "opts";
+  lzOpts.innerHTML = ["A","B","C"].map(function(L){
+    return '<button class="opt" data-o="'+L+'" aria-pressed="false"><span class="l">'+L+'</span><span class="x">'+x.opts[L]+'</span></button>';
+  }).join("");
+  lzExp.hidden = true; lzGo.disabled = true; lzGo.textContent = "Nakijken";
+  checked = false; picked = null;
+}
+function lzCheck(){
+  var x = cur();
+  checked = true; answers[x.id] = picked;
+  lzOpts.classList.add("done");
+  all(".opt", lzOpts).forEach(function(o){
+    if(o.dataset.o === x.key) o.classList.add("key");
+    if(o.dataset.o === picked) o.classList.add("mine");
+  });
+  var ev = lzBody.querySelector('.pf[data-ev="'+x.id+'"]');
+  if(ev) requestAnimationFrame(function(){ ev.classList.add("on"); });
+  lzExp.innerHTML = "<b>Het antwoord is " + x.key + ".</b> " + x.why;
+  lzExp.hidden = false;
+  lzGo.textContent = (at + 1 < order.length) ? "Volgende" : "Bekijk het resultaat";
+}
+function lzAdvance(){
+  if(at + 1 >= order.length){ lzFinish(); return; }
+  var moving = Q[order[at + 1]].p !== cur().p;
+  var nodes = moving ? [lzText, lzAsk] : [lzAsk];
+  nodes.forEach(function(n){ n.classList.add("out"); });
+  setTimeout(function(){
+    at++; lzRender();
+    nodes.forEach(function(n){ n.classList.remove("out"); });
+    window.scrollTo({top:0, behavior:"smooth"});
+  }, 150);
+}
+function lzFinish(){
+  var right = 0, rows = "";
+  order.forEach(function(i){
+    var x = Q[i], mine = answers[x.id];
+    if(mine === x.key){ right++; return; }
+    rows += '<div class="item"><span class="mk">' + (i + 1) + '</span><div>' +
+            '<p class="t">' + x.prompt + '</p>' +
+            '<p class="sub"><s>' + x.opts[mine] + '</s> &nbsp;<b>' + x.opts[x.key] + '</b></p></div></div>';
+  });
+  $("lz-score").textContent = right + " van " + order.length + " goed.";
+  $("lz-misses").innerHTML = rows || '<div class="item"><span class="mk">&#10003;</span><p class="t">Alles goed. Niets om terug te kijken.</p></div>';
+  $("lz-again").hidden = !rows;
+  lzStage.hidden = true; lzEnd.hidden = false;
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function lzStart(list){
+  order = list; at = 0; pIdx = -1; answers = {};
+  lzEnd.hidden = true; lzStage.hidden = false;
+  lzRender(); window.scrollTo({top:0, behavior:"smooth"});
+}
+lzOpts.addEventListener("click", function(e){
+  var b = e.target.closest(".opt"); if(!b || checked) return;
+  picked = b.dataset.o;
+  all(".opt", lzOpts).forEach(function(o){ o.setAttribute("aria-pressed", String(o === b)); });
+  lzGo.disabled = false;
+});
+lzGo.addEventListener("click", function(){ if(checked) lzAdvance(); else if(picked) lzCheck(); });
+$("lz-again").addEventListener("click", function(){
+  lzStart(order.filter(function(i){ return answers[Q[i].id] !== Q[i].key; }));
+});
+$("lz-restart").addEventListener("click", function(){ lzStart([0,1,2,3,4,5,6,7]); });
+document.addEventListener("keydown", function(e){
+  if($("v-lezen").hidden || lzStage.hidden || e.metaKey || e.ctrlKey || e.altKey) return;
+  var k = e.key.toUpperCase();
+  if(!checked && "ABC".indexOf(k) > -1){
+    var b = lzOpts.querySelector('.opt[data-o="' + k + '"]');
+    if(b){ b.click(); e.preventDefault(); }
+  } else if(e.key === "Enter" && !lzGo.disabled){ lzGo.click(); e.preventDefault(); }
+});
+lzRender();
+
+/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 single-question sections \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 */
+function single(optsId, goId, key, reveal){
+  var box = $(optsId), btn = $(goId), done = false, pick = null;
+  box.addEventListener("click", function(e){
+    var b = e.target.closest(".opt"); if(!b || done) return;
+    pick = b.dataset.o;
+    all(".opt", box).forEach(function(o){ o.setAttribute("aria-pressed", String(o === b)); });
+    btn.disabled = false;
+  });
+  btn.addEventListener("click", function(){
+    if(done || !pick) return;
+    done = true; box.classList.add("done");
+    all(".opt", box).forEach(function(o){
+      if(o.dataset.o === key) o.classList.add("key");
+      if(o.dataset.o === pick) o.classList.add("mine");
+    });
+    reveal.forEach(function(id){ $(id).hidden = false; });
+    btn.disabled = true; btn.textContent = "Nagekeken";
+  });
+}
+single("lu-opts", "lu-go", "B", ["lu-exp", "lu-tr"]);
+single("kn-opts", "kn-go", "B", ["kn-fb"]);
+
+/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 audio players \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 */
+all("[data-player]").forEach(function(root){
+  var wave = root.querySelector("[data-wave]"),
+      btn  = root.querySelector("[data-play]"),
+      time = root.querySelector("[data-time]"),
+      plays= root.querySelector("[data-plays]"),
+      secs = parseInt(root.dataset.seconds, 10), n = 58, count = 0, timer = null;
+  var html = "";
+  for(var i = 0; i < n; i++){
+    var v = Math.abs(Math.sin((i + 3) * 0.7) * Math.cos((i + 3) * 0.19)) * 0.76 + 0.16;
+    html += '<i style="height:' + Math.round(v * 100) + '%"></i>';
+  }
+  wave.innerHTML = html;
+  var bars = all("i", wave);
+  function stamp(s){
+    return "0:" + String(Math.min(secs, s)).padStart(2, "0") + " / 0:" + String(secs).padStart(2, "0");
+  }
+  function stop(reset){
+    clearInterval(timer); timer = null; btn.innerHTML = "&#9654;";
+    if(reset){ bars.forEach(function(b){ b.classList.remove("on"); }); time.textContent = stamp(0); }
+  }
+  btn.addEventListener("click", function(){
+    if(timer){ stop(false); return; }
+    var step = 0;
+    btn.innerHTML = "&#9646;&#9646;";
+    timer = setInterval(function(){
+      step++;
+      bars.forEach(function(b, i){ b.classList.toggle("on", i <= step); });
+      time.textContent = stamp(Math.round(step * secs / n));
+      if(step >= n){
+        stop(true);
+        count++; plays.textContent = count + "\u00d7 beluisterd";
+      }
+    }, Math.max(45, secs * 1000 / n));
+  });
+  all("[data-speed]", root).forEach(function(b){
+    b.addEventListener("click", function(){
+      all("[data-speed]", root).forEach(function(o){ o.setAttribute("aria-pressed", String(o === b)); });
+    });
+  });
+});
+
+/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 schrijven \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 */
+var scText = $("sc-text");
+function wordCount(){
+  var n = scText.value.trim().split(/\s+/).filter(Boolean).length;
+  $("sc-wc").textContent = n + " woorden";
+}
+scText.addEventListener("input", wordCount); wordCount();
+$("sc-check").addEventListener("click", function(){
+  all(".item", $("sc-reqs")).forEach(function(it){
+    var last = it.dataset.r === "4";
+    it.classList.add(last ? "miss" : "met");
+    it.querySelector(".mk").innerHTML = last ? "!" : "&#10003;";
+    it.querySelector(".sub").hidden = false;
+  });
+  $("sc-verdict").hidden = false;
+  $("sc-after").hidden = false;
+  this.disabled = true; this.textContent = "Nagekeken";
+});
+$("sc-ai").addEventListener("click", function(){
+  var b = this;
+  b.disabled = true; b.textContent = "Bezig\u2026";
+  setTimeout(function(){ $("sc-fixes").hidden = false; b.textContent = "Feedback ontvangen"; }, 650);
+});
+
+/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 spreken \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 */
+var spWave = $("sp-wave"), spBars, live = false, tick = null, secs = 0;
+(function(){
+  var html = "";
+  for(var i = 0; i < 64; i++){
+    var v = Math.abs(Math.sin((i + 9) * 0.55) * Math.cos((i + 9) * 0.23)) * 0.7 + 0.14;
+    html += '<i style="height:' + Math.round(v * 100) + '%"></i>';
+  }
+  spWave.innerHTML = html; spBars = all("i", spWave);
+})();
+$("sp-rec").addEventListener("click", function(){
+  var b = this;
+  if(!live){
+    live = true; secs = 0; b.classList.add("live"); b.setAttribute("aria-label", "Opname stoppen");
+    $("sp-state").textContent = "Bezig met opnemen";
+    tick = setInterval(function(){
+      secs++;
+      $("sp-time").textContent = "0:" + String(secs).padStart(2, "0") + " / 0:30 \u00b7 blijft op dit apparaat";
+      spBars.forEach(function(x, i){ x.classList.toggle("on", i < Math.round(secs / 30 * spBars.length)); });
+      if(secs >= 30) b.click();
+    }, 130);
+  } else {
+    live = false; clearInterval(tick); b.classList.remove("live"); b.setAttribute("aria-label", "Opname starten");
+    $("sp-state").textContent = "Opname klaar, " + secs + " seconden";
+    $("sp-time").textContent = "Alleen op dit apparaat. Niets verstuurd.";
+    $("sp-play").disabled = false; $("sp-redo").disabled = false;
+  }
+});
+$("sp-redo").addEventListener("click", function(){
+  spBars.forEach(function(x){ x.classList.remove("on"); });
+  $("sp-state").textContent = "Klaar om op te nemen";
+  $("sp-time").textContent = "Maximaal 30 seconden \u00b7 blijft op dit apparaat";
+  $("sp-play").disabled = true; this.disabled = true;
+});
+$("sp-list").addEventListener("click", function(e){
+  var it = e.target.closest(".item"); if(!it) return;
+  var on = it.classList.toggle("met");
+  it.querySelector(".mk").innerHTML = on ? "&#10003;" : it.dataset.n || (all(".item", $("sp-list")).indexOf(it) + 1);
+});
+$("sp-modelbtn").addEventListener("click", function(){
+  $("sp-model").hidden = false; this.disabled = true; this.textContent = "Getoond";
+});
+})();
+</script>

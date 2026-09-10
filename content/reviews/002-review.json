@@ -1,0 +1,56 @@
+{
+  "review_id": "batch002-editorial-review",
+  "source": "content/batches/002-original.json",
+  "source_sha256": "1b61bd930ee232643bcf02950f3b3eac6265d71d4df61c05b750098b3435f3bd",
+  "review_type": "AI editorial review",
+  "rubric": "content/reviews/rubric.md",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 24,
+    "counts_by_level_and_part": {
+      "A2_reading": 3,
+      "B1_reading": 3,
+      "A2_listening": 3,
+      "B1_listening": 3,
+      "A2_writing": 3,
+      "B1_writing": 3,
+      "A2_speaking": 3,
+      "B1_speaking": 3
+    },
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false
+  },
+  "items": [
+    {"id":"A2:reading:batch002-wasserette:1","verdict":"pass","evidence":"q1 A is stated by ‘alleen bankpassen’; q2 B is stated by ‘achter in de winkel’. Other locations belong to the automaat and balie."},
+    {"id":"A2:reading:batch002-huisarts:1","verdict":"pass","evidence":"q1 B follows from dokter De Wit being ill. q2 A now reproduces the exact deadline ‘vóór woensdag 12.00 uur’."},
+    {"id":"A2:reading:batch002-speelgoed:1","verdict":"pass","evidence":"q1 A follows from the 10.00–11.00 intake window; q2 C follows from ‘Knuffels nemen we niet aan’."},
+    {"id":"B1:reading:batch002-volkstuin:1","verdict":"pass","evidence":"q1 A paraphrases the intended members; q2 B is now explicitly tied to the start meeting; q3 C applies the stated conflict sequence before termination."},
+    {"id":"B1:reading:batch002-buurtbus:1","verdict":"pass","evidence":"q1 A gives the stated purpose, q2 B combines evening with Friday/Saturday, and q3 A summarizes usage plus stakeholder experience."},
+    {"id":"B1:reading:batch002-cursusfonds:1","verdict":"pass","evidence":"q1 A, q2 B, and q3 A correctly track the approval, payment, proof, and three-month reservation sequence."},
+    {"id":"A2:listening:batch002-trein:1","verdict":"pass","evidence":"q1 B distinguishes changed spoor zeven from spoor vier; q2 A follows from ‘De vertrektijd blijft hetzelfde’."},
+    {"id":"A2:listening:batch002-bakker:1","verdict":"pass","evidence":"q1 C follows from the missing aardbeien; q2 A follows from the request to call back before five."},
+    {"id":"A2:listening:batch002-zwembad:1","verdict":"pass","evidence":"q1 A follows from the one-euro coin instruction; q2 B follows from ‘Het warme bad is vandaag dicht’."},
+    {"id":"B1:listening:batch002-werkoverleg:1","verdict":"pass","evidence":"q1 B now has an explicit causal link; q2 A identifies the advance reading; q3 B matches the Thursday-morning customer condition exactly."},
+    {"id":"B1:listening:batch002-lekkage:1","verdict":"pass","evidence":"q1 A infers why the closed main valve did not help; q2 C identifies the neighbor; q3 B follows from the warning about the lamp."},
+    {"id":"B1:listening:batch002-festival:1","verdict":"pass","evidence":"q1 B connects the lunch rule, q2 A applies rain plus coordinator authority, and q3 C distinguishes the return point from the issue point."},
+    {"id":"A2:writing:batch002-sleutel:1","verdict":"pass","evidence":"Criteria require location, description, and contact. Two exact sample quotes map to the first goals; null marks contact as missing; the model supplies number 24."},
+    {"id":"A2:writing:batch002-schoenen:1","verdict":"pass","evidence":"Criteria require purchase time, size problem, and exchange request. Exact quotes prove the first two; the model asks for a larger size."},
+    {"id":"A2:writing:batch002-plant:1","verdict":"pass","evidence":"Criteria require absence length, watering request, and key location. Exact quotes prove the first two; the model locates the key with the neighbor."},
+    {"id":"B1:writing:batch002-rooster:1","verdict":"pass","evidence":"Criteria require reason, alternative shift, and confirmation. Exact quotes prove the first two; the model requests confirmation that the roster changes."},
+    {"id":"B1:writing:batch002-geluid:1","verdict":"pass","evidence":"Criteria require problem, consequence, and solution. Exact quotes prove the first two; the model proposes a sign and staff intervention."},
+    {"id":"B1:writing:batch002-buurtfeest:1","verdict":"pass","evidence":"Criteria require a task, availability, and advance-meeting question. Exact quotes prove the first two; the model asks about the meeting."},
+    {"id":"A2:speaking:batch002-kapper:1","verdict":"pass","evidence":"Criteria require purpose, day, and time question. Exact quotes prove the first two; the naturalized model asks ‘Hoe laat kan ik komen?’"},
+    {"id":"A2:speaking:batch002-portemonnee:1","verdict":"pass","evidence":"Criteria require visit time, wallet description, and found-item question. Exact quotes prove the first two; the model asks whether it was found."},
+    {"id":"A2:speaking:batch002-burenpakket:1","verdict":"pass","evidence":"Criteria require possession, pickup time, and house number. Exact quotes prove the first two; the model gives number 16."},
+    {"id":"B1:speaking:batch002-fietsroute:1","verdict":"pass","evidence":"Criteria require explaining the risk, a safer route, and its time cost. Exact quotes prove the first two; the model adds a ten-minute comparison."},
+    {"id":"B1:speaking:batch002-cursusgemist:1","verdict":"pass","evidence":"Criteria require reason, covered content, and a time to inspect notes. Exact quotes prove the first two; the model proposes tomorrow evening."},
+    {"id":"B1:speaking:batch002-teamtaak:1","verdict":"pass","evidence":"Criteria require completed work, a concrete delegated task, and a progress meeting. Exact quotes prove the first two; the model proposes Friday afternoon."}
+  ],
+  "limitations": [
+    "This is an AI editorial review of language, task design, answer logic, schema consistency, and apparent A2/B1 distinction. It is not independent human calibration, learner validation, or psychometric evidence and does not establish equivalence with an official exam.",
+    "Listening items were reviewed as scripts. Audio requires a separate full listening review for pronunciation, pacing, numeric clarity, negation, and answer-revealing emphasis."
+  ]
+}

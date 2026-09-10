@@ -1,0 +1,113 @@
+# B1 lezen: eerste proefset
+
+Original practice draft. Target: B1. This is an eight-question pilot, not a full mock exam. Difficulty has not been validated. Suggested time: 25 minutes (editorial estimate).
+
+## Instructies
+
+Dit is een korte proefset met nieuwe oefenvragen. Lees bij tekst 1 en 2 eerst de tekst. Lees bij tekst 3 eerst de vraag en zoek daarna de informatie op. Kies bij elke vraag één antwoord. Alle organisaties en regels in deze teksten zijn verzonnen voor deze oefening.
+
+## Gereedschap delen in de wijk
+
+In buurthuis De Brug kunnen bewoners sinds april gereedschap lenen. Het idee kwam van bewoner Karim, die voor één klus een dure boormachine had gekocht. Daarna lag het apparaat bijna een jaar in zijn kast. Hij vroeg zich af of buren hun spullen samen konden gebruiken. Het buurthuis stelde een kamer beschikbaar. Inmiddels staan daar ruim zestig apparaten.
+
+De eerste maand mocht iedereen zonder afspraak langskomen. Dat leek handig, maar op zaterdag ontstonden lange rijen. Sommige bezoekers kwamen voor een apparaat dat al was uitgeleend. Daarom moeten bewoners nu vooraf reserveren. Wie thuis geen internet heeft, kan op donderdag telefonisch een reservering maken. Het afhalen gebeurt nog steeds op zaterdag.
+
+Vrijwilliger Els controleert elk apparaat voordat het opnieuw wordt uitgeleend. Bij het afhalen legt ze uit hoe het werkt. Volgens haar voorkomt dat schade en ongelukken. Een korte uitleg is echter niet voor iedereen voldoende. Daarom organiseert ze vanaf volgende maand ook oefenavonden. Daar kunnen beginners met enkele eenvoudige apparaten werken terwijl een vrijwilliger meekijkt.
+
+Leden betalen twaalf euro per jaar. Voor een apparaat vragen de vrijwilligers daarnaast een bedrag dat de lener terugkrijgt als het apparaat op tijd en onbeschadigd terugkomt. Het buurthuis gebruikt de jaarlijkse bijdrage om apparaten te onderhouden. Karim zou graag meer leden ontvangen, maar vindt dat de voorraad eerst moet groeien. 'Als mensen steeds horen dat iets niet beschikbaar is, proberen ze het na een tijdje niet meer.' De vrijwilligers zoeken daarom vooral extra apparaten waar veel vraag naar is.
+
+**1. Waarom moeten bewoners tegenwoordig vooraf reserveren?**
+
+A. De vrijwilligers willen alle uitleg voortaan telefonisch geven.
+B. Bezoekers moesten wachten of kwamen voor niets naar het buurthuis.
+C. Het buurthuis heeft op zaterdag geen ruimte meer voor bezoekers.
+
+**2. Welk bedrag krijgt een lid terug als alles volgens afspraak verloopt?**
+
+A. Het bedrag dat bij het lenen van een apparaat wordt betaald.
+B. De bijdrage die ieder jaar voor het lidmaatschap wordt betaald.
+C. Het bedrag dat het buurthuis voor het onderhoud heeft betaald.
+
+**3. Wat vindt Karim belangrijk voordat er meer leden komen?**
+
+A. Dat vrijwilligers op meer dagen uitleg kunnen geven.
+B. Dat bewoners meer betalen voor hun lidmaatschap.
+C. Dat veelgevraagde apparaten vaker beschikbaar zijn.
+
+## Zelf een dienst ruilen
+
+Bij verpakkingsbedrijf Morgenpak kunnen medewerkers sinds kort via een app een dienst ruilen. Vroeger moesten ze daarvoor altijd naar hun teamleider. Vooral als die vrij was, duurde het soms dagen voordat iemand antwoord kreeg. De nieuwe werkwijze is drie maanden op proef.
+
+Een medewerker zet in de app welke dienst hij wil ruilen. Een collega kan daarop reageren. De ruil is pas geldig wanneer de teamleider deze heeft goedgekeurd. Die controleert of er tijdens elke dienst voldoende mensen met de juiste opleiding aanwezig zijn. Een medewerker die alleen dozen inpakt, mag bijvoorbeeld niet zomaar de plaats innemen van iemand die een machine bedient.
+
+Fatima heeft de app al twee keer gebruikt. Ze vindt het prettig dat ze snel ziet welke collega wil helpen. Toch kijkt ze ook altijd naar het definitieve rooster. 'Vorige week dacht een collega dat zijn ruil rond was. De ander had ja gezegd, maar de teamleider had nog niet gereageerd. Gelukkig ontdekten ze het op tijd.'
+
+Er zijn ook medewerkers die geen app op hun eigen telefoon willen installeren. Zij kunnen een computer in de kantine gebruiken. De teamleider helpt wie het systeem nog niet begrijpt. Tijdens de proef mogen medewerkers bovendien een ruil op papier aanvragen. Het bedrijf wil pas na afloop beslissen of die mogelijkheid blijft bestaan.
+
+De directie kijkt bij de beoordeling van de proef naar meer dan het aantal aanvragen. Ze wil ook weten of medewerkers sneller duidelijkheid krijgen en of er minder fouten in de bezetting ontstaan. Als mensen veel aanvragen indienen maar lang op goedkeuring wachten, is het doel volgens de directie nog niet bereikt.
+
+**4. Wanneer mag een medewerker ervan uitgaan dat een dienst is geruild?**
+
+A. Zodra een collega in de app met de ruil akkoord gaat.
+B. Nadat de teamleider toestemming voor de ruil heeft gegeven.
+C. Wanneer de aanvraag enkele dagen in de app heeft gestaan.
+
+**5. Wat staat er over aanvragen op papier?**
+
+A. Die mogen tijdens de proef, maar daarna misschien niet meer.
+B. Die zijn alleen toegestaan als de computer in de kantine kapot is.
+C. Die blijven ook na de proef voor alle medewerkers mogelijk.
+
+**6. Waarom kijkt de directie ook hoe lang medewerkers op goedkeuring wachten?**
+
+A. Ze wil weten welke medewerkers de meeste diensten overnemen.
+B. Ze wil bepalen hoeveel mensen nog een opleiding moeten volgen.
+C. Ze wil vaststellen of de nieuwe werkwijze sneller zekerheid geeft.
+
+## Een bakfiets lenen bij De Wielkamer
+
+Reserveren
+Leden kunnen een bakfiets maximaal drie dagen lenen. Reserveer via de website. Uw reservering is pas bevestigd wanneer u een e-mail met een reserveringsnummer ontvangt. Neem dat nummer en uw identiteitsbewijs mee bij het afhalen.
+
+Afhalen en terugbrengen
+De balie is op werkdagen open van 9.00 tot 17.00 uur. Op zaterdag sluit de balie om 13.00 uur. Op zondag is de balie gesloten. Buiten openingstijden mag u de fiets uitsluitend terugbrengen als u vooraf een code voor de afgesloten fietsenstalling hebt gekregen. U kunt de fiets daar niet afhalen.
+
+Annuleren
+Annuleren is gratis tot 24 uur vóór de afgesproken afhaaltijd. Bij een latere annulering betaalt u tien euro. Kunt u de fiets niet gebruiken doordat De Wielkamer een technisch probleem ontdekt? Dan vervalt uw reservering zonder kosten.
+
+Een probleem onderweg
+Stop met fietsen als u denkt dat er iets kapot is. Bel het telefoonnummer op uw leenbewijs. Laat de fiets alleen repareren nadat een medewerker daarvoor toestemming heeft gegeven. Bewaar de rekening. Zonder voorafgaande toestemming betaalt De Wielkamer de reparatiekosten niet terug.
+
+**7. Joris wil zijn fiets zaterdag om 16.00 uur terugbrengen. Wat moet hij vooraf regelen?**
+
+A. Een reserveringsnummer voor een nieuwe leenperiode.
+B. Een toegangscode voor de afgesloten fietsenstalling.
+C. Een afspraak om de fiets zondag bij de balie af te geven.
+
+**8. Onderweg breekt een onderdeel. Een fietsenmaker kan het meteen repareren. Wat moet de lener eerst doen om vergoeding mogelijk te maken?**
+
+A. Toestemming vragen aan een medewerker van De Wielkamer.
+B. De reparatie betalen en daarna de rekening naar De Wielkamer sturen.
+C. De reservering annuleren via de website van De Wielkamer.
+
+---
+
+## Antwoorden en uitleg
+
+Eén punt per goed antwoord. Er is geen vastgestelde slaaggrens voor deze proefset. De score wordt niet omgerekend naar een officiële NT2-score.
+
+**1. B**  Er waren lange rijen en sommige bezoekers vonden het gewenste apparaat niet. A verwart telefonisch reserveren met uitleg geven. C klopt niet: afhalen gebeurt nog steeds op zaterdag.
+
+**2. A**  Het extra bedrag bij het lenen wordt terugbetaald als het apparaat op tijd en onbeschadigd terugkomt. De jaarlijkse bijdrage is voor onderhoud. Over terugbetaling van onderhoudskosten staat niets in de tekst.
+
+**3. C**  Karim wil eerst de voorraad vergroten, omdat herhaalde teleurstelling mensen kan laten afhaken. Hij vraagt niet om hogere bijdragen of extra uitlegdagen.
+
+**4. B**  Instemming van een collega is nog niet genoeg. De teamleider moet de bezetting en opleidingen controleren en de ruil goedkeuren. Een wachttijd maakt een aanvraag niet automatisch geldig.
+
+**5. A**  Papieren aanvragen zijn tijdens de proef toegestaan. Het bedrijf beslist later of dat zo blijft. De tekst stelt geen voorwaarde over een kapotte computer.
+
+**6. C**  De oude aanpak gaf soms pas na dagen duidelijkheid. Sneller zekerheid krijgen is daarom een doel van de proef. Het aantal overgenomen diensten en de behoefte aan opleidingen beantwoorden deze vraag niet.
+
+**7. B**  Zaterdag om 16.00 uur is de balie gesloten. Terugbrengen buiten openingstijden kan met een vooraf verstrekte code. Een nieuw reserveringsnummer is daarvoor niet bedoeld; zondag is de balie ook dicht.
+
+**8. A**  Voor vergoeding is voorafgaande toestemming nodig. Alleen een rekening bewaren of opsturen is onvoldoende. Annuleren is geen procedure voor een defect tijdens het gebruik.

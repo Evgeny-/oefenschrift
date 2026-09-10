@@ -1,0 +1,83 @@
+{
+  "note": "Voice roles used by listening scripts and speaking prompts. Scripts reference roles, never voice IDs. Chosen and confirmed from the audition of 10 September 2026 (research/voice-audition-2026-09-10.md); only native Netherlands Dutch voices, no Flemish, none that add words to the script.",
+  "audition": "2026-09-10",
+  "model": "eleven_multilingual_v2",
+  "dialogueModel": "eleven_v3",
+  "defaultConversationMode": "dialogue",
+  "language": "nl",
+  "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0,
+    "use_speaker_boost": true
+  },
+  "gapSeconds": 0.45,
+  "loudness": {
+    "integrated": -18,
+    "truePeak": -1.5,
+    "range": 11
+  },
+  "roles": {
+    "narrator": {
+      "voice_id": "UNBIyLbtFB9k7FKW8wJv",
+      "name": "Serge de Beer",
+      "use": "instructions, questions, announcements (omroep)",
+      "note": "user: announcements voice"
+    },
+    "presenter": {
+      "voice_id": "60CwgZt94Yf7yYIXMDDe",
+      "name": "Peter",
+      "use": "news items, company presentations, uitleg by an organisation",
+      "note": "user: professional narrator, a bit loud; loudness normalisation applies"
+    },
+    "f-young": {
+      "voice_id": "7qdUFMklKPaaAVMsBTBt",
+      "name": "Roos",
+      "use": "student, young colleague, daughter, friend",
+      "note": "user: good voice, a bit quiet; loudness normalisation applies"
+    },
+    "f-adult": {
+      "voice_id": "mNOlrB5V39qx4wQwSjG3",
+      "name": "Marlies",
+      "use": "teacher, manager, receptionist, huisarts assistant",
+      "note": "confirmed by the user on 2026-09-10"
+    },
+    "f-older": {
+      "voice_id": "tfweP7lGJyLeNV9dH1Rm",
+      "name": "Hanneke",
+      "use": "older neighbour, grandmother, older customer",
+      "note": "user: senior, good voice, quiet; loudness normalisation applies"
+    },
+    "m-young": {
+      "voice_id": "6kGjm3FeadxmRCkt22Pc",
+      "name": "Nick",
+      "use": "student, young colleague, delivery worker",
+      "note": "confirmed by the user on 2026-09-10"
+    },
+    "m-adult": {
+      "voice_id": "cblS8WYNsiBLGnlV6jjx",
+      "name": "Robert",
+      "use": "manager, employer, colleague, interviewer",
+      "note": "user: manager voice"
+    },
+    "m-older": {
+      "voice_id": "62klqbsYqbynbr66ypRt",
+      "name": "Arjen",
+      "use": "older neighbour, older customer, huisarts",
+      "note": "user: old man voice"
+    },
+    "m-shop": {
+      "voice_id": "gdTrLNuwWUaxC0z5n1j7",
+      "name": "Jerry",
+      "use": "shopkeeper, market trader, repair service",
+      "note": "confirmed by the user on 2026-09-10"
+    }
+  },
+  "excluded": [
+    {
+      "voice_id": "AVIlLDn2TVmdaDycgbo3",
+      "name": "Eric Sijbesma",
+      "reason": "inserted 'Nou ja, hallo, uh' that was not in the script (round-trip check, 2026-09-10)"
+    }
+  ]
+}
