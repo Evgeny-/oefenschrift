@@ -134,6 +134,9 @@ try {
     `Array.from(document.querySelectorAll('.segments .language-flag')).every(flag=>{const p=flag.parentElement.getBoundingClientRect(),r=flag.getBoundingClientRect(),i=flag.closest('.segments').querySelector('.selection-indicator').getBoundingClientRect();return Math.abs((p.x+p.width/2)-(r.x+r.width/2))<.1&&Math.abs((p.y+p.height/2)-(r.y+r.height/2))<.1&&(!flag.parentElement.hasAttribute('data-checked')||Math.abs((i.x+i.width/2)-(r.x+r.width/2))<.1)})`,
     'Both flags and the selected indicator are centered precisely',
   );
+  await wait(
+    `location.pathname==='/en/b1/reading'&&document.querySelector('#level-control [data-choice="A2"]')?.getAttribute('href')==='/en/a2/reading'`,
+  );
   await check(
     `location.pathname==='/en/b1/reading'&&document.querySelector('#level-control [data-choice="A2"]').getAttribute('href')==='/en/a2/reading'`,
     'Saved level and language redirect to a shareable path with crawlable level links',
