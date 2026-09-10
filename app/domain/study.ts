@@ -3,13 +3,15 @@ export const STORAGE_KEY = 'inburgering.study.v2';
 const OLD_KEY = 'samen.study.v1';
 export const defaults = (): StudyState => ({
   version: 2,
-  settings: { lang: 'nl', level: 'A2', clock: false, theme: 'system' },
+  // Light by default: this is a place to read and study. System and Dark remain explicit choices.
+  settings: { lang: 'nl', level: 'A2', clock: false, theme: 'light' },
   records: {},
   drafts: {},
   reviews: {},
   timers: {},
   sessions: {},
   active: null,
+  checks: [],
 });
 export function flatten(session, catalogue) {
   const all = session.ids.flatMap((id) => {
@@ -53,16 +55,20 @@ export function mistakes(item, record) {
     );
   });
 }
+export const CHECK_PARTS = ['reading', 'listening'];
 export function validSession(a, catalogue) {
   if (
     !a ||
-    !['practice', 'mock'].includes(a.mode) ||
+    !['practice', 'mock', 'check'].includes(a.mode) ||
     !Array.isArray(a.ids) ||
     !a.ids.length ||
     !Number.isFinite(a.startedAt)
   )
     return false;
   const first = catalogue.find((i) => i.id === a.ids[0]);
+  // A level check mixes reading and listening at one level; other sessions keep one subject.
+  const check = a.mode === 'check';
+  if (check && (!['A2', 'B1', 'B2'].includes(a.level) || a.questions === undefined)) return false;
   if (
     !a.ids.every((id) =>
       catalogue.some(
@@ -71,7 +77,7 @@ export function validSession(a, catalogue) {
           (i.questions?.length ||
             (a.mode === 'practice' && ['writing', 'speaking'].includes(i.part))) &&
           (i.part === 'knm' || i.level === a.level) &&
-          i.part === first?.part,
+          (check ? CHECK_PARTS.includes(i.part) : i.part === first?.part),
       ),
     )
   )
@@ -154,6 +160,16 @@ export function restore(storage, catalogue) {
         checked: parsed.active.checked || {},
         elapsedSeconds: seconds(parsed.active.elapsedSeconds),
       };
+    if (Array.isArray(parsed.checks))
+      state.checks = parsed.checks
+        .filter(
+          (check) =>
+            check?.mode === 'check' &&
+            Number.isFinite(check.endedAt) &&
+            validSession(check, catalogue),
+        )
+        .slice(0, 20)
+        .map((check) => ({ ...check, checked: {}, elapsedSeconds: seconds(check.elapsedSeconds) }));
   } catch {}
   return state;
 }
@@ -197,6 +213,17 @@ export function complete(state, catalogue, now = Date.now()) {
     questions.some(({ key, q }) => !Object.hasOwn(q.options, a.answers[key]))
   )
     return state;
+  const ended = { ...a, endedAt: a.endedAt ?? now };
+  // A level check is kept on its own; it never marks an exercise as completed.
+  if (a.mode === 'check')
+    return {
+      ...state,
+      active: ended,
+      checks: [ended, ...(state.checks || []).filter((c) => c.startedAt !== a.startedAt)].slice(
+        0,
+        20,
+      ),
+    };
   const records = { ...state.records };
   a.ids.forEach((id) => {
     const qs = questions.filter((x) => x.item.id === id);
@@ -221,7 +248,7 @@ export function complete(state, catalogue, now = Date.now()) {
         responses,
       };
   });
-  return { ...state, active: { ...a, endedAt: a.endedAt ?? now }, records };
+  return { ...state, active: ended, records };
 }
 export function sessionMistakes(session, catalogue) {
   return flatten(session, catalogue)
@@ -240,6 +267,11 @@ export function retrySession(session, catalogue, now = Date.now()): Session {
     now,
     keys,
   );
+}
+// A session counts as started once something was answered or a first item was passed;
+// opening a set link and leaving again is not progress.
+export function hasProgress(session) {
+  return !!session && (session.index > 0 || Object.keys(session.answers || {}).length > 0);
 }
 export function matchesSet(session, set) {
   return (

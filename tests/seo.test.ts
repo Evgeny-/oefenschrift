@@ -23,6 +23,8 @@ test('each populated level has distinct canonical metadata and empty levels stay
     ),
   );
   assert.equal(paths.filter((path) => path.startsWith('/exercise/')).length, bank.length);
+  assert.equal(paths.filter((path) => path.startsWith('/en/exercise/')).length, bank.length);
+  assert.ok(paths.includes('/en') && paths.includes('/en/a2/reading') && paths.includes('/en/knm'));
   assert.ok(
     !sitemapPaths(
       bank.filter((item) => item.level !== 'B1'),
@@ -33,4 +35,29 @@ test('each populated level has distinct canonical metadata and empty levels stay
 test('private progress and session views request noindex', () => {
   for (const route of ['progress', 'session', 'mock', 'privacy'])
     assert.equal(pageSeo(route, 'A2', bank, sets, 'https://example.test').noindex, true);
+});
+test('each page has English metadata under /en and names both languages as alternates', () => {
+  const nl = pageSeo('reading', 'A2', bank, sets, 'https://example.test'),
+    en = pageSeo('reading', 'A2', bank, sets, 'https://example.test', 'en');
+  assert.equal(nl.canonical, 'https://example.test/a2/reading');
+  assert.equal(en.canonical, 'https://example.test/en/a2/reading');
+  assert.deepEqual(nl.alternates, en.alternates);
+  assert.deepEqual(en.alternates, {
+    nl: 'https://example.test/a2/reading',
+    en: 'https://example.test/en/a2/reading',
+  });
+  assert.ok(nl.title.startsWith('A2 Lezen oefenen') && en.title.startsWith('A2 Reading practice'));
+  assert.notEqual(nl.description, en.description);
+  assert.ok(en.description.includes('Practise reading at level A2'));
+  assert.equal(en.noindex, nl.noindex);
+  const home = pageSeo('home', 'A2', bank, sets, 'https://example.test', 'en');
+  assert.equal(home.canonical, 'https://example.test/en');
+  assert.equal(home.alternates.nl, 'https://example.test/');
+  assert.ok(home.title.includes('Inburgering exam practice'));
+  const set = sets.find((set) => set.ids.length),
+    setEn = pageSeo('set/' + set.id, 'A2', bank, sets, 'https://example.test', 'en');
+  assert.ok(setEn.title.includes(`Practice set ${set.number}`));
+  assert.equal(setEn.canonical, `https://example.test/en/sets/${set.id}`);
+  for (const route of ['progress', 'session', 'mock', 'privacy', 'check-result'])
+    assert.equal(pageSeo(route, 'A2', bank, sets, 'https://example.test', 'en').noindex, true);
 });

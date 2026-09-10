@@ -1,28 +1,51 @@
+/* Fira Sans for text (400, 600 for interface bold, 700 for emphasis) and Nunito for headings
+   and the wordmark (700, 800 for the page title), chosen in the September 2026 typeface
+   round; the user also liked Open Sans, Lato and Nunito Sans for text, and rejected Nunito
+   Sans for headings. Public Sans, the previous text face, stays in assets/fonts as the
+   reference for docs/logos/typefaces.mjs. */
 @font-face {
-  font-family: 'Public Sans';
-  src: url('/fonts/public-sans-400.ttf') format('truetype');
+  font-family: 'Fira Sans';
+  src: url('/fonts/fira-sans-400.woff') format('woff');
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Public Sans';
-  src: url('/fonts/public-sans-600.ttf') format('truetype');
+  font-family: 'Fira Sans';
+  src: url('/fonts/fira-sans-600.woff') format('woff');
   font-weight: 600;
   font-display: swap;
 }
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('/fonts/fira-sans-700.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/nunito-700.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/nunito-800.woff') format('woff');
+  font-weight: 800;
+  font-display: swap;
+}
 
-/* Five text sizes, two real weights. Warm paper, a lifted sheet for the material, yellow for actions and evidence. */
+/* Five text sizes, three text weights. Warm paper, a lifted sheet for the material, yellow for actions and evidence. */
 :root {
   color-scheme: light;
-  font-family: 'Public Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Fira Sans', 'Helvetica Neue', sans-serif;
   font-size: 100%;
   line-height: 1.6;
   --text-micro: 0.6875rem;
   --text-small: 0.8125rem;
   --text-body: 0.9375rem;
   --text-reading: 1.0625rem;
-  --text-section: 1.125rem;
-  --text-title: 1.875rem;
+  --text-section: 1.0625rem;
+  --text-title: 1.625rem;
   --paper: #f3efe6;
   --sheet: #fffdf9;
   --sheet-line: #ddd6c4;
@@ -44,6 +67,8 @@
   --success: #4d4b42;
   --error: #9b443c;
   --mark: #ffe79a;
+  /* The accent inside icons: the marker on paper, the action yellow on dark, where the dark marker is only a text tint. */
+  --icon-mark: #ffe79a;
   --mark-ink: #302b18;
   --removed: #8b5249;
   --wave: #bfb59f;
@@ -69,13 +94,16 @@
   --control-hover: #817e74;
   --action: #edc343;
   --action-hover: #f4d067;
-  --tab-selected: #726132;
-  --tab-ink: #fff0c3;
+  /* A dimmed yellow surface reads as brown on charcoal; in the dark theme the yellow
+     moves into the glyph and the selected pill is only a warm lift. */
+  --tab-selected: #474539;
+  --tab-ink: #efc74a;
   --button-text: #29250f;
   --focus: #edc343;
   --success: #d0c9b6;
   --error: #e4a394;
   --mark: #65572c;
+  --icon-mark: #edc343;
   --mark-ink: #fff0b4;
   --removed: #d6a59b;
   --wave: #827e72;
@@ -131,17 +159,24 @@ h3,
 p {
   margin: 0;
 }
+/* Headings and the wordmark take the soft face; everything else, buttons included, the text face. */
+h1,
+h2,
+h3,
+.wordmark {
+  font-family: 'Nunito', 'Helvetica Neue', sans-serif;
+}
 h1 {
   font-size: var(--text-title);
   line-height: 1.2;
-  letter-spacing: -0.025em;
-  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-weight: 800;
 }
 h2,
 h3 {
   font-size: var(--text-section);
   line-height: 1.4;
-  font-weight: 600;
+  font-weight: 700;
 }
 strong {
   font-weight: 600;

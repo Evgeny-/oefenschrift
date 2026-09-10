@@ -1,0 +1,284 @@
+{
+  "review_id": "batch012-editorial-review",
+  "source": "content/batches/012-original.json",
+  "source_sha256": "3ac30bb5beed8dc1a39a50c93aabcb09e59e0fb07e85fce3f91608fb81ede224",
+  "source_note": "The recorded hash is the revised working-tree file passed by the focused re-review of 2026-09-10 (see revisions and re_review_checks); the first review's bytes hashed 3b1d54a6c5e6a1092f0fdc74d1b822d6f9793686c89e1f712b29ebc102de10f2 and the checks block below describes those bytes. content/batches/012-original.json is not tracked in git at HEAD e2095f4. Commit the revised version before integration.",
+  "review_type": "AI editorial review of B1 listening scripts (Staatsexamen NT2 Programma I shape) before audio; shape and measured figures, spoken naturalness, level, keys proven from each fragment's evidence, every distractor tested, coherence, mirrored care rules, diversity, media notes",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "ready_for_integration_note": "Both items pass after the focused re-review of 2026-09-10: the required and recommended mantelzorg script edits and five optional wording edits were applied exactly as worded, the rebuilt text fields and all evidence quotes verified, and nothing else changed (reverting the seven edits reproduces the first review's bytes). Commit the revised batch before integration. Listening items remain blocked for publication until the generated audio passes the round-trip check and a media review. One optional, non-blocking polish (mantelzorg q6 explanation clause) is recorded in re_review_checks for a later byte change.",
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "slugs_unused_elsewhere": true,
+    "item_count": 2,
+    "distribution": {"B1_listening": 2},
+    "task_types": {"interview": 1, "voorlichting": 1},
+    "text_types": {"beschouwend": 1, "instructief": 1},
+    "domains": {"werk": 1, "overig": 1},
+    "exam_field": "nt2-i on both",
+    "situation_lines": 2,
+    "intro_words": {"buschauffeur": 33, "mantelzorg": 47},
+    "intro_names_speakers_and_topic": true,
+    "question_count": 13,
+    "questions_per_text": [7, 6],
+    "option_counts": {"3": 13},
+    "key_counts": {"A": 4, "B": 4, "C": 5},
+    "key_shares": "31/31/38%",
+    "key_sequence": "BCBCAAB ACBCAC",
+    "same_key_three_in_a_row": false,
+    "closed_evidence_is_verbatim": true,
+    "evidence_from_own_fragment": true,
+    "question_text_equals_joined_script": true,
+    "item_text_equals_fragments_joined_with_blank_line": true,
+    "voice_roles_valid": true,
+    "two_roles_per_text": {"buschauffeur": ["presenter", "f-adult"], "mantelzorg": ["m-adult", "f-older"]},
+    "speaker_labels_consistent": true,
+    "third_voice_used": false,
+    "fragment_spoken_words": {
+      "buschauffeur": [130, 119, 116, 123, 116, 128, 130],
+      "mantelzorg": [117, 125, 157, 135, 136, 125]
+    },
+    "fragment_spoken_words_range": "116-157 (blueprint 50-190)",
+    "fragment_seconds_at_150wpm_range": "46-63 (blueprint 30-75)",
+    "total_spoken_words": {"buschauffeur": 862, "mantelzorg": 795},
+    "total_minutes_at_150wpm": {"buschauffeur": 5.7, "mantelzorg": 5.3},
+    "total_minutes_at_author_rate_2.2-2.4_wps": {"buschauffeur": "6.0-6.5", "mantelzorg": "5.5-6.0"},
+    "text_words_including_labels": {"buschauffeur": 877, "mantelzorg": 819},
+    "sentence_average_words": {"buschauffeur": 10.9, "mantelzorg": 11.2},
+    "longest_sentence_words": {"buschauffeur": 21, "mantelzorg": 21},
+    "sentences_over_25_words": 0,
+    "transcribed_fillers": false,
+    "numbers_times_ages_in_words": true,
+    "digits_prices_phone_numbers": false,
+    "b1_structures_present": "relative clauses, passive, conditionals, reported speech, signal words (want, dus, voordat, toen, daarom, omdat, zodat, pas daarna, ten eerste/tweede, namelijk, juist)",
+    "paraphrase_prompt_to_fragment": "present in 9 of 13 questions; in buschauffeur q1 and q6 and mantelzorg q4 and q6 the key echoes the spoken sentence, but both distractors of those questions echo the fragment too, so no word-match route to the key",
+    "last_question_on_whole_text": {"buschauffeur": "q7 opinion", "mantelzorg": "q6 summary"},
+    "opinion_and_inference_per_text": {"buschauffeur": "opinion q4, q7; inference q3", "mantelzorg": "inference q1; opinion q5"},
+    "skills": {"opinion": 3, "inference": 2, "advice": 2, "detail": 1, "quantity": 1, "person": 1, "sequence": 1, "rule-application": 1, "summary": 1},
+    "key_is_longest_option": {
+      "buschauffeur": "q2 (+2 chars, 'vier maanden' against 'drie weken'/'een week'), q6 (+2 chars); never by more",
+      "mantelzorg": "none"
+    },
+    "option_word_counts": {
+      "buschauffeur": "5/6/7, 3/3/3, 9/6/7, 3/5/3, 2/2/2, 8/7/8, 11/12/12",
+      "mantelzorg": "12/14/10, 8/9/8, 6/7/7, 10/10/9, 12/11/12, 10/10/10"
+    },
+    "coherent_conversation_with_beginning_and_end": true,
+    "answer_depends_on_earlier_fragment_only": false,
+    "distractor_rationales_in_notes": "all 26 distractors have a rationale in content/batches/012-notes.md section 5; all match the fragments",
+    "real_organisations_brands_addresses_persons": false,
+    "names": "Farah (blueprint section 8 list), mevrouw Bakker (illustration cast, about 65), meneer Yilmaz (invented function-holder)",
+    "avoid_list_section_9": "nothing: no politics or religion, mild health content (a fall, mixed-up medicines, a tired carer), no crime, no debt, no brands, no stereotyped roles",
+    "mirrored_rules_correct": "Wmo melding then keukentafelgesprek (self, network, then gemeente), household help and traplift as Wmo examples, eigen bijdrage without amount, wijkverpleging (washing, dressing, steunkousen) from the basisverzekering via a thuiszorgorganisatie without referral, mantelzorger definition, respijtzorg (volunteer, logeerhuis) sometimes paid by gemeente or insurer: all true in general and year-independent",
+    "phrase_overlap_with_catalogue_and_batches_001_to_017": "no 6-word overlap; four generic 5-word phrases (de hele dag en de; ik over een paar jaar; een medewerker van de gemeente; tot ziens u hoort een)",
+    "batch_check": "npm run batch:check content/batches/012-original.json (2026-09-10, on the reviewed bytes): Checked 2 items, 13 questions. Keys: {\"B\":4,\"C\":5,\"A\":4}. Options: {\"3\":13}. No failures, no warnings.",
+    "concurrent_changes_note": "During the review another session re-serialised content/catalogue.json (189 to 195 items, still three B1 listening items) and modified content/blueprint.md and scripts/batch-check.ts; the checker run and the phrase scan were repeated on the current files at the end of the review with identical results; blueprint section 4.7 is unchanged. The batch file itself is unchanged (hash above).",
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false,
+    "media_status": "no audio yet; listening items remain blocked for publication until the generated audio passes the round-trip check and a media review"
+  },
+  "re_review_checks": {
+    "re_reviewed_at": "2026-09-10",
+    "re_reviewed_sha256": "3ac30bb5beed8dc1a39a50c93aabcb09e59e0fb07e85fce3f91608fb81ede224",
+    "expected_by_reviser": "3ac30bb5beed8dc1a39a50c93aabcb09e59e0fb07e85fce3f91608fb81ede224 (content/batches/012-notes.md, 'Revision after the editorial review'); matches",
+    "previous_sha256": "3b1d54a6c5e6a1092f0fdc74d1b822d6f9793686c89e1f712b29ebc102de10f2",
+    "batch_check": "npm run batch:check content/batches/012-original.json (2026-09-10, on the re-reviewed bytes): Checked 2 items, 13 questions. Keys: {\"B\":4,\"C\":5,\"A\":4}. Options: {\"3\":13}. No failures, no warnings.",
+    "source_reproduced": "The file's json.dumps(indent=2, ensure_ascii=False) layout re-serialises byte-identically. Reverting exactly the seven documented leaf edits on a copy and rebuilding every question text and item text mechanically reproduces the first review's bytes (SHA-256 3b1d54a6...), so no other field changed.",
+    "field_diff": "mantelzorg questions[1].script[0].text (two sentences: 'Dat valt onder de Wet maatschappelijke ondersteuning, de W-M-O. Die wet regelt hulp en ondersteuning thuis.' and 'Pas daarna kijkt de gemeente welke hulp ze zelf geeft.'), questions[5].script[0].text ('elke dinsdagochtend en donderdagochtend'), questions[4].prompt ('hulp van buitenaf'), questions[5].options.A ('Begin pas met hulp zoeken als het thuis echt niet meer gaat.'); buschauffeur questions[6].script[1].text ('en ik breng ze daarnaartoe.'), questions[6].options.A ('Ze wil over een paar jaar bij een ander bedrijf gaan werken.'); plus the rebuilt questions[1].text, questions[5].text and item text of mantelzorg and questions[6].text and item text of buschauffeur. Every changed string equals the review's wording exactly; the optional q4 opening and q1 B paraphrase were not applied, as the notes say.",
+    "question_text_equals_joined_script": "true for all 13 (recomputed as 'Speaker: text' lines joined with a newline)",
+    "item_text_equals_fragments_joined_with_blank_line": "true for both (recomputed)",
+    "closed_evidence_is_verbatim": "all 13 evidence quotes unchanged, verbatim inside one spoken turn of their own fragment, still entailing their keys",
+    "key_sequence": "BCBCAAB ACBCAC (unchanged)",
+    "key_counts": {"A": 4, "B": 4, "C": 5},
+    "wmo_spelling": "'W-M-O' is a hyphenated capital sequence between 'de ' and a full stop, so a voice reads letters; it occurs three times (turn, question text, item text) and 'Wmo' nowhere in the file; the full name precedes it with the official capitalisation 'Wet maatschappelijke ondersteuning'",
+    "fragment_spoken_words": {
+      "buschauffeur": [130, 119, 116, 123, 116, 128, 130],
+      "mantelzorg": [117, 131, 157, 135, 136, 125]
+    },
+    "fragment_spoken_words_range": "116-157 (blueprint 50-190); mantelzorg q2 is 131 words, about 52 s at 150 wpm",
+    "total_spoken_words": {"buschauffeur": 862, "mantelzorg": 801},
+    "text_words_including_labels": {"buschauffeur": 877, "mantelzorg": 825},
+    "sentence_figures": {"buschauffeur": "79 sentences, average 10.9, longest 21, none over 25 (unchanged)", "mantelzorg": "72 sentences, average 11.1, longest 21, none over 25 (one sentence became two)"},
+    "option_word_counts_changed_questions": {
+      "buschauffeur_q7": "12/12/12 words; 60/53/63 characters; key B not the longest",
+      "mantelzorg_q6": "12/10/10 words; 60/52/47 characters; the distractor A is the longest, key C the shortest; no checker warning"
+    },
+    "new_distractors": {
+      "mantelzorg_q6_A": "Anchored in q1 ('families pas hulp zoeken als het echt niet meer gaat') and in q6's own 'wacht niet tot u het niet meer volhoudt'; plausible for a learner who remembers the q1 example or mishears the negation; clearly false against the evidence 'Vraag op tijd hulp'. The unchanged explanation refutes it through its first sentence ('vraag op tijd hulp' is the direct contrary of 'begin pas ... als het echt niet meer gaat'); its middle clause 'Alles zelf regelen raadt hij af' addressed the retired option and now answers no option (true of the text, harmless, not misleading).",
+      "buschauffeur_q7_A": "Plain reversal of 'Maar dat is dan wel bij het busbedrijf, hoor. Ik ga nergens meer heen.'; anchored in the instructeur sentence, clearly false; the unchanged explanation refutes it directly ('maar dan bij hetzelfde busbedrijf: ze gaat nergens meer heen')."
+    },
+    "optional_polish_not_blocking": {
+      "field": "mantelzorg questions[5].explanation",
+      "replacement": "Zijn slotboodschap is: vraag op tijd hulp en zorg ook voor uzelf. Wachten tot het thuis echt niet meer gaat, raadt hij juist af, en de gemeente en de verzekeraar zijn hulp naast de familie, niet in plaats van de familie.",
+      "why": "Names the specific misreading of the new option A instead of the retired one; apply at the next byte change of the batch (bundle with the unapplied optional q4 opening and buschauffeur q1 B paraphrase) rather than now, since any edit moves the hash again.",
+      "expected_sha256_if_only_this_changes": "ffecbd3c3e9ab092a40f0b2b86c7109a8da1e7e814909be1f9a6d1ca8c357ace (scratch copy; batch:check on it: No failures, no warnings)"
+    },
+    "phrase_overlap_of_new_strings": "none, except the generic 'bij een ander bedrijf gaan werken', which also occurs in a batch 013 (catalogue) option about a different person",
+    "notes_updated_by_reviser": "content/batches/012-notes.md sections 1, 4, 6 and 7 carry the new figures (801 spoken, q2 131, option counts, 72 sentences) and section 5 the rationales of both new distractors"
+  },
+  "items": [
+    {
+      "id": "B1:listening:batch012-buschauffeur:1",
+      "verdict": "pass",
+      "task_type": "interview",
+      "text_type": "beschouwend",
+      "domain": "werk",
+      "speakers": {"Presentator": "presenter", "Farah": "f-adult"},
+      "questions": 7,
+      "keys": "BCBCAAB",
+      "spoken_words": 862,
+      "fragment_words": [130, 119, 116, 123, 116, 128, 130],
+      "minutes_at_150wpm": 5.7,
+      "level_figures": {"sentences": 79, "average_sentence": 10.9, "longest_sentence": 21, "over_25": 0},
+      "level_check": "comparable",
+      "level_reason": "An interview about a profession with fact, inference, opinion and advice operations over seven fragments of about 50 seconds, like the official interview texts; every key sentence is said once and plainly and the difficulty sits in reversed and competing details (q3, q4, q7).",
+      "natural_dutch": "Conversational radio Dutch throughout ('en nu rijd je op de bus', 'Om het geld ging het niet, hoor', 'Spannend is zacht uitgedrukt', 'moet je om half vier je bed uit', 'Ik ga nergens meer heen'); reported speech spoken, not written; no fillers; one 21-word sentence, natural. Only change the reviewer would make: q7 'en ik breng ze daar' -> 'en ik breng ze daarnaartoe' (optional).",
+      "coherence": "Opens with a greeting and closes with the presenter's sign-off; the salary thread (about the same as a driver, less during training) is consistent across q1, q2 and q5; nothing needed for a question is said only in an earlier fragment.",
+      "evidence": "q1 B proven by 'En eerlijk gezegd wilde ik gewoon nog iets nieuws leren voordat ik vijftig werd.'; A reversed by 'Om het geld ging het niet, hoor, want het salaris is ongeveer hetzelfde.', C by 'de winkel bestaat nog steeds, dus ik had er gewoon kunnen blijven.'; the second true reason (her back) is not an option. q2 C proven by 'In totaal duurde de opleiding ongeveer vier maanden.'; A is the week after the interview, B the three-week theory block. q3 B proven by the daughter's 'je hebt gewoon te weinig geoefend' plus 'En ze had gelijk, want ik had die weken vooral gedacht dat het wel goed zou komen.'; A is her rejected first thought, C is grounded in 'Spannend is zacht uitgedrukt' but never given as the cause. q4 C proven by 'Maar het moeilijkst vond ik de passagiers die boos worden als de bus te laat is.'; A is what she had to get used to, ranked below by 'Maar het moeilijkst'; B reversed by 'Niet het rijden zelf'. q5 A proven by 'Mijn man vond het een goed idee, maar hij maakte zich wel zorgen over het geld.'; daughter helped with theory, mother objected to wasted experience. q6 A proven by 'Ten eerste: ga een dag meekijken voordat je iets beslist.'; B reversed by 'zeg je baan niet te vroeg op', C by 'wacht niet tot je vijftig bent, of tot de kinderen het huis uit zijn'. q7 B proven by 'Ik heb er geen seconde spijt van gehad ... Natuurlijk mis ik de winkel weleens'; C contradicted by 'geen seconde spijt', A overgeneralises 'Misschien word ik over een paar jaar nog instructeur', limited by 'dat is dan wel bij het busbedrijf, hoor. Ik ga nergens meer heen.'",
+      "distractor_test": "All 14 distractors anchored in their fragment and clearly false (reversals in q1, q4, q6; said-but-other-question details in q2, q5; rejected self-diagnosis and an ungrounded cause in q3; overgeneralisations in q7). Options parallel in form; key never the longest by more than two characters; no prompt word appears only in the key.",
+      "content": "Fictional and generic ('het busbedrijf'); training path plausible and told as one person's experience; family portrayal not stereotyped; nothing from the section 9 avoid list.",
+      "revision_requests": [],
+      "optional": [
+        "q7 Farah: 'en ik breng ze daar.' -> 'en ik breng ze daarnaartoe.' (applied 2026-09-10)",
+        "q7 option A -> 'Ze wil over een paar jaar bij een ander bedrijf gaan werken.' (plain reversal of 'Ik ga nergens meer heen'; 12 words like B and C) (applied 2026-09-10)",
+        "q1 option B -> 'Ze wilde nog een nieuw vak leren.' (paraphrase instead of quoting the key sentence) (not applied; still optional)"
+      ],
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "3ac30bb5beed8dc1a39a50c93aabcb09e59e0fb07e85fce3f91608fb81ede224",
+        "verdict": "pass",
+        "changed_fields": "questions[6].script[1].text ('en ik breng ze daarnaartoe.'), questions[6].options.A ('Ze wil over een paar jaar bij een ander bedrijf gaan werken.'), the rebuilt questions[6].text and item text; nothing else",
+        "finding": "Both strings equal the review's optional wording. 'daarnaartoe' is the idiom; the q7 evidence (the turn's first two sentences) is untouched and verbatim. The new A is a plain reversal of 'dat is dan wel bij het busbedrijf, hoor. Ik ga nergens meer heen.', anchored and clearly false, and the unchanged explanation refutes it directly. Options 12/12/12 words, 60/53/63 characters, key B not the longest. Word counts unchanged (862 spoken, 877 with labels); keys BCBCAAB. Pass."
+      }
+    },
+    {
+      "id": "B1:listening:batch012-mantelzorg:1",
+      "verdict": "pass",
+      "first_review_verdict": "revise",
+      "severity": "minor (media safety; no question, key, evidence or explanation changes) - the finding of the first review, applied and verified on 2026-09-10 (see re_review)",
+      "task_type": "voorlichting",
+      "text_type": "instructief",
+      "domain": "overig",
+      "speakers": {"Meneer Yilmaz": "m-adult", "Mevrouw Bakker": "f-older"},
+      "questions": 6,
+      "keys": "ACBCAC",
+      "spoken_words": 795,
+      "fragment_words": [117, 125, 157, 135, 136, 125],
+      "minutes_at_150wpm": 5.3,
+      "level_figures": {"sentences": 71, "average_sentence": 11.2, "longest_sentence": 21, "over_25": 0},
+      "level_check": "comparable",
+      "level_reason": "An expert speaking to an audience with questions from the floor, like the official voorlichting texts; q1 (function of an example) and q3 (a rule applied to an unnamed case) are on the harder side, q4 and q6 (the key restates the spoken advice) on the easier side.",
+      "natural_dutch": "Voorlichting register, never written Dutch ('Vanavond gaat het over één vraag.', 'Goede vraag, want dit gaat vaak mis.', 'Onthoud het zo: gaat het om het huis, dan is het de gemeente.', 'Ik rond af.', 'loop gerust even naar me toe'); mevrouw Bakker's recap is how a listener would say it; three 21-word two-clause sentences; no fillers. Turns to change: q2 'Dat valt onder de Wmo, de wet voor ondersteuning thuis.' (required, for the voice), q6 'elke dinsdag- en donderdagochtend' (recommended); optional: q2 'kijkt ze' -> 'kijkt de gemeente ... ze zelf', q4 opening naming the second part.",
+      "coherence": "Announced three-part structure delivered in order, the second part through mevrouw Bakker's question; rule in q3 consistent with q2 and q6; her mother's situation consistent (household manageable, body care not); beginning and end explicit; her thread resolves in q6.",
+      "evidence": "q1 A: the example sits inside 'Wat ik vaak zie, is dat families pas hulp zoeken als het echt niet meer gaat. Als moeder is gevallen, bijvoorbeeld ... Dan moet alles ineens snel, en juist dan gaat het mis.' and leads to 'Daarom is mijn advies: begin op tijd'; B: the gemeente is only announced as a later topic; C reverses 'thuis wil blijven wonen'. q2 C proven by 'Daarna komt een medewerker van de gemeente bij uw moeder thuis voor een gesprek; dat noemen we het keukentafelgesprek.'; A contradicted by 'Pas daarna kijkt ze welke hulp de gemeente zelf geeft', B attaches the eigen bijdrage to the melding instead of the later help. q3 B: rule 'gaat het om het huis, dan is het de gemeente. Gaat het om het lichaam, dan is het de zorgverzekeraar.' applied to schoonmaken, a case not named in the fragment; A and C are the body-care examples assigned to wijkverpleging ('hulp bij het wassen en aankleden is geen taak van de gemeente'); mevrouw Bakker's recap confirms. q4 C proven by 'Daarom is mijn advies: regel op tijd iemand die de zorg af en toe van u overneemt. Dat heet respijtzorg.'; A reversed by 'Doe niet alles zelf', B overgeneralises 'een paar dagen in een logeerhuis'. q5 A proven by 'Ik vind eigenlijk dat ik het zelf hoor te doen, zolang ik het kan. Maar ik merk ook dat ik moe ben.'; B: brother only 'woont ver weg'; C reversed by her guilt about the logeerhuis. q6 C proven by 'Vraag op tijd hulp, en zorg net zo goed voor uzelf als voor uw vader of moeder. Een mantelzorger die omvalt, helpt niemand.'; A reverses the message, B overgeneralises the list of numbers to call.",
+      "distractor_test": "All 12 distractors anchored and clearly false (announced-later topic and reversed premise in q1; too-early help and misplaced eigen bijdrage in q2; body-care cases in q3; reversal and overgeneralisation in q4; unmentioned brother and reversed logeerhuis in q5; reversal and overgeneralisation in q6). Options parallel ('Om te ...', 'Hulp bij het ...'); key never the longest; q6 A repeats the reversal idea of q4 A (optional replacement offered).",
+      "facts": "Every mirrored rule is true in general and year-independent (Wmo melding and keukentafelgesprek, household help and traplift as Wmo examples, eigen bijdrage without amount, wijkverpleging from the basisverzekering via a thuiszorgorganisatie without referral, mantelzorger, respijtzorg sometimes paid by gemeente or insurer); the huis/lichaam mnemonic is a fair simplification; no amounts, waiting times or Wlz; the steunpunt is invented.",
+      "persona_note": "mevrouw Bakker keeps the cast's traits (about 65) but is the care recipient on KNM card batch006-wmo and the carer here; the items never share a set. Not a defect.",
+      "revision_requests": [
+        {
+          "severity": "required (minor)",
+          "location": "questions[1] (q2), script turn 1 (Meneer Yilmaz), sentence 4; rebuild questions[1].text and item text",
+          "current": "Dat valt onder de Wmo, de wet voor ondersteuning thuis.",
+          "replacement": "Dat valt onder de Wet maatschappelijke ondersteuning, de W-M-O. Die wet regelt hulp en ondersteuning thuis.",
+          "reason": "A TTS voice may blend 'Wmo' into a syllable and the Scribe round trip would still spell the token 'Wmo'/'WMO', so a mispronunciation would pass the 4% gate; hyphenated capitals are read as letters, the learner hears the full name once and the letters as Dutch speakers say them, and the post-answer transcript shows how it is spoken. The q2 evidence quote is a different sentence and is untouched; fragment becomes 131 spoken words, item text 825 words (cap 900). Media fallback if the voice reads English letter names: drop ', de W-M-O'.",
+          "status": "applied exactly and verified 2026-09-10"
+        },
+        {
+          "severity": "recommended (same edit round)",
+          "location": "questions[5] (q6), script turn 1 (Meneer Yilmaz), sentence 5; rebuild questions[5].text and item text",
+          "current": "Het steunpunt zit hier in de bibliotheek en is elke dinsdag- en donderdagochtend open, zonder afspraak.",
+          "replacement": "Het steunpunt zit hier in de bibliotheek en is elke dinsdagochtend en donderdagochtend open, zonder afspraak.",
+          "reason": "The hanging hyphen is correct in writing but a voice may pause or misread it; the spoken form is unambiguous and equally natural. No question depends on the opening hours; the q6 evidence is two sentences later.",
+          "status": "applied exactly and verified 2026-09-10"
+        }
+      ],
+      "optional": [
+        "q2 Yilmaz: 'Pas daarna kijkt ze welke hulp de gemeente zelf geeft.' -> 'Pas daarna kijkt de gemeente welke hulp ze zelf geeft.' (applied 2026-09-10)",
+        "q4 Yilmaz opening: 'Dan het derde deel: wat u zelf doet.' -> 'Over de zorgverzekeraar hebben we het net gehad. Dan nu het derde deel: wat u zelf doet.' (not applied; still optional)",
+        "q5 prompt: 'hulp van buiten' -> 'hulp van buitenaf' (applied 2026-09-10)",
+        "q6 option A: 'Regel de zorg voor uw ouder zo veel mogelijk zelf.' -> 'Begin pas met hulp zoeken als het thuis echt niet meer gaat.' (12 words/60 chars against B 10/52 and key C 10/47; a distractor becomes the longest option; anchored in q1 and contradicted by 'wacht niet tot u het niet meer volhoudt') (applied 2026-09-10; see re_review for the explanation clause)"
+      ],
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "3ac30bb5beed8dc1a39a50c93aabcb09e59e0fb07e85fce3f91608fb81ede224",
+        "verdict": "pass",
+        "changed_fields": "questions[1].script[0].text (W-M-O sentences; 'kijkt de gemeente ... ze'), questions[5].script[0].text ('dinsdagochtend en donderdagochtend'), questions[4].prompt ('hulp van buitenaf'), questions[5].options.A, the rebuilt questions[1].text, questions[5].text and item text; nothing else",
+        "finding": "Every changed string equals the review's wording. q2: 'Dat valt onder de Wet maatschappelijke ondersteuning, de W-M-O. Die wet regelt hulp en ondersteuning thuis.' is natural spoken Dutch, the hyphenated capitals force letter reading, the official name carries its official capitalisation, and 'Daarna komt een medewerker ...' (the untouched evidence) still follows the melding as before; 'Pas daarna kijkt de gemeente welke hulp ze zelf geeft.' resolves the subject on first hearing and refutes option A more plainly; the fragment is 131 spoken words (52 s at 150 wpm), the text 801 spoken and 825 with labels. q6 turn: the spoken form of the opening hours is unambiguous; the fragment stays 125 words and the evidence two sentences later is untouched. q5 prompt: idiomatic; key A still the only option that answers it. q6 option A: anchored in q1 and in q6's own 'wacht niet tot u het niet meer volhoudt', plausible, clearly false; options 12/10/10 words, 60/52/47 characters, key C shortest. The unchanged q6 explanation refutes the new A through its first sentence ('vraag op tijd hulp' is the direct contrary of 'begin pas ... als het echt niet meer gaat'); its clause 'Alles zelf regelen raadt hij af' addressed the retired option and now points at no option, but it is true of the text and not misleading, so it does not block; the sharper clause is recorded in re_review_checks.optional_polish_not_blocking for the next byte change. All six evidence quotes verbatim; keys ACBCAC. Pass."
+      }
+    }
+  ],
+  "revision_requests": [
+    {
+      "item": "B1:listening:batch012-mantelzorg:1",
+      "question": "q2",
+      "severity": "required (minor)",
+      "field": "questions[1].script[0].text (and the rebuilt questions[1].text and item text)",
+      "current": "Dat valt onder de Wmo, de wet voor ondersteuning thuis.",
+      "replacement": "Dat valt onder de Wet maatschappelijke ondersteuning, de W-M-O. Die wet regelt hulp en ondersteuning thuis.",
+      "reason": "TTS safety: force letter reading of the abbreviation and let the learner hear the full name; the round trip would not catch a blended pronunciation. Evidence quote untouched.",
+      "status": "applied exactly and verified 2026-09-10"
+    },
+    {
+      "item": "B1:listening:batch012-mantelzorg:1",
+      "question": "q6",
+      "severity": "recommended (same edit round)",
+      "field": "questions[5].script[0].text (and the rebuilt questions[5].text and item text)",
+      "current": "Het steunpunt zit hier in de bibliotheek en is elke dinsdag- en donderdagochtend open, zonder afspraak.",
+      "replacement": "Het steunpunt zit hier in de bibliotheek en is elke dinsdagochtend en donderdagochtend open, zonder afspraak.",
+      "reason": "Removes the hanging hyphen a voice may misread; no question depends on it; evidence quote untouched.",
+      "status": "applied exactly and verified 2026-09-10"
+    }
+  ],
+  "batch_level_requests": [],
+  "author_doubts_decisions": [
+    {"doubt": "'de Wmo' for the voice", "decision": "Write the full name and the letters: 'Dat valt onder de Wet maatschappelijke ondersteuning, de W-M-O. Die wet regelt hulp en ondersteuning thuis.' Not the letters alone (the learner never hears what they stand for) and not the name alone (the abbreviation is what they will hear at a desk). Required."},
+    {"doubt": "'dinsdag- en donderdagochtend'", "decision": "Change now to 'elke dinsdagochtend en donderdagochtend' rather than wait for the audio check; free, natural, removes the doubt. Recommended in the same round."},
+    {"doubt": "Interview length and the checker's 900-word cap", "decision": "862 spoken words (5.7 min at 150 wpm) is inside the blueprint's 4-7 minutes; no change. The cap is a coordinator matter (raise it before commissioning a seven-minute text)."},
+    {"doubt": "Two opinion questions in text 1", "decision": "Keep both labels: q4 asks for Farah's evaluation ('het moeilijkst'), the official 'Wat vindt X van ...' operation; relabelling as detail would misdescribe it; the requirement is at least one opinion and one inference per text, which both texts meet."},
+    {"doubt": "q3 mantelzorg reads as rule application?", "decision": "Confirmed: the key names a case (schoonmaken) the fragment does not name; the learner applies the huis/lichaam rule; mevrouw Bakker's recap supports rather than gives the answer."},
+    {"doubt": "q1 mantelzorg as inferential opener", "decision": "Keep: the example is introduced with 'bijvoorbeeld' inside a sentence that states its point and 'Daarom is mijn advies' draws the conclusion; the official exam does not order operations by difficulty; the swap would remove the text's only inference item."},
+    {"doubt": "Family portrayal in text 1 q5", "decision": "Accepted as written: scepticism from the mother about experience, not gender; the husband's worry is financial and supportive."},
+    {"doubt": "Mevrouw Bakker's age", "decision": "Sixty-five with a mother of eighty-eight is consistent with the cast and with f-older."},
+    {"doubt": "No persona prompts", "decision": "Accepted: official Luisteren prompts are direct; the 'u' in q3 and 'uw moeder' in q2 option B mirror the speaker's address to the audience and are unambiguous."}
+  ],
+  "diversity_review": "Within the batch the two texts differ in task type, text type, domain, setting, information structure and tested skills. Against the catalogue: none of the existing B1 listening settings (werkoverleg, lekkage, festival) or section 9 settings is repeated; the bus appears elsewhere only as a passenger announcement, a subscription look-up text and a buurtbus article; the Wmo is one fact on KNM card batch006-wmo. Both texts serve under-represented areas (work and professions; health and care) and avoid neighbourhood and volunteering. Against sibling batch 013 (study-choice gesprek/educatie; hospital-kitchen instructie/werk): the four texts cover all four B1 listening task types once; buschauffeur and 013-logistiek both feature adult retraining beside work with distinct purposes (retrospective career story versus advisory talk about a course), and buschauffeur and 013-ziekenhuiskeuken are both werk; across 012 and 013 there is no persuasief text yet.",
+  "set_assembly": {
+    "drills": ["buschauffeur alone (7 Q, about 6 min of audio)", "mantelzorg alone (6 Q, about 5.5 min)"],
+    "mock": "Four-text mock from 012 + 013 (26 Q; keys A 8, B 9, C 9 = 31/35/35%): buschauffeur (interview, werk), mantelzorg (voorlichting, overig), 013-logistiek (gesprek, educatie), 013-ziekenhuiskeuken (instructie, werk); keeps the two werk texts and the two retraining texts apart and alternates monologue-heavy and dialogue texts. The official form has five audio texts and one video text (39 Q); a six-text form needs a persuasief text and a second overig text from a later batch.",
+    "avoid": ["buschauffeur immediately followed by 013-logistiek in any sequence"]
+  },
+  "media_notes": [
+    "Voice pairing: text 1 presenter (Peter) with f-adult (Esmee), the narrator (Serge) reads intro and questions so the programme voice and the question voice differ; text 2 m-adult (Robert) with f-older (Hanneke, quiet; Peter a bit loud; rely on per-clip loudness normalisation).",
+    "Text 2 fragments q1, q2, q4 are single-speaker (per-turn eleven_multilingual_v2, m-adult speed 0.92); q3, q5, q6 are stitched dialogue; listen to the joins where mevrouw Bakker interrupts ('Mag ik iets vragen?', 'Mag ik daar nog iets over zeggen?').",
+    "Turns a voice may misread: 'Wmo' (fixed 2026-09-10: now 'de Wet maatschappelijke ondersteuning, de W-M-O'), 'dinsdag- en donderdagochtend' (fixed 2026-09-10: now 'dinsdagochtend en donderdagochtend'), 'één' four times (text 1 q2 and q3, text 2 q1 and q6; usually fine, round trip normalises een/één), 'Yilmaz' (a Dutch voice may say 'Jilmas'; acceptable), 'theorie-examen' and 'mam' are safe; ages and times are in words. Expect about 0.3% character error from 'W-M-O' against a transcribed 'WMO'.",
+    "Expected length: text 1 about 6 min of fragment audio plus a 15 s intro; text 2 about 5.5 min plus a 20 s intro; 13 question clips. Characters for the quota: text 1 4,620 spoken + 220 intro + 986 questions/options; text 2 4,373 + 273 + 1,272 (about 90 more after the edits); batch about 11,800.",
+    "The 25-second reading time and the single play of the exam are not built (blueprint 4.7); drills allow replay."
+  ],
+  "coordinator_notes": [
+    "The checker caps a B1 listening text at 900 words including speaker labels (LENGTH.listening.B1 in scripts/batch-check.ts), about 5.8 minutes at 150 wpm, while the blueprint allows 4-7 minutes and up to 9 fragments of 190 words; raise the cap (about 1,300 words of text, or count spoken words only) before commissioning a seven-minute text. Not a defect of this batch.",
+    "content/exemplars/ still does not exist; the level check compares each text with the blueprint's description of the official Luisteren I texts and the three short existing items; the independent second level check (blueprint 12 step 5) is still due.",
+    "After the required/recommended edits, update the fragment word counts in content/batches/012-notes.md sections 1 and 4 (q2 131; q6 unchanged at 125; total 801); this changes no batch bytes. Done by the reviser on 2026-09-10 (sections 1, 4, 6, 7 and the section 5 rationales of the two new distractors).",
+    "Persona biographies differ across parts (Farah: 43-year-old ex-shop assistant here, 38-year-old rooster planner in 010; mevrouw Bakker: carer here, care recipient on the KNM Wmo card); decide whether section 8 names should share backstories or, as now, only the illustrated cast shares traits."
+  ],
+  "limitations": [
+    "This is an AI editorial review of scripts before audio exists. It does not replace review by a Dutch-language educator, learner trials or psychometric calibration, and it does not establish equivalence with the Staatsexamen NT2 Programma I. The B1 label remains an unvalidated authoring target on both items.",
+    "Originality was judged by plausibility and by a phrase scan against this project's own catalogue and batches, not by comparison with official practice-exam audio.",
+    "Durations are estimates at 150 words per minute and at the author's 2.2-2.4 words per second; the generated clips will decide.",
+    "The mirrored care rules were checked against the reviewer's knowledge of the Wmo 2015 and the Zorgverzekeringswet as of 2026; they are general and carry no amounts, but a KNM-style source check was not part of this review.",
+    "Listening items stay blocked for publication until the generated audio passes the round-trip check and a media review."
+  ],
+  "revisions": [
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review",
+      "items": ["B1:listening:batch012-mantelzorg:1", "B1:listening:batch012-buschauffeur:1"],
+      "previous_sha256": "3b1d54a6c5e6a1092f0fdc74d1b822d6f9793686c89e1f712b29ebc102de10f2",
+      "re_reviewed_sha256": "3ac30bb5beed8dc1a39a50c93aabcb09e59e0fb07e85fce3f91608fb81ede224",
+      "verdict": "pass",
+      "note": "Focused re-review of the fields the reviser changed after the first review (see 'Revision after the editorial review' in content/batches/012-notes.md): mantelzorg questions[1].script[0].text (the required 'Dat valt onder de Wet maatschappelijke ondersteuning, de W-M-O. Die wet regelt hulp en ondersteuning thuis.' and the optional 'Pas daarna kijkt de gemeente welke hulp ze zelf geeft.'), questions[5].script[0].text (the recommended 'elke dinsdagochtend en donderdagochtend'), questions[4].prompt ('hulp van buitenaf'), questions[5].options.A ('Begin pas met hulp zoeken als het thuis echt niet meer gaat.'); buschauffeur questions[6].script[1].text ('en ik breng ze daarnaartoe.') and questions[6].options.A ('Ze wil over een paar jaar bij een ander bedrijf gaan werken.'); the affected question texts and both item texts rebuilt. Every changed string equals the review's wording exactly. Nothing else changed: reverting exactly these seven leaf edits on a copy and rebuilding the text fields reproduces the previously reviewed bytes (SHA-256 3b1d54a6...; the file's json.dumps(indent=2, ensure_ascii=False) layout re-serialises byte-identically). Hash of the re-reviewed file 3ac30bb5... as announced by the reviser. Checker on it: Checked 2 items, 13 questions. Keys: {B:4, C:5, A:4}. Options: {3:13}. No failures, no warnings. Recomputed: all 13 question texts equal their scripts joined as 'Speaker: text' lines, both item texts equal their fragments joined with a blank line, all 13 evidence quotes are verbatim inside one spoken turn of their own fragment and unchanged, keys BCBCAAB / ACBCAC (A 4, B 4, C 5). 'W-M-O' is a hyphenated capital sequence between 'de ' and a full stop (letter reading), present three times (turn, question text, item text) with 'Wmo' nowhere. mantelzorg fragments 117/131/157/135/136/125 spoken words (q2 131, about 52 s at 150 wpm, inside 50-190 and 30-75 s), 801 spoken and 825 with labels (cap 900), 72 sentences at 11.1 words, longest 21; buschauffeur unchanged (862; 877). Options: mantelzorg q6 12/10/10 words, 60/52/47 characters, key C shortest; buschauffeur q7 12/12/12 words, 60/53/63 characters, key B not the longest. New mantelzorg q6 A is anchored in q1 and in q6's own 'wacht niet tot u het niet meer volhoudt', plausible and clearly false; the unchanged explanation refutes it through 'vraag op tijd hulp' (the direct contrary of 'begin pas ... als het echt niet meer gaat'), while its clause 'Alles zelf regelen raadt hij af' addressed the retired option and now answers no option (true of the text, not misleading; a sharper clause, 'Wachten tot het thuis echt niet meer gaat, raadt hij juist af', is recorded in re_review_checks.optional_polish_not_blocking with the hash a copy carrying only that change would have, ffecbd3c...; not required). New buschauffeur q7 A is a plain reversal of 'dat is dan wel bij het busbedrijf, hoor. Ik ga nergens meer heen.', anchored and false, and the unchanged explanation refutes it directly. Both items pass; batch verdict pass; ready_for_integration true. Still to do outside this review: commit the revised batch (untracked at HEAD e2095f4), generate the audio and pass the round-trip and media checks before publication."
+    }
+  ]
+}

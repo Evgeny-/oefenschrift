@@ -1,0 +1,442 @@
+{
+  "review_id": "batch009-editorial-review",
+  "source": "content/batches/009-original.json",
+  "source_sha256": "e066a92e7f4e4001f25ff32d7189bb5c9afbee449bffb643ca983010e7fd1ca0",
+  "starters_source": "content/batches/009-starters.json",
+  "starters_sha256": "0837329ca2dbbfcc0db5ec1102da3dcb76fdc7404c6501b4f92a59a3ebf56896",
+  "starters_verdict": "pass",
+  "review_type": "AI editorial review of A2 speaking tasks in the four official DUO types (video-answer, picture-describe, picture-choose, picture-sequence) and their sentence starters: prompt shape and official instruction wording, cues and voice roles, image briefs against the house style and cast, criteria that mirror the type, sample quotes, model coverage, level, originality",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "summary": "22 pass, 2 revise (ochtenddienst: one image brief; gymles: one image brief and one model sentence), 0 reject at the original hash 17c77994. Focused re-review of 10 September 2026: the two required edits and five recommended edits were applied exactly as requested and nothing else changed; 24 pass at source hash e40eadfb. Starters pass at their unchanged hash. Ready for integration.",
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 24,
+    "distribution": {
+      "A2_speaking": 24
+    },
+    "task_types": {
+      "video-answer": 6,
+      "picture-describe": 6,
+      "picture-choose": 6,
+      "picture-sequence": 6
+    },
+    "domains": {
+      "werk": 3,
+      "opleiding": 3,
+      "wonen-buurt": 3,
+      "gezondheid": 3,
+      "winkels-diensten": 3,
+      "instanties": 3,
+      "vervoer": 3,
+      "vrije-tijd-familie": 3
+    },
+    "source_sha256_matches_expected": true,
+    "starters_sha256_matches_expected": true,
+    "batch_check": "npm run batch:check content/batches/009-original.json: Checked 24 items, 0 questions. No failures, no warnings.",
+    "rubric_a2_spreken_all_items": true,
+    "speaking_seconds": 40,
+    "prep_seconds": 10,
+    "prompts_carry_official_instruction": true,
+    "prompt_wording_note": "video-answer prompts say 'U hoort de vraag. Geef antwoord.' after '... stelt u een vraag.'; blueprint 4.3 records 'U hoort een vraag.'; accepted, the coordinator decides which pattern the blueprint records",
+    "cues_two_part_natural_valid_roles": true,
+    "cue_word_range": "16-21",
+    "cue_roles": {
+      "m-young": 1,
+      "f-adult": 1,
+      "f-older": 1,
+      "m-older": 2,
+      "m-shop": 1
+    },
+    "image_counts_match_type": true,
+    "image_sizes": {
+      "still": 6,
+      "single": 6,
+      "pair": 12,
+      "sequence": 18
+    },
+    "cast_traits_exact_in_briefs": true,
+    "briefs_declare_no_text": true,
+    "briefs_with_text_bearing_or_overdetailed_objects": [
+      "ochtenddienst (paper calendar)",
+      "gymles (five figures, five props)"
+    ],
+    "sequences_same_character_clear_order": true,
+    "pairs_differ_only_in_the_chosen_thing": true,
+    "criteria_three_bilingual_pairs_mirroring_type": true,
+    "open_sample_quotes_are_verbatim": true,
+    "one_null_quote_per_item": true,
+    "null_positions": {
+      "index0": 4,
+      "index1": 10,
+      "index2": 10
+    },
+    "samples_have_deliberate_learner_errors": false,
+    "no_prompt_sentence_copied_into_sample_or_model": true,
+    "models_meet_every_criterion": true,
+    "model_word_range": "27-45",
+    "model_sentence_average_range": "5.5-10.5",
+    "model_longest_sentence": 16,
+    "model_subordinators_within_a2_set": true,
+    "exemplars_available": false,
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false,
+    "illustrate_script_generates_sequence_panels_separately": true
+  },
+  "starters_checks": {
+    "item_ids_match_batch": true,
+    "one_starter_per_criterion_in_order": true,
+    "every_starter_has_ellipsis": true,
+    "partial_not_complete_answers": true,
+    "grammatical_when_completed_naturally": true,
+    "register_matches_task": true,
+    "no_invented_task_facts": true,
+    "choice_starters_neutral_between_pictures": true,
+    "notes": "Five starters end in a fronted adverbial and leave the inversion to the learner ('s Nachts ...; Op het andere plaatje ... in flat-dorp and sportschool-park; Op het derde plaatje ... in rijbewijs; Bij de kleermaker ...). Accepted as in the 008 review; optional safer fragments: ''s Nachts slaap ik ...', 'Op het andere plaatje zie ik ...', 'Op het derde plaatje is hij ...', 'Bij de kleermaker laat hij ...'. Applying them moves the starters hash and needs a focused re-review."
+  },
+  "items": [
+    {
+      "id": "A2:speaking:batch009-ochtenddienst:1",
+      "verdict": "pass",
+      "evidence": "Video-answer, werk. Prompt gives the situation then 'U hoort de vraag. Geef antwoord.'; cue by Julio (m-young), 20 words, one two-part question (ochtend of avond, en waarom), informal jij from a colleague. Quotes 'Ik werk liever in de avond.' and 'Dan is het rustig op het werk.' are exact; the sample adds no further detail, so criterion 3 is null. Model 33 words meets all three (ochtend; fris and sneller; om zeven uur), one als-clause. Still: Julio with the exact cast traits; the brief asks for 'a paper calendar', an object made of printed numbers, so its 'No text' cannot be honoured.",
+      "level_check": "comparable: a direct two-part question about a work preference, answered in three or four short sentences.",
+      "revision_request": "images[0].brief: replace with 'Julio (young man, curly hair, striped shirt) sits at an office desk with a laptop and a few blank sheets of paper and turns towards the viewer as if asking a question. No text.' Alt text unchanged.",
+      "re_review": "Focused re-review 2026-09-10: images[0].brief now reads exactly the requested replacement (a few blank sheets of paper instead of a paper calendar); cast traits verbatim, No text clause honourable, alt unchanged and still accurate. Pass."
+    },
+    {
+      "id": "A2:speaking:batch009-thuis-oefenen:1",
+      "verdict": "pass",
+      "evidence": "Video-answer, opleiding. Cue by the teacher (f-adult), 17 words, u-register, two parts (hoe, hoe vaak). Quotes for how and for 'Zo leer ik nieuwe woorden.' are exact; no frequency, so criterion 2 is null. Model 36 words: tv news and the neighbour, 'bijna elke dag, een half uur', a reason. Still: a non-cast teacher with three traits beside a blank whiteboard.",
+      "level_check": "comparable: a personal two-part question with everyday vocabulary.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-nieuwe-buurvrouw:1",
+      "verdict": "pass",
+      "evidence": "Video-answer, wonen-buurt. Cue by mevrouw Bakker (f-older), 21 words, two parts (hoe lang, wat vindt u). 'Welkom in de straat!' is no criterion; quotes 2 and 3 exact; no duration, so criterion 1 is null. Model 33 words in six short sentences meets all three. Still: mevrouw Bakker with exact traits and a moving box at a low fence.",
+      "level_check": "comparable: opinion about one's own street with a duration and details.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-slaap:1",
+      "verdict": "pass",
+      "evidence": "Video-answer, gezondheid. Cue by the huisarts (m-older; the role lists huisarts), 20 words, two clock-time questions. Quotes 1 and 3 exact; no rising time, so criterion 2 is null. Model 33 words: twaalf uur, zes uur op with a reason, six hours of sleep, waking at night. Still: non-cast doctor with three traits, stethoscope, no white coat, no screen. Nothing graphic; the times are role-play facts.",
+      "level_check": "comparable: two times and one detail in short main clauses.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-abonnement:1",
+      "verdict": "pass",
+      "evidence": "Video-answer, winkels-diensten. Cue by the shop employee (m-shop), 16 words, abonnement of prepaidkaart plus internet use. The sample never names either product, so criterion 1 is null; quotes 2 and 3 (two contiguous sentences) exact. Model 33 words: abonnement, veel internet with video calls as reason, music and a price question. Still: non-cast employee with three traits, plain phones, no text or logos. Phone-shop overlap with the repair items is setting only; the act is new and on the needed list.",
+      "level_check": "comparable: a product choice and a yes/no with a reason; abonnement and prepaidkaart are everyday in this situation.",
+      "revision_request": null,
+      "recommended_edit": "model: 'Ik luister ook veel muziek op mijn telefoon.' -> 'Ik luister ook veel naar muziek op mijn telefoon.' (not blocking)"
+    },
+    {
+      "id": "A2:speaking:batch009-bushalte:1",
+      "verdict": "pass",
+      "evidence": "Video-answer, vervoer. Cue by meneer De Vries (m-older), 18 words, which bus and how often. Quotes 1 and 3 exact; no frequency, so criterion 2 is null. Model 27 words: lijn vier, elk kwartier, the stop across the road, ten minutes. Still: meneer De Vries with exact traits at a simple bus stop. The learner invents the line number; any line and frequency satisfy the criteria (doubt 7 accepted).",
+      "level_check": "comparable in length and structure; different in kind from the other five (information for a stranger rather than talk about oneself), which adds a second speech act to the video set.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-schoonmaak:1",
+      "verdict": "pass",
+      "evidence": "Picture-describe, werk. Prompt follows the official pattern (Vertel wat ... Vertel ook wat u ... vindt. Gebruik het plaatje.). Quotes for the scene and for 'een emmer en een stofzuiger' exact; 'Hij gaat de vloer schoonmaken.' is no opinion, so criterion 3 is null. Model 41 words names bucket with mop, vacuum cleaner, spray bottle and cloth and gives a two-sided opinion. Brief: Julio with exact traits, one action, four separable objects, no text; alt withholds the objects.",
+      "level_check": "comparable with the official 'Vertel wat Sem kan eten' type.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-gymles:1",
+      "verdict": "pass",
+      "evidence": "Picture-describe, opleiding. Prompt follows the pattern. Sample names one activity only, so criterion 2 is null; quotes 1 and 3 exact. Model 41 words meets all three. The brief stacks five figures (Sem, two ball players, a girl, a teacher) and five props (rope, ball, vaulting box, mat, whistle) into one 816x816 flat illustration, against the config's 'a few simple shapes, no background objects' and blueprint 7's warning about detail; the model's 'kast' for a vaulting box is a second meaning of a common word without context for A2 learners.",
+      "level_check": "comparable after the edit; the vocabulary item 'kast' (vaulting box) is removed with it.",
+      "revision_request": "images[0].brief: replace with 'A school gym hall: Sem (teenage boy, short brown hair, green sweater) climbs a thick rope; two other teenagers throw a ball to each other; a girl jumps on a blue mat. No text.' model: replace 'Een meisje springt over een kast op een mat.' with 'Een meisje springt op een mat.' (38 words). Alt, criteria, sample and starters unchanged.",
+      "re_review": "Focused re-review 2026-09-10: images[0].brief and model read exactly the requested replacements (three activities: rope, ball, mat; no vaulting box, no whistle, no teacher). Model 38 words, six sentences, longest 9 words, meets the scene, two-activities and opinion criteria; sample quote \"Sem klimt in een touw.\" still matches the picture; alt, criteria and starters unchanged. Pass."
+    },
+    {
+      "id": "A2:speaking:batch009-afval:1",
+      "verdict": "pass",
+      "evidence": "Picture-describe, wonen-buurt. Prompt follows the pattern. Quotes for the scene and 'flessen in de glasbak en karton in de papierbak' exact; no opinion, so criterion 3 is null. Model 41 words: three containers, lege flessen, oud karton, opinion with maar. Brief: Karim with exact traits before green, blue and grey containers with a bag of bottles and flattened cardboard, no text. Not a re-skin of batch003-container (writing) or the KNM gft card.",
+      "level_check": "comparable: two kinds of waste and an opinion in everyday words (glas, papier, milieu).",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-ehbo:1",
+      "verdict": "pass",
+      "evidence": "Picture-describe, gezondheid. Prompt follows the pattern. Sample names only the bandage, so criterion 2 is null; quotes 1 and 3 exact. Model 42 words: pleisters, rol verband, kleine schaar, thermometer, opinion with an als-clause. Brief: Roos with exact traits, a plain white box, four items, no text and no symbols; the prompt names the box.",
+      "level_check": "comparable: EHBO-doos is explained by prompt and picture; the items are everyday.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-kringloop:1",
+      "verdict": "pass",
+      "evidence": "Picture-describe, winkels-diensten. Prompt follows the pattern. Sample names only the sofa, so criterion 2 is null; quotes 1 and 3 exact. Model 39 words: groene bank, lamp, kast met borden en kopjes, opinion. Brief: Fatima with exact traits, sofa, lamp, shelf, books, bicycle, no text and no price tags.",
+      "level_check": "comparable: what can be bought plus an opinion about second-hand goods.",
+      "revision_request": null,
+      "recommended_edit": "model: 'Er staat ook een lamp en een kast met borden en kopjes.' -> 'Er staan ook een lamp en een kast met borden en kopjes.' (not blocking)"
+    },
+    {
+      "id": "A2:speaking:batch009-verjaardag:1",
+      "verdict": "pass",
+      "evidence": "Picture-describe, vrije-tijd-familie. Prompt 'Vertel wat u op het feest ziet. Vertel ook wat u van kinderfeestjes vindt.' Criteria 1 and 2 overlap more than elsewhere; the sample separates them (scene sentence, then 'een taart met kaarsjes en veel ballonnen'); no opinion, so criterion 3 is null. Model 42 words: cake, candles, two friends, balloons, presents, 'gezellig, maar ook druk'. Brief: Amina with exact traits, two friends, cake with lit candles, balloons, wrapped presents, no text.",
+      "level_check": "comparable: a party scene and an opinion; a learner without children answers in general terms.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-alleen-samen:1",
+      "verdict": "pass",
+      "evidence": "Picture-choose, werk. Prompt follows the official choose pattern. Pair: Sabrina with exact traits alone at a desk / with three colleagues in the same office room, differing only in the thing chosen. Sample chooses alone with a reason and ignores the other picture, so criterion 3 is null; quotes 1 (two contiguous sentences) and 2 exact. Model 43 words chooses samen, reasons, and describes the other picture.",
+      "level_check": "comparable, slightly fuller than the official 'choose and say why' because of the third criterion.",
+      "revision_request": null,
+      "recommended_edit": "model: 'Alleen werken, zoals op het eerste plaatje, vind ik stil.' -> '... vind ik te stil.' (not blocking)"
+    },
+    {
+      "id": "A2:speaking:batch009-klas-thuis:1",
+      "verdict": "pass",
+      "evidence": "Picture-choose, opleiding. Prompt is not a copy of the official 'welk gebouw' example. Pair: meneer De Vries with exact traits in a classroom (blank whiteboard) / at home with laptop and headphones. Sample chooses home and judges the classroom without a reason, so criterion 2 is null; quotes 1 and 3 exact. Model 41 words chooses the classroom with two reasons and describes the home picture.",
+      "level_check": "comparable: a learning-form preference with reasons.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-gemeente-bellen:1",
+      "verdict": "pass",
+      "evidence": "Picture-choose, instanties. Pair: Karim with exact traits phoning on a sofa / at a town-hall counter. Sample chooses phoning with a reason, nothing about the counter, so criterion 3 is null; quotes exact. Model 39 words chooses the counter, gives reasons (papieren laten zien) and calls phoning lastig.",
+      "level_check": "comparable: contact-channel preference with reasons in everyday words.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-trein-auto:1",
+      "verdict": "pass",
+      "evidence": "Picture-choose, vervoer. Pair: Fatima with exact traits in a train with a present / at the wheel with the same present. Sample chooses the car with reasons, so criterion 3 is null; quotes exact (the second is 15 words, plausible for a learner). Model 40 words chooses the train, two reasons, 'in de file' for the car.",
+      "level_check": "comparable: a travel choice with reasons; 'in de file staan' is everyday and explained by the sentence.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-flat-dorp:1",
+      "verdict": "pass",
+      "evidence": "Picture-choose, wonen-buurt. Prompt question is 16 words, inside the A2 limit. Pair: a city apartment building with a tram and shops / a village house with a garden; no person, like the official 'welk gebouw' example (doubt 8 accepted). Sample argues for both and never chooses, so criterion 1 is null (a realistic failure; the reason quote stands and gives the feedback its point). Model 43 words chooses the house, reasons, mentions the flat.",
+      "level_check": "comparable: a housing preference with reasons.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-sportschool-park:1",
+      "verdict": "pass",
+      "evidence": "Picture-choose, gezondheid. Pair: mevrouw Bakker with exact traits on a treadmill / walking in a park. Sample chooses the gym with reasons, so criterion 3 is null; quotes exact. Model 41 words, longest sentence exactly 16, chooses the park with reasons and gives the gym its due.",
+      "level_check": "comparable: an exercise preference with reasons.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-paspoort:1",
+      "verdict": "pass",
+      "evidence": "Picture-sequence, instanties. Prompt follows the official sequence pattern. Panels: pasfoto at a photographer, form and photo handed in at the town-hall counter, dark-red booklet received at the same counter; same character with exact traits, clear order, realistic Dutch procedure, no text. Sample covers panels 1 and 3, so criterion 2 is null; quotes exact. Model 44 words covers all three panels.",
+      "level_check": "comparable with 'Ricardo werkt als kapper': one sentence or two per panel.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-brief-gemeente:1",
+      "verdict": "pass",
+      "evidence": "Picture-sequence, instanties. Panels: Julio with exact traits opens an envelope and reads a blank sheet, phones in the same kitchen with the sheet, sits opposite an employee at the town hall with the sheet between them; nothing needs reading. Sample covers panels 1 and 2, so criterion 3 is null; quotes exact. Model 40 words covers all three panels. Second gemeente sequence after paspoort; keep them in different drills.",
+      "level_check": "comparable: three actions narrated in short main clauses.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-vakantie:1",
+      "verdict": "pass",
+      "evidence": "Picture-sequence, vrije-tijd-familie. Panels: Karim with exact traits packs a suitcase, lifts it into the car boot, sits before a tent at a lakeside campsite (grey jacket plausible). Sample covers panels 2 and 3, so criterion 1 is null; quotes exact. Model 43 words covers all three panels.",
+      "level_check": "comparable: three actions with the separable verb inpakken and everyday nouns.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-bioscoop:1",
+      "verdict": "pass",
+      "evidence": "Picture-sequence, vrije-tijd-familie. Panels: mevrouw Bakker with exact traits receives two tickets with a friend, carries popcorn and two cups, sits with the friend before a blank screen. Sample covers panels 1 and 3, so criterion 2 is null; quotes exact (correct inversion in the 15-word sentence). Model 42 words covers all three panels. The friend in panels 1 and 3 has no fixed traits (media note).",
+      "level_check": "comparable: an outing narrated in short main clauses.",
+      "revision_request": null,
+      "recommended_edit": "images[0].brief and images[2].brief: describe the friend once with fixed traits, e.g. 'a friend of her age (grey curly hair, green coat)' (not blocking)"
+    },
+    {
+      "id": "A2:speaking:batch009-rijbewijs:1",
+      "verdict": "pass",
+      "evidence": "Picture-sequence, vervoer. Panels: Modibo with exact traits driving with an instructor, reversing between two cones, holding up a small pink card while the instructor applauds; no roof sign avoids the L-plate text. Sample covers panels 1 and 2 (first quote spans two sentences), so criterion 3 is null; quotes exact. Model 43 words: rijles, parkeren tussen twee pionnen, geslaagd with the licence. The card is a story shortcut (the real card comes from the gemeente later), accepted because it makes the outcome unambiguous.",
+      "level_check": "comparable: pionnen is explained by the picture; geslaagd is everyday.",
+      "revision_request": null
+    },
+    {
+      "id": "A2:speaking:batch009-kleermaker:1",
+      "verdict": "pass",
+      "evidence": "Picture-sequence, winkels-diensten. Panels: Hasan with exact traits before a mirror in trousers far too long, on a platform while a tailor pins the hem, receiving the folded trousers at the counter. Sample covers panels 1 and 3 (the first quote states the situation panel 1 shows), so criterion 2 is null; quotes exact. Model 45 words, the upper limit, covers all three panels; 'betaalt hij' is not pictured but harmless.",
+      "level_check": "comparable: a service visit narrated in short main clauses; 'laten maken' is modelled by the prompt.",
+      "revision_request": null
+    }
+  ],
+  "revision_requests": [
+    {
+      "id": "A2:speaking:batch009-ochtenddienst:1",
+      "field": "images[0].brief",
+      "replacement": "Julio (young man, curly hair, striped shirt) sits at an office desk with a laptop and a few blank sheets of paper and turns towards the viewer as if asking a question. No text.",
+      "why": "A paper calendar is a text object; the brief's 'No text' cannot be honoured. Every other text-bearing object in the batch is declared blank."
+    },
+    {
+      "id": "A2:speaking:batch009-gymles:1",
+      "field": "images[0].brief",
+      "replacement": "A school gym hall: Sem (teenage boy, short brown hair, green sweater) climbs a thick rope; two other teenagers throw a ball to each other; a girl jumps on a blue mat. No text.",
+      "why": "Five figures and five props exceed the house style ('a few simple shapes, no background objects'); three simple activities keep slack for 'minstens twee'."
+    },
+    {
+      "id": "A2:speaking:batch009-gymles:1",
+      "field": "model",
+      "replacement": "Ik zie een gymzaal op school. Sem klimt in een touw. Twee leerlingen spelen met een bal. Een meisje springt op een mat. Ik vind sport op school goed. Kinderen bewegen dan elke week en dat is gezond.",
+      "why": "Follows the simplified picture and removes 'kast' (vaulting box), a second meaning of a common word without context at A2. 38 words; criteria, sample, alt and starters unchanged."
+    }
+  ],
+  "recommended_edits_not_blocking": [
+    "kringloop model: 'Er staat ook een lamp en een kast ...' -> 'Er staan ook een lamp en een kast ...'.",
+    "abonnement model: 'Ik luister ook veel muziek op mijn telefoon.' -> 'Ik luister ook veel naar muziek op mijn telefoon.'.",
+    "alleen-samen model: '... vind ik stil.' -> '... vind ik te stil.'.",
+    "bioscoop briefs 1 and 3: give the friend fixed traits, e.g. 'a friend of her age (grey curly hair, green coat)'.",
+    "cue.speaker labels 'Docent', 'Huisarts', 'Medewerker' -> 'de docent', 'de huisarts', 'de medewerker' (the app captions 'U hoort: <speaker>'; the label is not used by scripts/audio.ts).",
+    "Video-answer prompt pattern: either use the blueprint's 'U hoort een vraag. Geef antwoord.' or record the batch's composite pattern in blueprint 4.3 so later batches match.",
+    "Optional starter fragments that carry the inversion (see starters_checks.notes)."
+  ],
+  "doubts_answered": {
+    "1_abonnement_phone_shop": "Accepted: the existing phone-shop items are receptive repair texts; choosing a subscription is a different act in a different part and on the needed list. No sports-club variant needed.",
+    "2_three_criteria_video_answer": "Keep three (part one, part two, one more detail or reason): it is the coordinator's checklist, matches the checker, and fills 40 seconds. No checker change.",
+    "3_describe_criterion_1": "Keep 'Vertel wat u op het plaatje ziet.' as the scene criterion; feedback accepts any on-topic scene sentence for it and requires two named items or actions for criterion 2.",
+    "4_choose_third_criterion": "Keep 'Zeg ook iets over het andere plaatje.'; a learner who only chooses and reasons scores 2 of 3 with a clear next step and is not off task.",
+    "5_slaap_doctor_framing": "Keep the huisarts: health is under-represented, nothing graphic follows, criteria are two times.",
+    "6_personal_data": "Accepted: role-play facts, nothing identifying.",
+    "7_bushalte_invented_facts": "Keep the directions cue (a second speech act in the video set; any line and frequency satisfy the criteria). The alternative cue is a good candidate for the next batch.",
+    "8_flat_dorp_no_person": "Accepted; both forms are exam-like. Person for an activity choice, places for a place choice; no single rule.",
+    "9_sem_sweater_in_gym": "Keep the cast traits; the gymles revision is about detail, not the sweater.",
+    "10_verjaardag_opinion": "Accepted; general opinion suffices.",
+    "11_vakantie_lakeside": "Accepted; no jacket-rule note needed.",
+    "12_rijbewijs_pink_card": "Keep the card (unambiguous outcome); handshake fallback only if unreadable at display size; note the procedural shortcut in the image review.",
+    "13_paspoort_booklet": "Accepted; 'ID-kaart' still meets criterion 3.",
+    "14_samples_without_errors": "Accepted; not required for speaking, consistent with the catalogue; error cases belong in the feedback evaluation.",
+    "15_u_in_criteria": "Accepted.",
+    "16_domain_labels": "Accepted as labelled.",
+    "17_starter_merging": "Correct: content:integrate merges the starters when the review JSON carries starters_source, starters_sha256 and starters_verdict pass.",
+    "18_knm_gft_reisdocument": "Accepted; receptive fact cards and productive narrations are not duplicates; keep them out of one mixed set."
+  },
+  "diversity_review": "Twenty-four distinct settings and acts across the four official types and all eight A2 domains (three each); no slug reuse; no re-skin of a catalogue speaking item (all eleven are three-point voicemail messages) or of a blueprint 9 setting; only the fixed instruction sentences mirror the official format and no official scenario is reused. Near pairs accepted with reasons: abonnement vs the phone-shop repair items (different act and part); afval vs batch003-container and the KNM gft card (different act); paspoort and brief-gemeente (both at the gemeente; different drills); thuis-oefenen and klas-thuis (habits vs preference; different types); nieuwe-buurvrouw vs the buurvrouw voicemail; bushalte vs tramkaart (giving vs asking help); verjaardag and trein-auto share only a birthday motif. Julio, Karim, Fatima and mevrouw Bakker appear three times each; consecutive tasks in a form should not reuse a name.",
+  "set_assembly": {
+    "rule": "drill = four tasks of one type; mock form = 4+4+4+4; six per type gives one form plus one half form (2+2+2+2) with no shared items",
+    "proposed_mock_form": {
+      "video-answer": [
+        "ochtenddienst",
+        "thuis-oefenen",
+        "nieuwe-buurvrouw",
+        "bushalte"
+      ],
+      "picture-describe": [
+        "ehbo",
+        "kringloop",
+        "verjaardag",
+        "afval"
+      ],
+      "picture-choose": [
+        "alleen-samen",
+        "klas-thuis",
+        "gemeente-bellen",
+        "sportschool-park"
+      ],
+      "picture-sequence": [
+        "paspoort",
+        "vakantie",
+        "rijbewijs",
+        "kleermaker"
+      ],
+      "properties": "every domain exactly twice, no cue voice twice, no cast name in consecutive tasks, the two gemeente sequences separated"
+    },
+    "half_form_from_the_rest": {
+      "video-answer": [
+        "slaap",
+        "abonnement"
+      ],
+      "picture-describe": [
+        "schoonmaak",
+        "gymles"
+      ],
+      "picture-choose": [
+        "trein-auto",
+        "flat-dorp"
+      ],
+      "picture-sequence": [
+        "brief-gemeente",
+        "bioscoop"
+      ]
+    },
+    "cautions": [
+      "slaap and bushalte share the m-older voice (different characters); keep them apart in a video drill or accept",
+      "paspoort and brief-gemeente do not share a drill",
+      "gymles enters a set only after its revision",
+      "the launch bank of twelve per type needs one more batch of this shape before two mocks without shared items exist"
+    ]
+  },
+  "media_notes": {
+    "audio": "24 narrator prompt clips (Serge de Beer) and 6 cue clips, about 3,350 characters. Cue voices: ochtenddienst m-young (Nick), thuis-oefenen f-adult (Esmee), nieuwe-buurvrouw f-older (Hanneke, quiet, normalisation applies), slaap m-older (Arjen), abonnement m-shop (Jerry), bushalte m-older (Arjen). 'Hé' may transcribe as 'Hee' in the round trip, well under the 4% gate. The app plays still plus cue in place of the official video; the research note asks that the app say so.",
+    "images": "42 images (6 stills 1024x640, 6 singles 816x816, 12 pair pictures 1024x640, 18 sequence panels 1024x640). scripts/illustrate.ts creates one job per images[] entry, so panels are generated separately, not as the one three-panel image config/illustration.json prefers and the author's notes assume; implement the three-panel mode or accept separate panels with a strict trait check.",
+    "image_risks": [
+      "text-bearing objects: bus-stop pole (bushalte), phone display (abonnement), container pictograms (afval), book spines (kringloop), shop fronts and tram (flat-dorp), form and passport (paspoort), tickets and popcorn bucket (bioscoop), pink card (rijbewijs)",
+      "small details: candles and ribbons (verjaardag), rope (gymles), stethoscope (slaap), measuring tape and pins (kleermaker), cones (rijbewijs)",
+      "recognisability without text: first-aid box without a cross (ehbo), town-hall counters (gemeente-bellen, paspoort, brief-gemeente), kringloopwinkel as a shop, photo studio (paspoort)",
+      "consistency: the friend in bioscoop, the suitcase in vakantie, the present in trein-auto, sports clothing of Sem and mevrouw Bakker (cast rule), Karim's jacket at the campsite",
+      "alt texts are neutral and, for describe tasks, name the pictured objects, which is right for an open task"
+    ]
+  },
+  "coordinator_notes": [
+    "After the two required edits: focused re-review of ochtenddienst and gymles, new source_sha256, batch_verdict pass, ready_for_integration true, then npm run content:integrate (merges the starters too).",
+    "Blueprint 4.3: record the decided video-answer prompt pattern and the criteria schemes confirmed here (three criteria for video-answer; 'other picture' criterion for choose).",
+    "content/exemplars/ does not exist; store two exemplars per speaking type once this batch is integrated.",
+    "Feedback instructions for a2-spreken: scene criterion met by any on-topic scene sentence; 'minstens twee' unmet with one item; the third choose criterion is a content point, not the precondition; flat-dorp's reason criterion can be met without a choice.",
+    "Twenty-four open tasks is three times the 6-8 per author run of blueprint 12; split the next speaking batch by type.",
+    "Consider adding a teacher, a huisarts and a shop employee to the cast if they recur."
+  ],
+  "limitations": [
+    "This is an AI editorial review. It does not replace independent Dutch-language educator review, learner trials, blueprint validation or psychometric calibration, and it does not establish equivalence with an official exam.",
+    "The A2 labels remain unvalidated authoring targets; the per-task level judgments compare the tasks with the official task descriptions, not with stored exemplars or learner data.",
+    "The review covers the text fields, cues and image briefs; the generated illustrations, the audio clips and any feedback prompts that use these criteria need their own review after media production.",
+    "The approval of the twenty-two passing tasks applies only to the exact source and starter hashes recorded here; any byte change requires a new hash and a focused re-review."
+  ],
+  "revisions": [
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review",
+      "items": [
+        "A2:speaking:batch009-ochtenddienst:1",
+        "A2:speaking:batch009-gymles:1",
+        "A2:speaking:batch009-kringloop:1",
+        "A2:speaking:batch009-abonnement:1",
+        "A2:speaking:batch009-alleen-samen:1",
+        "A2:speaking:batch009-bioscoop:1"
+      ],
+      "previous_sha256": "17c77994f1abf3dd07cc982f8552200b5fa1c35d25629b6d6e76300cd2b6b732",
+      "verdict": "pass",
+      "note": "Re-review of the changed fields only, after the coordinator applied the review. Checked: batch:check ends with \"No failures, no warnings\"; source hash e40eadfbee00f56c5a10ddb5c7f4991fe746bd7c801085d23775f2a2217cf10d as expected, starters hash unchanged. A field-by-field dump of the current bytes was diffed against the dump taken from the reviewed bytes (17c77994): the only differences are ochtenddienst images[0].brief, gymles images[0].brief and model, kringloop model (\"Er staan ook\"), abonnement model (\"veel naar muziek\"), alleen-samen model (\"te stil\"), bioscoop images[0].brief and images[2].brief (the friend: \"a woman of her age, grey curly hair, green coat\", identical in both panels, absent from panel 2 as before), and the cue speaker labels \"de docent\", \"de huisarts\", \"de medewerker\"; the other 18 tasks and every criterion, sample, quote and alt are byte-identical. The three required replacements match the review wording exactly. Gymles model: 38 words, longest sentence 9, all three criteria met. Models now 27-45 words (abonnement 34, alleen-samen 44, gymles 38), longest sentence still 16 (sportschool-park), null positions 4/10/10, cues 16-21 words, cast traits verbatim in every brief. The revised briefs keep to config/illustration.json (few shapes, No text clause, traits verbatim) and the alt texts still describe them. The lower-case labels render as \"U hoort: de docent\" in app/components/OpenExercise.tsx, their only consumer; scripts/audio.ts reads role and text only, and no catalogue item carries a cue. Starters unaffected (no criterion changed). Verdict for all six changed items: pass; batch pass; ready for integration."
+    },
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review (picture brief)",
+      "items": [
+        "A2:speaking:batch009-kleermaker:1"
+      ],
+      "previous_sha256": "e40eadfbee00f56c5a10ddb5c7f4991fe746bd7c801085d23775f2a2217cf10d",
+      "verdict": "pass",
+      "note": "Re-review of one field after the coordinator's picture review (see the last section of content/batches/009-notes.md): kleermaker images[2].brief now reads \"... receives the folded trousers in a paper bag from the same tailor (a woman with a measuring tape around her neck). No text.\" (was \"from the tailor\"). Proof that nothing else changed: substituting the old phrase for the new one in the current bytes reproduces the reviewed hash e40eadfb...cf10d exactly, so the two versions differ in that phrase only; source hash now c0255032...370c as the coordinator expected; starters hash 0837329c... unchanged; npm run batch:check ends with \"No failures, no warnings\" (its info line notes that the batch is already integrated, which is why this re-review exists). The brief keeps to config/illustration.json: Hasan's traits \"man in his fifties, grey moustache, brown cap\" verbatim in all three panels, the same setting (the tailor shop) in panels 2 and 3, a few shapes (Hasan, counter, paper bag, tailor), the \"No text\" clause. The tailor's description repeats panel 2's (\"a tailor with a measuring tape around her neck\") in the form the bioscoop friend uses, and it is the parenthetical that carries the consistency: scripts/illustrate.ts generates each panel as its own job, so \"the same tailor\" has no referent inside one prompt and is harmless. The change also makes panel 3 agree with the model, which already says \"Zij meet de broek\". Alt \"Een man krijgt een tas aan de balie van een winkel.\" still describes the picture and reveals nothing. Criteria, sample, quotes, model and the kleermaker starters (\"Eerst staat Hasan ...\", \"Bij de kleermaker ...\", \"Daarna haalt hij ...\") are untouched. Optional, not blocking: a third fixed trait for the tailor (hair or a garment colour) would guard against the same drift if the panel is ever redrawn again. Verdict: pass; batch pass; ready for integration. The catalogue copy of the brief still reads \"from the tailor\", so npm run content:integrate must be re-run to carry the new wording across. The summary above still cites e40eadfb; this entry supersedes it."
+    },
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review (picture briefs)",
+      "items": [
+        "A2:speaking:batch009-rijbewijs:1"
+      ],
+      "previous_sha256": "c02550323cadd0e2e3667c858170ae085f36fc278b5d567e5f4986ac99e1370c",
+      "verdict": "pass",
+      "note": "Re-review of three fields after the coordinator's level-check revision (last section of content/batches/009-notes.md): rijbewijs images[0..2].brief now name the car (\"a small blue car\" in panel 1, \"the small blue car\" in panels 2 and 3) and the instructor with three fixed traits, \"the driving instructor (a man of about fifty, short grey hair, dark blue jacket)\", identical in all three panels; previously \"a small car\" / \"the small car\" / \"the car\" and \"a driving instructor\" / \"the instructor\". Proof that nothing else changed: substituting the three previous briefs (taken from the catalogue copy) for the three current ones in a copy of the current bytes reproduces the reviewed hash c0255032...370c exactly; source hash now e066a92e...ca0 as the coordinator expected; starters hash 0837329c... unchanged (no criterion changed); npm run batch:check ends with \"No failures, no warnings\" (its info line notes the batch is already integrated). Against config/illustration.json: Modibo's traits \"young man, short black hair, light shirt\" verbatim in all three panels; the instructor's parenthetical carries the consistency in the form the kleermaker tailor and bioscoop friend use (each panel is its own generation job); the same car and the same instructor now named in every panel; each panel is still a few shapes (Modibo, car, instructor, plus road / two cones / pink card); every brief keeps its \"No text\" clause and panel 1 its \"no roof sign\". Alts unchanged and still fitting: \"Een jonge man zit achter het stuur naast een instructeur.\", \"Een jonge man parkeert een auto tussen twee pionnen.\", \"Een jonge man staat blij naast een auto met een klein kaartje in zijn hand.\"; none names a colour or a trait, none reveals a key. Prompt, criteria, sample, quotes and model untouched. Not blocking: (1) \"no roof sign\" is stated in panel 1 only, as before; \"No text\" in panels 2 and 3 already forbids a lettered sign, but repeating \"no roof sign\" there would cost nothing now that the car is described in every panel; (2) the instructor's traits sit close to meneer De Vries (\"man of about 60, grey hair, round glasses, dark blue jacket\"), who is pictured in bushalte and klas-thuis of this batch; the glasses and the unnamed role keep them apart at display size, but a different jacket colour would remove the resemblance if the panels are ever redrawn again. Verdict: pass; batch pass; ready for integration. The catalogue copy and content/image-manifest.json still carry the previous briefs and their prompt hashes (no manifest entry has the new wording), so npm run content:integrate and the manifest update must be re-run to carry the new briefs and the redrawn panels across; the generated panels themselves are outside this re-review."
+    }
+  ]
+}

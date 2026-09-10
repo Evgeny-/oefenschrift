@@ -26,3 +26,7 @@ Each open item has three bilingual criteria. Its sample demonstrates two goals a
 
 The level labels are unvalidated authoring targets. These questions do not claim official equivalence and cannot support a pass score or readiness prediction. Official sources support civic facts only; they do not validate the exercise design. Source facts need periodic rechecking, even when chosen for stability. Writing and speaking models are examples, and other understandable responses may satisfy the criteria.
 
+
+## Coordinator revision (10 September 2026)
+
+The eight KNM items received `taskType: "leerkaart"` (blueprint §4.5: the passage-style cards are study cards, not exam items in the July 2025 format). No text, question or key changed.

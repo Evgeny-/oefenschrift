@@ -1,0 +1,324 @@
+{
+  "review_id": "batch016-editorial-review",
+  "source": "content/batches/016-original.json",
+  "source_sha256": "b8da3219254620a884d5a8c445f7fda3fad3745df545f4d0ba83170f234c0ea1",
+  "starters_source": "content/batches/016-starters.json",
+  "starters_sha256": "618e356f27bec20913a6768b95877d6158d577f6ca0619a2246515a61cb3fe00",
+  "starters_verdict": "pass",
+  "review_type": "AI editorial review of B1 speaking korte taken (20 s after a spoken cue: ask two questions, describe a picture, preference with a reason, two instructions, react to news, decline an invitation) and their sentence starters: prompt shape and register, cue length and naturalness, criteria traceable to the prompt, sample quotes and learner errors, model coverage and B1 language, 20-second fit, image briefs, level, originality",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 8,
+    "distribution": {
+      "B1_speaking": 8
+    },
+    "task_types": {
+      "kort": 8
+    },
+    "domains": {
+      "werk": 3,
+      "educatie": 3,
+      "overig": 2
+    },
+    "speech_acts": {
+      "ask-two-questions": 2,
+      "describe-picture": 1,
+      "preference-with-reason": 1,
+      "two-instructions": 2,
+      "react-to-news": 1,
+      "decline-invitation": 1
+    },
+    "source_sha256_matches_expected": true,
+    "starters_sha256_matches_expected": true,
+    "batch_check": "npm run batch:check content/batches/016-original.json: Checked 8 items, 0 questions. Keys: {}. Options: {}. No failures, no warnings. (same output on the reviewed bytes 9f746f3e... and on the re-reviewed bytes b8da3219...)",
+    "rubric_b1_spreken_all_items": true,
+    "speaking_seconds_20_no_prep_all_items": true,
+    "prompts_carry_official_instruction": true,
+    "register_consistent_prompt_cue_sample_model": true,
+    "cues_natural_open_floor_valid_roles": true,
+    "cue_word_range": "23-30",
+    "cue_roles": {
+      "f-adult": 2,
+      "m-adult": 2,
+      "f-young": 1,
+      "m-young": 1,
+      "f-older": 1,
+      "m-older": 1
+    },
+    "image_counts": "3 tasks with one picture (slaapkamerraam, roosterbord, koffiemachine), 5 without; none above the kort maximum of one",
+    "image_sizes": {
+      "single": 2,
+      "still": 1
+    },
+    "image_size_keys_exist_in_config": true,
+    "briefs_declare_no_text": true,
+    "cast_in_briefs": "none (object pictures only)",
+    "criteria_three_bilingual_pairs": true,
+    "criteria_trace_to_prompt_or_act": true,
+    "criteria_trace_note": "First review (9f746f3e...): five third criteria asked for a proposition the prompt did not request (examendatum: which course; roosterbord: what the colours mean; toets-computer: a disadvantage of the other way; koffiemachine: a detail to pay attention to; medicijn-school: until when); roosterbord's was also not observable and koffiemachine's was satisfied by the sample's own instructions. Resolved at b8da3219... (re-review 2026-09-10): each of the five prompts now names the element in a sentence after the official instruction ('Zeg ook welke cursus u volgt.', 'Zeg ook of er nog lege vakjes zijn.', 'Noem ook een nadeel van de andere manier.', 'Geef twee instructies en zeg waar hij op moet letten.', 'Zeg ook tot wanneer dat nodig is.'), roosterbord criterion 3 is the observable empty cells and koffiemachine criterion 3 asks for one warning or tip, so a learner who does what the prompt says meets all three criteria in every task. The other three third criteria are the conventional shape of the act or follow from the picture, as before.",
+    "open_sample_quotes_are_verbatim": true,
+    "one_null_quote_per_item": true,
+    "null_positions": {
+      "index_0": [
+        "slaapkamerraam",
+        "medicijn-school"
+      ],
+      "index_1": [
+        "examendatum",
+        "pensioen"
+      ],
+      "index_2": [
+        "roosterbord",
+        "toets-computer",
+        "koffiemachine",
+        "open-dag"
+      ]
+    },
+    "null_marks_a_really_missed_criterion": "8 of 8 at b8da3219... (first review: 7 of 8, koffiemachine's criterion 3 as then worded was met by the sample; reworded as a warning or tip, which the sample's 'Dat is alles, het is echt niet moeilijk.' is not)",
+    "samples_two_typical_learner_errors_each": true,
+    "sample_error_types": {
+      "verb_second_after_fronted_adverbial": 5,
+      "missing_article": 5,
+      "wrong_perfect_auxiliary": 4,
+      "congruence": 1,
+      "prompt_clause_lifted_with_subordinate_order": 1
+    },
+    "sample_word_range": "25-35",
+    "no_prompt_or_cue_sentence_copied_into_sample_or_model": true,
+    "models_meet_every_criterion": true,
+    "model_word_range": "38-45 (examendatum 38, medicijn-school 43, pensioen 43, roosterbord 44, koffiemachine 44, slaapkamerraam 44, open-dag 44, toets-computer 45 at b8da3219...)",
+    "model_sentence_average_range": "10.8-15.0",
+    "model_longest_sentence": 16,
+    "models_fit_20_seconds": "yes: 45 words at 2.3-2.5 words per second is 18-20 s; samples of 25-35 words show a learner's length",
+    "model_b1_features": "subordinate clauses with zodat, waardoor, omdat, als, voordat, anders, want; indirect questions; modal request",
+    "names_places_facts_section8": true,
+    "avoid_list_section9": true,
+    "exemplars_available": false,
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false,
+    "revised_fields_diff": "Reversing the edits on the current bytes reproduces the reviewed hashes exactly: batch b8da3219... minus (examendatum prompt and criteria[2]; roosterbord prompt, criteria[2] and model; toets-computer prompt and model; koffiemachine prompt, criteria[2] and model; medicijn-school prompt and criteria[0]; pensioen model) serialises to 9f746f3e..., and starters 618e356f... minus roosterbord starter 3 serialises to 0571f46a...; so no other byte changed and slaapkamerraam and open-dag are byte-identical to the reviewed version. Pre-revision values recovered by the reversal: examendatum criteria[2] ['Zeg kort waarvoor u komt, bijvoorbeeld welke cursus u volgt.', 'Say briefly what you have come for, for example which course you are taking.']; roosterbord criteria[2] ['Zeg wat de kleuren volgens u betekenen.', 'Say what you think the colours mean.'] and model last sentence 'Ik denk dat elke kleur een dienst is, omdat de blokjes per rij verschillen.'; koffiemachine criteria[2] ['Noem één detail waar hij op moet letten, bijvoorbeeld hoe of waarmee.', 'Name one detail he must pay attention to, for example how or with what.']; medicijn-school criteria[0] ['Zeg wanneer Amina het medicijn moet innemen.', 'Say when Amina must take the medicine.']; roosterbord starter 3 'Ik denk dat elke kleur …'."
+  },
+  "starters_checks": {
+    "item_ids_match_batch": true,
+    "one_starter_per_criterion_in_order": true,
+    "every_starter_has_ellipsis": true,
+    "partial_not_complete_answers": true,
+    "grammatical_when_completed_naturally": true,
+    "register_matches_cue": true,
+    "no_invented_task_facts": true,
+    "starters_follow_revised_criteria": true,
+    "notes": "Seven tasks pass. roosterbord starter 3 ('Ik denk dat elke kleur …') models the interpretation criterion that is being replaced and must become 'Er zijn ook nog … vakjes, dus …'. examendatum starter 3 and koffiemachine starter 3 already fit the tightened and reworded criteria. 'Dat vind ik, omdat …' (pensioen 2) is grammatical but a little stiff; kept. Re-review 2026-09-10 at 618e356f...: roosterbord starter 3 is 'Er zijn ook nog … vakjes, dus …' (the review's text, character for character); it completes naturally ('Er zijn ook nog drie lege vakjes, dus het rooster is nog niet af.'), fits the revised criterion 3, carries no fact beyond the brief's empty cells and is not contained in the revised model; the other 23 starters are byte-identical to the reviewed file (reversing the one edit reproduces 0571f46a...); keys still in batch order, three per task, an ellipsis in each; examendatum starter 3, koffiemachine starter 3 and medicijn-school starter 1 fit the tightened, reworded and extended criteria as the first review predicted."
+  },
+  "items": [
+    {
+      "id": "B1:speaking:batch016-examendatum:1",
+      "verdict": "pass",
+      "evidence": "Ask two questions, educatie. Prompt: situation, 'U hoort eerst de studieadviseur.', 'Stel twee vragen: wanneer het examen is en wat het kost.'; cue studieadviseur (f-adult), 26 words, opens the floor ('wat wilt u precies weten?'); u throughout. Quotes 'Wanneer het examen is?' (criterion 1 realised with subordinate order, a grammatical error) and 'Ik doe de cursus boekhouden bij u op school.' are exact; no cost question, so criterion 2 is null; second error 'Volgende maand ik heb vakantie'. Model 38 words meets all three (avondcursus boekhouden; 'Weet u wanneer het eerstvolgende examen is, zodat …'; 'En wat kost het examen, of zit dat bij het cursusgeld?'). Criterion 3 ('Zeg kort waarvoor u komt, bijvoorbeeld welke cursus u volgt.') is not asked by the prompt and is satisfiable by the questions themselves.",
+      "level_check": "comparable: two questions to an official after a spoken cue, answered in three sentences with a zodat-clause and an indirect question.",
+      "revision_request": "prompt: append 'Zeg ook welke cursus u volgt.' after 'Stel twee vragen: wanneer het examen is en wat het kost.'; criteria[2]: ['Zeg welke cursus u volgt.', 'Say which course you are taking.']. Sample, quotes, model and starters unchanged.",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "b8da3219254620a884d5a8c445f7fda3fad3745df545f4d0ba83170f234c0ea1",
+        "verdict": "pass",
+        "checked": "prompt equals the review's replacement character for character (the reviewed prompt plus 'Zeg ook welke cursus u volgt.'); criteria[2] ['Zeg welke cursus u volgt.', 'Say which course you are taking.'] as requested. The prompt now asks for the two questions and the course, which is exactly what the three criteria score. Sample, quotes and model byte-identical: quote 3 'Ik doe de cursus boekhouden bij u op school.' satisfies the tightened criterion, quote 2 stays null (no cost question), the model (38 words, 3 sentences, longest 15) names the avondcursus boekhouden and asks both questions; starter 3 'Ik volg de cursus … en ik wil graag …' fits."
+      }
+    },
+    {
+      "id": "B1:speaking:batch016-slaapkamerraam:1",
+      "verdict": "pass",
+      "evidence": "Ask two questions, overig. Prompt: tenant, window does not close since yesterday, phones the landlord, 'Stel twee vragen: wanneer het raam wordt gerepareerd en of u de reparatie moet betalen. Gebruik het plaatje.'; cue meneer De Vries (m-older), 23 words, invented unnumbered street; u throughout. Picture: the window with a visible gap and a loose handle, size single, No text, Dutch alt. Criterion 3 (what is wrong) follows from the picture instruction and the call. Quotes exact ('Moet ik zelf betalen voor de reparatie, of doet u dat?'; two contiguous sentences for criterion 3); no 'when' question, so criterion 1 is null; errors: verb second after 'Sinds gisteren', missing article before 'hendel'. Model 44 words meets all three ('De hendel zit los, waardoor het raam niet dicht kan en er een kier blijft.'; 'Weet u wanneer iemand het kan komen repareren?'; 'of valt dat onder de huur?').",
+      "level_check": "comparable: a repair call with two questions and a short problem description; everyday B1 vocabulary (hendel, kier, onder de huur vallen)."
+    },
+    {
+      "id": "B1:speaking:batch016-roosterbord:1",
+      "verdict": "pass",
+      "evidence": "Describe a picture, werk. Prompt: new rota board, colleague Roos at home phones, 'Beschrijf het bord: de indeling en de kleuren. Gebruik het plaatje.'; cue Roos (f-young), 27 words, informal. Picture: landscape still of a white board, 7 x 5 charcoal grid, blocks in mustard yellow, dusty blue and sage green, a few empty cells, three magnets, a marker pen, 'No text, no letters, no numbers'. Quotes 'bovenaan staan zeven kolommen en aan de zijkant vijf rijen' and 'In de tabel zie ik gele en blauwe en groene blokjes.' are exact; criterion 3 null; errors: 'Het is groot wit bord' (article), 'Ik ben het bord goed bekeken' (auxiliary). Model 45 words meets all three. Criterion 3 ('Zeg wat de kleuren volgens u betekenen.') is not asked by the prompt and cannot be confirmed from a picture without text; the author's alternative ('hoe groot … of waar het hangt') would be met by the sample's 'groot' and by the cue's 'in de kantine'.",
+      "level_check": "comparable after the edit: layout, colours and one further visible detail in four sentences of B1 Dutch.",
+      "revision_request": "prompt: insert 'Zeg ook of er nog lege vakjes zijn.' between 'Beschrijf het bord: de indeling en de kleuren.' and 'Gebruik het plaatje.'; criteria[2]: ['Zeg of er nog lege vakjes op het bord zijn.', 'Say whether there are still empty cells on the board.']; model: 'Het is een groot wit bord met een tabel. Er zijn zeven kolommen voor de dagen en vijf rijen voor de collega's. In de vakjes zitten gele, blauwe en groene blokjes. Een paar vakjes zijn nog leeg, dus het rooster is nog niet af.' (44 words; ASCII apostrophe as in the batch); 016-starters.json roosterbord[2]: 'Er zijn ook nog … vakjes, dus …'. Sample and quotes unchanged (the sample never mentions empty cells).",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "b8da3219254620a884d5a8c445f7fda3fad3745df545f4d0ba83170f234c0ea1",
+        "verdict": "pass",
+        "checked": "prompt equals the review's replacement (the sentence 'Zeg ook of er nog lege vakjes zijn.' inserted before 'Gebruik het plaatje.'); criteria[2] ['Zeg of er nog lege vakjes op het bord zijn.', 'Say whether there are still empty cells on the board.']; model equals the review's 44-word text, whose only change is the last sentence 'Een paar vakjes zijn nog leeg, dus het rooster is nog niet af.' (4 sentences, longest 13, meets all three: seven columns and five rows, three colours, empty cells); starter 3 'Er zijn ook nog … vakjes, dus …'. Criterion 3 is observable: the unchanged brief says 'a few cells are empty' and the media note requires the image review to confirm it. The unchanged sample never mentions empty cells, so its null at criterion 3 is reliable; quotes 1 and 2 verbatim. The model's 'voor de dagen' and 'voor de collega's' reading of the axes is an exemplar's inference, not a scored element."
+      }
+    },
+    {
+      "id": "B1:speaking:batch016-toets-computer:1",
+      "verdict": "pass",
+      "evidence": "Preference with a reason, educatie. Prompt: a course, a test in two weeks, 'Zeg wat u liever doet en waarom.'; cue docent (m-adult), 27 words, names the two options only; u from the docent, answered with u in the model. Quotes 'Ik doe liever de toets op de computer.' and 'Op de computer ik kan sneller typen en makkelijk een fout verbeteren.' are exact; the sample's third sentence is a second reason, not a disadvantage of paper, so criterion 3 is null; errors: verb second, missing article. Model 44 words meets all three (omdat-clause, als-clause, 'Op papier is mijn handschrift bovendien slordig, waardoor u het soms niet goed kunt lezen.'). Criterion 3 ('Noem een nadeel van de andere manier.') is a distinct proposition the prompt does not ask for; the sample is the learner who answers the prompt fully and misses it.",
+      "level_check": "comparable, at the fuller end: three subordinate clauses, longest sentence 16 words, inside the section 10 B1 heuristics.",
+      "revision_request": "prompt: append 'Noem ook een nadeel van de andere manier.' after 'Zeg wat u liever doet en waarom.'. Recommended in the same pass: model 'zonder te strepen' -> 'zonder door te strepen' (45 words).",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "b8da3219254620a884d5a8c445f7fda3fad3745df545f4d0ba83170f234c0ea1",
+        "verdict": "pass",
+        "checked": "prompt equals the review's replacement (the reviewed prompt plus 'Noem ook een nadeel van de andere manier.'), so criterion 3 now scores what the prompt asks; criteria, sample and quotes byte-identical (null at 3: the sample's third sentence is a second reason, not a disadvantage of paper). Model: the recommended 'zonder door te strepen' applied, otherwise identical; 45 words, 3 sentences, longest 16, 18-20 s at a natural pace, meets all three; starter 3 'Het nadeel van … is dat …' fits."
+      }
+    },
+    {
+      "id": "B1:speaking:batch016-koffiemachine:1",
+      "verdict": "pass",
+      "evidence": "Two instructions, werk. Prompt: workshop, Friday cleaning, new colleague Modibo's turn, 'Geef twee instructies. Gebruik het plaatje.'; cue Modibo (m-young), 28 words, informal; je and imperatives in the model. Picture: the machine with the grounds tray pulled out and the water tank lifted off, a cloth, a green bin, plain buttons, No text, size single. Quotes 'Eerst je moet het bakje met het koffiedik leegmaken in de groene bak.' and 'Daarna maak je waterreservoir schoon en doe je er nieuw water in.' are exact; errors: verb second, missing article. Model 45 words meets all three ('Let erop dat je alles goed afdroogt voordat je het terugzet, anders gaat de machine schimmelen.'). Criterion 3 as worded ('Noem één detail waar hij op moet letten, bijvoorbeeld hoe of waarmee.') is satisfied by the sample's own 'in de groene bak' and 'nieuw water', so its null is unreliable; the author's intended reading is a caution.",
+      "level_check": "comparable: two ordered instructions and a caution, longest sentence 16 words.",
+      "revision_request": "prompt: replace 'Geef twee instructies. Gebruik het plaatje.' with 'Geef twee instructies en zeg waar hij op moet letten. Gebruik het plaatje.'; criteria[2]: ['Zeg waar hij op moet letten: geef één waarschuwing of tip.', 'Say what he must watch out for: give one warning or tip.']. Recommended in the same pass: model 'anders gaat de machine schimmelen' -> 'anders gaat het schimmelen' (44 words). Sample, quotes and starters unchanged.",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "b8da3219254620a884d5a8c445f7fda3fad3745df545f4d0ba83170f234c0ea1",
+        "verdict": "pass",
+        "checked": "prompt equals the review's replacement ('Geef twee instructies en zeg waar hij op moet letten. Gebruik het plaatje.'); criteria[2] ['Zeg waar hij op moet letten: geef één waarschuwing of tip.', 'Say what he must watch out for: give one warning or tip.']. The sample (byte-identical) gives the two steps and the reassurance 'Dat is alles, het is echt niet moeilijk.', which is neither a warning nor a tip, so its null at criterion 3 is now reliable; quotes 1 and 2 verbatim. Model: the recommended 'anders gaat het schimmelen' applied, otherwise identical; 44 words, 3 sentences, longest 16, meets all three ('Let erop dat je alles goed afdroogt voordat je het terugzet'); starter 3 'Let erop dat …' fits."
+      }
+    },
+    {
+      "id": "B1:speaking:batch016-medicijn-school:1",
+      "verdict": "pass",
+      "evidence": "Two instructions, overig. Prompt: daughter Amina must take a medicine this week, also at school, morning talk with her leerkracht, 'Geef twee instructies: wanneer en hoe Amina het medicijn moet innemen.'; cue leerkracht (f-adult), 25 words, u from teacher to parent, 'dan schrijf ik het meteen op'. No illness, drug or dose beyond 'een tablet' and 'kuur'. Quotes 'Amina moet één tablet nemen, met een groot glas water.' and 'Tot en met vrijdag ze moet de tablet nemen.' are exact; no time of day, so criterion 1 is null; errors: 'We hebben gisteren naar de dokter gegaan' (auxiliary), verb second after 'Tot en met vrijdag'. Model 43 words meets all three (om half één direct na de lunch; een tablet met een groot glas water; 'De kuur duurt nog tot en met vrijdag.') plus the modal request 'Kunt u haar eraan herinneren'. Criterion 3 (until when) is not among the two instructions the prompt names. Domain overig is right: the candidate speaks as a parent.",
+      "level_check": "comparable: two instructions and a polite request in four sentences; everyday vocabulary.",
+      "revision_request": "prompt: append 'Zeg ook tot wanneer dat nodig is.' after 'Geef twee instructies: wanneer en hoe Amina het medicijn moet innemen.'. Recommended in the same pass: criteria[0]: ['Zeg wanneer Amina het medicijn moet innemen, bijvoorbeeld hoe laat of na welke maaltijd.', 'Say when Amina must take the medicine, for example at what time or after which meal.'] so that 'Tot en met vrijdag' is not read as the time.",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "b8da3219254620a884d5a8c445f7fda3fad3745df545f4d0ba83170f234c0ea1",
+        "verdict": "pass",
+        "checked": "prompt equals the review's replacement (the reviewed prompt plus 'Zeg ook tot wanneer dat nodig is.'), so the end date is asked for; criteria[0] is the recommended pair ['Zeg wanneer Amina het medicijn moet innemen, bijvoorbeeld hoe laat of na welke maaltijd.', 'Say when Amina must take the medicine, for example at what time or after which meal.'], whose Dutch and English agree; criteria[1], criteria[2], sample, quotes and model byte-identical. The sample's 'Tot en met vrijdag' is the end date (quote 3) and no longer readable as the time, so the null at criterion 1 is reliable; the model (43 words, 4 sentences, longest 14) gives 'om half één … direct na de lunch', one tablet with a large glass of water and 'tot en met vrijdag'; starter 1 'Amina moet om … het medicijn innemen.' fits the extended criterion."
+      }
+    },
+    {
+      "id": "B1:speaking:batch016-pensioen:1",
+      "verdict": "pass",
+      "evidence": "React to news, werk. Prompt: print shop, colleague Thérèse there thirty years, 'Reageer op het nieuws.'; the news is only in the cue (f-older, 30 words, informal je, 'Na dertig jaar vind ik het wel mooi geweest.'). Criteria: reaction, one reason, a question about her plans or a wish; the reason and the question/wish are the conventional B1 shape of a reaction and are accepted as components of the act. Quotes 'Oh, wat jammer voor ons! Ik ben dat helemaal niet verwacht. Maar ik ben ook blij voor jou.' (three contiguous sentences) and 'Wat ga je doen als je pensioen heeft, ga je reizen?' are exact; no reason, so criterion 2 is null; errors: wrong auxiliary, congruence 'je … heeft'. Model 42 words meets all three ('dat had ik niet verwacht', 'jammer voor ons, omdat jij altijd iedereen helpt als een machine vastloopt', 'voor jou is het fijn, want …', 'Heb je al plannen voor daarna?'); je/jij throughout.",
+      "level_check": "comparable: an evaluated reaction with a reason and a follow-up question in four sentences.",
+      "recommended": "model: 'want je hebt lang genoeg hard gewerkt' -> 'want je hebt al zo lang hard gewerkt' (43 words); not required. Feedback should count an implicit reason ('Ik ga je missen') for criterion 2.",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "b8da3219254620a884d5a8c445f7fda3fad3745df545f4d0ba83170f234c0ea1",
+        "verdict": "pass",
+        "checked": "verdict pass carried over; only the recommended model polish was applied ('want je hebt al zo lang hard gewerkt' for 'want je hebt lang genoeg hard gewerkt'), everything else byte-identical. The model is now 43 words, 4 sentences, longest 15, still meets all three criteria (reaction, two reasons, a question about her plans); the quotes and the null at criterion 2 are untouched."
+      }
+    },
+    {
+      "id": "B1:speaking:batch016-open-dag:1",
+      "verdict": "pass",
+      "evidence": "Decline an invitation, educatie. Prompt: a course, fellow student Hasan plans a further opleiding, invites you, 'Sla de uitnodiging af en zeg waarom.'; the invitation is only in the cue (m-adult, 30 words, je, open day at a hogeschool on Saturday). Criteria: decline, one reason, thank him or suggest something else; the third is the conventional shape of a polite refusal with two routes. Quotes 'Nee, sorry, zaterdag kan ik echt niet.' and 'Ik moet werken in winkel, want mijn collega is vakantie genomen.' are exact; no thanks and no alternative, so criterion 3 is null; errors: missing article, wrong auxiliary. Model 44 words meets all three ('Bedankt dat je het vraagt, maar zaterdag lukt het helaas niet.', 'omdat een collega op vakantie is', 'Kun je me maandag vertellen wat je hebt gehoord?'); je throughout.",
+      "level_check": "comparable: a polite refusal with a reason, regret and a proposal in four sentences with omdat, want and an indirect question."
+    }
+  ],
+  "revision_requests": [
+    {
+      "id": "B1:speaking:batch016-examendatum:1",
+      "field": "prompt",
+      "replacement": "U volgt een avondcursus bij een ROC. Aan het eind van de cursus kunt u examen doen. U hebt een afspraak met de studieadviseur. U hoort eerst de studieadviseur. Stel twee vragen: wanneer het examen is en wat het kost. Zeg ook welke cursus u volgt.",
+      "why": "Criterion 3 must be asked for by the prompt; as worded it is also satisfiable by the questions themselves."
+    },
+    {
+      "id": "B1:speaking:batch016-examendatum:1",
+      "field": "criteria[2]",
+      "replacement": [
+        "Zeg welke cursus u volgt.",
+        "Say which course you are taking."
+      ],
+      "why": "Tightens the content detail to the element the revised prompt names; sample quote 3, the model and starter 3 already satisfy it."
+    },
+    {
+      "id": "B1:speaking:batch016-roosterbord:1",
+      "field": "prompt",
+      "replacement": "Op uw werk hangt sinds deze week een nieuw roosterbord in de kantine. Uw collega Roos is een paar dagen thuis en belt u. Ze wil weten hoe het bord eruitziet. U hoort eerst uw collega. Beschrijf het bord: de indeling en de kleuren. Zeg ook of er nog lege vakjes zijn. Gebruik het plaatje.",
+      "why": "The third element must be announced and observable; the empty cells are in the brief and absent from the sample."
+    },
+    {
+      "id": "B1:speaking:batch016-roosterbord:1",
+      "field": "criteria[2]",
+      "replacement": [
+        "Zeg of er nog lege vakjes op het bord zijn.",
+        "Say whether there are still empty cells on the board."
+      ],
+      "why": "'Zeg wat de kleuren volgens u betekenen' is not asked by the prompt and cannot be confirmed from a picture without text; the author's alternative ('hoe groot … of waar het hangt') is met by the sample's 'groot' and the cue's 'in de kantine'."
+    },
+    {
+      "id": "B1:speaking:batch016-roosterbord:1",
+      "field": "model",
+      "replacement": "Het is een groot wit bord met een tabel. Er zijn zeven kolommen voor de dagen en vijf rijen voor de collega's. In de vakjes zitten gele, blauwe en groene blokjes. Een paar vakjes zijn nog leeg, dus het rooster is nog niet af.",
+      "why": "The model must meet the revised criterion 3; 44 words, four sentences, longest 13."
+    },
+    {
+      "id": "B1:speaking:batch016-roosterbord:1",
+      "field": "016-starters.json > B1:speaking:batch016-roosterbord:1[2]",
+      "replacement": "Er zijn ook nog … vakjes, dus …",
+      "why": "Starter 3 must model the revised criterion instead of the interpretation."
+    },
+    {
+      "id": "B1:speaking:batch016-toets-computer:1",
+      "field": "prompt",
+      "replacement": "U volgt een cursus. Over twee weken is er een toets. Uw docent vraagt hoe u de toets liever maakt. U hoort eerst uw docent. Zeg wat u liever doet en waarom. Noem ook een nadeel van de andere manier.",
+      "why": "Criterion 3 is a distinct proposition the prompt does not ask for; the sample shows a learner who answers the prompt fully and misses it."
+    },
+    {
+      "id": "B1:speaking:batch016-koffiemachine:1",
+      "field": "prompt",
+      "replacement": "U werkt in een werkplaats. Elke vrijdag maakt iemand de koffiemachine in de pauzeruimte schoon. Deze week is uw nieuwe collega Modibo aan de beurt. U hoort eerst uw collega. Geef twee instructies en zeg waar hij op moet letten. Gebruik het plaatje.",
+      "why": "The caution must be asked for by the prompt."
+    },
+    {
+      "id": "B1:speaking:batch016-koffiemachine:1",
+      "field": "criteria[2]",
+      "replacement": [
+        "Zeg waar hij op moet letten: geef één waarschuwing of tip.",
+        "Say what he must watch out for: give one warning or tip."
+      ],
+      "why": "As worded ('bijvoorbeeld hoe of waarmee') the sample's 'in de groene bak' and 'nieuw water' satisfy the criterion, so its null quote is wrong; a caution is what the author intended and what the model gives."
+    },
+    {
+      "id": "B1:speaking:batch016-medicijn-school:1",
+      "field": "prompt",
+      "replacement": "Uw dochter Amina moet deze week een medicijn innemen, ook op school. U spreekt 's ochtends met haar leerkracht. U hoort eerst de leerkracht. Geef twee instructies: wanneer en hoe Amina het medicijn moet innemen. Zeg ook tot wanneer dat nodig is.",
+      "why": "The end date is not among the two instructions the prompt names."
+    }
+  ],
+  "observations_not_blocking": [
+    "Recommended edits in the same pass (each is a byte change): toets-computer model 'zonder te strepen' -> 'zonder door te strepen'; koffiemachine model 'anders gaat de machine schimmelen' -> 'anders gaat het schimmelen'; medicijn-school criteria[0] -> ['Zeg wanneer Amina het medicijn moet innemen, bijvoorbeeld hoe laat of na welke maaltijd.', 'Say when Amina must take the medicine, for example at what time or after which meal.']; pensioen model 'want je hebt lang genoeg hard gewerkt' -> 'want je hebt al zo lang hard gewerkt'.",
+    "Cue speaker labels: the app renders 'U hoort: {speaker}'; batch 009 wrote 'de docent', 'de huisarts', this batch 'Studieadviseur', 'Docent', 'Leerkracht' (017: 'Leidinggevende'). One convention would be tidier; all three tasks here are being edited anyway.",
+    "Models sit at 38-45 words; they fit 20 seconds at a natural pace (18-20 s for 45 words) and stay as they are; the revised roosterbord and koffiemachine models land at 44.",
+    "Feedback instructions should accept an implicit reason ('Ik ga je missen') for pensioen criterion 2 and 'Ik doe liever …' for toets-computer criterion 1.",
+    "Blueprint section 4.9's 'Asks for' column for kort lists a question, a description, a preference and a short instruction; the author brief added reacting to news and declining an invitation. Add them to the blueprint sentence if they stay in the bank.",
+    "The author brief's record example lists size 'still | pair | sequence'; 'single' (816x816) is the illustrate script's default for speaking pictures and exists in config/illustration.json, so the two 'single' keys are right; add 'single' to the brief's example.",
+    "content/exemplars/ does not exist; the level check compares each task with the official Deel 1 description in docs/research/exam-blueprints-2026-09-10.md.",
+    "Re-review 2026-09-10: the four recommended edits listed above were applied in the same pass with the review's wording and are checked in the revisions entry; the cue speaker labels ('Studieadviseur', 'Docent', 'Leerkracht') were left as they were, which is a convention for the coordinator to settle across batches, not a byte change this record asked for."
+  ],
+  "diversity_review": "Eight distinct settings, six speech acts, eight counterparts, u and je in equal numbers, three channels, three object pictures in three different acts, and the section 9 needed list served (an exam, a test, a course choice, a repair, shifts, school of the children, three workplaces); no neighbourhood or volunteering setting; no slug reuse and no re-skin of a catalogue item (the catalogue's B1 speaking items are three-bullet problem-solving talks). Against batch 009: klas-thuis vs toets-computer, schoonmaak vs koffiemachine and ochtenddienst vs roosterbord differ in act and level; accepted. Against batch 017 the author's 'shares no subject' is too strong: koffiemachine vs machinestoring (instruct a colleague about a machine; different type, picture count and content), toets-computer and examendatum vs examentips (three exam-themed education tasks, two 'over twee weken'), medicijn-school vs eerste-schooldag (Amina at school; instruction vs narration). None blocks; set assembly keeps the pairs apart. Drills: A = examendatum, roosterbord, koffiemachine, open-dag; B = slaapkamerraam, toets-computer, medicijn-school, pensioen. Form: this batch is Deel 1 (8 korte) and batch 017 Deel 2 (8 middellang) of one Spreken I form; suggested Deel 1 order examendatum, roosterbord, toets-computer, koffiemachine, pensioen, slaapkamerraam, medicijn-school, open-dag; in Deel 2 place examentips late and eerste-schooldag not directly after medicijn-school.",
+  "media_notes": [
+    "Audio: eight cues, all roles in config/voices.json; the pensioen colon ('Ik stop eind december: ik ga met pensioen.') should render as a pause; round-trip check on 'dertig'.",
+    "roosterbord: the brief, sample and model say seven columns and five rows; image models miscount grids. Criterion 1 does not need the numbers, but the image review must count and regenerate until 7 x 5 (editing the numbers instead is a byte change and a re-review), confirm visibly empty cells for the revised criterion 3, and confirm no letters or digits.",
+    "slaapkamerraam: a handle 'pointing straight down' is the normal closed position; the gap plus a visibly detached handle must be unambiguous; regenerate with 'the handle hanging crooked, half off the window' if the first image looks like a normal closed window.",
+    "koffiemachine: tray visibly pulled out with dark grounds, tank standing beside the machine, green bin with open lid, no display text on the machine face."
+  ],
+  "limitations": [
+    "This is an AI editorial review. It does not replace independent Dutch-language educator review, learner trials, blueprint validation or psychometric calibration, and it does not establish equivalence with an official exam.",
+    "The B1 labels remain unvalidated authoring targets; the per-task level judgments compare the tasks with the official Deel 1 description in docs/research/exam-blueprints-2026-09-10.md, not with stored exemplars or learner data; the reaction and refusal acts are accepted on the author brief's authority, not on a verified official item.",
+    "The 20-second fit is a words-per-second estimate, not a recording; the review covers the text fields and the image briefs, and the generated illustrations, the cue audio and any feedback prompts that use these criteria need their own review after media production.",
+    "The approval of the eight tasks and the starters applies to the exact hashes recorded here after the focused re-review of 2026-09-10 (source b8da3219..., starters 618e356f...); the three tasks that passed the first review were approved at 9f746f3e... and, apart from the pensioen model polish, are byte-identical at the new hash. The re-review judged only the changed fields and confirmed that nothing else changed by reversing the edits and reproducing both reviewed hashes; the checks and starters_checks blocks were updated where the revision resolved them, and the per-item evidence and revision_requests remain the record of the first review."
+  ],
+  "revisions": [
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review",
+      "items": [
+        "B1:speaking:batch016-examendatum:1",
+        "B1:speaking:batch016-roosterbord:1",
+        "B1:speaking:batch016-toets-computer:1",
+        "B1:speaking:batch016-koffiemachine:1",
+        "B1:speaking:batch016-medicijn-school:1",
+        "B1:speaking:batch016-pensioen:1"
+      ],
+      "previous_sha256": "9f746f3eb5ed4381b40038d817b2be597dad2953ed02fb0b8d98c2d005d3e435",
+      "previous_starters_sha256": "0571f46aced5a641fa99e0a118573f617995cb61f8a35f52569d7b00df36affe",
+      "re_reviewed_sha256": "b8da3219254620a884d5a8c445f7fda3fad3745df545f4d0ba83170f234c0ea1",
+      "re_reviewed_starters_sha256": "618e356f27bec20913a6768b95877d6158d577f6ca0619a2246515a61cb3fe00",
+      "verdict": "pass",
+      "note": "Focused re-review of the fields changed after the first review (see 'Revision after the editorial review' at the end of content/batches/016-notes.md): examendatum prompt and criteria[2]; roosterbord prompt, criteria[2], model last sentence and starter 3; toets-computer prompt and model polish; koffiemachine prompt, criteria[2] and model polish; medicijn-school prompt and criteria[0] polish; pensioen model polish. Hashes as expected: batch b8da3219...0ea1, starters 618e356f...fe00; npm run batch:check on these bytes: Checked 8 items, 0 questions, No failures, no warnings. Every required replacement equals the text in revision_requests character for character and every recommended edit equals the text in observations_not_blocking (compared programmatically). Proof that nothing else changed: substituting the pre-revision values back into the current files and serialising with the files' own layout reproduces 9f746f3e... for the batch and 0571f46a... for the starters exactly, so the two versions differ only in the named fields; slaapkamerraam and open-dag and the 23 other starters are byte-identical to the reviewed version. In each of the five revised tasks the prompt now asks, in a sentence after the official instruction, for the element criterion 3 (medicijn-school: 1 and 3) scores, so a learner who does what the prompt says meets all three criteria; each sample still misses exactly one criterion with its null at the same index (examendatum 1, slaapkamerraam 0, roosterbord 2, toets-computer 2, koffiemachine 2, medicijn-school 0, pensioen 1, open-dag 2), the nulls of koffiemachine (no warning or tip) and medicijn-school (no time of day, the end date being criterion 3) are now reliable, and every non-null quote is a verbatim substring of its sample. Models 38-45 words (examendatum 38, medicijn-school 43, pensioen 43, roosterbord 44, koffiemachine 44, slaapkamerraam 44, open-dag 44, toets-computer 45), three or four sentences, averages 10.8-15.0, longest 16, each meeting every criterion of its task, 18-20 s at 2.3-2.5 words per second; the polish edits read as idiomatic Dutch ('zonder door te strepen', 'anders gaat het schimmelen', 'al zo lang hard gewerkt'). roosterbord criterion 3 is observable in the unchanged brief ('a few cells are empty') and starter 3 'Er zijn ook nog … vakjes, dus …' completes naturally and fits it; the starters file keeps one starter per criterion in order with an ellipsis in each and its keys in batch order. The revised prompts are 40-55 words in five to seven sentences. Verdict for the five revised items: pass; pensioen keeps its pass; batch pass; starters pass; ready for integration. Media after integration: no clips or pictures exist yet for this draft batch, so production simply uses the revised prompts (which scripts/audio.ts narrates) and the unchanged briefs; the roosterbord image review must count 7 x 5 and confirm visibly empty cells, as the media notes say."
+    }
+  ],
+  "re_reviewed_at": "2026-09-10"
+}

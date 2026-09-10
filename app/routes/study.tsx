@@ -1,10 +1,12 @@
-import { useLoaderData, redirect, type MetaArgs } from 'react-router';
+import { data as respond, useLoaderData, redirect, type MetaArgs } from 'react-router';
 import App from '../App';
 import { getStore } from '../../server/store';
-import { readRoute, routePath, routeLevel, levelPages } from '../domain/routes';
+import { readRoute, routePath, routeLevel, routeLang, levelPages } from '../domain/routes';
 import { defaults } from '../domain/study';
 import { readPreferences, stateForRoute, applyResumePosition } from '../domain/render-state';
-import { keys } from '../../server/services';
+import { serviceStatus } from '../../server/availability';
+import { basePath, ensurePass, siteOrigin, stripBase } from '../../server/security';
+import { remaining } from '../../server/limits';
 import { pageSeo } from '../domain/seo';
 export function loader({ request, params }) {
   const url = new URL('/' + (params['*'] || ''), request.url),
@@ -21,17 +23,25 @@ export function loader({ request, params }) {
   const renderedAt = Date.now(),
     cookie = request.headers.get('Cookie') || '';
   const settings = readPreferences(cookie),
-    explicitLevel = routeLevel(url);
+    explicitLevel = routeLevel(url),
+    explicitLang = routeLang(url);
   if (explicitLevel) settings.level = explicitLevel;
-  const canonicalPath = routePath(route, settings.level);
+  // The address decides the language: /en is English, a plain path is Dutch. A browser
+  // that chose English earlier is sent from a plain path to its /en twin; a crawler has no
+  // preference and always finds Dutch there, so both versions stay reachable.
+  settings.lang = explicitLang || (settings.lang === 'en' ? 'en' : 'nl');
+  const canonicalPath = routePath(route, settings.level, settings.lang);
   // Splat params are decoded by the router. Compare the encoded request path so
   // existing exercise IDs containing colons do not redirect back to themselves.
   const requestUrl = new URL(request.url),
-    requestPath = requestUrl.pathname.replace(/(?:\/_)?\.data$/, '') || '/';
+    requestPath = stripBase(requestUrl.pathname.replace(/(?:\/_)?\.data$/, '')) || '/';
+  // A redirect that follows a stored preference is temporary; only spelling is permanent.
   if (requestPath !== canonicalPath)
     throw redirect(
       canonicalPath + requestUrl.search,
-      levelPages.has(route) && !explicitLevel ? 307 : 308,
+      (levelPages.has(route) && !explicitLevel) || (!explicitLang && settings.lang === 'en')
+        ? 307
+        : 308,
     );
   let initialState = stateForRoute(
     { ...defaults(), settings },
@@ -50,19 +60,34 @@ export function loader({ request, params }) {
       position.slice('inburgering_position='.length),
       catalogue,
     );
-  const serviceKeys = keys();
-  return {
-    catalogue,
-    practiceSets,
-    initialState,
-    renderedAt,
-    services: {
-      feedback: !!serviceKeys.OPENAI_API_KEY,
-      speech: !!serviceKeys.ELEVENLABS_API_KEY,
-      reports: true,
+  // The first page sets the session pass the paid calls require; a browser that already
+  // has a young one keeps it, so its allowance for today carries over.
+  const pass = ensurePass(request, renderedAt);
+  return respond(
+    {
+      catalogue,
+      practiceSets,
+      initialState,
+      renderedAt,
+      services: {
+        ...serviceStatus(renderedAt, store),
+        remaining: {
+          feedback: remaining('pass', pass.id, 'feedback', renderedAt),
+          speech: remaining('pass', pass.id, 'transcribe', renderedAt),
+        },
+        reports: true,
+      },
+      seo: pageSeo(
+        route,
+        settings.level,
+        catalogue,
+        practiceSets,
+        siteOrigin(request) + basePath(),
+        settings.lang,
+      ),
     },
-    seo: pageSeo(route, settings.level, catalogue, practiceSets, url.origin),
-  };
+    pass.header ? { headers: { 'Set-Cookie': pass.header } } : undefined,
+  );
 }
 export function meta({ loaderData: data }: MetaArgs<typeof loader>) {
   return data
@@ -70,8 +95,19 @@ export function meta({ loaderData: data }: MetaArgs<typeof loader>) {
         { title: data.seo.title },
         { name: 'description', content: data.seo.description },
         { tagName: 'link', rel: 'canonical', href: data.seo.canonical },
+        { tagName: 'link', rel: 'alternate', hrefLang: 'nl', href: data.seo.alternates.nl },
+        { tagName: 'link', rel: 'alternate', hrefLang: 'en', href: data.seo.alternates.en },
+        { tagName: 'link', rel: 'alternate', hrefLang: 'x-default', href: data.seo.alternates.nl },
         { property: 'og:type', content: 'website' },
-        { property: 'og:site_name', content: 'Inburgering' },
+        {
+          property: 'og:locale',
+          content: data.initialState.settings.lang === 'en' ? 'en_GB' : 'nl_NL',
+        },
+        {
+          property: 'og:locale:alternate',
+          content: data.initialState.settings.lang === 'en' ? 'nl_NL' : 'en_GB',
+        },
+        { property: 'og:site_name', content: 'Oefenschrift' },
         { property: 'og:title', content: data.seo.title },
         { property: 'og:description', content: data.seo.description },
         { property: 'og:url', content: data.seo.canonical },
@@ -80,7 +116,7 @@ export function meta({ loaderData: data }: MetaArgs<typeof loader>) {
         { name: 'twitter:description', content: data.seo.description },
         ...(data.seo.noindex ? [{ name: 'robots', content: 'noindex, follow' }] : []),
       ]
-    : [{ title: 'Pagina niet gevonden | Inburgering' }, { name: 'robots', content: 'noindex' }];
+    : [{ title: 'Pagina niet gevonden | Oefenschrift' }, { name: 'robots', content: 'noindex' }];
 }
 export function shouldRevalidate({ currentUrl, nextUrl, defaultShouldRevalidate }) {
   return currentUrl.pathname !== nextUrl.pathname || defaultShouldRevalidate;

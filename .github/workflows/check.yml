@@ -23,9 +23,37 @@ jobs:
       - run: npm ci
       - run: npm run test:browser
       - run: npm run test:production
+      - run: INBURGERING_BASE_PATH=/projects/oefenschrift npm run test:production
       - uses: actions/upload-artifact@v6
         if: failure()
         with:
           name: browser-logs
           path: tmp/
           if-no-files-found: ignore
+  # A push to main that passed every check goes to the server: scripts/deploy.sh builds for
+  # the public path, syncs the app over rsync with the deploy key and restarts the service.
+  deploy:
+    needs: [check, browser]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - name: Install the deploy key
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+      - name: Build and deploy
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+        run: SSH_KEY="$HOME/.ssh/deploy_key" npm run deploy

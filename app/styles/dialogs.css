@@ -105,3 +105,36 @@
 .issue-report .actions {
   margin-top: 1rem;
 }
+/* Cookie and storage tables on the privacy page: hairlines, no boxes. */
+.storage-table {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+  font-size: var(--text-small);
+}
+.storage-table th {
+  text-align: left;
+  padding: 0.375rem 0.75rem 0.5rem 0;
+  font-weight: 400;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+  font-size: var(--text-micro);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.storage-table td {
+  padding: 0.5rem 0.75rem 0.5rem 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.storage-table td:last-child,
+.storage-table th:last-child {
+  white-space: nowrap;
+  padding-right: 0;
+}
+.storage-table code {
+  font-size: 0.9em;
+}
+.storage-table + .storage-table {
+  margin-top: 1.5rem;
+}

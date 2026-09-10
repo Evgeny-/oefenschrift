@@ -1,69 +1,48 @@
-import {
-  data,
-  Form,
-  Link,
-  useLoaderData,
-  useActionData,
-  useNavigation,
-  redirect,
-} from 'react-router';
+import { data, Form, Link, useLoaderData, useActionData, useNavigation } from 'react-router';
 import { getStore, StoreError } from '../../server/store';
 import { adminSession, requireAdminMutation } from '../../server/security';
 import { Card, Empty, percent } from '../components/admin/ui';
+import { withBase } from '../domain/base';
+const subjects = {
+  reading: 'Reading',
+  listening: 'Listening',
+  writing: 'Writing',
+  speaking: 'Speaking',
+  knm: 'KNM',
+};
+// One exercise: its usage, its reports and the switch that takes it out of practice.
+// Content itself is edited in the reviewed catalogue, never here.
 export function loader({ request, params }) {
   const session = adminSession(request),
     store = getStore(),
-    row = params.id === 'new' ? null : store.get(params.id);
-  if (!row && params.id !== 'new') throw new Response('Exercise not found', { status: 404 });
-  const reports = row ? store.reports().filter((report) => report.item_id === row.id) : [];
+    row = store.get(params.id);
+  if (!row?.published) throw new Response('Exercise not found', { status: 404 });
+  const reports = store.reports().filter((report) => report.item_id === row.id);
   return data(
-    { csrf: session.token, row, questions: row ? store.questionStats(row.id) : [], reports },
+    { csrf: session.token, row, questions: store.questionStats(row.id), reports },
     { headers: session.headers },
   );
 }
 export async function action({ request, params }) {
   const form = await request.formData();
   requireAdminMutation(request, form.get('csrf'));
-  const store = getStore();
   try {
-    const operation = form.get('operation'),
-      version = Number(form.get('version'));
-    if (operation === 'archive' || operation === 'restore') {
-      store.archive(params.id, operation === 'archive', version);
-      return { saved: true };
-    }
-    const source = String(form.get('exercise') || '');
-    if (source.length > 40000) throw new StoreError('Exercise must be smaller than 40 KB.');
-    let item;
-    try {
-      item = JSON.parse(source);
-    } catch {
-      throw new StoreError('The JSON is invalid. Your edit is still in the form.');
-    }
-    if (params.id !== 'new' && item.id !== params.id) throw new StoreError('The ID cannot change.');
-    const saved = store.saveDraft(item, version);
-    if (params.id === 'new') return redirect('/ops/exercises/' + encodeURIComponent(saved.id));
+    const operation = form.get('operation');
+    if (operation !== 'archive' && operation !== 'restore')
+      throw new StoreError('Unsupported operation.', 405);
+    getStore().archive(params.id, operation === 'archive', Number(form.get('version')));
     return { saved: true };
   } catch (e) {
     if (e instanceof StoreError) return data({ error: e.message }, { status: e.status });
     throw e;
   }
 }
-const empty = {
-  id: '',
-  title: '',
-  level: 'A2',
-  part: 'writing',
-  prompt: '',
-  criteria: [['', '']],
-  model: '',
-};
-export default function Editor() {
+export default function ExerciseDetail() {
   const { csrf, row, questions, reports } = useLoaderData<typeof loader>(),
     result = useActionData<typeof action>(),
     navigation = useNavigation(),
-    item = row?.draft || row?.published || empty;
-  const answered = questions.reduce((n, q) => n + q.answers, 0);
+    item = row.published,
+    answered = questions.reduce((n, q) => n + q.answers, 0);
   return (
     <>
       <div className="admin-head">
@@ -71,137 +50,110 @@ export default function Editor() {
           <Link className="back" to="/ops/exercises">
             ← Exercises
           </Link>
-          <h1 lang="nl">{row ? item.title : 'New exercise draft'}</h1>
+          <h1 lang="nl">{item.title}</h1>
           <p className="small">
-            {row
-              ? `${item.level} · ${item.part} · ${row.id} · ${row.archived ? 'archived' : row.draft ? 'draft awaiting review' : 'available'}`
-              : 'Drafts wait for editorial review before they reach practice.'}
+            {item.level} · {subjects[item.part] || item.part} · {row.id} ·{' '}
+            {row.archived ? 'archived, not in practice' : 'available in practice'}
           </p>
         </div>
-        {row?.published && !row.archived && (
-          <a className="text-button" href={'/exercise/' + encodeURIComponent(row.id)}>
-            Open in practice
-          </a>
-        )}
-      </div>
-      <div className="admin-grid">
-        {row && (
-          <>
-            <Card
-              className="span-6"
-              title="Question statistics"
-              note="Last 90 days. The correct option is marked."
-            >
-              {questions.length ? (
-                answered ? (
-                  <div className="question-stats">
-                    {questions.map((q) => (
-                      <div className="question-stat" key={q.id}>
-                        <p lang="nl">
-                          <strong>{q.id}</strong> · {q.prompt}
-                        </p>
-                        <p className="small">
-                          {q.answers} answers · {percent(q.correct, q.answers)} correct
-                        </p>
-                        <div className="option-bars">
-                          {q.options.map((o) => (
-                            <div
-                              className={`option-bar ${o.option === q.answer ? 'option-correct' : ''}`}
-                              key={o.option}
-                            >
-                              <span>
-                                {o.option}
-                                {o.option === q.answer ? ' ✓' : ''}
-                              </span>
-                              <i
-                                style={{ width: `${q.answers ? (o.count / q.answers) * 100 : 0}%` }}
-                              />
-                              <span className="num">{o.count}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <Empty>No answers recorded for this exercise yet.</Empty>
-                )
-              ) : (
-                <Empty>
-                  Open tasks have no answer key; see feedback requests on the Exercises page.
-                </Empty>
-              )}
-            </Card>
-            <Card
-              className="span-6"
-              title="Reports"
-              note={`${reports.filter((r) => r.status === 'open').length} open`}
-            >
-              {reports.length ? (
-                <ul className="admin-list compact">
-                  {reports.map((report) => (
-                    <li key={String(report.id)}>
-                      <span className="small">
-                        #{report.id} · {report.kind} · {report.status} ·{' '}
-                        {new Date(Number(report.created_at) * 1000).toISOString().slice(0, 10)}
-                      </span>
-                      {report.message && <p className="report-message">{report.message}</p>}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <Empty>No reports for this exercise.</Empty>
-              )}
-            </Card>
-          </>
-        )}
-        <Card
-          title="Exercise JSON"
-          note="Save edits as a draft. The reviewed version stays in practice until a reviewed content import replaces it. Archiving removes an exercise from practice and can be undone."
-        >
-          <Form method="post" key={row?.version || 'new'} className="admin-editor">
+        <div className="admin-actions">
+          {!row.archived && (
+            <a className="bar-link" href={withBase('/exercise/' + encodeURIComponent(row.id))}>
+              Open in practice
+            </a>
+          )}
+          <Form method="post">
             <input type="hidden" name="csrf" value={csrf} />
-            <input type="hidden" name="version" value={row?.version || 0} />
-            <label htmlFor="exercise-json" className="sr-only">
-              Exercise JSON
-            </label>
-            <textarea
-              id="exercise-json"
-              name="exercise"
-              defaultValue={JSON.stringify(item, null, 2)}
-              spellCheck={false}
-              maxLength={40000}
-            />
-            <div className="actions">
-              <button
-                className="primary"
-                name="operation"
-                value="save"
-                disabled={navigation.state !== 'idle'}
-              >
-                {navigation.state === 'submitting' ? 'Saving…' : 'Save draft'}
-              </button>
-              {row && (
-                <button
-                  className="secondary"
-                  name="operation"
-                  value={row.archived ? 'restore' : 'archive'}
-                  disabled={navigation.state !== 'idle'}
-                >
-                  {row.archived ? 'Restore exercise' : 'Archive exercise'}
-                </button>
-              )}
-            </div>
-            {result && 'error' in result ? (
-              <p className="feedback-error" role="alert">
-                {result.error}
-              </p>
-            ) : result && 'saved' in result && result.saved ? (
-              <p className="note" role="status">
-                Saved.
-              </p>
-            ) : null}
+            <input type="hidden" name="version" value={row.version} />
+            <button
+              className="secondary"
+              name="operation"
+              value={row.archived ? 'restore' : 'archive'}
+              disabled={navigation.state !== 'idle'}
+            >
+              {row.archived ? 'Restore to practice' : 'Remove from practice'}
+            </button>
           </Form>
+        </div>
+      </div>
+      {result && 'error' in result && (
+        <p className="feedback-error" role="alert">
+          {result.error}
+        </p>
+      )}
+      <div className="admin-grid">
+        <Card
+          className="span-6"
+          title="Question statistics"
+          note="Last 90 days. The correct option is marked."
+        >
+          {questions.length ? (
+            answered ? (
+              <div className="question-stats">
+                {questions.map((q) => (
+                  <div className="question-stat" key={q.id}>
+                    <p lang="nl">
+                      <strong>{q.id}</strong> · {q.prompt}
+                    </p>
+                    <p className="small">
+                      {q.answers} answers · {percent(q.correct, q.answers)} correct
+                    </p>
+                    <div className="option-bars">
+                      {q.options.map((o) => (
+                        <div
+                          className={`option-bar ${o.option === q.answer ? 'option-correct' : ''}`}
+                          key={o.option}
+                        >
+                          <span>
+                            {o.option}
+                            {o.option === q.answer ? ' ✓' : ''}
+                          </span>
+                          <i style={{ width: `${q.answers ? (o.count / q.answers) * 100 : 0}%` }} />
+                          <span className="num">{o.count}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <Empty>No answers recorded for this exercise yet.</Empty>
+            )
+          ) : (
+            <Empty>
+              Open tasks have no answer key; feedback requests are counted on the Exercises page.
+            </Empty>
+          )}
+        </Card>
+        <Card
+          className="span-6"
+          title="Reports"
+          note={`${reports.filter((r) => r.status === 'open').length} open`}
+        >
+          {reports.length ? (
+            <ul className="admin-list compact">
+              {reports.map((report) => (
+                <li key={String(report.id)}>
+                  <span className="small">
+                    #{report.id} · {report.kind} · {report.status} ·{' '}
+                    {new Date(Number(report.created_at) * 1000).toISOString().slice(0, 10)}
+                  </span>
+                  {report.message && <p className="report-message">{report.message}</p>}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <Empty>No reports for this exercise.</Empty>
+          )}
+        </Card>
+        <Card
+          title="Reviewed content"
+          note="Read-only. Changes go through the reviewed catalogue and a content import."
+        >
+          <details className="admin-json">
+            <summary>Show the exercise JSON</summary>
+            <pre>{JSON.stringify(item, null, 2)}</pre>
+          </details>
         </Card>
       </div>
     </>

@@ -34,7 +34,7 @@ export interface PracticeSet {
 }
 export interface Session {
   ids: string[];
-  mode: 'practice' | 'mock';
+  mode: 'practice' | 'mock' | 'check';
   level: string;
   index: number;
   answers: Record<string, string>;
@@ -62,10 +62,22 @@ export interface StudyState {
   timers: Record<string, number>;
   sessions: Record<string, Session>;
   active: Session | null;
+  // Finished level checks, newest first.
+  checks: Session[];
 }
 export interface ServiceStatus {
   feedback: boolean;
   speech?: boolean;
+  // A configured service that is switched off, paused after provider errors or over its
+  // daily cap: absent for now, not never offered.
+  feedbackPaused?: boolean;
+  speechPaused?: boolean;
+  // What this browser may still ask for today (per-pass allowance).
+  remaining?: { feedback: number; speech: number };
   reports?: boolean;
   model?: string;
 }
+// Refusal codes from /api/feedback and /api/transcribe that mean the service is not
+// offered at the moment; the interface then falls back to self-review or typing.
+export const unavailableCodes = (service: 'feedback' | 'speech') =>
+  ['off', 'paused', 'cap', 'unconfigured'].map((reason) => `${service}_${reason}`);

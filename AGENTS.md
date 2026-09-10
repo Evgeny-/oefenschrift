@@ -1,4 +1,4 @@
-# Inburgering project
+# Oefenschrift (inburgering practice) project
 
 Work locally unless the user explicitly asks to publish. Keep credentials in `.env`, private official reference material in `reference-private/` and report databases in `var/`; all three are ignored by Git.
 

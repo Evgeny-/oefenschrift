@@ -1,6 +1,12 @@
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { restore, save, keepSetSessions } from './domain/study';
 import { PREFERENCES_COOKIE } from './domain/render-state';
+import { cookiePath } from './domain/base';
+// The preference cookie lets the server render the next page load at the stored level,
+// language and theme before any script runs.
+export function rememberPreferences(settings) {
+  document.cookie = `${PREFERENCES_COOKIE}=${encodeURIComponent(JSON.stringify(settings))}; Path=${cookiePath}; SameSite=Lax; Max-Age=31536000`;
+}
 export default function useStudy(catalogue, initialState, route, prepare) {
   const [entry, replaceEntry] = useState(() => ({ state: initialState, route, ready: false }));
   if (entry.route !== route) replaceEntry({ ...entry, route, state: prepare(entry.state) });
@@ -35,12 +41,12 @@ export default function useStudy(catalogue, initialState, route, prepare) {
       storage = window.localStorage;
     } catch {}
     setSaved(save(storage, state));
-    document.cookie = `${PREFERENCES_COOKIE}=${encodeURIComponent(JSON.stringify(state.settings))}; Path=/; SameSite=Lax; Max-Age=31536000`;
+    rememberPreferences(state.settings);
     const position = state.active?.setId
       ? { set: state.active.setId, index: state.active.index }
       : null;
     if (position)
-      document.cookie = `inburgering_position=${encodeURIComponent(JSON.stringify(position))}; Path=/; SameSite=Lax; Max-Age=31536000`;
+      document.cookie = `inburgering_position=${encodeURIComponent(JSON.stringify(position))}; Path=${cookiePath}; SameSite=Lax; Max-Age=31536000`;
   }, [state, entry.ready]);
   const setting = (key, value) =>
     setState((s) => ({ ...s, settings: { ...s.settings, [key]: value } }));

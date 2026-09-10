@@ -45,3 +45,12 @@ Dialogue: `eleven_v3` 30.2 s, WER 0.028; stitched `multilingual_v2` 30.7 s, WER 
 ## Decision
 
 Pending the user's marks on the audition page. Fill `config/voices.json` roles from the marks; keep at least two female and two male voices with different ages, plus the narrator.
+
+
+## Decision and follow-up (later on 10 September 2026)
+
+- Roles: narrator Serge de Beer, presenter Peter, f-young Roos, f-older Hanneke, m-young Nick, m-adult Robert, m-older Arjen, m-shop Jerry — chosen by the user from this audition.
+- The adult female role was first given to Marlies (provisional). In the batch 005 conversations the user heard echo and low recording quality on that voice, while the men and Hanneke sounded clean through the same processing; Emma and Jennifer were rejected on a test conversation for the same reason. A second audition of five unheard voices (Leonie, Annelise, Pauline, Esmee, Anjali), each in a short exchange with Hanneke, was published as the artifact "Second Voice Audition"; the user chose **Esmee** (`TuUL8QNimlzrTWC5Op2c`). Marlies, Emma and Jennifer are on the exclusion list in `config/voices.json`.
+- Processing chain: the first batch clips went through per-turn loudness normalisation, MP3 stitching and a second normalisation, three lossy encodes in a row; the chain now requests 16-bit PCM (24 kHz on the Starter plan, 44.1 kHz where the key allows), matches level by a constant gain to −18 LUFS, stitches losslessly and encodes once to 44.1 kHz MP3 at 192 kbps. Conversations use the per-turn model by default; the dialogue model added room reverb on some voices and stays opt-in per item.
+- Per-role speaking-rate multipliers (`speed`) keep the fast voices near 2.5 words per second for A2.
+- Quota: the Starter key was nearly used up after the regenerations of 10 September 2026; the user then created a Pro-plan key with Text to Speech and Speech to Text permissions (about 1.5 million characters per month), stored in the project `.env`. All clips were regenerated at 44.1 kHz on it.

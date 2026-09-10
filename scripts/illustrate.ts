@@ -40,6 +40,17 @@ const option = (name: string, fallback: string) => {
 };
 const GENERATE = flag('--generate'),
   APPLY = flag('--apply');
+// --redo key1,key2: draw these jobs again (a drifted trait, an artefact) even though they have a file.
+const REDO = new Set(option('--redo', '').split(',').filter(Boolean));
+const CONCURRENCY = Math.max(1, Number(option('--concurrency', '4')) || 4);
+async function pool<T>(items: T[], limit: number, work: (item: T) => Promise<void>) {
+  let next = 0;
+  await Promise.all(
+    Array.from({ length: Math.min(limit, items.length) }, async () => {
+      while (next < items.length) await work(items[next++]);
+    }),
+  );
+}
 const OUT = option('--out', 'assets/images'),
   SOURCE_DIR = option('--source-dir', 'content/images-source');
 const services = JSON.parse(readFileSync('config/services.json', 'utf8'));
@@ -97,7 +108,7 @@ function jobs(items: Item[]): Job[] {
         index: -1,
       });
     (item.images || []).forEach((spec, index) => {
-      if (spec.brief && !spec.file)
+      if (spec.brief && (!spec.file || REDO.has(`${item.id}#image${index}`)))
         list.push({
           key: `${item.id}#image${index}`,
           item,
@@ -135,11 +146,20 @@ async function run() {
   mkdirSync(SOURCE_DIR, { recursive: true });
   let generated = 0,
     failures = 0;
-  for (const job of list) {
+  // Pictures are independent: a few generate at once.
+  await pool(list, CONCURRENCY, async (job) => {
     const size = style.sizes[job.kind] || style.sizes.still;
     const prompt = `${style.stylePrefix} ${expandCast(job.spec.brief!)}`;
+    // A redo gets a fresh attempt number so that its files do not collide with the first drawing.
+    const attempt = REDO.has(job.key) ? (manifest[job.key]?.attempt || 1) + 1 : 1;
     const token = sha(
-      JSON.stringify({ prompt, size, model: style.model, quality: style.quality }),
+      JSON.stringify({
+        prompt,
+        size,
+        model: style.model,
+        quality: style.quality,
+        ...(attempt > 1 ? { attempt } : {}),
+      }),
     ).slice(0, 16);
     const png = resolve(SOURCE_DIR, `${token}.png`),
       webp = resolve(OUT, `${token}.webp`),
@@ -147,7 +167,7 @@ async function run() {
     if (!job.spec.alt) {
       console.log(`  skip  ${job.key}: alt text (Dutch) is missing`);
       failures++;
-      continue;
+      return;
     }
     try {
       if (!existsSync(png)) writeFileSync(png, await generate(key, prompt, size));
@@ -173,6 +193,7 @@ async function run() {
         model: style.model,
         quality: style.quality,
         size,
+        ...(attempt > 1 ? { attempt } : {}),
         reviewed: false,
       };
       manifest[job.key] = record;
@@ -193,7 +214,7 @@ async function run() {
       failures++;
       console.log(`  FAIL  ${job.key}: ${(error as Error).message}`);
     }
-  }
+  });
   mkdirSync(resolve(manifestPath, '..'), { recursive: true });
   writeFileSync(manifestPath, JSON.stringify(Object.values(manifest), null, 2) + '\n');
   console.log(

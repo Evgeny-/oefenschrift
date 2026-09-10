@@ -2,14 +2,64 @@ import { randomBytes, createHmac, timingSafeEqual, scryptSync } from 'node:crypt
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { redirect } from 'react-router';
-export function assertLocal(request) {
-  const url = new URL(request.url);
-  if (!['127.0.0.1', 'localhost'].includes(url.hostname))
-    throw new Response('Local access only', { status: 403 });
+// The public address of the site, for example https://oefenschrift.nl. Unset in
+// development and tests, where the server answers on loopback only.
+export function publicOrigin() {
+  const value = (process.env.INBURGERING_ORIGIN || '').trim().replace(/\/+$/, '');
+  if (!value) return null;
+  const url = new URL(value);
+  if (!['http:', 'https:'].includes(url.protocol) || url.pathname !== '/' || url.search || url.hash)
+    throw new Error('INBURGERING_ORIGIN must be a bare origin such as https://example.org');
+  return url.origin;
+}
+// The path the site is served under on a shared host ('' at a root). The bundles carry the
+// same value from build time; the entry refuses to start when the two differ.
+export function basePath() {
+  const value = (process.env.INBURGERING_BASE_PATH || '').trim().replace(/\/+$/, '');
+  if (value && !/^\/[\w-]+(\/[\w-]+)*$/.test(value))
+    throw new Error('INBURGERING_BASE_PATH must look like /projects/name');
+  return value;
+}
+export function stripBase(pathname: string) {
+  const base = basePath();
+  return base && (pathname === base || pathname.startsWith(base + '/'))
+    ? pathname.slice(base.length) || '/'
+    : pathname;
+}
+export const loopback = (hostname: string) =>
+  ['127.0.0.1', 'localhost', '[::1]', '::1'].includes(hostname);
+// The origin the site compares Origin headers against and uses in canonical URLs: the
+// configured public origin when there is one, otherwise the origin of the request.
+export function siteOrigin(request) {
+  return publicOrigin() || new URL(request.url).origin;
+}
+// Browsers send Sec-Fetch-Site: cross-site on a top-level navigation from another site,
+// such as a link in a search result or a chat message; that must work. Every other
+// cross-site request (fetch, form post, embed) is rejected.
+export function crossSiteRejected(
+  header: (name: string) => string | null | undefined,
+  method: string,
+) {
+  return (
+    header('sec-fetch-site') === 'cross-site' &&
+    !(header('sec-fetch-mode') === 'navigate' && ['GET', 'HEAD'].includes(method))
+  );
+}
+export function assertOrigin(request) {
+  const url = new URL(request.url),
+    expected = publicOrigin();
+  if (!(url.origin === expected || loopback(url.hostname)))
+    throw new Response('Host rejected', { status: 403 });
   const origin = request.headers.get('Origin');
-  if (origin && origin !== url.origin) throw new Response('Origin rejected', { status: 403 });
-  if (request.headers.get('Sec-Fetch-Site') === 'cross-site')
+  if (origin && origin !== siteOrigin(request))
+    throw new Response('Origin rejected', { status: 403 });
+  if (crossSiteRejected((name) => request.headers.get(name), request.method))
     throw new Response('Cross-site access rejected', { status: 403 });
+}
+// The client address is written by the Express entry after the proxy hops it trusts, so
+// the value can never come from the request itself.
+export function clientAddress(request) {
+  return request.headers.get('X-Client-Address') || 'local';
 }
 function secret() {
   if (process.env.INBURGERING_ADMIN_SECRET) return process.env.INBURGERING_ADMIN_SECRET;
@@ -40,7 +90,9 @@ function equal(a, b) {
     timingSafeEqual(Buffer.from(a), Buffer.from(b))
   );
 }
-export const SESSION_HOURS = 12;
+// An operator stays signed in for six months (the user's choice: one operator, own
+// devices, no shared machines); Sign out ends it earlier, and so does a changed secret.
+export const SESSION_HOURS = 183 * 24;
 // A session token is issued only by a successful login: login.<issued>.<random>.<signature>.
 function valid(token) {
   const [kind, time, random, sig] = String(token || '').split('.');
@@ -61,7 +113,7 @@ function cookie(request) {
     ?.slice(16);
 }
 function cookieHeader(value, maxAge) {
-  return `inburgering_ops=${value}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${maxAge}`;
+  return `inburgering_ops=${value}; Path=${basePath() || '/'}; HttpOnly; SameSite=Strict; Max-Age=${maxAge}${publicOrigin()?.startsWith('https:') ? '; Secure' : ''}`;
 }
 export const CREDENTIALS_PATH = 'var/admin-credentials.json';
 // The operator account: INBURGERING_ADMIN_USER with INBURGERING_ADMIN_PASSWORD (local
@@ -141,7 +193,7 @@ export function logoutHeaders() {
   return { 'Set-Cookie': cookieHeader('', 0), 'Cache-Control': 'no-store' };
 }
 export function signedIn(request) {
-  assertLocal(request);
+  assertOrigin(request);
   const token = cookie(request);
   return valid(token) ? token : null;
 }
@@ -149,16 +201,64 @@ export function signedIn(request) {
 export function adminSession(request) {
   const token = signedIn(request);
   if (token) return { token, headers: { 'Cache-Control': 'no-store' } };
-  const url = new URL(request.url);
-  if (request.headers.get('Accept')?.includes('text/html') || url.pathname.startsWith('/ops'))
-    throw redirect('/ops/login?next=' + encodeURIComponent(url.pathname + url.search));
+  const url = new URL(request.url),
+    path = stripBase(url.pathname);
+  if (request.headers.get('Accept')?.includes('text/html') || path.startsWith('/ops'))
+    throw redirect('/ops/login?next=' + encodeURIComponent(path + url.search));
   throw new Response('Sign in to the administration first.', { status: 401 });
 }
 export function requireAdminMutation(request, token) {
-  assertLocal(request);
+  assertOrigin(request);
   const origin = request.headers.get('Origin');
-  if (origin !== new URL(request.url).origin || !valid(token) || !equal(token, cookie(request)))
+  if (origin !== siteOrigin(request) || !valid(token) || !equal(token, cookie(request)))
     throw new Response('Reload the admin page and try again.', { status: 403 });
+}
+// The session pass: an HttpOnly cookie every browser receives with its first page, and
+// the key for that browser's allowance of paid calls. It is signed like the operator
+// session, carries no learner data, lasts a day and is renewed after twelve hours. It is
+// Lax rather than Strict so that arriving through a link from another site keeps the
+// existing pass instead of issuing a fresh allowance.
+export const PASS_HOURS = 24,
+  PASS_RENEW_HOURS = 12;
+const passCookie = (request) =>
+  (request.headers.get('Cookie') || '')
+    .split(';')
+    .map((x) => x.trim())
+    .find((x) => x.startsWith('inburgering_pass='))
+    ?.slice(17);
+function passParts(token, now) {
+  const [kind, time, random, sig] = String(token || '').split('.');
+  if (
+    kind !== 'pass' ||
+    !/^\d+$/.test(time || '') ||
+    !/^[a-f0-9]{32}$/.test(random || '') ||
+    now - Number(time) >= PASS_HOURS * 3600 * 1000 ||
+    Number(time) > now + 60000 ||
+    !equal(sig, sign('pass.' + time + '.' + random))
+  )
+    return null;
+  return { issued: Number(time), id: random };
+}
+// The pass id of the request, or null without a valid pass.
+export function passId(request, now = Date.now()) {
+  return passParts(passCookie(request), now)?.id ?? null;
+}
+export function issuePass(now = Date.now()) {
+  const value = 'pass.' + now + '.' + randomBytes(16).toString('hex');
+  const token = value + '.' + sign(value);
+  return {
+    id: value.split('.')[2],
+    header: `inburgering_pass=${token}; Path=${basePath() || '/'}; HttpOnly; SameSite=Lax; Max-Age=${PASS_HOURS * 3600}${publicOrigin()?.startsWith('https:') ? '; Secure' : ''}`,
+  };
+}
+// For page loads: the current pass id plus a Set-Cookie header when a pass is missing,
+// expired or older than the renewal age.
+export function ensurePass(request, now = Date.now()) {
+  const current = passParts(passCookie(request), now);
+  if (current && now - current.issued < PASS_RENEW_HOURS * 3600 * 1000)
+    return { id: current.id, header: null };
+  const fresh = issuePass(now);
+  return { id: fresh.id, header: fresh.header };
 }
 // Learner events carry a random browser id; only its keyed hash reaches the database.
 export function visitorHash(id) {

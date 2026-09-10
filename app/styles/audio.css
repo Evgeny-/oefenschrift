@@ -49,10 +49,17 @@
   color: var(--muted);
   margin-top: 0.15rem;
 }
+.situation .intro {
+  margin-top: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
 .pictures {
   display: grid;
   gap: 0.75rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 .pictures[data-count='2'],
 .pictures[data-count='3'] {
@@ -64,7 +71,7 @@
 .picture img {
   display: block;
   width: 100%;
-  max-width: 38rem;
+  max-width: 44rem;
   height: auto;
   border-radius: 0.5rem;
 }
@@ -159,4 +166,100 @@ summary {
   font-size: var(--text-body);
   color: var(--ink);
   line-height: 1.8;
+}
+
+/* Printed material of blueprint writing tasks: e-mail header, salutation/closing, form fields. */
+.mail-header {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.2rem 1rem;
+  margin: 0.75rem 0;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  font-size: var(--text-small);
+}
+.mail-header dt {
+  color: var(--muted);
+}
+.mail-header dd {
+  margin: 0;
+}
+.scaffold-line {
+  margin: 0.5rem 0;
+  font-size: var(--text-body);
+}
+.form-fields {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.45rem 1rem;
+  margin: 0.75rem 0;
+  font-size: var(--text-small);
+}
+.form-fields dt {
+  padding-top: 0.1rem;
+}
+.form-fields dd {
+  margin: 0;
+  min-height: 1.4rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+.form-fields .field-open {
+  min-height: 2.8rem;
+}
+.task-table {
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: var(--text-small);
+}
+.task-table caption {
+  text-align: left;
+  color: var(--muted);
+  padding-bottom: 0.3rem;
+}
+.task-table th,
+.task-table td {
+  border: 1px solid var(--line);
+  padding: 0.3rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+.task-table th {
+  font-weight: 600;
+}
+.gap-text {
+  margin: 0.5rem 0;
+  font-size: var(--text-body);
+  line-height: 1.8;
+  white-space: pre-line;
+}
+.gap-text .gap {
+  display: inline-block;
+  min-width: 9rem;
+  border-bottom: 2px solid var(--ink);
+  vertical-align: baseline;
+}
+.picture figcaption {
+  font-size: var(--text-micro);
+  color: var(--muted);
+  margin-top: 0.2rem;
+}
+
+.task-audio {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+.clip-caption {
+  font-size: var(--text-small);
+  color: var(--muted);
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+.task-timing {
+  color: var(--muted);
+  margin: 0.25rem 0 0.75rem;
 }

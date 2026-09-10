@@ -112,7 +112,7 @@ export function Clock({ timer }) {
     </div>
   );
 }
-export function ExerciseHeader({ item, timer, questionId = null, mock = false }) {
+export function ExerciseHeader({ item, timer, questionId = null, tag = null }) {
   const { state, t, name } = useStudyContext(),
     type =
       (item.taskType || item.type) && item.type !== 'audio'
@@ -125,7 +125,7 @@ export function ExerciseHeader({ item, timer, questionId = null, mock = false })
     <div className="exercise-heading">
       <Heading title={item.title} dutch />
       <div className="exercise-meta">
-        <p>{subtitle + (mock ? ' · ' + t('Proefexamen', 'Practice test') : '')}</p>
+        <p>{subtitle + (tag ? ' · ' + tag : '')}</p>
         <div className="exercise-tools">
           <Clock timer={timer} />
           <IssueReport key={`${item.id}/${questionId || ''}`} item={item} questionId={questionId} />

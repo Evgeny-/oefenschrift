@@ -4,6 +4,8 @@ import {
   readRoute,
   routePath,
   routeLevel,
+  routeLang,
+  localizePath,
   sessionRoute,
   plainClick,
 } from '../app/domain/routes.ts';
@@ -22,6 +24,10 @@ test('every exercise ID has a reversible normal URL and old links still resolve'
   assert.equal(readRoute(url('/exercise/%E0%A4%A')), 'missing');
   assert.equal(readRoute(url('/exercise/a%2Fb')), 'missing');
   assert.equal(readRoute(url('/unknown')), 'missing');
+  assert.equal(readRoute(url('/')), 'home');
+  assert.equal(routePath('home', 'B1'), '/');
+  assert.equal(readRoute(url('/home')), 'missing', 'the start page has no /home alias');
+  assert.equal(readRoute(url('/a2/')), 'reading', 'a bare level still opens its reading catalogue');
 });
 test('new-tab gestures keep real link behavior', () => {
   assert.equal(plainClick({ button: 0 }), true);
@@ -88,4 +94,38 @@ test('level paths preserve the subject and reject misleading prefixes', () => {
   ])
     assert.equal(readRoute(url(path)), 'missing');
   assert.equal(routePath('knm', 'B2'), '/knm');
+});
+
+test('English pages live under /en and every page has one address per language', () => {
+  for (const route of [
+    'home',
+    'reading',
+    'knm',
+    'about',
+    'mock',
+    'session',
+    'check',
+    'check-result',
+    'set/a2-listening-01',
+    'exercise/A2:reading:p1:1',
+  ]) {
+    const dutch = routePath(route, 'B1'),
+      english = routePath(route, 'B1', 'en');
+    assert.equal(english, dutch === '/' ? '/en' : '/en' + dutch);
+    assert.equal(readRoute(url(english)), route);
+    assert.equal(routeLang(url(english)), 'en');
+    assert.equal(routeLang(url(dutch)), undefined);
+    assert.equal(localizePath(dutch, 'en'), english);
+    assert.equal(localizePath(english, 'nl'), dutch);
+    assert.equal(localizePath(english, 'en'), english);
+  }
+  assert.equal(routePath('home', 'A2', 'en'), '/en');
+  assert.equal(readRoute(url('/en')), 'home');
+  assert.equal(readRoute(url('/en/')), 'home');
+  assert.equal(readRoute(url('/EN/b1/reading')), 'reading');
+  assert.equal(routeLevel(url('/en/b1/reading')), 'B1');
+  assert.equal(readRoute(url('/en/a2')), 'reading');
+  for (const path of ['/english', '/en/home', '/en/en', '/a2/en/reading', '/en/b1/knm'])
+    assert.equal(readRoute(url(path)), 'missing', path);
+  assert.equal(routeLang(url('/english')), undefined);
 });

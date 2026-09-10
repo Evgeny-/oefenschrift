@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Segments, ThemeIcon } from '../Controls';
 import { resolveTheme } from '../../domain/theme';
 import { PREFERENCES_COOKIE, readPreferences } from '../../domain/render-state';
+import { cookiePath } from '../../domain/base';
 // The same Light / Dark / System choice as the practice site. It updates the
 // document at once and writes both places the site reads on the next load: the
 // preference cookie (server render) and the saved study settings (browser).
@@ -19,7 +20,7 @@ export default function ThemeSwitch({ initial }: { initial: 'light' | 'dark' | '
   const choose = (value) => {
     setTheme(value);
     const settings = { ...readPreferences(document.cookie), theme: value };
-    document.cookie = `${PREFERENCES_COOKIE}=${encodeURIComponent(JSON.stringify(settings))}; Path=/; SameSite=Lax; Max-Age=31536000`;
+    document.cookie = `${PREFERENCES_COOKIE}=${encodeURIComponent(JSON.stringify(settings))}; Path=${cookiePath}; SameSite=Lax; Max-Age=31536000`;
     try {
       const key = 'inburgering.study.v2',
         saved = JSON.parse(localStorage.getItem(key) || 'null');

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { EvidenceText } from './TextEvidence';
 import { Segments, PlayIcon } from './Controls';
 import { formatTime } from '../domain/study';
+import { mediaUrl } from '../domain/base';
 export function AudioPlayback({
   src,
   peaks = [],
@@ -125,14 +126,15 @@ export function AudioPlayback({
     </div>
   );
 }
-export default function AudioPlayer({ item, t, transcript = true, evidence = [] }) {
+// The source is the exercise for an A2 fragment, or the question for a B1 text whose fragments each carry their own clip.
+export default function AudioPlayer({ source, t, transcript = true, evidence = [] }) {
   return (
     <div>
       <AudioPlayback
-        key={item.audio}
-        src={`/${item.audio.replace(/^\//, '')}`}
-        peaks={item.peaks}
-        knownDuration={item.duration}
+        key={source.audio}
+        src={mediaUrl(source.audio)}
+        peaks={source.peaks}
+        knownDuration={source.duration}
         t={t}
         label={t('Luisterfragment', 'Listening audio')}
       />
@@ -140,7 +142,7 @@ export default function AudioPlayer({ item, t, transcript = true, evidence = [] 
         <details className="transcript" open={evidence.length ? true : undefined}>
           <summary>{t('Bekijk transcript', 'View transcript')}</summary>
           <p lang="nl">
-            <EvidenceText text={item.text} quotes={evidence} />
+            <EvidenceText text={source.text} quotes={evidence} />
           </p>
         </details>
       )}

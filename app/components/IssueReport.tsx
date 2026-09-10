@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { Dialog } from '@base-ui/react/dialog';
 import { useStudyContext } from '../StudyContext';
+import { postJson } from '../domain/request';
 export default function IssueReport({ item, questionId = null }) {
   const { t, api } = useStudyContext(),
     id = useId();
@@ -40,19 +41,15 @@ export default function IssueReport({ item, questionId = null }) {
     pending.current = true;
     setStatus('saving');
     try {
-      const response = await fetch('/api/reports', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+      setReceipt(
+        await postJson('/api/reports', {
           item_id: item.id,
           item_version: item.revision,
           question_id: questionId,
           kind,
           message,
         }),
-      });
-      if (!response.ok) throw Error();
-      setReceipt(await response.json());
+      );
       setStatus('sent');
     } catch {
       setStatus('error');

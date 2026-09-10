@@ -1,6 +1,7 @@
 import { getStore, StoreError } from '../../server/store';
 import { adminSession, requireAdminMutation } from '../../server/security';
-export function loader({ request, params }) {
+import { providerBalances } from '../../server/services';
+export async function loader({ request, params }) {
   const session = adminSession(request),
     store = getStore();
   const data =
@@ -12,7 +13,9 @@ export function loader({ request, params }) {
         ? store.reports()
         : params.resource === 'stats'
           ? store.stats()
-          : null;
+          : params.resource === 'providers'
+            ? await providerBalances()
+            : null;
   if (!data) throw new Response('Not found', { status: 404 });
   return Response.json({ data, csrf: session.token }, { headers: session.headers });
 }
@@ -28,13 +31,9 @@ export async function action({ request, params }) {
   }
   const store = getStore();
   try {
+    // Content is authored in the reviewed catalogue; the API only takes an exercise
+    // out of practice and back.
     if (params.resource === 'exercises') {
-      if (request.method === 'POST' && !params.id)
-        return Response.json(store.saveDraft(data.exercise, 0), { status: 201 });
-      if (request.method === 'PUT' && params.id) {
-        if (data.exercise?.id !== params.id) throw new StoreError('Exercise ID cannot change.');
-        return Response.json(store.saveDraft(data.exercise, data.version));
-      }
       if (request.method === 'DELETE' && params.id)
         return Response.json(store.archive(params.id, true, data.version));
       if (request.method === 'PATCH' && params.id && data.archived === false)

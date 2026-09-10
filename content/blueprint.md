@@ -1,6 +1,6 @@
 # Exercise blueprint
 
-What an exercise in this project must look like, part by part, for the DUO A2 exams, KNM and Staatsexamen NT2 Programma I (B1). Read this before writing, reviewing, generating media for, or grouping exercises. The analysis behind it is in `research/exam-blueprints-2026-09-10.md`; the review rubric is `content/reviews/rubric.md`; the process is `research/content-workflow.md`. B2 is out of scope.
+What an exercise in this project must look like, part by part, for the DUO A2 exams, KNM and Staatsexamen NT2 Programma I (B1). Read this before writing, reviewing, generating media for, or grouping exercises. The analysis behind it is in `docs/research/exam-blueprints-2026-09-10.md`; the review rubric is `content/reviews/rubric.md`; the process is `docs/research/content-workflow.md`. B2 is out of scope.
 
 Facts about the official exams below were verified on 10 September 2026 in DUO's official practice player and in the CvTE openbare examens. When an official format changes, update this file first and the content after it.
 
@@ -40,7 +40,7 @@ Common fields:
 | `taskType` (required, new) | one of the task types listed per part in section 4. |
 | `domain` (required, new) | A2 and KNM: `werk`, `opleiding`, `wonen-buurt`, `gezondheid`, `winkels-diensten`, `instanties`, `vervoer`, `vrije-tijd-familie`. B1: `werk`, `educatie`, `overig`. |
 | `textType` (B1 reading and listening, required) | `persuasief`, `descriptief`, `instructief`, `beschouwend`. |
-| `situation` (reading, listening, KNM scenes; required) | The one-line context shown before the stimulus, naming a person and a source: "Sabrina krijgt een brief van haar werk." |
+| `situation` (reading, listening, KNM scenes; required) | The one-line context shown before the stimulus. A2: a person and a source, "Sabrina krijgt een brief van haar werk." B1: the reader's position and the text's source, "U leest een interview uit een personeelsblad." / "U hoort een gesprek bij een ROC." |
 | `title` | Short Dutch title for catalogues. Not shown in exam mode. |
 | `status`, `targetLevelValidated`, `revision` | as today. |
 | `images` (new) | Array of `{file, alt, kind, credit?, licence?, sourceUrl?}`; `kind` is `photo`, `drawing` or `table`. `alt` is a Dutch description that does not give away an answer. |
@@ -90,7 +90,7 @@ Task types, in the official proportions (one form = 4 + 4 + 4 + 4):
 | `picture-choose` | two pictures | "U zoekt werk in een winkel. In welke winkel werkt u liever? Vertel ook waarom. Kies een van de plaatjes." | choice + reason |
 | `picture-sequence` | three pictures | "X werkt als kapper. Kijk naar de plaatjes. Vertel wat X doet. Vertel iets over alle plaatjes." | narration covering all three |
 
-Requirements: `promptAudio` (the instruction read by the narrator), `images` with `alt`, `speakingSeconds: 40`, `prepSeconds: 10`, `criteria` that mirror the type (two parts answered; a choice and a reason; all three pictures mentioned), a `model` answer of 25–45 words in A2 Dutch, and `rubric: a2-spreken`. Situations: everyday life, work, school, shops, health, neighbourhood. Never ask for real personal data.
+Requirements: `promptAudio` (the instruction read by the narrator), `images` with `alt`, `speakingSeconds: 40`, `prepSeconds: 10`, `criteria` that mirror the type (video answer: both parts of the cue answered plus one more detail, which fills the 40 seconds; one picture: the scene, two things or actions named, an opinion; two pictures: a choice, a reason, a word about the other picture — the official scoring counts both pictures; three pictures: one criterion per picture), a `model` answer of 25–45 words in A2 Dutch, and `rubric: a2-spreken`. Situations: everyday life, work, school, shops, health, neighbourhood. Never ask for real personal data.
 
 ### 4.4 A2 Schrijven — `exam: duo-a2`, `part: writing`
 
@@ -115,24 +115,24 @@ Requirements: `rubric: a2-schrijven`; a `model` answer; `sample` and `quotes` as
 ### 4.6 B1 Lezen — `exam: nt2-i`, `part: reading`
 
 - 400–700 words; `textType` and `domain` set; the batch spreads six texts over werk/educatie/overig and the four text types; text 6 of any mock is a look-up text (`taskType: opzoektekst`: a regulation, general information page, terms) with persona questions; other task types: `artikel`, `interview`, `studieboek`, `website`, `nieuwsbericht`, `voorwaarden`.
-- Five to seven questions per text, three options each. Per text: one `purpose` question last ("Wat is het doel van deze tekst?" with options of the form "de lezer informeren over … / de lezer overtuigen dat … / de lezer waarschuwen voor …"), at least one `opinion` or `inference` item ("Wat vindt X van …?", "Wat wil X duidelijk maken met het voorbeeld van …?", "Welke zin vat de mening van de schrijver het beste samen?"), and detail items whose evidence spans a paragraph rather than a sentence.
+- Five to seven questions per text, three options each. A look-up text (text 6) carries persona scanning questions instead of paragraph-span detail items: at least one `quantity` item that combines two figures and two `rule-application` items, then the purpose question. For the other five texts: one `purpose` question last ("Wat is het doel van deze tekst?" with options of the form "de lezer informeren over … / de lezer overtuigen dat … / de lezer waarschuwen voor …"), at least one `opinion` or `inference` item ("Wat vindt X van …?", "Wat wil X duidelijk maken met het voorbeeld van …?", "Welke zin vat de mening van de schrijver het beste samen?"), and detail items whose evidence spans a paragraph rather than a sentence.
 - B1 language: connected paragraphs with subheadings, paraphrase between question and text, subordinate clauses, reasons, conditions and consequences. No rare vocabulary as the sole obstacle.
 - Keys balanced as in A2.
 
 ### 4.7 B1 Luisteren — `exam: nt2-i`, `part: listening`
 
-- `taskType`: `interview`, `gesprek`, `voorlichting`, `instructie`. Each text has an `intro` (printed and spoken by the narrator: who speaks, about what), then `fragments[]`, each with its own `script` and one question. Five to nine fragments of 30–60 seconds; total 4–7 minutes per text.
-- Questions have three options, are shown 25 seconds before the fragment plays, and the fragment plays once in mock mode (replay allowed in drills).
-- Speakers are two different voice roles; the narrator voice reads the intro and the questions.
+- `taskType`: `interview`, `gesprek`, `voorlichting`, `instructie`. Each text has a `situation` line, an `intro` of 8–60 words (printed and spoken by the narrator: who speaks, about what; generated as `introAudio`), and five to nine questions that each carry their own fragment: `questions[].script` (turns with `speaker`, `role`, `text`), `questions[].text` (the fragment as "Speaker: text" lines) and, after generation, `questions[].audio`, `duration`, `peaks`. The item's `text` is the fragments joined with a blank line between them, so evidence quotes work as everywhere else; each `evidence` comes from its own fragment. Fragments are 50–190 spoken words (30–75 seconds); a text runs 4–7 minutes in total.
+- Questions have three options; in the exam they are shown 25 seconds before the fragment plays and the fragment plays once (the app's drills allow replay; the mock-mode rule is not built yet).
+- Speakers are two different voice roles across the text (an interviewer and a guest, a presenter and a caller); the narrator voice reads the intro and the questions.
 - Content: study choice, work situations, neighbourhood initiatives, professions, health and care, public life. `textType` set.
 
 ### 4.8 B1 Schrijven — `exam: nt2-i`, `part: writing`
 
 | `taskType` | Fields | Scoring |
 | --- | --- | --- |
-| `zinstaak` | `scaffold` (short e-mail with one gap marked `___`), `grammarTarget`: `hoofdzin`, `bijzin`, `inversie`, `te-infinitief` or `vrij`, `adequacyNote` (what the sentence must do: give a reason, propose a solution, ask a question) | adequaatheid 0–1, grammatica 0–1 |
-| `deelschrijftaak` | either `formFields` with six open questions ("Geef minimaal twee redenen") or `scaffold` plus `images` the completion must use | adequaatheid 0–3, grammatica 0–2, spelling, samenhang, woordgebruik 0–1 |
-| `korte-schrijftaak` | `scaffold`, `criteria` with five or six elements, a `table` or `images`, `goal` (inform, convince, complain, propose), note that the table or pictures are not part of the e-mail | as deelschrijftaak |
+| `zinstaak` | `scaffold: {to, from, subject, salutation, body, closing}` where `body` is a short e-mail with exactly one gap marked `___`; `grammarTarget`: `hoofdzin`, `bijzin`, `inversie`, `te-infinitief` or `vrij`; `adequacyNote` (what the sentence must do: give a reason, propose a solution, ask a question); exactly two `criteria` (adequacy, grammar); `model` one sentence of 5–25 words | adequaatheid 0–1, grammatica 0–1 |
+| `deelschrijftaak` | either `formFields` (four or more, at least two `kind: open`, e.g. "Geef minimaal twee redenen") or `scaffold` plus `images` the completion must use; 3–6 `criteria`; `model` 50–150 words | adequaatheid 0–3, grammatica 0–2, spelling, samenhang, woordgebruik 0–1 |
+| `korte-schrijftaak` | `scaffold` as for an e-mail, five or six `criteria`, a `table: {caption, columns, rows}` or `images`, `goal`: `informeren`, `overtuigen`, `klagen` or `voorstellen`; the prompt says that the table or pictures are not part of the e-mail; `model` 120–180 words | as deelschrijftaak |
 
 `rubric: b1-schrijven`. A form of twelve is 8 + 2 + 2. Models for korte schrijftaken are 120–180 words. Feedback lists, in order: adequacy per element, grammar (word order, congruence, prepositions, missing articles; gender errors tolerated), spelling, coherence (signal words), word choice; flags copied prompt sentences.
 
@@ -140,8 +140,8 @@ Requirements: `rubric: a2-schrijven`; a `model` answer; `sample` and `quotes` as
 
 | `taskType` | Timing | Stimulus | Asks for |
 | --- | --- | --- | --- |
-| `kort` | 20 s speaking, no preparation | `cueAudio` (spoken cue by another character, "U hoort eerst uw collega.") and often one picture | a question, a description, a preference with one reason, a short instruction |
-| `middellang` | 15 s preparation, 30 s speaking | `cueAudio` or none; one to three pictures or a short table | narrate all pictures; convince with two reasons; advise with at least two points; instruct step by step |
+| `kort` | `speakingSeconds: 20`, no `prepSeconds` | `cue` (a spoken line by another character with a voice role, generated as `cueAudio`; the prompt says "U hoort eerst uw collega.") and at most one picture; `model` 25–45 words | a question (two parts), a description, a preference with one reason, a short instruction (two steps), a reaction to news, an invitation declined with a reason |
+| `middellang` | `prepSeconds: 15`, `speakingSeconds: 30` | `cue` or none; one to three `images` or a `table`; `model` 40–70 words | narrate all pictures; convince with two reasons; advise with at least two points; instruct step by step |
 
 `rubric: b1-spreken`, `speakingSeconds`, `prepSeconds`, `promptAudio`, `criteria` naming the speech act and the required count ("noem twee redenen"), `model` of 40–70 words for middellang. Feedback in the official order: precondition (on topic), content (speech act realised, count met, clarity), word choice, vocabulary, sentence formation (small errors: articles, plurals, diminutives; larger: verb forms, word order, dropped "het"), a pronunciation note from the transcript only, tempo.
 
@@ -169,9 +169,9 @@ All listening fragments, question audio, speaking instructions and speaking cues
 
 Decided on 10 September 2026 after five rounds of samples (`docs/research/illustration-style-2026-09-10.md`): exercise pictures are **drawn illustrations generated by the image model in one house style**, not photographs and not SVG figure compositions. Real photographs are used only for KNM items about real places, documents and objects. The style prefix, model, sizes, cast and review checklist live in `config/illustration.json`; generation code reads that file so the style never drifts between batches.
 
-- **Style.** Minimal flat illustration: a few simple shapes, no outlines, no texture, no background objects; paper, charcoal and mustard yellow plus one or two muted colours used sparingly; large empty space, no text or logos. Generated with the cheapest image model (`gpt-image-2.5`) at the smallest allowed size (816×816 or 1024×640) and low quality, which for this style is indistinguishable from medium: about half a cent per image. Served at 600 px wide as WebP. The prefix in the config is the only styling text; the item prompt describes the scene and the character in plain words. Detail is the enemy: styles that invite texture bring back tool walls and artefacts.
+- **Style.** Minimal flat illustration: a few simple shapes, no outlines, no texture, no background objects; paper, charcoal and mustard yellow plus one or two muted colours used sparingly; large empty space, no text or logos. Generated with the cheapest image model (`gpt-image-2.5`) at the smallest allowed size (816×816 or 1024×640) and low quality, which for this style is indistinguishable from medium: about half a cent per image. Served at 1024 px wide as WebP (quality 88; 600 px looked soft on retina screens in the review of 10 September 2026). The prefix in the config is the only styling text; the item prompt describes the scene and the character in plain words. Detail is the enemy: styles that invite texture bring back tool walls and artefacts.
 - **Cast.** Eight recurring named characters with three fixed visual traits each (in the config). A character is always described with the same traits; the persona in the question uses the same name.
-- **Sequences.** A three-picture task is one three-panel generation describing the same character in each panel, split afterwards; a trait that changes between panels means regenerate. Pairs are two single generations that differ only in the thing the task asks about.
+- **Sequences.** A three-picture task is three separate generations whose briefs repeat the character's fixed traits verbatim and name the same setting; the review compares the traits across the panels and regenerates the one that drifted (a single three-panel image was the first plan; separate panels proved consistent in batch 008). Pairs are two single generations that differ only in the thing the task asks about.
 - **Review.** Every image is looked at against the checklist in the config (no text, artefacts at display size, the answer-relevant detail unambiguous, traits consistent, nothing wrong for the Netherlands) and gets Dutch `alt` text that does not reveal a key.
 - **Photographs.** Wikimedia Commons with CC BY or CC BY-SA, or our own; author, licence and source URL in `images[].credit/licence/sourceUrl`; shown on a credits page; no recognisable faces.
 - **Tables, forms, schedules and maps** are real text in the app (HTML or SVG with text), never images.
@@ -207,7 +207,7 @@ Level is an authoring target checked by a separate reviewer and a few automatic 
 
 - A2 stimuli: average sentence length under 12 words, no sentence over 18; subordinate clauses only with omdat, als, dat, wanneer, toen; present and perfect tense, simple future with gaan; numbers, days, prices explicit; at most one less common word per 50, explained by context.
 - B1 stimuli: average sentence length 12–18 words, none over 30; paragraphs with subheadings for reading; passive voice, conditionals, relative clauses, signal words (daarom, hoewel, terwijl, ondanks) in use; paraphrase between question and text.
-- Open-task models: A2 20–45 words of main clauses; B1 zinstaak one correct clause of the required type, korte schrijftaak 120–180 words with signal words.
+- Open-task models: A2 e-mail 45–70 words in four to eight sentences (the four bullets each need a sentence or two); A2 wijkkrant 25–45 words in three to five sentences; A2 form the open fields only, one short sentence each; A2 picture note 20–40 words, one sentence per picture; A2 speaking 25–45 words; all in main clauses with at most one subordinate clause per sentence and no sentence over 16 words. B1 zinstaak one correct clause of the required type, korte schrijftaak 120–180 words with signal words. The checker enforces 20–90 words for A2 models; the figures here are the editorial targets per task type.
 - The reviewer compares each item against two exemplars of the same task type (kept in `content/exemplars/`, our own items marked as reference) and states whether it is easier, comparable or harder, and why.
 - The automatic check (`npm run content:verify`) reports sentence-length statistics, option-length spread, key balance and coverage per tag; it fails on missing required fields, evidence not found, unbalanced keys within a mock form, or a form that does not match its blueprint.
 
@@ -215,7 +215,7 @@ Level is an authoring target checked by a separate reviewer and a few automatic 
 
 `content/blueprints/<exam>-<part>.json` declares the block counts, questions per block, option rules, timing, media and spread for each exam part. Sets are built from tags:
 
-- **Drill (oefenset):** one task type, usually one domain; A2 reading 3–4 texts, A2 listening 4 fragments, KNM 10 questions of one theme, A2 writing 1 task, A2 speaking one type × 4, B1 reading 2 texts, B1 listening 1 text, B1 writing 4 zinstaken or 1 longer task, B1 speaking 4 korte or 3 middellange. Explanations after each item.
+- **Drill (oefenset):** one task type, usually one domain; A2 reading 3–4 texts, A2 listening 4 fragments, KNM 8–10 facts of one theme, A2 writing 1 task, A2 speaking one type × 4, B1 reading 2 texts, B1 listening 1 text, B1 writing 4 zinstaken or 2 longer tasks of one type, B1 speaking 4 korte or 3 middellange. Explanations after each item.
 - **Half form (deeltoets):** half the blueprint at half the time; explanations at the end.
 - **Mock (proefexamen):** the blueprint exactly, frozen membership, official time and playback rules, explanations only after submission. Two mocks per part at launch with no shared items.
 
@@ -223,20 +223,22 @@ Existing sets keep their IDs and membership; new content goes into new sets. A m
 
 ## 12. Producing a batch with sub-agents
 
-Use Opus 5 for every role. Roles run in separate contexts so that the reviewer never sees the author's reasoning.
+Use Opus 5 for every role. Roles run in separate contexts so that the reviewer never sees the author's reasoning. Two agents per batch; the briefs they follow live in `docs/briefs/`.
 
-1. **Brief.** The coordinator writes a batch brief: exam part, task types and counts, domains, the avoid list from section 9 plus the current catalogue titles, the level, the target batch id, and the exemplars.
-2. **Author.** Writes the batch JSON and notes (distractor rationales, sources for KNM, voice roles for scripts, image briefs). Runs `npm run batch:check content/batches/<NNN>-original.json` until it reports no failures; warnings go into the notes.
-3. **Reviewer.** Fresh context. Applies `content/reviews/rubric.md`, this blueprint's per-part requirements and the level control above; proves each key from the evidence; tests each distractor; returns per-item verdicts and concrete revision requests. Never edits.
-4. **Revision loop** between author and reviewer until every item passes or is dropped. The reviewer rereads every changed item.
-5. **Level check.** A second reviewer (fresh context) sees only the final items and the exemplars and judges level and exam likeness per item, without the first reviewer's notes. Disagreements go back to the author.
-6. **Media.** After the hash gate: `npm run audio:generate` (round-trip checked, manifest updated) and `npm run illustrate:generate` (house style from `config/illustration.json`, every image looked at before `reviewed: true` in the manifest). Both accept `--apply` to write the media fields into the catalogue; afterwards `npm run hints:refresh "<reason>"` re-records the starter-review hash when no open task changed.
-7. **Integration.** Review JSON with hashes, `npm run content:integrate`, set definitions, coverage report.
+1. **Brief.** The coordinator names the exam part, task types and counts, domains, the batch id and the subjects to avoid (section 9 plus the catalogue titles); `docs/briefs/author.md` carries the rest.
+2. **Author.** Writes `content/batches/<NNN>-original.json`, `<NNN>-notes.md` and, for open tasks, `<NNN>-starters.json`. Runs `npm run batch:check` until it reports no failures; checks invented organisation names on the web; warnings go into the notes.
+3. **Reviewer.** Fresh context, `docs/briefs/review.md`. Applies `content/reviews/rubric.md`, the per-part requirements and the level control in one pass: proves each key from the evidence, tests each distractor, judges level and exam likeness per item (the former separate level check). Small repairs are not requested but made: the reviewer writes `content/batches/<NNN>-proposed.json` (and `-proposed-starters.json` when a criterion changed) with every required and recommended edit applied, lists the edits in the review, and records the hash of the proposed file in `content/reviews/<NNN>-review.json`. An item that needs a new premise is rejected instead of rewritten.
+4. **Adoption.** `npm run batch:adopt <NNN>` moves the proposed files over the originals, verifies the review hash against the adopted bytes and runs the checker; the coordinator reads the diff the review lists. No separate reviser or re-review round: the reviewer has already read the edited items. A rejected item is dropped from the batch before adoption.
+5. **Level check.** Only for the first batch of a part or task type (calibration), as a separate fresh-context pass (`content/reviews/<NNN>-level-check.md`); later batches of the same shape rely on the reviewer's level column.
+6. **Media.** After the hash gate: `npm run audio:generate` (round-trip checked, retried once on a filler, manifest updated) and `npm run illustrate:generate` (house style from `config/illustration.json`); both run four generations at a time (`--concurrency`) and accept `--apply` to write the media fields into the catalogue; every picture is looked at on a contact sheet before `reviewed: true` in the manifest; `illustrate --redo <key>` redraws a drifted panel. Afterwards `npm run content:integrate -- --refresh-hints "<reason>"` re-records the starter-review hash (never `hints:refresh` alone, which can leave key order out of sync).
+7. **Integration.** `npm run content:integrate`, set definitions in `content/practice-sets.json`, coverage report; `npm run media:prune` removes superseded clips and pictures.
+8. **Revising an integrated batch.** Edit the batch file, never the catalogue; `npm run batch:check` prints an info line that the items are already in the catalogue (an id carries its batch number, so this is a revision, not a collision). A focused re-reviewer (fresh context) reads only the changed fields, records the new `source_sha256` and a `revisions` entry in the review JSON, and `npm run content:integrate -- --refresh-hints "<reason>"` re-merges; a changed prompt or option drops that question's clip, a changed brief its picture, and the generators make them again. When the criteria of an open task changed, the starters for that task are re-reviewed with it.
 
-Batch size: 10–15 closed items or 6–8 open tasks per author run keeps review thorough. Larger briefs are split.
+Batch size: 10–15 closed items or 6–8 open tasks per author run keeps review thorough; several batches run in parallel.
 
 ## 13. Checklist before an item is called done
 
+- [ ] invented organisation names, shops, firms and web addresses checked on the web: none belongs to a real business (two of three invented names in batch 015 did)
 - [ ] `exam`, `taskType`, `domain` (and `textType` for B1) set; `situation` present where required
 - [ ] stimulus length, question count and option count match section 4
 - [ ] every key has verbatim evidence, an explanation and distractor rationales

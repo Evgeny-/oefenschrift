@@ -14,8 +14,8 @@
 // under tmp/ but never written to the manifest. The API key is read the same way the app reads it and
 // is never printed.
 import { createHash } from 'node:crypto';
-import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 type Turn = { speaker?: string; role: string; text: string };
@@ -25,7 +25,8 @@ type Item = {
   text?: string;
   script?: Turn[];
   audioMode?: 'stitched' | 'dialogue';
-  questions?: { id: string; prompt: string; options?: Record<string, string> }[];
+  intro?: string;
+  questions?: { id: string; prompt: string; options?: Record<string, string>; script?: Turn[] }[];
   prompt?: string;
   cue?: Turn;
   [key: string]: any;
@@ -53,11 +54,23 @@ const option = (name: string, fallback: string) => {
 const GENERATE = flag('--generate'),
   APPLY = flag('--apply');
 const OUT = option('--out', 'assets/audio');
+const CONCURRENCY = Math.max(1, Number(option('--concurrency', '4')) || 4);
+// Run `work` over `items` with at most `limit` in flight; results are collected in the caller's closures.
+async function pool<T>(items: T[], limit: number, work: (item: T) => Promise<void>) {
+  let next = 0;
+  await Promise.all(
+    Array.from({ length: Math.min(limit, items.length) }, async () => {
+      while (next < items.length) await work(items[next++]);
+    }),
+  );
+}
 const TMP = 'tmp/audio';
 const config = JSON.parse(readFileSync('config/services.json', 'utf8'));
 const voices = JSON.parse(readFileSync(option('--voices', 'config/voices.json'), 'utf8'));
-const CER_LIMIT = 0.04,
-  INSERT_LIMIT = 2; // character error rate; longest run of inserted words
+// Character error rate limit and the longest run of inserted words that blocks a clip. Very short
+// clips (a question of a few words) get a wider CER band, because one misheard name dominates them.
+const cerLimit = (wordCount: number) => (wordCount < 10 ? 0.15 : 0.04),
+  INSERT_LIMIT = 2;
 
 function apiKey(): string {
   const path = process.env.INBURGERING_CREDENTIALS_FILE || config.credentials_file;
@@ -79,19 +92,34 @@ const voiceFor = (role: string): string => {
   return entry.voice_id;
 };
 
-async function tts(key: string, voiceId: string, text: string): Promise<Buffer> {
-  const response = await fetch(
-    `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}?output_format=mp3_44100_128`,
-    {
+// Retry rate limits and transient provider errors with a short backoff.
+async function withRetry(call: () => Promise<Response>): Promise<Response> {
+  let response = await call();
+  for (const delay of [3000, 8000, 15000]) {
+    if (response.status !== 429 && response.status < 500) break;
+    await new Promise((r) => setTimeout(r, delay));
+    response = await call();
+  }
+  return response;
+}
+// Voice settings for one role: the shared settings plus the role's speaking-rate multiplier.
+const settingsFor = (role: string) => ({
+  ...voices.settings,
+  speed: voices.roles[role]?.speed ?? voices.settings.speed ?? 1,
+});
+async function tts(key: string, role: string, text: string): Promise<Buffer> {
+  const voiceId = voiceFor(role);
+  const response = await withRetry(() =>
+    fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}?output_format=${PCM}`, {
       method: 'POST',
       headers: { 'xi-api-key': key, 'Content-Type': 'application/json' },
       body: JSON.stringify({
         text,
         model_id: voices.model,
         language_code: voices.language,
-        voice_settings: voices.settings,
+        voice_settings: settingsFor(role),
       }),
-    },
+    }),
   );
   if (!response.ok) throw new Error(`ElevenLabs text-to-speech returned HTTP ${response.status}.`);
   return Buffer.from(await response.arrayBuffer());
@@ -100,9 +128,8 @@ async function dialogue(
   key: string,
   inputs: { text: string; voice_id: string }[],
 ): Promise<Buffer> {
-  const response = await fetch(
-    'https://api.elevenlabs.io/v1/text-to-dialogue?output_format=mp3_44100_128',
-    {
+  const response = await withRetry(() =>
+    fetch(`https://api.elevenlabs.io/v1/text-to-dialogue?output_format=${PCM}`, {
       method: 'POST',
       headers: { 'xi-api-key': key, 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -111,7 +138,7 @@ async function dialogue(
         language_code: voices.language,
         settings: { stability: voices.settings.stability },
       }),
-    },
+    }),
   );
   if (!response.ok)
     throw new Error(`ElevenLabs text-to-dialogue returned HTTP ${response.status}.`);
@@ -128,11 +155,13 @@ async function transcribe(key: string, file: string): Promise<string> {
   }))
     form.append(name, value);
   form.append('file', new Blob([readFileSync(file)], { type: 'audio/mpeg' }), 'clip.mp3');
-  const response = await fetch('https://api.elevenlabs.io/v1/speech-to-text', {
-    method: 'POST',
-    headers: { 'xi-api-key': key },
-    body: form,
-  });
+  const response = await withRetry(() =>
+    fetch('https://api.elevenlabs.io/v1/speech-to-text', {
+      method: 'POST',
+      headers: { 'xi-api-key': key },
+      body: form,
+    }),
+  );
   if (!response.ok) throw new Error(`ElevenLabs speech-to-text returned HTTP ${response.status}.`);
   return String((await response.json()).text || '');
 }
@@ -191,13 +220,37 @@ function dutchNumber(n: number): string {
   }
   return String(n);
 }
-const normalise = (s: string) =>
-  s
-    .toLowerCase()
-    .replace(
-      /(\d{1,2})[.:](\d{2})\b/g,
-      (_, h, m) => `${dutchNumber(+h)} uur ${+m ? dutchNumber(+m) : ''}`,
+// Spoken form of a script: what the voice is asked to say and what the transcript is compared with.
+// Phone numbers are read digit by digit with pauses (pairs come back regrouped and misheard), 112 as
+// "één één twee", and clock times as Dutch speakers say them ("17.00 uur" is "vijf uur").
+const DIGITS = ['nul', 'één', 'twee', 'drie', 'vier', 'vijf', 'zes', 'zeven', 'acht', 'negen'];
+function spokenTime(h: number, m: number): string {
+  const hour = h % 12 === 0 ? 12 : h % 12,
+    next = (hour % 12) + 1;
+  if (m === 0) return `${dutchNumber(hour)} uur`;
+  if (m === 30) return `half ${dutchNumber(next)}`;
+  if (m === 15) return `kwart over ${dutchNumber(hour)}`;
+  if (m === 45) return `kwart voor ${dutchNumber(next)}`;
+  return `${dutchNumber(hour)} uur ${dutchNumber(m)}`;
+}
+export function spoken(text: string): string {
+  return text
+    .replace(/\b0\d{1,3}(?:[ -]\d{1,8}){1,5}\b/g, (n) =>
+      n
+        .split(/[ -]/)
+        .map((group) => [...group].map((d) => DIGITS[+d]).join(' '))
+        .join(', '),
     )
+    .replace(/\b0\d{8,9}\b/g, (n) => [...n].map((d) => DIGITS[+d]).join(' '))
+    .replace(/\b112\b/g, 'één één twee')
+    .replace(/\b(\d{1,2})[.:](\d{2})\s*u(?:ur)?\b/g, (_, h, m) => spokenTime(+h, +m))
+    .replace(/\b(\d{1,2})[.:](\d{2})\b/g, (_, h, m) => spokenTime(+h, +m));
+}
+const normalise = (s: string) =>
+  spoken(s)
+    .toLowerCase()
+    // The transcriber sometimes writes the emergency number as a hundred-and-twelve.
+    .replace(/\b(?:één|een) ?honderd ?twaalf\b/g, 'één één twee')
     .replace(/\d+/g, (d) => dutchNumber(+d))
     .replace(/[^a-zà-ÿ ]/g, ' ')
     .replace(/\s+/g, ' ')
@@ -221,6 +274,7 @@ function editDistance<T>(r: T[], h: T[]) {
 // Character error rate on the normalised text (tolerant of "halftien"/"half tien" and name spellings)
 // plus the longest run of inserted words (catches a voice that adds "nou ja, hallo, uh").
 function roundTrip(reference: string, hypothesis: string) {
+  const wordCount = words(reference).length;
   const rc = [...normalise(reference).replace(/ /g, '')],
     hc = [...normalise(hypothesis).replace(/ /g, '')];
   const cer = rc.length ? editDistance(rc, hc)[rc.length][hc.length] / rc.length : 0;
@@ -245,7 +299,82 @@ function roundTrip(reference: string, hypothesis: string) {
       run = 0;
     }
   }
-  return { wer: cer, inserted };
+  return { wer: cer, inserted, wordCount, hypothesis };
+}
+// The provider returns lossless 16-bit PCM at 24 kHz; every step below stays lossless (WAV) until the
+// single final MP3 encode, so the clip is encoded exactly once. Level matching is a pure gain: the
+// integrated loudness is measured and the whole turn is shifted to the target, with no compression.
+// 44.1 kHz PCM needs a Pro plan; the run probes once and falls back to 24 kHz on a Starter key.
+let PCM = 'pcm_44100',
+  PCM_RATE = 44100;
+const PIPELINE = 'pcm-gain-single-encode';
+async function choosePcm(key: string) {
+  const response = await fetch(
+    `https://api.elevenlabs.io/v1/text-to-speech/${voiceFor('narrator')}?output_format=pcm_44100`,
+    {
+      method: 'POST',
+      headers: { 'xi-api-key': key, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        text: 'Test.',
+        model_id: voices.model,
+        language_code: voices.language,
+      }),
+    },
+  );
+  if (response.status === 403) {
+    PCM = 'pcm_24000';
+    PCM_RATE = 24000;
+  }
+  console.log(`Source audio: ${PCM}.`);
+}
+function pcmToWav(raw: Buffer, wav: string) {
+  const rawPath = wav.replace(/\.wav$/, '.pcm');
+  writeFileSync(rawPath, raw);
+  execFileSync('ffmpeg', [
+    '-y',
+    '-loglevel',
+    'error',
+    '-f',
+    's16le',
+    '-ar',
+    String(PCM_RATE),
+    '-ac',
+    '1',
+    '-i',
+    rawPath,
+    wav,
+  ]);
+  execFileSync('rm', [rawPath]);
+}
+function measureLoudness(wav: string): { integrated: number; truePeak: number } {
+  // loudnorm prints its measurement as JSON on stderr; the audio itself is discarded.
+  const { stderr } = spawnSync(
+    'ffmpeg',
+    ['-hide_banner', '-nostats', '-i', wav, '-af', 'loudnorm=print_format=json', '-f', 'null', '-'],
+    { encoding: 'utf8' },
+  );
+  const start = stderr.lastIndexOf('{');
+  const json = JSON.parse(stderr.slice(start, stderr.indexOf('}', start) + 1));
+  return { integrated: Number(json.input_i), truePeak: Number(json.input_tp) };
+}
+// Shift a WAV to the target loudness by a constant gain, keeping the true peak under the ceiling.
+function matchLoudness(wav: string) {
+  const l = voices.loudness || { integrated: -18, truePeak: -1.5 };
+  const { integrated, truePeak } = measureLoudness(wav);
+  if (!Number.isFinite(integrated) || integrated < -70) return;
+  const gain = Math.min(l.integrated - integrated, l.truePeak - truePeak);
+  const tmp = wav.replace(/\.wav$/, '.gain.wav');
+  execFileSync('ffmpeg', [
+    '-y',
+    '-loglevel',
+    'error',
+    '-i',
+    wav,
+    '-af',
+    `volume=${gain.toFixed(2)}dB`,
+    tmp,
+  ]);
+  execFileSync('mv', [tmp, wav]);
 }
 function stitch(parts: string[], target: string) {
   const gap = Number(voices.gapSeconds || 0.45);
@@ -264,34 +393,25 @@ function stitch(parts: string[], target: string) {
     filter,
     '-map',
     '[out]',
-    '-codec:a',
-    'libmp3lame',
-    '-b:a',
-    '128k',
     target,
   ]);
 }
-// EBU R128 loudness normalisation so that quiet and loud voices sit at the same level.
-function normaliseLoudness(file: string) {
-  const l = voices.loudness || { integrated: -18, truePeak: -1.5, range: 11 };
-  const tmp = file.replace(/\.mp3$/, '.norm.mp3');
+// The one lossy step: 44.1 kHz MP3 at 192 kbps.
+function encode(wav: string, mp3: string) {
   execFileSync('ffmpeg', [
     '-y',
     '-loglevel',
     'error',
     '-i',
-    file,
-    '-af',
-    `loudnorm=I=${l.integrated}:TP=${l.truePeak}:LRA=${l.range}`,
+    wav,
     '-ar',
     '44100',
     '-codec:a',
     'libmp3lame',
     '-b:a',
-    '128k',
-    tmp,
+    '192k',
+    mp3,
   ]);
-  execFileSync('mv', [tmp, file]);
 }
 function analyse(file: string) {
   const pcm = execFileSync(
@@ -344,8 +464,36 @@ function jobs(items: Item[]): Job[] {
           }),
       });
     }
+    // A B1 listening text: the narrator's introduction, then one fragment per question.
+    if (item.part === 'listening' && item.intro)
+      list.push({
+        key: `${item.id}#intro`,
+        item,
+        kind: 'prompt',
+        turns: [{ role: 'narrator', text: item.intro }],
+        mode: 'stitched',
+        target: (clip) => Object.assign(item, { introAudio: clip.file }),
+      });
     if ((item.part === 'listening' || item.part === 'knm') && item.questions) {
       for (const question of item.questions) {
+        if (question.script?.length)
+          list.push({
+            key: `${item.id}#${question.id}-fragment`,
+            item,
+            kind: 'fragment',
+            turns: question.script,
+            mode:
+              item.audioMode ||
+              (question.script.length > 1
+                ? voices.defaultConversationMode || 'stitched'
+                : 'stitched'),
+            target: (clip) =>
+              Object.assign(question, {
+                audio: clip.file,
+                duration: clip.duration,
+                peaks: clip.peaks,
+              }),
+          });
         const text =
           item.part === 'knm'
             ? [
@@ -411,22 +559,29 @@ async function run() {
   }
 
   const key = apiKey();
+  await choosePcm(key);
   mkdirSync(OUT, { recursive: true });
   mkdirSync(TMP, { recursive: true });
   let failures = 0,
     generated = 0;
-  for (const job of list) {
+  const failed: any[] = [];
+  // Clips are independent: a few synthesise at once, within the provider's concurrency allowance.
+  await pool(list, CONCURRENCY, async (job) => {
     const roles = Object.fromEntries(job.turns.map((t) => [t.role, voiceFor(t.role)]));
-    const text = job.turns.map((t) => t.text).join('\n');
-    const script_sha256 = sha(text);
+    const text = job.turns.map((t) => spoken(t.text)).join('\n');
+    const script_sha256 = sha(job.turns.map((t) => t.text).join('\n'));
     const token = sha(
       JSON.stringify({
         text,
         roles,
         model: job.mode === 'dialogue' ? voices.dialogueModel : voices.model,
-        settings: voices.settings,
+        settings:
+          job.mode === 'dialogue' && job.turns.length > 1
+            ? voices.settings
+            : Object.fromEntries(job.turns.map((t) => [t.role, settingsFor(t.role)])),
         mode: job.mode,
         loudness: voices.loudness,
+        pipeline: `${PIPELINE}-${PCM_RATE}`,
       }),
     ).slice(0, 16);
     const file = `audio/${token}.mp3`,
@@ -439,72 +594,105 @@ async function run() {
       existsSync(target)
     ) {
       job.target?.(existing);
-      continue;
+      return;
     }
     if (job.turns.length > 1 && new Set(job.turns.map((t) => t.role)).size < 2) {
       console.log(`  skip  ${job.key}: a conversation needs two different roles`);
       failures++;
-      continue;
+      return;
     }
-    try {
-      if (job.mode === 'dialogue' && job.turns.length > 1)
-        writeFileSync(
-          target,
-          await dialogue(
-            key,
-            job.turns.map((t) => ({ text: t.text, voice_id: roles[t.role] })),
-          ),
-        );
-      else if (job.turns.length === 1)
-        writeFileSync(target, await tts(key, roles[job.turns[0].role], job.turns[0].text));
-      else {
-        const parts: string[] = [];
-        for (const [i, turn] of job.turns.entries()) {
-          const p = resolve(TMP, `${token}-${i}.mp3`);
-          if (!existsSync(p)) {
-            writeFileSync(p, await tts(key, roles[turn.role], turn.text));
-            normaliseLoudness(p);
-          }
-          parts.push(p);
+    // A voice sometimes adds a filler or repeats a word; the round trip catches it, and a second
+    // synthesis from scratch (cached turns discarded) usually clears it.
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      try {
+        const wav = resolve(TMP, `${token}.wav`);
+        if (attempt > 1) {
+          for (const i of job.turns.keys())
+            rmSync(resolve(TMP, `${token}-${i}.wav`), { force: true });
+          rmSync(wav, { force: true });
         }
-        stitch(parts, target);
-      }
-      normaliseLoudness(target);
-      const { wer, inserted } = roundTrip(text, await transcribe(key, target));
-      const { duration, peaks } = analyse(target);
-      const clip: Clip & { key: string } = {
-        key: job.key,
-        file,
-        text,
-        roles,
-        model: job.mode === 'dialogue' ? voices.dialogueModel : voices.model,
-        mode: job.mode,
-        duration,
-        peaks: job.kind === 'fragment' ? peaks : undefined,
-        wer: Math.round(wer * 1000) / 1000,
-        inserted,
-        script_sha256,
-        settings: voices.settings,
-      };
-      if (wer > CER_LIMIT || inserted >= INSERT_LIMIT) {
-        failures++;
-        console.log(
-          `  FAIL  ${job.key}: CER ${clip.wer}, inserted run ${inserted}; kept at ${target} for listening, not recorded`,
+        if (job.mode === 'dialogue' && job.turns.length > 1) {
+          pcmToWav(
+            await dialogue(
+              key,
+              job.turns.map((t) => ({ text: spoken(t.text), voice_id: roles[t.role] })),
+            ),
+            wav,
+          );
+          matchLoudness(wav);
+        } else {
+          const parts: string[] = [];
+          for (const [i, turn] of job.turns.entries()) {
+            const p = resolve(TMP, `${token}-${i}.wav`);
+            if (!existsSync(p)) {
+              pcmToWav(await tts(key, turn.role, spoken(turn.text)), p);
+              matchLoudness(p);
+            }
+            parts.push(p);
+          }
+          if (parts.length === 1) execFileSync('cp', [parts[0], wav]);
+          else stitch(parts, wav);
+        }
+        encode(wav, target);
+        const { wer, inserted, wordCount, hypothesis } = roundTrip(
+          text,
+          await transcribe(key, target),
         );
-        continue;
+        const { duration, peaks } = analyse(target);
+        const clip: Clip & { key: string } = {
+          key: job.key,
+          file,
+          text,
+          roles,
+          model: job.mode === 'dialogue' ? voices.dialogueModel : voices.model,
+          mode: job.mode,
+          duration,
+          peaks: job.kind === 'fragment' ? peaks : undefined,
+          wer: Math.round(wer * 1000) / 1000,
+          inserted,
+          script_sha256,
+          settings: voices.settings,
+        };
+        if (wer > cerLimit(wordCount) || (wordCount >= 10 && inserted >= INSERT_LIMIT)) {
+          if (attempt === 1) {
+            console.log(
+              `  retry ${job.key}: CER ${clip.wer}, inserted run ${inserted}; synthesising again`,
+            );
+            continue;
+          }
+          failures++;
+          failed.push({
+            key: job.key,
+            file: target,
+            cer: clip.wer,
+            inserted,
+            reference: text,
+            hypothesis,
+          });
+          console.log(
+            `  FAIL  ${job.key}: CER ${clip.wer}, inserted run ${inserted}; kept at ${target} for listening, not recorded`,
+          );
+          break;
+        }
+        manifest[job.key] = clip;
+        job.target?.(clip);
+        generated++;
+        console.log(`  ok    ${job.key}  ${duration.toFixed(1)}s  CER ${clip.wer}`);
+        break;
+      } catch (error) {
+        failures++;
+        console.log(`  FAIL  ${job.key}: ${(error as Error).message}`);
+        break;
       }
-      manifest[job.key] = clip;
-      job.target?.(clip);
-      generated++;
-      console.log(`  ok    ${job.key}  ${duration.toFixed(1)}s  CER ${clip.wer}`);
-    } catch (error) {
-      failures++;
-      console.log(`  FAIL  ${job.key}: ${(error as Error).message}`);
     }
-  }
+  });
   mkdirSync(resolve(manifestPath, '..'), { recursive: true });
   writeFileSync(manifestPath, JSON.stringify(Object.values(manifest), null, 2) + '\n');
-  console.log(`${generated} generated, ${failures} failed, manifest ${manifestPath}.`);
+  if (failed.length)
+    writeFileSync(resolve(TMP, 'failures.json'), JSON.stringify(failed, null, 2) + '\n');
+  console.log(
+    `${generated} generated, ${failures} failed, manifest ${manifestPath}.${failed.length ? ` Transcripts of failed clips: ${resolve(TMP, 'failures.json')}` : ''}`,
+  );
   if (source) {
     writeFileSync(resolve(OUT, 'items-with-audio.json'), JSON.stringify(catalogue, null, 2) + '\n');
     return;
@@ -516,7 +704,8 @@ async function run() {
     );
   } else console.log('Run with --apply to write audio fields into content/catalogue.json.');
 }
-run().catch((error) => {
-  console.error(error.message);
-  process.exit(1);
-});
+if (process.argv[1]?.endsWith('/audio.ts'))
+  run().catch((error) => {
+    console.error(error.message);
+    process.exit(1);
+  });

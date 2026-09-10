@@ -39,7 +39,9 @@ await mkdir('tmp', { recursive: true });
 const directory = await mkdtemp(resolve('tmp/browser-run-'));
 const port = await freePort(),
   bidiPort = await freePort();
-const origin = `http://127.0.0.1:${port}`;
+const origin = `http://127.0.0.1:${port}`,
+  // A production run can sit under a base path, as on the shared host.
+  base = (process.env.INBURGERING_BASE_PATH || '').replace(/\/+$/, '');
 const production = process.argv.includes('--production');
 const environment = {
   ...process.env,
@@ -48,6 +50,9 @@ const environment = {
   NODE_ENV: production ? 'production' : 'development',
   FIREFOX_BIDI_PORT: String(bidiPort),
   INBURGERING_DB: resolve(directory, 'test.sqlite3'),
+  // Inside node_modules so Vite may serve it (tmp/ is on the deny list), apart from the
+  // node_modules/.vite that a running development server uses.
+  INBURGERING_VITE_CACHE: resolve('node_modules/.vite-browser-test'),
   INBURGERING_ADMIN_SECRET: randomBytes(32).toString('hex'),
   INBURGERING_ADMIN_USER: 'browser-test',
   INBURGERING_ADMIN_PASSWORD: 'browser-test-password',
@@ -91,7 +96,7 @@ try {
   await waitUntil(async () => {
     if (launchError) throw launchError;
     try {
-      return (await fetch(origin + '/api/status')).ok;
+      return (await fetch(origin + base + '/api/status')).ok;
     } catch {
       return false;
     }

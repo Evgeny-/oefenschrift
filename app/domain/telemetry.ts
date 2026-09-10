@@ -2,6 +2,7 @@
 // (never a name or account) accompanies exercise and question ids, the chosen
 // option letter, the interface language and level. Answer texts, transcripts and
 // recordings are never part of an event. The Privacy page describes this.
+import { postJson } from './request';
 const VISITOR_KEY = 'inburgering.visitor',
   SESSION_KEY = 'inburgering.visited';
 let queue: any[] = [],
@@ -29,12 +30,7 @@ export function flush() {
   }
   const events = queue.splice(0, 50);
   try {
-    fetch('/api/events', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ visitor, events }),
-      keepalive: true,
-    }).catch(() => {});
+    postJson('/api/events', { visitor, events }, { keepalive: true }).catch(() => {});
   } catch {}
 }
 export function track(event: Record<string, unknown>) {

@@ -1,0 +1,97 @@
+/* Motion is light and brief, and always means something: a state that changes fades
+   instead of snapping, a disclosure opens by growing, evidence is swept by the marker,
+   feedback rises into place. Two durations cover everything; reduced motion removes all. */
+:root {
+  --motion: 160ms ease;
+  --motion-move: 220ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+/* Every interactive control transitions its colours between rest, hover, pressed and disabled. */
+button,
+a,
+.answer-option,
+.answer-letter,
+.home-subject,
+.nav-link,
+.text-button,
+.exercise-entry,
+.info-trigger,
+.preferences-trigger,
+.play-button,
+.list-filters button,
+textarea {
+  transition:
+    background-color var(--motion),
+    border-color var(--motion),
+    color var(--motion),
+    opacity var(--motion);
+}
+.nav-icon {
+  transition: opacity var(--motion);
+}
+/* The answer field grows to its text smoothly. */
+#open-answer {
+  transition:
+    height 120ms ease,
+    border-color var(--motion);
+}
+/* The marker sweeps across evidence from left to right when it appears. */
+.passage mark,
+.transcript mark,
+.review-evidence mark,
+.mistake-answers mark,
+.criterion-detail mark,
+.home-sample mark {
+  background-color: transparent;
+  background-image: linear-gradient(var(--mark), var(--mark));
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  animation: mark-sweep 420ms ease-out;
+}
+@keyframes mark-sweep {
+  from {
+    background-size: 0% 100%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
+/* Explanations and feedback rise into place rather than appearing at once. */
+.answer-feedback,
+.evaluation,
+.result-mistakes,
+.recording-preview {
+  animation: rise var(--motion-move) both;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* The phone navigation strip glides to the current section. */
+.nav-strip {
+  scroll-behavior: smooth;
+}
+/* Disclosures animate their height through the script in useDisclosureMotion; the chevron
+   and the plus sign only need a colour and rotation transition here. */
+.hint-chevron,
+summary::after {
+  transition:
+    transform var(--motion),
+    color var(--motion);
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+  .nav-strip {
+    scroll-behavior: auto;
+  }
+}

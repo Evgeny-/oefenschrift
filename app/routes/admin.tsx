@@ -2,9 +2,18 @@ import React, { useMemo } from 'react';
 import { Link, useLoaderData } from 'react-router';
 import { getStore } from '../../server/store';
 import { adminSession } from '../../server/security';
-import { elevenLabsSubscription } from '../../server/services';
-import Chart, { axes, bar, line, shortDay } from '../components/admin/Chart';
-import { Card, Empty, Tile, number, percent } from '../components/admin/ui';
+import { availability, LABELS } from '../../server/availability';
+import Chart, { axes, bar, donut, line, shortDay } from '../components/admin/Chart';
+import {
+  Card,
+  Empty,
+  Tile,
+  compact,
+  money,
+  number,
+  percent,
+  useProviders,
+} from '../components/admin/ui';
 const subjects = {
   reading: 'Reading',
   listening: 'Listening',
@@ -12,13 +21,6 @@ const subjects = {
   speaking: 'Speaking',
   knm: 'KNM',
 };
-// Provider balances are read at most every five minutes.
-let balance: { at: number; value: any } | null = null;
-async function elevenLabs() {
-  if (!balance || Date.now() - balance.at > 300000)
-    balance = { at: Date.now(), value: await elevenLabsSubscription() };
-  return balance.value;
-}
 export async function loader({ request }) {
   adminSession(request);
   const days = [7, 30, 90].includes(Number(new URL(request.url).searchParams.get('days')))
@@ -27,9 +29,9 @@ export async function loader({ request }) {
   const store = getStore(),
     analytics = store.analytics(days),
     titles = Object.fromEntries(
-      store.list().map((row) => [row.id, (row.published || row.draft)?.title || row.id]),
+      store.list().map((row) => [row.id, row.published?.title || row.id]),
     );
-  const meta = Object.fromEntries(store.list().map((row) => [row.id, row.published || row.draft]));
+  const meta = Object.fromEntries(store.list().map((row) => [row.id, row.published]));
   const popular = analytics.byItem
     .map((row) => ({
       ...row,
@@ -53,10 +55,28 @@ export async function loader({ request }) {
     .filter((report) => report.status === 'open')
     .slice(0, 5)
     .map((report) => ({ ...report, title: titles[String(report.item_id)] || report.item_id }));
-  return { days, analytics, popular, reviewed, reports, eleven: await elevenLabs() };
+  return {
+    days,
+    analytics,
+    popular,
+    reviewed,
+    reports,
+    // A configured service that is not offered right now is worth a line at the top.
+    paused: Object.values(availability(Date.now(), store))
+      .filter((s) => s.configured && !s.available)
+      .map((s) => ({ label: LABELS[s.service], reason: s.reason })),
+  };
 }
+const reasons = {
+  off: 'is switched off',
+  paused: 'paused itself after provider errors',
+  cap: 'reached its daily cap',
+};
 export default function Overview() {
-  const { days, analytics: a, popular, reviewed, reports, eleven } = useLoaderData<typeof loader>();
+  const { days, analytics: a, popular, reviewed, reports, paused } = useLoaderData<typeof loader>();
+  // Provider balances arrive after the page has rendered, so a slow provider never
+  // delays the overview; the two tiles show a dash until then.
+  const { eleven, openai } = useProviders();
   const labels = a.daily.map((d) => shortDay(d.day)),
     answersInWindow = a.daily.reduce((n, d) => n + d.answers, 0),
     correctInWindow = a.daily.reduce((n, d) => n + d.correct, 0);
@@ -100,10 +120,11 @@ export default function Overview() {
           t,
           { stack: 'answers', top: false },
         ),
+        // Incorrect is a state, not a third series: it wears the reserved failure red.
         bar(
           'Incorrect',
           a.daily.map((d) => d.answers - d.correct),
-          t.series[2],
+          t.bad,
           t,
           { stack: 'answers' },
         ),
@@ -141,42 +162,17 @@ export default function Overview() {
     }),
     [a],
   );
-  const donut = (rows, names) => (t) => ({
-    tooltip: {
-      trigger: 'item',
-      backgroundColor: t.sheet,
-      borderColor: t.line,
-      borderWidth: 1,
-      textStyle: { color: t.ink, fontFamily: t.font, fontSize: 12 },
-      extraCssText: 'box-shadow:none;border-radius:8px;',
-    },
-    legend: {
-      right: 0,
-      top: 'middle',
-      orient: 'vertical',
-      icon: 'circle',
-      itemWidth: 8,
-      itemHeight: 8,
-      textStyle: { color: t.muted, fontSize: 12 },
-    },
-    series: [
-      {
-        type: 'pie',
-        radius: ['58%', '82%'],
-        center: ['35%', '50%'],
-        label: { show: false },
-        itemStyle: { borderColor: t.sheet, borderWidth: 2 },
-        data: rows.map((row, i) => ({
-          name: names[row.value] || row.value,
-          value: row.visitors,
-          itemStyle: { color: t.series[i % 3] },
-        })),
-      },
-    ],
-  });
-  const languages = useMemo(() => donut(a.lang, { nl: 'Dutch', en: 'English' }), [a]),
-    levelSplit = useMemo(() => donut(a.level, {}), [a]);
+  const shares = (rows, names) => (t) =>
+    donut(
+      rows.map((row) => ({ name: names[row.value] || row.value, value: row.visitors })),
+      t,
+    );
+  const languages = useMemo(() => shares(a.lang, { nl: 'Dutch', en: 'English' }), [a]),
+    levelSplit = useMemo(() => shares(a.level, {}), [a]);
   const credits = eleven?.configured && !eleven.error ? eleven : null;
+  // The spend follows the selected period like the other counts; 90 days are fetched once.
+  const costs = openai?.configured && !openai.error ? openai : null,
+    spent = costs ? costs.days.slice(-days).reduce((sum, day) => sum + day.cost, 0) : 0;
   return (
     <>
       <div className="admin-head">
@@ -195,52 +191,73 @@ export default function Overview() {
           ))}
         </nav>
       </div>
+      {paused.length > 0 && (
+        <p className="admin-notice" role="status">
+          {paused.map((s) => `${s.label} ${reasons[s.reason] || 'is unavailable'}`).join(' · ')}.
+          Learners get self-review or typing meanwhile. <Link to="/ops/services">Services</Link>
+        </p>
+      )}
       <div className="admin-grid">
-        <Tile
-          label="Unique visitors"
-          value={number(a.visitors)}
-          detail={`${number(a.returning)} returned on another day · ${number(a.visitors7)} in the last 7 days`}
-        />
-        <Tile
-          label="Learners"
-          value={number(a.learners)}
-          detail="answered a question or finished a task"
-        />
-        <Tile
-          label="Answers"
-          value={number(answersInWindow)}
-          detail={`${percent(correctInWindow, answersInWindow)} correct`}
-        />
-        <Tile
-          label="Feedback requests"
-          value={number(feedbackCalls)}
-          detail={feedbackFailures ? `${number(feedbackFailures)} failed` : 'no failures'}
-          tone={feedbackFailures > 0 ? 'warn' : undefined}
-        />
-        <Tile
-          label="Open reports"
-          value={number(a.reportsOpen)}
-          detail={<Link to="/ops/reports">Review the queue</Link>}
-          tone={a.reportsOpen > 0 ? 'warn' : undefined}
-        />
-        <Tile
-          label="ElevenLabs credits"
-          value={
-            credits
-              ? `${percent(credits.limit - credits.used, credits.limit)}`
-              : eleven?.configured
-                ? '–'
-                : 'not set'
-          }
-          detail={
-            credits
-              ? `${number(credits.limit - credits.used)} of ${number(credits.limit)} characters left`
-              : eleven?.error || 'no ElevenLabs key configured'
-          }
-          tone={
-            credits && credits.limit && credits.used / credits.limit > 0.85 ? 'warn' : undefined
-          }
-        />
+        <div className="admin-tiles">
+          <Tile
+            label="Unique visitors"
+            value={number(a.visitors)}
+            detail={`${number(a.returning)} returning`}
+          />
+          <Tile
+            label="Learners"
+            value={number(a.learners)}
+            detail={`${percent(a.learners, a.visitors)} of visitors`}
+          />
+          <Tile
+            label="Answers"
+            value={number(answersInWindow)}
+            detail={`${percent(correctInWindow, answersInWindow)} correct`}
+          />
+          <Tile
+            label="Feedback"
+            value={number(feedbackCalls)}
+            detail={feedbackFailures ? `${number(feedbackFailures)} failed` : 'no failures'}
+            tone={feedbackFailures > 0 ? 'warn' : undefined}
+          />
+          <Tile
+            label="Open reports"
+            value={number(a.reportsOpen)}
+            detail={<Link to="/ops/reports">Review the queue</Link>}
+            tone={a.reportsOpen > 0 ? 'warn' : undefined}
+          />
+          <Tile
+            label="ElevenLabs"
+            value={
+              credits
+                ? `${percent(credits.limit - credits.used, credits.limit)}`
+                : !eleven || eleven.configured
+                  ? '–'
+                  : 'not set'
+            }
+            detail={
+              credits
+                ? `${compact(credits.limit - credits.used)} characters`
+                : !eleven
+                  ? 'reading…'
+                  : eleven.error || 'no API key'
+            }
+            tone={
+              credits && credits.limit && credits.used / credits.limit > 0.85 ? 'warn' : undefined
+            }
+          />
+          <Tile
+            label="OpenAI spend"
+            value={costs ? money(spent) : !openai || openai.configured ? '–' : 'not set'}
+            detail={
+              costs
+                ? `${money(spent / days)} a day`
+                : !openai
+                  ? 'reading…'
+                  : openai.error || 'no admin key'
+            }
+          />
+        </div>
         <Card className="span-6" title="Unique visitors per day">
           <Chart build={visitors} label="Unique visitors per day" />
         </Card>

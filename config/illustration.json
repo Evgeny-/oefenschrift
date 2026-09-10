@@ -39,21 +39,25 @@
     "meneer De Vries": "man of about 60, grey hair, round glasses, dark blue jacket",
     "mevrouw Bakker": "woman of about 65, short white hair, red cardigan",
     "Julio": "young man, curly hair, striped shirt",
-    "Amina": "girl of about 10, two braids, purple hoodie"
+    "Amina": "girl of about 10, two braids, purple hoodie",
+    "Modibo": "young man, short black hair, light shirt",
+    "Sabrina": "woman in her thirties, long dark hair, green jumper",
+    "Hasan": "man in his fifties, grey moustache, brown cap"
   },
   "sketchPrefix": "Very simple line drawing with few thin lines, like a quick pen sketch in a notebook: only the essential people and objects, no background, no shading, no texture, soft slightly uneven pen line, large empty warm off-white space; mustard yellow used on exactly one object per panel. Deliberately low detail. No text, no captions, no logos.",
   "sketchPrefixUse": "optional alternative for picture notes in writing tasks, if chosen",
   "qualityNote": "For this flat style, low quality is indistinguishable from medium at display size and costs about a third (171 output tokens for 816x816, 107 for 1024x640 on 10 September 2026).",
   "sizeNote": "The API refuses anything under 655,360 pixels (640x640 was rejected); 816x816 and 1024x640 are the smallest practical sizes. Images are shown at about 500-600 px wide, so nothing larger is needed.",
   "delivery": {
-    "width": 600,
+    "width": 1024,
     "format": "webp",
-    "quality": 80,
-    "note": "Keep the generated PNG under content/images-source (ignored by git if large); serve a 600 px wide WebP of 30-60 KB from public/images. Sequences are split into three files after generation."
+    "quality": 88,
+    "note": "Serve at the generated width (1024 px landscape, 816 px square) as WebP; 600 px looked soft on high-density screens at the column width the app uses. Keep the generated PNG under content/images-source (ignored by git)."
   },
   "costPerImage": {
     "single_816_low": "$0.005",
     "landscape_1024x640_low": "$0.003",
     "basis": "API-reported output tokens at $30 per million; confirm on the usage dashboard"
-  }
+  },
+  "sequence": "Generate a three-picture task as three separate images with the same style prefix, each brief repeating the character's three fixed traits verbatim and naming the same setting; check the traits across the three pictures at review and regenerate the panel whose trait drifted. (A single three-panel generation was the first plan; separate panels gave consistent characters for the batch 008 picture notes and split cleanly into the app's picture row.)"
 }

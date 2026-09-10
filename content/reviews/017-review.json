@@ -1,0 +1,403 @@
+{
+  "review_id": "batch017-editorial-review",
+  "source": "content/batches/017-original.json",
+  "source_sha256": "4bee19a52b6c26f998d47567cef6fd1198a0ef4d642f36d71dbb81efab2addf6",
+  "starters_source": "content/batches/017-starters.json",
+  "starters_sha256": "086c57f77eb0256faefbc347d2d43bf00cd762c4c3a44ea7ba247dc1e248976d",
+  "starters_verdict": "pass",
+  "review_type": "AI editorial review of B1 Spreken middellange taken (narrate three pictures, convince, advise, instruct, compare from a table) and their sentence starters: prompt shape and speech act, cue, image briefs and tables, criteria, sample quotes and learner errors, model coverage and length, level, originality",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 8,
+    "distribution": {"B1_speaking": 8},
+    "task_types": {"middellang": 8},
+    "speech_acts": {"narrate_three_pictures": 2, "convince_two_reasons": 1, "advise_from_table": 1, "advise_after_cue": 1, "instruct_from_pictures": 1, "compare_and_choose_from_table": 1, "explain_rule_and_advise_from_picture": 1},
+    "stimuli": {"three_pictures": 2, "two_pictures": 1, "one_picture": 1, "table": 2, "cue_only": 2},
+    "cue_roles": {"f-adult": 1, "m-young": 1},
+    "registers": {"u": 2, "je": 4, "third_person_narration": 2},
+    "domains_as_labelled": {"werk": 3, "educatie": 3, "overig": 2},
+    "domains_after_requested_relabel": {"werk": 3, "educatie": 2, "overig": 3},
+    "batch_check": "npm run batch:check content/batches/017-original.json: Checked 8 items, 0 questions. Keys: {}. Options: {}. No failures, no warnings.",
+    "timings_prep15_speak30": true,
+    "prompts_carry_official_instruction": true,
+    "prompts_state_situation_first": true,
+    "criteria_name_speech_act_and_count": true,
+    "criteria_are_information_or_speech_acts": false,
+    "criteria_gap": "trein-gemist criterion 4 and eerste-schooldag criterion 5 check connectors and tense consistency (form, scored under sentence formation in the official scale); machinestoring criterion 3 embeds a connector-word list in a content criterion",
+    "criteria_bilingual_pairs_agree": true,
+    "criteria_count_range": "3-5",
+    "cues_natural_12_to_30_words": true,
+    "cue_word_counts": {"cursusverzoek": 30, "examentips": 29},
+    "cue_not_read_back_in_model": true,
+    "open_sample_quotes_are_verbatim": true,
+    "one_null_quote_per_item": true,
+    "null_quote_indexes": [1, 2, 1, 2, 1, 2, 3, 2],
+    "two_learner_errors_per_sample": true,
+    "no_prompt_sentence_copied_into_sample_or_model": false,
+    "prompt_copy_gap": "trein-gemist sample and model open with the prompt's first clause reordered; eerste-schooldag sample opens with the prompt's 'gaat vandaag voor het eerst naar [haar] nieuwe school'",
+    "models_meet_every_criterion": true,
+    "model_word_counts": {"trein-gemist": 68, "eerste-schooldag": 67, "cursusverzoek": 68, "fietskeuze": 68, "machinestoring": 68, "sportabonnement": 65, "examentips": 69, "glasbak": 68},
+    "model_word_range": "65-69",
+    "model_sentence_average_range": "11.3-16.3",
+    "model_longest_sentence": 25,
+    "model_longest_sentence_note": "a semicolon-joined sentence in sportabonnement; 21 when split at the semicolon",
+    "model_syllables_range": "87-103",
+    "model_speaking_time_estimate": "25-29 s at 3.5 syllables per second, 32-34 s at 3.0; inside the blueprint's 40-70 words, at the ceiling for a B1 learner",
+    "sample_word_counts": {"trein-gemist": 52, "eerste-schooldag": 54, "cursusverzoek": 40, "fietskeuze": 47, "machinestoring": 44, "sportabonnement": 41, "examentips": 49, "glasbak": 54},
+    "tables_readable_in_15_seconds": true,
+    "table_sizes": {"fietskeuze": "4 rows x 3 columns, 28 words", "sportabonnement": "5 rows x 3 columns, 39 words; stays on screen while speaking"},
+    "tables_both_options_arguable": true,
+    "tables_balance_note": "fietskeuze balanced; sportabonnement leans to Zuid (De Brug has only the price row), acceptable because validity is not judged",
+    "picture_briefs_cast_traits_verbatim": true,
+    "picture_briefs_no_text": true,
+    "sequences_same_traits_and_setting_clear_order": true,
+    "pair_differs_only_in_step": true,
+    "picture_briefs_house_style": false,
+    "picture_gap": "eerste-schooldag panel 2 has seven or eight figures (five or six children plus Amina and the teacher); trein-gemist panel 1 'hand raised in dismay' can read as waving",
+    "organisation_names_invented": true,
+    "organisation_name_note": "'Sportschool De Brug' is a generic name also carried by a small real gym (Mierlo); 'Sportschool Zuid' generic; within blueprint section 8, rename optional",
+    "cast_names_consistent_with_config": true,
+    "domain_labels_correct": false,
+    "domain_gap": "eerste-schooldag (a child's school day narrated by an adult) is labelled educatie; the project labels the child's school overig (blueprint section 9 'school of the children' under family; 016 medicijn-school)",
+    "avoid_list_clear": true,
+    "slugs_new_to_catalogue_and_batches_001_016": true,
+    "exemplars_available": false,
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false
+  },
+  "starters_checks": {
+    "item_ids_match_batch": true,
+    "one_starter_per_criterion_in_order": true,
+    "starter_counts": [4, 5, 4, 4, 4, 3, 4, 4],
+    "every_starter_has_ellipsis": true,
+    "partial_not_complete_answers": true,
+    "grammatical_when_completed_naturally": true,
+    "register_matches_task": true,
+    "no_invented_task_facts": true,
+    "unchanged_by_revision_requests": false,
+    "changes_required": [
+      "trein-gemist starter 4: 'Modibo was heel …, want …' replaces 'Toen …, daarna …, en uiteindelijk …'",
+      "eerste-schooldag: delete starter 5 'Eerst …, daarna …, en aan het eind …'",
+      "machinestoring starter 3: 'Het is belangrijk dat je eerst … en pas daarna …' replaces 'Eerst …, daarna …, en dan …'"
+    ],
+    "notes": "The three starters to change are connector skeletons that follow from the form criteria; every other starter completes into a natural B1 sentence aligned with its criterion. machinestoring starter 2 'Daarna bel je …' is a three-word stem the model also uses; it leaves the callee open and is accepted. The 'Ten eerste …, ten tweede …' frame in cursusverzoek is the standard realisation of the counted criterion and is accepted as the structural frames of batch 008 were."
+  },
+  "items": [
+    {
+      "id": "B1:speaking:batch017-trein-gemist:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "Three-picture narration in the past tense with a causal chain (missed train, bus, interview), like the official Deel 2 narration; model 68 words (62 after revision), subordinate clauses with toen and omdat, connectors daarom and uiteindelijk.",
+      "evidence": "Prompt states the situation then 'Kijk naar de plaatjes. Vertel wat er gebeurde en hoe Modibo toch bij het gesprek kwam. Gebruik alle drie de plaatjes.' Briefs repeat Modibo's traits verbatim in all three panels with the document folder as continuity object and an unambiguous order. Criteria 1-3 one per picture. Sample quotes for 1 and 3 exact; 'Toen ging hij snel naar het bedrijf.' never says how he travelled, so criterion 2 is null; errors 'Op het station hij zag' and 'Hij is de trein gemist'. Model meets all four (train leaving, bus, handshake and outcome, connectors, one tense). Sample and model both open with the prompt's first clause reordered ('Vorige week had Modibo een sollicitatiegesprek in een andere stad.'); criterion 4 is a form criterion (connectors, one tense) that the prompt does not ask for and that a one-quote sample cannot evidence; panel 1 pose may read as waving.",
+      "revision_requests": [
+        {
+          "severity": "required-minor",
+          "field": "prompt",
+          "failure": "The new criterion 4 must be asked for in the prompt (criteria cover what the task asks).",
+          "repair": "Uw vriend Modibo had vorige week een sollicitatiegesprek in een andere stad, maar onderweg ging er iets mis. Een vriendin vraagt hoe het is gegaan. Kijk naar de plaatjes. Vertel wat er gebeurde, hoe Modibo zich voelde en hoe hij toch bij het gesprek kwam. Gebruik alle drie de plaatjes."
+        },
+        {
+          "severity": "required",
+          "field": "criteria[3]",
+          "failure": "'Maak er één verhaal van met woorden als eerst, daarna, toen en uiteindelijk, en blijf in één tijd' is neither information nor a speech act; tense is scored under sentence formation and coherence is not scored in Programma I; its starter is a connector skeleton.",
+          "repair": "[\"Zeg hoe Modibo zich voelde toen de trein wegreed, bijvoorbeeld geschrokken of zenuwachtig.\", \"Say how Modibo felt when the train left, for example shocked or nervous.\"]"
+        },
+        {
+          "severity": "required",
+          "field": "sample",
+          "failure": "Opens with the prompt sentence reordered.",
+          "repair": "Modibo wilde vorige week met de trein naar zijn sollicitatiegesprek. Op het station hij zag dat zijn trein net wegreed. Hij is de trein gemist en hij was heel zenuwachtig. Toen ging hij snel naar het bedrijf. Uiteindelijk kwam hij nog op tijd en had hij een goed gesprek met de mevrouw."
+        },
+        {
+          "severity": "required",
+          "field": "quotes",
+          "failure": "Quote 4 must evidence the new criterion.",
+          "repair": "[\"Op het station hij zag dat zijn trein net wegreed.\", null, \"Uiteindelijk kwam hij nog op tijd en had hij een goed gesprek met de mevrouw.\", \"hij was heel zenuwachtig\"]"
+        },
+        {
+          "severity": "required",
+          "field": "model",
+          "failure": "Opens with the prompt sentence reordered; reading the situation back caps the content score and the model must not demonstrate it.",
+          "repair": "Het ging bijna mis. Toen Modibo op het perron aankwam, reed zijn trein net weg. Hij schrok, omdat hij niet te laat wilde komen. Daarom rende hij naar de bushalte en nam hij de bus. Uiteindelijk kwam hij iets later aan dan gepland, maar het gesprek ging door. Hij gaf de mevrouw van het bedrijf een hand en het gesprek verliep goed."
+        },
+        {
+          "severity": "recommended",
+          "field": "images[0].brief",
+          "failure": "'his free hand is raised in dismay' can render as waving goodbye.",
+          "repair": "Replace 'his free hand is raised in dismay' with 'his free hand is on his forehead in dismay'."
+        },
+        {
+          "severity": "required",
+          "field": "starters[3] (017-starters.json)",
+          "failure": "Connector skeleton, not a sentence starter; follows the replaced criterion.",
+          "repair": "Modibo was heel …, want …"
+        }
+      ]
+    },
+    {
+      "id": "B1:speaking:batch017-eerste-schooldag:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "Three-picture present narration with feelings and reasons ('omdat ze nog niemand kent', 'want ze heeft nieuwe vriendinnen'), the official pattern; model 67 words, four content criteria after revision.",
+      "evidence": "Prompt 'Amina is tien jaar. Ze is verhuisd en gaat vandaag voor het eerst naar haar nieuwe school. Kijk naar de plaatjes. Vertel wat er gebeurt en hoe Amina zich voelt. Gebruik alle drie de plaatjes.' Briefs repeat Amina's traits in all three panels, Fatima's in panel 1, the teacher's three traits in panels 1 and 2, 'the same school' in panels 2 and 3; order arrival, classroom, break. Sample quotes for 1, 2, 4 and 5 exact; nothing about the break, so criterion 3 is null; errors 'naar nieuwe school' and 'In de klas de juf zegt'. Model meets all five. Sample opens with the prompt's clause; criterion 5 is a form criterion and five is one too many for 30 seconds; panel 2 has seven or eight figures; panel 3 says 'two other children' while the model says 'twee meisjes'; the candidate is an adult observer of a child's school day, which the project labels overig.",
+      "revision_requests": [
+        {
+          "severity": "required-minor",
+          "field": "domain",
+          "failure": "A child's school day narrated by an adult is family life, not the candidate's own education (blueprint section 9; 016 medicijn-school precedent).",
+          "repair": "overig"
+        },
+        {
+          "severity": "required",
+          "field": "criteria",
+          "failure": "Criterion 5 ('Verbind de plaatjes met woorden als eerst, daarna en aan het eind, en blijf in één tijd') is a form criterion and the fifth criterion for 30 seconds.",
+          "repair": "Delete the fifth pair; keep criteria 1-4 unchanged."
+        },
+        {
+          "severity": "required",
+          "field": "quotes",
+          "failure": "One quote per criterion.",
+          "repair": "[\"Eerst brengt haar moeder haar naar de deur, daar wacht de juf.\", \"In de klas de juf zegt haar naam en Amina vertelt iets over zichzelf.\", null, \"Ze is een beetje bang, want ze kent nog niemand.\"]"
+        },
+        {
+          "severity": "required",
+          "field": "sample",
+          "failure": "Opens with the prompt's 'gaat vandaag voor het eerst naar [haar] nieuwe school'.",
+          "repair": "Amina begint vandaag op nieuwe school. Ze is een beetje bang, want ze kent nog niemand. Eerst brengt haar moeder haar naar de deur, daar wacht de juf. In de klas de juf zegt haar naam en Amina vertelt iets over zichzelf. Aan het eind van de dag is ze blij."
+        },
+        {
+          "severity": "required-minor",
+          "field": "images[1].brief",
+          "failure": "Seven or eight figures in one flat 1024x640 panel; the house style (blueprint section 7, 009 review precedent) asks for a few simple shapes.",
+          "repair": "In a classroom of the same school, Amina (girl of about 10, two braids, purple hoodie) stands at the front next to the teacher (woman of about 40, short red hair, green dress), who rests a hand on Amina's shoulder; three children at tables look at Amina. The whiteboard is blank. No text."
+        },
+        {
+          "severity": "required-minor",
+          "field": "images[2].brief",
+          "failure": "The brief shows 'two other children' while the model says 'twee meisjes … nieuwe vriendinnen'.",
+          "repair": "In the schoolyard of the same school, Amina (girl of about 10, two braids, purple hoodie) jumps over a skipping rope that two other girls of her age are turning; all three are laughing. No text."
+        },
+        {
+          "severity": "required",
+          "field": "starters (017-starters.json)",
+          "failure": "Starter 5 follows the deleted criterion.",
+          "repair": "Delete 'Eerst …, daarna …, en aan het eind …'; keep the first four."
+        },
+        {
+          "severity": "optional",
+          "field": "model",
+          "failure": "'Op het eerste plaatje staat Amina …' points at the picture rather than telling the story.",
+          "repair": "Replace the first sentence with 'Vanochtend brengt haar moeder Amina naar de ingang van haar nieuwe school.' (66 words); starter 1 may then become 'Eerst komt Amina met … bij …'."
+        }
+      ]
+    },
+    {
+      "id": "B1:speaking:batch017-cursusverzoek:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "Convince with two reasons after a spoken objection, the official Deel 2 act; four criteria make it fuller than the official minimum, still inside 30 seconds; model 68 words with ten eerste/ten tweede, dus, als, zodat, omdat.",
+      "evidence": "Prompt states the situation then 'U hoort eerst uw leidinggevende. Overtuig haar dat u de cursus ook moet volgen. Noem twee redenen.' Cue by the manager (f-adult), 30 words, states both objections and asks why; model paraphrases it. Criteria: the speech act, two reasons, a response to the objection, a closing question. Sample quotes for 1, 3 and 4 exact; one reason labelled 'de belangrijkste reden', so criterion 2 is null; errors 'achter kassa' and 'daarna ik kan'. Model meets all four with u to the manager. The sample's objection sentence 'daarna ik kan het nieuwe systeem meteen gebruiken' can be counted as a second reason by a lenient rater; the cue says she has signed up ('Je hebt je opgegeven') while the model asks 'Mag ik mij inschrijven?'. Manager's je and candidate's u accepted as realistic asymmetric address.",
+      "revision_requests": [
+        {
+          "severity": "required-minor",
+          "field": "sample",
+          "failure": "The sample must miss exactly one criterion without doubt; its third sentence can be read as a second reason.",
+          "repair": "Ik wil de cursus heel graag volgen, want ik sta bijna elke dag achter kassa. Dat is voor mij de belangrijkste reden. Twee dagen is niet lang, daarna ik ben gewoon weer in de winkel. Mag ik alstublieft toch meedoen?"
+        },
+        {
+          "severity": "required-minor",
+          "field": "quotes[2]",
+          "failure": "Follows the sample change.",
+          "repair": "Twee dagen is niet lang, daarna ik ben gewoon weer in de winkel."
+        },
+        {
+          "severity": "recommended",
+          "field": "cue.text",
+          "failure": "Cue says she has already signed up; the model, the criterion example and the starter ask whether she may register.",
+          "repair": "Ik hoorde dat je naar de cursus over het nieuwe kassasysteem wilt. Die is eigenlijk alleen voor teamleiders en kost twee werkdagen. Waarom wil jij er zo graag heen?"
+        }
+      ]
+    },
+    {
+      "id": "B1:speaking:batch017-fietskeuze:1",
+      "verdict": "pass",
+      "level_check": "comparable, fuller end",
+      "level_reason": "Advice from a four-row table with at least two points, tied to the friend's constraints, plus a drawback with a tip; model 68 words with ook al, dus, zodat and modal advice; four elements in 30 seconds.",
+      "evidence": "Prompt gives Roos's constraints (third floor without a lift, little money, needs the bike next week) and 'Bekijk de tabel. Adviseer Roos welke fiets ze het beste kan kopen en waarom. Noem minstens twee punten uit de tabel.' Table 4 x 3, 28 words, balanced: bike 1 wins price and delivery, bike 2 weight and warranty, so either advice is arguable. Criteria: recommendation, two table points, link to her situation, drawback with a tip; English pairs agree. Sample quotes for 1, 2 and 4 exact; the facts are never tied to the stairs, money or timing, so criterion 3 is null; errors 'Ik ben ook naar de prijs gekeken' and 'misschien je kunt'. Model recommends bike 2 with weight and warranty, links to the stairs, names the three-week wait and suggests borrowing a bike; je to a friend throughout; no prompt sentence beyond the situation clause criterion 3 requires.",
+      "revision_requests": []
+    },
+    {
+      "id": "B1:speaking:batch017-machinestoring:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "Step-by-step instruction from two pictures with a reason and a warning, the official instruct-a-colleague act; model 68 words in instruction form with als, zodat, want.",
+      "evidence": "Prompt states the situation then 'Kijk naar de plaatjes. Leg hem stap voor stap uit wat hij eerst moet doen en wie hij daarna moet bellen.' Pair: Hasan's traits verbatim in both, same hall and machine, the pictures differ only in the step (stop button; phone with a technician in a bubble). Criteria: stop first, whom to call, order and instruction form, a reason or warning. Sample quotes for 1, 3 and 4 exact; 'Daarna je moet meteen bellen' names nobody, so criterion 2 is null; errors 'op rode knop' and 'Daarna je moet'. Model meets all four (stopzetten and the red button, de technische dienst, eerst/daarna, 'niemand gewond raakt', 'Probeer de machine nooit zelf te repareren'). Criterion 3 embeds the connector list 'met woorden als eerst, daarna en dan' and its starter is a connector skeleton; the callee is rightly left open.",
+      "revision_requests": [
+        {
+          "severity": "required-minor",
+          "field": "criteria[2]",
+          "failure": "Mixes a content check (order, instruct rather than describe) with a connector-word list, the form element ruled out for the narrations.",
+          "repair": "[\"Geef de stappen in de goede volgorde als instructies aan uw collega: zeg wat hij moet doen, niet wat u op de plaatjes ziet.\", \"Give the steps in the right order as instructions to your colleague: say what he must do, not what you see in the pictures.\"]"
+        },
+        {
+          "severity": "required",
+          "field": "starters[2] (017-starters.json)",
+          "failure": "Connector skeleton, not a sentence starter.",
+          "repair": "Het is belangrijk dat je eerst … en pas daarna …"
+        },
+        {
+          "severity": "recommended",
+          "field": "images[1].brief",
+          "failure": "The jammed box is the continuity object; without it picture 2 could show a different moment.",
+          "repair": "In the same factory hall, next to the same packaging machine that now stands still with the crooked box still jammed at its opening, Hasan (man in his fifties, grey moustache, brown cap) holds a phone to his ear; a round speech bubble above him shows a technician, a person in a work coat holding a toolbox. No text."
+        },
+        {
+          "severity": "optional",
+          "field": "model",
+          "failure": "Invented detail not required of learners; the model sits at the 30-second ceiling.",
+          "repair": "Drop '; het nummer hangt bij de telefoon' so the sentence reads 'Daarna bel je de technische dienst.' (62 words)."
+        }
+      ]
+    },
+    {
+      "id": "B1:speaking:batch017-sportabonnement:1",
+      "verdict": "pass",
+      "level_check": "comparable, lighter end",
+      "level_reason": "Compare two options from a five-row table, choose with two reasons and name the other side; three criteria, the lightest load in the batch; model 65 words with terwijl, zodat, wel … maar … dus.",
+      "evidence": "Prompt 'U volgt een opleiding. Studenten van uw school krijgen korting bij twee sportscholen. U wilt na de lessen gaan sporten. Een medestudent vraagt welke sportschool u kiest. Bekijk de tabel. Vergelijk de twee abonnementen en zeg welk abonnement u kiest. Noem twee redenen.' Table 5 x 3, 39 words, graspable in 15 seconds and kept on screen while speaking; leans to Zuid but two rows can be cited for De Brug and validity is not judged. Criteria: the choice, two reasons from the table, the comparison. Sample quotes for 1 and 2 (two contiguous sentences) exact; no comparison, so criterion 3 is null; errors 'Ten eerste die sportschool is' and 'in examenperiode'. Model chooses Zuid for distance and monthly cancellation and concedes De Brug's price while noting the paid group lessons. Domain educatie accepted: student role, school discount, fellow student, distance to school. 'Sportschool De Brug' is a generic name also used by a small real gym; rename optional.",
+      "revision_requests": [
+        {
+          "severity": "optional",
+          "field": "table.rows[2]",
+          "failure": "The opening-hours row favours neither side and De Brug has only the price row in its favour.",
+          "repair": "Swap the hours so that De Brug reads '6.00–23.00 uur' and Zuid '7.00–22.00 uur' (neither sample nor model uses the row), or drop the row to lighten the table to four rows."
+        }
+      ]
+    },
+    {
+      "id": "B1:speaking:batch017-examentips:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "Advice with at least two points and a reason after a spoken request, the official Deel 2 advise act; model 69 words with ik zou, kun je het beste, omdat, als, hoeven … te.",
+      "evidence": "Prompt states the situation then 'U hoort eerst Julio. Geef hem advies over de voorbereiding. Noem minstens twee tips en leg uit waarom die helpen.' Cue by Julio (cast young man, m-young), 29 words, natural; model paraphrases it. Criteria: the advice speech act with example forms, two tips, a reason for at least one tip, a reaction to his nerves or the candidate's own experience; criterion 3 slightly more lenient than the prompt's plural, accepted as the pass line. Sample quotes for 1, 2 and 3 exact; three tips with one reason, nothing about his nerves or last year, so criterion 4 is null; errors 'Elke dag je leert' and 'voor examen'. Model gives a schedule and old exams with reasons, reassures him and cites last year; je throughout.",
+      "revision_requests": [
+        {
+          "severity": "optional",
+          "field": "model",
+          "failure": "'elke dag anderhalf uur en één hoofdstuk per dag' repeats 'dag'.",
+          "repair": "elke dag anderhalf uur, één hoofdstuk per keer"
+        }
+      ]
+    },
+    {
+      "id": "B1:speaking:batch017-glasbak:1",
+      "verdict": "pass",
+      "level_check": "comparable, fuller end",
+      "level_reason": "Explain a rule and advise with at least two points from one picture, with a reason for the rule; four elements in 30 seconds; model 68 words with omdat, bovendien, u kunt het beste, an imperative and a passive.",
+      "evidence": "Prompt states the situation then 'Kijk naar het plaatje. Leg haar uit wat de regel is en wat ze het beste kan doen. Noem minstens twee punten.' Single brief with mevrouw Bakker's traits verbatim, a visibly full container with bags beside it, no sticker or logo; neutral alt. Criteria: the rule, what to do with the glass now, that and how to report to the gemeente, why the rule exists. Sample quotes for 1, 2 and 4 exact; nothing about reporting, so criterion 3 is null; errors 'u kunt boete krijgen' and 'dan kinderen kunnen'. Model meets all four with u to an older neighbour and nothing municipality-specific. Neighbourhood setting accepted: the content is a waste rule, a fine and a report to the gemeente.",
+      "revision_requests": [
+        {
+          "severity": "optional",
+          "field": "model",
+          "failure": "At the 30-second ceiling.",
+          "repair": "Drop 'Dan wordt hij sneller geleegd.' (63 words) if models nearer 60 words are preferred."
+        }
+      ]
+    }
+  ],
+  "revision_requests": [
+    {"item": "B1:speaking:batch017-trein-gemist:1", "severity": "required-minor", "field": "prompt", "request": "Uw vriend Modibo had vorige week een sollicitatiegesprek in een andere stad, maar onderweg ging er iets mis. Een vriendin vraagt hoe het is gegaan. Kijk naar de plaatjes. Vertel wat er gebeurde, hoe Modibo zich voelde en hoe hij toch bij het gesprek kwam. Gebruik alle drie de plaatjes."},
+    {"item": "B1:speaking:batch017-trein-gemist:1", "severity": "required", "field": "criteria[3]", "request": "[\"Zeg hoe Modibo zich voelde toen de trein wegreed, bijvoorbeeld geschrokken of zenuwachtig.\", \"Say how Modibo felt when the train left, for example shocked or nervous.\"]"},
+    {"item": "B1:speaking:batch017-trein-gemist:1", "severity": "required", "field": "sample", "request": "Modibo wilde vorige week met de trein naar zijn sollicitatiegesprek. Op het station hij zag dat zijn trein net wegreed. Hij is de trein gemist en hij was heel zenuwachtig. Toen ging hij snel naar het bedrijf. Uiteindelijk kwam hij nog op tijd en had hij een goed gesprek met de mevrouw."},
+    {"item": "B1:speaking:batch017-trein-gemist:1", "severity": "required", "field": "quotes", "request": "[\"Op het station hij zag dat zijn trein net wegreed.\", null, \"Uiteindelijk kwam hij nog op tijd en had hij een goed gesprek met de mevrouw.\", \"hij was heel zenuwachtig\"]"},
+    {"item": "B1:speaking:batch017-trein-gemist:1", "severity": "required", "field": "model", "request": "Het ging bijna mis. Toen Modibo op het perron aankwam, reed zijn trein net weg. Hij schrok, omdat hij niet te laat wilde komen. Daarom rende hij naar de bushalte en nam hij de bus. Uiteindelijk kwam hij iets later aan dan gepland, maar het gesprek ging door. Hij gaf de mevrouw van het bedrijf een hand en het gesprek verliep goed."},
+    {"item": "B1:speaking:batch017-trein-gemist:1", "severity": "recommended", "field": "images[0].brief", "request": "Replace 'his free hand is raised in dismay' with 'his free hand is on his forehead in dismay'."},
+    {"item": "B1:speaking:batch017-trein-gemist:1", "severity": "required", "field": "starters[3]", "request": "Modibo was heel …, want …"},
+    {"item": "B1:speaking:batch017-eerste-schooldag:1", "severity": "required-minor", "field": "domain", "request": "overig"},
+    {"item": "B1:speaking:batch017-eerste-schooldag:1", "severity": "required", "field": "criteria", "request": "Delete the fifth pair; keep criteria 1-4."},
+    {"item": "B1:speaking:batch017-eerste-schooldag:1", "severity": "required", "field": "quotes", "request": "[\"Eerst brengt haar moeder haar naar de deur, daar wacht de juf.\", \"In de klas de juf zegt haar naam en Amina vertelt iets over zichzelf.\", null, \"Ze is een beetje bang, want ze kent nog niemand.\"]"},
+    {"item": "B1:speaking:batch017-eerste-schooldag:1", "severity": "required", "field": "sample", "request": "Amina begint vandaag op nieuwe school. Ze is een beetje bang, want ze kent nog niemand. Eerst brengt haar moeder haar naar de deur, daar wacht de juf. In de klas de juf zegt haar naam en Amina vertelt iets over zichzelf. Aan het eind van de dag is ze blij."},
+    {"item": "B1:speaking:batch017-eerste-schooldag:1", "severity": "required-minor", "field": "images[1].brief", "request": "In a classroom of the same school, Amina (girl of about 10, two braids, purple hoodie) stands at the front next to the teacher (woman of about 40, short red hair, green dress), who rests a hand on Amina's shoulder; three children at tables look at Amina. The whiteboard is blank. No text."},
+    {"item": "B1:speaking:batch017-eerste-schooldag:1", "severity": "required-minor", "field": "images[2].brief", "request": "In the schoolyard of the same school, Amina (girl of about 10, two braids, purple hoodie) jumps over a skipping rope that two other girls of her age are turning; all three are laughing. No text."},
+    {"item": "B1:speaking:batch017-eerste-schooldag:1", "severity": "required", "field": "starters", "request": "Delete the fifth starter 'Eerst …, daarna …, en aan het eind …'."},
+    {"item": "B1:speaking:batch017-cursusverzoek:1", "severity": "required-minor", "field": "sample", "request": "Ik wil de cursus heel graag volgen, want ik sta bijna elke dag achter kassa. Dat is voor mij de belangrijkste reden. Twee dagen is niet lang, daarna ik ben gewoon weer in de winkel. Mag ik alstublieft toch meedoen?"},
+    {"item": "B1:speaking:batch017-cursusverzoek:1", "severity": "required-minor", "field": "quotes[2]", "request": "Twee dagen is niet lang, daarna ik ben gewoon weer in de winkel."},
+    {"item": "B1:speaking:batch017-cursusverzoek:1", "severity": "recommended", "field": "cue.text", "request": "Ik hoorde dat je naar de cursus over het nieuwe kassasysteem wilt. Die is eigenlijk alleen voor teamleiders en kost twee werkdagen. Waarom wil jij er zo graag heen?"},
+    {"item": "B1:speaking:batch017-machinestoring:1", "severity": "required-minor", "field": "criteria[2]", "request": "[\"Geef de stappen in de goede volgorde als instructies aan uw collega: zeg wat hij moet doen, niet wat u op de plaatjes ziet.\", \"Give the steps in the right order as instructions to your colleague: say what he must do, not what you see in the pictures.\"]"},
+    {"item": "B1:speaking:batch017-machinestoring:1", "severity": "required", "field": "starters[2]", "request": "Het is belangrijk dat je eerst … en pas daarna …"},
+    {"item": "B1:speaking:batch017-machinestoring:1", "severity": "recommended", "field": "images[1].brief", "request": "In the same factory hall, next to the same packaging machine that now stands still with the crooked box still jammed at its opening, Hasan (man in his fifties, grey moustache, brown cap) holds a phone to his ear; a round speech bubble above him shows a technician, a person in a work coat holding a toolbox. No text."}
+  ],
+  "decisions_on_author_doubts": {
+    "1_domains": "Domain follows the situation and the candidate's role. sportabonnement keeps educatie (student role, school discount, fellow student, distance to school); eerste-schooldag becomes overig (a child's school day narrated by an adult; blueprint section 9 and 016 medicijn-school); trein-gemist stays werk. Counts become werk 3, educatie 2, overig 3; the next B1 speaking batch should add an educatie middellang task.",
+    "2_glasbak_neighbourhood": "Accepted: the content is a waste rule, a fine and a report to the gemeente (instanties); no change.",
+    "3_two_narration_tenses": "Accepted; tense consistency moves to the feedback rubric under sentence formation.",
+    "4_five_criteria": "Too many and the fifth is a form criterion: delete it; four content criteria remain.",
+    "5_language_shape_criteria": "Dropped or converted: trein-gemist criterion 4 becomes the feelings criterion (with one clause added to the prompt), eerste-schooldag criterion 5 is deleted, machinestoring criterion 3 keeps order and instruct-not-describe (content in the official scale) and loses the connector-word list. Tense and connector checks belong to the b1-spreken feedback.",
+    "6_cursusverzoek_register": "Keep the manager's je and the candidate's u; the feedback must accept an answer in je.",
+    "7_machinestoring_callee": "Keep it open; no prompt change.",
+    "8_tables": "fietskeuze balanced; sportabonnement leans to Zuid, acceptable since validity is not judged; an optional opening-hours swap gives De Brug a second advantage.",
+    "9_cast_names_in_cues": "Fine.",
+    "10_invented_details": "Acceptable; not required of learners; dropping 'het nummer hangt bij de telefoon' is optional.",
+    "11_sibling_016": "No repeated setting; keep koffiemachine and machinestoring, and the exam-themed tasks, apart in drills.",
+    "coordinator_tables_15s": "Readable: 28 and 39 words, mostly numbers, and the app keeps the table on screen while speaking; the five-row table is at the limit.",
+    "coordinator_model_length": "65-69 words fit 30 seconds for a fluent speaker (25-29 s at 3.5 syllables per second) and are the ceiling for a B1 learner (32-34 s at 3.0); accepted within the blueprint; 60-65 suggested as the target for later batches.",
+    "coordinator_je_vs_u": "Right as it is; asymmetric address is realistic and the candidate's register is consistent."
+  },
+  "observations_not_blocking": [
+    "eerste-schooldag model opens with 'Op het eerste plaatje staat Amina …', which points at the picture; 'Vanochtend brengt haar moeder Amina naar de ingang van haar nieuwe school.' tells the story (66 words).",
+    "trein-gemist model 'Hij schrok, omdat hij niet te laat wilde komen.' is acceptable spoken Dutch; 'Hij schrok, want hij was bang dat hij te laat zou komen.' is the more precise reason (65 words).",
+    "examentips criterion 3 ('bij minstens één tip') is more lenient than the prompt's 'leg uit waarom die helpen'; accepted as the pass line.",
+    "examentips model repeats 'dag' in 'elke dag anderhalf uur en één hoofdstuk per dag'.",
+    "sportabonnement table leans to Zuid; swapping the opening hours (De Brug 6.00–23.00, Zuid 7.00–22.00) or dropping the row is optional.",
+    "'Sportschool De Brug' is a generic name also carried by a small real gym in Mierlo and 'De Brug' was a housing corporation in batch 008; within blueprint section 8, rename optional ('Sportschool Noord').",
+    "machinestoring starter 2 'Daarna bel je …' is a stem the model also uses; accepted because it leaves the callee open.",
+    "Models sit uniformly at 65-69 words; consider 60-65 as the editorial target for later middellang batches.",
+    "content/exemplars/ does not exist; the level check compares the tasks with the Spreken I description in docs/research/exam-blueprints-2026-09-10.md and blueprint section 4.9.",
+    "Tables as a Spreken I stimulus are allowed by blueprint section 4.9 but the research paragraph records only cues and pictures for the official Deel 2; the level-check reviewer should judge the exam likeness of fietskeuze and sportabonnement."
+  ],
+  "diversity_review": "Eight distinct settings and six speech-act shapes across pictures, tables and cue-only stimuli, both registers, three domains; no slug reuse and no re-skin of a catalogue item; only the fixed exam instructions mirror the official format; none of the seven B1 speaking settings of blueprint section 9 or the 009 topics recur. Near pairs accepted with reasons: fietskeuze vs sportabonnement (two-option tables with a price row; different acts, domains and audiences, both asked for by the brief; not in one drill), machinestoring vs 016 koffiemachine (two-step machine instructions to a colleague, kort vs middellang; the instruct task of each Deel in a form, not in one drill), examentips vs the exam-themed tasks of 016, 014 and 010 (different acts; at most two exam-themed tasks per form), glasbak vs 009 afval (A2 describe vs B1 rule-and-advice), cursusverzoek vs cursusgemist and cursuslocatie (work course vs language course), trein-gemist vs 009 trein-auto (a preference). Cast: Amina and Modibo appear in 016 and 017 in different roles; the cast is a pool with fixed traits, so consecutive tasks in a form should not reuse a name in conflicting roles.",
+  "set_assembly": "Drills of three middellange taken: A = trein-gemist, cursusverzoek, machinestoring (werk; narrate, convince, instruct); B = eerste-schooldag, examentips, sportabonnement (narrate, advise, compare); C = fietskeuze, glasbak plus one middellange task from a later batch, so that no drill holds both tables. A Spreken I mock form is 8 kort + 8 middellang: this batch supplies exactly one Deel 2 and 016 one Deel 1 once both pass; a form built only from 016 and 017 holds two machine instructions, three exam-themed tasks and Amina and Modibo twice, so swap in tasks from later batches where possible. Deel 2 spread here: narrate 2, convince 1, advise 3, instruct 1, compare 1.",
+  "media_notes": [
+    "Nine images: six sequence panels and two pair pictures at 1024x640, one single at 816x816 per config/illustration.json; generate from the revised briefs.",
+    "trein-gemist: the train must be leaving, the pose must read as dismay (not waving), the document folder and light shirt in all three panels, the same station building in panels 1 and 2.",
+    "eerste-schooldag: Amina's braids and hoodie in all panels, the teacher's red hair and green dress across panels 1 and 2, three children and a blank whiteboard in panel 2, two girls turning the rope in panel 3, Amina anxious in panel 1 and laughing in panel 3.",
+    "machinestoring: the red stop button unambiguous, no warning symbols or text, the speech bubble showing a person with a toolbox and no text, the jammed box in both pictures, brown cap in both.",
+    "glasbak: the container visibly full with bags on the ground, no sticker or logo text.",
+    "Audio: two cue clips (f-adult for the manager, m-young for Julio) and eight prompt clips (narrator) after the revised batch passes; the cursusverzoek cue changes if the recommended edit is taken.",
+    "Alt texts are Dutch, neutral and reveal no key."
+  ],
+  "coordinator_notes": [
+    "Integration is blocked until the four revised tasks and the three starter edits are re-reviewed with new source and starters hashes.",
+    "The b1-spreken feedback rubric or prompt should carry what left the criteria: tense consistency and connector use for narrations (sentence formation, clarity), instruct-not-describe for instruction tasks (content); accept je in cursusverzoek, any plausible callee in machinestoring, either bike and either gym; do not require the models' invented details.",
+    "Domain counts after the relabel: werk 3, educatie 2, overig 3; plan an educatie middellang task (a stage, a course choice, a schedule problem) in the next B1 speaking batch.",
+    "The level-check reviewer should say whether the two table tasks look like the official Deel 2, which the research note describes with cues and pictures only.",
+    "Consider 60-65 words as the editorial target for middellang models in later batches; the checker's 35-80 and the blueprint's 40-70 stay."
+  ],
+  "limitations": [
+    "This is an AI editorial review. It does not replace independent Dutch-language educator review, learner trials, blueprint validation or psychometric calibration, and it does not establish equivalence with an official exam.",
+    "The B1 labels remain unvalidated authoring targets; the per-task level judgments compare the tasks with the official task descriptions, not with stored exemplars or learner data; the speaking-time figures are estimates from syllable counts, not recordings.",
+    "The review covers the text fields, tables and image briefs; the generated illustrations, the cue and prompt audio and any feedback prompts that use these criteria need their own review after media production.",
+    "The pass verdicts apply only to the exact source and starter hashes recorded here; the batch as a whole is not approved until the revised bytes are re-reviewed and new hashes recorded."
+  ],
+  "revisions": [
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review",
+      "items": [
+        "B1:speaking:batch017-trein-gemist:1",
+        "B1:speaking:batch017-eerste-schooldag:1",
+        "B1:speaking:batch017-cursusverzoek:1",
+        "B1:speaking:batch017-machinestoring:1"
+      ],
+      "previous_sha256": "5f20e9fb7f11b99a3820868cf86bf014a78dc5af31e23fe41d8546fe3eeb3131",
+      "previous_starters_sha256": "b653421e77c1f8302e3199fc0c18396440ec1ed98b8c55eec679e0c532a79743",
+      "verdict": "pass",
+      "note": "Focused re-review of the fields changed after the first review (see the end of content/batches/017-notes.md). Hashes as expected: batch 4bee19a5...addf6, starters 086c57f7...976d; npm run batch:check on these bytes: Checked 8 items, 0 questions, No failures, no warnings. Every required and recommended replacement is in the batch and the starters with the review's exact wording (compared programmatically against the repair texts of this JSON and the section 3 texts of 017-review.md): trein-gemist prompt, criteria[3], sample, quotes, model, images[0].brief (\"on his forehead in dismay\") and starter 4; eerste-schooldag domain overig, criterion 5 with quote 5 and starter 5 deleted, sample, images[1].brief (three children, blank whiteboard) and images[2].brief (two other girls); cursusverzoek sample, quotes[2] and cue.text; machinestoring criteria[2], starter 3 and images[1].brief. The optional edits were not taken, which is allowed. Proof that nothing else changed: the reviewer's own scratch simulation of the requested edits, generated from the reviewed bytes (5f20e9fb), parses to the same content as the current batch in every field of every task except machinestoring.model, where the simulation had also taken the optional trim; so the four passing tasks (fietskeuze, sportabonnement, examentips, glasbak) are content-identical to the reviewed version, their samples, quotes, models, tables and briefs unchanged, and their word counts match the figures recorded above. The reviser's script (revise-017.js) asserted before editing that its serializer reproduces the original bytes exactly and that the four untouched items and their starters are unchanged, and the current file carries the author's one-line table rows, so the passing tasks are byte-identical as reported; the old bytes themselves no longer exist to diff. The simulated starters file the first review produced has exactly the current starters hash. Content checks on the four revised tasks: trein-gemist sample (52 words) opens with \"Modibo wilde vorige week met de trein naar zijn sollicitatiegesprek.\" and the model (62 words, 84 syllables, 24-28 s) with \"Het ging bijna mis.\"; neither shares a sentence with the prompt and the reordered prompt clause is gone from both; the model meets criteria 1-4 (train pulling away; \"Hij schrok, omdat ...\"; bus; handshake and outcome) in one past tense; quote 2 null, quotes 1, 3 and 4 verbatim (\"hij was heel zenuwachtig\" evidences the new feelings criterion); errors \"Op het station hij zag\" and \"Hij is de trein gemist\" kept, the new opening sentence is correct Dutch (modal with the verb of motion omitted); the prompt now asks for the feelings. eerste-schooldag: four content criteria, quotes [1, 2, null, 4] verbatim, sample 51 words with \"op nieuwe school\" (missing article) and \"In de klas de juf zegt\" (no inversion) and still nothing about the break; the unchanged model (67 words) meets 1-4 and says \"twee meisjes\", which panel 3 now shows; the teacher's three traits are identical in panels 1 and 2, Amina's and Fatima's traits verbatim, \"the same school\" in panels 2 and 3, No text clauses present; four starters, one per criterion in order. cursusverzoek: the sample's third sentence is a pure rebuttal of the cost objection and cannot be read as a second reason, so criterion 2 is the single miss; \"achter kassa\" and \"daarna ik ben\" are the two errors; the cue (29 words, f-adult, whose config use includes \"manager\") says she wants to go, names both objections and asks why, so it no longer contradicts the model's \"Mag ik mij inschrijven?\", criterion 4's example or starter 4, and the model paraphrases rather than reads it back; the cue clip must be regenerated. machinestoring: criterion 3 is now a speech-act criterion (order, instruct rather than describe) without the connector list; the quote \"Daarna je moet meteen bellen en zeggen wat er is gebeurd.\" still evidences it; the unchanged model is in instruction form with eerst/daarna; starter 3 \"Het is belangrijk dat je eerst ... en pas daarna ...\" completes naturally in je; picture 2 keeps the jammed box, the same hall and machine and Hasan's traits verbatim. Whole batch on the new bytes: one null quote per task at indexes 1, 2, 1, 2, 1, 2, 3, 2; every open quote verbatim; starters keys in batch order with counts 4, 4, 4, 4, 4, 3, 4, 4 and an ellipsis in each; models 62-69 words, samples 40-54, cues 29 and 29 words with roles f-adult and m-young present in config/voices.json; domains werk 3, educatie 2, overig 3; no sample or model shares a whole sentence with its prompt. The checks block, the starters_checks block, the per-item evidence and revision_requests above describe the previous hash (for example model_word_counts trein-gemist 68, sample_word_counts eerste-schooldag 54, cue_word_counts cursusverzoek 30, starter_counts [4, 5, ...], criteria_are_information_or_speech_acts false, no_prompt_sentence_copied_into_sample_or_model false, picture_briefs_house_style false, domain_labels_correct false, unchanged_by_revision_requests false); this entry supersedes them. Verdict for the four revised items: pass; batch pass; starters pass; ready for integration. Media after integration: nine illustrations from the revised briefs, the cursusverzoek cue clip (f-adult) and the eight prompt clips."
+    }
+  ]
+}

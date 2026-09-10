@@ -5,8 +5,16 @@ import { analyseRecording } from '../domain/audio';
 import { AudioPlayback } from './AudioPlayer';
 import { RecordingInfo } from './Controls';
 import { visitorId } from '../domain/telemetry';
-export default function SpeakingRecorder({ item, onTranscript, onBusy, inputToggle }) {
-  const { t, api } = useStudyContext();
+import { unavailableCodes } from '../types';
+import { postJson, type ApiFailure } from '../domain/request';
+export default function SpeakingRecorder({
+  item,
+  onTranscript,
+  onUnavailable,
+  onBusy,
+  inputToggle,
+}) {
+  const { t, api, refreshApi } = useStudyContext();
   const [phase, setPhase] = useState('idle'),
     [blob, setBlob] = useState(null),
     [preview, setPreview] = useState(null),
@@ -17,8 +25,8 @@ export default function SpeakingRecorder({ item, onTranscript, onBusy, inputTogg
     timer = useRef(null),
     request = useRef(null),
     mounted = useRef(true),
-    callbacks = useRef({ onTranscript, onBusy });
-  callbacks.current = { onTranscript, onBusy };
+    callbacks = useRef({ onTranscript, onUnavailable, onBusy });
+  callbacks.current = { onTranscript, onUnavailable, onBusy };
   const busy = ['requesting', 'recording', 'transcribing'].includes(phase);
   useEffect(() => {
     callbacks.current.onBusy(busy);
@@ -54,13 +62,19 @@ export default function SpeakingRecorder({ item, onTranscript, onBusy, inputTogg
     clearInterval(timer.current);
   }
   async function transcribe(recording) {
-    if (!api?.speech) {
+    if (!api?.speech || (api.remaining?.speech ?? 1) <= 0) {
       setPhase('ready');
+      callbacks.current.onUnavailable?.();
       setError(
-        t(
-          'Spraakherkenning is niet beschikbaar. Typ je antwoord hieronder.',
-          'Speech recognition is unavailable. You can type your answer.',
-        ),
+        api?.speech
+          ? t(
+              'De spraakherkenning voor vandaag is op. Typ je antwoord hieronder.',
+              'Today’s speech recognition is used up. Type your answer below.',
+            )
+          : t(
+              'Spraakherkenning is niet beschikbaar. Typ je antwoord hieronder.',
+              'Speech recognition is unavailable. You can type your answer.',
+            ),
       );
       return;
     }
@@ -73,19 +87,16 @@ export default function SpeakingRecorder({ item, onTranscript, onBusy, inputTogg
       let binary = '';
       for (let i = 0; i < bytes.length; i += 32768)
         binary += String.fromCharCode(...bytes.subarray(i, i + 32768));
-      const response = await fetch('/api/transcribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+      const result = await postJson(
+        '/api/transcribe',
+        {
           id: item.id,
           mime: recording.type || 'audio/webm',
           audio: btoa(binary),
           visitor: visitorId(),
-        }),
-        signal: controller.signal,
-      });
-      const result = await response.json();
-      if (!response.ok) throw Error();
+        },
+        { signal: controller.signal },
+      );
       if (controller.signal.aborted || !mounted.current) return;
       if (!result.text?.trim()) throw Error();
       callbacks.current.onTranscript(result.text);
@@ -93,12 +104,40 @@ export default function SpeakingRecorder({ item, onTranscript, onBusy, inputTogg
     } catch (e) {
       if ((!(e instanceof Error) || e.name !== 'AbortError') && mounted.current) {
         setPhase('failed');
-        setError(
-          t(
-            'Omzetten lukt niet. Je opname is bewaard; probeer opnieuw of typ je antwoord.',
-            'Transcription failed. Your recording is still here; retry or type your answer.',
-          ),
-        );
+        // A service that is off, paused or capped opens the text field; a rate limit or a
+        // provider hiccup keeps the recording for a retry.
+        const { code, retryAfter } = (e as ApiFailure) || {};
+        if (unavailableCodes('speech').includes(code) || code === 'allowance_exhausted') {
+          refreshApi('speech', code === 'allowance_exhausted' ? 'allowance' : 'paused');
+          callbacks.current.onUnavailable?.();
+          setError(
+            code === 'allowance_exhausted'
+              ? t(
+                  'De spraakherkenning voor vandaag is op. Typ je antwoord hieronder.',
+                  'Today’s speech recognition is used up. Type your answer below.',
+                )
+              : t(
+                  'Spraakherkenning is nu niet beschikbaar. Typ je antwoord hieronder.',
+                  'Speech recognition is unavailable right now. Type your answer below.',
+                ),
+          );
+        } else
+          setError(
+            code === 'rate_limited'
+              ? t(
+                  `Even wachten: probeer het over ${retryAfter && retryAfter < 120 ? `${retryAfter} seconden` : 'een minuut'} opnieuw. Je opname is bewaard.`,
+                  `Please wait ${retryAfter && retryAfter < 120 ? `${retryAfter} seconds` : 'a minute'} and try again. Your recording is still here.`,
+                )
+              : code === 'busy'
+                ? t(
+                    'Het is druk. Probeer het over een minuut opnieuw; je opname is bewaard.',
+                    'It is busy right now. Try again in a minute; your recording is still here.',
+                  )
+                : t(
+                    'Omzetten lukt niet. Je opname is bewaard; probeer opnieuw of typ je antwoord.',
+                    'Transcription failed. Your recording is still here; retry or type your answer.',
+                  ),
+          );
       }
     }
   }

@@ -13,5 +13,7 @@ export default [
     route('reports', 'routes/admin-reports.tsx'),
     route('services', 'routes/admin-services.tsx'),
   ]),
+  // The start page needs an index route: a splat alone does not match "/".
+  index('routes/study.tsx', { id: 'home' }),
   route('*', 'routes/study.tsx'),
 ];

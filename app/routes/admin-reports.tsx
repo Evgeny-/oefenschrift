@@ -14,7 +14,7 @@ export function loader({ request }) {
   const session = adminSession(request),
     store = getStore(),
     titles = Object.fromEntries(
-      store.list().map((row) => [row.id, (row.published || row.draft)?.title || row.id]),
+      store.list().map((row) => [row.id, row.published?.title || row.id]),
     );
   return data(
     {

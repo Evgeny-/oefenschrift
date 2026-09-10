@@ -3,6 +3,10 @@ import assert from 'node:assert/strict';
 
 const origin = process.env.TEST_ORIGIN;
 assert.ok(origin, 'Use npm run test:production to start an isolated server.');
+// With INBURGERING_BASE_PATH the build and the server put the site under that path, as on
+// the shared host; every app URL below is relative to it.
+const base = (process.env.INBURGERING_BASE_PATH || '').replace(/\/+$/, ''),
+  site = origin + base;
 const checks = [],
   errors = [];
 const bank = JSON.parse(await fs.readFile('content/catalogue.json', 'utf8'));
@@ -18,12 +22,17 @@ for (const [path, expected] of [
   ['/ops/login', 200],
   ['/admin', 404],
 ]) {
-  const response = await fetch(origin + path);
+  const response = await fetch(site + path);
   assert.equal(response.status, expected, path);
   assert.ok(response.headers.get('cache-control')?.includes('no-store'));
   if (path === '/reading') {
     const html = await response.text(),
       csp = response.headers.get('content-security-policy');
+    // Under a base path nothing may point at the host root: every href, src and url()
+    // the page emits starts with the base (a shared host answers the root with nothing).
+    if (base)
+      for (const [, url] of html.matchAll(/(?:href|src|action)="(\/[^"]*)"/g))
+        assert.ok(url.startsWith(base + '/') || url === base, `root-relative URL ${url}`);
     const nonce = csp.match(/'nonce-([^']+)'/)?.[1];
     assert.ok(nonce && !csp.includes("script-src 'self' 'unsafe-inline'"));
     for (const [, attributes] of html.matchAll(/<script\b([^>]*)>/g)) {
@@ -42,13 +51,13 @@ const plainHTML = (html) => html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '
 for (const part of ['reading', 'listening', 'writing', 'speaking', 'knm']) {
   const item = bank.find((item) => item.part === part),
     path = '/exercise/' + encodeURIComponent(item.id);
-  const html = plainHTML(await fetch(origin + path).then((r) => r.text()));
+  const html = plainHTML(await fetch(site + path).then((r) => r.text()));
   assert.ok(
     html.includes('<h1') && html.includes(item.title),
     part + ' has a server-rendered title',
   );
   assert.ok(
-    html.includes(item.questions ? 'class="question question-sheet"' : 'class="task-brief sheet"'),
+    html.includes(item.questions ? 'class="question"' : 'class="task-brief sheet"'),
     part + ' has its actual task before JavaScript',
   );
   assert.ok(html.includes('rel="canonical"') && html.includes('<meta name="description"'));
@@ -60,7 +69,7 @@ const preferences = encodeURIComponent(
   JSON.stringify({ level: 'B1', lang: 'en', theme: 'dark', clock: false }),
 );
 const personalized = plainHTML(
-  await fetch(origin + '/reading', {
+  await fetch(site + '/reading', {
     headers: { Cookie: 'inburgering_preferences=' + preferences },
   }).then((r) => r.text()),
 );
@@ -68,42 +77,101 @@ assert.ok(
   personalized.includes('<html lang="en" data-theme="dark"') && personalized.includes('B1 · '),
 );
 checks.push('Server HTML respects saved language, level and explicit theme');
+// A shared level address keeps its level; the language follows the browser to /en.
 const shared = plainHTML(
-  await fetch(origin + '/a2/reading', {
+  await fetch(site + '/a2/reading', {
     headers: { Cookie: 'inburgering_preferences=' + preferences },
   }).then((r) => r.text()),
 );
 assert.ok(shared.includes('A2 · ') && !shared.includes('B1 · '));
 assert.ok(
-  shared.includes(`<link rel="canonical" href="${origin}/a2/reading"`) &&
-    shared.includes('A2 Lezen oefenen'),
+  shared.includes(`<link rel="canonical" href="${site}/en/a2/reading"`) &&
+    shared.includes('A2 Reading practice'),
 );
 assert.ok(shared.includes('property="og:title"') && shared.includes('name="twitter:card"'));
 checks.push(
   'Shared level URL overrides conflicting preferences in the server content and metadata',
 );
+// Without a preference (a crawler, a first visit) the plain path is Dutch and both
+// versions name each other; /en is English whatever the cookie says. React writes the
+// camel-cased prop name; HTML attribute names are case-insensitive, so compare lowered.
+const lowered = (html) => plainHTML(html).replace(/hrefLang=/g, 'hreflang=');
+const dutch = lowered(await fetch(site + '/a2/reading').then((r) => r.text()));
+assert.ok(
+  dutch.includes('<html lang="nl"') &&
+    dutch.includes(`<link rel="canonical" href="${site}/a2/reading"`) &&
+    dutch.includes('A2 Lezen oefenen') &&
+    dutch.includes(`hreflang="nl" href="${site}/a2/reading"`) &&
+    dutch.includes(`hreflang="en" href="${site}/en/a2/reading"`) &&
+    dutch.includes(`hreflang="x-default" href="${site}/a2/reading"`) &&
+    dutch.includes('content="nl_NL"'),
+);
+const english = lowered(
+  await fetch(site + '/en/a2/reading', {
+    headers: {
+      Cookie:
+        'inburgering_preferences=' +
+        encodeURIComponent(JSON.stringify({ level: 'A2', lang: 'nl', theme: 'light' })),
+    },
+  }).then((r) => r.text()),
+);
+assert.ok(
+  english.includes('<html lang="en"') &&
+    english.includes(`<link rel="canonical" href="${site}/en/a2/reading"`) &&
+    english.includes('A2 Reading practice') &&
+    english.includes(`hreflang="nl" href="${site}/a2/reading"`) &&
+    english.includes('content="en_GB"') &&
+    !english.includes('A2 Lezen oefenen'),
+);
+checks.push('Each page has a Dutch and an English address that name each other as alternates');
 for (const [path, status, target] of [
   ['/reading', 307, '/a2/reading'],
   ['/B1/reading/', 308, '/b1/reading'],
   ['/c1/reading', 404, null],
   ['/b1/knm', 404, null],
+  ['/en/reading', 307, '/en/a2/reading'],
+  ['/EN/a2/reading/', 308, '/en/a2/reading'],
+  ['/en/home', 404, null],
+  ['/en/b1/knm', 404, null],
+  ['/english', 404, null],
 ]) {
-  const response = await fetch(origin + path, { redirect: 'manual' });
+  const response = await fetch(site + path, { redirect: 'manual' });
   assert.equal(response.status, status, path);
-  if (target) assert.equal(response.headers.get('location'), target);
+  if (target) assert.equal(response.headers.get('location'), base + target);
 }
-checks.push('Legacy and noncanonical paths redirect; unsupported levels return 404');
-const empty = plainHTML(await fetch(origin + '/b2/reading').then((r) => r.text()));
+for (const [path, status, target] of [
+  ['/a2/reading', 307, '/en/a2/reading'],
+  ['/', 307, '/en'],
+  ['/knm?x=1', 307, '/en/knm?x=1'],
+  ['/en/a2/reading', 200, null],
+]) {
+  const response = await fetch(site + path, {
+    redirect: 'manual',
+    headers: { Cookie: 'inburgering_preferences=' + preferences },
+  });
+  assert.equal(response.status, status, path);
+  if (target) assert.equal(response.headers.get('location'), base + target);
+}
+checks.push(
+  'Legacy and noncanonical paths redirect, a saved English preference moves to /en, unsupported levels return 404',
+);
+const empty = plainHTML(await fetch(site + '/b2/reading').then((r) => r.text()));
 assert.ok(empty.includes('content="noindex, follow"'));
-const privatePage = plainHTML(await fetch(origin + '/b1/progress').then((r) => r.text()));
+const privatePage = plainHTML(await fetch(site + '/b1/progress').then((r) => r.text()));
 assert.ok(privatePage.includes('content="noindex, follow"'));
 checks.push('Empty B2 and private progress pages request noindex');
-const sitemap = await fetch(origin + '/sitemap.xml').then((r) => r.text());
-assert.equal((sitemap.match(/\/exercise\//g) || []).length, bank.length);
+const sitemap = await fetch(site + '/sitemap.xml').then((r) => r.text());
+assert.equal((sitemap.match(/<loc>[^<]*\/exercise\//g) || []).length, 2 * bank.length);
+assert.equal((sitemap.match(/<loc>[^<]*\/en\/exercise\//g) || []).length, bank.length);
 assert.ok(
   sitemap.includes('/a2/reading') && sitemap.includes('/b1/reading') && !sitemap.includes('/b2/'),
 );
-checks.push('Sitemap exposes every available stable exercise URL');
+assert.ok(
+  sitemap.includes(`<loc>${site}/en</loc>`) &&
+    sitemap.includes(`hreflang="en" href="${site}/en/a2/reading"`) &&
+    sitemap.includes(`hreflang="x-default" href="${site}/a2/reading"`),
+);
+checks.push('Sitemap exposes every stable exercise URL in both languages with their alternates');
 
 const ws = new WebSocket(`ws://127.0.0.1:${process.env.FIREFOX_BIDI_PORT}/session`);
 await new Promise((resolve, reject) => {
@@ -163,11 +231,11 @@ try {
   const { intercept } = await send('network.addIntercept', {
     phases: ['beforeRequestSent'],
     contexts: [context],
-    urlPatterns: [{ type: 'string', pattern: origin + '/assets/' + clientEntry }],
+    urlPatterns: [{ type: 'string', pattern: site + '/assets/' + clientEntry }],
   });
   await send('browsingContext.navigate', {
     context,
-    url: origin + '/sets/a2-listening-01',
+    url: site + '/sets/a2-listening-01',
     wait: 'none',
   });
   await ready('.audio-player');
@@ -190,7 +258,7 @@ try {
         `${before[i].selector} ${key} shifted during hydration`,
       );
   checks.push('Exercise and sidebar geometry stay unchanged through hydration');
-  await send('browsingContext.navigate', { context, url: origin + '/reading', wait: 'complete' });
+  await send('browsingContext.navigate', { context, url: site + '/reading', wait: 'complete' });
   await ready('.app-shell[data-hydrated]');
   checks.push('Compiled app hydrates under the production CSP');
   await evaluate(`document.querySelector('[data-page="listening"]').click();true;`);
@@ -204,7 +272,7 @@ try {
   checks.push('Direct set reload restores practice');
   await send('browsingContext.navigate', {
     context,
-    url: origin + '/ops/exercises',
+    url: site + '/ops/exercises',
     wait: 'complete',
   });
   await ready('#admin-user');

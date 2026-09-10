@@ -65,6 +65,11 @@ async function check(expression, label) {
   if (!(await evaluate(expression))) throw Error(label);
   checks.push(label);
 }
+async function wait(expression) {
+  await evaluate(
+    `new Promise((resolve,reject)=>{const end=Date.now()+7000;const poll=()=>(${expression})?resolve(true):Date.now()>end?reject(new Error('Expected UI did not appear')):setTimeout(poll,40);poll();})`,
+  );
+}
 async function shot(name) {
   await evaluate('window.scrollTo(0,0)');
   const r = await send('browsingContext.captureScreenshot', { context });
@@ -94,7 +99,7 @@ async function mockFeedback(fail = false) {
 }
 try {
   await evaluate(
-    `localStorage.setItem('inburgering.study.v2',JSON.stringify({version:2,settings:{lang:'en',level:'A2',theme:'light',clock:false},records:{},drafts:{},reviews:{},active:null}));true;`,
+    `localStorage.setItem('inburgering.study.v2',JSON.stringify({version:2,settings:{lang:'en',level:'A2',theme:'light',clock:false},records:{},drafts:{},reviews:{},active:null}));document.cookie='inburgering_preferences='+encodeURIComponent(JSON.stringify({lang:'en',level:'A2',theme:'light',clock:false}))+'; Path=/';true;`,
   );
   await navigate('/listening');
   await evaluate('document.fonts.ready.then(()=>true)');
@@ -113,7 +118,7 @@ try {
   await shot('listening-catalogue');
   await click(`[data-set="${listening.id}"]`);
   await check(
-    `location.pathname==='/sets/${listening.id}'&&JSON.parse(localStorage.getItem('inburgering.study.v2')).active.ids.length===${listening.ids.length}`,
+    `location.pathname==='/en/sets/${listening.id}'&&JSON.parse(localStorage.getItem('inburgering.study.v2')).active.ids.length===${listening.ids.length}`,
     'Opening a set starts all its exercises under a shareable URL',
   );
   await check(
@@ -127,7 +132,7 @@ try {
   await click('.question .primary');
   await click('.question .primary');
   await check(
-    `document.querySelector('h1').textContent!==${JSON.stringify(firstTitle)}&&document.querySelector('.question')&&location.pathname==='/sets/${listening.id}'`,
+    `document.querySelector('h1').textContent!==${JSON.stringify(firstTitle)}&&document.querySelector('.question')&&location.pathname==='/en/sets/${listening.id}'`,
     'Next leads straight to the next listening exercise, without an intermediate result',
   );
   await send('browsingContext.reload', { context, wait: 'complete' });
@@ -139,7 +144,7 @@ try {
   await click('[data-page="writing"]');
   await click(`[data-set="${writing.id}"]`);
   await check(
-    `document.querySelector('#open-answer')&&location.pathname==='/sets/${writing.id}'`,
+    `document.querySelector('#open-answer')&&location.pathname==='/en/sets/${writing.id}'`,
     'Writing sets open in the shared practice flow',
   );
   await shot('writing-empty');
@@ -161,10 +166,15 @@ try {
     'Missing requirement is expanded beside the suggestion',
   );
   const calls = await evaluate('window.feedbackCalls');
-  await click('#language-control [aria-label="Nederlands"]');
   await check(
-    `window.feedbackCalls===${calls}&&document.querySelector('.feedback-summary').textContent==='Twee punten zijn duidelijk.'`,
-    'Flags translate the same assessment without another model call',
+    `document.querySelector('.feedback-summary').textContent==='Two points are clear.'&&document.querySelector('#language-control [aria-label="Nederlands"]').getAttribute('href')==='/sets/${writing.id}'`,
+    'The English page shows the English explanation and links to its Dutch twin',
+  );
+  await click('#language-control [aria-label="Nederlands"]');
+  await wait(`location.pathname==='/sets/${writing.id}'`);
+  await check(
+    `window.feedbackCalls===${calls}&&document.querySelector('.feedback-summary').textContent==='Twee punten zijn duidelijk.'&&document.documentElement.lang==='nl'`,
+    'Flags move to the Dutch address and translate the same assessment without another model call',
   );
   await shot('suggested-answer');
   await click('[data-action="finish-review"]');

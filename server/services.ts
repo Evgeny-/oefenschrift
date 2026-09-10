@@ -6,11 +6,17 @@ import { createHash } from 'node:crypto';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import instructions from './feedback-instructions.json';
+import { record } from './breaker';
 const execute = promisify(execFile);
+// code names the refusal for the client (feedback_off, provider_failed, rate_limited...);
+// upstream carries the provider's HTTP status so the breaker can tell a revoked key or an
+// exhausted quota (401, 402, 403) from an outage.
 export class ServiceError extends Error {
   constructor(
     message: string,
     public status = 502,
+    public code: string | null = null,
+    public upstream: number | null = null,
   ) {
     super(message);
   }
@@ -51,14 +57,15 @@ const criterionSchema = (met: boolean) => ({
 export const feedbackSchema = {
   type: 'object',
   properties: {
+    on_task: { type: 'boolean' },
     criteria: { type: 'array', items: { anyOf: [criterionSchema(true), criterionSchema(false)] } },
     corrected_text: { type: 'string' },
   },
-  required: ['criteria', 'corrected_text'],
+  required: ['on_task', 'criteria', 'corrected_text'],
   additionalProperties: false,
 };
 export const feedbackVersion = createHash('sha256')
-  .update(instructions + JSON.stringify(feedbackSchema) + 'typescript-confirmed-v1')
+  .update(instructions + JSON.stringify(feedbackSchema) + 'typescript-confirmed-v2')
   .digest('hex')
   .slice(0, 16);
 // Missing points belong before the sign-off, so a suggested message still ends with its greeting.
@@ -111,7 +118,7 @@ export function placeholdersBeforeClosing(text: string) {
 // A rejection names its reason for the server log without quoting the learner's text.
 export class FeedbackRejected extends ServiceError {
   constructor(public reason: string) {
-    super('Feedback could not be verified. Please retry.');
+    super('Feedback could not be verified. Please retry.', 502, 'feedback_rejected');
   }
 }
 // Letters and digits only, lower case, without diacritics; punctuation and spacing are
@@ -192,6 +199,12 @@ export function exactEvidence(answer: string, evidence: string): string | null {
   while (to < answer.length && /[”’"')]/.test(answer[to])) to++;
   return answer.slice(from, to);
 }
+// The learner text is untrusted input to the model, so its output is bounded too: no
+// links, no criterion explanation longer than a few sentences, and a suggested answer that
+// cannot grow far beyond the answer it corrects. Anything else is a rejected judgment.
+const link = /https?:\/\/|www\./i;
+export const FEEDBACK_MAX = 500;
+export const correctedTextMax = (answer: string) => answer.length * 2 + 600;
 export function validateFeedback(result: any, item: any, answer: string, lenient = false) {
   const fail = (reason: string) => {
     throw new FeedbackRejected(reason);
@@ -200,6 +213,11 @@ export function validateFeedback(result: any, item: any, answer: string, lenient
   if (!Array.isArray(result?.criteria)) fail('criteria-missing');
   if (result.criteria.length !== item.criteria.length) fail('criteria-count');
   if (typeof result.corrected_text !== 'string') fail('corrected-text-type');
+  if (typeof result.on_task !== 'boolean') fail('on-task-type');
+  if (result.corrected_text.length > correctedTextMax(answer)) fail('corrected-text-long');
+  if (link.test(result.corrected_text)) fail('output-link');
+  // Text that is not an attempt at the task gets no verdict per point and no suggestion.
+  const offTask = result.on_task === false;
   for (const [i, c] of result.criteria.entries()) {
     if (c.index !== i) fail('criteria-order');
     if (
@@ -208,6 +226,11 @@ export function validateFeedback(result: any, item: any, answer: string, lenient
       typeof c.evidence !== 'string'
     )
       fail('field-types');
+    if (offTask) {
+      c.met = false;
+      c.uncertain = false;
+      c.evidence = '';
+    }
     // Speech is always confirmed here, so an uncertain verdict counts as not met.
     if (c.uncertain) {
       if (c.met) fail('uncertain-met');
@@ -227,7 +250,22 @@ export function validateFeedback(result: any, item: any, answer: string, lenient
       !['nl', 'en'].every((lang) => typeof c.feedback[lang] === 'string' && c.feedback[lang].trim())
     )
       fail('feedback-languages');
+    if (['nl', 'en'].some((lang) => c.feedback[lang].length > FEEDBACK_MAX)) fail('feedback-long');
+    if (['nl', 'en'].some((lang) => link.test(c.feedback[lang]))) fail('output-link');
   }
+  if (offTask)
+    return {
+      ...result,
+      corrected_text: '',
+      comment: {
+        nl: 'Dit lijkt geen antwoord op de opdracht. Schrijf in het Nederlands wat de opdracht vraagt.',
+        en: 'This does not look like an answer to the task. Write in Dutch what the task asks for.',
+      },
+      next_step: {
+        nl: 'Lees de opdracht en de punten nog eens en probeer het opnieuw.',
+        en: 'Read the task and its points again and try once more.',
+      },
+    };
   const missing = result.criteria.filter((c) => !c.met),
     met = result.criteria.length - missing.length,
     total = result.criteria.length;
@@ -290,7 +328,7 @@ function cached(key: string, run: () => Promise<any>) {
   return promise;
 }
 const retryNote =
-  '\n\nRETRY: your previous judgment quoted words that do not occur in the learner answer. Evidence must be copied character for character from the answer field only, never from the task or the criteria. If you cannot quote the answer, set met:false with empty evidence.';
+  '\n\nRETRY: your previous judgment quoted words that do not occur in the learner answer. Evidence must be copied character for character from the learner answer (the user message) only, never from the task or the criteria. If you cannot quote the answer, set met:false with empty evidence.';
 export type Usage = { input_tokens: number; output_tokens: number };
 export async function requestJudgment(
   item: any,
@@ -301,13 +339,21 @@ export async function requestJudgment(
 ) {
   const model = configuration().feedback_model,
     key = keys().OPENAI_API_KEY;
-  if (!key) throw new ServiceError('Feedback is not configured.', 503);
-  const prompt = {
+  if (!key) throw new ServiceError('Feedback is not configured.', 503, 'feedback_unconfigured');
+  // The task travels in a developer message and the learner text alone in the user message,
+  // so anything inside the answer that reads like an instruction ranks below the task.
+  const task = {
     level: item.level,
     part: item.part,
     task: item.prompt,
     criteria: item.criteria.map((c) => c[0]),
-    answer,
+    // Blueprint tasks carry printed material the judgment depends on: a gapped e-mail, a table, form labels.
+    ...(item.taskType ? { task_type: item.taskType } : {}),
+    ...(item.scaffold?.body ? { text_with_gap: item.scaffold.body } : {}),
+    ...(item.grammarTarget ? { grammar_target: item.grammarTarget } : {}),
+    ...(item.adequacyNote ? { sentence_must: item.adequacyNote } : {}),
+    ...(item.table ? { table: item.table } : {}),
+    ...(Array.isArray(item.formFields) ? { form_fields: item.formFields.map((f) => f.label) } : {}),
     speech_confirmed: true,
     speech_hypotheses: [],
   };
@@ -322,7 +368,10 @@ export async function requestJudgment(
         store: false,
         max_output_tokens: 1800,
         instructions: instructions + note,
-        input: JSON.stringify(prompt),
+        input: [
+          { role: 'developer', content: JSON.stringify(task) },
+          { role: 'user', content: answer },
+        ],
         text: {
           format: {
             type: 'json_schema',
@@ -335,9 +384,23 @@ export async function requestJudgment(
       }),
     });
   } catch {
-    throw new ServiceError('The feedback service did not respond. Please retry.');
+    record('feedback', 'failed');
+    throw new ServiceError(
+      'The feedback service did not respond. Please retry.',
+      502,
+      'provider_failed',
+    );
   }
-  if (!response.ok) throw new ServiceError('Feedback provider is unavailable. Please retry.');
+  if (!response.ok) {
+    record('feedback', [401, 402, 403].includes(response.status) ? 'rejected' : 'failed');
+    throw new ServiceError(
+      'Feedback provider is unavailable. Please retry.',
+      502,
+      'provider_failed',
+      response.status,
+    );
+  }
+  record('feedback', 'ok');
   let body: any, result: any;
   try {
     body = await response.json();
@@ -446,16 +509,16 @@ export async function elevenLabsSubscription(fetcher: typeof fetch = fetch) {
   }
 }
 // OpenAI exposes no balance to a project key. With an organization admin key
-// (OPENAI_ADMIN_KEY) the daily costs of the last 30 days are read instead.
-export async function openAiCosts(fetcher: typeof fetch = fetch, now = Date.now()) {
+// (OPENAI_ADMIN_KEY) the daily costs of the last `period` days are read instead.
+export async function openAiCosts(fetcher: typeof fetch = fetch, now = Date.now(), period = 30) {
   const key = process.env.OPENAI_ADMIN_KEY;
   if (!key) return { configured: false };
   if (process.env.INBURGERING_OFFLINE)
     return { configured: true, error: 'Not checked in offline mode.' };
   try {
-    const start = Math.floor(now / 1000) - 30 * 86400;
+    const start = Math.floor(now / 1000) - period * 86400;
     const response = await fetcher(
-      `https://api.openai.com/v1/organization/costs?start_time=${start}&bucket_width=1d&limit=31`,
+      `https://api.openai.com/v1/organization/costs?start_time=${start}&bucket_width=1d&limit=${period + 1}`,
       { headers: { Authorization: 'Bearer ' + key }, signal: AbortSignal.timeout(8000) },
     );
     if (!response.ok) return { configured: true, error: `OpenAI answered ${response.status}.` };
@@ -472,6 +535,23 @@ export async function openAiCosts(fetcher: typeof fetch = fetch, now = Date.now(
   } catch {
     return { configured: true, error: 'OpenAI did not respond.' };
   }
+}
+// The panel reads both balances through one call: live, but at most every five minutes,
+// and a read that failed is retried after a minute. Pages fetch this after they have
+// rendered (see /api/ops/providers), so a slow provider never delays the page itself.
+let balances: { at: number; value: Promise<{ eleven: any; openai: any }> } | null = null;
+export function providerBalances(now = Date.now()) {
+  if (!balances || now - balances.at > 300000) {
+    const at = now,
+      value = Promise.all([elevenLabsSubscription(), openAiCosts(fetch, now, 90)]).then(
+        ([eleven, openai]) => {
+          if ((eleven.error || openai.error) && balances?.at === at) balances.at = at - 240000;
+          return { eleven, openai };
+        },
+      );
+    balances = { at, value };
+  }
+  return balances.value;
 }
 const mimes = {
   'audio/webm': 'webm',
@@ -559,7 +639,8 @@ export async function transcribe(item: any, data: any) {
   return cached('speech:' + item.id + ':' + mime + ':' + digest, async () => {
     const duration = await validateAudio(audio, mime),
       key = keys().ELEVENLABS_API_KEY;
-    if (!key) throw new ServiceError('Speech recognition is not configured.', 503);
+    if (!key)
+      throw new ServiceError('Speech recognition is not configured.', 503, 'speech_unconfigured');
     const form = new FormData();
     for (const [name, value] of Object.entries({
       model_id: 'scribe_v2',
@@ -581,10 +662,19 @@ export async function transcribe(item: any, data: any) {
         signal: AbortSignal.timeout(60000),
       });
     } catch {
-      throw new ServiceError('Transcription is unavailable. Please retry.');
+      record('speech', 'failed');
+      throw new ServiceError('Transcription is unavailable. Please retry.', 502, 'provider_failed');
     }
-    if (!response.ok)
-      throw new ServiceError('Transcription provider is unavailable. Please retry.');
+    if (!response.ok) {
+      record('speech', [401, 402, 403].includes(response.status) ? 'rejected' : 'failed');
+      throw new ServiceError(
+        'Transcription provider is unavailable. Please retry.',
+        502,
+        'provider_failed',
+        response.status,
+      );
+    }
+    record('speech', 'ok');
     const result = await response.json(),
       text = result.text?.trim();
     if (!text || text.length > 6000)

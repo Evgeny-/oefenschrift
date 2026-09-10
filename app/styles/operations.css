@@ -1,17 +1,24 @@
-/* Operations: a top bar, one 12-column page grid, sheets as cards, validated chart tokens.
-   Layout rules for this section: spacing comes only from grid/flex gap, cards carry no
-   outer margins, and every card states its span on the same grid. */
+/* Operations: a top bar and one 12-column page grid on plain paper. Sections and
+   stat tiles start with a hairline rule instead of sitting in boxes, so the pages
+   read like the practice site. Layout rules: spacing comes only from grid/flex gap,
+   blocks carry no outer margins, and every block states its span on the same grid. */
+/* Series colours: gold, teal, violet, in that fixed order, with a reserved red for
+   failures. Both sets pass the palette validator (lightness band, chroma floor,
+   colour-blind and normal-vision separation) against their surface. The light gold is
+   a clear yellow rather than an ochre, which puts it under 3:1 on the paper; the
+   legends, direct labels and hover tooltips make up for that. The dark gold is the
+   brightest one inside the dark lightness band. */
 :root {
-  --chart-1: #b8850a;
-  --chart-2: #2f6fa8;
-  --chart-3: #b4522f;
-  --chart-bad: #9b443c;
+  --chart-1: #e8a500;
+  --chart-2: #159c94;
+  --chart-3: #7457d3;
+  --chart-bad: #cf3f2e;
 }
 [data-theme='dark'] {
-  --chart-1: #ad8718;
-  --chart-2: #5b93d0;
-  --chart-3: #cc6e48;
-  --chart-bad: #e4a394;
+  --chart-1: #bf8a00;
+  --chart-2: #1f9c90;
+  --chart-3: #8f74e0;
+  --chart-bad: #dc6252;
 }
 .admin {
   min-height: 100dvh;
@@ -20,15 +27,15 @@
   display: flex;
   align-items: stretch;
   gap: 2rem;
-  max-width: 80rem;
+  max-width: 72rem;
   margin: 0 auto;
-  padding: 0 var(--inset);
+  padding: 1rem var(--inset) 0;
   border-bottom: 1px solid var(--line);
 }
 .admin-bar > * {
   display: flex;
   align-items: center;
-  min-height: 4rem;
+  min-height: 3.5rem;
 }
 .admin-bar .wordmark {
   margin: 0;
@@ -123,9 +130,9 @@
   bottom: 2px;
 }
 .admin-main {
-  max-width: 80rem;
+  max-width: 72rem;
   margin: 0 auto;
-  padding: 1.25rem var(--inset) 3rem;
+  padding: 1.5rem var(--inset) 4rem;
 }
 .admin-head {
   display: flex;
@@ -133,7 +140,7 @@
   align-items: flex-end;
   flex-wrap: wrap;
   gap: 1rem;
-  margin: 0.75rem 0 1.25rem;
+  margin: 0.75rem 0 2rem;
 }
 .admin-head h1 {
   font-size: var(--text-title);
@@ -145,6 +152,11 @@
 .admin-head .back {
   display: inline-block;
   margin-bottom: 0.5rem;
+}
+.admin-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
 }
 .range {
   display: inline-flex;
@@ -167,7 +179,7 @@
 .admin-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 0.75rem;
+  gap: 2.5rem 3rem;
 }
 .admin-grid > * {
   grid-column: span 12;
@@ -185,14 +197,33 @@
 .admin-grid > .span-6 {
   grid-column: span 6;
 }
+/* The stat row spreads its tiles evenly. Each tile is one line of label, a number
+   and one line of detail, so the copy is kept short enough for a 7.5rem tile; once
+   seven no longer fit, the row breaks into four and then two columns rather than
+   leaving a lone tile on a second row. */
+.admin-grid > .admin-tiles {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+  gap: 2.5rem 1.75rem;
+}
+@media (max-width: 68rem) {
+  .admin-grid > .admin-tiles {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 44rem) {
+  .admin-grid > .admin-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* A stat: rule, micro label, tabular number, one line of detail. */
 .tile {
   display: grid;
   align-content: start;
   gap: 0.25rem;
-  padding: 1rem 1.125rem 1.125rem;
-  background: var(--sheet);
-  border: 1px solid var(--sheet-line);
-  border-radius: var(--radius-surface);
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
   min-width: 0;
 }
 .tile-label {
@@ -213,19 +244,18 @@
   color: var(--muted);
 }
 .tile-warn .tile-value {
-  color: var(--error);
+  color: var(--chart-bad);
 }
 .tiles-inline {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
+  gap: 1.5rem;
   margin-bottom: 1rem;
 }
+/* A section: rule, heading with a small note, then its content on the paper. */
 .card {
-  padding: 1.125rem 1.25rem 1.25rem;
-  background: var(--sheet);
-  border: 1px solid var(--sheet-line);
-  border-radius: var(--radius-surface);
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--line);
   min-width: 0;
 }
 .card-head {
@@ -233,15 +263,15 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
-  margin-bottom: 0.875rem;
+  margin-bottom: 1rem;
 }
 .card h2 {
-  font-size: var(--text-body);
+  font-size: var(--text-section);
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 .card-head .small {
-  margin-top: 0.125rem;
+  margin-top: 0.25rem;
 }
 .chart {
   width: 100%;
@@ -286,34 +316,17 @@
 .admin-table a:hover {
   text-decoration: underline;
 }
-.status {
-  font-size: var(--text-small);
+.row-archived td {
   color: var(--muted);
 }
-.status-draft {
-  color: var(--error);
+/* A ring with its legend beside it wants no more width than that. */
+.chart-ring {
+  max-width: 20rem;
 }
 .empty-note {
   padding: 1.5rem 0;
   color: var(--muted);
   font-size: var(--text-small);
-  text-align: center;
-}
-.meter {
-  height: 0.375rem;
-  border-radius: 0.375rem;
-  background: var(--line);
-  overflow: hidden;
-  margin: 0.25rem 0 0.75rem;
-}
-.meter i {
-  display: block;
-  height: 100%;
-  border-radius: 0.375rem;
-  background: var(--chart-1);
-}
-.meter-warn i {
-  background: var(--error);
 }
 .admin-filters {
   display: flex;
@@ -385,18 +398,34 @@
   font-size: var(--text-small);
 }
 .admin-search {
-  display: block;
-  min-width: 14rem;
-  background: var(--sheet);
+  width: 11rem;
+  min-height: 2rem;
+  background: transparent;
   border: 1px solid var(--control-border);
-  border-radius: var(--radius-control);
-  padding: 0.5rem 0.75rem;
-}
-.admin-editor textarea {
-  min-height: 28rem;
-  margin-top: 0;
-  font-family: ui-monospace, monospace;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
   font-size: var(--text-small);
+}
+.admin-search:focus {
+  background: var(--sheet);
+}
+.admin-json summary {
+  font-size: var(--text-small);
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  width: fit-content;
+}
+.admin-json pre {
+  margin: 0.75rem 0 0;
+  padding: 1rem;
+  background: var(--sheet);
+  border: 1px solid var(--sheet-line);
+  border-radius: var(--radius-control);
+  font-size: var(--text-small);
+  line-height: 1.5;
+  overflow: auto;
+  max-height: 32rem;
 }
 .admin-table-wrap {
   overflow-x: auto;
@@ -456,9 +485,6 @@
   justify-self: start;
   margin: 0;
 }
-.admin-login-sheet h1 {
-  font-size: var(--text-section);
-}
 .admin-login-form {
   display: grid;
   gap: 0.375rem;
@@ -492,6 +518,9 @@
   margin: auto;
 }
 @media (max-width: 64rem) {
+  .admin-grid {
+    gap: 2rem 2rem;
+  }
   .admin-grid > .span-6,
   .admin-grid > .span-4,
   .admin-grid > .span-3 {
@@ -522,4 +551,77 @@
   .tiles-inline {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+/* Service switches on the Services page: a state line, then the controls in one row. */
+/* Panel buttons take the compact pill of the other panel controls (period, sort, search,
+   cap) instead of the practice site's tall action buttons. */
+.admin .secondary {
+  min-height: 2rem;
+  padding: 0.25rem 0.875rem;
+  border-radius: 999px;
+  font-size: var(--text-small);
+}
+.service-control {
+  display: grid;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.service-state {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  font-size: var(--text-small);
+}
+.service-on,
+.service-off {
+  font-variant-numeric: tabular-nums;
+}
+.service-off {
+  color: var(--error);
+}
+.service-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+.service-cap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.service-cap label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-small);
+  color: var(--muted);
+}
+.service-cap input {
+  width: 6.5rem;
+  min-height: 2rem;
+  padding: 0.25rem 0.625rem;
+  border: 1px solid var(--control-border);
+  border-radius: 999px;
+  background: transparent;
+  font-size: var(--text-small);
+  font-variant-numeric: tabular-nums;
+}
+.service-cap input:focus {
+  background: var(--sheet);
+}
+/* The overview says when a configured service is not offered right now. */
+.admin-notice {
+  margin: -1rem 0 2rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: var(--text-small);
+  color: var(--error);
+}
+.admin-notice a {
+  color: inherit;
 }

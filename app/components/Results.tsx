@@ -102,6 +102,84 @@ export function OpenSetResults() {
   );
 }
 
+// One question in the full review: the answer given, the right one, the explanation and its evidence.
+export function QuestionReview({ session, entry, index }) {
+  const { t } = useStudyContext(),
+    { item, q, key } = entry,
+    evidence = item.text ? evidenceFor(item, q) : [];
+  return (
+    <details>
+      <summary>
+        <span
+          aria-label={
+            session.answers[key] === q.answer ? t('Goed', 'Correct') : t('Onjuist', 'Incorrect')
+          }
+        >
+          {session.answers[key] === q.answer ? '✓' : '×'}
+        </span>
+        <span lang="nl">
+          {index + 1}. {q.prompt}
+        </span>
+      </summary>
+      <div className="review-answer">
+        <p>
+          {t('Jouw antwoord', 'Your answer')}:{' '}
+          <span lang="nl">{q.options[session.answers[key]]}</span>
+        </p>
+        {session.answers[key] !== q.answer && (
+          <p>
+            {t('Goed antwoord', 'Correct answer')}: <span lang="nl">{q.options[q.answer]}</span>
+          </p>
+        )}
+        <p lang="nl">{q.explanation}</p>
+        {evidence.length > 0 && (
+          <p className="review-evidence" lang="nl">
+            <EvidenceText text={evidence.join(' ')} quotes={evidence} />
+          </p>
+        )}
+        <IssueReport item={item} questionId={q.id} />
+      </div>
+    </details>
+  );
+}
+// A missed question with the answers side by side, as shown on every result page.
+export function Mistake({ session, entry, source = null }) {
+  const { t } = useStudyContext(),
+    { item, q, key } = entry,
+    evidence = item.text ? evidenceFor(item, q) : [];
+  return (
+    <div className="mistake">
+      {source && (
+        <p className="small mistake-source" lang="nl">
+          {source}
+        </p>
+      )}
+      <p className="mistake-prompt" lang="nl">
+        {q.prompt}
+      </p>
+      <dl className="mistake-answers">
+        <dt>{t('Jouw antwoord', 'Your answer')}</dt>
+        <dd lang="nl">
+          <del>{q.options[session.answers[key]]}</del>
+        </dd>
+        <dt>{t('Goed antwoord', 'Correct answer')}</dt>
+        <dd lang="nl">{q.options[q.answer]}</dd>
+        {evidence.length > 0 && (
+          <>
+            <dt>{item.part === 'knm' ? t('Feit', 'Fact') : t('In de tekst', 'In the text')}</dt>
+            <dd lang="nl">
+              <EvidenceText text={evidence.join(' ')} quotes={evidence} />
+            </dd>
+          </>
+        )}
+      </dl>
+      <p className="small" lang="nl">
+        {q.explanation}
+      </p>
+    </div>
+  );
+}
+
 export function Results() {
   const { state, catalogue, t, practiceSet } = useStudyContext(),
     a = state.active,
@@ -126,39 +204,6 @@ export function Results() {
           }))
           .filter((x) => x.qs.length)
       : [];
-  const review = ({ item, q, key }, i) => (
-    <details key={key}>
-      <summary>
-        <span
-          aria-label={
-            a.answers[key] === q.answer ? t('Goed', 'Correct') : t('Onjuist', 'Incorrect')
-          }
-        >
-          {a.answers[key] === q.answer ? '✓' : '×'}
-        </span>
-        <span lang="nl">
-          {i + 1}. {q.prompt}
-        </span>
-      </summary>
-      <div className="review-answer">
-        <p>
-          {t('Jouw antwoord', 'Your answer')}: <span lang="nl">{q.options[a.answers[key]]}</span>
-        </p>
-        {a.answers[key] !== q.answer && (
-          <p>
-            {t('Goed antwoord', 'Correct answer')}: <span lang="nl">{q.options[q.answer]}</span>
-          </p>
-        )}
-        <p lang="nl">{q.explanation}</p>
-        {evidenceFor(item, q).length > 0 && (
-          <p className="review-evidence" lang="nl">
-            <EvidenceText text={evidenceFor(item, q).join(' ')} quotes={evidenceFor(item, q)} />
-          </p>
-        )}
-        <IssueReport item={item} questionId={q.id} />
-      </div>
-    </details>
-  );
   return (
     <>
       <Heading
@@ -223,39 +268,15 @@ export function Results() {
               <h3 lang={skillLabel(group.items[0].q.skill, lang) ? undefined : 'nl'}>
                 {group.label}
               </h3>
-              {group.items.map(({ item, q, key }) => (
-                <div className="mistake" key={key}>
-                  {group.label !== item.title && a.ids.length > 1 && (
-                    <p className="small mistake-source" lang="nl">
-                      {item.title}
-                    </p>
-                  )}
-                  <p className="mistake-prompt" lang="nl">
-                    {q.prompt}
-                  </p>
-                  <dl className="mistake-answers">
-                    <dt>{t('Jouw antwoord', 'Your answer')}</dt>
-                    <dd lang="nl">
-                      <del>{q.options[a.answers[key]]}</del>
-                    </dd>
-                    <dt>{t('Goed antwoord', 'Correct answer')}</dt>
-                    <dd lang="nl">{q.options[q.answer]}</dd>
-                    {evidenceFor(item, q).length > 0 && (
-                      <>
-                        <dt>{t('In de tekst', 'In the text')}</dt>
-                        <dd lang="nl">
-                          <EvidenceText
-                            text={evidenceFor(item, q).join(' ')}
-                            quotes={evidenceFor(item, q)}
-                          />
-                        </dd>
-                      </>
-                    )}
-                  </dl>
-                  <p className="small" lang="nl">
-                    {q.explanation}
-                  </p>
-                </div>
+              {group.items.map((entry) => (
+                <Mistake
+                  key={entry.key}
+                  session={a}
+                  entry={entry}
+                  source={
+                    group.label !== entry.item.title && a.ids.length > 1 ? entry.item.title : null
+                  }
+                />
               ))}
             </div>
           ))}
@@ -269,7 +290,11 @@ export function Results() {
                 `Review all ${questions.length} questions`,
               )}
             </summary>
-            <div className="result-review-list">{questions.map(review)}</div>
+            <div className="result-review-list">
+              {questions.map((entry, i) => (
+                <QuestionReview key={entry.key} session={a} entry={entry} index={i} />
+              ))}
+            </div>
           </details>
         </div>
       </div>

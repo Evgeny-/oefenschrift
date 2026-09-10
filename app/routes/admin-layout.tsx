@@ -3,6 +3,9 @@ import { getStore } from '../../server/store';
 import { adminSession } from '../../server/security';
 import { readPreferences } from '../domain/render-state';
 import ThemeSwitch from '../components/admin/ThemeSwitch';
+import { LogoMark } from '../components/Wordmark';
+import { logo } from '../components/logo';
+import { withBase } from '../domain/base';
 export function loader({ request }) {
   adminSession(request);
   return {
@@ -13,15 +16,15 @@ export function loader({ request }) {
   };
 }
 export function meta() {
-  return [{ title: 'Administration | Inburgering' }, { name: 'robots', content: 'noindex' }];
+  return [{ title: 'Administration | Oefenschrift' }, { name: 'robots', content: 'noindex' }];
 }
 export default function AdminLayout() {
   const { open, theme } = useLoaderData<typeof loader>();
   return (
     <div className="admin">
       <header className="admin-bar">
-        <NavLink to="/ops" end className="wordmark">
-          Inburgering
+        <NavLink to="/ops" end className="wordmark" aria-label={logo.name}>
+          <LogoMark />
         </NavLink>
         <nav className="admin-nav" aria-label="Operations">
           <NavLink to="/ops" end>
@@ -40,7 +43,7 @@ export default function AdminLayout() {
         </nav>
         <div className="admin-bar-tools">
           <ThemeSwitch initial={theme} />
-          <a className="bar-link" href="/reading">
+          <a className="bar-link" href={withBase('/reading')}>
             Practice site
           </a>
           <Form method="post" action="/ops/logout">

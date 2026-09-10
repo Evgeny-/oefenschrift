@@ -63,7 +63,7 @@ export default function useSelectionIndicator(value) {
     style: position
       ? {
           width: position.width,
-          transform: `translateX(${position.x}px)`,
+          left: position.x,
           ...(position.silent ? { transition: 'none' } : {}),
         }
       : undefined,

@@ -26,7 +26,15 @@ test('stable practice sets cover each exercise exactly once with no mixed subjec
   assert.equal(new Set(ids).size, catalogue.length);
   assert.equal(ids.length, catalogue.length);
   for (const set of sets) {
-    assert.ok(set.ids.length >= 3 && set.ids.length <= 5);
+    // Two texts for a B1 reading drill, up to ten facts for a KNM theme (blueprint §11).
+    const minimum =
+      set.level === 'B1' && set.part === 'listening'
+        ? 1
+        : set.level === 'B1' && ['reading', 'writing'].includes(set.part)
+          ? 2
+          : 3;
+    const maximum = set.part === 'knm' ? 10 : 5;
+    assert.ok(set.ids.length >= minimum && set.ids.length <= maximum);
     for (const id of set.ids) {
       const item = catalogue.find((i) => i.id === id);
       assert.equal(item.part, set.part);

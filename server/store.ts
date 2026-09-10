@@ -12,6 +12,11 @@ export class StoreError extends Error {
 }
 const fingerprint = (value) =>
   createHash('sha256').update(JSON.stringify(value)).digest('hex').slice(0, 16);
+// Retention the Privacy page promises, applied at startup and once a day: anonymous
+// learning events feed statistics that look back at most 90 days; a resolved report goes
+// a year after it was filed.
+export const EVENT_RETENTION_DAYS = 90,
+  REPORT_RETENTION_DAYS = 365;
 const parts = ['reading', 'listening', 'writing', 'speaking', 'knm'];
 export function validateExercise(item) {
   if (
@@ -73,6 +78,7 @@ export function validateExercise(item) {
 }
 export class ContentStore {
   db: DatabaseSync;
+  prunedAt = 0;
   constructor(path, catalogue = [], sets = []) {
     if (path !== ':memory:') mkdirSync(dirname(path), { recursive: true });
     this.db = new DatabaseSync(path);
@@ -104,12 +110,14 @@ export class ContentStore {
       this.db.exec(
         'ALTER TABLE service_stats ADD COLUMN input_tokens INTEGER NOT NULL DEFAULT 0; ALTER TABLE service_stats ADD COLUMN output_tokens INTEGER NOT NULL DEFAULT 0;',
       );
-    this.db
-      .prepare('INSERT OR IGNORE INTO schema_migrations VALUES(1,?)')
-      .run(new Date().toISOString());
-    this.db
-      .prepare('INSERT OR IGNORE INTO schema_migrations VALUES(2,?)')
-      .run(new Date().toISOString());
+    // Operator settings: the provider switches and daily caps (schema migration 3).
+    this.db.exec(
+      'CREATE TABLE IF NOT EXISTS settings(key TEXT PRIMARY KEY,value TEXT NOT NULL,updated_at TEXT NOT NULL)',
+    );
+    for (const version of [1, 2, 3])
+      this.db
+        .prepare('INSERT OR IGNORE INTO schema_migrations VALUES(?,?)')
+        .run(version, new Date().toISOString());
     // Reviewed JSON remains the import source; runtime drafts are never published by startup.
     this.db.exec('BEGIN IMMEDIATE');
     try {
@@ -139,6 +147,18 @@ export class ContentStore {
       this.db.exec('ROLLBACK');
       throw e;
     }
+    this.pruneEvents();
+  }
+  pruneEvents(now = Date.now()) {
+    if (now - this.prunedAt < 86400000) return 0;
+    this.prunedAt = now;
+    const events = this.db
+        .prepare('DELETE FROM events WHERE day<?')
+        .run(new Date(now - EVENT_RETENTION_DAYS * 86400000).toISOString().slice(0, 10)).changes,
+      reports = this.db
+        .prepare("DELETE FROM reports WHERE status='resolved' AND created_at<?")
+        .run(Math.floor(now / 1000) - REPORT_RETENTION_DAYS * 86400).changes;
+    return Number(events) + Number(reports);
   }
   history(row, operation) {
     this.db
@@ -296,6 +316,28 @@ export class ContentStore {
       .prepare('SELECT * FROM service_stats ORDER BY day DESC,service LIMIT ?')
       .all(limit);
   }
+  // Requests counted today (UTC) for a service, cache hits and refusals included; the
+  // daily cap compares against this number.
+  callsToday(service, now = Date.now()) {
+    const row = this.db
+      .prepare('SELECT calls FROM service_stats WHERE day=? AND service=?')
+      .get(new Date(now).toISOString().slice(0, 10), service) as any;
+    return Number(row?.calls || 0);
+  }
+  setting(key) {
+    const row = this.db.prepare('SELECT value FROM settings WHERE key=?').get(key) as any;
+    return row ? String(row.value) : null;
+  }
+  setSetting(key, value) {
+    if (!/^[a-z_]{1,64}$/.test(key)) throw new StoreError('Invalid setting.');
+    if (value === null) this.db.prepare('DELETE FROM settings WHERE key=?').run(key);
+    else
+      this.db
+        .prepare(
+          'INSERT INTO settings(key,value,updated_at) VALUES(?,?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value,updated_at=excluded.updated_at',
+        )
+        .run(key, String(value), new Date().toISOString());
+  }
   // Anonymous learning events. The visitor value is already hashed by the caller;
   // correctness is decided here from the answer key, never taken from the client.
   recordEvents(visitor, events, now = Date.now()) {
@@ -307,6 +349,7 @@ export class ContentStore {
       events.length > 50
     )
       throw new StoreError('Invalid events.');
+    this.pruneEvents(now);
     const catalogue = this.catalogue(),
       day = new Date(now).toISOString().slice(0, 10),
       insert = this.db.prepare(
@@ -334,7 +377,7 @@ export class ContentStore {
           question.answer === event.selected ? 1 : 0,
           lang,
           level,
-          ['practice', 'mock', 'retry'].includes(event.mode) ? event.mode : 'practice',
+          ['practice', 'mock', 'retry', 'check'].includes(event.mode) ? event.mode : 'practice',
         ]);
       } else if (event.kind === 'review' && !item.questions && ['ai', 'self'].includes(event.mode))
         rows.push(['review', item.id, null, null, null, lang, level, event.mode]);

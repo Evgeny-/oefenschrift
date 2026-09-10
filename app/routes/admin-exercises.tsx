@@ -10,36 +10,39 @@ const subjects = {
   speaking: 'Speaking',
   knm: 'KNM',
 };
+// Reviewed exercises only; content is authored in the catalogue, not here.
 export function loader({ request }) {
   adminSession(request);
   const store = getStore(),
     analytics = store.analytics(90),
     reports = store.reports();
-  const rows = store.list().map((row) => {
-    const item = row.published || row.draft,
-      answers = analytics.byItem.find((x) => x.item === row.id),
-      reviews = analytics.reviewsByItem.find((x) => x.item === row.id);
-    return {
-      id: row.id,
-      title: item?.title || row.id,
-      level: item?.level,
-      part: item?.part,
-      status: row.archived ? 'archived' : row.draft ? 'draft' : 'available',
-      learners: (answers?.visitors || 0) + (reviews?.visitors || 0),
-      answers: answers?.answers || 0,
-      correct: answers?.correct || 0,
-      reviews: reviews?.reviews || 0,
-      ai: reviews?.ai || 0,
-      open: reports.filter((report) => report.item_id === row.id && report.status === 'open')
-        .length,
-    };
-  });
+  const rows = store
+    .list()
+    .filter((row) => row.published)
+    .map((row) => {
+      const item = row.published,
+        answers = analytics.byItem.find((x) => x.item === row.id),
+        reviews = analytics.reviewsByItem.find((x) => x.item === row.id);
+      return {
+        id: row.id,
+        title: item.title,
+        level: item.level,
+        part: item.part,
+        archived: !!row.archived,
+        learners: (answers?.visitors || 0) + (reviews?.visitors || 0),
+        answers: answers?.answers || 0,
+        correct: answers?.correct || 0,
+        reviews: reviews?.reviews || 0,
+        ai: reviews?.ai || 0,
+        open: reports.filter((report) => report.item_id === row.id && report.status === 'open')
+          .length,
+      };
+    });
   return {
     rows,
     counts: {
-      available: rows.filter((r) => r.status === 'available').length,
-      draft: rows.filter((r) => r.status === 'draft').length,
-      archived: rows.filter((r) => r.status === 'archived').length,
+      available: rows.filter((r) => !r.archived).length,
+      archived: rows.filter((r) => r.archived).length,
     },
   };
 }
@@ -62,50 +65,44 @@ export default function Exercises() {
         <div>
           <h1>Exercises</h1>
           <p className="small">
-            {counts.available} available · {counts.draft} drafts awaiting review · {counts.archived}{' '}
-            archived. Usage covers the last 90 days.
+            {counts.available} in practice
+            {counts.archived ? ` · ${counts.archived} removed from practice` : ''}. Usage covers the
+            last 90 days.
           </p>
         </div>
-        <Link className="primary" to="/ops/exercises/new">
-          New draft
-        </Link>
-      </div>
-      <Card
-        actions={
-          <div className="admin-filters">
-            <label className="sr-only" htmlFor="exercise-search">
-              Find an exercise
-            </label>
-            <input
-              id="exercise-search"
-              className="admin-search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Title or ID"
-            />
-            <div className="segmented" role="group" aria-label="Sort">
-              {[
-                ['learners', 'Most used'],
-                ['accuracy', 'Lowest accuracy'],
-                ['title', 'Title'],
-              ].map(([value, label]) => (
-                <button
-                  key={value}
-                  aria-pressed={sort === value}
-                  onClick={() => setSort(value as any)}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
+        <div className="admin-filters">
+          <div className="segmented" role="group" aria-label="Sort">
+            {[
+              ['learners', 'Most used'],
+              ['accuracy', 'Lowest accuracy'],
+              ['title', 'Title'],
+            ].map(([value, label]) => (
+              <button
+                key={value}
+                aria-pressed={sort === value}
+                onClick={() => setSort(value as any)}
+              >
+                {label}
+              </button>
+            ))}
           </div>
-        }
-      >
+          <label className="sr-only" htmlFor="exercise-search">
+            Find an exercise
+          </label>
+          <input
+            id="exercise-search"
+            className="admin-search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Find…"
+          />
+        </div>
+      </div>
+      <Card>
         <table className="admin-table">
           <thead>
             <tr>
               <th>Exercise</th>
-              <th>Status</th>
               <th className="num">Learners</th>
               <th className="num">Answers</th>
               <th className="num">Correct</th>
@@ -115,21 +112,13 @@ export default function Exercises() {
           </thead>
           <tbody>
             {shown.map((row) => (
-              <tr key={row.id}>
+              <tr key={row.id} className={row.archived ? 'row-archived' : undefined}>
                 <td>
                   <Link to={'/ops/exercises/' + encodeURIComponent(row.id)}>{row.title}</Link>
                   <small>
-                    {row.level} · {subjects[row.part] || row.part} · {row.id}
+                    {row.level} · {subjects[row.part] || row.part}
+                    {row.archived ? ' · removed from practice' : ''}
                   </small>
-                </td>
-                <td>
-                  <span className={`status status-${row.status}`}>
-                    {row.status === 'draft'
-                      ? 'Draft'
-                      : row.status === 'archived'
-                        ? 'Archived'
-                        : 'Available'}
-                  </span>
                 </td>
                 <td className="num">{row.learners || '–'}</td>
                 <td className="num">

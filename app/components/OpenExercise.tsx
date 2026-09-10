@@ -5,13 +5,142 @@ import { track, visitorId } from '../domain/telemetry';
 import SpeakingRecorder from './SpeakingRecorder';
 import { AnswerDiff } from './TextEvidence';
 import starters from '../../content/hints/sentence-starters.json';
-import { FeedbackInfo, KeyHint } from './Controls';
+import { ClipButton, FeedbackInfo, KeyHint, GrowingTextarea } from './Controls';
 import { localizeFeedback } from '../domain/feedback';
+import { unavailableCodes } from '../types';
+import { postJson, type ApiFailure } from '../domain/request';
 import { ExerciseHeader, sessionTimer } from './ExerciseHeader';
 import { useEnterAction } from './keys';
+import { mediaUrl } from '../domain/base';
+
+// Blueprint task types carry the exam's printed material: an e-mail header, the wijkkrant opening
+// line, the fields of a form, or the pictures of a picture note. Shown with the task, above the answer.
+function TaskStimulus({ item, t }) {
+  const pictures = Array.isArray(item.images) ? item.images.filter((i) => i?.file) : [];
+  const scaffold = item.scaffold || {};
+  return (
+    <>
+      {pictures.length > 0 && (
+        <div className="pictures" data-count={pictures.length}>
+          {pictures.map((i, n) => (
+            <figure key={i.file} className="picture">
+              <img src={mediaUrl(i.file)} alt={i.alt || ''} loading="lazy" />
+              {pictures.length > 1 && <figcaption>{n + 1}</figcaption>}
+            </figure>
+          ))}
+        </div>
+      )}
+      {scaffold.to && (
+        <dl className="mail-header" lang="nl">
+          <dt>{t('Aan', 'To')}</dt>
+          <dd>{scaffold.to}</dd>
+          <dt>{t('Van', 'From')}</dt>
+          <dd>{scaffold.from}</dd>
+          <dt>{t('Onderwerp', 'Subject')}</dt>
+          <dd>{scaffold.subject}</dd>
+        </dl>
+      )}
+      {(item.promptAudio || item.cueAudio) && (
+        <div className="task-audio" lang="nl">
+          {item.promptAudio && (
+            <ClipButton
+              src={item.promptAudio}
+              playLabel={t('Opdracht beluisteren', 'Listen to the instruction')}
+              pauseLabel={t('Pauzeren', 'Pause')}
+              caption={t('Opdracht', 'Instruction')}
+            />
+          )}
+          {item.cueAudio && (
+            <ClipButton
+              src={item.cueAudio}
+              playLabel={t('Vraag beluisteren', 'Listen to the question')}
+              pauseLabel={t('Pauzeren', 'Pause')}
+              caption={
+                item.cue?.speaker
+                  ? `${t('U hoort', 'You hear')}: ${item.cue.speaker}`
+                  : t('Vraag', 'Question')
+              }
+            />
+          )}
+        </div>
+      )}
+      {item.speakingSeconds && (
+        <p className="small task-timing" lang="nl">
+          {item.prepSeconds ? `${item.prepSeconds} seconden voorbereiden · ` : ''}
+          {item.speakingSeconds} seconden spreektijd
+        </p>
+      )}
+      {scaffold.salutation && (
+        <p className="scaffold-line" lang="nl">
+          {scaffold.salutation}
+        </p>
+      )}
+      {item.taskType === 'wijkkrant' && item.opening && (
+        <p className="scaffold-line" lang="nl">
+          {item.opening}
+        </p>
+      )}
+      {item.table && Array.isArray(item.table.rows) && (
+        // A B1 korte schrijftaak gives its facts in a small table that is not part of the e-mail.
+        <table className="task-table" lang="nl">
+          {item.table.caption && <caption>{item.table.caption}</caption>}
+          {Array.isArray(item.table.columns) && (
+            <thead>
+              <tr>
+                {item.table.columns.map((c) => (
+                  <th key={c} scope="col">
+                    {c}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+          )}
+          <tbody>
+            {item.table.rows.map((row, r) => (
+              <tr key={r}>
+                {row.map((cell, c) => (
+                  <td key={c}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+      {item.taskType === 'zinstaak' && scaffold.body && (
+        // A zinstaak shows a short e-mail with one gap; the learner writes the missing sentence.
+        <p className="gap-text" lang="nl">
+          {String(scaffold.body)
+            .split('___')
+            .map((part, n, parts) => (
+              <React.Fragment key={n}>
+                {part}
+                {n < parts.length - 1 && (
+                  <span className="gap" aria-label={t('Open plek', 'Gap')}>
+                    {' '}
+                  </span>
+                )}
+              </React.Fragment>
+            ))}
+        </p>
+      )}
+      {Array.isArray(item.formFields) && (
+        <dl className="form-fields" lang="nl">
+          {item.formFields.map((f) => (
+            <React.Fragment key={f.label}>
+              <dt>{f.label}</dt>
+              <dd className={f.kind === 'open' ? 'field-open' : 'field-line'}>
+                {Array.isArray(f.options) ? f.options.join(' · ') : ''}
+              </dd>
+            </React.Fragment>
+          ))}
+        </dl>
+      )}
+    </>
+  );
+}
 
 export function OpenExercise({ item }) {
-  const { state, setState, t, name, go, api, practiceSet, ready } = useStudyContext(),
+  const { state, setState, t, name, go, api, refreshApi, practiceSet, ready } = useStudyContext(),
     [rawResult, setResult] = useState(null),
     [busy, setBusy] = useState(false),
     [captureBusy, setCaptureBusy] = useState(false),
@@ -34,9 +163,18 @@ export function OpenExercise({ item }) {
     speaking = item.part === 'speaking',
     checks = state.reviews[item.id] || [],
     reviewing = !!result || selfReview;
+  // AI feedback is offered while the service is on and this browser's daily allowance
+  // is not used up; the note under the buttons says which of the two is missing.
+  const allowanceLeft = api?.remaining?.feedback ?? Infinity,
+    feedbackOffered = !!api?.feedback && allowanceLeft > 0;
   useEffect(() => {
     if (ready && state.drafts[item.id]) setShowAnswer(true);
   }, [ready]);
+  // A form task starts with its field labels in the answer, one per line, as the paper form does.
+  useEffect(() => {
+    if (ready && Array.isArray(item.formFields) && !state.drafts[item.id])
+      setDraft(item.formFields.map((f) => `${f.label}: `).join('\n'));
+  }, [ready, item.id]);
   useEffect(() => () => request.current?.abort(), []);
   useEffect(() => {
     if (!busy) return;
@@ -69,28 +207,56 @@ export function OpenExercise({ item }) {
     setSubmitted(draft);
     const timeout = setTimeout(() => controller.abort('timeout'), 50000);
     try {
-      const response = await fetch('/api/feedback', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+      const body = await postJson(
+        '/api/feedback',
+        {
           id: item.id,
           answer: draft,
           lang: state.settings.lang,
           speech_confirmed: true,
           visitor: visitorId(),
-        }),
-        signal: controller.signal,
-      });
-      const body = await response.json();
-      if (!response.ok) throw Error(body.error || 'Feedback unavailable');
+        },
+        { signal: controller.signal },
+      );
       if (!controller.signal.aborted) setResult(body);
     } catch (e) {
-      if (!controller.signal.aborted || controller.signal.reason === 'timeout')
+      if (controller.signal.aborted && controller.signal.reason !== 'timeout') return;
+      const { code, retryAfter } = (e as ApiFailure) || {};
+      // A service that is off, paused or capped, or an allowance used up for today:
+      // self-review takes over at once and the draft stays. A rate limit, a busy moment or
+      // a provider hiccup keeps the button for a retry.
+      if (unavailableCodes('feedback').includes(code)) {
+        refreshApi('feedback');
         setError(
           t(
-            'Feedback ophalen lukt niet. Je antwoord is bewaard. Probeer opnieuw.',
-            'Feedback could not be loaded. Your answer is saved. Please retry.',
+            'AI-feedback is nu niet beschikbaar. Kijk je antwoord zelf na; het is bewaard.',
+            'AI feedback is unavailable right now. Review your answer yourself; it is saved.',
           ),
+        );
+      } else if (code === 'allowance_exhausted') {
+        refreshApi('feedback', 'allowance');
+        setError(
+          t(
+            'De AI-feedback voor vandaag is op. Kijk je antwoord zelf na; het is bewaard.',
+            'Today’s AI feedback is used up. Review your answer yourself; it is saved.',
+          ),
+        );
+      } else
+        setError(
+          code === 'rate_limited'
+            ? t(
+                `Even wachten: probeer het over ${retryAfter && retryAfter < 120 ? `${retryAfter} seconden` : 'een minuut'} opnieuw. Je antwoord is bewaard.`,
+                `Please wait ${retryAfter && retryAfter < 120 ? `${retryAfter} seconds` : 'a minute'} and try again. Your answer is saved.`,
+              )
+            : code === 'busy'
+              ? t(
+                  'Het is druk. Probeer het over een minuut opnieuw; je antwoord is bewaard.',
+                  'It is busy right now. Try again in a minute; your answer is saved.',
+                )
+              : t(
+                  'Feedback ophalen lukt niet. Je antwoord is bewaard. Probeer opnieuw.',
+                  'Feedback could not be loaded. Your answer is saved. Please retry.',
+                ),
         );
     } finally {
       clearTimeout(timeout);
@@ -118,37 +284,53 @@ export function OpenExercise({ item }) {
           <p className="passage" lang="nl">
             {item.prompt}
           </p>
-          <ul className="requirements">
-            {item.criteria.map((c, i) => (
-              <li key={i}>{t(c[0], c[1])}</li>
-            ))}
-          </ul>
-          {starters[item.id] && (
-            <details className="sentence-starters">
-              <summary>
-                <span>{t('Beginzinnen', 'Sentence starters')}</span>
-                <svg
-                  className="hint-chevron"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="m8 10 4 4 4-4" />
-                </svg>
-              </summary>
-              <ul lang="nl">
-                {starters[item.id].map((line, i) => (
-                  <li key={i}>{line}</li>
-                ))}
-              </ul>
-            </details>
+          <TaskStimulus item={item} t={t} />
+          {/* A picture task gives only the pictures and a cued task only the spoken question; their
+              requirements would give the words away, so they appear at review time. */}
+          {(!(
+            item.taskType === 'picture-note' ||
+            item.taskType === 'zinstaak' ||
+            item.cue ||
+            (item.taskType === 'deelschrijftaak' && item.images?.length)
+          ) ||
+            reviewing) && (
+            <ul className="requirements">
+              {item.criteria.map((c, i) => (
+                <li key={i}>{t(c[0], c[1])}</li>
+              ))}
+            </ul>
           )}
+          {starters[item.id] &&
+            !(
+              (item.taskType === 'picture-note' ||
+                (item.taskType === 'deelschrijftaak' && item.images?.length)) &&
+              !reviewing
+            ) && (
+              <details className="sentence-starters">
+                <summary>
+                  <span>{t('Beginzinnen', 'Sentence starters')}</span>
+                  <svg
+                    className="hint-chevron"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="m8 10 4 4 4-4" />
+                  </svg>
+                </summary>
+                <ul lang="nl">
+                  {starters[item.id].map((line, i) => (
+                    <li key={i}>{line}</li>
+                  ))}
+                </ul>
+              </details>
+            )}
         </section>
         <section className="answer-workspace">
           <div hidden={reviewing}>
@@ -159,6 +341,7 @@ export function OpenExercise({ item }) {
                   setDraft(text);
                   setShowAnswer(true);
                 }}
+                onUnavailable={() => setShowAnswer(true)}
                 onBusy={setCaptureBusy}
                 inputToggle={
                   <button
@@ -182,7 +365,7 @@ export function OpenExercise({ item }) {
                     ? t('Je transcript', 'Your transcript')
                     : t('Jouw bericht', 'Your message')}
                 </label>
-                <textarea
+                <GrowingTextarea
                   id="open-answer"
                   lang="nl"
                   spellCheck
@@ -192,6 +375,11 @@ export function OpenExercise({ item }) {
                   onChange={(e) => setDraft(e.target.value)}
                   placeholder={t('Schrijf hier in het Nederlands…', 'Write here in Dutch…')}
                 />
+                {item.scaffold?.closing && (
+                  <p className="scaffold-line" lang="nl">
+                    {item.scaffold.closing}
+                  </p>
+                )}
                 <p className="small transcript-check" hidden={!speaking}>
                   {t(
                     'Klopt de tekst? Pas aan waar nodig.',
@@ -203,7 +391,7 @@ export function OpenExercise({ item }) {
             {(!speaking || showAnswer) && (
               <>
                 <div className="actions">
-                  {api?.feedback ? (
+                  {feedbackOffered ? (
                     <button
                       className="primary"
                       data-action="assess"
@@ -221,8 +409,30 @@ export function OpenExercise({ item }) {
                       {t('Zelf nakijken', 'Self-review')}
                     </button>
                   )}
-                  {api?.feedback && <FeedbackInfo />}
+                  {feedbackOffered && <FeedbackInfo />}
                 </div>
+                {!api?.feedback && api?.feedbackPaused ? (
+                  <p className="small service-note">
+                    {t(
+                      'AI-feedback is tijdelijk niet beschikbaar. Zelf nakijken werkt altijd.',
+                      'AI feedback is temporarily unavailable. Self-review always works.',
+                    )}
+                  </p>
+                ) : api?.feedback && allowanceLeft <= 0 ? (
+                  <p className="small service-note">
+                    {t(
+                      'De AI-feedback voor vandaag is op. Zelf nakijken werkt altijd.',
+                      'Today’s AI feedback is used up. Self-review always works.',
+                    )}
+                  </p>
+                ) : feedbackOffered && allowanceLeft <= 5 ? (
+                  <p className="small service-note">
+                    {t(
+                      `Nog ${allowanceLeft} keer AI-feedback vandaag.`,
+                      `${allowanceLeft} AI reviews left today.`,
+                    )}
+                  </p>
+                ) : null}
                 <div className="feedback-status" aria-live="polite">
                   {busy ? (
                     <span>
@@ -347,7 +557,21 @@ export function OpenExercise({ item }) {
                   </div>
                   <details className="model-answer">
                     <summary>{t('Bekijk een voorbeeld', 'See an example')}</summary>
-                    <p lang="nl">{item.model}</p>
+                    {item.taskType === 'zinstaak' && item.scaffold?.body ? (
+                      // The example sentence belongs in its gap, so the learner sees it in context.
+                      <p className="gap-text" lang="nl">
+                        {String(item.scaffold.body)
+                          .split('___')
+                          .map((part, n, parts) => (
+                            <React.Fragment key={n}>
+                              {part}
+                              {n < parts.length - 1 && <mark>{item.model}</mark>}
+                            </React.Fragment>
+                          ))}
+                      </p>
+                    ) : (
+                      <p lang="nl">{item.model}</p>
+                    )}
                   </details>
                 </>
               )}

@@ -1,21 +1,36 @@
 import type { Exercise, PracticeSet as PracticeSetDefinition, ServiceStatus } from './types';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router';
-import useStudy from './useStudy';
+import useStudy, { rememberPreferences } from './useStudy';
 import { StudyContext } from './StudyContext';
 import { startSession, matchesSet, savedSetSession, flatten } from './domain/study';
 import { unitLabel } from './domain/labels';
 import { trackVisit } from './domain/telemetry';
-import { NavIcon } from './components/Controls';
+import { NavIcon, ContactLink } from './components/Controls';
 import { stateForRoute } from './domain/render-state';
 import { resolveTheme } from './domain/theme';
 import LevelNavigation from './components/LevelNavigation';
 import Preferences from './components/Preferences';
 import AppLink from './components/AppLink';
-import { readRoute, routePath, sessionRoute, routeLevel } from './domain/routes';
+import {
+  readRoute,
+  routePath,
+  localizePath,
+  sessionRoute,
+  routeLevel,
+  routeLang,
+} from './domain/routes';
 import { Catalogue, MockSetup, Progress, About } from './components/CatalogueViews';
 import Privacy from './components/Privacy';
+import Terms from './components/Terms';
 import { Session, OpenExercise, Heading, PracticeSet } from './components/ExerciseViews';
+import Home from './components/Home';
+import { LevelCheck, CheckResult } from './components/LevelCheck';
+import { checkInProgress } from './domain/check';
+import Wordmark from './components/Wordmark';
+import site from '../content/site.json';
+import useDisclosureMotion from './components/useDisclosureMotion';
+import { withBase } from './domain/base';
 const labels = {
   reading: ['Lezen', 'Reading'],
   listening: ['Luisteren', 'Listening'],
@@ -41,10 +56,16 @@ export default function App({
   const location = useLocation(),
     navigate = useNavigate();
   const route = readRoute({ ...location, hash: '' }, null);
-  const explicitLevel = routeLevel(location);
+  // The address carries the level and the language (/en): both override whatever this
+  // browser stored, so a copied link opens the way it was copied.
+  const explicitLevel = routeLevel(location),
+    lang = routeLang(location) || 'nl';
   const study = useStudy(catalogue, initialState, location.pathname, (state) =>
       stateForRoute(
-        explicitLevel ? { ...state, settings: { ...state.settings, level: explicitLevel } } : state,
+        {
+          ...state,
+          settings: { ...state.settings, level: explicitLevel || state.settings.level, lang },
+        },
         route,
         catalogue,
         practiceSets,
@@ -53,17 +74,53 @@ export default function App({
     ),
     { state, setState, saved } = study;
   const [api, setApi] = useState<ServiceStatus | null>(services);
+  const statusRequest = useRef<AbortController | null>(null);
+  // A refused paid call switches the interface to self-review or typing immediately and
+  // re-reads the status, which also brings a service back once it is available again.
+  const refreshApi = useCallback(
+    (unavailable?: 'feedback' | 'speech', reason: 'paused' | 'allowance' = 'paused') => {
+      if (typeof window === 'undefined' || window.location.protocol === 'file:') return;
+      if (unavailable && reason === 'allowance') {
+        setApi((s) => ({
+          ...(s || { feedback: false }),
+          remaining: { feedback: 1e9, speech: 1e9, ...s?.remaining, [unavailable]: 0 },
+        }));
+        return;
+      }
+      if (unavailable)
+        setApi((s) => ({
+          ...(s || { feedback: false }),
+          [unavailable]: false,
+          [unavailable + 'Paused']: true,
+        }));
+      statusRequest.current?.abort();
+      const controller = new AbortController();
+      statusRequest.current = controller;
+      fetch(withBase('/api/status'), { signal: controller.signal })
+        .then((r) => (r.ok ? r.json() : { feedback: false }))
+        .then((status) => {
+          if (!controller.signal.aborted) setApi(status);
+        })
+        .catch(() => {
+          if (!controller.signal.aborted) setApi({ feedback: false });
+        });
+    },
+    [],
+  );
   useEffect(() => {
     if (window.location.protocol === 'file:') {
       setApi({ feedback: false });
       return;
     }
-    const controller = new AbortController();
-    fetch('/api/status', { signal: controller.signal })
-      .then((r) => (r.ok ? r.json() : { feedback: false }))
-      .then(setApi)
-      .catch(() => setApi({ feedback: false }));
-    return () => controller.abort();
+    refreshApi();
+    const onVisible = () => {
+      if (!document.hidden) refreshApi();
+    };
+    document.addEventListener('visibilitychange', onVisible);
+    return () => {
+      document.removeEventListener('visibilitychange', onVisible);
+      statusRequest.current?.abort();
+    };
   }, []);
   const t = (nl, en) => (state.settings.lang === 'nl' ? nl : en),
     name = (part) => {
@@ -74,9 +131,9 @@ export default function App({
     catalogue.filter(
       (i) => i.part === part && (part === 'knm' || i.level === state.settings.level),
     );
-  const go = (next, active = state.active) => {
+  const go = (next, active = state.active, search = '') => {
     const target = next === 'session' ? sessionRoute(active) : next;
-    navigate(routePath(target, state.settings.level));
+    navigate(routePath(target, state.settings.level, state.settings.lang) + search);
   };
   const start = (ids, mode = 'practice') => {
     const active = startSession(ids, mode, catalogue);
@@ -111,11 +168,10 @@ export default function App({
   };
   useEffect(() => {
     if (location.hash && location.hash !== '#main-content')
-      navigate(routePath(readRoute(location, state.active), state.settings.level), {
-        replace: true,
-      });
-    else if (location.pathname === '/')
-      navigate(routePath(route, state.settings.level), { replace: true });
+      navigate(
+        routePath(readRoute(location, state.active), state.settings.level, state.settings.lang),
+        { replace: true },
+      );
   }, [route, location.hash, location.pathname]);
   useEffect(() => {
     if (!study.ready) return;
@@ -141,20 +197,47 @@ export default function App({
     : null;
   const setReady = practiceSet && matchesSet(state.active, practiceSet);
   const page = practiceSet?.part || opened?.part || (route === 'session' ? 'mock' : route);
+  // The page in a given language: the same route, only the /en prefix differs.
+  const pathIn = (language) =>
+    (route === 'missing'
+      ? localizePath(location.pathname, language)
+      : routePath(route, state.settings.level, language)) + location.search;
   const setting = (key, value) => {
-    if (key === 'level') {
-      study.setting(key, value);
-      navigate(routePath(labels[page] && page !== 'knm' ? page : 'reading', value));
-    } else study.setting(key, value);
+    study.setting(key, value);
+    if (key === 'level' && page !== 'home')
+      navigate(
+        routePath(
+          page === 'check' ? 'check' : labels[page] && page !== 'knm' ? page : 'reading',
+          value,
+          state.settings.lang,
+        ),
+      );
+    // Language lives in the address, so the switch is a navigation. The cookie is written
+    // first: the new page is requested at once and must not be sent back to /en.
+    if (key === 'lang' && value !== state.settings.lang) {
+      rememberPreferences({ ...state.settings, lang: value });
+      navigate(pathIn(value));
+    }
   };
-  const backPart = practiceSet?.part || opened?.part || (route === 'session' ? 'mock' : null);
+  const backPart = practiceSet?.part || opened?.part || (route === 'session' ? 'mock' : null),
+    runningCheck = route === 'check' ? checkInProgress(state) : null;
   // Icon motion follows a real section change, never the initial page load.
+  useDisclosureMotion();
   const [motion, setMotion] = useState<{ part: string; count: number } | null>(null),
     lastPage = useRef(page);
   useEffect(() => {
     if (lastPage.current === page) return;
     lastPage.current = page;
     setMotion((m) => ({ part: page, count: (m?.count || 0) + 1 }));
+  }, [page]);
+  // The phone strip scrolls; keep the current section's link in view.
+  useEffect(() => {
+    const link = document.querySelector<HTMLElement>('.nav-strip [aria-current="page"]');
+    const strip = link?.closest<HTMLElement>('.nav-strip');
+    if (!link || !strip || strip.scrollWidth <= strip.clientWidth) return;
+    const left = link.offsetLeft - strip.offsetLeft;
+    if (left < strip.scrollLeft || left + link.offsetWidth > strip.scrollLeft + strip.clientWidth)
+      strip.scrollTo({ left: Math.max(0, left - 16), behavior: 'auto' });
   }, [page]);
   const closedReady =
     opened?.questions &&
@@ -224,6 +307,14 @@ export default function App({
     <About />
   ) : route === 'privacy' ? (
     <Privacy />
+  ) : route === 'terms' ? (
+    <Terms />
+  ) : route === 'home' ? (
+    <Home />
+  ) : route === 'check' ? (
+    <LevelCheck />
+  ) : route === 'check-result' ? (
+    <CheckResult />
   ) : (
     <Catalogue key={`${page}-${state.settings.level}`} part={labels[page] ? page : 'reading'} />
   );
@@ -232,8 +323,10 @@ export default function App({
       value={{
         ...study,
         setting,
+        pathIn,
         renderedAt,
         api,
+        refreshApi,
         catalogue,
         t,
         name,
@@ -258,62 +351,85 @@ export default function App({
       </a>
       <div className="app-shell" data-hydrated={study.ready || undefined}>
         <aside className="sidebar">
-          <AppLink to="reading" className="wordmark" aria-label="Inburgering">
-            Inburgering
-          </AppLink>
+          <Wordmark />
           <LevelNavigation
             label={t('Niveau', 'Level')}
             value={state.settings.level}
             available={available}
             soon={t('Binnenkort', 'Coming soon')}
-            hrefFor={(value) => routePath(labels[page] && page !== 'knm' ? page : 'reading', value)}
+            hrefFor={(value) =>
+              withBase(
+                page === 'home'
+                  ? routePath('home', value, state.settings.lang)
+                  : routePath(
+                      labels[page] && page !== 'knm' ? page : 'reading',
+                      value,
+                      state.settings.lang,
+                    ),
+              )
+            }
             onChange={(value) => setting('level', value)}
           />
-          <nav className="subject-nav" aria-label={t('Onderdelen', 'Subjects')}>
-            {['reading', 'listening', 'writing', 'speaking', 'knm'].map((part) => (
-              <AppLink
-                className="nav-link"
-                key={part}
-                data-page={part}
-                to={part}
-                aria-current={page === part ? 'page' : undefined}
-              >
-                <NavIcon part={part} motion={motion} />
-                <span className="nav-label" data-label={name(part)}>
-                  {name(part)}
-                </span>
-              </AppLink>
-            ))}
-          </nav>
-          <nav
-            className="utility-nav"
-            aria-label={t('Oefenen en voortgang', 'Practice and progress')}
-          >
-            {['mock', 'progress'].map((part) => (
-              <AppLink
-                className="nav-link"
-                key={part}
-                data-page={part}
-                to={part}
-                aria-current={page === part ? 'page' : undefined}
-              >
-                <NavIcon part={part} motion={motion} />
-                <span className="nav-label" data-label={name(part)}>
-                  {name(part)}
-                </span>
-              </AppLink>
-            ))}
-          </nav>
+
+          <div className="nav-strip">
+            <nav className="subject-nav" aria-label={t('Onderdelen', 'Subjects')}>
+              {['reading', 'listening', 'writing', 'speaking', 'knm'].map((part) => (
+                <AppLink
+                  className="nav-link"
+                  key={part}
+                  data-page={part}
+                  to={part}
+                  aria-current={page === part ? 'page' : undefined}
+                >
+                  <NavIcon part={part} motion={motion} />
+                  <span className="nav-label" data-label={name(part)}>
+                    {name(part)}
+                  </span>
+                </AppLink>
+              ))}
+            </nav>
+            <nav
+              className="utility-nav"
+              aria-label={t('Oefenen en voortgang', 'Practice and progress')}
+            >
+              {['mock', 'progress'].map((part) => (
+                <AppLink
+                  className="nav-link"
+                  key={part}
+                  data-page={part}
+                  to={part}
+                  aria-current={page === part ? 'page' : undefined}
+                >
+                  <NavIcon part={part} motion={motion} />
+                  <span className="nav-label" data-label={name(part)}>
+                    {name(part)}
+                  </span>
+                </AppLink>
+              ))}
+            </nav>
+          </div>
           <Preferences />
         </aside>
         <div className="workspace">
-          {backPart && (
+          {backPart ? (
             <div className="toolbar">
               <AppLink className="back" to={backPart}>
                 ← {t('Terug naar', 'Back to')} {name(backPart)}
               </AppLink>
               {position && <span className="set-position">{position}</span>}
             </div>
+          ) : (
+            runningCheck && (
+              <div className="toolbar">
+                <AppLink className="back" to="home">
+                  ← {t('Stop de check', 'Stop the check')}
+                </AppLink>
+                <span className="set-position">
+                  {t('Niveaucheck', 'Level check')} {runningCheck.level} ·{' '}
+                  {name(flatten(runningCheck, catalogue)[runningCheck.index]?.item.part)}
+                </span>
+              </div>
+            )
           )}
           {!saved && (
             <p className="storage-notice" role="status">
@@ -340,6 +456,20 @@ export default function App({
               <AppLink className="text-button" to="privacy">
                 {t('Privacy', 'Privacy')}
               </AppLink>
+              <AppLink className="text-button" to="terms">
+                {t('Voorwaarden', 'Terms')}
+              </AppLink>
+              {site.creator?.github && (
+                <a className="text-button" href={site.creator.github} rel="noreferrer">
+                  GitHub
+                </a>
+              )}
+              {site.creator?.email?.domain && (
+                <ContactLink
+                  email={site.creator.email}
+                  label={t('Contact met de maker', 'Contact the author')}
+                />
+              )}
             </div>
           </footer>
         </div>

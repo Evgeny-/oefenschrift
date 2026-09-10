@@ -1,0 +1,704 @@
+{
+  "review_id": "batch007-editorial-review",
+  "source": "content/batches/007-original.json",
+  "source_sha256": "9b045ce8798eeb99ed79649222530b472cc173e5cde15e31866b124f97cbe69c",
+  "review_type": "Independent AI editorial and fact review of 24 original KNM items (July 2025 format: one picture, one factual question, three options) for themes 6 Instanties, 7 Staatsinrichting en rechtsstaat and 8 Onderwijs en opvoeding, against content/reviews/rubric.md (check 13 decisive), content/blueprint.md sections 1, 3, 4.5, 5, 7, 8, 10, 13 and docs/research/content-workflow.md section 5. Every cited source page was opened by the reviewer on 2026-09-10 (curl, HTTP 200 for all 24; the participatieverklaring image was downloaded and read); no search snippet was used as verification. The reviewer did not author or edit the batch.",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_counts": {
+    "pass": 24,
+    "revise": 0,
+    "reject": 0
+  },
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 24,
+    "distribution": {
+      "A2_knm": 24
+    },
+    "themes": {
+      "6": 8,
+      "7": 8,
+      "8": 8
+    },
+    "batch_check": "npm run batch:check content/batches/007-original.json: Checked 24 items, 24 questions. Keys: {\"A\":8,\"B\":8,\"C\":8}. Options: {\"3\":24}. No failures, no warnings.",
+    "key_counts": {
+      "A": 8,
+      "B": 8,
+      "C": 8
+    },
+    "option_counts": {
+      "3": 24
+    },
+    "prompt_word_range": "5-18 (limit 20)",
+    "text_word_range": "24-30",
+    "longest_text_sentence_words": 17,
+    "average_text_sentence_words_range": "7.5-10.0",
+    "closed_evidence_is_verbatim": true,
+    "task_type": "feit on all 24; skills: rule-application 17, detail 7",
+    "question_forms": "15 persona facts, 7 direct facts, 4 yes/no with qualification (identificatieplicht, geweldloos-opvoeden, seksuele-vorming, ouderbijdrage); no behaviour questions",
+    "required_knm_fields_present": "theme, eindterm, sourceUrl, sourceNote, sourceReviewedAt (2026-09-10), imageBrief, imageAlt on all 24; status draft; targetLevelValidated false",
+    "all_sources_opened": true,
+    "sources_unreachable": [],
+    "secondary_sources_opened": [
+      "https://www.belastingdienst.nl/wps/wcm/connect/nl/jongeren/content/wat-staat-er-in-een-jaaropgaaf",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/identificatieplicht/geldt-de-identificatieplicht-ook-voor-minderjarigen",
+      "https://www.rijksoverheid.nl/themas/overheid-en-democratie/parlement/taken-en-rechten-parlement",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/rechtspraak-en-geschiloplossing/kan-ik-als-verdachte-in-een-strafzaak-in-hoger-beroep-tegen-de-uitspraak-van-de-rechter",
+      "https://wetten.overheid.nl/afbeelding?toestandid=BWBR0045555/2026-04-02_0&naam=266378.png",
+      "https://wetten.overheid.nl/BWBR0001840/2023-02-22",
+      "https://wetten.overheid.nl/BWBR0001854/2026-01-01",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/voortgezet-onderwijs/hoe-zit-de-havo-in-elkaar",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/voortgezet-onderwijs/hoe-zit-het-vwo-in-elkaar",
+      "https://ind.nl/nl/inburgering-voor-naturalisatie",
+      "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/kinderopvang/plannen-kabinet-voor-nieuwe-financiering-kinderopvang",
+      "https://www.rijksoverheid.nl/actueel/nieuws/2025/09/26/kabinet-wil-naturalisatietermijn-verlengen-van-5-naar-10-jaar",
+      "https://www.internetconsultatie.nl/naturalisatietermijn/b1"
+    ],
+    "eindtermen_verified_against": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, bijlage 2 'Eindtermen kennis van de Nederlandse maatschappij', geldend van 18-04-2026). The Staatscourant page https://zoek.officielebekendmakingen.nl/stcrt-2024-15802.html cited in the author's notes returned HTTP 500 at review time.",
+    "eindterm_numbers_exist_and_belong_to_theme": true,
+    "eindterm_mapping_exact_bullet": [
+      "batch007-jaaropgave",
+      "batch007-kinderbijslag",
+      "batch007-identificatieplicht",
+      "batch007-juridischloket",
+      "batch007-wa-verzekering",
+      "batch007-wetten",
+      "batch007-hoger-beroep",
+      "batch007-meningsuiting",
+      "batch007-godsdienstvrijheid",
+      "batch007-geweldloos-opvoeden",
+      "batch007-donorregister",
+      "batch007-zelfbeschikking",
+      "batch007-vmbo",
+      "batch007-bijzondere-school",
+      "batch007-seksuele-vorming",
+      "batch007-aansprakelijkheid",
+      "batch007-ouderbijdrage",
+      "batch007-kinderopvangtoeslag",
+      "batch007-studiefinanciering"
+    ],
+    "eindterm_mapping_on_topic_loose": [
+      "batch007-reisdocument",
+      "batch007-naturalisatie",
+      "batch007-bezwaar",
+      "batch007-europese-unie",
+      "batch007-medezeggenschapsraad"
+    ],
+    "distinct_eindtermen_per_theme": {
+      "6": 8,
+      "7": 8,
+      "8": 8
+    },
+    "eindtermen_not_covered_in_batch": {
+      "6": [
+        "6.1.1",
+        "6.1.2",
+        "6.2.1",
+        "6.2.4",
+        "6.3.2"
+      ],
+      "7": [
+        "7.1.4",
+        "7.2.1",
+        "7.2.4",
+        "7.2.5"
+      ],
+      "8": [
+        "8.1.3",
+        "8.1.4",
+        "8.2.3"
+      ]
+    },
+    "overlap_with_catalogue_study_cards": false,
+    "overlap_with_batch_006": false,
+    "cast_traits_match_config": true,
+    "image_briefs_no_text_no_answer": true,
+    "alt_texts_dutch_neutral": true,
+    "exemplars_available": false,
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch007-reisdocument:1",
+      "theme": 6,
+      "eindterm": "6.2.2",
+      "verdict": "pass",
+      "eindterm_check": "on-topic but loose: 6.2.2 is about the rules and procedures for obtaining official documents (verblijfsvergunning, paspoort, rijbewijs) and where to apply; the item tests which document is needed to cross a border. No closer eindterm exists; accepted, with the recommendation that a later batch covers the bullet 'weet bij welke instanties hij moet zijn voor deze documenten'.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/paspoort-en-identiteitskaart/moet-ik-mijn-paspoort-of-identiteitskaart-meenemen-tijdens-reizen-naar-het-buitenland",
+      "source_sentence": "\"Ja, u heeft een paspoort of identiteitskaart nodig als u de grens over gaat en om u te kunnen identificeren tijdens uw verblijf of onderweg. Daarom moet u altijd een geldig paspoort of geldige identiteitskaart meenemen. Ook naar een Europees land zonder grenscontrole.\" and \"Het rijbewijs is in het buitenland geen officieel identiteitsbewijs.\" (page opened 2026-09-10, HTTP 200)",
+      "evidence": "Fact verified: key A (paspoort of identiteitskaart) is stated by the page for every trip abroad including a European country without border checks; the driving licence is explicitly not an official identity document abroad (B false); a train ticket is not an identity document (C false). Evidence quote is verbatim in text; explanation matches. Stable rule.",
+      "level_check": "comparable",
+      "level_reason": "18-word persona prompt, three 4-word options, fact card of three sentences (longest 14 words) in everyday words plus the terms paspoort, identiteitskaart and rijbewijs.",
+      "revision_requests": [
+        {
+          "field": "questions[0].options (and optionally prompt)",
+          "failure": "The two distractors start with 'Alleen' and the key does not, so the options are not parallel in form and the odd one out signals the key (blueprint section 5, rubric 7). 'Alleen' was needed because a train ticket is something he must indeed take on a train.",
+          "repair": "Ask for the identity document so 'alleen' becomes unnecessary: prompt 'Meneer De Vries woont in Nederland. Hij gaat met de trein naar Duitsland. Welk identiteitsbewijs moet hij meenemen?' (18 words) with options A 'Zijn paspoort of identiteitskaart', B 'Zijn Nederlandse rijbewijs', C 'Zijn OV-chipkaart' (a card with a photo, a plausible confusion) or C 'Zijn zorgpas'. Key stays A. Acceptance condition: three parallel noun phrases, none with 'alleen'."
+        }
+      ],
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "b3aa398a9be0db8a1cf81c82121a60113af251e992f5ac124966a743f13507c8",
+        "verdict": "pass",
+        "checked": "Prompt 'Meneer De Vries woont in Nederland. Hij gaat met de trein naar Duitsland. Welk identiteitsbewijs moet hij meenemen?' (18 words, limit 20; everyday A2 words, 'identiteitsbewijs' is the official term also used in the identificatieplicht item). Options 'Zijn paspoort of identiteitskaart' / 'Zijn Nederlandse rijbewijs' / 'Zijn zorgpas': three parallel noun phrases of the form 'Zijn + noun', no 'alleen', which is the first review's acceptance condition. Key A stated by the fact text ('heeft een geldig paspoort of een geldige identiteitskaart nodig', verbatim evidence) and by the cited page, fetched 2026-09-10 (HTTP 200): 'Ja, u heeft een paspoort of identiteitskaart nodig als u de grens over gaat ... Daarom moet u altijd een geldig paspoort of geldige identiteitskaart meenemen. Ook naar een Europees land zonder grenscontrole.' B false by 'Het rijbewijs is in het buitenland geen officieel identiteitsbewijs.' (plausible: valid as identification inside the Netherlands); C false because a health-insurance card is not an identity document (plausible: a named card shown at the doctor together with an identity document); the new explanation names both. No prompt word recurs only in the key ('identiteitsbewijs' shares a stem with A 'identiteitskaart' and with B 'rijbewijs').",
+        "notes": [
+          "Residual, not blocking: the key is now the longest option by one word (4/3/2 words, 33/26/12 characters); the two-noun key is inherent to the rule (either document is valid) and the checker's spread warning does not fire. Optional evening-out: C 'Zijn persoonlijke OV-chipkaart' (4 words; a named card with a photo, grounded in the train scenario), which the first review also offered.",
+          "The batch notes (content/batches/007-notes.md section 2, item 1) still give the rationale for the retired distractor 'Alleen zijn geldige treinkaartje'; the rationale for 'Zijn zorgpas' must be recorded there (rubric 12)."
+        ]
+      }
+    },
+    {
+      "id": "A2:knm:batch007-naturalisatie:1",
+      "theme": 6,
+      "eindterm": "6.2.3",
+      "verdict": "pass",
+      "eindterm_check": "on topic: 6.2.3 covers information about the rules for naturalisation; its bullets name where to apply and the dual-nationality rule, the item tests the inburgering condition. Accepted; the fact card also states where to apply (gemeente) and who decides (IND).",
+      "official_source": "https://ind.nl/nl/nederlanderschap/nederlander-worden-door-naturalisatie",
+      "source_sentence": "\"U voldoet aan het inburgeringsvereiste. Dit betekent dat u het inburgeringsexamen moet hebben gehaald op minimaal taalniveau A2. Soms hebt u vrijstelling van het inburgeringsexamen.\"; \"U vraagt naturalisatie aan bij de gemeente waar u woont.\"; \"De IND beslist op uw verzoek om naturalisatie.\" Page shows 'Laatste update: 1 september 2026'. Companion https://ind.nl/nl/inburgering-voor-naturalisatie: \"Dit betekent meestal dat u een inburgeringsdiploma moet hebben.\"",
+      "evidence": "Fact verified: passing the inburgeringsexamen (or an exemption) is a listed condition, which the text hedges with 'meestal'; owning a house (A) and a permanent contract (C) appear nowhere in the IND conditions. Evidence verbatim; explanation consistent. Pending law: the bill to lengthen the residence term (consultation closed 1 December 2025, 3,227 reactions; 'De overige voorwaarden voor naturalisatie wijzigen niet') and the announced B1 language level via the Besluit naturalisatietoets do not change the key: the item names neither the term nor the level. No retire-by needed; re-check the IND page at every release as the sourceNote says.",
+      "level_check": "comparable",
+      "level_reason": "16-word persona prompt, three short sentences as options, fact card with 'naturalisatie' and 'inburgeringsexamen' as the only hard words; the explanation uses 'inburgeringsvereiste', which could be simplified (optional).",
+      "notes": [
+        "Optional: replace 'het inburgeringsvereiste' in the explanation with 'de regel over inburgering' for A2 readers."
+      ]
+    },
+    {
+      "id": "A2:knm:batch007-jaaropgave:1",
+      "theme": 6,
+      "eindterm": "6.3.1",
+      "verdict": "pass",
+      "eindterm_check": "exact: 6.3.1 'Is ervan op de hoogte dat hij van zijn inkomen een (digitale) salarisstrook en jaaropgave krijgt.'",
+      "official_source": "https://www.belastingdienst.nl/wps/wcm/connect/nl/belastingaangifte/content/welke_gegevens_heb_ik_nodig_voor_mijn_belastingaangifte",
+      "source_sentence": "Checklist 'Belastingaangifte 2025', under 'Inkomsten': \"uw jaaropgaven over 2025. En als u die niet hebt: uw salarisstroken\". Companion https://www.belastingdienst.nl/wps/wcm/connect/nl/jongeren/content/wat-staat-er-in-een-jaaropgaaf: \"Op een jaaropgaaf staat wat je in dat jaar hebt verdiend bij 1 werkgever ... Je werkgever stuurt de jaaropgaaf aan het begin van het nieuwe jaar - meestal in januari of februari\".",
+      "evidence": "Fact verified: the jaaropgave is the employer document on the Belastingdienst checklist; the arbeidscontract is not on it and the pensioenoverzicht comes from a pension fund, not the employer. Salary slips were rightly kept out of the options because the checklist names them as a fallback. Evidence verbatim; the explanation's 'welke belasting al is ingehouden' matches the companion page. The tax year on the checklist changes yearly but is not in the item.",
+      "level_check": "comparable",
+      "level_reason": "10-word direct question, three 2-word noun phrases, fact card sentences of 8-11 words; 'belastingaangifte' and 'jaaropgave' are the KNM terms themselves."
+    },
+    {
+      "id": "A2:knm:batch007-kinderbijslag:1",
+      "theme": 6,
+      "eindterm": "6.3.3",
+      "verdict": "pass",
+      "eindterm_check": "exact bullet: 6.3.3 '... weet dat hij kinderbijslag kan aanvragen bij de Sociale Verzekeringsbank.'",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/kinderbijslag/hoe-vraag-ik-kinderbijslag-aan",
+      "source_sentence": "\"Kinderbijslag vraagt u aan bij de Sociale Verzekeringsbank (SVB).\"; \"De gemeente geeft de aangifte van de geboorte van uw kind door aan de SVB. Ongeveer 2 tot 4 weken na de aangifte krijgt u van de SVB een brief. Daarna kunt u de kinderbijslag aanvragen op de website van de SVB.\"",
+      "evidence": "Fact verified: for a first child the parents apply at the SVB after its letter; the gemeente only passes the birth registration on (C false); the Belastingdienst handles toeslagen, not kinderbijslag (B false). Evidence verbatim. The explanation's 'De Belastingdienst gaat over belasting en toeslagen' follows the wording of eindterm 6.3.3 (toeslagen are executed by Dienst Toeslagen, which the Rijksoverheid page links to; acceptable at A2).",
+      "level_check": "comparable",
+      "level_reason": "15-word persona prompt, options of 3-6 words (the longer C 'Bij de gemeente waar zij wonen' does not read as more specific than the key), fact card sentences of 6-12 words."
+    },
+    {
+      "id": "A2:knm:batch007-identificatieplicht:1",
+      "theme": 6,
+      "eindterm": "6.4.1",
+      "verdict": "pass",
+      "eindterm_check": "exact bullet: 6.4.1 '... weet dat iedereen van 14 jaar en ouder in de openbare ruimte (in het openbaar vervoer vanaf 12 jaar) verplicht is een identiteitsbewijs te tonen als de politie of het bevoegd gezag hierom vraagt.'",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/paspoort-en-identiteitskaart/wat-is-de-identificatieplicht",
+      "source_sentence": "\"De identificatieplicht houdt in dat iedereen vanaf 14 jaar een geldig identiteitsbewijs moet kunnen tonen als de politie daar om vraagt.\"; \"U bent strafbaar als u geen origineel en geldig identiteitsbewijs kunt of wilt laten zien. U loopt dan het risico op een boete.\" Companion https://www.rijksoverheid.nl/vraag-en-antwoord/identificatieplicht/geldt-de-identificatieplicht-ook-voor-minderjarigen: \"Er zijn 2 uitzonderingen: in de zorg en in het openbaar vervoer.\"; \"In het openbaar vervoer geldt een identificatieplicht bij personen vanaf 12 jaar bij reizen zonder geldig vervoersbewijs of bij belemmering van de controle van vervoerbewijzen.\"",
+      "evidence": "Fact verified: the duty starts at 14, so a 15-year-old must show an identity document when the police ask; 16 and 18 are wrong thresholds. Exception check: the page adds that the police may not check without reason and that healthcare has no age limit; neither makes 16 or 18 defensible, and the prompt has the officer asking. The explanation's 12-year public-transport aside matches both the companion page and the eindterm's own parenthesis. Evidence verbatim.",
+      "level_check": "comparable",
+      "level_reason": "17-word persona prompt, three parallel 7-word yes/no options, fact card with one 16-word sentence (within the A2 ceiling of 18); 'identificatieplicht' is the KNM term.",
+      "notes": [
+        "Optional: the explanation's public-transport aside could be dropped for A2 readers; it is correct, so no change is required."
+      ]
+    },
+    {
+      "id": "A2:knm:batch007-bezwaar:1",
+      "theme": 6,
+      "eindterm": "6.5.1",
+      "verdict": "pass",
+      "eindterm_check": "on topic: 6.5.1 'Is ervan op de hoogte hoe hij bezwaar kan maken tegen een slechte behandeling door de overheid inclusief de politie.' The item tests bezwaar against a municipal decision (Awb), the core of that objective.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/bezwaar-en-beroep/bezwaar-tegen-beslissing-overheid",
+      "source_sentence": "\"U kunt een bezwaar opsturen naar de overheidsorganisatie die de beslissing heeft genomen. Dit kan per post en digitaal. U moet uw bezwaar indienen binnen 6 weken na bekendmaking van het besluit.\"",
+      "evidence": "Fact verified: bezwaar within six weeks at the organisation that took the decision (key C); the police do not review municipal decisions (A); a decision stays in force until changed (B). Exceptions on the page (no bezwaar against general rules; administratief beroep in some cases) do not apply to a decision addressed to Karim. Evidence verbatim; six weeks is the Awb term, stable.",
+      "level_check": "comparable",
+      "level_reason": "15-word persona prompt, three 6-7-word sentences as options, fact card sentences of 5-13 words; 'besluit' and 'bezwaar' are the KNM terms.",
+      "notes": [
+        "'Welk recht heeft hij?' asks for knowledge of a legal right, not for the best behaviour; accepted as a fact question."
+      ]
+    },
+    {
+      "id": "A2:knm:batch007-juridischloket:1",
+      "theme": 6,
+      "eindterm": "6.5.2",
+      "verdict": "pass",
+      "eindterm_check": "exact: 6.5.2 'Is ervan op de hoogte dat hij voor juridische hulp bij advocaten of een Juridisch Loket terecht kan.' (The eindterm's second bullet about an income-dependent eigen bijdrage concerns subsidised lawyers, not the Loket; no conflict with the item.)",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/bescherming-van-consumenten/waar-kan-ik-terecht-voor-hulp-bij-een-juridisch-probleem-of-conflict",
+      "source_sentence": "Page title 'Waar vind ik gratis hulp of advies bij een juridisch probleem?': \"Het Juridisch Loket geeft daarnaast gratis persoonlijk advies als u een inkomen en vermogen onder een bepaalde grens heeft. Juristen helpen u om een oplossing te vinden voor uw situatie.\"; \"Voor telefonisch contact met het Juridisch Loket kunt u gratis bellen naar 0800 - 8020.\"",
+      "evidence": "Fact verified: free personal legal advice at the Juridisch Loket for people under the income and asset limits, free telephone number; the Nationale ombudsman handles complaints about government conduct and the police take aangifte (both give no legal advice). The page also names rechtswinkels and sociaal raadslieden as free helpers, none of which is an option, so one defensible answer. The income limit changes yearly and is not in the item. Evidence verbatim.",
+      "level_check": "comparable",
+      "level_reason": "10-word direct question, three 3-4-word options, fact card sentences of 4-13 words.",
+      "notes": [
+        "Optional: the key repeats 'juridisch' from the prompt ('gratis juridisch advies' -> 'Juridisch Loket'); inherent in the institution's name. A prompt without the adjective ('gratis advies bij een probleem met huur, werk of een uitkering') would remove the echo if wanted."
+      ]
+    },
+    {
+      "id": "A2:knm:batch007-wa-verzekering:1",
+      "theme": 6,
+      "eindterm": "6.6.1",
+      "verdict": "pass",
+      "eindterm_check": "exact bullet: 6.6.1 '... weet dat motorvoertuigbezitters verplicht zijn om een WA-verzekering te hebben en belasting te betalen'.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/auto/wa-verzekering-voertuig",
+      "source_sentence": "\"Heeft u een auto, motor, scooter, brommer of snorfiets? Dan moet u volgens de Wet aansprakelijkheidsverzekering motorrijtuigen (Wam) een WA-verzekering afsluiten.\"; \"Als uw motorrijtuig schade veroorzaakt dekt een WA-verzekering deze in de meeste gevallen.\"",
+      "evidence": "Fact verified: WA insurance is compulsory for a car owner (key B); allrisk is voluntary and inboedel covers household contents. Does not repeat the basisverzekering study card (different insurance, different eindterm). Evidence verbatim; Wam rule stable.",
+      "level_check": "comparable",
+      "level_reason": "11-word persona prompt, three 2-word options, fact card sentences of 7-13 words; 'WA-verzekering' is the KNM term."
+    },
+    {
+      "id": "A2:knm:batch007-wetten:1",
+      "theme": 7,
+      "eindterm": "7.1.1",
+      "verdict": "pass",
+      "eindterm_check": "exact bullet: 7.1.1 '... weet dat de Tweede en Eerste Kamer samen met de regering wetten maken'.",
+      "official_source": "https://www.rijksoverheid.nl/themas/overheid-en-democratie/wetgeving/hoe-komt-een-wet-tot-stand",
+      "source_sentence": "\"De regering maakt wetten in samenwerking met de Eerste en Tweede Kamer (wetgevende macht).\"; \"Meestal dient de regering (de Koning en de ministers) een wetsvoorstel in.\" Companion https://www.rijksoverheid.nl/themas/overheid-en-democratie/parlement/taken-en-rechten-parlement: \"Het parlement bestaat uit de Eerste Kamer en de Tweede Kamer.\"",
+      "evidence": "Fact verified: laws are made by the government together with both chambers (key C); the King is part of the government and does not legislate alone (A); judges apply law (B). Evidence verbatim; constitutional structure, stable.",
+      "level_check": "comparable",
+      "level_reason": "7-word direct question, options of 3-6 words, fact card sentences of 5-13 words. 'Wie maken ... samen' with a plural verb is acceptable Dutch when a plural answer is expected."
+    },
+    {
+      "id": "A2:knm:batch007-europese-unie:1",
+      "theme": 7,
+      "eindterm": "7.1.2",
+      "verdict": "pass",
+      "eindterm_check": "on topic: 7.1.2 '... weet dat lidmaatschap van de EU voor burgers betekent dat er in principe vrij verkeer van personen en goederen tussen lidstaten bestaat, vrije vestiging in lidstaten ...'. The bullet is about free movement; the current key (a passport or identity card) tests the document, not the EU rule.",
+      "official_source": "https://www.rijksoverheid.nl/themas/migratie-en-reizen/immigratie-naar-nederland/vrij-verkeer-en-verblijf-personen-binnen-eu-eer-en-zwitserland",
+      "source_sentence": "\"Hebben personen de nationaliteit van 1 van deze landen of van Zwitserland? Dan mogen zij binnen deze landen vrij reizen. Ze mogen ook binnen de deze landen wonen en werken. Ze hebben geen visum, verblijfsvergunning of werkvergunning nodig. Wel hebben ze een geldig paspoort of een identiteitskaart nodig en gelden er bepaalde voorwaarden.\" (rule stated for nationals of any EU/EER country within any of these countries, so it covers a Dutch citizen in Spain)",
+      "evidence": "Facts verified: no visa, residence permit or work permit inside the EU (B and C false); a valid passport or identity card is needed (key A true by the source). Failure: the stored evidence quote ('Zij hebben daarvoor geen visum, verblijfsvergunning of werkvergunning nodig') only rules out the distractors; the fact card never says that a passport or identity card is needed, so the quote does not entail the key (rubric 6, 12) and the explanation ('Alleen een geldig paspoort ...') asserts something the text does not contain. Two further weaknesses: the key repeats the fact tested by item 1 (paspoort of identiteitskaart), and both distractors end in 'van Spanje' while the key does not (form signal).",
+      "level_check": "comparable",
+      "level_reason": "13-word prompt, three 4-word options, fact card sentences of 8-12 words.",
+      "revision_requests": [
+        {
+          "field": "questions[0].prompt, options, explanation (evidence may stay)",
+          "failure": "Evidence does not entail the key; key duplicates item 1; distractor form signals the key; eindterm bullet is free movement, not the travel document.",
+          "repair": "Reframe on the free-movement rule so the existing evidence sentence keys the answer: prompt 'Een Nederlander wil in Spanje wonen en werken. Heeft hij daarvoor een werkvergunning nodig?' (14 words); options A 'Nee, EU-burgers mogen daar vrij wonen en werken.', B 'Ja, hij heeft een werkvergunning van Spanje nodig.', C 'Ja, hij heeft een visum van Spanje nodig.'; key stays A (key balance unchanged); explanation: 'Nederland is lid van de EU. Binnen de EU geldt vrij verkeer van personen: een Nederlander mag in Spanje wonen en werken zonder visum, verblijfsvergunning of werkvergunning. Hij heeft wel een geldig paspoort of een geldige identiteitskaart nodig.' Minimal alternative if the author keeps the document question: add the sentence 'Zij hebben alleen een geldig paspoort of een geldige identiteitskaart nodig.' to text, quote it as evidence, and rewrite the distractors without the shared tail 'van Spanje'; but this leaves the overlap with item 1."
+        }
+      ],
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "b3aa398a9be0db8a1cf81c82121a60113af251e992f5ac124966a743f13507c8",
+        "verdict": "revise",
+        "checked": "Prompt 'Een Nederlander wil in Spanje wonen en werken. Heeft hij daarvoor een werkvergunning nodig?' (14 words) is a yes/no with qualification, the blueprint's third question form. The unchanged evidence 'Zij hebben daarvoor geen visum, verblijfsvergunning of werkvergunning nodig' now entails the keyed answer (Nee); the qualification 'EU-burgers mogen daar vrij wonen en werken' is the preceding sentence of the fact text. Cited page fetched 2026-09-10 (HTTP 200): 'Hebben personen de nationaliteit van 1 van deze landen of van Zwitserland? Dan mogen zij binnen deze landen vrij reizen. Ze mogen ook binnen de deze landen wonen en werken. Ze hebben geen visum, verblijfsvergunning of werkvergunning nodig.' B and C are false by that sentence. The fact no longer duplicates the reisdocument item (that item keys the travel document, this one the absence of a work permit); the explanation's passport sentence is source-supported context, as the first review proposed. Eindterm 7.1.2 fit is now exact: the key tests 'vrij verkeer van personen ... vrije vestiging in lidstaten'.",
+        "failure": "Blueprint section 5 (options parallel in form and length; no longer or more specific option signals the key), rubric 7. The key 'Nee, EU-burgers mogen daar vrij wonen en werken.' is a full clause of 8 words / 48 characters carrying the reason; the distractors 'Ja, een werkvergunning van Spanje.' and 'Ja, een werkvergunning van Nederland.' are elliptical fragments of 5 words / 34-37 characters. The key is the single longest option by three words and the only full sentence, and it is also the only 'Nee'. The first review's repair had three full clauses of 8 words each; the applied variant shortened the distractors and introduced the signal. It also breaks the batch's own documented rule (notes section 3: 'No key is the single longest option in its set'). Secondary: C 'een werkvergunning van Nederland' is not grounded in the fact text or the source (a work permit is issued by the country of work), so it is a weak distractor; the fact text's 'visum' is the grounded confusion.",
+        "revision_request": {
+          "field": "questions[0].options (B and C only; prompt, answer A, evidence, explanation, image unchanged)",
+          "repair": "B 'Ja, hij heeft een werkvergunning van Spanje nodig.' (8 words) and C 'Nee, maar hij heeft wel een visum nodig.' (8 words). This gives three full clauses of equal length (8/8/8 words; 48/50/40 characters), puts the key among two 'Nee' options so the lone answer polarity no longer marks it, and grounds both distractors in the evidence sentence: B is the assumption that working in another country needs that country's permit, C the assumption that living abroad always needs a visa; both are refuted by 'geen visum, verblijfsvergunning of werkvergunning nodig' and by the unchanged explanation. Minimal alternative that keeps the applied content: B 'Ja, hij heeft een werkvergunning van Spanje nodig.' and C 'Ja, hij heeft een werkvergunning van Nederland nodig.' (8/8/8 words); this removes the length and form signal but keeps the lone 'Nee' and the weakly grounded C.",
+          "acceptance": "Three options of the same form (Ja/Nee followed by a full clause) within one word of each other in length; each distractor false by the evidence sentence, with its rationale recorded in content/batches/007-notes.md; key stays A so the batch balance stays 8/8/8; batch:check ends with 'No failures'; new hash recorded by a focused re-review of this item."
+        }
+      },
+      "re_review_2": {
+        "date": "2026-09-10",
+        "sha256": "9b045ce8798eeb99ed79649222530b472cc173e5cde15e31866b124f97cbe69c",
+        "verdict": "pass",
+        "changed_since_previous_re_review": "questions[0].options B and C only. Reverting those two strings in the current file reproduces the previously re-reviewed file byte for byte (SHA-256 b3aa398a...), so prompt, answer A, evidence, explanation, text, image fields and every other item are unchanged.",
+        "checked": "Options A 'Nee, EU-burgers mogen daar vrij wonen en werken.' (key), B 'Ja, hij heeft een werkvergunning van Spanje nodig.', C 'Nee, maar hij heeft wel een visum nodig.': 8/8/8 words, 48/50/40 characters, three full clauses of the form Ja/Nee plus a main clause; the key is not the longest (B is, by two characters), not the only full sentence, not the most specific (B names Spanje, C names visum) and not the most hedged (C carries 'maar ... wel'); polarity is Nee/Ja/Nee, so the lone polarity is distractor B, not the key; prompt-word echoes are heaviest in B ('hij heeft een werkvergunning ... Spanje ... nodig'), the key repeats only the situation words 'wonen en werken', so lexical matching does not point at the key. No option is a superset of another; B and C each contradict A. Prompt 'Een Nederlander wil in Spanje wonen en werken. Heeft hij daarvoor een werkvergunning nodig?' is 14 words (limit 20), situation first and question second, a yes/no with qualification (blueprint 4.5). Evidence 'Zij hebben daarvoor geen visum, verblijfsvergunning of werkvergunning nodig' is a verbatim substring of text; it answers the question (geen werkvergunning nodig, so Nee), the key's qualification restates the preceding text sentence ('Burgers van EU-landen mogen in andere EU-landen vrij reizen, wonen en werken', with 'Nederland is lid van de Europese Unie'), and the same sentence refutes B (geen werkvergunning) and C (geen visum). Explanation unchanged and consistent: it paraphrases the evidence ('zonder visum, verblijfsvergunning of werkvergunning'), which names both distractor confusions, and its passport sentence is supported by the cited page. A2 wording: common words, 'maar ... wel' idiomatic, 'EU-burgers' matches the text's 'Burgers van EU-landen'. Cited page fetched 2026-09-10 with curl (HTTP 200): 'Hebben personen de nationaliteit van 1 van deze landen of van Zwitserland? Dan mogen zij binnen deze landen vrij reizen. Ze mogen ook binnen de deze landen wonen en werken. Ze hebben geen visum, verblijfsvergunning of werkvergunning nodig. Wel hebben ze een geldig paspoort of een identiteitskaart nodig en gelden er bepaalde voorwaarden.' Eindterm 7.1.2 re-read on wetten.overheid.nl BWBR0045574 (geldend van 18-04-2026): 'weet dat lidmaatschap van de EU voor burgers betekent dat er in principe vrij verkeer van personen en goederen tussen lidstaten bestaat, vrije vestiging in lidstaten ...'; the item tests that bullet exactly. Distractor rationales are recorded in content/batches/007-notes.md section 2 item 10 (B: the assumption that working abroad needs that country's permit; C: the assumption that another country always needs a visa). Acceptance condition of the first re-review met in full.",
+        "notes": [
+          "Residual, not a signal: the two distractors share the clause frame 'hij heeft (wel) een ... nodig' that answers the question literally, while the key gives the reason instead. The two odd-one-out cues (polarity points at B, frame points at A) cancel, the key is not the longest, most specific or most hedged option, and a Nee answer to 'heeft hij ... nodig?' with a qualification cannot share that frame without becoming a bare restatement. No change requested.",
+          "The prompt takes it as known that Spain is an EU member; the fact card states only that the Netherlands is. General knowledge at KNM level; accepted by both earlier reviews.",
+          "The first review's classification of this item as 'on topic, loose' for eindterm 7.1.2 (checks.eindterm_mapping_on_topic_loose) described the draft's travel-document key; the current free-movement key tests the bullet exactly."
+        ]
+      }
+    },
+    {
+      "id": "A2:knm:batch007-hoger-beroep:1",
+      "theme": 7,
+      "eindterm": "7.1.3",
+      "verdict": "pass",
+      "eindterm_check": "exact bullet: 7.1.3 '... weet dat hij een uitspraak van een rechter moet accepteren, maar dat hij in hoger beroep kan gaan.'",
+      "official_source": "https://www.rechtspraak.nl/organisatie-en-contact/rechtspraak-in-nederland",
+      "source_sentence": "\"Bij een juridisch conflict beslist de rechter. Is 1 van de partijen het niet eens met het vonnis, dan kan deze in hoger beroep bij het gerechtshof ...\"; \"Wie het niet eens is met een vonnis, kan in hoger beroep gaan. Een hogere rechter kijkt opnieuw naar de zaak, met een frisse blik.\"; \"Het oordeel van de rechter is bindend.\" Companion https://www.rijksoverheid.nl/vraag-en-antwoord/rechtspraak-en-geschiloplossing/kan-ik-als-verdachte-in-een-strafzaak-in-hoger-beroep-tegen-de-uitspraak-van-de-rechter: \"Bij veel strafzaken kunt u in hoger beroep tegen de uitspraak.\"",
+      "evidence": "Fact verified with the responsible body (Rechtspraak) and Rijksoverheid: a judgment is binding but can be appealed to a higher court (key B); the ombudsman does not review judgments (A); a judgment is not always final (C). The text's 'meestal' covers cases without appeal. Evidence verbatim; structural, stable.",
+      "level_check": "comparable",
+      "level_reason": "17-word persona prompt, options of 4-6 words, fact card of four short sentences (5-12 words); 'hoger beroep' and 'uitspraak' are the KNM terms.",
+      "notes": [
+        "'Welke mogelijkheid heeft hij?' asks for a legal option, not for advice; it is the closest of the batch to the retired 'wat kan hij het beste doen' form. Optional safer form: 'Wat is hoger beroep?' with the answer 'Een hogere rechter bekijkt de zaak opnieuw.'"
+      ]
+    },
+    {
+      "id": "A2:knm:batch007-meningsuiting:1",
+      "theme": 7,
+      "eindterm": "7.2.2",
+      "verdict": "pass",
+      "eindterm_check": "exact bullet: 7.2.2 '... weet dat de wet vrijheid van meningsuiting beschermt, maar dat men niet iets mag zeggen of schrijven dat volgens de wet verboden is'.",
+      "official_source": "https://wetten.overheid.nl/BWBR0045555/2026-04-02#Bijlage",
+      "source_sentence": "Bijlage 'Participatieverklaring als bedoeld in artikel 3.1, zesde lid' of the Besluit inburgering 2021, published as the image https://wetten.overheid.nl/afbeelding?toestandid=BWBR0045555/2026-04-02_0&naam=266378.png, which the reviewer downloaded and read: \"In Nederland mag iedereen denken, doen en zeggen wat hij wil. Dit betekent dat: - iedereen zijn eigen mening mag uiten; ... Hier zijn ook grenzen aan verbonden. Wat iemand doet of zegt mag nooit in strijd zijn met de wet. Je mag bijvoorbeeld niet discrimineren, aanzetten tot haat of oproepen tot vijandigheid.\" Second source read: Wetboek van Strafrecht art. 137d lid 1 (https://wetten.overheid.nl/BWBR0001854/2026-01-01): \"Hij die in het openbaar, mondeling of bij geschrift of afbeelding, aanzet tot haat tegen of discriminatie van mensen ... wegens hun ras, hun godsdienst of levensovertuiging, hun geslacht, hun seksuele gerichtheid of hun handicap, wordt gestraft ...\"; Grondwet art. 7 lid 1 'behoudens ieders verantwoordelijkheid volgens de wet' (https://wetten.overheid.nl/BWBR0001840/2023-02-22).",
+      "evidence": "Fact verified: incitement to hatred against a group is forbidden (key C, Sr 137d); criticism of the government (A) and a minority opinion (B) are protected expression. The cited page is a legal appendix rendered as an image; the reviewer verified the wording from the image itself, not from a transcription. Evidence verbatim; stable.",
+      "level_check": "comparable",
+      "level_reason": "11-word direct question, options of 5-7 words, fact card sentences of 5-14 words; 'aanzetten tot haat' is the legal phrase the participatieverklaring uses.",
+      "notes": [
+        "Optional: 'Wat is toch verboden?' reads oddly at A2; 'Wat mag volgens de wet niet?' is plainer (13-word prompt)."
+      ]
+    },
+    {
+      "id": "A2:knm:batch007-godsdienstvrijheid:1",
+      "theme": 7,
+      "eindterm": "7.2.3",
+      "verdict": "pass",
+      "eindterm_check": "exact bullet: 7.2.3 '... weet dat iedereen vrij is om in Nederland zelf een godsdienst, levensbeschouwing of idealen te kiezen'.",
+      "official_source": "https://wetten.overheid.nl/BWBR0045555/2026-04-02#Bijlage",
+      "source_sentence": "Participatieverklaring image (same file as item 12): \"iedereen een eigen geloof mag hebben en vrij is wel of niet te geloven\" and \"Wat iemand doet of zegt mag nooit in strijd zijn met de wet.\" Grondwet art. 6 lid 1 (read on wetten.overheid.nl BWBR0001840/2023-02-22): \"Ieder heeft het recht zijn godsdienst of levensovertuiging, individueel of in gemeenschap met anderen, vrij te belijden, behoudens ieders verantwoordelijkheid volgens de wet.\"",
+      "evidence": "Fact verified: everyone chooses freely whether and what to believe (key A); no state religion (B false); religion is not inherited by law (C false). Evidence verbatim; constitutional, stable.",
+      "level_check": "comparable",
+      "level_reason": "5-word direct question, three parallel 7-word options, fact card sentences of 4-15 words; 'godsdienstvrijheid' is the KNM term."
+    },
+    {
+      "id": "A2:knm:batch007-geweldloos-opvoeden:1",
+      "theme": 7,
+      "eindterm": "7.2.6",
+      "verdict": "pass",
+      "eindterm_check": "exact: 7.2.6 '... de wet de integriteit van het lichaam beschermt en dat alle ongewenste intimiteit en geweld strafbaar zijn (huiselijk geweld, eerwraak, slaan van kinderen, ...)'.",
+      "official_source": "https://wetten.overheid.nl/jci1.3:c:BWBR0002656&boek=1&titeldeel=14&afdeling=2&artikel=247",
+      "source_sentence": "Resolved to https://wetten.overheid.nl/BWBR0002656/2025-07-05, Burgerlijk Wetboek Boek 1, artikel 247 lid 2: \"In de verzorging en opvoeding van het kind passen de ouders geen geestelijk of lichamelijk geweld of enige andere vernederende behandeling toe.\"",
+      "evidence": "Fact verified from the law text: no physical or mental violence in upbringing, without exception for disobedience (A) or for the home (C); key B. Tone neutral, picture calm. Evidence verbatim; in force since 2007, stable.",
+      "level_check": "comparable",
+      "level_reason": "15-word prompt, options of 4-6 words, fact card sentences of 4-11 words; 'lichamelijk of geestelijk geweld' explained by 'Een kind slaan is dus verboden'."
+    },
+    {
+      "id": "A2:knm:batch007-donorregister:1",
+      "theme": 7,
+      "eindterm": "7.2.7",
+      "verdict": "pass",
+      "eindterm_check": "exact: 7.2.7 '... iedereen in Nederland na overlijden zijn organen afstaat voor orgaandonatie, tenzij hij vastlegt hier niet of slechts ten dele aan te willen meewerken.'",
+      "official_source": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/orgaandonatie-en-weefseldonatie/actieve-donorregistratie",
+      "source_sentence": "\"Als mensen geen keuze invullen, komen zij in het Donorregister met 'geen bezwaar tegen orgaandonatie'. Hun organen en weefsels mogen dan na hun overlijden aan een patiënt gedoneerd worden. Ze zijn orgaandonor.\"; \"Wie 18 wordt, krijgt een brief met de vraag om een keuze in te vullen in het Donorregister.\"; \"Iemand kan op elk moment de keuze in het Donorregister veranderen.\"; for newcomers: \"Na 3 jaar in Nederland krijgen zij de vraag om hun keuze in het Donorregister in te vullen.\"; exception: \"In sommige gevallen beslissen nabestaanden over donatie. Dit gebeurt bijvoorbeeld als de overledene (nog) niet in het Donorregister staat.\"",
+      "evidence": "Fact verified: no choice recorded means 'geen bezwaar' and donor status (key C); 'geen donor' (A) and 'familie beslist' (B) are registrable choices that apply only when chosen. Exception check: relatives decide only when someone is not yet in the register (newcomers in their first three years) and can object in some situations; for a 65-year-old resident the registration is 'geen bezwaar', so B stays false. Evidence verbatim; Donorwet since 2020, stable.",
+      "level_check": "comparable",
+      "level_reason": "15-word persona prompt, options of 4-6 words, fact card with one 15-word sentence containing the quoted term; comparable to official items that quote a registration term.",
+      "notes": [
+        "Recommended (not blocking) because the learners are newcomers: add to text 'Wie nieuw in Nederland komt, krijgt die brief na 3 jaar.' so the fact card does not suggest that a newcomer without a choice is already 'geen bezwaar'."
+      ],
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "b3aa398a9be0db8a1cf81c82121a60113af251e992f5ac124966a743f13507c8",
+        "verdict": "pass",
+        "checked": "Added sentence 'Wie nieuw in Nederland komt, krijgt die brief na 3 jaar.' verified against the cited Rijksoverheid page re-fetched 2026-09-10: 'Mensen die in Nederland komen wonen en zich inschrijven in een Nederlandse gemeente. Na 3 jaar in Nederland krijgen zij de vraag om hun keuze in het Donorregister in te vullen.' The page says 'de vraag'; that it is a letter is confirmed by the responsible body, donorregister.nl, 'Nieuw of terug in Nederland' (https://www.donorregister.nl/uitleg-over-het-donorregister/nieuw-of-terug-in-nederland, fetched 2026-09-10): 'U krijgt na drie jaar een brief van ons om u te herinneren om een keuze te maken.' Evidence 'Wie geen keuze invult, staat geregistreerd met ...' is still a verbatim substring of text (checker confirms). The fact card is now 41 words in four sentences (was 30; longest in the batch), longest sentence 15 words, average 10.3; A2 heuristics hold, and the card is shown only after the answer as the 'Feit' sheet. Prompt, options, key C, evidence, explanation and image unchanged; the sourceNote already stated 'newcomers are asked after 3 years'.",
+        "notes": [
+          "Optional: the new sentence makes the newcomer case visible, and donorregister.nl adds that newcomers are not in the register until that letter. The prompt does not say Mevrouw Bakker is new, the picture shows a woman of about 65 at home, and the fact card's general rule is unconditional, so key C stays the single defensible answer. If the author wants to close even that reading: 'Mevrouw Bakker woont al lang in Nederland. Zij heeft nooit een keuze ingevuld in het Donorregister. Wat geldt voor haar?' (20 words)."
+        ]
+      }
+    },
+    {
+      "id": "A2:knm:batch007-zelfbeschikking:1",
+      "theme": 7,
+      "eindterm": "7.2.8",
+      "verdict": "pass",
+      "eindterm_check": "exact: 7.2.8 'Weet dat vrouwen in Nederland zelfbeschikkingsrecht hebben en wat dit betekent.'",
+      "official_source": "https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/huwelijksdwang/huwelijksdwang-voorkomen",
+      "source_sentence": "\"Als 1 of beide partners onder grote druk worden gezet om te trouwen, is er sprake van huwelijksdwang. ... De druk komt van ouders, familie of breder vanuit de gemeenschap.\"; \"Huwelijksdwang is strafbaar.\"; \"Daders kunnen maximaal 2 jaar gevangenisstraf krijgen.\"; \"Beide partners moeten minimaal 18 jaar zijn om in Nederland te kunnen trouwen.\" Participatieverklaring image: \"iedereen recht heeft op eigen keuzen en zelfstandigheid (zelfbeschikkingsrecht)\".",
+      "evidence": "Fact verified: forcing someone to marry is punishable at any age and the person decides herself (key A); the family may not decide (B); 18 is the minimum marriage age, not a licence for coercion (C). The page's note that soft pressure ('aandringen') is not always prosecuted does not touch the key, which speaks of dwang. Neutral tone. Evidence verbatim; stable.",
+      "level_check": "comparable",
+      "level_reason": "18-word persona prompt in three short sentences, options of 6-8 words, fact card sentences of 7-10 words; 'zelfbeschikkingsrecht' and 'huwelijksdwang' are the KNM terms."
+    },
+    {
+      "id": "A2:knm:batch007-vmbo:1",
+      "theme": 8,
+      "eindterm": "8.1.1",
+      "verdict": "pass",
+      "eindterm_check": "exact: 8.1.1 'Is op de hoogte van de opbouw van het Nederlands onderwijssysteem' with the bullet on schoolsoorten and doorstroming naar vervolgonderwijs.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/voortgezet-onderwijs/hoe-zit-het-vmbo-in-elkaar",
+      "source_sentence": "\"Het vmbo maakt leerlingen klaar voor een opleiding in het mbo. Soms stromen leerlingen na het vmbo door naar de havo.\" Companion pages: \"De havo bereidt leerlingen voor op een studie in het hoger beroepsonderwijs (hbo).\" (https://www.rijksoverheid.nl/vraag-en-antwoord/voortgezet-onderwijs/hoe-zit-de-havo-in-elkaar) and \"Het voorbereidend wetenschappelijk onderwijs (vwo) bereidt leerlingen voor op een studie aan de universiteit.\" (https://www.rijksoverheid.nl/vraag-en-antwoord/voortgezet-onderwijs/hoe-zit-het-vwo-in-elkaar)",
+      "evidence": "Fact verified: the vmbo prepares for the mbo (key B); hbo follows the havo and university the vwo. The havo was rightly avoided as a distractor because some pupils continue there. 'De meeste leerlingen' in the prompt is a soft inference from 'maakt klaar voor ... mbo' plus 'Soms ... havo'; true and defensible, but not literally in the source. Evidence verbatim; structural, stable.",
+      "level_check": "comparable",
+      "level_reason": "14-word persona prompt, three 3-word options, fact card sentences of 8-12 words built from the school-type names.",
+      "notes": [
+        "Optional: 'Welke opleiding volgt meestal na het vmbo?' would mirror the source's wording more closely than 'gaan de meeste leerlingen'."
+      ]
+    },
+    {
+      "id": "A2:knm:batch007-bijzondere-school:1",
+      "theme": 8,
+      "eindterm": "8.1.2",
+      "verdict": "pass",
+      "eindterm_check": "exact bullet: 8.1.2 '... weet dat er in Nederland openbare en bijzondere scholen op basis van levensbeschouwing of onderwijsvisie bestaan.'",
+      "official_source": "https://www.rijksoverheid.nl/themas/onderwijs/vrijheid-van-onderwijs/openbaar-en-bijzonder-onderwijs",
+      "source_sentence": "\"Bijzondere scholen geven les vanuit een godsdienst, levensovertuiging of een visie op het onderwijs. De lessen op een openbare school zijn niet vanuit een godsdienst of levensovertuiging.\"; \"De overheid betaalt voor beide soorten onderwijs.\"",
+      "evidence": "Fact verified: definition of a bijzondere school (key C); schools for children with a disability are speciaal onderwijs (A); both school types are state-funded, so no extra fee defines them (B). The page's note that some openbare scholen follow a pedagogical concept (openbare montessorischool) does not make any distractor true. Evidence verbatim; Grondwet art. 23, stable.",
+      "level_check": "comparable",
+      "level_reason": "13-word prompt, options of 6-7 words, fact card with one 17-word sentence (at the A2 ceiling) containing 'levensovertuiging', explained by the example 'zoals een katholieke school'."
+    },
+    {
+      "id": "A2:knm:batch007-seksuele-vorming:1",
+      "theme": 8,
+      "eindterm": "8.1.5",
+      "verdict": "pass",
+      "eindterm_check": "exact: 8.1.5 'Weet dat een school in het basis- en voortgezet onderwijs verplicht is lessen te verzorgen over seksualiteit en seksuele diversiteit.'",
+      "official_source": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/gezondheid-en-preventie/seksuele-gezondheid/relationele-en-seksuele-vorming",
+      "source_sentence": "\"landelijke kerndoelen (zie hieronder) van en voor het basisonderwijs en de onderbouw van het voortgezet onderwijs. Hierdoor zijn scholen verplicht aandacht te geven aan relationele en seksuele vorming\"; \"Er zijn landelijke kerndoelen voor het onderwijs. Daardoor zijn scholen verplicht om aandacht te besteden aan relationele en seksuele vorming.\"; \"Op dit moment worden alle doelen voor basisscholen en middelbare scholen aangepast. Scholen bepalen zelf op welke manier zij aandacht geven aan de onderwijsdoelen.\"",
+      "evidence": "Fact verified: the obligation applies to primary schools and the lower years of secondary school (key A); parents do not decide (B); it is not limited to secondary school (C). The kerndoelen are being revised, the obligation is the eindterm itself; no retire-by. Evidence verbatim.",
+      "level_check": "comparable",
+      "level_reason": "14-word persona prompt, options of 5-6 words, fact card with one 14-word sentence; 'relationele en seksuele vorming' and 'kerndoelen' are the official terms."
+    },
+    {
+      "id": "A2:knm:batch007-aansprakelijkheid:1",
+      "theme": 8,
+      "eindterm": "8.2.1",
+      "verdict": "pass",
+      "eindterm_check": "exact: 8.2.1 '... weet dat ouders tot het zestiende levensjaar van hun kind juridisch aansprakelijk zijn voor de gedragingen van hun kind.' Note: the eindterm says 16, the law (BW 6:169) makes parents fully liable under 14 and conditionally at 14-15; with a nine-year-old the key holds under both readings.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/ouderlijk-gezag/rechten-plichten-ouderlijk-gezag",
+      "source_sentence": "\"Uw kind is jonger dan 14 jaar. Dan bent u aansprakelijk voor wat het kind doet. U moet dan bijvoorbeeld de kosten betalen als het kind schade aanricht.\"; \"Uw kind is tussen de 14 jaar en 16 jaar. Dan hangt het van de situatie af of u aansprakelijk bent.\"; \"Vanaf 16 jaar is een kind zelf aansprakelijk.\"",
+      "evidence": "Fact verified: for a child of 9 the parent is liable and pays (key B); the child is not liable itself under 14 (A); the damage does not go unpaid (C). Evidence verbatim; stable. Failure is in the prompt form only: 'De dochter van Fatima (9)' uses a bracketed age that the question audio (generated from the prompt) will read as a parenthesis or skip, and official KNM prompts state ages in words ('Sem is 15 jaar').",
+      "level_check": "comparable",
+      "level_reason": "17-word persona prompt, options of 3-5 words, fact card sentences of 7-12 words; 'aansprakelijk' appears only in the fact card and explanation, the key says 'als ouder'.",
+      "revision_requests": [
+        {
+          "field": "questions[0].prompt",
+          "failure": "Bracketed age '(9)' is not read-aloud friendly and not the official question form.",
+          "repair": "'De dochter van Fatima is 9 jaar. Zij maakt de fiets van de buurman kapot. Wie moet de schade betalen?' (19 words). Nothing else changes."
+        }
+      ],
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "b3aa398a9be0db8a1cf81c82121a60113af251e992f5ac124966a743f13507c8",
+        "verdict": "pass",
+        "checked": "Prompt 'De dochter van Fatima is 9 jaar. Zij maakt de fiets van de buurman kapot. Wie moet de schade betalen?' is 20 words (the first review's repair text counted as 19; the blueprint limit is 'at most twenty', so it is at the limit, and the checker raises no warning). Three short main clauses, everyday words, separable verb 'kapotmaken' used correctly; the age is stated in words as spoken ('is 9 jaar'), no brackets, so the narrated question audio reads naturally. Options, key B, evidence and explanation unchanged; source re-fetched 2026-09-10: 'Uw kind is jonger dan 14 jaar ... Dan bent u aansprakelijk voor wat het kind doet.' and 'Vanaf 16 jaar is een kind zelf aansprakelijk.'"
+      }
+    },
+    {
+      "id": "A2:knm:batch007-medezeggenschapsraad:1",
+      "theme": 8,
+      "eindterm": "8.2.2",
+      "verdict": "pass",
+      "eindterm_check": "on topic: 8.2.2 'Is ervan op de hoogte dat scholen betrokkenheid van de ouders verwachten'; its bullets name overlegmomenten and voluntary help, the item tests the medezeggenschapsraad as the formal channel. Accepted; the fact card opens with the eindterm's own point ('Scholen verwachten betrokken ouders').",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/basisonderwijs/hoe-kan-ik-als-ouder-bij-de-school-betrokken-zijn",
+      "source_sentence": "\"Meepraten over het schoolbeleid kan door lid te worden van de medezeggenschapsraad of de ouderraad.\"; \"In het basisonderwijs en voortgezet onderwijs heeft elke school een medezeggenschapsraad (MR). Dit is geregeld in de Wet medezeggenschap op scholen. De MR overlegt met de directie en het schoolbestuur over het beleid, zoals het schoolplan of het schoolreglement. Om lid te worden van de MR moet u gekozen worden.\"",
+      "evidence": "Fact verified: parents join the MR (after election) to have a say in school policy including the school rules (key C); the gemeenteraad governs the municipality (A); the leerlingenraad is for pupils (B). The ouderraad, also named by the page, is not an option, so one defensible answer. Evidence verbatim; WMS, stable.",
+      "level_check": "comparable",
+      "level_reason": "18-word persona prompt, three 2-word options, fact card sentences of 4-13 words; 'medezeggenschapsraad' is the KNM term."
+    },
+    {
+      "id": "A2:knm:batch007-ouderbijdrage:1",
+      "theme": 8,
+      "eindterm": "8.3.1",
+      "verdict": "pass",
+      "eindterm_check": "exact bullet: 8.3.1 '... kosten ... in de vorm van schoolgeld, (vrijwillige) ouderbijdrage, kosten voor leermiddelen of reiskosten.'",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/financiering-onderwijs/is-de-vrijwillige-ouderbijdrage-op-de-basisschool-en-middelbare-school-verplicht",
+      "source_sentence": "\"De vrijwillige ouderbijdrage voor extra activiteiten buiten de lessen om is niet verplicht. Extra activiteiten zijn bijvoorbeeld schoolreizen, sportdagen of speciale onderwijsprogramma's zoals tweetalig onderwijs. Kinderen van ouders die hiervoor niet betalen, mogen altijd meedoen.\" (video transcript on the page: \"door een nieuwe wet is de ouderbijdrage helemaal vrijwillig\")",
+      "evidence": "Fact verified: the contribution is voluntary and children always take part (key B); exclusion (A) is what the 2021 law ended; the rule is the same for openbare and bijzondere scholen (C). Evidence verbatim; stable.",
+      "level_check": "comparable",
+      "level_reason": "14-word prompt, options of 5-7 words, fact card sentences of 4-11 words.",
+      "notes": [
+        "Optional: the key is the only option that repeats 'ouderbijdrage' from the prompt; 'Nee, die bijdrage is vrijwillig.' removes the echo."
+      ]
+    },
+    {
+      "id": "A2:knm:batch007-kinderopvangtoeslag:1",
+      "theme": 8,
+      "eindterm": "8.3.2",
+      "verdict": "pass",
+      "eindterm_check": "exact: 8.3.2 'Is op de hoogte van de regelingen voor volledige dan wel gedeeltelijke vergoeding van onkosten voor school, studie, zorg of opvang.'",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/kinderopvangtoeslag/wanneer-heb-ik-recht-op-kinderopvangtoeslag",
+      "source_sentence": "\"Kinderopvangtoeslag is een tegemoetkoming voor ouders in de kosten van de kinderopvang.\"; condition: \"U werkt, studeert of volgt een traject om werk te vinden. Of u volgt verplicht een inburgeringscursus bij een gecertificeerde instelling.\" Policy page opened for the pending change, https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/kinderopvang/plannen-kabinet-voor-nieuwe-financiering-kinderopvang: \"De kinderopvangtoeslag wordt afgeschaft. In plaats daarvan betaalt de overheid een subsidie aan kinderopvangorganisaties en gastouderbureaus. De nieuwe financiering moet op 1 januari 2029 ingaan.\"; \"De Eerste en de Tweede kamer moeten nog over het wetsvoorstel beslissen. ... Daarna komt het wetsvoorstel in het najaar van 2026 bij de Tweede Kamer.\"",
+      "evidence": "Fact verified: kinderopvangtoeslag is the allowance for registered childcare costs of working or studying parents (key A); kinderbijslag is the general SVB allowance (B); zorgtoeslag is for health insurance (C). Retire-by: the wording does not survive the announced abolition of the toeslag (planned 1 January 2029, bill still to pass both chambers), so the item must be retired when the new financing starts and re-checked at every yearly review. Failure (minor): the prompt contains 'kinderopvang', which together with 'toeslag' spells the key; the distractors share neither (blueprint section 5: no prompt word repeated only in the key).",
+      "level_check": "comparable",
+      "level_reason": "18-word persona prompt, three one-word options, fact card with one 16-word sentence using a colon; comparable to official 'welke toeslag' items.",
+      "revision_requests": [
+        {
+          "field": "questions[0].prompt",
+          "failure": "Prompt word 'kinderopvang' appears only in the key ('Kinderopvangtoeslag').",
+          "repair": "'Julio en zijn vrouw werken allebei. Hun dochter van 2 gaat naar een kinderdagverblijf. Welke toeslag is daarvoor?' (18 words); the fact card may keep 'kinderopvang'."
+        },
+        {
+          "field": "sourceNote",
+          "failure": "The retire trigger is undated.",
+          "repair": "Append 'Planned abolition 1 January 2029 (wetsvoorstel financiering kinderopvang, to the Tweede Kamer autumn 2026); retire when the new financing starts; re-check yearly.'"
+        }
+      ],
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "b3aa398a9be0db8a1cf81c82121a60113af251e992f5ac124966a743f13507c8",
+        "verdict": "pass",
+        "checked": "Prompt 'Julio en zijn vrouw werken allebei. Hun dochter van 2 gaat naar het kinderdagverblijf. Welke toeslag is daarvoor?' (18 words) no longer contains 'kinderopvang'; 'kinder-' now recurs in distractor B 'Kinderbijslag' and 'toeslag' in distractor C 'Zorgtoeslag', so no prompt word appears only in the key. 'naar het kinderdagverblijf' is idiomatic and everyday A2 vocabulary for parents of young children; the picture shows the daycare handover. sourceNote now reads: 'the cabinet plans a new financing system for childcare from 1 January 2029 (bill to the Tweede Kamer in autumn 2026, both chambers still to decide); retire this item when the toeslag is abolished', which matches the policy page re-fetched 2026-09-10: 'De kinderopvangtoeslag wordt afgeschaft. ... De nieuwe financiering moet op 1 januari 2029 ingaan.' and 'Daarna komt het wetsvoorstel in het najaar van 2026 bij de Tweede Kamer.' The cited page still states 'Kinderopvangtoeslag is een tegemoetkoming voor ouders in de kosten van de kinderopvang.' Key A, options, evidence and explanation unchanged."
+      }
+    },
+    {
+      "id": "A2:knm:batch007-studiefinanciering:1",
+      "theme": 8,
+      "eindterm": "8.3.3",
+      "verdict": "pass",
+      "eindterm_check": "exact: 8.3.3 'Is ervan op de hoogte dat hij voor een tegemoetkoming in studiekosten een aanvraag bij Dienst Uitvoering Onderwijs (DUO) kan indienen.'",
+      "official_source": "https://duo.nl/particulier/studiefinanciering/aanvragen.jsp",
+      "source_sentence": "\"Doet u mbo, hbo of universiteit? Dan kunt u studiefinanciering aanvragen.\"; \"Log in op Mijn DUO om studiefinanciering aan te vragen.\" Page footer: \"Laatste update was op 07 september 2026\". The text's last sentence is supported by IND, https://ind.nl/nl/inburgering-voor-naturalisatie: \"U doet het inburgeringsexamen bij DUO.\"",
+      "evidence": "Fact verified: studiefinanciering for mbo, hbo and university is applied for at DUO via Mijn DUO with DigiD (key C); the gemeente (studietoeslag) and Belastingdienst (toeslagen) run other schemes. Sem being 18 avoids the under-18 mbo rule. Amounts change yearly and are not in the item. Evidence verbatim.",
+      "level_check": "comparable",
+      "level_reason": "14-word persona prompt, options of 2-3 words, fact card sentences of 5-11 words; 'studiefinanciering' is the KNM term."
+    }
+  ],
+  "retire_by_notes": [
+    {
+      "id": "A2:knm:batch007-kinderopvangtoeslag:1",
+      "trigger": "Abolition of the kinderopvangtoeslag, planned 1 January 2029 (wetsvoorstel financiering kinderopvang; bill to the Tweede Kamer autumn 2026, both chambers still to decide). Retire when the new financing starts; re-check yearly and at every release."
+    },
+    {
+      "id": "A2:knm:batch007-naturalisatie:1",
+      "trigger": "No retire-by: the item names neither the residence term nor the language level, so it stays true if the term becomes 10 years or the level B1. Re-check the IND page at every release; retire only if the inburgering condition itself is dropped."
+    },
+    {
+      "id": "A2:knm:batch007-seksuele-vorming:1",
+      "trigger": "No retire-by: the kerndoelen are being revised, the obligation is the eindterm itself. Re-check yearly."
+    },
+    {
+      "id": "A2:knm:batch007-juridischloket:1",
+      "trigger": "No retire-by: the income limit changes yearly and is not in the item."
+    }
+  ],
+  "batch_level_requests": [
+    {
+      "severity": "required",
+      "scope": "items reisdocument, europese-unie, aansprakelijkheid, kinderopvangtoeslag",
+      "issue": "See revision_requests per item: option form (reisdocument), evidence entailment and duplicate fact (europese-unie), read-aloud prompt form (aansprakelijkheid), prompt-word echo and dated retire trigger (kinderopvangtoeslag). Key balance stays 8/8/8 if the proposed repairs keep the key letters."
+    },
+    {
+      "severity": "recommended",
+      "scope": "donorregister",
+      "issue": "Add the three-year rule for newcomers to the fact card; the audience is newcomers."
+    },
+    {
+      "severity": "optional",
+      "scope": "naturalisatie, juridischloket, meningsuiting, vmbo, ouderbijdrage, identificatieplicht, hoger-beroep",
+      "issue": "A2 wording polish and echo removal as listed in the item notes; none blocks integration."
+    },
+    {
+      "severity": "required",
+      "round": 2,
+      "scope": "europese-unie",
+      "issue": "Options B and C: restore three full clauses of equal length so the key is not the longest, most specific and only 'Nee' option; see items[europese-unie].re_review.revision_request. Key letter unchanged.",
+      "resolved": "2026-09-10, second focused re-review: options B and C applied as proposed; verified in the file at 9b045ce8..."
+    },
+    {
+      "severity": "required",
+      "round": 2,
+      "scope": "content/batches/007-notes.md (audit trail, not the hashed file)",
+      "issue": "Section 2 items 1 and 10 still carry the rationales of the retired distractors ('Alleen zijn geldige treinkaartje'; 'visum van Spanje' / 'werkvergunning van Spanje' with key 'paspoort of identiteitskaart'); record the rationales for the current distractors (rubric 12). Section 3's statement 'No key is the single longest option in its set' is no longer true for reisdocument (4/3/2 words) and, until repaired, europese-unie (8/5/5); amend it.",
+      "resolved": "2026-09-10, second focused re-review: rationales for the current distractors and the amended option-length statement verified in the notes."
+    },
+    {
+      "severity": "optional",
+      "round": 2,
+      "scope": "reisdocument, donorregister; future batches",
+      "issue": "reisdocument: C 'Zijn persoonlijke OV-chipkaart' evens the option lengths and ties the distractor to the train scenario. donorregister: a prompt that says Mevrouw Bakker has lived in the Netherlands for a long time closes the newcomer reading the new sentence makes visible. Batch pattern for future authoring: in all five yes/no items of this batch the key is the minority polarity (the single Ja or the single Nee); vary this so the odd answer out does not become a tell."
+    }
+  ],
+  "diversity_review": "Twenty-four distinct facts across 24 distinct eindtermen (8 per theme); no fact repeats one of the eight study cards (inschrijven, verhuizing, DigiD, basisverzekering, 112, leerplicht, stemmen, discriminatie) or a batch 006 item (themes 1, 3, 4). Within the batch, items 1 and 10 currently share the key 'paspoort of identiteitskaart' (addressed by the europese-unie revision); items 4 and 23 both involve Julio's young children and both mention kinderbijslag/SVB, but test different facts (where to apply for kinderbijslag; which allowance covers childcare). Cast members appear at most twice, with consistent traits and non-contradictory stories.",
+  "limitations": [
+    "This is an AI editorial review. It does not replace review by Dutch-language educators, learner trials, blueprint validation or psychometric calibration, and it does not establish equivalence with the official DUO KNM exam. The A2 label remains an unvalidated authoring target.",
+    "Official pages support the facts, not the difficulty or exam likeness of the questions. Content/exemplars/ does not exist, so the level check compares each item with the official item shape described in the blueprint and the research document (photo, question of at most twenty words, three short options, A2 language), not with two exemplars.",
+    "Facts were checked on 2026-09-10. Time-sensitive items (naturalisatie, kinderopvangtoeslag, seksuele-vorming, juridischloket) must be rechecked yearly and at every release as recorded above.",
+    "The participatieverklaring (items 12, 13, 16) is published as an image on wetten.overheid.nl; the reviewer read the image itself. The Staatscourant publication of the eindtermen returned a server error at review time; the consolidated Regeling inburgering 2021 on wetten.overheid.nl was used instead.",
+    "Several fact-card sentences stay close to the Rijksoverheid wording (kinderbijslag, bijzondere school, vmbo). Government information is free to reuse and the rubric's originality check targets official exam items and commercial courses; questions, options and explanations are original.",
+    "source_sha256 is the hash of the file cleared for integration (9b045ce8...) after two focused re-reviews; the first review covered the draft at bf4d149c... and the first re-review the file at b3aa398a..., both kept in the revisions list. Any further edit to the batch file invalidates this clearance until re-reviewed."
+  ],
+  "re_review_checks": {
+    "date": "2026-09-10",
+    "sha256_re_reviewed": "b3aa398a9be0db8a1cf81c82121a60113af251e992f5ac124966a743f13507c8",
+    "batch_check": "npm run batch:check content/batches/007-original.json: Checked 24 items, 24 questions. Keys: {\"A\":8,\"B\":8,\"C\":8}. Options: {\"3\":24}. No failures, no warnings.",
+    "key_counts": {
+      "A": 8,
+      "B": 8,
+      "C": 8
+    },
+    "keys_per_theme": {
+      "6": {
+        "A": 3,
+        "B": 3,
+        "C": 2
+      },
+      "7": {
+        "A": 3,
+        "B": 2,
+        "C": 3
+      },
+      "8": {
+        "A": 2,
+        "B": 3,
+        "C": 3
+      }
+    },
+    "unchanged_items": 19,
+    "unchanged_items_method": "The author's generator (scratchpad b007/build007.mjs) was re-run into a private scratch file; its output hashes to the first review's bf4d149c... exactly, so it is the reviewed draft. A field-by-field comparison of that draft with the current file shows changes in exactly five items and only in the fields the coordinator listed (reisdocument: prompt, options B and C, explanation; europese-unie: prompt, options A-C, explanation; aansprakelijkheid: prompt; kinderopvangtoeslag: prompt, sourceNote; donorregister: text). The other 19 items are byte-identical, and their prompt word counts, theme, eindterm, sourceUrl and the strings quoted in the first review (kinderbijslag option C, hoger-beroep and meningsuiting prompt phrases, naturalisatie explanation, identificatieplicht aside, vmbo 'de meeste leerlingen', ouderbijdrage and juridischloket key echoes, studiefinanciering age and evidence) all match the record.",
+    "prompt_word_range": "5-20 (limit 20; aansprakelijkheid is at 20)",
+    "text_word_range": "24-41 (donorregister 41)",
+    "closed_evidence_is_verbatim": true,
+    "sources_refetched": [
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/paspoort-en-identiteitskaart/moet-ik-mijn-paspoort-of-identiteitskaart-meenemen-tijdens-reizen-naar-het-buitenland",
+      "https://www.rijksoverheid.nl/themas/migratie-en-reizen/immigratie-naar-nederland/vrij-verkeer-en-verblijf-personen-binnen-eu-eer-en-zwitserland",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/ouderlijk-gezag/rechten-plichten-ouderlijk-gezag",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/kinderopvangtoeslag/wanneer-heb-ik-recht-op-kinderopvangtoeslag",
+      "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/kinderopvang/plannen-kabinet-voor-nieuwe-financiering-kinderopvang",
+      "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/orgaandonatie-en-weefseldonatie/actieve-donorregistratie",
+      "https://www.donorregister.nl/uitleg-over-het-donorregister/nieuw-of-terug-in-nederland"
+    ],
+    "all_refetched_http_200": true
+  },
+  "revisions": [
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review",
+      "items": [
+        "A2:knm:batch007-reisdocument:1",
+        "A2:knm:batch007-europese-unie:1",
+        "A2:knm:batch007-aansprakelijkheid:1",
+        "A2:knm:batch007-kinderopvangtoeslag:1",
+        "A2:knm:batch007-donorregister:1"
+      ],
+      "previous_sha256": "bf4d149cc231df32d1acba2d751ffdffa932518c5247b2e79fab9683079b0a00",
+      "re_reviewed_sha256": "b3aa398a9be0db8a1cf81c82121a60113af251e992f5ac124966a743f13507c8",
+      "verdict": "revise",
+      "note": "Focused re-review of the five items changed after the first review (four revision requests plus the donorregister recommendation). The file at b3aa398a... differs from the reviewed draft in exactly those five items and only in the listed fields; batch:check passes; keys 8/8/8. reisdocument, aansprakelijkheid, kinderopvangtoeslag and donorregister pass. europese-unie does not: the applied option set makes the key the single longest, most specific and only 'Nee' option (8/5/5 words, full clause against fragments), a blueprint section 5 signal the first review's 8/8/8 repair did not have; a two-option replacement is given. source_sha256 is left at the first review's hash; ready_for_integration stays false until the europese-unie options are repaired and the new hash is re-reviewed. The batch notes must also record the rationales of the new distractors."
+    },
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review 2",
+      "items": [
+        "A2:knm:batch007-europese-unie:1"
+      ],
+      "previous_sha256": "b3aa398a9be0db8a1cf81c82121a60113af251e992f5ac124966a743f13507c8",
+      "re_reviewed_sha256": "9b045ce8798eeb99ed79649222530b472cc173e5cde15e31866b124f97cbe69c",
+      "verdict": "pass",
+      "note": "Second focused re-review of the europese-unie options after the first re-review's revision request. The file at 9b045ce8... differs from the file at b3aa398a... only in that item's options B and C (verified by reverting the two strings and reproducing the earlier hash); batch:check passes; keys 8/8/8. The applied option set is the one the first re-review proposed: 8/8/8 words, three Ja/Nee full clauses, key neither longest nor lone polarity nor most specific, both distractors refuted by the unchanged evidence sentence, rationales recorded in the batch notes, cited page and eindterm bullet re-read on 2026-09-10. All 24 items pass; batch_verdict pass; ready_for_integration true; source_sha256 set to 9b045ce8...."
+    }
+  ],
+  "re_review_2_checks": {
+    "date": "2026-09-10",
+    "sha256_re_reviewed": "9b045ce8798eeb99ed79649222530b472cc173e5cde15e31866b124f97cbe69c",
+    "batch_check": "npm run batch:check content/batches/007-original.json: Checked 24 items, 24 questions. Keys: {\"A\":8,\"B\":8,\"C\":8}. Options: {\"3\":24}. No failures, no warnings.",
+    "key_counts": {
+      "A": 8,
+      "B": 8,
+      "C": 8
+    },
+    "keys_per_theme": {
+      "6": {
+        "A": 3,
+        "B": 3,
+        "C": 2
+      },
+      "7": {
+        "A": 3,
+        "B": 2,
+        "C": 3
+      },
+      "8": {
+        "A": 2,
+        "B": 3,
+        "C": 3
+      }
+    },
+    "unchanged_items": 23,
+    "unchanged_items_method": "The two current europese-unie option strings were replaced by the strings the first re-review quoted ('Ja, een werkvergunning van Spanje.' and 'Ja, een werkvergunning van Nederland.') in a private scratch copy; that copy hashes to b3aa398a... exactly, so the current file differs from the re-reviewed file only in those two strings. Independently, every item's theme, eindterm and sourceUrl match this record, every evidence quote is a verbatim substring of its text, prompts are 5-20 words, and the strings the earlier reviews quote (kinderbijslag option C, reisdocument options, kinderopvangtoeslag prompt and dated sourceNote, donorregister newcomer sentence, naturalisatie 'inburgeringsvereiste', identificatieplicht 12-year aside, vmbo 'de meeste leerlingen', studiefinanciering DUO evidence, hoger-beroep, meningsuiting and aansprakelijkheid prompts) are present unchanged.",
+    "prompt_word_range": "5-20 (limit 20; aansprakelijkheid is at 20)",
+    "text_word_range": "24-41 (donorregister 41)",
+    "option_word_range": "1-8 (europese-unie 8/8/8)",
+    "closed_evidence_is_verbatim": true,
+    "eindterm_mapping_update": "europese-unie now tests the 7.1.2 bullet exactly; the 'on topic, loose' classification in checks applied to the draft.",
+    "sources_refetched": [
+      "https://www.rijksoverheid.nl/themas/migratie-en-reizen/immigratie-naar-nederland/vrij-verkeer-en-verblijf-personen-binnen-eu-eer-en-zwitserland",
+      "https://wetten.overheid.nl/BWBR0045574/2026-04-18"
+    ],
+    "all_refetched_http_200": true,
+    "batch_notes_checked": "content/batches/007-notes.md section 2 items 1 and 10 now carry the rationales of the current distractors; section 3's option-length statement was amended; the 'Second coordinator revision' section describes exactly the change found in the file."
+  }
+}

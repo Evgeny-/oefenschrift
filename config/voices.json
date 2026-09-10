@@ -3,7 +3,7 @@
   "audition": "2026-09-10",
   "model": "eleven_multilingual_v2",
   "dialogueModel": "eleven_v3",
-  "defaultConversationMode": "dialogue",
+  "defaultConversationMode": "stitched",
   "language": "nl",
   "settings": {
     "stability": 0.5,
@@ -22,55 +22,64 @@
       "voice_id": "UNBIyLbtFB9k7FKW8wJv",
       "name": "Serge de Beer",
       "use": "instructions, questions, announcements (omroep)",
-      "note": "user: announcements voice"
+      "note": "user: announcements voice",
+      "speed": 0.95
     },
     "presenter": {
       "voice_id": "60CwgZt94Yf7yYIXMDDe",
       "name": "Peter",
       "use": "news items, company presentations, uitleg by an organisation",
-      "note": "user: professional narrator, a bit loud; loudness normalisation applies"
+      "note": "user: professional narrator, a bit loud; loudness normalisation applies",
+      "speed": 0.93
     },
     "f-young": {
       "voice_id": "7qdUFMklKPaaAVMsBTBt",
       "name": "Roos",
       "use": "student, young colleague, daughter, friend",
-      "note": "user: good voice, a bit quiet; loudness normalisation applies"
+      "note": "user: good voice, a bit quiet; loudness normalisation applies",
+      "speed": 0.85
     },
     "f-adult": {
-      "voice_id": "mNOlrB5V39qx4wQwSjG3",
-      "name": "Marlies",
+      "voice_id": "TuUL8QNimlzrTWC5Op2c",
+      "name": "Esmee",
       "use": "teacher, manager, receptionist, huisarts assistant",
-      "note": "confirmed by the user on 2026-09-10"
+      "speed": 0.95,
+      "note": "chosen by the user in the second audition (10 September 2026), heard through the lossless chain with Hanneke"
     },
     "f-older": {
       "voice_id": "tfweP7lGJyLeNV9dH1Rm",
       "name": "Hanneke",
       "use": "older neighbour, grandmother, older customer",
-      "note": "user: senior, good voice, quiet; loudness normalisation applies"
+      "note": "user: senior, good voice, quiet; loudness normalisation applies",
+      "speed": 0.95
     },
     "m-young": {
       "voice_id": "6kGjm3FeadxmRCkt22Pc",
       "name": "Nick",
       "use": "student, young colleague, delivery worker",
-      "note": "confirmed by the user on 2026-09-10"
+      "note": "confirmed by the user on 2026-09-10",
+      "speed": 0.9
     },
     "m-adult": {
       "voice_id": "cblS8WYNsiBLGnlV6jjx",
       "name": "Robert",
       "use": "manager, employer, colleague, interviewer",
-      "note": "user: manager voice"
+      "note": "user: manager voice",
+      "speed": 0.92
     },
     "m-older": {
       "voice_id": "62klqbsYqbynbr66ypRt",
       "name": "Arjen",
       "use": "older neighbour, older customer, huisarts",
-      "note": "user: old man voice"
+      "note": "user: old man voice",
+      "speed": 1.0
     },
     "m-shop": {
       "voice_id": "gdTrLNuwWUaxC0z5n1j7",
       "name": "Jerry",
       "use": "shopkeeper, market trader, repair service",
-      "note": "confirmed by the user on 2026-09-10"
+      "note": "confirmed by the user on 2026-09-10",
+      "speed": 1.0
     }
   },
   "excluded": [
@@ -78,6 +87,24 @@
       "voice_id": "AVIlLDn2TVmdaDycgbo3",
       "name": "Eric Sijbesma",
       "reason": "inserted 'Nou ja, hallo, uh' that was not in the script (round-trip check, 2026-09-10)"
+    },
+    {
+      "voice_id": "mNOlrB5V39qx4wQwSjG3",
+      "name": "Marlies",
+      "reason": "user heard echo / low recording quality in the batch 005 conversations (10 September 2026)"
+    },
+    {
+      "voice_id": "OlBRrVAItyi00MuGMbna",
+      "name": "Emma",
+      "reason": "user rejected the sound quality on a test conversation (10 September 2026)"
+    },
+    {
+      "voice_id": "D6MRWCKoavI2xUJXmaCb",
+      "name": "Jennifer",
+      "reason": "user rejected the sound quality on a test conversation (10 September 2026)"
     }
-  ]
+  ],
+  "speedNote": "Per-role speaking-rate multiplier for single-speaker clips (multilingual v2 voice_settings.speed, 0.7–1.2); chosen on 10 September 2026 so that the fast voices from the audition (Roos, Nick, Robert, Peter, Serge) land near 2.5 words per second, the A2 pace of the slower voices. The dialogue model ignores it.",
+  "conversationNote": "Conversations are generated per turn with eleven_multilingual_v2 and stitched (0.45 s gaps, per-turn loudness normalisation). The dialogue model (eleven_v3) was the default for a day on 10 September 2026 and produced audible room echo on the female voices; it stays available per item with audioMode: \"dialogue\".",
+  "pipelineNote": "Since 10 September 2026 clips are requested as 16-bit PCM at 24 kHz, level-matched by a constant gain to -18 LUFS (no compression), stitched losslessly and encoded once to 44.1 kHz MP3 at 192 kbps. An earlier chain re-encoded MP3 three times and normalised twice."
 }

@@ -76,7 +76,7 @@ async function shot(name) {
 
 try {
   await evaluate(
-    `localStorage.setItem('inburgering.study.v2',JSON.stringify({version:2,settings:{lang:'en',level:'A2',theme:'light',clock:false},records:{'A2:writing:afspraak:1':{completed:true,kind:'ai',at:Date.now()}},drafts:{'A2:speaking:buurvrouw:1':'Ik kan morgen niet komen. Ik werk.'},reviews:{},active:null}));true;`,
+    `localStorage.setItem('inburgering.study.v2',JSON.stringify({version:2,settings:{lang:'en',level:'A2',theme:'light',clock:false},records:{'A2:writing:afspraak:1':{completed:true,kind:'ai',at:Date.now()}},drafts:{'A2:speaking:buurvrouw:1':'Ik kan morgen niet komen. Ik werk.'},reviews:{},active:null}));document.cookie='inburgering_preferences='+encodeURIComponent(JSON.stringify({lang:'en',level:'A2',theme:'light',clock:false}))+'; Path=/';true;`,
   );
   await send('browsingContext.navigate', {
     context,
@@ -107,7 +107,7 @@ try {
     'Animated filter line reaches its new target without changing label widths',
   );
   await check(
-    `getComputedStyle(document.querySelector('.filter-indicator')).transitionProperty.includes('transform')`,
+    `getComputedStyle(document.querySelector('.filter-indicator')).transitionProperty.includes('left')`,
     'Filter selection has a motion transition',
   );
   await click('.list-filters button:first-child');
@@ -181,7 +181,7 @@ try {
   await click('.recorder-actions .info-trigger');
   await settle();
   await check(
-    `document.querySelector('.info-popup').textContent.includes('external transcription service')&&document.querySelector('.info-popup a').getAttribute('href')==='/privacy'&&document.querySelector('.info-popup').textContent.includes('2 minutes')`,
+    `document.querySelector('.info-popup').textContent.includes('external transcription service')&&document.querySelector('.info-popup a').getAttribute('href')==='/en/privacy'&&document.querySelector('.info-popup').textContent.includes('2 minutes')`,
     'Recording popup explains external processing, duration and Privacy',
   );
   await shot('recording-info');

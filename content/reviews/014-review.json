@@ -1,0 +1,225 @@
+{
+  "review_id": "batch014-editorial-review",
+  "source": "content/batches/014-original.json",
+  "source_sha256": "ea8b929f5b19cf79cf737abff59528d0ab93a4670284db0ef455b4f0bf7ccd04",
+  "starters_source": "content/batches/014-starters.json",
+  "starters_sha256": "e2b2293aca868352291c5e674067d519524c3fed362068f47640d4ef4d285462",
+  "starters_verdict": "pass",
+  "review_type": "AI editorial review of B1 writing zinstaken (Staatsexamen NT2 Programma I Schrijven, tasks 1-8) and their sentence starters: prompt form and gap type, scaffold register, whether the context forces the grammar target and one function, criteria, sample quotes and learner errors, model structure, an alternative correct sentence per task, level, originality",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "summary": "7 pass, 1 revise (verjaardag: criterion 2 must state a second-position rule instead of subject-first order, because a correct inverted main clause after 'want' would otherwise fail), 0 reject at source hash 80f97b98. Starters pass at hash e2b2293a. Lead-in gaps, the two prompt wordings and 'of' as a bijzin marker are accepted. Ready for integration after the one-field edit and a focused re-review of the changed item. Focused re-review 2026-09-10: the required edit, recommended edits 1, 2 and 4 and the title of edit 3 were applied with the recorded texts, nothing else changed (reverting the eight strings reproduces 80f97b98), 8 pass at source hash ea8b929f; ready for integration.",
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 8,
+    "distribution": {"B1_writing": 8},
+    "task_types": {"zinstaak": 8},
+    "grammar_targets": {"hoofdzin": 2, "bijzin": 2, "inversie": 2, "te-infinitief": 1, "vrij": 1},
+    "lead_ins": {"Daarom": "ziekmelding", "omdat": "vacature", "open": "afscheid, studieadviseur", "of": "examendatum", "om": "groepsverslag", "want": "verjaardag", "Misschien": "sportschool"},
+    "registers": {"formal": 4, "informal": 4},
+    "domains": {"werk": 3, "educatie": 3, "overig": 2},
+    "batch_check": "npm run batch:check content/batches/014-original.json: Checked 8 items, 0 questions. warn B1:writing:batch014-verjaardag:1: slug \"verjaardag\" already used in the catalogue; make sure the topic differs. 1 warning(s), no failures. (The slug exists in A2 speaking batch009, another part; blueprint section 3 forbids reuse within a part only; the author's run predates the integration of batch 009.)",
+    "prompts_carry_official_instruction": true,
+    "prompt_wording_matches_gap_type": true,
+    "lead_in_forces_exactly_the_target": true,
+    "context_forces_one_function": true,
+    "scaffolds_complete_and_register_consistent": true,
+    "criteria_two_per_task_adequacy_then_grammar": true,
+    "bilingual_criteria_agree": true,
+    "open_sample_quotes_are_verbatim": true,
+    "one_null_quote_per_item": true,
+    "null_positions": "adequacy missed in vacature, studieadviseur, verjaardag, sportschool; grammar missed in ziekmelding, afscheid, examendatum, groepsverslag",
+    "learner_errors_per_sample": "1-2; where grammar is the missed criterion the error is the one that costs the point (no inversion, V3 after a fronted time phrase, main-clause order in an of-clause, 'te afmaken'); where adequacy is missed the only error is a tolerated gender ending or a spelling slip",
+    "no_prompt_sentence_copied_into_sample_or_model": true,
+    "models_meet_every_criterion": true,
+    "models_show_target_structure": true,
+    "alternative_correct_sentence_per_task": true,
+    "model_word_range": "9-12 typed words; 10-13 as full sentences with the lead-in",
+    "body_shape": "3-5 sentences including the gap sentence, 33-46 words, sentence averages 8.0-12.7, longest sentence 24 (examendatum)",
+    "weekday_dates_verified_for_2026": true,
+    "cast_names_consistent": true,
+    "no_real_organisations_or_addresses": true,
+    "avoid_list_respected": true,
+    "slug_unique_within_part": true,
+    "slug_shared_with_another_part": "verjaardag (A2:speaking:batch009-verjaardag:1)",
+    "exemplars_available": false,
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false
+  },
+  "starters_checks": {
+    "item_ids_match_batch": true,
+    "one_starter_per_criterion_in_order": true,
+    "every_starter_has_ellipsis": true,
+    "partial_not_complete_answers": true,
+    "fit_the_gap_after_the_lead_in": true,
+    "grammatical_when_completed_naturally": true,
+    "register_matches_scaffold": true,
+    "no_invented_task_facts": true,
+    "notes": "For a zinstaak both starters are fragments that fit the printed gap, so each shows the target structure and leaves the content to the learner. The afscheid starter 'Ik ga per … bij … werken.' is the model's frame with the two facts blanked; it gives away no more than the visible criterion does; 'Ik heb een nieuwe baan bij …' would be a less model-shaped hint at a later revision. Both verjaardag starters begin with a subject and stay valid under the revised criterion. If the verjaardag slug is renamed, the starters key changes and the starters hash must be re-recorded after a focused re-review."
+  },
+  "decisions": {
+    "lead_in_gaps": "Accepted. The official zinstaak is 'complete one sentence inside a short e-mail'; a bijzin, an inversion or a te-infinitief can only be forced by a printed lead-in, which the author brief's own examples use. Each of the six lead-ins forces exactly its target (Daarom and Misschien: verb next; omdat and 'laten weten of': verb last; 'lukt het mij niet om': te + infinitive; want: main-clause order). 'The gap is a whole sentence' is read as: the learner writes a whole clause or sentence, never a word or phrase.",
+    "two_prompt_wordings": "Accepted as consistent: 'Maak de e-mail af. Maak de zin op de open plek af.' for a printed lead-in, 'Maak de e-mail af. Schrijf één zin op de open plek.' for an open gap; each matches its gap type. Record the rule in blueprint 4.8 and the author brief.",
+    "of_as_bijzin_marker": "Fair at B1: indirect yes/no questions after 'laten weten', 'weten', 'twijfelen' are core e-mail formulae, the verb-final rule is the same as after dat/omdat, and main-clause order inside the of-clause is a frequent error. Keep; no 'Ik hoop dat' fallback."
+  },
+  "items": [
+    {
+      "id": "B1:writing:batch014-ziekmelding:1",
+      "verdict": "pass",
+      "evidence": "Formal e-mail to teamleider mevrouw Bakker (subject 'Ziekmelding', u-forms); lead-in 'Daarom ___.' forces inversion, and 'zou bellen' plus 'of ik weer kan werken' force the consequence for today's work. Sample 'ik kan vandaag niet naar de werk komen' is quoted whole for adequacy; no inversion after 'Daarom', so criterion 2 is null; second error 'de werk' (tolerated gender). Model 'kan ik vandaag helaas niet naar mijn werk komen', 9 typed words, 'kan ik' directly after 'Daarom'. Sick leave is on the needed list and exists in no part.",
+      "alternative_sentence": "Daarom blijf ik vandaag thuis en kom ik niet werken.",
+      "level_check": "comparable: a consequence after a printed adverb, everyday vocabulary, like the official inversion tasks."
+    },
+    {
+      "id": "B1:writing:batch014-vacature:1",
+      "verdict": "pass",
+      "evidence": "Formal application to Hotel De Zwaan ('Geachte heer De Vries,', uw/u); lead-in ', omdat ___.' forces a verb-final bijzin and 'Deze baan past goed bij mij' admits only a reason. Sample 'ik de vakature op de website van uw hotel heb gezien' is a correct bijzin (quoted whole) that paraphrases the body's first sentence and gives no reason, so criterion 1 is null; 'vakature' is a spelling slip outside the zinstaak scale. Model 'ik drie jaar als receptionist in een hotel in Rotterdam heb gewerkt', 12 typed words, 'heb gewerkt' last. A job advertisement is on the needed list; the related bank items are receptive or a different act.",
+      "alternative_sentence": "Deze baan past goed bij mij, omdat ik graag met gasten werk en goed Engels en Duits spreek.",
+      "level_check": "comparable: a reason clause after omdat, the most common official bijzin task."
+    },
+    {
+      "id": "B1:writing:batch014-afscheid:1",
+      "verdict": "pass",
+      "evidence": "Informal team mail ('Hoi allemaal,' / 'Groetjes,', jullie) with an open gap and the prompt 'Schrijf één zin op de open plek.'; 'ik zal jullie missen' and 'mijn laatste dag' (vrijdag 30 oktober 2026, a Friday) leave only the leaving news, and a statement is a main clause with the verb second, which criterion 2 states. Sample 'Vanaf 1 november ik ga werken bij een andere bedrijf.' tells the news (quoted whole); V3 after the fronted time phrase, so criterion 2 is null; second error 'een andere bedrijf'. Model 'Ik ga per 1 november bij een ander bedrijf werken.', 10 words, 'ga' second. Leaving a company is new in the bank.",
+      "alternative_sentence": "Eind oktober stop ik hier, want ik heb een nieuwe baan gevonden.",
+      "level_check": "comparable, at the harder end: an open gap without a structural cue; suited to a late position in a form."
+    },
+    {
+      "id": "B1:writing:batch014-studieadviseur:1",
+      "verdict": "pass",
+      "evidence": "Formal e-mail to studieadviseur mevrouw Yilmaz at ROC Westerhout (u throughout) with an open gap; between 'Ik wil hier graag met u over praten.' and 'Alvast bedankt voor uw antwoord.' only a request for a meeting fits, and a question or a statement both do it, which justifies grammarTarget vrij. Sample 'Ik denk dat ik liever een opleiding in het zorg wil doen.' is a correct dat-clause (quoted whole) that asks nothing, so criterion 1 is null; 'het zorg' is a tolerated gender error. Model 'Heeft u volgende week een moment vrij voor een gesprek?', 10 words. A study adviser is on the brief's list; the lesson-themed items are other acts.",
+      "alternative_sentence": "Wanneer zou u tijd hebben voor een gesprek op school?",
+      "level_check": "comparable, slightly easier: any correct sentence earns the grammar point; one vrij task in eight is reasonable."
+    },
+    {
+      "id": "B1:writing:batch014-examendatum:1",
+      "verdict": "pass",
+      "evidence": "Formal e-mail to an examenbureau ('Beste medewerker van het examenbureau,', u); lead-in 'Kunt u mij laten weten of ___?' forces an indirect yes/no question with the verb last, and the wedding clash plus 'Ik kan elke andere dag in november' leave one question; donderdag 12 november 2026 is a Thursday. Sample 'ik kan het examen op een ander datum maken' asks the right thing (quoted whole); main-clause order inside the of-clause, so criterion 2 is null; second error 'een ander datum'. Model 'ik het examen op een andere dag kan maken', 9 typed words, 'kan maken' last. Rescheduling an exam is new; the boekhouden course is shared with 015-avondcursus (recommended edit).",
+      "alternative_sentence": "Kunt u mij laten weten of er in november nog een andere examendatum mogelijk is?",
+      "level_check": "comparable: an of-clause inside a fixed request formula; the 24-word opening sentence is two coordinated main clauses at B1."
+    },
+    {
+      "id": "B1:writing:batch014-groepsverslag:1",
+      "verdict": "pass",
+      "evidence": "Informal e-mail to fellow student Julio ('Hoi Julio,' / 'Groetjes,', jouw/je); lead-in 'Zonder jouw tekst lukt het mij niet om ___.' forces te + infinitive and the content is what cannot be done without his part. Sample 'de inleiding te schrijven en het verslag te afmaken' has the right content (quoted whole); 'te afmaken' instead of 'af te maken', so criterion 2 is null; one error, the one the criterion names. Model 'de inleiding en de conclusie van het verslag te schrijven', 10 typed words, 'te schrijven' last. No group assignment exists in the bank.",
+      "alternative_sentence": "Zonder jouw tekst lukt het mij niet om het verslag op tijd af te maken.",
+      "level_check": "comparable: the official te-infinitief task with a separable-verb trap available."
+    },
+    {
+      "id": "B1:writing:batch014-verjaardag:1",
+      "verdict": "pass",
+      "evidence": "Informal apology to friend Mila ('Hoi Mila,' / 'Groetjes,', je); lead-in ', want ___.' forces main-clause order and 'het lukte niet' leaves only the cause of the absence. Sample 'ik wilde heel graag naar de feest komen' is a correct main clause (quoted whole) with no cause, so criterion 1 is null; 'de feest' is a tolerated gender error. Model 'mijn trein stond door een storing twee uur stil bij Utrecht', 11 typed words, subject then verb. Task, sample, model and starters are sound; criterion 2 ('eerst het onderwerp, dan de persoonsvorm') fails a correct inverted main clause after 'want' such as 'want gisteren was ik ziek' (rubric 4, 5) and must state a second-position rule. Slug shared with A2 speaking batch009 (allowed); title 'Sorry voor de verjaardag' reads as an apology for the birthday itself. Focused re-review 2026-09-10 at source hash ea8b929f: criteria[1] now states the second-position rule and the title is 'Verjaardag gemist' (slug, id and starters key unchanged); inverted main clauses after 'want' ('want gisteren was ik ziek') now earn the point, verb-final order still fails, and the sample, model and both starters keep their verdicts; pass.",
+      "alternative_sentence": "Ik wilde echt komen, maar het lukte niet, want mijn dochter werd 's middags ziek en ik kon geen oppas vinden.",
+      "level_check": "comparable: the want/omdat contrast is a standard B1 test point."
+    },
+    {
+      "id": "B1:writing:batch014-sportschool:1",
+      "verdict": "pass",
+      "evidence": "Informal e-mail to friend Farah ('Hoi Farah,' / 'Groetjes,'); lead-in 'Misschien ___?' forces inversion and 'Dan motiveren we elkaar' only follows a proposal to train together. Sample 'stop ik gewoon met mijn abonement' is inverted (quoted whole) but proposes nothing and contradicts the next sentence, so criterion 1 is null; 'abonement' is a spelling slip outside the zinstaak scale. Model 'kunnen we twee keer per week samen gaan sporten', 9 typed words, 'kunnen we' after 'Misschien'. A subscription is on the needed list; the gym items elsewhere are other parts or other acts.",
+      "alternative_sentence": "Misschien wil jij op dinsdag en donderdag met mij meegaan naar de sportschool?",
+      "level_check": "comparable: a tentative proposal after a fronted adverb, like the official inversion tasks."
+    }
+  ],
+  "revision_requests": [
+    {
+      "id": "B1:writing:batch014-verjaardag:1",
+      "field": "criteria[1]",
+      "replacement": [
+        "De zin is een correcte hoofdzin na 'want': de persoonsvorm staat op de tweede plaats (hoofdzinsvolgorde), niet achteraan zoals in een bijzin.",
+        "The sentence is a correct main clause after 'want': the finite verb is in second position (main-clause order), not at the end as in a subordinate clause."
+      ],
+      "why": "After 'want' any main-clause order is correct, including a fronted adverbial with inversion ('want gisteren was ik ziek', 'want 's avonds moest ik werken'); the current 'eerst het onderwerp, dan de persoonsvorm' fails those sentences in the learner's self-check and for the feedback judge. The official grammar point for a want-task is a correct hoofdzin, not subject-first order. No other field of the item changes; the starters stay valid."
+    }
+  ],
+  "recommended_edits_not_blocking": [
+    {
+      "id": "B1:writing:batch014-ziekmelding:1",
+      "field": "criteria[0], adequacyNote",
+      "replacement": [
+        "De zin geeft het gevolg van de ziekte: de schrijver komt vandaag niet werken (blijft thuis of meldt zich ziek).",
+        "The sentence gives the consequence of the illness: the writer is not coming to work today (stays home or reports sick).",
+        "Gevolg noemen: de schrijver komt vandaag niet werken, blijft thuis of meldt zich ziek."
+      ],
+      "why": "'Daarom meld ik mij vandaag ziek.' and 'Daarom blijf ik vandaag thuis.' are the most idiomatic completions and must count as adequate without argument; the adequacyNote already includes 'blijft thuis', the criterion does not."
+    },
+    {
+      "id": "B1:writing:batch014-examendatum:1",
+      "field": "scaffold.subject, scaffold.body",
+      "replacement": [
+        "Examen Engels op 12 november",
+        "Op donderdag 12 november heb ik het examen van mijn cursus Engels, maar op die dag is de bruiloft van mijn zus in Portugal. De vliegtickets heb ik al in mei geboekt. Kunt u mij laten weten of ___? Ik kan elke andere dag in november."
+      ],
+      "why": "A boekhouden course also carries 015-avondcursus (task 9 of the same Schrijven I form) and the 016-examendatum speaking model; any other subject removes the repetition. Sample, model, criteria and starters do not mention the subject. If not applied, keep the two writing tasks apart in the form order."
+    },
+    {
+      "id": "B1:writing:batch014-verjaardag:1",
+      "field": "title (optionally id and the starters key)",
+      "replacement": ["Verjaardag gemist", "verjaardag-gemist"],
+      "why": "The current title reads as an apology for the birthday itself. The slug rename is optional and only serves the author's own cross-part uniqueness policy (blueprint section 3 requires uniqueness within a part only); it changes the id in the batch and the key in 014-starters.json, so both hashes move and the starters need the focused re-review too."
+    },
+    {
+      "id": "B1:writing:batch014-afscheid:1",
+      "field": "criteria[1]",
+      "replacement": [
+        "De zin is een correcte hoofdzin: de persoonsvorm staat op de tweede plaats, na het onderwerp of na een ander zinsdeel vooraan (bijvoorbeeld een tijdsbepaling).",
+        "The sentence is a correct main clause: the finite verb is in second position, after the subject or after another fronted element (for example a time phrase)."
+      ],
+      "why": "Cosmetic: makes 'Omdat ik een nieuwe baan heb, stop ik hier.' visibly covered; the main rule already covers it."
+    }
+  ],
+  "doubts_answered": {
+    "1_lead_in_gaps": "Accepted; no downgrade to vrij. See decisions.lead_in_gaps.",
+    "2_two_prompt_wordings": "Accepted; document the rule in blueprint 4.8 and the author brief.",
+    "3_of_as_bijzin_marker": "Accepted as fair and common at B1; keep, no 'Ik hoop dat' fallback.",
+    "4_misschien_question_mark": "Accepted. 'Misschien wil jij …?' also inverts and earns the point; 'Misschien dat …?' shows no inversion and earns no grammar point, consistent with a marking model that names the structure; the feedback should explain that rather than call it wrong.",
+    "5_open_hoofdzin_accepts_inversion": "Agreed; afscheid's criterion says 'op de tweede plaats'. The same principle requires the verjaardag change.",
+    "6_koorts": "Keep; the mildest concrete symptom, nothing graphic; it motivates 'nog steeds' and 'vandaag'.",
+    "7_tolerated_errors_in_adequacy_missed_samples": "Correct and exam-consistent: a zinstaak scores adequacy 0-1 and grammar 0-1 only (the exam's spelling points come from the longer tasks), gender endings are tolerated, so exactly one criterion fails. Feedback should add that a 0 for adequacy stops scoring of the sentence in the real exam.",
+    "8_roc_westerhout": "Fine; a consistent fictional world across parts; Cursuscentrum Noord for the exam bureau is right.",
+    "9_vacature_slug": "Fine. The same policy now concerns 'verjaardag' (A2 speaking batch009, integrated after the author's run); renaming is optional (recommended edit 3).",
+    "10_te_infinitief_model_is_a_clause": "Inherent to the target after 'om'; accepted; the one-error sample is right because 'te afmaken' alone decides the point."
+  },
+  "diversity_review": "Eight distinct settings and addressees, eight different lead-in/structure combinations, seven speech acts (two consequences, two reasons in the want/omdat contrast, two requests, one announcement, one proposal), three domains, four formal and four informal, no cast name twice, none of the section 9 B1 or A2 writing settings, no neighbourhood or volunteering, five needed-list topics (sick leave, a job advertisement, an exam, a subscription, a birthday). Only the fixed exam instructions mirror the official format; all bodies, criteria, samples, models and starters are original. Against batch 015 no act repeats; two surface overlaps: examendatum and 015-avondcursus share a boekhouden course (recommended edit 2), ziekmelding and 015-gemiste-werkdag share a sick-leave motif in different roles (keep apart in the form order). Against the pending speaking batches 016-017 (another part): 016-examendatum, 016-pensioen, 017-sportabonnement and 017-trein-gemist touch neighbouring motifs without re-skinning any task.",
+  "set_assembly": {
+    "rule": "drill = four zinstaken; a Schrijven I form = 8 zinstaken + 2 deelschrijftaken + 2 korte schrijftaken; the eight tasks here plus batch 015 make one complete form once both pass",
+    "drill_1": ["ziekmelding", "vacature", "groepsverslag", "verjaardag"],
+    "drill_2": ["afscheid", "studieadviseur", "examendatum", "sportschool"],
+    "form_order_tasks_1_to_8": ["ziekmelding", "verjaardag", "examendatum", "groepsverslag", "vacature", "sportschool", "studieadviseur", "afscheid"],
+    "properties": "each drill has two registers, three domains, four structures and (drill 1) the want/omdat contrast; the form order alternates register, repeats no cast name in consecutive tasks, puts the open gaps last, and keeps examendatum and ziekmelding away from 015-avondcursus (task 9) and 015-gemiste-werkdag (task 10); content/blueprints/ does not exist yet, so the form definition is a coordinator step"
+  },
+  "media_notes": "None: zinstaken carry no images or audio.",
+  "coordinator_notes": [
+    "Apply revision request 1 (and any recommended edits), run npm run batch:check, record the new source_sha256 with a revisions entry after a focused re-review of the changed item(s); the starters hash stays unless the slug is renamed.",
+    "The checker's cross-part slug warning (verjaardag, A2 speaking batch009) is accepted; the author's 'no warnings' predates the integration of batch 009.",
+    "Blueprint 4.8 and the author brief show only 'Schrijf één zin op de open plek.'; add the lead-in convention: a printed lead-in before ___ for bijzin, inversie, te-infinitief and hoofdzin after 'want' with 'Maak de e-mail af. Maak de zin op de open plek af.'; an open gap with 'Maak de e-mail af. Schrijf één zin op de open plek.' for hoofdzin and vrij; model and sample are what the learner types in the gap.",
+    "Feedback instructions for zinstaken: a finite verb followed by an extraposed om-te clause or a prepositional phrase after 'of'/'omdat' is correct verb-final order; 'Misschien dat …' is not the inversion target; a 0 for adequacy loses the grammar point too in the real exam; a paraphrase of a body sentence (the vacature sample) is the copied-prompt failure and should be named as such.",
+    "App observation (not batch content): OpenExercise.tsx shows the criteria before answering except for picture notes, and a zinstaak's adequacy criterion states the expected content; hiding zinstaak criteria until the review step would restore exam likeness. The model of a lead-in task is shown as a fragment under 'Bekijk een voorbeeld'; rendering it inside the gapped body would read better.",
+    "Generic business names (hoteldezwaan.nl, meubelhuisdelinde.nl) may coincide with real domains; the blueprint accepts invented plausible names as batch 008 did; a project-wide fictional-name rule would settle the question.",
+    "scripts/batch-check.ts changed on disk during this review (a concurrent session); the checker was re-run on the reviewed bytes at the end of the review with the same output.",
+    "content/exemplars/ does not exist; the level check compares each task with the official zinstaak description in docs/research/exam-blueprints-2026-09-10.md section 3.2."
+  ],
+  "limitations": [
+    "This is an AI editorial review. It does not replace independent Dutch-language educator review, learner trials, blueprint validation or psychometric calibration, and it does not establish equivalence with an official exam.",
+    "The B1 labels remain unvalidated authoring targets; the per-task level judgments compare the tasks with the official zinstaak description, not with stored exemplars or learner data.",
+    "The review covers the text fields and the starters; the feedback prompts that will use these criteria need their own evaluation with learner answers, in particular for the verb-final and inversion judgments noted here.",
+    "The approval of the seven passing tasks applies to the exact source and starters hashes recorded here; the required edit moves the source hash and needs a focused re-review before integration."
+  ],
+  "revisions": [
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review",
+      "items": [
+        "B1:writing:batch014-verjaardag:1",
+        "B1:writing:batch014-ziekmelding:1",
+        "B1:writing:batch014-examendatum:1",
+        "B1:writing:batch014-afscheid:1"
+      ],
+      "previous_sha256": "80f97b98de381d9936f05405534a33e10b44740dbbf9a598e55d227dbd3823a7",
+      "verdict": "pass",
+      "note": "Re-review of the changed fields only: verjaardag criteria[1] (nl, en) and title; ziekmelding criteria[0] (nl, en) and adequacyNote; examendatum scaffold.subject and scaffold.body (Boekhouden -> Engels); afscheid criteria[1] (nl, en). Every new string equals the replacement text recorded in revision_requests and recommended_edits_not_blocking byte for byte; the optional slug rename was not applied, so the starters file is unchanged at e2b2293a and the starters verdict stands. Reverting the eight strings (the pre-revision values are asserted in the reviser's script) and serialising as two-space JSON with a trailing newline reproduces 80f97b98 exactly, so the four untouched tasks are byte-identical and the changed tasks differ only in the named fields. npm run batch:check: 8 items, 1 warning (the accepted cross-part slug verjaardag, A2 speaking batch009), no failures. Verjaardag criterion 2 now accepts a correct inverted main clause after 'want' ('want gisteren was ik ziek', 'want opeens kreeg mijn zoon koorts') and subject-first order (model, sample, both starters), rejects verb-final order ('want ik gisteren ziek was') and now also verb-third order ('want gisteren ik was ziek'), which the old subject-first wording let through. Ziekmelding criterion 1 and the adequacyNote list the same three readings (komt niet werken, blijft thuis, meldt zich ziek), so 'Daarom meld ik mij vandaag ziek.' and 'Daarom blijf ik vandaag thuis.' count as adequate and the model 'Daarom kan ik vandaag helaas niet naar mijn werk komen.' still meets both criteria; the sample keeps its adequacy quote and null grammar quote. Examendatum: one word replaced in subject and body, 'Kunt u mij laten weten of ___?' and 'Ik kan elke andere dag in november.' untouched, so the verb-final of-clause and the one question are forced as before; opening sentence still 24 words; sample, quotes, model, title and starters do not name the course and are consistent; 'mijn cursus Engels' is natural Dutch and an English course appears in no other item, so the boekhouden overlap with 015-avondcursus and 016-examendatum is gone without a new one. Afscheid criterion 2 keeps its rule ('correcte hoofdzin', 'persoonsvorm op de tweede plaats') and only widens the illustrations; the sample still fails it (verb third after the fronted time phrase), the model meets it, and 'Omdat ik een nieuwe baan heb, stop ik hier.' is visibly covered. Every task keeps exactly two bilingual criteria, two quotes with one null and the non-null quote verbatim in the sample, one gap, a complete scaffold and exactly two starters with an ellipsis; item order and every grammarTarget unchanged. Verdicts: verjaardag revise -> pass; the other seven unchanged; batch pass, ready for integration at source hash ea8b929f5b19cf79cf737abff59528d0ab93a4670284db0ef455b4f0bf7ccd04."
+    }
+  ]
+}

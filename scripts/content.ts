@@ -36,22 +36,88 @@ function canonical(value: any): string {
   return JSON.stringify(value);
 }
 
-export async function checkContent(write = false) {
+export async function checkContent(write = false, refreshHints = '') {
   const path = 'content/catalogue.json';
   const original = await readFile(path, 'utf8');
   const catalogue = JSON.parse(original);
   const byId = new Map<string, any>(catalogue.map((item) => [item.id, item]));
   requireValue(byId.size === catalogue.length, 'Duplicate catalogue IDs');
+  const reviewedStarters: { filename: string; starters: Record<string, string[]> }[] = [];
   for (const filename of (await readdir('content/reviews'))
     .filter((name) => name.endsWith('-review.json'))
     .sort()) {
     const review = await readJson('content/reviews/' + filename);
+    // A review still in its revision loop gates only its own batch; it does not block the build.
+    if (review.ready_for_integration !== true) {
+      console.log(`Skipping ${filename}: not ready for integration (${review.batch_verdict}).`);
+      continue;
+    }
+    // A batch of open tasks brings reviewed sentence starters; they are merged into the overlay below.
+    if (review.starters_source && review.starters_verdict === 'pass') {
+      const batchStarters = await reviewedSource(
+        {
+          source: review.starters_source,
+          source_sha256: review.starters_sha256,
+          ready_for_integration: true,
+          verdict: 'pass',
+        },
+        'content/batches',
+        'verdict',
+      );
+      reviewedStarters.push({ filename, starters: batchStarters });
+    }
     for (const item of await reviewedSource(review, 'content/batches', 'batch_verdict')) {
       if (!byId.has(item.id)) {
         catalogue.push(item);
         byId.set(item.id, item);
       }
-      Object.assign(byId.get(item.id), item, { status: 'ai-editorially-reviewed' });
+      const previous = byId.get(item.id);
+      // Media fields live on the catalogue, not in the batch: keep question audio when the question is unchanged.
+      const questionAudio = new Map<string, { audio?: string; prompt: string; options: string }>(
+        (previous.questions || []).map((q) => [
+          q.id,
+          { audio: q.questionAudio, prompt: q.prompt, options: JSON.stringify(q.options) },
+        ]),
+      );
+      // A B1 listening fragment (one clip per question) and the narrator's introduction stay too.
+      const fragments = new Map<string, any>(
+        (previous.questions || [])
+          .filter((q) => q.audio)
+          .map((q) => [q.id, { ...q, script: JSON.stringify(q.script) }]),
+      );
+      const intro = previous.introAudio && { text: previous.intro, audio: previous.introAudio };
+      const previousImages = Array.isArray(previous.images) ? previous.images : [];
+      Object.assign(previous, item, { status: 'ai-editorially-reviewed' });
+      if (intro && intro.text === previous.intro) previous.introAudio = intro.audio;
+      // Generated picture files live on the catalogue too: keep them when the brief is unchanged.
+      if (Array.isArray(previous.images))
+        previous.images = previous.images.map((image, index) => {
+          const kept = previousImages[index];
+          return kept?.file && kept.brief === image.brief && !image.file
+            ? { ...image, file: kept.file, kind: kept.kind }
+            : image;
+        });
+      if (
+        item.imageBrief &&
+        previousImages[0]?.file &&
+        previousImages[0].brief === item.imageBrief
+      ) {
+        previous.images = [previousImages[0]];
+        delete previous.imageBrief;
+        delete previous.imageAlt;
+      }
+      for (const q of previous.questions || []) {
+        const kept = questionAudio.get(q.id);
+        if (kept?.audio && kept.prompt === q.prompt && kept.options === JSON.stringify(q.options))
+          q.questionAudio = kept.audio;
+        const fragment = fragments.get(q.id);
+        if (fragment && fragment.script === JSON.stringify(q.script) && !q.audio)
+          Object.assign(q, {
+            audio: fragment.audio,
+            duration: fragment.duration,
+            peaks: fragment.peaks,
+          });
+      }
     }
   }
   for (const filename of (await readdir('content/evidence'))
@@ -111,16 +177,87 @@ export async function checkContent(write = false) {
   const changed = JSON.stringify(catalogue) !== JSON.stringify(JSON.parse(original));
   const candidate = changed ? JSON.stringify(catalogue, null, 2) + '\n' : original;
   const review = await readJson('content/hints/review.json');
-  const starters = await reviewedSource(
+  let starters = await reviewedSource(
     { ...review, source: 'content/hints/sentence-starters.json' },
     'content/hints',
     'verdict',
   );
+  const open = catalogue.filter((item) => !item.questions?.length);
+  // Starters reviewed with their batch are merged into the overlay; the overlay's reviewed hash moves
+  // with them, and the merge is recorded in the hints review.
+  // A revised batch whose review re-covered its starters (new starters hash, verdict pass) replaces
+  // the overlay entries it changed; the review JSON's hash gate is what makes both cases reviewed.
+  const staleStarters = reviewedStarters
+    .map((batch) => ({
+      ...batch,
+      ids: Object.keys(batch.starters).filter(
+        (id) =>
+          !starters[id] || JSON.stringify(starters[id]) !== JSON.stringify(batch.starters[id]),
+      ),
+    }))
+    .filter((batch) => batch.ids.length);
+  if (staleStarters.length) {
+    requireValue(
+      write,
+      'Reviewed sentence starters are not merged yet. Run npm run content:integrate.',
+    );
+    for (const batch of staleStarters)
+      for (const id of batch.ids) starters = { ...starters, [id]: batch.starters[id] };
+    const overlay = JSON.stringify(starters, null, 2) + '\n';
+    await writeFile('content/hints/sentence-starters.json', overlay);
+    review.merged_batches = [
+      ...(review.merged_batches || []),
+      ...staleStarters.map((batch) => ({
+        date: new Date().toISOString().slice(0, 10),
+        review: batch.filename,
+        items: batch.ids.length,
+        ...(batch.ids.some((id) => JSON.parse(original).some((item) => item.id === id))
+          ? { revised: batch.ids }
+          : {}),
+      })),
+    ];
+    review.source_sha256 = digest(overlay);
+    review.catalogue_sha256 = digest(candidate);
+    await writeFile('content/hints/review.json', JSON.stringify(review, null, 2) + '\n');
+    console.log(
+      `Merged reviewed sentence starters from ${staleStarters.map((b) => b.filename).join(', ')}.`,
+    );
+  }
+  // --refresh-hints: a batch of closed items (or media fields) leaves the starters valid. When the open
+  // tasks and their criteria are unchanged against the reviewed starters, record the merged catalogue's
+  // hash in the review instead of demanding a new review. Any change to an open task still blocks here.
+  if (refreshHints && digest(candidate) !== review.catalogue_sha256) {
+    const previousOpen = JSON.parse(original).filter((item) => !item.questions?.length);
+    // A changed task is covered when its batch review, at the batch's current hash, passed the starters too.
+    const covered = (id: string) => reviewedStarters.some((batch) => batch.starters[id]);
+    const same =
+      previousOpen.length === open.length &&
+      previousOpen.every((before) => {
+        const after = open.find((item) => item.id === before.id);
+        return (
+          after &&
+          (JSON.stringify(after.criteria) === JSON.stringify(before.criteria) || covered(after.id))
+        );
+      });
+    requireValue(same, 'An open task changed; the sentence starters need a focused review');
+    review.hash_refreshes = [
+      ...(review.hash_refreshes || []),
+      {
+        date: new Date().toISOString().slice(0, 10),
+        reason: refreshHints,
+        from: review.catalogue_sha256,
+        to: digest(candidate),
+        open_items_unchanged: true,
+      },
+    ];
+    review.catalogue_sha256 = digest(candidate);
+    await writeFile('content/hints/review.json', JSON.stringify(review, null, 2) + '\n');
+    console.log('Sentence-starter review hash refreshed: ' + refreshHints);
+  }
   requireValue(
     digest(candidate) === review.catalogue_sha256,
     'Sentence starters need review against the updated catalogue',
   );
-  const open = catalogue.filter((item) => !item.questions?.length);
   requireValue(
     Object.keys(starters).sort().join('|') ===
       open
@@ -143,9 +280,19 @@ export async function checkContent(write = false) {
   const members = new Set<string>(),
     setIds = new Set<string>();
   for (const set of sets) {
+    // A B1 listening text is a five-minute conversation with its own questions, so its drill is one text;
+    // a B1 reading text or writing task is long, so those drills are two items; a KNM fact is one
+    // question, so its drill is one theme of eight to ten (§11).
+    const minimum =
+      set.level === 'B1' && set.part === 'listening'
+        ? 1
+        : set.level === 'B1' && ['reading', 'writing'].includes(set.part)
+          ? 2
+          : 3;
+    const maximum = set.part === 'knm' ? 10 : 5;
     requireValue(
-      !setIds.has(set.id) && set.ids.length >= 3 && set.ids.length <= 5,
-      'Practice sets need unique IDs and three to five exercises',
+      !setIds.has(set.id) && set.ids.length >= minimum && set.ids.length <= maximum,
+      'Practice sets need unique IDs and three to five exercises (two texts for B1 reading, up to ten KNM facts)',
     );
     setIds.add(set.id);
     for (const id of set.ids) {
@@ -175,4 +322,8 @@ export async function checkContent(write = false) {
   );
 }
 
-if (process.argv[1]?.endsWith('/content.ts')) await checkContent(process.argv.includes('--write'));
+if (process.argv[1]?.endsWith('/content.ts')) {
+  const args = process.argv.slice(2);
+  const refresh = args.indexOf('--refresh-hints');
+  await checkContent(args.includes('--write'), refresh >= 0 ? args[refresh + 1] || 'refresh' : '');
+}

@@ -6,12 +6,12 @@ import { track } from '../domain/telemetry';
 import AudioPlayer from './AudioPlayer';
 import { EvidenceText } from './TextEvidence';
 import { evidenceFor } from '../domain/text';
-import { KeyHint, PlayIcon } from './Controls';
+import { KeyHint, PlayIcon, ClipButton } from './Controls';
 import { Back, ExerciseHeader, Heading, sessionTimer } from './ExerciseHeader';
 import { Results } from './Results';
 import { useAnswerKeys } from './keys';
 
-export function Session() {
+export function Session({ onComplete = undefined }: { onComplete?: () => void }) {
   const { state, setState, updateSession, catalogue, t, name, start, practiceSet } =
     useStudyContext();
   const a = state.active;
@@ -27,7 +27,8 @@ export function Session() {
     { item, q, key } = questions[a.index],
     chosen = a.answers[key],
     checked = !!a.checked[key],
-    mock = a.mode === 'mock';
+    // The practice test and the level check both hold the explanation until the end.
+    mock = a.mode !== 'practice';
   const select = (value) =>
     updateSession((a) => ({ ...a, answers: { ...a.answers, [key]: value } }));
   const record = () =>
@@ -36,7 +37,7 @@ export function Session() {
       item: item.id,
       question: q.id,
       selected: chosen,
-      mode: a.questions ? 'retry' : a.mode,
+      mode: a.mode === 'check' ? 'check' : a.questions ? 'retry' : a.mode,
       lang: state.settings.lang,
       level: state.settings.level,
     });
@@ -44,14 +45,35 @@ export function Session() {
     record();
     updateSession((a) => ({ ...a, checked: { ...a.checked, [key]: true } }));
   };
+  // A clip's transcript stays hidden until every question on that clip has been checked,
+  // so reading it can never answer a later question about the same audio.
+  const clipOf = (x) => x.q.audio || x.item.audio || null;
+  const clipDone =
+    !!clipOf(questions[a.index]) &&
+    questions
+      .filter((x) => clipOf(x) === clipOf(questions[a.index]))
+      .every((x) => a.checked[x.key]);
   const next = () => {
     if (mock) record();
-    if (a.index === questions.length - 1) setState((s) => complete(s, catalogue));
-    else updateSession((a) => ({ ...a, index: a.index + 1 }));
+    if (a.index === questions.length - 1) {
+      setState((s) => complete(s, catalogue));
+      onComplete?.();
+    } else updateSession((a) => ({ ...a, index: a.index + 1 }));
   };
   return (
     <>
-      <ExerciseHeader item={item} timer={sessionTimer(a, setState)} questionId={q.id} mock={mock} />
+      <ExerciseHeader
+        item={item}
+        timer={sessionTimer(a, setState)}
+        questionId={q.id}
+        tag={
+          a.mode === 'mock'
+            ? t('Proefexamen', 'Practice test')
+            : a.mode === 'check'
+              ? t('Niveaucheck', 'Level check')
+              : null
+        }
+      />
       <div className="session-position">
         <span>
           {t('Vraag', 'Question')} {a.index + 1} {t('van', 'of')} {questions.length}
@@ -69,6 +91,7 @@ export function Session() {
         q={q}
         chosen={chosen}
         checked={checked}
+        clipDone={clipDone}
         mock={mock}
         first={a.index === 0}
         last={a.index === questions.length - 1}
@@ -81,54 +104,33 @@ export function Session() {
   );
 }
 
-// The official A2 listening and KNM players read the question aloud; a small button replays it.
-function QuestionAudio({ src, t }) {
-  const audio = useRef<HTMLAudioElement>(null),
-    [playing, setPlaying] = useState(false);
-  useEffect(() => {
-    const el = audio.current;
-    return () => el?.pause();
-  }, []);
-  const toggle = async () => {
-    try {
-      const el = audio.current;
-      if (el.paused) await el.play();
-      else el.pause();
-    } catch {
-      setPlaying(false);
-    }
-  };
-  return (
-    <span className="question-audio">
-      <audio
-        ref={audio}
-        src={`/${src.replace(/^\//, '')}`}
-        preload="none"
-        onPlay={() => setPlaying(true)}
-        onPause={() => setPlaying(false)}
-        onEnded={() => setPlaying(false)}
-      />
-      <button
-        type="button"
-        className="play-button play-button-small"
-        onClick={toggle}
-        aria-label={
-          playing
-            ? t('Vraag pauzeren', 'Pause question')
-            : t('Vraag beluisteren', 'Listen to the question')
-        }
-      >
-        <PlayIcon playing={playing} />
-      </button>
-    </span>
-  );
+// A B1 reading text has paragraphs and subheadings: a short line without end punctuation is a heading.
+function Paragraphs({ text, quotes }) {
+  const blocks = String(text).split(/\n\n+/);
+  return blocks.map((block, i) => {
+    const heading =
+      i < blocks.length - 1 &&
+      block.trim().split(/\s+/).length <= 8 &&
+      !/[.!?:;,…]$/.test(block.trim());
+    return heading ? (
+      <p className="subheading" key={i}>
+        <EvidenceText text={block} quotes={quotes} />
+      </p>
+    ) : (
+      <p key={i}>
+        <EvidenceText text={block} quotes={quotes} />
+      </p>
+    );
+  });
 }
+// The official A2 listening and KNM players read the question aloud; a small button replays it.
 function QuestionColumns({
   questionKey,
   item,
   q,
   chosen,
   checked,
+  clipDone = false,
   mock,
   first,
   last,
@@ -138,22 +140,39 @@ function QuestionColumns({
   previous,
 }) {
   const { t, state } = useStudyContext(),
-    [collapsed, setCollapsed] = useState(false),
     evidence = checked && !mock ? evidenceFor(item, q) : [];
-  useEffect(() => setCollapsed(false), [questionKey]);
   useAnswerKeys({ options: q.options, chosen, checked, mock, select, check, next });
   const type = typeLabel(item.taskType || item.type, state.settings.lang);
   // Blueprint items carry the exam's situation line; the standard instruction follows it, as in the official player.
   const situation = item.situation && (
     <div className="situation" lang="nl">
       <p>{item.situation}</p>
-      <p className="instruction">
-        {item.part === 'listening'
-          ? 'Lees eerst de vraag. Luister daarna naar de tekst.'
-          : 'Lees eerst de vraag. Lees daarna de tekst.'}
-      </p>
+      {item.intro ? (
+        // A B1 listening text opens with the narrator's introduction; every fragment keeps it in view.
+        <p className="intro">
+          {item.intro}
+          {item.introAudio && (
+            <ClipButton
+              key={item.introAudio}
+              src={item.introAudio}
+              playLabel={t('Inleiding beluisteren', 'Listen to the introduction')}
+              pauseLabel={t('Inleiding pauzeren', 'Pause introduction')}
+            />
+          )}
+        </p>
+      ) : item.exam === 'nt2-i' ? null : (
+        // The DUO A2 player prints this line under the situation; the Staatsexamen does not.
+        <p className="instruction">
+          {item.part === 'listening'
+            ? 'Lees eerst de vraag. Luister daarna naar de tekst.'
+            : 'Lees eerst de vraag. Lees daarna de tekst.'}
+        </p>
+      )}
     </div>
   );
+  // A B1 listening question carries its own fragment; an A2 text is one clip for all its questions.
+  const clip = q.audio ? q : item;
+  const fact = item.part === 'knm' && item.taskType === 'feit';
   const pictures =
     Array.isArray(item.images) && item.images.some((i) => i?.file) ? (
       <div className="pictures" data-count={item.images.filter((i) => i?.file).length}>
@@ -167,47 +186,62 @@ function QuestionColumns({
       </div>
     ) : null;
   return (
-    <div className="exercise-columns" data-sheet={collapsed ? 'collapsed' : 'open'}>
+    <div className="exercise-columns">
       <section aria-label={t('Opgave', 'Task')}>
         {situation}
-        {pictures}
-        {item.audio ? (
-          <AudioPlayer
-            key={item.id}
-            item={item}
-            t={t}
-            transcript={!mock && checked}
-            evidence={evidence}
-          />
+        {/* Listening leads with the player; a picture supports the clip rather than the other way round. */}
+        {clip.audio ? (
+          <>
+            <AudioPlayer
+              key={clip.audio}
+              source={clip}
+              t={t}
+              transcript={!mock && clipDone}
+              evidence={evidence}
+            />
+            {pictures}
+          </>
+        ) : fact ? (
+          // KNM in the July 2025 format: the picture carries the question; the fact appears after the answer.
+          <>
+            {pictures}
+            {checked && !mock ? (
+              <div className="sheet fact-sheet">
+                <span className="sheet-label">{t('Feit', 'Fact')}</span>
+                <div className="passage" lang="nl">
+                  <EvidenceText text={item.text} quotes={evidence} />
+                </div>
+              </div>
+            ) : null}
+          </>
         ) : (
-          <div className="sheet">
-            {type && <span className="sheet-label">{type}</span>}
-            <div className="passage" lang="nl">
-              <EvidenceText text={item.text} quotes={evidence} />
+          <>
+            {pictures}
+            <div className="sheet">
+              {type && <span className="sheet-label">{type}</span>}
+              <div className="passage" lang="nl">
+                {item.level === 'B1' && item.part === 'reading' ? (
+                  <Paragraphs text={item.text} quotes={evidence} />
+                ) : (
+                  <EvidenceText text={item.text} quotes={evidence} />
+                )}
+              </div>
             </div>
-          </div>
+          </>
         )}
       </section>
-      <section
-        className="question question-sheet"
-        key={questionKey}
-        data-collapsed={collapsed || undefined}
-      >
-        <button
-          type="button"
-          className="sheet-toggle"
-          aria-expanded={!collapsed}
-          onClick={() => setCollapsed((value) => !value)}
-        >
-          <span className="sheet-handle" aria-hidden="true" />
-          <span>
-            {collapsed ? t('Vraag tonen', 'Show question') : t('Tekst tonen', 'Show text')}
-          </span>
-        </button>
+      <section className="question" key={questionKey}>
         <fieldset>
           <legend lang="nl">
             {q.prompt}
-            {q.questionAudio && <QuestionAudio key={q.questionAudio} src={q.questionAudio} t={t} />}
+            {q.questionAudio && (
+              <ClipButton
+                key={q.questionAudio}
+                src={q.questionAudio}
+                playLabel={t('Vraag beluisteren', 'Listen to the question')}
+                pauseLabel={t('Vraag pauzeren', 'Pause question')}
+              />
+            )}
           </legend>
           {Object.entries<string>(q.options).map(([value, label]) => (
             <label

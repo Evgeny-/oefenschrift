@@ -102,7 +102,7 @@ async function fill(selector, value) {
   );
   await settle();
 }
-const sourceFile = 'app/components/ExerciseViews.tsx',
+const sourceFile = 'app/components/OpenExercise.tsx',
   oldText = "'Sentence starters'",
   newText = "'Sentence starters HMR'";
 try {
@@ -131,12 +131,16 @@ try {
     'Active setting uses softer yellow than primary actions',
   );
   await check(
-    `Array.from(document.querySelectorAll('.language-flag')).every(flag=>{const p=flag.parentElement.getBoundingClientRect(),r=flag.getBoundingClientRect(),i=flag.closest('.segments').querySelector('.selection-indicator').getBoundingClientRect();return Math.abs((p.x+p.width/2)-(r.x+r.width/2))<.1&&Math.abs((p.y+p.height/2)-(r.y+r.height/2))<.1&&(!flag.parentElement.hasAttribute('data-checked')||Math.abs((i.x+i.width/2)-(r.x+r.width/2))<.1)})`,
+    `Array.from(document.querySelectorAll('.segments .language-flag')).every(flag=>{const p=flag.parentElement.getBoundingClientRect(),r=flag.getBoundingClientRect(),i=flag.closest('.segments').querySelector('.selection-indicator').getBoundingClientRect();return Math.abs((p.x+p.width/2)-(r.x+r.width/2))<.1&&Math.abs((p.y+p.height/2)-(r.y+r.height/2))<.1&&(!flag.parentElement.hasAttribute('data-checked')||Math.abs((i.x+i.width/2)-(r.x+r.width/2))<.1)})`,
     'Both flags and the selected indicator are centered precisely',
   );
   await check(
-    `location.pathname==='/b1/reading'&&document.querySelector('#level-control [data-choice="A2"]').getAttribute('href')==='/a2/reading'`,
-    'Saved level redirects to a shareable path with crawlable level links',
+    `location.pathname==='/en/b1/reading'&&document.querySelector('#level-control [data-choice="A2"]').getAttribute('href')==='/en/a2/reading'`,
+    'Saved level and language redirect to a shareable path with crawlable level links',
+  );
+  await check(
+    `document.querySelector('#language-control [aria-label="Nederlands"]').getAttribute('href')==='/b1/reading'&&document.querySelector('#language-control [aria-label="English"]').getAttribute('href')==='/en/b1/reading'&&document.querySelector('link[rel="alternate"][hreflang="nl"]').getAttribute('href').endsWith('/b1/reading')&&document.querySelector('link[rel="alternate"][hreflang="en"]').getAttribute('href').endsWith('/en/b1/reading')&&document.querySelector('link[rel="canonical"]').getAttribute('href').endsWith('/en/b1/reading')&&document.documentElement.lang==='en'`,
+    'Language choices link to this page in the other language and the head names both versions',
   );
   await click('#level-control [data-choice="A2"]');
   await wait(`document.querySelector('.heading p')?.textContent.startsWith('A2')`);
@@ -162,10 +166,10 @@ try {
   });
   await evaluate('new Promise(r=>setTimeout(r,200))');
   await shot('catalogue');
-  await check(`location.pathname==='/a2/reading'`, 'Changing level updates the address');
+  await check(`location.pathname==='/en/a2/reading'`, 'Changing level updates the address');
   await send('browsingContext.traverseHistory', { context, delta: -1 });
   await wait(
-    `location.pathname==='/b1/reading'&&document.querySelector('#level-control [data-checked]')?.textContent==='B1'`,
+    `location.pathname==='/en/b1/reading'&&document.querySelector('#level-control [data-checked]')?.textContent==='B1'`,
   );
   await check(
     `document.querySelector('.heading p').textContent.startsWith('B1')`,
@@ -173,7 +177,7 @@ try {
   );
   await send('browsingContext.traverseHistory', { context, delta: 1 });
   await wait(
-    `location.pathname==='/a2/reading'&&document.querySelector('#level-control [data-checked]')?.textContent==='A2'`,
+    `location.pathname==='/en/a2/reading'&&document.querySelector('#level-control [data-checked]')?.textContent==='A2'`,
   );
   await click('[data-page="progress"]');
   await wait(`document.querySelector('h1')?.textContent==='Your progress'`);
@@ -275,11 +279,94 @@ try {
     `(async()=>{const r=await fetch('/api/events',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({visitor:'0123456789abcdef0123456789abcdef',events:[{kind:'visit',lang:'nl',level:'A2'},{kind:'answer',item:'A2:listening:tandarts:1',question:'q1',selected:'B',mode:'practice',lang:'nl',level:'A2'}]})});return (await r.json()).recorded===2})()`,
     'Anonymous events are accepted and validated against the catalogue',
   );
+  // Provider switches: off in /ops means self-review for learners, at once and mid-task.
+  const writingId = bank.find((i) => i.part === 'writing').id,
+    switchFeedback = (operation) =>
+      `(async()=>{const f=new FormData();f.set('csrf',sessionStorage.getItem('ops-csrf'));f.set('service','feedback');f.set('operation',${JSON.stringify(operation)});const r=await fetch('/ops/services',{method:'POST',body:f});return r.ok})()`;
+  await navigate('/ops/services');
+  await wait(`document.querySelectorAll('.service-control').length===2`);
+  await check(
+    `document.querySelector('.service-control[data-service="feedback"]').dataset.available==='true'&&!!document.querySelector('.service-control[data-service="speech"] .service-on')&&document.querySelector('.service-control[data-service="feedback"] input[name="cap"]').value==='2000'&&document.querySelector('.service-control[data-service="speech"] input[name="cap"]').value==='600'`,
+    'Services shows both providers on with their daily caps',
+  );
+  await shot('services');
+  await click('.service-control[data-service="feedback"] button[value="off"]');
+  await wait(`!!document.querySelector('.service-control[data-service="feedback"] .service-off')`);
+  await check(
+    `(async()=>{const s=await (await fetch('/api/status')).json();return s.feedback===false&&s.feedbackPaused===true&&s.speech===true})()`,
+    'Switching AI feedback off is reflected by the status endpoint at once',
+  );
+  await check(
+    `(async()=>{const r=await fetch('/api/feedback',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:${JSON.stringify(writingId)},answer:'Hallo',lang:'en'})});const b=await r.json();return r.status===503&&b.code==='feedback_off'})()`,
+    'A switched-off service refuses with a code before any provider call',
+  );
+  await evaluate(
+    `sessionStorage.setItem('ops-csrf',document.querySelector('.service-control input[name="csrf"]').value);true;`,
+  );
+  await navigate('/ops');
+  await check(
+    `document.querySelector('.admin-notice')?.textContent.includes('AI feedback is switched off')`,
+    'The overview says which service is off',
+  );
+  // The overview reads the provider balances after it renders; leave only once that
+  // request has answered, so unloading the page does not fail it into the error boundary.
+  await wait(`document.body.innerText.includes('Not checked in offline mode')`);
+  await navigate('/exercise/' + encodeURIComponent(writingId));
+  await wait(`!!document.querySelector('#open-answer')`);
+  await check(
+    `!document.querySelector('[data-action="assess"]')&&!!document.querySelector('.answer-workspace .secondary')&&document.querySelector('.service-note').textContent.includes('temporarily unavailable')`,
+    'While feedback is off, the task offers self-review and says why',
+  );
+  await check(
+    switchFeedback('on'),
+    'The switch accepts a same-origin form with the session cookie',
+  );
+  await navigate('/exercise/' + encodeURIComponent(writingId));
+  await wait(`!!document.querySelector('[data-action="assess"]')`);
+  await fill('#open-answer', 'Ik kan morgen niet komen.');
+  await evaluate(switchFeedback('off'));
+  await click('[data-action="assess"]');
+  await wait(
+    `!document.querySelector('[data-action="assess"]')&&!!document.querySelector('.feedback-error')`,
+  );
+  await check(
+    `document.querySelector('#open-answer').value==='Ik kan morgen niet komen.'&&!!document.querySelector('.service-note')&&!document.querySelector('.answer-workspace .secondary').disabled`,
+    'A refusal mid-task switches to self-review without losing the draft',
+  );
+  await evaluate(switchFeedback('on'));
+  await check(
+    `(async()=>{const s=await (await fetch('/api/status')).json();return s.feedback===true&&!s.feedbackPaused})()`,
+    'Switching back on restores the service',
+  );
+  // The session pass: set by the page, invisible to scripts, and the key of a browser's
+  // allowance; refusals while a service was off cost nothing.
+  await check(
+    `(async()=>{const s=await (await fetch('/api/status')).json();return !document.cookie.includes('inburgering_pass')&&s.remaining.feedback===30&&s.remaining.speech===20})()`,
+    'The pass is HttpOnly and the daily allowance is untouched by refused calls',
+  );
+  await check(
+    `(async()=>{const seen=[];for(let n=0;n<3;n++){const r=await fetch('/api/reports',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({item_id:${JSON.stringify(writingId)},item_version:${JSON.stringify(bank.find((i) => i.id === writingId).revision)},kind:'other',message:'Synthetic limit probe '+n})});seen.push([r.status,r.headers.get('retry-after'),(await r.json()).code]);}return seen.some(([s])=>s===200)&&seen.some(([s,after,code])=>s===429&&after&&code==='rate_limited')})()`,
+    'A burst of reports from one browser is throttled with a code and Retry-After',
+  );
+  await navigate('/privacy');
+  await check(
+    `document.querySelector('h1').textContent==='Privacy'&&document.querySelectorAll('.storage-table tbody tr').length===7&&document.body.innerText.includes('inburgering_pass')&&!!document.querySelector('.footer-links a[href="/en/terms"]')`,
+    'The privacy page lists every cookie and storage item, and the footer links the terms',
+  );
+  await navigate('/terms');
+  await check(
+    `document.querySelector('h1').textContent==='Terms of use'&&document.body.innerText.includes('not an exam result')&&!!document.querySelector('.privacy-document a[href="/en/privacy"]')`,
+    'The terms page explains the AI limits and links back to the privacy notice',
+  );
   await navigate('/ops');
   await wait(`!!document.querySelector('.chart canvas')`);
   await check(
     `document.querySelector('.admin-grid .tile').textContent.includes('Unique visitors')&&document.querySelectorAll('.chart canvas').length>=2&&(()=>{const [a,b]=document.querySelectorAll('.admin-grid > .card');return Math.abs(a.getBoundingClientRect().top-b.getBoundingClientRect().top)<1&&Math.abs(a.getBoundingClientRect().height-b.getBoundingClientRect().height)<1;})()`,
     'The overview renders tiles and charts on one grid with level rows',
+  );
+  await check(
+    `(()=>{const tiles=[...document.querySelectorAll('.admin-tiles .tile')];const tops=new Set(tiles.map(t=>Math.round(t.getBoundingClientRect().top)));return tiles.length===7&&tops.size===1&&tiles.every(t=>[...t.querySelectorAll('.tile-label')].every(el=>el.getBoundingClientRect().height<2*parseFloat(getComputedStyle(el).fontSize)))&&tiles.slice(0,5).every(t=>[...t.querySelectorAll('.tile-detail')].every(el=>el.getBoundingClientRect().height<2*parseFloat(getComputedStyle(el).fontSize)));})()`,
+    'The stat tiles sit on one row with single-line labels and details (the offline provider notes may wrap)',
   );
   await check(
     `(()=>{const items=[...document.querySelectorAll('.admin-bar-tools > *, .admin-bar-tools form > button')].filter(el=>el.tagName!=='FORM');const centres=items.map(el=>{const r=el.getBoundingClientRect();return r.top+r.height/2;});return centres.every(c=>Math.abs(c-centres[0])<1)&&!document.querySelector('.admin-tag');})()`,
@@ -295,33 +382,19 @@ try {
   await wait(`document.documentElement.dataset.theme==='light'`);
   await shot('overview');
   await navigate('/ops/exercises');
-  await click('a[href="/ops/exercises/new"]');
-  await wait(`!!document.querySelector('#exercise-json')`);
-  const newItem = {
-    ...draft,
-    id: 'browser:test-draft',
-    title: 'Synthetic draft for infrastructure checks',
-  };
-  await fill('#exercise-json', JSON.stringify(newItem, null, 2));
-  await click('button[value="save"]');
-  await wait(`location.pathname==='/ops/exercises/browser%3Atest-draft'`);
   await check(
-    `document.querySelector('#exercise-json').value.includes('Synthetic draft')`,
-    'Admin creates an exercise draft through a route action',
+    `!document.querySelector('a[href="/ops/exercises/new"]')&&document.querySelectorAll('.admin-table tbody tr').length>50&&document.querySelector('.admin-search').getBoundingClientRect().width<200`,
+    'Exercises list the reviewed catalogue without drafts and with a compact search',
   );
-  await fill('#exercise-json', '{broken');
-  await click('button[value="save"]');
-  await wait(`!!document.querySelector('.feedback-error')`);
-  await check(
-    `document.querySelector('#exercise-json').value==='{broken'`,
-    'Invalid exercise JSON shows an error and preserves the edit',
-  );
-  await fill('#exercise-json', JSON.stringify(newItem, null, 2));
-  await click('button[value="save"]');
-  await wait(`document.querySelector('[role="status"]')?.textContent==='Saved.'`);
-  await shot('editor');
+  await navigate('/ops/exercises/' + encodeURIComponent(draft.id));
+  await wait(`!!document.querySelector('button[value="archive"]')`);
+  await shot('exercise-detail');
   await click('button[value="archive"]');
   await wait(`!!document.querySelector('button[value="restore"]')`);
+  await check(
+    `(async()=>{const response=await fetch('/exercise/'+encodeURIComponent(${JSON.stringify(draft.id)}));return response.status===404})()`,
+    'Removing an exercise from practice makes its page a 404',
+  );
   await click('button[value="restore"]');
   await wait(`!!document.querySelector('button[value="archive"]')`);
   checks.push('Exercise archiving and restoring work without deleting history');
@@ -335,11 +408,105 @@ try {
     `(async()=>{const response=await fetch('/api/ops/reports');return response.status===401})()`,
     'Signing out ends the session for pages and the JSON API',
   );
-  await navigate('/reading');
+  await navigate('/');
   await check(
-    `!document.body.innerText.includes('Synthetic draft')`,
-    'An unreviewed draft never appears in learner practice',
+    `location.pathname==='/en'&&document.querySelector('h1').textContent==='Practise for the Dutch integration exam'&&!document.querySelector('.home [data-page]')&&document.querySelectorAll('.home-why h3').length===3&&document.querySelectorAll('.home-why .reason-icon').length===3&&document.querySelector('.home-why h3').textContent==='Always free'&&document.querySelector('.home-section h2')&&!document.querySelector('.home-nav')&&document.querySelector('.wordmark').getAttribute('href')==='/en'&&getComputedStyle(document.querySelector('.home-hero .primary')).textDecorationLine==='none'`,
+    'The home page states what the site is, offers one action without an underline and three reasons',
   );
+  await check(
+    `document.querySelector('[data-item=${JSON.stringify(draft.id)}]')?.textContent.includes('draft saved')&&document.querySelector('[data-item=${JSON.stringify(draft.id)}] .entry-icon .icon-speaking')`,
+    'A saved draft appears under the open work with its subject icon',
+  );
+  await navigate('/sets/a2-listening-01');
+  await wait(`!!document.querySelector('.question')`);
+  await evaluate(`document.querySelector('.wordmark').click();true;`);
+  await wait(`location.pathname==='/en'`);
+  await check(
+    `document.querySelector('.home-hero .primary').textContent.startsWith('Start with')&&!document.querySelector('.home [data-set="a2-listening-01"]')`,
+    'The wordmark leads home and a set only opened, never answered, is not offered to continue',
+  );
+  // The level check: offered on the start page, ten questions without feedback, a result per subject.
+  const key = async (value) => {
+    await send('input.performActions', {
+      context,
+      actions: [
+        {
+          type: 'key',
+          id: 'keyboard',
+          actions: [
+            { type: 'keyDown', value },
+            { type: 'keyUp', value },
+          ],
+        },
+      ],
+    });
+    await evaluate('new Promise(r=>setTimeout(r,120))');
+  };
+  const recordsBefore = await evaluate(
+    `Object.keys(JSON.parse(localStorage.getItem('inburgering.study.v2')).records).length`,
+  );
+  await check(
+    `document.querySelector('.home-hero [data-action="level-check"]')?.textContent==='Take the level check'&&!document.querySelector('.home-spec')`,
+    'The start page offers the level check beside the practice set',
+  );
+  await click('.home-hero [data-action="level-check"]');
+  await wait(
+    `location.pathname==='/en/a2/level-check'&&!!document.querySelector('[data-action="start-check"]')`,
+  );
+  await check(
+    `document.querySelectorAll('.check-plan li').length===3&&document.querySelector('h1').textContent==='Level check A2'`,
+    'The check intro states the draw and the time',
+  );
+  await click('[data-action="start-check"]');
+  await wait(`!!document.querySelector('.question')`);
+  await check(
+    `document.querySelector('.toolbar .back').textContent.includes('Stop the check')&&document.querySelector('.session-position span').textContent==='Question 1 of 10'&&document.querySelector('.exercise-meta p').textContent.includes('Level check')`,
+    'The check runs in the exercise layout with its own toolbar',
+  );
+  let sawFeedback = false;
+  for (let n = 1; n <= 10; n++) {
+    await key(String(1 + (n % 3)));
+    await wait(`document.querySelector('input[name="answer"]:checked')`);
+    await key('\uE007');
+    if (n < 10)
+      await wait(
+        `document.querySelector('.session-position span')?.textContent==='Question ${n + 1} of 10'`,
+      );
+    if (await evaluate(`!!document.querySelector('.answer-feedback')`)) sawFeedback = true;
+  }
+  await wait(
+    `location.pathname==='/en/a2/level-check/result'&&document.querySelectorAll('.check-skills li').length===2&&!document.querySelector('.check-skills [data-part="knm"]')`,
+  );
+  if (sawFeedback) throw Error('The check showed feedback between questions');
+  await check(
+    `document.querySelector('.check-advice .primary')&&/^\\d+ \\/ 10$/.test(document.querySelector('.result-total strong').textContent.trim())&&document.querySelector('.result-mistakes')&&document.querySelector('.result-review')`,
+    'The result shows counts per subject, one recommendation and the review',
+  );
+  await check(
+    `Object.keys(JSON.parse(localStorage.getItem('inburgering.study.v2')).records).length===${JSON.stringify(recordsBefore)}&&JSON.parse(localStorage.getItem('inburgering.study.v2')).checks.length===1`,
+    'A check is stored on its own and marks no exercise as completed',
+  );
+  await navigate('/');
+  await check(
+    `document.querySelector('.home [data-check]')&&!document.querySelector('[data-action="level-check"]')&&document.querySelector('.home-hero .primary')`,
+    'The start page lists the check result and keeps one primary action',
+  );
+  await navigate('/a2/progress');
+  await check(
+    `document.querySelector('.check-history [data-check]')?.textContent.includes('Level check A2')`,
+    'Progress lists the finished check',
+  );
+  await click('.check-history [data-check]');
+  await wait(
+    `location.pathname==='/en/a2/level-check/result'&&document.querySelectorAll('.check-skills li').length===2`,
+  );
+  checks.push('A listed check opens its result');
+  await navigate('/b1/progress?filter=mistakes');
+  await check(
+    `document.querySelector('.list-filters [data-choice="mistakes"]').getAttribute('aria-pressed')==='true'`,
+    'A filter in the address opens that progress view',
+  );
+  await navigate('/reading');
   for (const width of [390, 320]) {
     await send('browsingContext.setViewport', { context, viewport: { width, height: 844 } });
     await settle();

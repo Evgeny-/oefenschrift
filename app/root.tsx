@@ -9,23 +9,37 @@ import {
 } from 'react-router';
 import './styles.css';
 import { readPreferences } from './domain/render-state';
+import { withBase } from './domain/base';
+import { routeLang } from './domain/routes';
+import { stripBase } from '../server/security';
 export function loader({ request }) {
-  return {
-    nonce: request.headers.get('x-csp-nonce') || undefined,
-    settings: readPreferences(request.headers.get('Cookie') || ''),
-  };
+  const settings = readPreferences(request.headers.get('Cookie') || '');
+  // The document language follows the address (/en is English); the study loader sends a
+  // browser that prefers English there, so a plain path renders Dutch.
+  settings.lang = routeLang({ pathname: stripBase(new URL(request.url).pathname) }) || 'nl';
+  return { nonce: request.headers.get('x-csp-nonce') || undefined, settings };
 }
 export function meta() {
-  return [{ title: 'Inburgering' }];
+  return [{ title: 'Oefenschrift' }];
 }
 export function links() {
-  return [400, 600].map((weight) => ({
-    rel: 'preload',
-    href: `/fonts/public-sans-${weight}.ttf`,
-    as: 'font',
-    type: 'font/ttf',
-    crossOrigin: 'anonymous' as const,
-  }));
+  return [
+    // The icon (docs/logos/icon.mjs): the .ico first, then the SVG, which browsers that
+    // understand it prefer over a sized raster; the PNG square for phones.
+    { rel: 'icon', href: withBase('/favicon.ico'), sizes: '16x16 32x32 48x48' },
+    { rel: 'icon', href: withBase('/icon.svg'), type: 'image/svg+xml', sizes: 'any' },
+    { rel: 'apple-touch-icon', href: withBase('/apple-touch-icon.png') },
+    ...[400, 600]
+      .map((weight) => ({ href: withBase(`/fonts/fira-sans-${weight}.woff`) }))
+      .concat([700, 800].map((weight) => ({ href: withBase(`/fonts/nunito-${weight}.woff`) })))
+      .map((font) => ({
+        rel: 'preload',
+        as: 'font',
+        type: 'font/woff',
+        crossOrigin: 'anonymous' as const,
+        ...font,
+      })),
+  ];
 }
 export function Layout({ children }) {
   const data = useLoaderData<typeof loader>();
@@ -41,7 +55,7 @@ export function Layout({ children }) {
         <meta name="referrer" content="no-referrer" />
         <Meta />
         <Links nonce={data?.nonce} />
-        <script src="/theme.js" />
+        <script src={withBase('/theme.js')} />
       </head>
       <body>
         {children}
@@ -65,7 +79,7 @@ export function ErrorBoundary() {
   return (
     <main className="error-page">
       <h1>{message}</h1>
-      <a href="/reading">Back to practice</a>
+      <a href={withBase('/reading')}>Back to practice</a>
     </main>
   );
 }

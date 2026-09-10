@@ -1,0 +1,312 @@
+{
+  "review_id": "batch010-editorial-review",
+  "source": "content/batches/010-original.json",
+  "source_sha256": "f5a64e62e92914663aa88611eb9919a65b4f125f4f2a17ae11a3c9b10542b836",
+  "review_type": "Independent AI editorial review of original B1 reading items (Staatsexamen NT2 Programma I, Lezen) against the rubric, blueprint sections 1/3/4.6/5/8/9/10/13, the Lezen I paragraph and B1 rows of docs/research/exam-blueprints-2026-09-10.md and the author brief; reviewer did not author or edit the batch; author notes read only after all items were judged",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 3,
+    "distribution": {
+      "B1_reading": 3
+    },
+    "task_types": {
+      "interview": 1,
+      "artikel": 1,
+      "opzoektekst": 1
+    },
+    "text_types": {
+      "beschouwend": 1,
+      "persuasief": 1,
+      "instructief": 1
+    },
+    "domains": {
+      "werk": 1,
+      "educatie": 1,
+      "overig": 1
+    },
+    "question_count": 19,
+    "option_counts": {
+      "3": 19
+    },
+    "key_counts": {
+      "A": 6,
+      "B": 6,
+      "C": 7
+    },
+    "key_sequence": "ACBCAB CABACB BCACBAC",
+    "no_key_three_in_a_row": true,
+    "closed_evidence_is_verbatim": true,
+    "purpose_question_last_per_text": 3,
+    "purpose_key_matches_text_type": true,
+    "opinion_or_inference_per_text": {
+      "ploegendienst": "opinion q3, inference q5",
+      "deelexamens": "inference q2, summary q4",
+      "busabonnement": "inference q3"
+    },
+    "paragraph_span_detail_items": {
+      "ploegendienst": 2,
+      "deelexamens": 3,
+      "busabonnement": "0 by design (look-up text; persona scanning questions accepted, see decisions)"
+    },
+    "lookup_text_requirements": "6 persona questions; quantity q1 combines 64,00 (section 1) with 12,50 (section 3); rule-application q2, q4, q5; purpose last",
+    "word_counts": {
+      "ploegendienst": 578,
+      "deelexamens": 550,
+      "busabonnement": 499
+    },
+    "word_count_range": "499-578",
+    "sentence_average_range": "13.3-14.1",
+    "longest_sentence": 27,
+    "sentences_over_30": 0,
+    "no_markup": true,
+    "option_length_pattern": "key is strictly the longest option in 8 of 19 questions (chance about 6), concentrated in ploegendienst q1/q4/q5/q6 and deelexamens q4/q5/q6; busabonnement shows no pattern",
+    "cast_consistency": "mevrouw Bakker 66 matches cast; Modibo (44) conflicts with the cast trait 'young man' (recommended change); Sem (17 elsewhere) plausible with a monthly subscription",
+    "facts_mirrored_checked": "eleven-hour rest rule stated as company policy matches the Arbeidstijdenwet daily-rest baseline and is not misleading; forward rotation, 55+ fewer nights, roster six weeks ahead, daluren check-in rule, replacement-card fee, cancellation cut-off all plausible",
+    "avoid_list": "no party politics, religion, illness detail, crime, brands, real addresses, neighbourhood or volunteering settings; roles mixed",
+    "batch_check": "3 items, 19 questions, keys A6 C7 B6, options all 3, no failures, no warnings (run 2026-09-10)",
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false
+  },
+  "re_review_checks": {
+    "re_reviewed_at": "2026-09-10",
+    "re_reviewed_sha256": "205c1d762309b13d3bfe387e4ceaefa9b66df819d1f7133cec1d1206cb769cd3",
+    "expected_by_coordinator": true,
+    "batch_check": "npm run batch:check content/batches/010-original.json: Checked 3 items, 19 questions. Keys: {\"A\":6,\"C\":7,\"B\":6}. Options: {\"3\":19}. No failures, no warnings.",
+    "source_reproduced": "The author's generator (build010.py in the shared scratchpad) was re-run into a private scratch file; its output hashes to 17fa458d8c61f7950401d336d6c23af1d8cae0e471630eda2aa205f7d5239f7d exactly, so the reviewed draft was available for a full comparison.",
+    "field_diff": "Seventeen fields differ between the reviewed draft and the current file, all inside the announced edits: ploegendienst text (two sentences), q1 options B and C, q1 evidence, q1 explanation, q4 options A and B, q5 option C, q6 options A and B; deelexamens text (age and 'tekort' sentence), q4 options B and C, q5 option A, q6 options A and C; busabonnement q5 option C. Every other prompt, option, answer, evidence, explanation, text and metadata field is byte-identical; key order and field order unchanged.",
+    "key_counts": {
+      "A": 6,
+      "B": 6,
+      "C": 7
+    },
+    "key_sequence": "ACBCAB CABACB BCACBAC",
+    "closed_evidence_is_verbatim": true,
+    "word_counts": {
+      "ploegendienst": 588,
+      "deelexamens": 550,
+      "busabonnement": 499
+    },
+    "sentence_average": {
+      "ploegendienst": 13.6,
+      "deelexamens": 13.8,
+      "busabonnement": 14.1
+    },
+    "longest_sentence": {
+      "ploegendienst": 27,
+      "deelexamens": 24,
+      "busabonnement": 24
+    },
+    "sentences_over_30": 0,
+    "option_length_pattern": "key strictly the longest option in 4 of 19 questions (ploegendienst q1 66/63/65 and q6 75/76/68, deelexamens q5 70/66/71, busabonnement q4 '30 juni' 7/6/6), each by one character; by words only deelexamens q5 (10 vs 9/9)",
+    "cast_consistency": "Modibo (29) now matches the cast trait 'young man'; mevrouw Bakker 66 unchanged",
+    "explanations_against_reworded_distractors": "ploegendienst q1, q4, q5, q6 and deelexamens q4, q5, q6: the explanations already refute the new wordings; busabonnement q5: the explanation still refutes the retired option and not the new one (round-2 request)",
+    "notes_audit_trail": "content/batches/010-notes.md section 4 quotes the pre-revision option wordings throughout and gives the rationale of the retired busabonnement q5 C; the coordinator's closing section summarises the edits but records no per-distractor rationale (rubric 12)"
+  },
+  "items": [
+    {
+      "id": "B1:reading:batch010-ploegendienst:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "578-word personeelsblad interview; 43 sentences, average 13.3 words, longest 27, none over 30; passives, conditionals, relative clauses and signal words in natural use; an opinion set against a common view (q3), a rule applied across two paragraphs (q4) and the function of a contrast (q5) are the operations the official interview texts carry.",
+      "evidence": "q1 A from 'Vroeger draaiden we precies de andere kant op: van nacht naar middag naar ochtend. Daar werden veel mensen moe van, omdat het lichaam makkelijker later gaat slapen dan vroeger. Sinds we voorwaarts draaien, zijn er duidelijk minder ziekmeldingen.' (three sentences); B is the four free days, part of the pattern and never a reason; C turns the result (fewer sick reports) into the cause and adds an unsupported 'in de nachtploeg'. The key holds only under the reading vroeger = eerder, which the previous sentence's temporal 'Vroeger' obscures (request 2). q2 C from the whole measures paragraph, 'Daarom werkt niemand meer dan drie nachten achter elkaar.' paraphrased as 'hoogstens drie nachten op rij'; A reversed by 'de pauze even lang als overdag', B overgeneralises 'kunnen vragen om minder nachten'; the key contradicts 'een week nacht' in the first answer (request 1). q3 B from 'Veel mensen denken dat de nachtdienst het slechtst is voor een gezin. Volgens mij is dat de middagdienst.'; A reverses, C moves the night shift's sleep problems. q4 C: middagdienst ends 22.00, ochtenddienst starts 6.00, eight hours against 'tussen twee diensten moet minstens elf uur rust zitten'; A's 48-hour rule is satisfied ('Het is vrijdag') and irrelevant, B contradicts 'in welke ploeg die collega zit, maakt niet uit'. q5 A from 'Vroeger liep elke ruil via mijn bureau. ... Nu zetten collega's een ruil zelf in de roosterapp, en ik hoor veel minder klachten.'; B links the story to rules it is not offered as a reason for, C reads 'via mijn bureau' as workload. q6 B (beschouwend, informeren) from 'In dit nummer vertelt zij hoe het bedrijf omgaat met slaap, tijd voor het gezin en het ruilen van diensten.'; A and C are anchored in the sleep and app paragraphs and false.",
+      "natural_dutch": "Change: 'omdat het lichaam makkelijker later gaat slapen dan vroeger' (ambiguous 'vroeger' after temporal 'Vroeger'); 'een week nacht' versus 'niemand meer dan drie nachten achter elkaar' (internal contradiction). Optional: 'voorwaarts draaien' (everyday phrase 'met de klok mee draaien'); q6 key 'de ploegendienst' (article). Everything else idiomatic personeelsblad Dutch.",
+      "revision_requests": [
+        {
+          "severity": "required",
+          "field": "text (first answer)",
+          "failure": "'Iedereen draait een week ochtend, daarna een week middag en dan een week nacht.' contradicts 'Daarom werkt niemand meer dan drie nachten achter elkaar.', which is the key of q2 (rubric 3, 9).",
+          "repair": "Replace with 'Iedereen draait een week ochtend, daarna een week middag en dan een korte nachtweek van drie nachten.'; 'Na de nachtweek volgen vier vrije dagen.' stays. Alternative: keep the sentence and change 'drie' to 'vijf' in the rule sentence, q2 option C ('Een medewerker draait hoogstens vijf nachten op rij.'), q2 evidence and q2 explanation.",
+          "acceptance": "Night block and maximum consecutive nights agree; q2 key, evidence and explanation remain verbatim and true."
+        },
+        {
+          "severity": "required-minor",
+          "field": "text; questions[0].evidence; questions[0].explanation",
+          "failure": "'Daar werden veel mensen moe van, omdat het lichaam makkelijker later gaat slapen dan vroeger.' reads as 'than in the past' after 'Vroeger draaiden we ...'; the evidence of q1 supports key A only under the other reading (rubric 3, 6).",
+          "repair": "Text: 'Daar werden veel mensen moe van, omdat het lichaam makkelijker went aan later naar bed gaan dan aan eerder naar bed gaan.' Evidence: 'Vroeger draaiden we precies de andere kant op: van nacht naar middag naar ochtend. Daar werden veel mensen moe van, omdat het lichaam makkelijker went aan later naar bed gaan dan aan eerder naar bed gaan. Sinds we voorwaarts draaien, zijn er duidelijk minder ziekmeldingen.' Explanation: 'De oude volgorde maakte mensen moe, omdat het lichaam makkelijker went aan later naar bed gaan dan aan eerder naar bed gaan; daarom draait het bedrijf nu voorwaarts. Minder ziekmeldingen zijn het gevolg van de verandering, niet de reden ervoor.' Shorter alternative: '..., omdat het lichaam makkelijker later gaat slapen dan eerder.'",
+          "acceptance": "Evidence verbatim in the new text; one reading of the causal clause; key A unchanged."
+        },
+        {
+          "severity": "recommended",
+          "field": "questions[0].options.B, questions[0].options.C, questions[3].options.A, questions[3].options.B, questions[4].options.C",
+          "failure": "Key is the longest option in q1 (66 vs 56/50 characters), q4 (61 vs 48/47) and q5 (68 vs 62/55); with q6 the longest option is the key in four of six questions (blueprint section 5).",
+          "repair": "q1 B 'Medewerkers wilden hun vrije dagen liever achter elkaar hebben.'; q1 C 'In de nachtploeg meldden te veel medewerkers zich elke week ziek.'; q4 A 'Ja, want de ruil wordt meer dan 48 uur van tevoren doorgegeven.'; q4 B 'Nee, want de collega werkt in een andere ploeg dan Julio.'; q5 C 'Om duidelijk te maken dat het ruilen haar vroeger te veel werk kostte.' Keys unchanged; resulting lengths q1 66/63/65, q4 63/57/61, q5 68/62/70.",
+          "acceptance": "No key longer than its distractors by more than a few characters."
+        },
+        {
+          "severity": "optional",
+          "field": "questions[5].options.B; questions[3].prompt; text (swap paragraph)",
+          "failure": "Style and diversity observations only.",
+          "repair": "q6 key 'De lezer informeren over hoe een planner de ploegendienst ervaart en regelt.' (then lengthen A: 'De lezer waarschuwen voor de gevolgen van nachtdiensten voor de gezondheid.'); q4 prompt 'Julio werkt volgende week in de middagdienst. Een collega uit een andere ploeg vraagt op vrijdag om een ruil: op dinsdag neemt Julio haar ochtenddienst over en zij zijn middagdienst. Keurt Farah deze ruil goed?'; swap rule 'een collega die voor dezelfde afdeling is ingewerkt' to remove the echo of catalogue p2 (q4 evidence changes with it).",
+          "acceptance": "Not required."
+        }
+      ],
+      "notes": "Swap paragraph echoes catalogue item B1:reading:p2:1 (app replaces the manager route; same-machine rule); not a re-skin, but do not pair the two in a drill. Eleven-hour rest rule stated correctly as company policy (matches the Arbeidstijdenwet daily-rest baseline; no legal claim made). Julio also appears in busabonnement q6 with a different job.",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "205c1d762309b13d3bfe387e4ceaefa9b66df819d1f7133cec1d1206cb769cd3",
+        "verdict": "pass",
+        "changed_fields": "text (rotation sentence; q1 evidence sentence), questions[0].options.B, questions[0].options.C, questions[0].evidence, questions[0].explanation, questions[3].options.A, questions[3].options.B, questions[4].options.C, questions[5].options.A, questions[5].options.B",
+        "checked": "Text: 'Iedereen draait een week ochtend, daarna een week middag en dan een korte nachtweek van drie nachten.' (request 1, preferred form) agrees with 'Daarom werkt niemand meer dan drie nachten achter elkaar.'; 'Na de nachtweek volgen vier vrije dagen.' still follows and 'nachtweek' is now defined by the sentence before it; q2 key C, its evidence (the whole measures paragraph, verbatim) and its explanation are unchanged and true. Text: 'Daar werden veel mensen moe van, omdat het lichaam makkelijker went aan later naar bed gaan dan aan eerder naar bed gaan.' (request 2, 20 words) has one reading, since 'vroeger' no longer occurs in it, and entails key A 'Het lichaam past zich makkelijker aan als een dienst later begint.' through the paragraph's backward/forward contrast; the new q1 evidence (three sentences) is a verbatim substring of the text and the new explanation paraphrases it and still names the cause/effect confusion of C. Reworded distractors: q1 B 'Medewerkers wilden hun vrije dagen liever achter elkaar hebben.' is anchored in 'Na de nachtweek volgen vier vrije dagen', which is part of the pattern and never a reason; q1 C 'In de nachtploeg meldden te veel medewerkers zich elke week ziek.' is anchored in 'duidelijk minder ziekmeldingen', which the text presents as the result ('Sinds we voorwaarts draaien'), and 'elke week' and 'in de nachtploeg' have no support; q4 A 'Ja, want de ruil wordt meer dan 48 uur van tevoren doorgegeven.' states a true fact ('Het is vrijdag') with the wrong conclusion, because 22.00 to 6.00 is eight hours against 'minstens elf uur rust'; q4 B 'Nee, want de collega werkt in een andere ploeg dan Julio.' is contradicted by 'in welke ploeg die collega zit, maakt niet uit'; q5 C 'Om duidelijk te maken dat het ruilen haar vroeger te veel werk kostte.' is anchored in 'Vroeger liep elke ruil via mijn bureau' while the text speaks of dissatisfaction and complaints, and the explanation already says 'Zij zegt niet dat het haar te veel werk kostte'; q6 A 'De lezer waarschuwen voor de gevolgen van nachtdiensten voor de gezondheid.' is anchored in the sleep paragraph (interviewer: 'Nachtdiensten blijven zwaar') and the text warns of nothing; q6 key 'De lezer informeren over hoe een planner de ploegendienst ervaart en regelt.' reads naturally with the article and keeps the informeren form. Option lengths in characters A/B/C: q1 66/63/65, q4 63/57/61, q5 68/62/70, q6 75/76/68; in words q1 11/9/11, q4 12/11/11, q5 12/12/13, q6 11/12/12; the key is the longest option only in q1 and q6, by one character each, and never by words. Level: 588 words (583 without the title line), 43 sentences, average 13.6 words, longest 27, none over 30. Keys A C B C A B unchanged; all six evidence quotes verbatim.",
+        "notes": [
+          "The three-night block now appears twice (rotation sentence and measures paragraph); q2's evidence paragraph still carries the key on its own, so the item is unchanged in operation and slightly better supported.",
+          "Batch notes section 4 still quotes the pre-revision wordings of q1 B/C, q4 A/B, q5 C and q6 A/B; the rationales remain valid for the new wordings (same anchors, same misreadings) but the quoted strings should be refreshed when the notes are next edited."
+        ]
+      }
+    },
+    {
+      "id": "B1:reading:batch010-deelexamens:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "550-word opinion article with thesis, example, two rebutted objections and a call to action; 38 sentences, average 13.8 words, longest 24; the three standard opinion-text operations (function of an example, summary sentence, purpose) plus two paragraph-span reasons; vocabulary carried by context.",
+      "evidence": "q1 C from 'Wie in september een hoofdstuk over elektriciteit heeft geleerd, weet daar in juni vaak weinig meer van. Een jongere student kan in de weken voor het examen alles nog eens doornemen. Een volwassene met een baan en een gezin heeft die weken niet. Een deelexamen na elk blok toetst de stof terwijl die nog vers is.'; A builds on 'één avond per week', never given as a reason, B ('zelf het moment kiezen') has no support. q2 A from 'Uiteindelijk haalde hij het, maar zijn verhaal laat precies zien wat ik bedoel. Niet zijn kennis was het probleem, maar de vorm van het examen. Op een slechte dag kan één toets twee jaar werk doorstrepen.' with 'dacht in die maanden serieus aan stoppen'; B takes the six-month wait as the point (the writer never asks for faster resits), C is reversed by 'leerde hij elke avond'. q3 B from 'Hoewel het eerste argument sterk klinkt, klopt het niet. Of iemand zijn vak beheerst, blijkt in de praktijk: tijdens de stage en in de praktijktoets aan het einde van de opleiding. Daar laat een cursist zien dat hij alles kan combineren. De theorie kan prima in delen worden getoetst.'; A reverses (the writer concedes a monteur must combine everything), C misplaces the examencommissie. q4 A from 'Volwassenen die naast hun werk een vak leren, verdienen een examen dat past bij de manier waarop zij leren.'; B contradicts 'Anders verliezen we precies de mensen ...', C is the rejected workload objection. q5 C from 'Dat moet andersom. Ik roep opleidingen op om deelexamens standaard aan te bieden aan volwassen cursisten. Wie liever één groot examen doet, kan daar dan zelf voor kiezen.'; A overgeneralises, B is the status quo he rejects. q6 B (persuasief, overtuigen) from 'Ik pleit ervoor dat volwassen cursisten hun examen in delen mogen doen, na elk blok van de opleiding.'; A and C are arguments inside the plea. All six keys proven; the only failure is the length cue in q4-q6.",
+      "natural_dutch": "Optional: 'Voor het theorie-examen zakte hij met twee punten.' is not idiomatic ('kwam hij twee punten tekort'); not in any evidence. Otherwise natural throughout ('voordat het diploma binnen is', 'Dat moet andersom', 'wie de weg naar de examencommissie kent').",
+      "revision_requests": [
+        {
+          "severity": "required-minor",
+          "field": "questions[3].options.B, questions[3].options.C, questions[4].options.A, questions[5].options.A, questions[5].options.C",
+          "failure": "In q4, q5 and q6 (consecutive, the last three of the text) the key is the longest option in words and characters (q4 11 vs 8/10 words, 69 vs 62/64 characters; q5 10 vs 8/9, 71 vs 64/66; q6 11 vs 9/10, 71 vs 60/63); blueprint section 5 forbids a longer key.",
+          "repair": "q4 B 'Volwassenen moeten minder vaak aan een opleiding naast hun werk beginnen.'; q4 C 'Docenten moeten meer tijd krijgen voor het nakijken van deelexamens.'; q5 A 'Het grote eindexamen afschaffen bij alle opleidingen voor volwassenen.'; q6 A 'De lezer informeren over de manier waarop volwassenen naast hun werk leren.'; q6 C 'De lezer waarschuwen voor het grote aantal volwassen cursisten dat stopt.' Keys unchanged; resulting lengths q4 73/69/68, q5 70/66/71, q6 75/71/73 characters.",
+          "acceptance": "No key is the longest option of its question by more than two characters; evidence and explanations unchanged."
+        },
+        {
+          "severity": "recommended",
+          "field": "text ('Modibo (44)')",
+          "failure": "config/illustration.json describes Modibo as a young man; the bank keeps each recurring character's traits constant.",
+          "repair": "'Modibo (29)' (or keep 44 and use a name outside the cast; heading, q2 prompt and explanation change with it).",
+          "acceptance": "Age or name consistent with the cast."
+        },
+        {
+          "severity": "optional",
+          "field": "text; questions[2].options.B",
+          "failure": "Style only.",
+          "repair": "'Voor het theorie-examen kwam hij twee punten tekort.'; q3 key could paraphrase 'combineren' ('of iemand de onderdelen samen kan gebruiken') to reduce lexical matching with the evidence.",
+          "acceptance": "Not required."
+        }
+      ],
+      "notes": "Shares the adult-mbo-one-evening setting with B1:reading:batch011-deeltijdopleiding:1 (different text type, purpose, structure and operations): may share a mock, not a drill, and not adjacent. Educational opinion, not party politics; claims kept vague on purpose; nothing false for a learner.",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "205c1d762309b13d3bfe387e4ceaefa9b66df819d1f7133cec1d1206cb769cd3",
+        "verdict": "pass",
+        "changed_fields": "text ('Modibo (29)'; 'kwam hij twee punten tekort'), questions[3].options.B, questions[3].options.C, questions[4].options.A, questions[5].options.A, questions[5].options.C",
+        "checked": "q4 B 'Volwassenen moeten minder vaak aan een opleiding naast hun werk beginnen.' is anchored in the opening ('een mbo-opleiding naast hun baan') and in 'Toch stopt een flink deel van hen', and is contradicted by 'Anders verliezen we precies de mensen die de techniek en de zorg zo hard nodig hebben'; q4 C 'Docenten moeten meer tijd krijgen voor het nakijken van deelexamens.' is the workload objection the writer rejects ('Het tweede argument is nog zwakker'); q5 A 'Het grote eindexamen afschaffen bij alle opleidingen voor volwassenen.' is anchored in 'het grote eindexamen' and false by 'Wie liever één groot examen doet, kan daar dan zelf voor kiezen'; q6 A 'De lezer informeren over de manier waarop volwassenen naast hun werk leren.' and q6 C 'De lezer waarschuwen voor het grote aantal volwassen cursisten dat stopt.' are the 'Leren in stukjes' argument and the drop-out argument inside a plea, not its purpose. The three explanations already name exactly these misreadings, so they did not need to change. Lengths in characters A/B/C: q4 69/73/68, q5 70/66/71, q6 75/71/73; in words q4 11/11/10, q5 9/9/10, q6 12/11/11; the key is the longest option only in q5, by one character (and one word). 'Modibo (29)' agrees with config/illustration.json ('young man') and reads naturally next to 'Twee jaar lang leerde hij elke avond'; 'Voor het theorie-examen kwam hij twee punten tekort.' is idiomatic and is not part of any evidence quote. 550 words, 38 sentences, average 13.8, longest 24, unchanged. Keys C A B A C B unchanged; all six evidence quotes verbatim; q1-q3 byte-identical to the reviewed draft.",
+        "notes": [
+          "Batch notes section 4 still quotes the pre-revision wordings of q4 B/C, q5 A and q6 A/C; the rationales hold for the new wordings."
+        ]
+      }
+    },
+    {
+      "id": "B1:reading:batch010-busabonnement:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "499-word terms in six numbered sections; 33 sentences, average 14.1 words, longest 24; every content question is a persona case answered by scanning, three of which combine two sections; the official look-up operation (a lost pass, a total to pay) is present.",
+      "evidence": "q1 B: Stadsabonnement 64,00 (section 1) plus 'Een nieuwe kaart kost 12,50 euro. Dit bedrag wordt samen met uw volgende maandbedrag afgeschreven.' gives 76,50; A forgets the card, C uses the Regioabonnement (96,00 + 12,50 = 108,50). q2 C from 'Reist u met een Dalurenabonnement op een werkdag vóór 9.00 uur? Dan betaalt u de hele rit tegen het gewone tarief, ook het deel na 9.00 uur.'; A is true about zones and irrelevant, B is closed by 'ook het deel na 9.00 uur'. q3 A from 'Tot het moment van blokkeren blijft de kaart geldig, ook in handen van een ander.'; B confuses the five working days of delivery, C is true whatever she does. q4 C: 24 May is after the 20th, 'Zegt u later op, dan loopt het abonnement nog één maand door.' and 'loopt per kalendermaand' give 30 June; A is the cancelling day, B the outcome for cancelling by the 20th. q5 B: a subscription usable at 8.00 on weekdays cannot be the daluren product ('op werkdagen pas vanaf 9.00 uur'), and 'Op het Stadsabonnement en het Regioabonnement krijgen 65-plussers geen korting.'; A has the right percentage on the wrong product, C moves the student rule's annual proof to age. q6 A from 'De klantenservice is bereikbaar op 088 234 56 78 op werkdagen van 8.00 tot 18.00 uur en op zaterdag van 9.00 tot 13.00 uur.' against Julio's 8.00-18.00; B is the servicebalie's hour, C is closed. q7 C (instructief, uitleggen) from 'Hieronder leest u welke regels gelden vanaf 1 januari 2027.'; A recommends nothing the text recommends, B is one section of six.",
+      "natural_dutch": "Nothing in the text to change. Optional: q3 A 'Anders kan een ander gewoon met haar abonnement reizen.' (avoids 'Anders ... iemand anders').",
+      "revision_requests": [
+        {
+          "severity": "optional",
+          "field": "questions[4].options.C; questions[2].options.A",
+          "failure": "q5 key is the only 'Nee' among two 'Ja' options (odd-one-out heuristic); q3 A wording.",
+          "repair": "q5 C 'Nee, korting is er alleen voor wie een jaar vooruitbetaalt.' (anchored in 'U kunt ook een jaar vooruitbetalen', clearly false); q3 A 'Anders kan een ander gewoon met haar abonnement reizen.'",
+          "acceptance": "Not required."
+        },
+        {
+          "severity": "required-minor",
+          "round": 2,
+          "field": "questions[4].explanation",
+          "failure": "Stale last sentence 'Een jaarlijks bewijs geldt alleen voor de studentenkorting.' refutes the retired option C; the current C ('Nee, korting is er alleen voor wie een jaar vooruitbetaalt.') is not addressed (blueprint 5; rubric 9, 12).",
+          "repair": "Om op werkdagen om 8.00 uur te reizen heeft mevrouw Bakker een Stadsabonnement nodig, want het Dalurenabonnement geldt op werkdagen pas vanaf 9.00 uur; op het Stadsabonnement krijgen 65-plussers geen korting. Korting is er wel voor studenten en voor 65-plussers met een Dalurenabonnement; een jaar vooruitbetalen is geen voorwaarde voor korting, maar een aparte regeling: wie vooruitbetaalt, betaalt elf maanden in plaats van twaalf.",
+          "acceptance": "Field equals the repair string exactly and nothing else changes; expected SHA-256 bff09d69d7a3b9676e08ccfd7ab75deda136147810b113bfefaee89f51c6117b; batch:check ends with 'No failures'; notes section 4 updated with the current C's rationale."
+        }
+      ],
+      "notes": "Look-up shape accepted in place of two paragraph-span detail items (blueprint 4.6 look-up paragraph; research document: text 6 is answered by scanning with persona questions). q3 stays labelled inference. mevrouw Bakker (66) matches the cast and can still work (AOW age 67 in 2027); Sem (17 elsewhere in the bank) plausibly holds a monthly subscription. No counterpart in batch 011 or the catalogue (buurtbus is a news item, stadsbus an A2 ticket folder).",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "205c1d762309b13d3bfe387e4ceaefa9b66df819d1f7133cec1d1206cb769cd3",
+        "verdict": "revise",
+        "changed_fields": "questions[4].options.C",
+        "checked": "q5 C 'Nee, korting is er alleen voor wie een jaar vooruitbetaalt.' is anchored in section 1 ('U kunt ook een jaar vooruitbetalen; u betaalt dan elf maanden in plaats van twaalf.') and clearly false by section 5, which gives 25% to students and 40% to 65-plussers on the Dalurenabonnement with no prepayment condition; a learner who scans the heading 'Korting voor studenten en 65-plussers' refutes it at once. It removes the lone 'Nee' (options now Ja/Nee/Nee) and the lengths are 50/56/59 characters, 8/8/10 words, key in the middle. Key B, evidence and prompt unchanged; the other six questions, the text and every other field are byte-identical to the reviewed draft; the optional q3 A rewording was not applied, which is fine.",
+        "failure": "questions[4].explanation was not updated with the option. Its last sentence, 'Een jaarlijks bewijs geldt alleen voor de studentenkorting.', refuted the retired option C ('Ja, als zij elk jaar een bewijs van haar leeftijd opstuurt.'); no option mentions a yearly proof any more, and nothing in the explanation says why the new C is wrong. Blueprint section 5 (explanations say why the distractor fails), rubric 9 (explanation and options agree) and rubric 12 (the batch notes still record the rationale of the retired distractor, not of the current one).",
+        "repair": "questions[4].explanation -> 'Om op werkdagen om 8.00 uur te reizen heeft mevrouw Bakker een Stadsabonnement nodig, want het Dalurenabonnement geldt op werkdagen pas vanaf 9.00 uur; op het Stadsabonnement krijgen 65-plussers geen korting. Korting is er wel voor studenten en voor 65-plussers met een Dalurenabonnement; een jaar vooruitbetalen is geen voorwaarde voor korting, maar een aparte regeling: wie vooruitbetaalt, betaalt elf maanden in plaats van twaalf.' (first sentence unchanged; the second replaces the stale one and refutes both A and C). Expected SHA-256 of the batch with exactly this edit and nothing else: bff09d69d7a3b9676e08ccfd7ab75deda136147810b113bfefaee89f51c6117b (computed on a scratch copy; batch:check on it ends with 'No failures, no warnings').",
+        "acceptance": "Explanation equals the replacement; nothing else changes; new hash re-recorded; notes section 4 records the rationale of the current q5 C (anchor: the eleven-for-twelve prepayment clause of section 1; false by section 5)."
+      }
+    }
+  ],
+  "batch_level_requests": [
+    {
+      "severity": "recommended",
+      "field": "option lengths in ploegendienst q1/q4/q5 and deelexamens q4/q5/q6",
+      "issue": "The key is the longest option in seven of the twelve questions of texts 1 and 2 (in deelexamens q4-q6 in words as well as characters); a longest-option guesser scores 7 of 12 there.",
+      "repair": "Apply the per-item option rewordings above (keys unchanged). Verified on a scratch copy: checker clean, all evidence verbatim, key strictly longest in 4 of 19 questions afterwards, each by at most five characters.",
+      "status": "applied; verified by the focused re-review of 2026-09-10 on 205c1d76 (key strictly longest in 4 of 19 questions, each by one character; never by words except deelexamens q5 by one word)"
+    },
+    {
+      "severity": "required-minor",
+      "round": 2,
+      "field": "busabonnement questions[4].explanation",
+      "issue": "The optional q5 C rewording was applied without updating the explanation, whose last sentence now refers to an option that no longer exists and leaves the new distractor unrefuted.",
+      "repair": "Replace the explanation with the string in the item's round-2 revision request; expected hash bff09d69d7a3b9676e08ccfd7ab75deda136147810b113bfefaee89f51c6117b.",
+      "status": "open"
+    }
+  ],
+  "decisions_on_author_doubts": {
+    "lookup_text_without_paragraph_span_detail": "Accepted: the look-up paragraph of blueprint 4.6 and the research document (text 6 answered by scanning with persona questions) govern text 6; the batch's look-up text has six persona questions, a two-figure quantity item, three rule applications, an inference item and the purpose question. Keep q3 as inference. Coordinator to add a one-line clarification to 4.6.",
+    "beschouwend_purpose_key_wording": "Accepted: 'De lezer informeren over hoe ...' is the prescribed informeren form and matches batch 011's beschouwend key. Optional article 'de ploegendienst'. Across 010+011 'waarschuwen' is never keyed; vary in future persuasief texts.",
+    "q4_cross_paragraph_step": "Confirmed as intended B1 difficulty; arithmetic verified (eight hours); prompt length and the unstated other half of the exchange are optional tightenings.",
+    "item2_realism": "No change: claims limited to 'veel/sommige opleidingen', opinion genre, nothing false for a learner.",
+    "item3_q1_evidence_one_section": "Accepted; explanation supplies the 64,00.",
+    "item3_q5_prompt_clause": "Necessary; keep.",
+    "dates": "24 May without a year is fine; 30 June exists; no interaction with 1 January 2027.",
+    "eleven_hour_rest_rule": "Stated correctly for a learner: presented as company policy, coincides with the Arbeidstijdenwet daily-rest baseline (11 hours per 24; the statutory once-a-week shortening to 8 hours and the longer rest after night shifts are not contradicted because the text makes no legal claim and q4's case fails under both). No change."
+  },
+  "set_assembly": "Drills with batch 011: ploegendienst + 011-verlofregeling (werk, 13 Q); deelexamens + 011-huisartsenpost-drukte (12 Q); busabonnement + 011-deeltijdopleiding (13 Q). Avoid deelexamens + 011-deeltijdopleiding (same setting), ploegendienst + busabonnement (Julio in two jobs), ploegendienst + catalogue p2 (swap-app motif). Mock order: ploegendienst, 011-deeltijdopleiding, 011-verlofregeling, 011-huisartsenpost-drukte, deelexamens, busabonnement (look-up last; domains werk/educatie/werk/overig/educatie/overig; all four text types; shared personas and the two educatie texts non-adjacent); 38 questions against the official 35, coordinator to decide.",
+  "diversity_review": "Three settings, task types, text types, domains, purposes and information structures; no tested operation repeats. Against the catalogue: no slug reuse, no re-skin; the swap paragraph of ploegendienst echoes p2 'Zelf een dienst ruilen' (app replaces manager route, same-machine rule) but the item's topic, purpose and tested operations differ; buurtbus/stadsbus and cursusfonds/stage are not neighbours of busabonnement/deelexamens in genre or rule. Against batch 011: deelexamens and 011-deeltijdopleiding share the adult-mbo-one-evening setting with different text types (may share a mock, not a drill); ploegendienst and 011-verlofregeling are both werk and distinct; Modibo, Fatima and Julio recur across texts. The batch serves three of the blueprint's under-represented topics (shifts, exam form, OV subscription) and uses no neighbourhood or volunteering setting.",
+  "limitations": [
+    "This is an AI editorial review. It does not replace review by Dutch-language educators, learner trials, blueprint validation or psychometric calibration, and it does not establish equivalence with the Staatsexamen NT2 Programma I. The B1 label remains an unvalidated authoring target.",
+    "Originality against official practice items rests on the author's declaration and the reviewer's reading; the lost-pass operation in busabonnement q1 mirrors an operation type named in the research document, not a text; no line-by-line comparison with official exams was made.",
+    "Arbeidstijdenwet figures (11 hours daily rest, once-a-week shortening to 8, 14 hours after a night shift, 46 hours after three or more nights, 28 days' roster notice) come from the reviewer's knowledge and were not re-verified online; the text makes no legal claim, so the verdict does not depend on them.",
+    "Fictional organisation names were not searched online; 'De Korenaar' is a common bakery and mill name, which is the generic plausibility the blueprint asks for.",
+    "No exemplar files exist (content/exemplars/ is absent); level judgements compare each item with the research document's description of the official texts. The independent second level check of blueprint section 12 step 5 has not taken place.",
+    "The recorded hash covers the reviewed file; every requested edit changes the bytes. After revision the coordinator must record a new hash and a focused re-review must read ploegendienst and deelexamens in full before the batch can be marked ready for integration."
+  ],
+  "revisions": [
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review",
+      "items": [
+        "B1:reading:batch010-ploegendienst:1",
+        "B1:reading:batch010-deelexamens:1",
+        "B1:reading:batch010-busabonnement:1"
+      ],
+      "previous_sha256": "17fa458d8c61f7950401d336d6c23af1d8cae0e471630eda2aa205f7d5239f7d",
+      "re_reviewed_sha256": "205c1d762309b13d3bfe387e4ceaefa9b66df819d1f7133cec1d1206cb769cd3",
+      "verdict": "revise",
+      "note": "Focused re-review of the fields the coordinator changed after the first review (requests 1 preferred form, 2, 3, 4, the Modibo age, the 'tekort' sentence, the q6 article with the q6 A lengthening, busabonnement q5 C). The file at 205c1d76 hashes as the coordinator expected; batch:check ends with 'No failures, no warnings'; keys A 6 / B 6 / C 7 unchanged. The reviewed draft was reproduced from the author's generator (hash 17fa458d exactly) and diffed field by field: seventeen fields differ, all inside the announced edits, nothing else. ploegendienst passes: the rotation sentence agrees with the three-night maximum, the q1 evidence sentence has one reading and is verbatim, the reworded distractors are anchored and false, the key is longest only in q1 and q6 by one character, 588 words / average 13.6 / longest 27. deelexamens passes: q4-q6 lengths balanced (key longest only in q5 by one character), Modibo (29) and 'kwam hij twee punten tekort' natural. busabonnement does not pass yet: the new q5 C is anchored and clearly false, but questions[4].explanation was not updated with it, so its last sentence still refutes the retired option ('Een jaarlijks bewijs geldt alleen voor de studentenkorting.') and the new distractor is unrefuted; an exact replacement is given with the expected hash bff09d69. source_sha256 stays at the first review's hash and ready_for_integration stays false until that one field is repaired and re-read. The batch notes must also record the rationale of the current q5 C."
+    },
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-read",
+      "items": [
+        "B1:reading:batch010-busabonnement:1"
+      ],
+      "previous_sha256": "205c1d762309b13d3bfe387e4ceaefa9b66df819d1f7133cec1d1206cb769cd3",
+      "verdict": "pass",
+      "note": "Focused re-read of the one field repaired after the focused re-review. content/batches/010-original.json hashes to bff09d69d7a3b9676e08ccfd7ab75deda136147810b113bfefaee89f51c6117b, exactly the hash the re-review computed on a scratch copy with the questions[4].explanation replacement and nothing else touched, so the current bytes are the re-reviewed file (205c1d76) plus that single edit; the ploegendienst and deelexamens passes carry over unchanged. busabonnement q5 read against the text: the explanation equals the round-2 repair string byte for byte; its first sentence derives the Stadsabonnement from 'op werkdagen pas vanaf 9.00 uur' (section 1) and refutes A with 'op het Stadsabonnement krijgen 65-plussers geen korting' (section 5); its second sentence refutes C by placing the eleven-for-twelve prepayment clause of section 1 outside the discount rules and, in the same clause, supports key B (for 65-plussers the discount is only on the Dalurenabonnement). Prompt, options, key B and the evidence (verbatim from section 5) are unchanged. npm run batch:check content/batches/010-original.json: 'Checked 3 items, 19 questions. Keys: {\"A\":6,\"C\":7,\"B\":6}. Options: {\"3\":19}. No failures, no warnings.' source_sha256 re-recorded as bff09d69, batch_verdict pass, ready_for_integration true; no other field of this record was edited. Observation only (batch bytes unaffected): content/batches/010-notes.md records the current q5 C rationale in the coordinator's closing section, while its section 4 still quotes the retired 'bewijs van haar leeftijd' wording."
+    },
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review (level-check prompt)",
+      "items": [
+        "B1:reading:batch010-ploegendienst:1"
+      ],
+      "previous_sha256": "bff09d69d7a3b9676e08ccfd7ab75deda136147810b113bfefaee89f51c6117b",
+      "verdict": "pass",
+      "note": "Re-review of one field after the coordinator applied the level check (content/reviews/010-011-level-check.md, \"ploegendienst q4\"; last section of content/batches/010-notes.md): questions[3].prompt now reads \"Het is vrijdag. Julio draait volgende week middagdiensten. Een collega uit een andere ploeg wil ruilen: Julio neemt dinsdag de ochtenddienst van die collega over, en de collega neemt Julio's middagdienst van dinsdag. Keurt Farah deze ruil goed?\", character for character the level check's replacement (previously \"Het is vrijdag. Julio heeft maandag een middagdienst. Een collega uit een andere ploeg wil ruilen: Julio zou dinsdag de ochtenddienst van die collega overnemen. Keurt Farah deze ruil goed?\"). Proof that nothing else changed: substituting the previous prompt (from the catalogue copy) for the current one in a copy of the current bytes reproduces the reviewed hash bff09d69...17b exactly; source hash now f5a64e62...836 as the coordinator expected; npm run batch:check: \"Checked 3 items, 19 questions. Keys: {\\\"A\\\":6,\\\"C\\\":7,\\\"B\\\":6}. Options: {\\\"3\\\":19}. No failures, no warnings.\" The second reading is closed: the exchange is stated in both directions and touches Tuesday only, so Julio's Monday middagdienst (part of \"volgende week middagdiensten\") stays and ends at 22.00, the Tuesday ochtenddienst starts at 6.00, eight hours against the eleven-hour rest rule; under the old wording \"ruilen\" could mean giving Monday's shift away, which left no rest problem and made A true. Options, key C, evidence and explanation are byte-identical to the reviewed file and still fit: the evidence is the three-rule sentence pair, verbatim in the text (48 hours' notice, eleven hours' rest, same machines with the ploeg irrelevant); A quotes a rule the case satisfies (Friday to Tuesday is more than 48 hours) but the rest rule still bars the swap; B contradicts \"in welke ploeg die collega zit, maakt niet uit\"; the explanation names the 22.00-6.00 gap, dismisses the notice argument and the other-ploeg objection. The colleague's side of the swap creates no second correct option (whatever the colleague's own rota, it gives at most another rest-rule failure, again \"Nee\"). Level: B1 and not over-long. 38 words in four sentences (3 / 5 / 25 / 5), longest 25 against the section 10 cap of 30; the 25-word sentence is a colon followed by two parallel main clauses; vocabulary from the text (draaien, ochtenddienst, middagdienst, ruilen, ploeg) plus the separable overnemen and goedkeuren already in the old prompt; \"Julio's\" is the correct apostrophe form. It is the longest question stem in the batch (next: busabonnement q5, 30 words), which is fair for the pair's hardest rule-to-case item; the extra eight words are the minimum that states the exchange. Option lengths 12 / 11 / 11 words, key not the longest. Keys unchanged A 6 / B 6 / C 7. Verdict: pass; batch pass; ready for integration. The catalogue copy still carries the previous prompt, so npm run content:integrate must be re-run to carry the new wording across."
+    }
+  ]
+}

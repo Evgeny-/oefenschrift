@@ -1,9 +1,11 @@
 import React, { useRef, useState } from 'react';
+import { useLocation } from 'react-router';
 import { useStudyContext } from '../StudyContext';
 import { summary, mistakes, savedSetSession, flatten, restore } from '../domain/study';
 import { typeLabel, unitLabel } from '../domain/labels';
-import { Segments, Toggle, ProgressRing } from './Controls';
+import { Segments, Toggle, ProgressRing, Chevron } from './Controls';
 import { Heading } from './ExerciseViews';
+import { checkDate, checkLine } from './LevelCheck';
 import AppLink from './AppLink';
 import useSelectionIndicator from './useSelectionIndicator';
 function ListFilters({ filter, onChange, includeAll = true, includeDrafts = false }) {
@@ -156,9 +158,9 @@ function PracticeSetList({ sets, restart = false }) {
               onNavigate={() => startSet(set, restart)}
             >
               <span className="exercise-entry-copy">
-                <strong>
+                <h3>
                   {t('Oefenset', 'Practice set')} {set.number}
-                </strong>
+                </h3>
                 <span className="entry-texts" lang="nl">
                   {items.map((item) => item.title).join(' · ')}
                 </span>
@@ -204,7 +206,7 @@ function ExerciseList({ items, retry = false }) {
               onNavigate={() => open(item)}
             >
               <span className="exercise-entry-copy">
-                <strong lang="nl">{item.title}</strong>
+                <h3 lang="nl">{item.title}</h3>
                 <small>{detail}</small>
               </span>
               <span className="exercise-status">
@@ -384,6 +386,14 @@ function ProgressTransfer() {
             if (imported.reviews[id]) next.reviews[id] = imported.reviews[id];
             drafts++;
           }
+        // Level checks merge by start time, newest first.
+        const known = new Set((s.checks || []).map((c) => c.startedAt));
+        next.checks = [
+          ...(s.checks || []),
+          ...imported.checks.filter((c) => !known.has(c.startedAt)),
+        ]
+          .sort((a, b) => b.startedAt - a.startedAt)
+          .slice(0, 20);
         return next;
       });
       setMessage(
@@ -425,8 +435,12 @@ function ProgressTransfer() {
   );
 }
 export function Progress() {
+  // ?filter=mistakes (from the start page) opens the matching view directly.
+  const requested = new URLSearchParams(useLocation().search).get('filter');
   const { state, t, catalogue, itemsFor, name } = useStudyContext(),
-    [filter, setFilter] = useState('done'),
+    [filter, setFilter] = useState(
+      ['drafts', 'done', 'mistakes'].includes(requested) ? requested : 'done',
+    ),
     items = catalogue.filter((i) => i.level === state.settings.level || i.part === 'knm'),
     n = summary(items, state.records),
     done = items
@@ -435,7 +449,9 @@ export function Progress() {
     missed = items.filter((i) => mistakes(i, state.records[i.id]).length),
     drafts = items.filter(
       (i) => !i.questions && !state.records[i.id]?.completed && state.drafts[i.id]?.trim(),
-    );
+    ),
+    // The last three level checks at this level, newest first.
+    checks = (state.checks || []).filter((c) => c.level === state.settings.level).slice(0, 3);
   const visible = filter === 'drafts' ? drafts : filter === 'mistakes' ? missed : done,
     hasKnm = itemsFor('knm').length > 0;
   return (
@@ -444,6 +460,30 @@ export function Progress() {
         title={t('Jouw voortgang', 'Your progress')}
         subtitle={t('Bewaard in deze browser.', 'Saved in this browser.')}
       />
+      {checks.length > 0 && (
+        <ul className="exercise-list check-history">
+          {checks.map((check) => (
+            <li key={check.startedAt}>
+              <AppLink
+                className="exercise-entry"
+                data-check={check.startedAt}
+                to="check-result"
+                search={`?at=${check.startedAt}`}
+              >
+                <span className="exercise-entry-copy">
+                  <h3>
+                    {t('Niveaucheck', 'Level check')} {state.settings.level} ·{' '}
+                    {checkDate(check, state.settings.lang)}
+                  </h3>
+                  <small>{checkLine(check, catalogue, t, name)}</small>
+                </span>
+                <span className="exercise-status">{t('Resultaat', 'Result')}</span>
+                <Chevron />
+              </AppLink>
+            </li>
+          ))}
+        </ul>
+      )}
       <div className="result-total">
         <strong>
           {n.completed}

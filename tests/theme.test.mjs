@@ -21,6 +21,8 @@ test('system preference survives reload without storing the resolved appearance'
       },
     },
     state = defaults();
+  assert.equal(state.settings.theme, 'light', 'light is the default appearance');
+  state.settings.theme = 'system';
   save(storage, state);
   assert.equal(restore(storage, []).settings.theme, 'system');
 });

@@ -1,0 +1,318 @@
+{
+  "review_id": "batch011-editorial-review",
+  "source": "content/batches/011-original.json",
+  "source_sha256": "2d49b8bbab77bd021c251502155a83c64836fabef18aaf4bd3d0796e3701d36e",
+  "review_type": "Independent AI editorial review of original B1 reading texts (Staatsexamen NT2 Programma I, Lezen I shape) against the rubric, blueprint sections 1/3/4.6/5/8/9/10/13, the Lezen I paragraph and B1 rows of docs/research/exam-blueprints-2026-09-10.md and the author brief; reviewer did not author or edit the batch; the author's notes were read after the items had been judged",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 3,
+    "distribution": {
+      "B1_reading": 3
+    },
+    "task_types": {
+      "website": 1,
+      "voorwaarden": 1,
+      "nieuwsbericht": 1
+    },
+    "text_types": {
+      "descriptief": 1,
+      "instructief": 1,
+      "beschouwend": 1
+    },
+    "domains": {
+      "educatie": 1,
+      "werk": 1,
+      "overig": 1
+    },
+    "question_count": 19,
+    "questions_per_text": [
+      6,
+      7,
+      6
+    ],
+    "option_counts": {
+      "3": 19
+    },
+    "key_counts": {
+      "A": 6,
+      "B": 6,
+      "C": 7
+    },
+    "key_sequence": "BACCAB CABABCA BCACBC",
+    "same_key_three_in_a_row": false,
+    "closed_evidence_is_verbatim": true,
+    "purpose_question_last_per_text": 3,
+    "purpose_key_matches_text_type": 3,
+    "opinion_or_inference_per_text": {
+      "deeltijdopleiding": 1,
+      "verlofregeling": 1,
+      "huisartsenpost-drukte": 3
+    },
+    "paragraph_span_detail_items_per_text": {
+      "deeltijdopleiding": 2,
+      "verlofregeling": 2,
+      "huisartsenpost-drukte": 2
+    },
+    "persona_prompts": 4,
+    "two_figure_quantity_items": 2,
+    "rule_application_items": 3,
+    "situation_lines": 3,
+    "word_counts": {
+      "deeltijdopleiding": 503,
+      "verlofregeling": 550,
+      "huisartsenpost-drukte": 551
+    },
+    "word_count_range": "503-551",
+    "prose_sentence_average": {
+      "deeltijdopleiding": 14.2,
+      "verlofregeling": 15.4,
+      "huisartsenpost-drukte": 15.2
+    },
+    "prose_sentence_average_range": "14.2-15.4",
+    "prose_longest_sentence": {
+      "deeltijdopleiding": 24,
+      "verlofregeling": 26,
+      "huisartsenpost-drukte": 29
+    },
+    "sentences_over_30_words": 0,
+    "markup_in_text": false,
+    "paragraphs_blank_line_separated": true,
+    "real_organisations_brands_addresses_persons": false,
+    "key_is_longest_option": {
+      "deeltijdopleiding": "q4 (+2 chars), q5 (+1 char)",
+      "verlofregeling": "none (q4 key is now the shortest by 19 characters)",
+      "huisartsenpost-drukte": "after revision: q1 (+3 chars; 12/10/11 words), q2 (+2 chars; key has the fewest words, 11/13/12), q5 (+3 chars; 12/12/11 words); q4 key is the middle length (81 against 91/77) and all three options carry a zodat clause; no key is a two-clause option any more"
+    },
+    "batch_check": "Checked 3 items, 19 questions. Keys: {\"B\":6,\"A\":6,\"C\":7}. Options: {\"3\":19}. No failures, no warnings. (run 2026-09-10 on the revised bytes 2d49b8bb...; the first-review run on b0c8b03d... gave the same line)",
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false,
+    "revised_fields_diff": "Byte-level diff of the reviewed bytes (b0c8b03d..., reproduced from the author build script build-011.mjs in the session scratchpad, whose output hashes to that value) against the revised bytes (2d49b8bb...): the only differences are verlofregeling questions[3].options.B and .C and huisartsenpost-drukte questions[0].options.A, questions[0].explanation, questions[1].options.C, questions[3].options.A and .B, questions[4].options.A and questions[4].evidence. Texts, prompts, keys, other options, other evidence and explanations are byte-identical."
+  },
+  "items": [
+    {
+      "id": "B1:reading:batch011-deeltijdopleiding:1",
+      "verdict": "pass",
+      "task_type": "website",
+      "text_type": "descriptief",
+      "domain": "educatie",
+      "words": 503,
+      "questions": 6,
+      "keys": "BACCAB",
+      "level_figures": {
+        "prose_words": 483,
+        "sentences": 34,
+        "average_sentence": 14.2,
+        "longest_sentence": 24
+      },
+      "level_check": "comparable (easier side)",
+      "level_reason": "A clearly signposted ROC information page; two paraphrased detail items across two sentences, a persona mapping to the EVC paragraph, a two-figure sum, an audience inference that the title and first sentence make explicit, purpose.",
+      "natural_dutch": "Idiomatic web register throughout. Optional only: the intro's 'hoe u een opleiding kiest' overstates what the page covers (it is q6's evidence); 'leerovereenkomst' where mbo practice says praktijkovereenkomst; EVC at 550 euro is below real prices (no question depends on it).",
+      "evidence": "q1 B follows from 'Het gesprek is geen sollicitatie: niemand wordt op basis van het gesprek afgewezen. Wel kan de adviseur u een andere opleiding of een ander niveau aanraden ...'; A confuses the test-based module with the talk, C reverses 'niemand wordt afgewezen'. q2 A from 'Het resultaat bepaalt niet of u wordt toegelaten. Het laat alleen zien of u voor de start een extra module ... nodig hebt.'; B is refuted by the first sentence, C borrows 'een lesavond per week'. q3 C from 'Voor de onderdelen die u al beheerst, krijgt u een vrijstelling. Zo kan de opleiding een half jaar tot een jaar korter worden.' after the EVC condition 'al jaren in het vak gewerkt, maar geen diploma'; A is test-based, B puts the assessor's talk in place of the intake. q4 C: 3 + 8-10 = 11-13 from 'een lesavond van drie uur en daarnaast acht tot tien uur per week'; A and B are each one figure. q5 A from 'Veel volwassenen willen een diploma halen, maar kunnen niet vijf dagen per week naar school. Daarom biedt ROC Westerhout ... in deeltijd aan.' plus the evening format and employer paragraph; B contradicts the format, C is discussed but not addressed. q6 B from 'Op deze pagina leest u hoe u een opleiding kiest en wat er gebeurt tussen uw aanmelding en de eerste les.'; A is never argued, C misreads the Kosten section.",
+      "distractor_test": "All distractors anchored in the text and clearly false; options parallel; key not the longest in q1, q2, q3, q6 and longer by only 1-2 characters in q4 and q5; no prompt word appears only in the key.",
+      "facts": "Intake without selection (mbo toelatingsrecht), entry test that does not decide admission, EVC with portfolio, assessor and vrijstellingen, cursusgeld for deeltijd, employer funding, instalments, September/February starts: plausible and not misleading. Fictional ROC Westerhout; persona Sabrina from the cast.",
+      "notes": "q2's key states the fact that refutes q1's distractor A (mild cross-question hint). Blueprint section 9 asks for 'a course choice' under education. Shares the adult part-time mbo setting with 010-deelexamens (different genre and purpose); do not pair in one drill.",
+      "revision_requests": [],
+      "optional": [
+        "text: 'De procedure kost 1.250 euro en duurt gemiddeld vier maanden.' for realism (no question affected)",
+        "text/q6 evidence: describe the page more exactly in the intro sentence ('wat er gebeurt tussen uw aanmelding en de eerste les en wat de opleiding kost'), updating q6's evidence with it"
+      ]
+    },
+    {
+      "id": "B1:reading:batch011-verlofregeling:1",
+      "verdict": "pass",
+      "task_type": "voorwaarden",
+      "text_type": "instructief",
+      "domain": "werk",
+      "words": 550,
+      "questions": 7,
+      "keys": "CABABCA",
+      "level_figures": {
+        "prose_words": 523,
+        "sentences": 34,
+        "average_sentence": 15.4,
+        "longest_sentence": 26
+      },
+      "level_check": "comparable (harder side)",
+      "level_reason": "A company regulation with three computed persona cases (rule plus exception plus subtraction; date plus two-week term; two leave days from two sentences), a paragraph-crossing reason inference and two two-sentence detail items with paraphrase.",
+      "natural_dutch": "Idiomatic verzuimprotocol register with inversion conditionals. Optional only: 'dan meldt u zich uiterlijk een uur voor het begin van uw dienst' could say 'dan belt u ...' to avoid a momentary reporting-for-duty reading (q1 evidence would follow); q7 key 'bij ziekte en verlof' is elliptical but parallel; 'de weken voor Sinterklaas en Kerst' for weeks 47-52 is defensible for parcel transport.",
+      "evidence": "q1 C: 'Bent u ziek, dan belt u voor 8.30 uur uw teamleider. Begint uw dienst voor 8.30 uur, dan meldt u zich uiterlijk een uur voor het begin van uw dienst.' with a 7.00 shift gives 6.00; A is the general rule without its exception (a wrong obligation, not a superset answer), B fails on 'een bericht via de app of een e-mail geldt niet als ziekmelding'. q2 A from 'Geef bij de melding door hoe lang u verwacht afwezig te zijn, op welk adres en telefoonnummer u bereikbaar bent en welk werk moet worden overgenomen. U hoeft niet te vertellen wat u mankeert ...'; B reversed by the second sentence, C false on 'welke collega' (the work is named, not the colleague). q3 B from 'adviseert het bedrijf over aangepast werk. Medische gegevens blijven bij de bedrijfsarts; het bedrijf krijgt alleen het advies.'; A reversed, C is the employee's own estimate. q4 A from 'Krijgt u binnen twee weken na uw aanvraag geen antwoord, dan is uw verlof goedgekeurd.' (3 March + 14 days = 17 March < 20 March; six-week term, three-week maximum and weeks 47-52 all satisfied); C anchored in 'bezetting' and false, B has no anchor. q5 B links 'In de weken 47 tot en met 52, de weken voor Sinterklaas en Kerst, wordt geen vakantie verleend.' to the intro's 'vervoeren wij bijna twee keer zo veel pakketten als anders; daarmee houdt deze regeling rekening.'; A and C are neighbouring rules. q6 C: 1 (verhuizing) + 1 (uitvaart grootouder) = 2 from 'Bij het overlijden van een broer, zus, grootouder of schoonouder krijgt u de dag van de uitvaart vrij. Voor uw verhuizing krijgt u een dag per kalenderjaar ...'; B applies the four-day partner/child/parent rule. q7 A from 'Hierin staat wat u doet als u ziek bent en hoe u verlof aanvraagt.'; key matches instructief; B nowhere in the text, C turns one rule's reason into the purpose.",
+      "distractor_test": "After revision (2d49b8bb...): all distractors anchored and clearly false; q4 B 'Hij moet zijn teamleider om een beslissing vragen.' is anchored in 'Uw teamleider beslist' and refuted by the silence-is-approval rule, C 'Zijn vakantie is afgewezen vanwege de bezetting.' by the same rule; 'vakantie' now appears in A and C, so no prompt word recurs only in the key; q2 C is false only in its first half (optional note stands); key never the longest option (q4 key is the shortest, 29 characters against 50/48); prompts q1, q4, q6 have three short sentences where blueprint section 5 says one or two (optional).",
+      "facts": "Mirrored rules checked as correct: no duty to name the illness and medical data stay with the bedrijfsarts; full vakantie accrual during illness; holiday during illness with agreement and deducted from the saldo; 70 percent legal minimum sick pay with 100 percent in year one as a common CAO rule; silence for two weeks counts as approval (art. 7:638 BW). Company-specific times, terms and special-leave days are presented as this company's rules. Fictional Transportbedrijf Noordhaven; personas Modibo, Hasan, Fatima from the cast. A grandparent's funeral in a special-leave clause is not graphic.",
+      "notes": "Seven questions kept (official band five to seven). Cross-part: A2:listening:batch005-werkdag:1 already has 'Modibo is ziek. Wat moet hij doen?' with a call-before-a-time key and a message distractor; the B1 item adds the shift computation, but the persona and operation repeat.",
+      "revision_requests": [],
+      "recommended": [
+        {
+          "field": "questions[3].options.B and questions[3].options.C (q4)",
+          "issue": "B has no anchor in the text and 'vakantie' from the prompt appears only in the key",
+          "repair": "B: 'Hij moet zijn teamleider om een beslissing vragen.' (anchored in 'Uw teamleider beslist'); C: 'Zijn vakantie is afgewezen vanwege de bezetting.'; explanation and key unchanged"
+        }
+      ],
+      "optional": [
+        "q1 prompt: rename the persona (e.g. Jari) and merge to two sentences: 'Jari begint op maandag om 7.00 uur in het magazijn, maar wordt in de nacht van zondag op maandag ziek. Wat moet hij doen?'",
+        "q4 prompt: 'Hasan heeft op 3 maart drie weken vakantie voor juli aangevraagd en heeft op 20 maart nog geen antwoord. Wat betekent dat?'",
+        "q6 prompt: 'Fatima verhuist in mei en gaat in dezelfde maand naar de uitvaart van haar grootmoeder. Hoeveel dagen bijzonder verlof krijgt zij in totaal?'",
+        "q2 option C: 'Welke collega zijn werk overneemt en wat de huisarts heeft gezegd.' (false in both halves)",
+        "q3 prompt: 'Wat krijgt het bedrijf van de bedrijfsarts te horen?' to vary the stem after q2",
+        "text: 'dan belt u uiterlijk een uur voor het begin van uw dienst' (update q1 evidence)"
+      ],
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "2d49b8bbab77bd021c251502155a83c64836fabef18aaf4bd3d0796e3701d36e",
+        "verdict": "pass",
+        "checked": "q4 (key A, recommended): B is now 'Hij moet zijn teamleider om een beslissing vragen.' (8 words, 50 characters) and C 'Zijn vakantie is afgewezen vanwege de bezetting.' (7 words, 48 characters), the review's exact wording. B is anchored in 'Uw teamleider beslist en houdt daarbij rekening met de bezetting van de afdeling.' and false because the next sentence, the unchanged evidence 'Krijgt u binnen twee weken na uw aanvraag geen antwoord, dan is uw verlof goedgekeurd.', makes silence an approval: on 20 March (3 March plus two weeks is 17 March) the leave is granted and there is no decision left to ask for. C is anchored in 'houdt daarbij rekening met de bezetting' and false for the same reason; 'vakantie' from the prompt now stands in A and C. Key A unchanged and still the single defensible answer; the case still satisfies the six-week term, the three-week maximum and the weeks 47-52 block. Explanation unchanged: its first sentence states the rule that defeats B and its second sentence names C's failure. Both new options are one plain clause, parallel with A in form; A stays the shortest (29 characters against 50/48), which is not a signal blueprint section 5 forbids. Unchanged q1, q2, q3, q5, q6, q7 and the text re-read: identical bytes, verdicts stand.",
+        "notes": [
+          "Optional, at a later byte change only: the explanation could add 'hij hoeft zijn teamleider dus niet om een beslissing te vragen' so the tempting new B is named as well as C.",
+          "The batch notes' q4 line still gives the rationale for the retired B 'opnieuw indienen' and C 'aanvraag ... afgewezen'; record the new rationales there (coordinator to-do, no new hash)."
+        ]
+      }
+    },
+    {
+      "id": "B1:reading:batch011-huisartsenpost-drukte:1",
+      "verdict": "pass",
+      "task_type": "nieuwsbericht",
+      "text_type": "beschouwend",
+      "domain": "overig",
+      "words": 551,
+      "questions": 6,
+      "keys": "BCACBC",
+      "level_figures": {
+        "prose_words": 531,
+        "sentences": 35,
+        "average_sentence": 15.2,
+        "longest_sentence": 29
+      },
+      "level_check": "comparable",
+      "level_reason": "A beschouwend news feature with two quoted speakers; the function-of-example item, two opinion items on named speakers and a two-cause detail item are the operations the research document lists for Lezen I; sentences up to 29 words.",
+      "natural_dutch": "Idiomatic journalistic Dutch ('hangt soms een half uur aan de lijn', 'draait al twaalf jaar diensten', 'kijkt er anders tegenaan'). Optional only: 'de regio' as an actor twice; the campaign name is generic (no real campaign known with this exact name); q5's evidence opens a quotation mark it never closes and the results page prints it.",
+      "evidence": "q1 B from 'Twee huisartsenpraktijken in de regio zijn gesloten omdat er geen opvolger werd gevonden, en de inwoners worden gemiddeld ouder. Daarnaast blijkt ongeveer vier op de tien telefoontjes te gaan over klachten die tot de volgende werkdag hadden kunnen wachten.' with the lead's 'het aantal huisartsen ... juist kleiner werd'; C over-reads 'gemiddeld ouder', A is anchored only by 'sinds maart' and a reversal of the closing advice. q2 C from 'Zaterdagavond was het eerste moment waarop ze rustig kon bellen. Voor haar was de huisartsenpost geen keuze, maar de enige deur die nog openstond.' after 'maar weinig mensen ... die de regels bewust negeren'; A is the blame reading the example refutes, B takes a lead detail for the point. q3 A from 'Zij is blij met de triagelijn, maar ziet die niet als de oplossing.' and 'De echte oplossing ligt overdag'; B reverses 'sneller de juiste mensen spreken', C reverses 'blijven ze 's avonds bij ons uitkomen'. q4 C from 'een zorgverlener die kleine verwondingen en eenvoudige klachten zelfstandig behandelt. Zo houden de huisartsen tijd over voor patienten die echt een arts nodig hebben.'; A is the triage nurse, B the campaign. q5 B from 'Toch heeft hij begrip voor mensen die met een kleine klacht bellen. \"Als gewone burger weet je niet wat ernstig is.'; A stretches 'Die folder is prima', C is contradicted by 'Toch heeft hij begrip'. q6 C: the feature reports causes, measures and two views; A is the campaign's message reported, B names a problem the text says has eased.",
+      "distractor_test": "After revision (2d49b8bb...): all distractors anchored and clearly false; q2 key 69 characters against 65/67 and the only option with the fewest words (11/13/12), no two-clause option left; q4 key 81 characters against 91/77 with all three options in the same infinitive-plus-zodat shape; q1 key 70 against 67/61 (12/10/11 words); q5 key 67 against 64/58 (12/12/11 words). Residual margins of two or three characters are not a usable signal; by word count the key is the longest only in q1. Before revision the key was 86 against 65/67 in q2 and 81 against 61/55 in q4 and the only two-clause option in both.",
+      "facts": "Practice closures without successors, ageing, a large non-urgent share, nurse triage with call-back, physician assistants, a spoed campaign and 'dat een herhaalrecept nooit een reden is om de post te bellen' match Dutch huisartsenpost practice; figures invented and labelled as one region's; consistent with the KNM cards batch006-huisartsenpost and batch006-receptmedicijnen. Fictional Huisartsenpost Westerhout and huisarts Anke de Groot; Ricardo from the cast. Mild injury, not graphic.",
+      "notes": "Purpose key 'informeren over ... en de aanpak daarvan' for a beschouwend text matches the sibling batch's convention (010-ploegendienst).",
+      "revision_requests": [
+        {
+          "severity": "required",
+          "field": "questions[1].options.C (q2)",
+          "failure": "Key is the longest option by 19-21 characters and the only two-clause option; blueprint section 5 forbids a longer or more specific key.",
+          "repair": "Dat mensen bellen omdat ze overdag hun huisarts niet kunnen bereiken.",
+          "acceptance": "Options within a few characters of each other, none with two clauses; key C still follows from 'Voor haar was de huisartsenpost geen keuze, maar de enige deur die nog openstond.'; evidence and explanation unchanged."
+        },
+        {
+          "severity": "required",
+          "field": "questions[3].options.A and questions[3].options.B (q4)",
+          "failure": "Key is the longest option by 20-26 characters and the only option with a consequence clause ('zodat ...').",
+          "repair": "A: 'De telefoon opnemen en inschatten hoe dringend een klacht is, zodat spoedgevallen voorgaan.' B: 'Folders maken over wat wel en geen spoed is, zodat mensen minder vaak bellen.' C unchanged. (Alternative accepted: shorten C to 'Patienten met lichte klachten en kleine wonden zelf behandelen.' and leave A and B; less preferred because the item then rests on one evidence sentence.)",
+          "acceptance": "Key not the longest option; all options share one clause structure; explanation's 'waardoor de huisartsen tijd overhouden' remains true; evidence unchanged."
+        }
+      ],
+      "recommended": [
+        {
+          "field": "questions[0].options.A and questions[0].explanation (q1)",
+          "issue": "A is anchored only by reversal of the closing advice; key is the longest option",
+          "repair": "A: 'Steeds meer bellers negeren bewust de regels van de huisartsenpost.' Explanation: 'Er zijn praktijken gesloten en er komen meer telefoontjes over klachten die tot de volgende werkdag kunnen wachten. De inwoners worden ouder, maar het bericht zegt niet dat zij vaker ernstig ziek zijn, en volgens de post negeren maar weinig bellers de regels bewust.'"
+        },
+        {
+          "field": "questions[4].options.A (q5)",
+          "issue": "key is the longest option by nine characters and the only twelve-word option with an 'omdat' clause",
+          "repair": "A: 'Hij vindt dat zij beter eerst de folder over spoed kunnen lezen.' (or shorten the key to 'Hij vindt het begrijpelijk, omdat je niet weet wat ernstig is.')"
+        },
+        {
+          "field": "questions[4].evidence (q5)",
+          "issue": "unclosed quotation mark, printed by the results page",
+          "repair": "end the evidence at '... met een kleine klacht bellen.' or include the whole quotation"
+        }
+      ],
+      "optional": [
+        "text: name the acting body once ('de huisartsen in de regio') instead of 'de regio'",
+        "coordinator: quick search that no real campaign uses the exact name 'Kan het tot morgen wachten?'"
+      ],
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "2d49b8bbab77bd021c251502155a83c64836fabef18aaf4bd3d0796e3701d36e",
+        "verdict": "pass",
+        "checked": "q2 (key C, required): options.C is now 'Dat mensen bellen omdat ze overdag hun huisarts niet kunnen bereiken.' (11 words, 69 characters against A 65 / B 67; fewest words), the review's exact wording. One clause with an omdat reason, like A's als clause and B's dan comparison; the 'niet ..., maar ...' double clause is gone. Still entailed by the unchanged evidence 'Zaterdagavond was het eerste moment waarop ze rustig kon bellen. Voor haar was de huisartsenpost geen keuze, maar de enige deur die nog openstond.' read with 'haar eigen praktijk was tussen de middag en na vier uur telefonisch niet bereikbaar' and De Groot's 'Zolang mensen overdag hun eigen praktijk niet kunnen bereiken, blijven ze 's avonds bij ons uitkomen'. A (ouders bellen te snel) is still the blame reading the example refutes ('geen keuze'), B still the lead's Saturday detail; the unchanged explanation ('geen voorbeeld van te snel bellen, maar van een gebrek aan andere mogelijkheden') still fits. Acceptance condition met. q4 (key C, required): A 'De telefoon opnemen en inschatten hoe dringend een klacht is, zodat spoedgevallen voorgaan.' (13 words, 91 characters) and B 'Folders maken over wat wel en geen spoed is, zodat mensen minder vaak bellen.' (14 words, 77 characters) are the review's exact wording; C unchanged (12 words, 81 characters). All three are an infinitive phrase plus a zodat clause; the key is neither the longest nor the only consequence-clause option. A is anchored in 'een verpleegkundige aan de lijn die vragen stelt en inschat hoe dringend de klacht is' and 'zodat de lijn vrij blijft voor spoed' (the triage nurse, not the physician assistant); B in the campaign's 'folder ... Daarop staat met voorbeelden wat wel en geen spoed is' (the campaign, not the physician assistant). Key C still proven by the unchanged two-sentence evidence; the unchanged explanation already names A's task as the triage nurse's ('inschatten' now matches A's verb) and its 'waardoor de huisartsen tijd overhouden' remains true. Acceptance condition met. q1 (key B, recommended): A is now 'Steeds meer bellers negeren bewust de regels van de huisartsenpost.' (10 words, 67 characters), anchored in and reversed by 'Volgens de post zitten daar maar weinig mensen tussen die de regels bewust negeren.'; plausible for a reader who takes 'vier op de tien telefoontjes ... hadden kunnen wachten' as deliberate misuse, and clearly false because the text denies it in so many words and never says the number grows. The explanation now ends 'en volgens de post negeren maar weinig bellers de regels bewust', matching the new A and still refuting C; the evidence is unchanged and still entails B. q5 (key B, recommended): A is now 'Hij vindt dat zij beter eerst de folder over spoed kunnen lezen.' (12 words, 64 characters), anchored in 'Die folder is prima' and the campaign folder about 'wat wel en geen spoed is', false by 'Toch heeft hij begrip ...' and 'ik wil vooral dat er iemand opneemt'; the key is no longer the only twelve-word option (12/12/11). The evidence now runs from 'Toch heeft hij begrip voor mensen die met een kleine klacht bellen.' to the closing quotation mark after 'als het echt nodig is.' (four sentences, 249 characters): verified as a verbatim substring of text (script and checker); quotation marks balanced; it entails B ('begrip' + 'Als gewone burger weet je niet wat ernstig is') and also contains the sentence that refutes A. The results page finds it with text.includes and marks it in the source (app/domain/text.ts, app/components/Results.tsx), so the longer quote renders. Explanation unchanged and still consistent ('vraagt niet dat mensen die eerst lezen'). Unchanged q3 and q6 re-read: identical bytes, verdicts stand.",
+        "notes": [
+          "Residual, not blocking: the key is still the longest option by three characters in q1 and q5 and by two in q2 (by words it is the longest only in q1 and tied in q5); these are the figures the review's own proposed wordings produce and the review accepted them as 'no usable margin'. A learner who counts characters would still take q1, q2 and q5; a learner who counts words would take q1 only. Optional evening-out at the next byte change of the batch, not now: q5 C 'Hij vindt dat zij de wachttijd voor andere bellers te lang maken.' (65 characters) and q1 C 'De inwoners van de regio zijn nu vaker ernstig ziek dan vroeger.' (64 characters).",
+          "The batch notes (content/batches/011-notes.md, text 3 lines for q1, q2, q4 and q5) still quote the superseded option wordings; the coordinator's appended section records the new anchors in summary. The rationales for the new options are also carried by the batch fields themselves (q1 explanation, q4 explanation, q5 explanation), so the audit trail of rubric 12 is complete in the source; updating the four note lines is a coordinator to-do that needs no new hash."
+        ]
+      }
+    }
+  ],
+  "batch_level_requests": [],
+  "author_doubts_decisions": [
+    {
+      "doubt": "Text 2 has seven questions",
+      "decision": "Keep seven (official band five to seven). For a 35-question mock from batches 010 and 011 (38 questions) drop verlofregeling q3 and two questions from 010 at assembly, not from the batch."
+    },
+    {
+      "doubt": "Text 2 q5 reads as detail rather than inference",
+      "decision": "Keep the apposition and the inference label: the reason stands in the introduction, three sections away; the apposition only identifies the weeks."
+    },
+    {
+      "doubt": "Text 2 q1 rule plus exception",
+      "decision": "Confirmed unambiguous: general 8.30 rule, early-shift exception, 7.00 minus one hour = 6.00; option A is a wrong obligation, not a superset answer."
+    },
+    {
+      "doubt": "Text 1 q5 audience is explicit",
+      "decision": "Keep; an audience item on an information page is an official operation and the distractors need the whole page; do not reword the opening."
+    },
+    {
+      "doubt": "Text 3 q1 distractor A weakly anchored",
+      "decision": "Clearly false, so no fail; replace with the anchored 'regels bewust negeren' reversal (recommended edit)."
+    },
+    {
+      "doubt": "'Physician assistant' and the stitched cut",
+      "decision": "Both accepted: real Dutch job title, glossed in apposition, dictionary allowed; the injury is mild."
+    },
+    {
+      "doubt": "Mirrored legal rules",
+      "decision": "Keep them legally correct; a fictional company regulation is not a KNM card and makes no legal claim; blueprint principle 4 prefers texts that teach nothing false."
+    }
+  ],
+  "diversity_review": "Three settings, domains, text types and task types with distinct tested operations; no slug reused; nearest catalogue neighbours (cursusfonds, stage, dienst ruilen, the KNM huisartsenpost cards, the A2 huisarts letter) differ in text type, structure and rules; cross-part repeat of the sick-call operation with the same persona in A2:listening:batch005-werkdag:1 (optional rename). With batch 010 the six texts cover six task types, all four text types and each domain twice, a full mock spread; 011-deeltijdopleiding and 010-deelexamens share the adult part-time mbo setting and should not sit in one drill or consecutively in a mock; Fatima and Modibo recur across the two batches.",
+  "set_assembly": {
+    "drills": [
+      "deeltijdopleiding + huisartsenpost-drukte (12 Q)",
+      "verlofregeling + 010-deelexamens (13 Q)",
+      "010-ploegendienst + 010-busabonnement (13 Q)"
+    ],
+    "mock": "010 + 011 = 38 questions; drop three at assembly (verlofregeling q3 and two from 010); order huisartsenpost-drukte, deeltijdopleiding, 010-ploegendienst, 010-deelexamens, verlofregeling, 010-busabonnement (look-up last, adult-mbo texts apart); recheck key balance after the drop.",
+    "avoid": [
+      "deeltijdopleiding with 010-deelexamens in one drill",
+      "verlofregeling with 010-ploegendienst in one drill"
+    ]
+  },
+  "coordinator_notes": [
+    "Re-review of 2026-09-10 (see revisions): all required and recommended edits applied verbatim; batch passes at 2d49b8bb.... Before integrating, update the five stale distractor-rationale lines in content/batches/011-notes.md (text 3 q1, q2, q4, q5 and text 2 q4) so they quote the current options; this changes no batch bytes.",
+    "Blueprint section 3 describes the situation line as naming a person and a source; both B1 batches use the official player's 'U leest ...' form. Align the blueprint wording.",
+    "Both beschouwend texts (010 interview, 011 nieuwsbericht) key the purpose question on 'informeren'; decide whether the bank wants a distinct beschouwend key form before more B1 texts are written.",
+    "The checker's 2.5x option-length warning did not catch the text 3 pattern; a per-text 'key is the longest option in more than half the questions' warning would.",
+    "Next educatie B1 text should avoid the adult part-time mbo setting used by 010-deelexamens and 011-deeltijdopleiding."
+  ],
+  "limitations": [
+    "This is an AI editorial review. It does not replace independent Dutch-language educator review, learner trials, blueprint validation or psychometric calibration, and it does not establish equivalence with the Staatsexamen NT2 Programma I. The B1 label remains an unvalidated authoring target.",
+    "Originality against official practice items rests on the author's declaration and the reviewer's reading; the texts were not compared with official exams line by line.",
+    "Labour-law and mbo facts were checked against the reviewer's knowledge, not primary sources; the texts are fictional and make no legal claim.",
+    "No exemplar files exist (content/exemplars/ is absent); level judgements compare each text with the blueprint's description of the official texts and with the sibling batch. The independent second level check of blueprint section 12 has not taken place.",
+    "The recorded hash covers the re-reviewed file (2d49b8bb...); any further edit changes the bytes and requires a new hash and a focused re-review before integration."
+  ],
+  "re_reviewed_at": "2026-09-10",
+  "revisions": [
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review",
+      "items": [
+        "B1:reading:batch011-huisartsenpost-drukte:1",
+        "B1:reading:batch011-verlofregeling:1"
+      ],
+      "previous_sha256": "b0c8b03d39e612dd5e7a90f21679555f449302b4e08a63d9af2d50150f2cadd2",
+      "re_reviewed_sha256": "2d49b8bbab77bd021c251502155a83c64836fabef18aaf4bd3d0796e3701d36e",
+      "verdict": "pass",
+      "note": "Focused re-review of the fields the coordinator changed after the first review (content/batches/011-notes.md, 'Coordinator revision after the editorial review'). The file at 2d49b8bb... was diffed byte for byte against the reviewed bytes at b0c8b03d..., reproduced by re-running the author's build script from the session scratchpad into a scratch file (its output hashes to b0c8b03d... exactly); the only differences are verlofregeling q4 options B and C and huisartsenpost-drukte q1 option A and explanation, q2 option C, q4 options A and B, q5 option A and q5 evidence. Every applied wording is the review's proposed wording verbatim; texts, prompts, keys, other options, evidence and explanations are unchanged. npm run batch:check on the new bytes: 'Checked 3 items, 19 questions. Keys: {\"B\":6,\"A\":6,\"C\":7}. Options: {\"3\":19}. No failures, no warnings.'; all nineteen evidence quotes re-verified as verbatim substrings by script; keys A 6 / B 6 / C 7, sequence unchanged. huisartsenpost-drukte: q2 key 69 characters against 65/67 with the fewest words and no two-clause option; q4 key 81 against 91/77 with all options in one infinitive-plus-zodat shape; q1 A re-anchored in 'maar weinig mensen ... die de regels bewust negeren' with the explanation updated to match; q5 A anchored in 'Die folder is prima' and the evidence extended to the balanced full quotation, verbatim and entailing B. verlofregeling: q4 B anchored in 'Uw teamleider beslist' and refuted by the silence-is-approval sentence, C by the same sentence, 'vakantie' no longer only in the key. Residual, not blocking: the key remains the longest by two or three characters in huisartsenpost-drukte q1, q2 and q5 (the figures the review's own wording produces; by words only q1). Both re-reviewed items pass; all three items pass; batch_verdict pass; ready_for_integration true; source_sha256 set to 2d49b8bb.... Coordinator to-do without a new hash: update the superseded distractor rationales in 011-notes.md (text 3 q1, q2, q4, q5; text 2 q4)."
+    }
+  ]
+}

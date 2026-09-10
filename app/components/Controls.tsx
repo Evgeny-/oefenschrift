@@ -1,10 +1,12 @@
-import React, { useId } from 'react';
+import React, { useEffect, useId, useRef, useState, useLayoutEffect } from 'react';
 import { RadioGroup } from '@base-ui/react/radio-group';
 import { Radio } from '@base-ui/react/radio';
 import { Popover } from '@base-ui/react/popover';
 import { Switch } from '@base-ui/react/switch';
 import useSelectionIndicator from './useSelectionIndicator';
 import { useStudyContext } from '../StudyContext';
+import { mediaUrl, withBase } from '../domain/base';
+import { routePath } from '../domain/routes';
 
 export function Segments({
   label,
@@ -88,7 +90,7 @@ export function ThemeIcon({ theme }) {
   );
 }
 function InfoPopover({ label, title, children }) {
-  const { t } = useStudyContext();
+  const { t, state } = useStudyContext();
   return (
     <Popover.Root>
       <Popover.Trigger
@@ -117,7 +119,11 @@ function InfoPopover({ label, title, children }) {
           <Popover.Popup className="info-popup">
             <Popover.Title className="sr-only">{title}</Popover.Title>
             <Popover.Description>{children}</Popover.Description>
-            <a href="/privacy" target="_blank" rel="noreferrer">
+            <a
+              href={withBase(routePath('privacy', state.settings.level, state.settings.lang))}
+              target="_blank"
+              rel="noreferrer"
+            >
               {t('Privacy bekijken', 'Read privacy notice')}
             </a>
           </Popover.Popup>
@@ -186,26 +192,34 @@ export function LanguageFlag({ language }) {
 }
 // Single-weight glyphs beside the navigation labels. Each carries one small motion
 // that plays when its section becomes current (see the nav-icon rules in styles.css).
+// Drawn in the site's rounded shape language: rounded corners, pill cups, a pen with a
+// round back, a mill with a rounded foot. The animated parts keep their class names.
 const navGlyphs = {
   reading: (
     <>
-      <path className="book-left" d="M12 7.3C10.4 6 8.2 5.5 5 5.7v12.2c3.2-.2 5.4.3 7 1.6" />
-      <path className="book-right" d="M12 7.3c1.6-1.3 3.8-1.8 7-1.6v12.2c-3.2-.2-5.4.3-7 1.6" />
-      <path d="M12 7.3v12.2" />
+      <path
+        className="book-left"
+        d="M12 7.4C10.6 6.2 8.6 5.7 6.2 5.7A1.2 1.2 0 0 0 5 6.9v9.8a1.2 1.2 0 0 0 1.2 1.2c2.4 0 4.4.5 5.8 1.7"
+      />
+      <path
+        className="book-right"
+        d="M12 7.4c1.4-1.2 3.4-1.7 5.8-1.7A1.2 1.2 0 0 1 19 6.9v9.8a1.2 1.2 0 0 1-1.2 1.2c-2.4 0-4.4.5-5.8 1.7"
+      />
+      <path d="M12 7.4v12.2" />
     </>
   ),
   listening: (
     <g className="phones">
       <path d="M5.8 14V11.6a6.2 6.2 0 0 1 12.4 0V14" />
-      <rect x="4" y="13.2" width="3.6" height="5.6" rx="1.3" />
-      <rect x="16.4" y="13.2" width="3.6" height="5.6" rx="1.3" />
+      <rect x="4" y="13.2" width="3.6" height="5.6" rx="1.8" />
+      <rect x="16.4" y="13.2" width="3.6" height="5.6" rx="1.8" />
     </g>
   ),
   writing: (
     <>
       <g className="pen">
-        <path d="M14.6 5.4l4 4L8.9 19.1 4.5 20l.9-4.4z" />
-        <path d="M13 7l4 4" />
+        <path d="M4.5 19.5l4.2-1.4 9.6-9.6a2 2 0 0 0-2.8-2.8l-9.6 9.6z" />
+        <path d="M5.9 15.3l2.8 2.8" />
       </g>
       <path className="pen-line" d="M13.5 20h6" />
     </>
@@ -220,7 +234,7 @@ const navGlyphs = {
   ),
   knm: (
     <>
-      <path d="M8.6 21l1.2-8h4.4l1.2 8zM9.7 13a2.3 2.3 0 0 1 4.6 0" />
+      <path d="M9.7 13h4.6l1.1 7.1a.8.8 0 0 1-.8.9H9.4a.8.8 0 0 1-.8-.9zM9.7 13a2.3 2.3 0 0 1 4.6 0" />
       <g className="sails">
         <path d="M7.4 4.4l9.2 9.2M16.6 4.4l-9.2 9.2" />
         <circle cx="12" cy="9" r="1.3" fill="var(--paper)" />
@@ -242,10 +256,18 @@ const navGlyphs = {
       <path className="bar" d="M18.5 19V5.5" />
     </>
   ),
+  // The level check: a gauge with its needle up, for rows that lead to a check.
+  check: (
+    <>
+      <path d="M5.6 16.4a7.5 7.5 0 1 1 12.8 0" />
+      <path d="M12 12.5l4.3-3.5" />
+      <circle cx="12" cy="12.5" r="1.2" fill="var(--paper)" />
+    </>
+  ),
 };
 // `motion` names the section the learner just navigated to; a new count remounts
 // that icon so its CSS animation plays again on the next navigation.
-export function NavIcon({ part, motion = undefined }) {
+export function NavIcon({ part, motion = undefined, size = 16 }) {
   const glyph = navGlyphs[part],
     animate = motion?.part === part;
   return glyph ? (
@@ -253,8 +275,8 @@ export function NavIcon({ part, motion = undefined }) {
       key={animate ? motion.count : 0}
       className={`nav-icon icon-${part}`}
       data-animate={animate || undefined}
-      width="16"
-      height="16"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -266,6 +288,40 @@ export function NavIcon({ part, motion = undefined }) {
       {glyph}
     </svg>
   ) : null;
+}
+// A text field that grows with its content: no manual resize handle, never an inner scrollbar.
+export function GrowingTextarea(props: React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
+  const ref = useRef<HTMLTextAreaElement>(null);
+  useLayoutEffect(() => {
+    const field = ref.current;
+    if (!field) return;
+    field.style.height = 'auto';
+    field.style.height = `${field.scrollHeight + 2}px`;
+  }, [props.value]);
+  return <textarea ref={ref} {...props} />;
+}
+// The address is stored in two halves and only assembled in the browser after mount, so
+// the served HTML and the bundle never contain it whole. The link reads as an action;
+// the address itself appears only in the mailto, with its subject.
+export function ContactLink({
+  email,
+  label,
+}: {
+  email: { user: string; domain: string; subject?: string };
+  label: string;
+}) {
+  const [ready, setReady] = useState(false);
+  useEffect(() => setReady(true), []);
+  if (!ready) return <span className="text-button">{label}</span>;
+  const address = `${email.user}@${email.domain}`;
+  return (
+    <a
+      className="text-button"
+      href={`mailto:${address}${email.subject ? `?subject=${encodeURIComponent(email.subject)}` : ''}`}
+    >
+      {label}
+    </a>
+  );
 }
 export function KeyHint({ label = undefined }) {
   return (
@@ -329,5 +385,104 @@ export function PlayIcon({ playing }) {
         <path d="M8 5.3c0-.8.9-1.2 1.5-.8l10 6.6c.7.4.7 1.4 0 1.8l-10 6.6c-.6.4-1.5 0-1.5-.8z" />
       )}
     </svg>
+  );
+}
+// The row arrow used by catalogue-style entries that lead somewhere.
+export function Chevron() {
+  return (
+    <svg
+      className="entry-chevron"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      aria-hidden="true"
+    >
+      <path d="m9 6 6 6-6 6" />
+    </svg>
+  );
+}
+// The three reasons on the start page, in the rounded shape language of the site
+// (rounded rectangles, round caps) and each with one element in the evidence marker:
+// a heart, an exam sheet with the chosen option marked, and a speech bubble with a
+// marker line for feedback.
+const reasonGlyphs = {
+  exam: (
+    <>
+      <rect x="5" y="3.5" width="14" height="17" rx="2.5" />
+      <rect x="8" y="7.25" width="8" height="3.5" rx="1.75" fill="var(--icon-mark)" stroke="none" />
+      <path d="M8.5 14h7M8.5 17h4.5" />
+    </>
+  ),
+  free: (
+    <path
+      d="M12 18.75c-.4 0-7.5-4.3-7.5-9.4 0-2.4 1.9-4.1 4.1-4.1 1.5 0 2.7.8 3.4 2 .7-1.2 1.9-2 3.4-2 2.2 0 4.1 1.7 4.1 4.1 0 5.1-7.1 9.4-7.5 9.4z"
+      fill="var(--icon-mark)"
+    />
+  ),
+  feedback: (
+    <>
+      <path d="M6 4.5h12a2.5 2.5 0 0 1 2.5 2.5v7a2.5 2.5 0 0 1-2.5 2.5h-6.2L8 19.7v-3.2H6A2.5 2.5 0 0 1 3.5 14V7A2.5 2.5 0 0 1 6 4.5z" />
+      <rect x="7" y="9.25" width="8" height="2.5" rx="1.25" fill="var(--icon-mark)" stroke="none" />
+    </>
+  ),
+};
+export function ReasonIcon({ kind }) {
+  return (
+    <svg
+      className={`reason-icon reason-${kind}`}
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {reasonGlyphs[kind]}
+    </svg>
+  );
+}
+
+// A small play/pause button for one short clip: a question read aloud, a spoken cue, an instruction.
+export function ClipButton({ src, playLabel, pauseLabel, caption = '' }) {
+  const audio = useRef<HTMLAudioElement>(null),
+    [playing, setPlaying] = useState(false);
+  useEffect(() => {
+    const el = audio.current;
+    return () => el?.pause();
+  }, []);
+  const toggle = async () => {
+    try {
+      const el = audio.current;
+      if (el.paused) await el.play();
+      else el.pause();
+    } catch {
+      setPlaying(false);
+    }
+  };
+  return (
+    <span className="question-audio">
+      <audio
+        ref={audio}
+        src={mediaUrl(src)}
+        preload="none"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+        onEnded={() => setPlaying(false)}
+      />
+      <button
+        type="button"
+        className="play-button play-button-small"
+        onClick={toggle}
+        aria-label={playing ? pauseLabel : playLabel}
+      >
+        <PlayIcon playing={playing} />
+      </button>
+      {caption && <span className="clip-caption">{caption}</span>}
+    </span>
   );
 }

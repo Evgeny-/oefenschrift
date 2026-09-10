@@ -15,6 +15,7 @@ import {
   mistakes,
   sessionMistakes,
   retrySession,
+  hasProgress,
   STORAGE_KEY,
 } from '../app/domain/study.ts';
 const catalogue = JSON.parse(
@@ -117,12 +118,19 @@ test('original and reviewed questions have valid answer keys and exact sample ev
       for (const q of item.questions) {
         assert.ok(q.options[q.answer]);
         assert.ok(q.explanation);
-        assert.equal(Object.keys(q.options).length, 3);
+        // Blueprint items mix three and four options, as the official A2 exams do.
+        assert.ok([3, 4].includes(Object.keys(q.options).length));
       }
       if (item.part === 'listening') {
-        assert.ok(item.audio);
-        assert.ok(fs.existsSync(new URL('../assets/' + item.audio, import.meta.url)));
-        assert.ok(item.duration > 1);
+        // A blueprint B1 text carries one clip per question and a spoken intro; older items and
+        // A2 fragments carry one clip for the item.
+        const clips = item.intro ? item.questions : [item];
+        for (const clip of clips) {
+          assert.ok(clip.audio);
+          assert.ok(fs.existsSync(new URL('../assets/' + clip.audio, import.meta.url)));
+          assert.ok(clip.duration > 1);
+        }
+        if (item.intro) assert.ok(item.introAudio);
       }
     } else {
       assert.equal(item.criteria.length, item.quotes.length);
@@ -150,7 +158,11 @@ test('theme preference persists without invalidating older saved progress', () =
   assert.equal(restore(st, catalogue).settings.theme, 'dark');
   s.settings.theme = 'unknown';
   save(st, s);
-  assert.equal(restore(st, catalogue).settings.theme, 'system');
+  assert.equal(
+    restore(st, catalogue).settings.theme,
+    'light',
+    'an unknown value falls back to the light default',
+  );
 });
 test('completed wrong answers survive reload and a correct retry clears the mistake', () => {
   const item = catalogue.find((i) => i.part === 'reading' && i.questions.length > 1),
@@ -279,4 +291,15 @@ test('a focused retry narrows the questions, keeps the set link and preserves th
     null,
     'unknown question keys invalidate a session',
   );
+});
+test('a set opened and left again is not progress, an answer or a passed item is', () => {
+  const set = JSON.parse(
+    fs.readFileSync(new URL('../content/practice-sets.json', import.meta.url)),
+  ).find((set) => set.id === 'a2-listening-01');
+  const fresh = { ...startSession(set.ids, 'practice', catalogue, 1000), setId: set.id };
+  assert.equal(hasProgress(fresh), false);
+  assert.equal(hasProgress(null), false);
+  const first = flatten(fresh, catalogue)[0];
+  assert.equal(hasProgress({ ...fresh, answers: { [first.key]: first.q.answer } }), true);
+  assert.equal(hasProgress({ ...fresh, index: 1 }), true);
 });

@@ -15,22 +15,58 @@
   overflow: auto;
   display: flex;
   flex-direction: column;
-  padding: 2rem 1.25rem;
+  /* A little more air above the wordmark and between it and the level choice. */
+  padding: 2.625rem 1.25rem 2rem;
   border-right: 1px solid var(--line);
   background: var(--paper);
   min-width: 0;
 }
+/* The strip wrapper only exists for phones; on wider screens it is transparent to the column. */
+.nav-strip {
+  display: contents;
+}
 .wordmark {
+  display: block;
   align-self: flex-start;
-  margin: 0 0 1.5rem -0.2em;
-  padding: 0 0.2em;
-  color: var(--ink);
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  text-decoration: none;
-  line-height: 1.3;
-  background: linear-gradient(transparent 55%, var(--mark) 55%, var(--mark) 92%, transparent 92%);
+  width: 100%;
+  max-width: 8.5rem;
+  margin: 0 0 2.5rem;
+}
+.wordmark svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 2rem;
+}
+.wordmark .ink {
+  fill: currentColor;
+}
+.wordmark .accent {
+  fill: var(--action);
+}
+/* A click swings the cut through the O to the icon's 30 degrees, back past straight, and
+   settles like a wave; the two clip boxes rotate together around the O's centre. */
+.wordmark svg[data-tilt] clipPath rect {
+  transform-box: view-box;
+  transform-origin: var(--cut-origin);
+  animation: wordmark-tilt 720ms ease-in-out;
+}
+@keyframes wordmark-tilt {
+  28% {
+    transform: rotate(-30deg);
+  }
+  55% {
+    transform: rotate(11deg);
+  }
+  76% {
+    transform: rotate(-4deg);
+  }
+  90% {
+    transform: rotate(1.5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 .sidebar #level-control {
   display: grid;

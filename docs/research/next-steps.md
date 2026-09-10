@@ -12,7 +12,7 @@ Each exercise now has a content revision and editorial status. Reports store tha
 
 ## 2. Help learners decide what to practise next
 
-“Review mistakes” shows set retries in the catalogue and individual exercise retries in Progress, based on saved wrong answers. Set results now group mistakes by the reviewed skill of each question and offer a focused retry of only the missed questions that keeps the first result. Skill ids exist for the first reading set only; add them to the remaining sets so the grouping names the skill rather than the text. Next: a start page that shows unfinished work, offers a small next-practice suggestion based on the least-used skill and briefly explains the site (what it is, why it is free, a short FAQ).
+“Review mistakes” shows set retries in the catalogue and individual exercise retries in Progress, based on saved wrong answers. Set results now group mistakes by the reviewed skill of each question and offer a focused retry of only the missed questions that keeps the first result. Skill ids exist for the first reading set only; add them to the remaining sets so the grouping names the skill rather than the text. The start page now shows unfinished work, the five subjects with live counts, one question to try and a short FAQ (what it is, why it is free, where progress lives). Still open: a next-practice suggestion based on the least-used skill.
 
 Keep progress on the device by default. Export/import of records and drafts as a JSON file is available on the Progress page. Cross-device sync can be optional later.
 

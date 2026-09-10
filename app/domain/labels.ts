@@ -84,6 +84,8 @@ const types: Record<string, [string, string]> = {
   nieuwsbericht: ['Nieuwsbericht', 'News item'],
   voorwaarden: ['Voorwaarden', 'Terms'],
   opzoektekst: ['Opzoektekst', 'Look-up text'],
+  leerkaart: ['Leerkaart', 'Study card'],
+  feit: ['Feit', 'Fact'],
 };
 export function typeLabel(type: string | undefined, lang: 'nl' | 'en'): string | null {
   const label = type ? types[type] : undefined;

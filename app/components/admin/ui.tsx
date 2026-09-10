@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useFetcher } from 'react-router';
 export const number = (value: number) =>
   new Intl.NumberFormat('en-GB').format(Math.round(value || 0));
 export const percent = (part: number, total: number) =>
   total ? `${Math.round((part / total) * 100)}%` : '–';
+// Three significant digits with a K/M suffix, for counts that must stay on one line.
+// Written out rather than Intl's compact notation, whose suffixes differ between engines
+// (Firefox writes "1.45m" for en-GB).
+export function compact(value: number) {
+  for (const [size, suffix] of [
+    [1e9, 'B'],
+    [1e6, 'M'],
+    [1e3, 'K'],
+  ] as const)
+    if ((value || 0) >= size * 0.9995) return `${Number((value / size).toPrecision(3))}${suffix}`;
+  return String(Math.round(value || 0));
+}
+export const money = (value: number) => `$${value.toFixed(2)}`;
 export function Tile({
   label,
   value,
@@ -55,25 +69,12 @@ export function Card({
 export function Empty({ children }: { children: React.ReactNode }) {
   return <p className="empty-note">{children}</p>;
 }
-export function Meter({
-  value,
-  max,
-  tone = undefined,
-}: {
-  value: number;
-  max: number;
-  tone?: 'warn' | undefined;
-}) {
-  const fraction = max > 0 ? Math.min(1, Math.max(0, value / max)) : 0;
-  return (
-    <div
-      className={`meter ${tone === 'warn' ? 'meter-warn' : ''}`}
-      role="progressbar"
-      aria-valuemin={0}
-      aria-valuemax={max}
-      aria-valuenow={value}
-    >
-      <i style={{ width: `${fraction * 100}%` }} />
-    </div>
-  );
+// Live provider balances, read once the page has rendered (the server caches them for
+// five minutes, see providerBalances). Both values are undefined until the read returns.
+export function useProviders(): { eleven: any; openai: any } {
+  const fetcher = useFetcher<{ data: { eleven: any; openai: any } }>();
+  useEffect(() => {
+    if (fetcher.state === 'idle' && !fetcher.data) fetcher.load('/api/ops/providers');
+  }, [fetcher]);
+  return fetcher.data?.data || { eleven: undefined, openai: undefined };
 }

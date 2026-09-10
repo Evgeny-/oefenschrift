@@ -1,0 +1,177 @@
+{
+  "review_id": "batch008-editorial-review",
+  "source": "content/batches/008-original.json",
+  "source_sha256": "e8a0e222e299125c6737ef75176587cf2c6335f7da2bbf932f86c902c82ecfa0",
+  "starters_source": "content/batches/008-starters.json",
+  "starters_sha256": "44594f782ed1aba5725064ef44cad330e9904285ddf440c7f7b8918da4e7ede9",
+  "starters_verdict": "pass",
+  "review_type": "AI editorial review of A2 writing tasks (e-mail, wijkkrant, form, picture note) and their sentence starters: prompt shape, scaffold register, criteria, sample quotes and learner errors, model coverage, level, originality",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 16,
+    "distribution": {"A2_writing": 16},
+    "task_types": {"email": 8, "wijkkrant": 3, "form": 3, "picture-note": 2},
+    "registers": {"formal": 7, "informal": 6, "first_person_wijkkrant": 3},
+    "domains": {"werk": 3, "opleiding": 2, "wonen-buurt": 2, "gezondheid": 2, "winkels-diensten": 2, "vervoer": 2, "vrije-tijd-familie": 2, "instanties": 1},
+    "batch_check": "npm run batch:check content/batches/008-original.json: Checked 16 items, 0 questions. No failures, no warnings.",
+    "prompts_carry_official_instruction": true,
+    "scaffolds_complete_and_register_consistent": true,
+    "open_sample_quotes_are_verbatim": true,
+    "one_null_quote_per_item": true,
+    "one_learner_error_per_sample": true,
+    "no_prompt_sentence_copied_into_sample_or_model": true,
+    "models_meet_every_criterion": true,
+    "model_word_range": "46-70",
+    "model_sentence_average_range": "6.8-11.2",
+    "model_longest_sentence": 16,
+    "weekday_dates_verified_for_2026": true,
+    "form_open_fields_are_criteria": true,
+    "picture_briefs_one_chore_each_no_text_cast_traits_match": true,
+    "exemplars_available": false,
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false
+  },
+  "starters_checks": {
+    "item_ids_match_batch": true,
+    "one_starter_per_criterion_in_order": true,
+    "every_starter_has_ellipsis": true,
+    "partial_not_complete_answers": true,
+    "grammatical_when_completed_naturally": true,
+    "register_matches_scaffold": true,
+    "no_invented_task_facts": true,
+    "notes": "The gezond starter 'Om gezond te blijven …' needs inversion in the completion; grammatical and accepted, 'Om gezond te blijven doe ik …' is a safer optional alternative. The sportclub starter for criterion 3 presupposes a 'yes', which the criterion's 'en waar' expects."
+  },
+  "items": [
+    {
+      "id": "A2:writing:batch008-contract:1",
+      "verdict": "pass",
+      "evidence": "Formal e-mail to chef mevrouw Vermeer with printed header, 'Beste mevrouw Vermeer,' / 'Met vriendelijke groet,'; four criteria incl. one 'Bedenk zelf'. Sample quotes 'Mijn contract stopt op 31 oktober.', 'Ik wil heel graag blijven werken in de winkel.' and 'omdat ik praat graag met klanten' are exact; the sample hopes for a contract but asks for no gesprek, so criterion 4 is null. One error: omdat word order. Model meets all four (asks 'Kunnen wij binnenkort een gesprek hebben over een nieuw contract?'), 56 words, average 8.0 words per sentence.",
+      "level_check": "comparable: a formal four-bullet e-mail to a manager with one invented element, like the official e-mails to a leidinggevende."
+    },
+    {
+      "id": "A2:writing:batch008-groep:1",
+      "verdict": "pass",
+      "evidence": "Formal e-mail to docent meneer Van Dijk. Quotes for group, reason (two contiguous sentences) and 'Kan dat?' are exact; 'een andere groep' names no day or time, so criterion 3 is null. One error: 'een nieuw werk'. Model names donderdagochtend om negen uur and asks whether it is possible, 59 words.",
+      "level_check": "comparable: four bullets to a teacher, the reason given by the prompt, one invented day and time."
+    },
+    {
+      "id": "A2:writing:batch008-huur:1",
+      "verdict": "pass",
+      "evidence": "Formal e-mail to Woonstichting De Brug. Quotes for address, reason and end date are exact; the sample asks for a bevestiging instead of the keys date, so criterion 4 is null. One error: 'opzegen'. Model gives address, reason, 1 december and asks when to hand in the keys, 57 words. Shares only the verb opzeggen with batch003-sportles; different domain, register and information.",
+      "level_check": "comparable: two invented facts and a procedural question in everyday vocabulary, at most slightly fuller than the official formal e-mails."
+    },
+    {
+      "id": "A2:writing:batch008-bezorging:1",
+      "verdict": "pass",
+      "evidence": "Formal e-mail to Elektrowinkel Van Dam; dinsdag 13 oktober and donderdag 15 oktober are correct weekdays in 2026. Quotes for reason, alternative day ('Dan ben ik de hele dag thuis.' accepted as the time element), address and phone are exact; no call request, so criterion 4 is null. One error: 'bezorgt' for the infinitive. Model meets all four with an explicit time, 70 words in nine short sentences.",
+      "level_check": "comparable, at the fuller end: three invented elements (reason, day and time, address and phone) make the longest model in the batch, all of it everyday A2."
+    },
+    {
+      "id": "A2:writing:batch008-meerijden:1",
+      "verdict": "pass",
+      "evidence": "Informal e-mail to colleague Fatima ('Hoi Fatima,' / 'Groetjes,', jij/jou). Quotes for reason, lift request and petrol money are exact; no pick-up place or time, so criterion 3 is null. One error: 'mee rijden' as two words. Model adds bushalte Meerweg, kwart voor acht, 59 words. No lift request exists in the bank.",
+      "level_check": "comparable: informal four-bullet e-mail to a colleague with two invented elements."
+    },
+    {
+      "id": "A2:writing:batch008-cadeau:1",
+      "verdict": "pass",
+      "evidence": "Informal e-mail to fellow student Julio. Quotes for reason (two contiguous sentences), present and shopping question are exact; 'Iedereen in de groep kan iets betalen.' names no amount, so criterion 3 is null. One error: 'geholpt'. Model adds 'drie euro', 59 words. No present or collection task exists.",
+      "level_check": "comparable: the reason is inferable from the prompt, two elements are invented."
+    },
+    {
+      "id": "A2:writing:batch008-kast:1",
+      "verdict": "pass",
+      "evidence": "Informal e-mail to neighbour Karim, three criteria. Quotes for reason and 'Kun je mij helpen?' are exact; duration and coffee replace the day and time, so criterion 3 is null. One error: 'drink we'. Model asks 'Kan het zaterdag om tien uur?', 54 words. Differs from batch001-ladder (borrowing an object, return time) in act and information.",
+      "level_check": "comparable, slightly easier: three bullets with one invented element."
+    },
+    {
+      "id": "A2:writing:batch008-oppassen:1",
+      "verdict": "pass",
+      "evidence": "Informal e-mail to friend Mila about Amina (ten, matching the cast). Quotes for request, reason and leaving/return times are exact and consistent with work until ten; food and tv replace the bedtime, so criterion 4 is null. One error: 'pannekoeken'. Model adds 'Om half negen moet ze naar bed.', 59 words. Closest pair is batch002-plant; favour, reason and time elements differ.",
+      "level_check": "comparable: four bullets with two invented times."
+    },
+    {
+      "id": "A2:writing:batch008-reizen:1",
+      "verdict": "pass",
+      "evidence": "Wijkkrant prompt with 'Schrijf minimaal drie zinnen op.', opening 'Dit is mijn tekst over reizen naar mijn werk of school:' and minSentences 3; three guiding questions. Quotes for how and opinion are exact; no duration, so criterion 2 is null. One error: 'met fiets'. Model answers all three in six sentences, 47 words; the opinion sentence answers question 3 directly.",
+      "level_check": "comparable: three personal questions and at least three sentences, like the official wijkkrant pieces."
+    },
+    {
+      "id": "A2:writing:batch008-gezond:1",
+      "verdict": "pass",
+      "evidence": "Wijkkrant piece on gezond leven. Quotes for what and how often are exact; nothing about difficulty, so criterion 3 is null. One error: 'fruits'. Model answers what, how often ('elke dag', 'Op zondag') and what is hard, 55 words, longest sentence 14.",
+      "level_check": "comparable: same structure as the official pieces; the model's average of 11 words per sentence stays within the A2 heuristic."
+    },
+    {
+      "id": "A2:writing:batch008-boodschappen:1",
+      "verdict": "pass",
+      "evidence": "Wijkkrant piece on boodschappen doen. Quotes for where and opinion are exact; no time, so criterion 2 is null. One error: 'op de plein' (gender). Model adds 'meestal op zaterdagochtend', 56 words. Julianastraat is a generic street name, no real address.",
+      "level_check": "comparable: where, when and an opinion about the learner's own shops."
+    },
+    {
+      "id": "A2:writing:batch008-lantaarnpaal:1",
+      "verdict": "pass",
+      "evidence": "Gemeente report form: six personal-data lines, three open fields (wat, waar precies, sinds wanneer) and a reply-channel choice, matching a melding openbare ruimte form; the four criteria are the three open fields and the choice. Quotes for problem, place and 'Ik wil antwoord per e-mail.' are exact; nothing about since when, so criterion 3 is null. One error: 'bus halte'. Model adds 'sinds maandag 28 september' (a Monday in 2026) and Meidoornstraat 12 in Hoorn, 48 words.",
+      "level_check": "comparable: the official municipal-complaint form with factual open fields."
+    },
+    {
+      "id": "A2:writing:batch008-sportclub:1",
+      "verdict": "pass",
+      "evidence": "Club registration form for son Sem (teenage boy in the cast): seven data lines, a sport choice and three open fields; criteria are the choice and the open fields. Quotes for sport, training days and reason are exact; nothing about earlier experience, so criterion 3 is null. One error: 'Hij vind'. Model adds two years at a club in the old town, 56 words, longest sentence 16.",
+      "level_check": "comparable: a registration form like the official ones; the third-person 'hij' adds no difficulty."
+    },
+    {
+      "id": "A2:writing:batch008-nieuwe-patient:1",
+      "verdict": "pass",
+      "evidence": "New-patient form of a dental practice: six data lines incl. the insurer's name (not a criterion), three open fields that are the criteria, and a reminder choice without a criterion; no medical information asked. Quotes for last visit and availability (two contiguous sentences) are exact; no reason for choosing the practice, so criterion 1 is null. One error: 'Op vrijdag ik ben'. Model gives distance and the neighbour, 'in maart … voor een controle' and availability, 54 words.",
+      "level_check": "comparable: a registration form with three short open answers."
+    },
+    {
+      "id": "A2:writing:batch008-restaurant:1",
+      "verdict": "pass",
+      "evidence": "Picture note to colleague Roos ('Hallo Roos,' / 'Groeten,'); prompt asks for three things in whole sentences. Three briefs show one chore each (setting a table, cleaning a window, washing glasses) with Roos's cast traits (dark hair in a bun, yellow scarf) and 'No text'; criteria mirror the pictures. Quotes for tables and glasses are exact; no windows, so criterion 2 is null. One error: 'De borden en glazen staat'. Model names all three chores, 49 words.",
+      "level_check": "comparable: the official note-to-a-colleague type with three pictured chores."
+    },
+    {
+      "id": "A2:writing:batch008-supermarkt:1",
+      "verdict": "pass",
+      "evidence": "Picture note to colleague Sem ('Hoi Sem,' / 'Groeten,'). Three briefs show one chore each (milk into the cooler with plain cartons without text, trolleys from the car park, sweeping an aisle) with Sem's cast traits (teenage boy, short brown hair, green sweater); criteria mirror the pictures. Quotes for milk and trolleys are exact; no sweeping, so criterion 3 is null. One error: 'de magazijn'. Model names all three, 46 words.",
+      "level_check": "comparable: same type as the restaurant note in another setting; a mock form holds at most one picture note."
+    }
+  ],
+  "revision_requests": [],
+  "observations_not_blocking": [
+    "nieuwe-patient criteria[0] could add 'Bedenk zelf een reden.'; the prompt's 'Sommige gegevens moet u zelf bedenken' already covers the invented reason.",
+    "Choice fields are criteria in lantaarnpaal and sportclub but not in nieuwe-patient; both readings work in the app, one rule for all forms would be tidier.",
+    "bezorging model could drop 'Dan doe ik meteen open.' (70 to 66 words); accepted as it is.",
+    "restaurant criteria[1] says 'de ramen' while the brief shows one large window; feedback should treat 'het raam' as meeting the criterion, as should 'Dan ben ik de hele dag thuis.' for the time element of bezorging criterion 2.",
+    "Media stage: scripts/illustrate.ts generates one 1024x640 job per images[] entry for writing items, while config/illustration.json prefers one three-panel generation for sequences; the briefs repeat the fixed traits per panel so either route works, and the image review must confirm consistent traits, no text on cartons or windows, and an unambiguous chore per picture.",
+    "Blueprint section 10 still gives 20-45 words for A2 open-task models; the checker enforces 20-90 and four-bullet e-mails need 54-70. Align the blueprint sentence.",
+    "content/exemplars/ does not exist; the level check compares the tasks with the official task descriptions in docs/research/exam-blueprints-2026-09-10.md section 3.1."
+  ],
+  "diversity_review": "Sixteen distinct settings and acts across all four A2 writing task types and all eight domains, formal and informal registers in near-equal numbers, no slug reuse and no re-skin of a catalogue item; only the fixed exam instructions mirror the official format. Near pairs accepted with reasons: huur vs batch003-sportles (different domain, register and information), lantaarnpaal vs B1 oversteekplaats (different level and task type), nieuwe-patient vs the tandarts voicemail (different part), oppassen vs batch002-plant and kast vs batch001-ladder (different favour, reason and time elements; the closest pairs), bezorging vs afspraak verzetten (only the reschedule move recurs). Drills should not pair those neighbours, a mock form takes at most one picture note, and consecutive tasks in a form should not reuse a cast name (Sem appears in sportclub and supermarkt).",
+  "limitations": [
+    "This is an AI editorial review. It does not replace independent Dutch-language educator review, learner trials, blueprint validation or psychometric calibration, and it does not establish equivalence with an official exam.",
+    "The A2 labels remain unvalidated authoring targets; the per-task level judgments compare the tasks with the official task descriptions, not with stored exemplars or learner data.",
+    "The review covers the text fields and the image briefs; the generated illustrations and any feedback prompts that use these criteria need their own review after media production.",
+    "The approval applies only to the exact source and starter hashes recorded here; any byte change requires a new hash and a focused re-review."
+  ],
+  "revisions": [
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review",
+      "items": [
+        "A2:writing:batch008-bezorging:1",
+        "A2:writing:batch008-supermarkt:1"
+      ],
+      "previous_sha256": "f5101326a4bdda3df321d6505985a20e6e7d5bfea9710b6eed4f7d03602eb9a2",
+      "verdict": "pass",
+      "note": "Model-only revision after content/reviews/008-level-check.md; criteria, samples, quotes, scaffolds and starters are byte-identical to the previous version (starters hash re-verified). bezorging: the model went from 9 sentences / 70 words to 7 sentences / 65 words (57 without the eight numerals) by merging 'maar dan ben ik niet thuis. Ik moet die dag werken.' into 'maar dan moet ik werken' and joining the address and phone sentences with 'en'. All four criteria are still met (reason tied to dinsdag 13 oktober; donderdag 15 oktober na twee uur 's middags; Kastanjestraat 7 in Almere and 06 23 45 67 89; 'Kan de bezorger mij eerst bellen?'); no subordinate clause, coordination with maar/en, fronted 'dan' with inversion, everyday vocabulary, longest sentence 14 tokens apart from the 16-token address-and-phone sentence (10 words plus numerals); 'u' held throughout; no prompt sentence copied, and the near-echo of the prompt's 'U bent dan niet thuis.' is gone; the body does not repeat the scaffold closing. Now inside the 4-8 sentence range of blueprint 4.4. supermarkt: 'want er staan er veel buiten' became 'want er staan veel wagens buiten' (existential er + plural verb + quantified noun + place, a standard A2 pattern; 'wagens' picks up 'de winkelwagens' earlier in the same sentence); 46 words / 6 sentences, longest 15; all three criteria met; 'je' register with Hoi Sem / Groeten. Checker on the new bytes: Checked 16 items, 0 questions; info: 16 of 16 items are already in the catalogue (expected for a revision); No failures, no warnings. Non-blocking: the revised bezorging model writes ''s middags' with U+2019 while the batch's other eight apostrophes are ASCII (the catalogue already mixes both forms); normalise at the next byte change of the batch, not now. The per-item evidence for bezorging ('70 words in nine short sentences'), checks.model_word_range ('46-70') and the observation about dropping 'Dan doe ik meteen open.' describe the previous hash; the level check's alternative of trimming criterion 3 to the phone number was not taken, so the criteria load of bezorging is unchanged and it stays last in the formal e-mail drill order."
+    }
+  ]
+}

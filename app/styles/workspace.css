@@ -19,13 +19,24 @@ textarea {
   width: 100%;
   min-height: 10rem;
   resize: vertical;
+  box-sizing: border-box;
   margin-top: 0.5rem;
-  border: 1px solid var(--control-border);
+  border: 1px solid var(--control-hover);
   border-radius: var(--radius-control);
   padding: 0.875rem;
-  background: var(--sheet);
+  /* The field sits in the paper, so it never reads as a second sheet beside the task. */
+  background: var(--paper);
   font-size: var(--text-reading);
   line-height: 1.6;
+}
+textarea:focus {
+  border-color: var(--ink);
+}
+/* The answer field sizes itself to its text; the report dialog keeps a plain field. */
+#open-answer {
+  min-height: 6.5rem;
+  resize: none;
+  overflow: hidden;
 }
 .transcript-check {
   margin-top: 0.5rem;
@@ -90,6 +101,11 @@ textarea {
 }
 .feedback-status .feedback-error {
   margin: 0;
+}
+/* Why the button says self-review today: the AI service is off, paused or capped. */
+.service-note {
+  margin-top: 0.75rem;
+  color: var(--muted);
 }
 .processing-status {
   margin-top: 0.75rem;
@@ -293,6 +309,7 @@ textarea {
   place-items: center;
   width: 2.5rem;
   height: 2.5rem;
+  padding: 0;
   border: 1px solid var(--line);
   border-radius: 50%;
   background: var(--paper);

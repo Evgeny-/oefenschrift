@@ -1,13 +1,17 @@
 import { Form, redirect, useActionData, useLoaderData, useNavigation } from 'react-router';
 import {
   adminCredentials,
-  assertLocal,
+  assertOrigin,
+  clientAddress,
   loginAllowed,
   loginFailed,
   loginSession,
   signedIn,
+  siteOrigin,
   verifyLogin,
 } from '../../server/security';
+import { LogoMark } from '../components/Wordmark';
+import { logo } from '../components/logo';
 const safeNext = (value: string | null) =>
   value && /^\/ops(?:\/|\?|$)/.test(value) && !value.startsWith('/ops/login') ? value : '/ops';
 export function loader({ request }) {
@@ -18,13 +22,13 @@ export function loader({ request }) {
   };
 }
 export function meta() {
-  return [{ title: 'Sign in | Inburgering' }, { name: 'robots', content: 'noindex' }];
+  return [{ title: 'Sign in | Oefenschrift' }, { name: 'robots', content: 'noindex' }];
 }
 export async function action({ request }) {
-  assertLocal(request);
-  if (request.headers.get('Origin') !== new URL(request.url).origin)
+  assertOrigin(request);
+  if (request.headers.get('Origin') !== siteOrigin(request))
     throw new Response('Origin rejected', { status: 403 });
-  const address = request.headers.get('x-forwarded-for')?.split(',')[0].trim() || 'local';
+  const address = clientAddress(request);
   if (!loginAllowed(address))
     return { error: 'Too many attempts. Wait fifteen minutes and try again.' };
   const form = await request.formData(),
@@ -45,8 +49,9 @@ export default function AdminLogin() {
   return (
     <main className="admin-login">
       <div className="admin-login-sheet">
-        <span className="wordmark">Inburgering</span>
-        <h1>Administration</h1>
+        <h1 className="wordmark" aria-label={logo.name}>
+          <LogoMark />
+        </h1>
         {configured ? (
           <Form method="post" className="admin-login-form">
             <input type="hidden" name="next" value={next} />
@@ -81,7 +86,6 @@ export default function AdminLogin() {
             </p>
           </div>
         )}
-        <p className="small">Local access only. Sessions end after twelve hours.</p>
       </div>
     </main>
   );

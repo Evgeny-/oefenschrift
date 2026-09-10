@@ -1,0 +1,145 @@
+{
+  "review_id": "batch005-editorial-review",
+  "source": "content/batches/005-original.json",
+  "source_sha256": "247ee89d392c6d5046fba76fb0a9969b92a3678a24fbb924c53bdde31ad9996c",
+  "source_note": "Reviewed bytes are the working-tree file. The version committed at 35e0e37 (sha256 9343d101c1b8749d934ae19f3a8e23a6dd8bee15b5bd32cfb8416722bd6361ac) is an earlier draft and is not covered by this review; commit the working-tree version before integration. The focused re-review of the same day (focused_rereview below) covers the coordinator's addition of image briefs and alt texts; the hash in source_sha256 is that re-reviewed version and supersedes eb96978feaaf050adfadf2c1ccd2fb263bedd17171235dd12c3d0197b8378dfd.",
+  "review_type": "AI editorial review of A2 listening scripts before audio; keys proven from evidence, every distractor tested, level and casting checked",
+  "rubric": "content/reviews/rubric.md",
+  "review_date": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "focused_rereview": {
+    "date": "2026-09-10",
+    "scope": "image briefs and alt texts on training, tabletten, feestje; toets brief wording",
+    "verdict": "pass",
+    "previous_source_sha256": "eb96978feaaf050adfadf2c1ccd2fb263bedd17171235dd12c3d0197b8378dfd",
+    "source_sha256": "247ee89d392c6d5046fba76fb0a9969b92a3678a24fbb924c53bdde31ad9996c",
+    "change_verified": "Reverting exactly the four changes recorded at the end of content/batches/005-notes.md (delete imageBrief/imageAlt on training, tabletten and feestje; restore 'an older male teacher' in the toets brief) and re-serialising with the file's own two-space JSON format reproduces the previously reviewed hash byte for byte, so no script, question, key, evidence or other field changed. HEAD (35e0e37, sha256 9343d101...) is still the earlier draft, so git diff HEAD is not usable for this check. Per item: text equals the joined script, every evidence quote is verbatim, roles are valid, keys and spoken word counts are as stated in the item findings; the scripts and questions of training, tabletten, feestje, toets, parkeervergunning and winkelcentrum were re-read in full against the findings. npm run batch:check: 12 items, 28 questions, keys {B:8, C:8, A:7, D:5}, options {3:17, 4:11}, no failures, no warnings.",
+    "image_fields": {
+      "training": "pass: office scene beside the female supervisor's desk; no calendar, no clock, no screen text, so neither the day (q1), the shoes (q2) nor the training (q3) is shown; alt 'Karim praat op kantoor met zijn leidinggevende.' is neutral Dutch; 'Karim' is the exact cast key and expands (man in his thirties, short black hair and beard, grey jacket), matching m-adult; the female supervisor matches f-adult.",
+      "tabletten": "pass: pharmacy counter, the assistant hands mevrouw Bakker a small box; no labels, no text, no clock, so neither the forgotten-tablet rule (q1) nor the pick-up day (q2) is shown; alt neutral. 'mevrouw Bakker' is written in lower case on purpose: scripts/illustrate.ts expandCast matches cast keys case-sensitively, so this spelling expands (woman of about 65, short white hair, red cardigan) while 'Mevrouw Bakker' would not; f-older for mevrouw Bakker and f-adult for the assistant match.",
+      "feestje": "pass: Roos at meneer De Vries's open front door; no house number, no text, no clock, so neither the music time (q1) nor her purpose (q2) is shown; the bicycle by the wall is generic Dutch scenery and not a tested fact; alt neutral; 'Roos' and 'meneer De Vries' both expand; f-young and m-older match the cast ages (young woman, man of about 60).",
+      "toets": "pass: only the teacher's age changed; 'a male teacher of about forty' agrees with the m-adult voice (the full review had suggested about fifty; forty is equally an adult rather than an older voice); the rest of the brief and the unchanged alt still reveal nothing."
+    },
+    "resolves_observations": [
+      "Items training, tabletten and feestje now carry imageBrief/imageAlt (first observation of the full review).",
+      "Item toets brief no longer says 'older male teacher' (fifth observation of the full review)."
+    ],
+    "observations_not_blocking": [
+      "The notes of training, tabletten and feestje still say 'hier is het alleen audio' although the items now carry a still brief; scherm and toets say 'hier is het audio met één still'. notes is not shown by the app (no reference in app/ or server/), so this is an editorial inconsistency with blueprint 4.2 ('say so in the item's notes'), not a learner-facing error and not a key, evidence or script change. Fix the wording together with any later edit (every byte change needs a focused re-review) or accept it as is.",
+      "content/batches/005-notes.md section 8 still lists four briefs and the 'older male teacher' wording; the coordinator's addendum at the end records the change, so the notes read as a history.",
+      "Media stage: the training brief's 'a computer and a folder on the desk' may be drawn as a laptop; it is the supervisor's and does not make q2 distractor A ('Zijn laptop.') true, but a desktop screen is preferable when the still is reviewed against config/illustration.json."
+    ]
+  },
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 12,
+    "distribution": {"A2_listening": 12},
+    "batch_check": "npm run batch:check content/batches/005-original.json: Checked 12 items, 28 questions. Keys: {\"B\":8,\"C\":8,\"A\":7,\"D\":5}. Options: {\"3\":17,\"4\":11}. No failures, no warnings.",
+    "closed_evidence_is_verbatim": true,
+    "text_equals_joined_script": true,
+    "voice_roles_valid": true,
+    "two_roles_per_conversation": true,
+    "spoken_words_range": [107, 153],
+    "a2_sentence_heuristics_pass": true,
+    "key_balance": {"A": 7, "B": 8, "C": 8, "D": 5},
+    "four_option_share": 0.39,
+    "persona_prompt_per_item": true,
+    "purpose_questions": 4,
+    "phrase_overlap_with_catalogue_and_batch004": "no 6-word overlap; only generic 5-word phrases",
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false,
+    "media_status": "no audio or images yet; listening items remain blocked for publication until the media review passes"
+  },
+  "items": [
+    {
+      "id": "A2:listening:batch005-training:1",
+      "verdict": "pass",
+      "evidence": "q1 B proven by 'Dan doen we donderdag.'; Tuesday is proposed and withdrawn, 'vandaag' is only the rooster update. q2 C proven by 'Je werkschoenen, want je gaat ook oefenen.'; laptop 'niet nodig', lunch provided, certificate comes afterwards. q3 A proven by 'Er komt een training … Ik wil graag dat jij die volgt.'; the client visit is Karim's own reason, the certificate is the outcome. f-adult supervisor and m-adult employee, informal 'je', natural workplace Dutch. No still (notes say audio only); coordinator decision, not blocking.",
+      "level_check": "comparable: a ten-turn, 114-word conversation with three plainly stated facts and one purpose question, like the official workplace conversations."
+    },
+    {
+      "id": "A2:listening:batch005-scherm:1",
+      "verdict": "pass",
+      "evidence": "q1 A proven by 'Een nieuw scherm kost 75 euro.'; 110 euro includes the declined battery, warranty is over because the phone is three years old. q2 C proven by 'Ik stuur u een e-mail.'; the requested call is refused because the phone stays in the shop, and calling the shop herself is grounded but never proposed. f-adult customer and m-shop employee, 'u' both ways. Image brief and alt reveal no price or contact method.",
+      "level_check": "comparable: very short turns (average 4.8 words) make the audio easy, but the price-with-or-without and call-versus-e-mail contrasts are exam-typical."
+    },
+    {
+      "id": "A2:listening:batch005-tabletten:1",
+      "verdict": "pass",
+      "evidence": "q1 D proven by 'Neem de tablet dan later op de dag, met wat eten.'; two at once is forbidden, the huisarts is for a new prescription, Thursday is for the rest of the box; option A is as long as the key so length does not signal D. q2 B proven by 'De rest ligt donderdag voor u klaar.'; 'vandaag' is refused and 'twee weken' is what the box covers. f-adult assistant and f-older customer, 'u'. Generic counter fiction, no medicine named.",
+      "level_check": "comparable: a conditional rule ('als ik het een keer vergeet') applied to a named person and a pick-up day among three times, as in the official items."
+    },
+    {
+      "id": "A2:listening:batch005-feestje:1",
+      "verdict": "pass",
+      "evidence": "q1 B proven by 'De muziek gaat om elf uur uit.'; eight is the start, twelve is when everyone has left. q2 A proven by 'Ik kom even iets zeggen. Zaterdag geef ik een feestje…'; no complaint is made and the car question is De Vries's. f-young neighbour says 'u' to the m-older neighbour. No still (notes say audio only); coordinator decision, not blocking.",
+      "level_check": "comparable: neighbours' conversation of 119 words with one time among three and one purpose question."
+    },
+    {
+      "id": "A2:listening:batch005-toets:1",
+      "verdict": "pass",
+      "evidence": "q1 A proven by 'Nee, de toets is op dinsdag om negen uur.'; Thursday is the lesson day, June the retake. q2 B proven by 'Ja, een woordenboek mag.'; phone, notes and book are each explicitly excluded. q3 C proven by 'Na twee weken, per e-mail.'; 'in de les' is excluded, the phone is only switched off. m-young student and m-adult teacher, teacher uses 'je'. Image brief (empty classroom, no clock or board text) reveals nothing.",
+      "level_check": "comparable, slightly easier on q1 because Julio repeats the day and time; otherwise the student-teacher exchange matches the official type."
+    },
+    {
+      "id": "A2:listening:batch005-parkeervergunning:1",
+      "verdict": "pass",
+      "evidence": "q1 B proven by 'Op donderdag is de balie langer open, tot acht uur 's avonds.'; five is the usual closing, nine the opening. q2 C proven by 'U betaalt pas als de vergunning klaar is.'; 'nu' is negated and 'binnen twee weken' is the document deadline; the key is the longest option only because it states a condition. q3 D proven by 'Maar wij missen nog één document: een kopie van het kentekenbewijs…'; ready, pay now and desk closed are each contradicted. f-adult clerk, formal 'u'; 'kentekenbewijs' glossed by 'van uw auto' and not needed for any key.",
+      "level_check": "comparable: a 132-word institutional voicemail at the fuller end of A2, with three explicit facts and plain sentences (average 8.2 words)."
+    },
+    {
+      "id": "A2:listening:batch005-voetbal:1",
+      "verdict": "pass",
+      "evidence": "q1 A proven by 'De wedstrijd is niet op zaterdag, maar op zondag om tien uur.'; 'haar witte shirt' implies she has one, and the training 'gaat gewoon door'. q2 D proven by 'Amina moet haar witte shirt aan, niet het blauwe.'; blue forbidden, raincoat 'niet nodig', water at the field. f-young trainer, 'u' to the parent. The raincoat distractor repeats a pattern from batch001-schoolreis; the key and purpose are new.",
+      "level_check": "comparable: a 127-word voicemail to a parent with one change and one instruction, like the official voicemail items."
+    },
+    {
+      "id": "A2:listening:batch005-bus:1",
+      "verdict": "pass",
+      "evidence": "q1 B proven by 'Wilt u naar het stadhuis? Stap dan uit bij de halte Markt.'; Stadhuisplein is skipped, Ziekenhuis is the next stop, the station is the terminus; the obvious guess is wrong so listening matters. q2 C proven by 'Vanaf zaterdag rijdt lijn 12 weer de gewone route.'; Monday is the start and Friday the last day of the works. Narrator role per config for an announcement; consider m-adult if the driver should differ from the question voice (optional).",
+      "level_check": "comparable: a 120-word in-bus announcement with one place among four and one day among three."
+    },
+    {
+      "id": "A2:listening:batch005-winkelcentrum:1",
+      "verdict": "pass",
+      "evidence": "q1 C proven by 'Dan kunt u hem ophalen bij de informatiebalie op de eerste verdieping.'; Noord is where the coat was found, the lift at Zuid is unrelated. q2 B proven by 'Let op: de parkeergarage sluit om half tien.'; nine, ten and half elf each belong to another subject and are distinct when spoken. Narrator role for a PA announcement.",
+      "level_check": "comparable, at the harder end of A2: four closing/opening times in quick succession, each explicit, like official announcement items."
+    },
+    {
+      "id": "A2:listening:batch005-speelplaats:1",
+      "verdict": "pass",
+      "evidence": "q1 A proven by 'De gemeente betaalt de nieuwe speelplaats.'; residents asked, the school's children only open it. q2 D proven by 'Meld u dan bij het wijkcentrum aan de Vijverlaan.'; the gemeente seeks help but is not the reporting point, school and playground are opening-day places. Presenter role for news. 'wethouder' once, no politics. Image brief and alt reveal neither payer nor reporting point.",
+      "level_check": "comparable: a 125-word regional news item with longer but still short sentences (average 8.3, max 15) and two explicit facts."
+    },
+    {
+      "id": "A2:listening:batch005-werkdag:1",
+      "verdict": "pass",
+      "evidence": "q1 A proven by 'Bel mij dan voor zeven uur 's ochtends.'; message discouraged, reception is for the key, coming to him is for questions. q2 D proven by 'De kantine is op de eerste verdieping, naast de keuken.'; device at the staff entrance, key at reception, clothes in the changing room. q3 C proven by 'De sleutel van je kastje haal je bij de receptie.'. m-adult team leader, 'je'. Adjacent-sentence questions do not reveal each other's keys.",
+      "level_check": "comparable: the longest fragment (148 words, about 60-65 s) but plain sentences; a first-day briefing like the official uitleg items."
+    },
+    {
+      "id": "A2:listening:batch005-computercursus:1",
+      "verdict": "pass",
+      "evidence": "q1 C proven by 'Hebt u een stadspas? Dan is de cursus gratis.'; 20 euro without a pass, 40 euro for the advanced course, and the prompt names the beginners' course. q2 B proven by 'De groep is klein: maximaal tien mensen.'; eight is the lesson count, twenty and forty are prices. Presenter role for an organisation's advertisement. 'dinsdag 6 oktober' is a Tuesday in 2026. Image brief shows four learners, not the maximum.",
+      "level_check": "comparable: a 153-word advertisement with one 17-word list sentence, a price rule and a count, like the official company-presentation items."
+    }
+  ],
+  "revision_requests": [],
+  "observations_not_blocking": [
+    "Items training, tabletten and feestje have no imageBrief/imageAlt; blueprint §4.2 describes video-type conversations as audio with one still. Decide before the hash gate; adding briefs later changes the file hash and needs a focused re-review.",
+    "Item bus uses the narrator role (also the question voice) for a live driver announcement, as config/voices.json prescribes for omroep; m-adult is an alternative if the fragment voice should differ from the question reader.",
+    "Purpose questions in items training and parkeervergunning come last and their key is hinted at by earlier prompts of the same fragment; the app shows one question at a time, so this only mildly eases them, as in the official exam.",
+    "Item voetbal q2 distractor 'Een regenjas.' repeats the raincoat pattern of A2:listening:batch001-schoolreis:1; optional swap if both items are ever drilled together.",
+    "Item toets image brief says 'older male teacher' while the voice is m-adult; align at the illustration stage.",
+    "Media stage: item tabletten pairs two female voices (f-adult, f-older); check they are distinct in the rendered dialogue. Digit strings in scripts rely on Dutch TTS reading; no phone number is answer-relevant."
+  ],
+  "diversity_review": "Within the batch the twelve settings, purposes and information structures are distinct, and all six A2 listening task types and all eight domains are used. No listening setting from blueprint §9 is repeated and no item is an earlier item with new names or numbers. Cross-part setting re-use exists with the uncatalogued reading batch 004 (parkeervergunning, telefoonwinkel, apotheek with mevrouw Bakker, pin-only bus tickets); each tests different facts through a different channel and reading and listening never share a set, so it is acceptable but the coordinator should know these settings now appear twice. Two of twelve items are wonen-buurt, which §9 asks to use sparingly; the balance across the other domains is good. First nieuws and reclame items in the bank.",
+  "limitations": [
+    "This is an AI editorial review of scripts before audio exists. It does not replace review by a Dutch-language educator, learner trials or psychometric calibration, and it does not establish equivalence with the official DUO exam. The A2 label remains an unvalidated authoring target on every item.",
+    "Originality was judged by plausibility and by a phrase scan against this project's own catalogue and batch 004, not by comparison with official practice-exam audio.",
+    "content/exemplars/ does not exist yet, so the level check compares each item with the blueprint's description of the official fragments and the shorter existing items rather than with two exemplars per task type; the independent second level check of blueprint §12 step 5 is still due.",
+    "Listening items stay blocked for publication until the generated audio passes the round-trip check and a media review, and until any stills are reviewed against config/illustration.json."
+  ]
+}

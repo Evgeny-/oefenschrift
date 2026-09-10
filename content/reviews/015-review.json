@@ -1,0 +1,337 @@
+{
+  "review_id": "batch015-editorial-review",
+  "source": "content/batches/015-original.json",
+  "source_sha256": "1904c1f1da92be22515a2e0a66cce2cff69382c7cbc5d2282b13593d53843f8b",
+  "starters_source": "content/batches/015-starters.json",
+  "starters_sha256": "59b9ddb0e31fd4f07da4a2b89faa04d1dccb7897fca3cba996d779945a37e1bc",
+  "starters_verdict": "pass",
+  "review_type": "Independent AI editorial review of original B1 writing tasks (Staatsexamen NT2 Programma I, Schrijven I: two deelschrijftaken, two korte schrijftaken) and their sentence starters against the rubric, blueprint sections 1/3/4.8/5/7-13, the Schrijven I paragraph of docs/research/exam-blueprints-2026-09-10.md, the author brief, config/illustration.json and the 008 record format; reviewer did not author or edit the batch; the author's notes were read after the tasks and starters had been judged",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 4,
+    "distribution": {
+      "B1_writing": 4
+    },
+    "task_types": {
+      "deelschrijftaak": 2,
+      "korte-schrijftaak": 2
+    },
+    "deelschrijftaak_forms": {
+      "formFields": 1,
+      "images": 1
+    },
+    "goals": {
+      "klagen": 1,
+      "voorstellen": 1
+    },
+    "registers": {
+      "formal": 3,
+      "informal": 1
+    },
+    "domains": {
+      "werk": 2,
+      "educatie": 1,
+      "overig": 1
+    },
+    "batch_check": "npm run batch:check content/batches/015-original.json on the re-reviewed bytes (1904c1f1...): Checked 4 items, 0 questions. Keys: {}. Options: {}. No failures, no warnings. (The first-review bytes 47b937d8... gave the same output.)",
+    "prompts_carry_official_instruction": true,
+    "prompts_ask_everything_the_criteria_score": true,
+    "prompt_gap": "resolved at 1904c1f1...: the gemiste-werkdag prompt now carries 'Vraag Julio ook hoe het met hem gaat of wanneer hij weer komt werken.' after 'Gebruik alle plaatjes.', so criterion 4 tests what the task asks (first review: scored but never asked for)",
+    "table_declared_outside_email": true,
+    "goal_matches_prompt": true,
+    "form_labels_match_criteria": true,
+    "form_label_gap": "resolved at 1904c1f1...: avondcursus field 6 reads 'Op welke avond van de week kunt u niet? Geef een reden.', as wide as criterion 3 (first review: 'Wanneer kunt u niet?' admitted dates and periods); field 3 reads 'Huidige functie' and no longer invites an employer name",
+    "scaffolds_complete_and_register_consistent": true,
+    "criteria_bilingual_pairs_agree": true,
+    "open_sample_quotes_are_verbatim": true,
+    "one_null_quote_per_item": true,
+    "null_quote_indexes": [
+      0,
+      3,
+      2,
+      3
+    ],
+    "two_learner_errors_per_sample": true,
+    "no_prompt_sentence_copied_into_sample_or_model": true,
+    "models_meet_every_criterion": true,
+    "models_understandable_without_table": true,
+    "model_word_counts": {
+      "avondcursus": 116,
+      "gemiste-werkdag": 132,
+      "kledingkast": 179,
+      "pauzerooster": 178
+    },
+    "model_word_range": "116-179",
+    "model_sentence_average_range": "13.2-19.3",
+    "model_longest_sentence": 27,
+    "sample_word_counts": {
+      "avondcursus": 72,
+      "gemiste-werkdag": 76,
+      "kledingkast": 102,
+      "pauzerooster": 141
+    },
+    "weekday_dates_verified_for_2026": true,
+    "rotas_verified_non_overlapping": true,
+    "form_open_fields_are_criteria": true,
+    "picture_briefs_cast_traits_verbatim": true,
+    "picture_briefs_no_text": true,
+    "picture_answer_detail_unambiguous": true,
+    "picture_gap": "resolved in the brief at 1904c1f1...: picture 3 of gemiste-werkdag shows Sabrina shaking hands with Modibo at the start of the warehouse tour (first-day cue) with a matching Dutch alt; the generated image must still show the handshake readably at display size (media review)",
+    "organisation_names_invented": true,
+    "cast_names_consistent_with_config": true,
+    "exemplars_available": false,
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false,
+    "organisation_name_collisions_first_review": [
+      "Kast & Co (real Belgian cabinet maker, kast-co.be)",
+      "Logistiek Brinkman (real Brinkman Logistiek B.V., Amersfoort)",
+      "Regiocollege Oostwaard (near the real Regio College, Zaandam; recommended rename)"
+    ],
+    "organisation_name_collisions": [],
+    "organisation_name_checks_re_review": {
+      "date": "2026-09-10",
+      "Kastenzolder": "two web searches ('Kastenzolder'; kastenzolder.nl / 'de Kastenzolder' webwinkel kasten): no business of that name; the hits are generic attic-cabinet pages (Kastenstudio, Mijn Kast Op Maat, Opmaatzagen) matching the words 'kast' and 'zolder'; SIDN whois: 'kastenzolder.nl is free', no DNS record; the retired kastenco.nl still resolves to a live site, confirming the first review's collision",
+      "Logistiek Veldwijk": "two web searches ('Logistiek Veldwijk' / 'Veldwijk Logistiek'; Veldwijk transport/logistics/magazijn): no company of that name; nearest real names are Van Veldhuizen Logistiek, Veldhuis Logistics, Veldhuizen Cargo Service and E. van Wijk Logistics, all different surnames, so no collision; 'Veldwijk' occurs only as the surname of private persons; SIDN whois: 'logistiekveldwijk.nl is free', no DNS record",
+      "Volksuniversiteit Oostwaard": "web search: no institution of that name; the national volksuniversiteit network lists Amsterdam, Utrecht, Eindhoven, Oss, Het Gooi and others, none named Oostwaard; 'Oostwaard' appears only as a surname (Van Oostwaard VOF, a flower nursery in Zuidbroek, unrelated sector); the invented town was already in the reviewed bytes and is accepted as a generic volksuniversiteit name in a fictional town; the batch uses no domain for the college"
+    },
+    "revised_fields_diff": "Field-level diff of the reviewed bytes (47b937d8..., reproduced by running the author's build script build015.py from the session scratchpad into a scratch directory; its output hashes to 47b937d8... exactly and its starters output to 59b9ddb0...) against the re-reviewed bytes (1904c1f1...): exactly 14 leaf values differ, all inside the announced edits: avondcursus prompt, formFields[2].label, formFields[5].label; gemiste-werkdag prompt, images[2].brief, images[2].alt, sample, quotes[1], model; kledingkast prompt, scaffold.to, table.caption; pauzerooster prompt, scaffold.to. Ids, key order, every criterion, every other quote, sample, model, scaffold field, table cell, image field and the starters file are byte-identical. Each applied value is the review's proposed text character for character; the avondcursus, kledingkast and pauzerooster prompts and the gemiste-werkdag sample and model differ from the reviewed values only in the requested phrase or sentence."
+  },
+  "starters_checks": {
+    "item_ids_match_batch": true,
+    "one_starter_per_criterion_in_order": true,
+    "starter_counts": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "every_starter_has_ellipsis": true,
+    "partial_not_complete_answers": true,
+    "grammatical_when_completed_naturally": true,
+    "register_matches_scaffold": true,
+    "no_invented_task_facts": true,
+    "unchanged_by_revision_requests": true,
+    "notes": "avondcursus starter 2 presupposes some experience (a learner with none writes 'Ik heb nog geen ervaring met boekhouden, maar …'); pauzerooster starter 4 is the stem the model opens with and carries no content; kledingkast starter 4 has two consecutive gaps (date, action), unambiguous. No request in this review changes a criterion, so the starters keep their hash. Re-review 2026-09-10: the starters file is byte-identical (hash 59b9ddb0... re-verified), no criterion changed, and no starter names an organisation, a label or the meeting topic; the avondcursus starter for criterion 3 ('Op … kan ik niet, omdat …') fits the reworded field label and the gemiste-werkdag starter for criterion 4 fits the prompt's new request."
+  },
+  "items": [
+    {
+      "id": "B1:writing:batch015-avondcursus:1",
+      "verdict": "pass",
+      "level_check": "comparable, lighter end",
+      "level_reason": "Form with three scored open fields (the official form has six), each answerable in one or two B1 sentences; reasons and experience invented, the evening anchored by the prompt's course hours; model 116 words, average 19.3 words per sentence, longest 25.",
+      "evidence": "Six formFields (three text, three open, one with 'Geef minimaal twee redenen'); prompt gives the course, period and hours, then 'Vul het formulier in. Schrijf bij de open vragen in hele zinnen. Sommige gegevens moet u zelf bedenken.' Criteria = the three open fields in order, English pairs agree. Sample 72 words: quotes for 2 (two contiguous sentences) and 3 exact; one reason only, 'Ik wil dat goed leren.' names the aim of any bookkeeping course, so criterion 1 is null; errors 'omdat ik moet op mijn werk … controleren' and 'voor winkel van mijn oom'. Model 116 words meets 1 (work: 'omdat … terwijl …'; own shop: 'Bovendien …'), 2 (no course, three years for the uncle's shop, daily till count) and 3 ('Op dinsdagavond kan ik niet, omdat …'). Field 6 label 'Wanneer kunt u niet?' admits dates and periods while criterion 3 scores the evening; field 3 invites an employer name; 'Regiocollege' is the name of a real ROC.",
+      "revision_requests": [
+        {
+          "severity": "required-minor",
+          "field": "formFields[5].label",
+          "failure": "The label 'Wanneer kunt u niet? Geef een reden.' is wider than criterion 3 ('op welke avond u niet kunt'); an answer such as 'in de herfstvakantie' answers the form and fails the criterion (rubric 4).",
+          "repair": "Op welke avond van de week kunt u niet? Geef een reden."
+        },
+        {
+          "severity": "required-minor",
+          "field": "formFields[2].label",
+          "failure": "'Huidig werk (functie en werkgever)' opens a line in the answer box that invites a real employer's name, the one thing blueprint section 9 keeps out of a task; the model never demonstrates an employer ('op mijn werk', 'in de winkel'). Decides author doubt 10.",
+          "repair": "Huidige functie"
+        },
+        {
+          "severity": "recommended",
+          "field": "prompt",
+          "failure": "'Regiocollege Oostwaard' is built on the name of the real Regio College (ROC Zaanstreek-Waterland) and reads as one of its branches.",
+          "repair": "Replace 'bij Regiocollege Oostwaard' with 'bij Volksuniversiteit Oostwaard' (alternative: 'Avondschool Oostwaard'); no other field names the college."
+        }
+      ],
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "1904c1f1da92be22515a2e0a66cce2cff69382c7cbc5d2282b13593d53843f8b",
+        "verdict": "pass",
+        "checked": "formFields[2].label 'Huidige functie' and formFields[5].label 'Op welke avond van de week kunt u niet? Geef een reden.' are the review's exact wordings; the prompt differs from the reviewed prompt only in 'bij Volksuniversiteit Oostwaard' for 'bij Regiocollege Oostwaard'. The field-6 label is now as wide as criterion 3, which the unchanged sample ('Op dinsdagavond kan ik niet, want …'), model ('Op dinsdagavond kan ik niet, omdat … Alle andere avonden ben ik beschikbaar.') and starter ('Op … kan ik niet, omdat …') already answer; field 3 is a line field, not a criterion, so nothing else moves. A volksuniversiteit is the institution type that runs an evening 'Boekhouden voor beginners'; no institution of that name exists (see checks.organisation_name_checks_re_review). Criteria, sample, quotes (null at 0), model (116 words) and starters byte-identical. Pass."
+      }
+    },
+    {
+      "id": "B1:writing:batch015-gemiste-werkdag:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "Three pictures with 'Gebruik alle plaatjes', an informal addressee, an invented meeting topic and a closing question; model 131 words in ten sentences, average 13.1, longest 20, four kinds of subordinate clause.",
+      "evidence": "Scaffold to julio@mail.nl, 'Hoi Julio,' / 'Groetjes,', informal throughout. Three briefs: technician at an open coffee machine with Sabrina holding an empty cup; Sabrina at a whiteboard with only blocks and arrows, four colleagues, Karim raising a hand; Sabrina pointing at a shelf, Modibo with a clipboard. Sabrina's, Karim's and Modibo's traits verbatim from config; no-text instruction in every brief; Dutch alts. Criteria 1-3 mirror the pictures, 4 asks a question; pairs agree. Sample 74 words: quotes for 1, 2 and 3 exact (each two contiguous sentences); no question, so 4 is null; errors 'gerepareert' (spelling) and 'dat hij is een aardige jongen' (word order). Model meets all four (kapot + monteur repaired within an hour; teamoverleg about packing differently from November; new colleague Modibo shown the warehouse; 'Hoe gaat het nu met je?'). The prompt asks only to tell what happened and to use all pictures; nothing asks for the question criterion 4 scores. Picture 3 cannot show that Modibo is a new colleague who started today.",
+      "revision_requests": [
+        {
+          "severity": "required-minor",
+          "field": "prompt",
+          "failure": "Criterion 4 (a question to Julio about how he is or when he returns) is scored but the prompt never asks for it; a learner who narrates the three pictures and signs off, as the sample does, has done what the task asked (rubric 4 and 6; brief: criteria cover what the task asks and nothing it does not).",
+          "repair": "U werkt bij een groothandel in kantoorartikelen. Uw collega Julio was vandaag niet op het werk, omdat hij ziek was. 's Avonds schrijft u hem een e-mail: u vertelt wat er vandaag op het werk is gebeurd. Kijk naar de drie plaatjes. Maak de e-mail af. Gebruik alle plaatjes. Vraag Julio ook hoe het met hem gaat of wanneer hij weer komt werken. Schrijf in hele zinnen."
+        },
+        {
+          "severity": "recommended",
+          "field": "images[2].brief, images[2].alt",
+          "failure": "The picture shows a tour of the warehouse but not that the person is a new colleague on his first day; once the app hides the criteria for picture tasks (as it does for A2 picture notes) the learner has to infer it from the picture (blueprint section 7 review checklist: the answer-relevant detail is unambiguous).",
+          "repair": "brief: 'Sabrina (woman in her thirties, long dark hair, green jumper) stands at the start of a row of tall warehouse shelves stacked with plain cardboard boxes and shakes hands with a new colleague, Modibo (young man, short black hair, light shirt), while her other hand gestures along the shelves; Modibo holds a clipboard under his arm and looks where she gestures. No text.' alt: 'Een vrouw geeft een jonge man een hand in een magazijn en wijst naar de stellingen.'"
+        },
+        {
+          "severity": "recommended",
+          "field": "sample, quotes[1], model",
+          "failure": "The invented meeting topic (packing orders differently, damaged boxes) puts this task in the same warehouse-packing field as pauzerooster ('inpakken', 'orders verzamelen', 'inpaklijn'); two of twelve tasks in the form would share it (rubric 11, author doubt 3).",
+          "repair": "sample: replace 'Sabrina heeft verteld dat we vanaf november anders gaan inpakken, omdat er te veel dozen kapotgaan.' with 'Sabrina heeft verteld dat we vanaf januari een nieuw telefoonsysteem krijgen, omdat klanten nu vaak lang moeten wachten.'; quotes[1]: 'Om elf uur hadden we teamoverleg. Sabrina heeft verteld dat we vanaf januari een nieuw telefoonsysteem krijgen, omdat klanten nu vaak lang moeten wachten.'; model: replace 'Sabrina legde uit dat we vanaf november de bestellingen anders gaan inpakken, omdat er nu te veel dozen beschadigd aankomen.' with 'Sabrina legde uit dat we vanaf januari een nieuw telefoonsysteem krijgen, omdat klanten nu vaak lang moeten wachten voordat iemand opneemt.' (model 132 words afterwards; criteria, errors and null unchanged)."
+        }
+      ],
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "1904c1f1da92be22515a2e0a66cce2cff69382c7cbc5d2282b13593d53843f8b",
+        "verdict": "pass",
+        "checked": "The prompt equals the review's full repair text character for character (the inserted sentence 'Vraag Julio ook hoe het met hem gaat of wanneer hij weer komt werken.' is the only difference from the reviewed prompt); it names the two options criterion 4 accepts in the third person, so a learner still has to write a 'je' question, and none of its fragments occurs in the sample or the model. images[2].brief and .alt are the proposed texts verbatim: Sabrina's and Modibo's traits verbatim from config/illustration.json, the same setting (tall warehouse shelves, plain cardboard boxes, no logos), 'No text.', kind drawing / size sequence unchanged; the alt describes the handshake and the gesture in Dutch without stating the key. The sample differs only in the requested sentence (76 words; the new dat- and omdat-clauses are verb-final and 'een nieuw telefoonsysteem' agrees, so the two learner errors 'gerepareert' and 'dat hij is een aardige jongen' remain the only two); it proves criteria 1-3 and ends 'Tot snel!' without a question, so criterion 4 is still the single miss and quotes[3] stays null; quotes[1] is the review's text and a verbatim substring of the new sample (two contiguous sentences), quotes[0] and [2] re-verified. The model differs only in the requested sentence: 132 words (inside the 50-150 of blueprint 4.8 for a deelschrijftaak model and the 120-150 of the re-review brief), ten sentences, average 13.2, longest 21, 'je' throughout, no prompt sentence copied; it meets 1 (kapot, monteur, gerepareerd), 2 (teamoverleg about a new telephone system because customers wait long before someone answers, a plausible wholesaler topic), 3 (nieuwe collega begonnen: Modibo; Sabrina hem alles laten zien) and 4 ('Hoe gaat het nu met je?'). The packing vocabulary is gone, so the overlap with pauzerooster is now only 'magazijn' and the accepted 'grote order voor de school'. Pass."
+      }
+    },
+    {
+      "id": "B1:writing:batch015-kledingkast:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "Five bullets on a seven-row order table with the goal klagen, two bullets invented, a dated reply request; model 179 words, average 16.3 words per sentence, longest 24, understandable without the table.",
+      "evidence": "Prompt states the situation, the goal ('u wilt klagen en u wilt dat de winkel het probleem oplost'), 'De tabel komt niet bij uw e-mail. De tekst moet dus te begrijpen zijn zonder de tabel.' and 'Schrijf de e-mail.'; goal: klagen. Scaffold formal ('Geachte heer, mevrouw,' / 'Met vriendelijke groet,'), 'u' in sample and model. Table: order 48213, white three-door wardrobe 180 cm, EUR 449,00 + 29,95, ordered dinsdag 25 augustus, promised uiterlijk vrijdag 4 september, delivered woensdag 9 september, one door scratched and dented (weekdays verified). Five criteria, pairs agree. Sample 102 words: quotes for 1, 2 (one span covering both problems), 4 and 5 exact; nothing about what was already done, so 3 is null; errors 'omdat de kast is pas op 9 september bezorgd' and 'beschadigt'. Model meets all five: article, number and date; 'Ten eerste … vijf dagen later dan afgesproken … Ten tweede … diepe kras … hoek gedeukt'; reported the same day with photos, promised answer within two days; new door or exchange within two weeks plus EUR 29,95 back; reply by vrijdag 18 september with a consequence. 'Kast & Co' is a real Belgian cabinet business.",
+      "revision_requests": [
+        {
+          "severity": "required",
+          "field": "prompt, table.caption, scaffold.to",
+          "failure": "'Kast & Co' (klantenservice@kastenco.nl) is the name of a real Belgian custom-cabinet business (kast-co.be) in the same sector, portrayed here as late, careless and unresponsive; blueprint sections 8 and 9 require invented organisations.",
+          "repair": "prompt: 'U hebt bij webwinkel Kastenzolder een kledingkast besteld.'; table.caption: 'Gegevens van uw bestelling bij Kastenzolder'; scaffold.to: 'klantenservice@kastenzolder.nl'. No other field names the shop."
+        }
+      ],
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "1904c1f1da92be22515a2e0a66cce2cff69382c7cbc5d2282b13593d53843f8b",
+        "verdict": "pass",
+        "checked": "prompt 'U hebt bij webwinkel Kastenzolder een kledingkast besteld.' (rest of the prompt byte-identical), table.caption 'Gegevens van uw bestelling bij Kastenzolder' and scaffold.to 'klantenservice@kastenzolder.nl' are the review's exact texts; no residue of 'Kast & Co' or 'kastenco' anywhere in the batch; sample ('bij uw webwinkel'), model ('bij u'), criteria, quotes (null at 2) and starters do not name the shop and are byte-identical. No business named Kastenzolder found; kastenzolder.nl is free. Pass."
+      }
+    },
+    {
+      "id": "B1:writing:batch015-pauzerooster:1",
+      "verdict": "pass",
+      "level_check": "comparable, fuller end",
+      "level_reason": "Six bullets on a four-column table with one arithmetic step (26 people, 20 seats) and a rota to design; any staggered proposal with times meets criterion 3 (the sample moves only teams B and C); model 178 words, average 16.2, longest 27.",
+      "evidence": "Prompt states the warehouse, three teams, the current rota, the overlap and the full canteen in two short sentences that sample and model paraphrase, the goal ('u wilt een ander pauzerooster voorstellen'), the table sentences and 'Schrijf de e-mail.'; goal: voorstellen. Scaffold to the manager, 'Beste mevrouw De Groot,' / 'Met vriendelijke groet,', 'u' throughout. Table: A (inpakken) 12 and B (orders verzamelen) 14 both 10.00-10.15 and 12.30-13.00, C (laden en lossen) 10 at 10.30-10.45 and 13.00-13.30; caption gives the shift and 20 seats. Six criteria, pairs agree. Sample 141 words: quotes for 1, 2, 3, 5 (two sentences each) and 6 exact; no advantage for the company, so 4 is null; its rota (A unchanged, B 10.15-10.30 and 13.00-13.30, C 10.30 and 13.30) has no overlap; errors 'omdat er zijn maar twintig stoelen' and 'tien minuut'. Model meets all six: problem with numbers; two reasons (queue, late return); A 10.00/12.15, B 10.15/12.45, C 10.30/13.15 verified non-overlapping with every team under 20 seats; advantage (no lost working time, no bigger canteen); meeting donderdag 17 september 15.30 (a Thursday, the end of the shift); thanks. 'Logistiek Brinkman' reverses the name of the real Brinkman Logistiek B.V.",
+      "revision_requests": [
+        {
+          "severity": "required",
+          "field": "prompt, scaffold.to",
+          "failure": "'Logistiek Brinkman' (b.degroot@logistiekbrinkman.nl) is the reversed name of Brinkman Logistiek B.V., a real transport and logistics company in Amersfoort, in the same sector; blueprint sections 8 and 9 require invented organisations.",
+          "repair": "prompt: 'U werkt in het magazijn van Logistiek Veldwijk.'; scaffold.to: 'b.degroot@logistiekveldwijk.nl'. No other field names the company."
+        }
+      ],
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "1904c1f1da92be22515a2e0a66cce2cff69382c7cbc5d2282b13593d53843f8b",
+        "verdict": "pass",
+        "checked": "prompt 'U werkt in het magazijn van Logistiek Veldwijk.' (rest byte-identical) and scaffold.to 'b.degroot@logistiekveldwijk.nl' are the review's exact texts; no residue of 'Brinkman'; title, table, criteria, sample, quotes (null at 3), model and starters do not name the company and are byte-identical. No company named Logistiek Veldwijk or Veldwijk Logistiek found (the nearest real names, Van Veldhuizen Logistiek and Veldhuis Logistics, are different surnames); logistiekveldwijk.nl is free. Pass."
+      }
+    }
+  ],
+  "revision_requests": [
+    {
+      "item": "B1:writing:batch015-avondcursus:1",
+      "severity": "required-minor",
+      "field": "formFields[5].label",
+      "request": "Op welke avond van de week kunt u niet? Geef een reden."
+    },
+    {
+      "item": "B1:writing:batch015-avondcursus:1",
+      "severity": "required-minor",
+      "field": "formFields[2].label",
+      "request": "Huidige functie"
+    },
+    {
+      "item": "B1:writing:batch015-avondcursus:1",
+      "severity": "recommended",
+      "field": "prompt",
+      "request": "'bij Volksuniversiteit Oostwaard' for 'bij Regiocollege Oostwaard'"
+    },
+    {
+      "item": "B1:writing:batch015-gemiste-werkdag:1",
+      "severity": "required-minor",
+      "field": "prompt",
+      "request": "insert 'Vraag Julio ook hoe het met hem gaat of wanneer hij weer komt werken.' after 'Gebruik alle plaatjes.'"
+    },
+    {
+      "item": "B1:writing:batch015-gemiste-werkdag:1",
+      "severity": "recommended",
+      "field": "images[2].brief, images[2].alt",
+      "request": "handshake first-day cue for the new colleague (exact text in the item entry)"
+    },
+    {
+      "item": "B1:writing:batch015-gemiste-werkdag:1",
+      "severity": "recommended",
+      "field": "sample, quotes[1], model",
+      "request": "meeting topic 'een nieuw telefoonsysteem' instead of packing orders (exact text in the item entry)"
+    },
+    {
+      "item": "B1:writing:batch015-kledingkast:1",
+      "severity": "required",
+      "field": "prompt, table.caption, scaffold.to",
+      "request": "'Kastenzolder' / klantenservice@kastenzolder.nl for 'Kast & Co' / kastenco.nl"
+    },
+    {
+      "item": "B1:writing:batch015-pauzerooster:1",
+      "severity": "required",
+      "field": "prompt, scaffold.to",
+      "request": "'Logistiek Veldwijk' / b.degroot@logistiekveldwijk.nl for 'Logistiek Brinkman' / logistiekbrinkman.nl"
+    }
+  ],
+  "decisions_on_author_doubts": {
+    "1_register_split": "Accepted: form, complaint and proposal are formal by nature; with batch 014's 4/4 zinstaken the twelve-task form is 7 formal / 5 informal.",
+    "2_kledingkast_vs_batch008_kast": "Accepted, keep the wardrobe: different level, task type, act, addressee, register and information; A2 and B1 never share a set. The shop is renamed for a different reason (real business).",
+    "3_two_warehouses": "Accepted with the recommended meeting-topic change that removes the packing/orders overlap; the two werk tasks are non-adjacent in the form order given under set_assembly.",
+    "4_criterion3_wording": "Agreed: 'heeft het magazijn bekeken', 'kreeg een rondleiding door het magazijn' and 'heeft hem het magazijn laten zien' all meet it. The judge sees the criterion text and not the pictures (server/services.ts sends prompt, criteria, table and form labels only), so the criterion must carry the intended reading and the picture should carry the first-day cue.",
+    "5_gerepareert_spelling": "Keep: the d/t participle is the most frequent learner spelling error, the official scale scores spelling separately and does not tolerate it, and pairing a spelling error with a word-order error shows two aspects of the scale. Do not replace it with 'repareren'.",
+    "6_ik_wil_dat_goed_leren": "Not a second reason: it names the aim of any bookkeeping course. The null stands; dropping the sentence is harmless (no quote refers to it) if an unarguable omission is preferred.",
+    "7_criterion5_firmness": "The sample's dated request meets it: 'beleefd' is the wording, 'duidelijk' is the date; the model's consequence sentence is a plus, not a requirement. Feedback should accept a dated request without a consequence.",
+    "8_two_advantages": "Accepted: 'één' reads as at least one; feedback must accept a single advantage; keep the model.",
+    "9_official_formula_sentences": "Accepted: the table sentences and 'Gebruik alle plaatjes' are the exam's instruction form required by blueprint 4.8; they are not content, and the copied-sentence rule concerns the learner's text.",
+    "10_employer_field": "Decided: reword to 'Huidige functie' (required-minor). The field is not a criterion, so nothing else changes. Batch 008's nieuwe-patient insurer field is the same kind of invitation; one rule for all forms (line fields ask for no organisation names) is suggested.",
+    "11_model_density": "Accepted: 116 words, six sentences, average 19.3, longest 25, inside section 10; two sentences per open field is realistic for a B1 form. Optional split of the first sentence at 'terwijl' if the model is edited for another reason."
+  },
+  "observations_not_blocking": [
+    "pauzerooster criterion 6 is a closing formula rather than a content bullet; acceptable within five-or-six, but future korte schrijftaken should spend every bullet on content.",
+    "kledingkast model: 'terwijl ik daarvoor twee dagen vrij had genomen' is slightly implausible for an 'uiterlijk' date; optional 'een dag vrij had genomen' if the model is edited anyway.",
+    "The two korte schrijftaak models sit at 179 and 178 words against the 180 cap; later additions need matching cuts. The recommended topic change adds one word to the 131-word gemiste-werkdag model.",
+    "avondcursus scores three open fields where the official form has six; fine under blueprint 4.8, a later form task could carry four or five.",
+    "Feedback should accept: any weekday evening for avondcursus 3; 'wordt gerepareerd' / 'is gemaakt' for gemiste-werkdag 1 (the picture shows the repair in progress); any wording of the tour for gemiste-werkdag 3; a dated request alone for kledingkast 5; any staggered rota with times, including one that moves a single team, for pauzerooster 3; one advantage for pauzerooster 4.",
+    "The author's notes did not raise the missing prompt request for the question (gemiste-werkdag), the two real business names, or the field-label/criterion mismatch (avondcursus)."
+  ],
+  "diversity_review": "Four distinct acts (register through a form, narrate a day to an absent colleague, complain with a demanded remedy, propose a rota to a manager), four settings, domains werk 2 / educatie 1 / overig 1, both korte-schrijftaak goals new to the bank (klagen, voorstellen), formal and informal. No slug reuse or re-skin; only the fixed exam instructions mirror the official format. Near pairs accepted with reasons: kledingkast vs batch008-kast (object only; different level, act, addressee, register), kledingkast vs batch003-reparatie (both ask a solution with a term; different object, two problems, contact history), pauzerooster vs batch003-vrijwilligersrooster and batch002-rooster (a third rota item in the part; different problem and information structure; no more rotas in later batches), gemiste-werkdag vs pauzerooster inside the batch (warehouse and packing vocabulary; recommended topic change). Against batch 014: 014-examendatum ('cursus Boekhouden' at Cursuscentrum Noord) and avondcursus ('Boekhouden voor beginners') put two bookkeeping courses in one form; a two-word subject change in 014 or non-adjacent placement cures it. 014-groepsverslag writes to julio@mail.nl / 'Hoi Julio,' exactly like gemiste-werkdag; 014-ziekmelding names Karim, who is in picture 2; cast reuse is allowed but two e-mails to Julio should not be consecutive.",
+  "set_assembly": "Drills: a B1 writing drill is one longer task, so each task is its own drill; do not present pauzerooster in one session with the two older rota items, or kledingkast next to batch003-reparatie. Form (8 + 2 + 2 with batch 014): tasks 9-12 as gemiste-werkdag, avondcursus, pauzerooster, kledingkast (domains werk/educatie/werk/overig, registers informal/formal/formal/formal, the two werk tasks and warehouse scenes non-adjacent, the two table tasks with different goals); in the 014 order, groepsverslag (Hoi Julio) and examendatum (bookkeeping, while it keeps its subject) not at task 8; 100 minutes. Half form: avondcursus + kledingkast or gemiste-werkdag + pauzerooster with four zinstaken.",
+  "media_notes": "gemiste-werkdag: three briefs without file, kind drawing, size sequence; per config/illustration.json three separate 1024x640 generations whose briefs repeat the traits verbatim (they do). Review: no readable text on the whiteboard (image models like to write on whiteboards), no logos on the boxes, the technician recognisably repairing the machine, Sabrina's hair length and green jumper consistent across the panels, the handshake readable at display size if the recommended brief is taken; alts reveal no more than the pictures show.",
+  "coordinator_notes": [
+    "App rule to extend (not edited by the reviewer): app/components/OpenExercise.tsx prints item.criteria as the requirements list while the learner writes and hides it only for taskType 'picture-note'; a B1 deelschrijftaak built on images shows criteria that narrate the pictures. Extend the hiding condition to a deelschrijftaak with images (a korte schrijftaak with pictures keeps its bullets, as the official task prints them). Request 3.2.1 keeps the prompt complete once the criteria are hidden.",
+    "Judge input: server/services.ts sends prompt, criteria, table and form labels to the feedback model, not the images; for picture tasks the criteria alone define the expected content.",
+    "Two of three invented organisations were real businesses in the same sector; add a web check of every organisation name to the author's self-check.",
+    "Done 2026-09-10 (focused re-review): source_sha256 re-recorded as 1904c1f1..., checker re-run on the new bytes (no failures, no warnings), the fourteen changed fields of all four tasks re-read and every other field confirmed byte-identical; starters_sha256 unchanged. Nothing further is needed on the batch bytes; optionally add the new hash to the coordinator section of content/batches/015-notes.md (its 'Model lengths' line and 'SHA-256 at the time of writing' describe the author's version; gemiste-werkdag is now 132 words).",
+    "Batch 014 review: consider changing the subject of 014-examendatum's course (two words) so the form does not hold two bookkeeping courses.",
+    "Media review of gemiste-werkdag picture 3 (unchanged from the first review, now on the new brief): the handshake must read at display size and the second hand gesturing along the shelves must not produce artefacts; regenerate the panel if either fails. The app rule (hide the criteria for a deelschrijftaak with images) and the batch 014 bookkeeping-course subject remain open items outside this batch's bytes."
+  ],
+  "limitations": [
+    "This is an AI editorial review. It does not replace independent Dutch-language educator review, learner trials, blueprint validation or psychometric calibration, and it does not establish equivalence with an official exam.",
+    "The B1 labels remain unvalidated authoring targets; the per-task level judgments compare the tasks with the official task descriptions, not with stored exemplars (content/exemplars/ does not exist) or learner data.",
+    "The review covers the text fields, the table and the image briefs; the generated illustrations and the feedback prompts that use these criteria need their own review after media production.",
+    "The organisation-name checks were single web searches on 10 September 2026 (first review) and, for the three replacement names, two web searches each plus an SIDN whois and DNS lookup at the focused re-review of the same date; they can miss businesses that are not indexed.",
+    "The starters verdict and the item verdicts apply only to the exact source hash 1904c1f1da92be22515a2e0a66cce2cff69382c7cbc5d2282b13593d53843f8b and starters hash 59b9ddb0e31fd4f07da4a2b89faa04d1dccb7897fca3cba996d779945a37e1bc recorded here (the first review's verdicts applied to 47b937d8...); any byte change requires a new hash and a focused re-review."
+  ],
+  "re_reviewed_at": "2026-09-10",
+  "revisions": [
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review",
+      "items": [
+        "B1:writing:batch015-avondcursus:1",
+        "B1:writing:batch015-gemiste-werkdag:1",
+        "B1:writing:batch015-kledingkast:1",
+        "B1:writing:batch015-pauzerooster:1"
+      ],
+      "previous_sha256": "47b937d8d023868f14899b98a45e94ce8f70a8ed6be4a305273657ae2ab61709",
+      "re_reviewed_sha256": "1904c1f1da92be22515a2e0a66cce2cff69382c7cbc5d2282b13593d53843f8b",
+      "verdict": "pass",
+      "note": "Focused re-review of the fields the coordinator changed after the first review (content/batches/015-notes.md, 'Coordinator revision after the editorial review'). The file at 1904c1f1... hashes as the coordinator expected; npm run batch:check ends with 'No failures, no warnings'; the starters file is byte-identical at 59b9ddb0.... The reviewed bytes (47b937d8...) were reproduced by running the author's build script build015.py from the session scratchpad into a scratch directory (its output hashes to 47b937d8... exactly) and diffed field by field against the current file: exactly fourteen leaf values differ, all inside the announced edits (avondcursus prompt, formFields[2].label, formFields[5].label; gemiste-werkdag prompt, images[2].brief, images[2].alt, sample, quotes[1], model; kledingkast prompt, scaffold.to, table.caption; pauzerooster prompt, scaffold.to), and every applied value is the review's proposed text character for character; ids, key order, all criteria and everything else are byte-identical. avondcursus passes: field 6 now as wide as criterion 3, field 3 'Huidige functie' invites no employer, 'Volksuniversiteit Oostwaard' is no real institution. gemiste-werkdag passes: the prompt now asks for the closing question; quotes[1] is a verbatim substring of the new sample, which keeps exactly its two learner errors and still misses only criterion 4 (quote null); the model (132 words, longest sentence 21, no prompt sentence copied) meets all four criteria; the brief repeats Sabrina's and Modibo's traits verbatim with the no-text clause and the alt matches; the packing overlap with pauzerooster is gone. kledingkast and pauzerooster pass: only the organisation names changed; web searches found no business named Kastenzolder or Logistiek Veldwijk / Veldwijk Logistiek (nearest real names Van Veldhuizen Logistiek and Veldhuis Logistics are different surnames), both .nl domains are free at SIDN, the retired kastenco.nl still resolves. Record updates: source_sha256 set to 1904c1f1..., batch_verdict pass, ready_for_integration true, four item verdicts pass with a re_review object each (revision_requests kept as the record of what was asked), resolved checks updated (prompt, form label, picture cue, organisation names, word counts, revised_fields_diff), coordinator notes and limitations refreshed. Coordinator to-do without a new hash: optionally add the new hash to the coordinator section of 015-notes.md; at media production confirm the handshake reads at display size."
+    }
+  ]
+}

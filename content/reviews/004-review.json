@@ -1,0 +1,173 @@
+{
+  "review_id": "batch004-editorial-review",
+  "source": "content/batches/004-original.json",
+  "source_sha256": "859664e53824ef4387c2cdc258c907353df7beea78f4c1933ae979ee24f6e573",
+  "review_type": "Independent AI editorial review of original A2 reading items against the rubric, blueprint sections 1/3/4.1/5/8/9/10/13 and workflow section 5; reviewer did not author or edit the batch",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "focused_rereview": {
+    "date": "2026-09-10",
+    "scope": "The coordinator's revision recorded at the end of content/batches/004-notes.md: bloedprikken q1 prompt now states the start of the shift and its options were rotated so the hospital sits at A (answer D -> A); praktijkles q1 prompt now states the start of the working day and drops the double 'tot', and its q3 option A reads 'De cursisten kunnen een extra les kiezen.'; picknick q2 options were reordered so 'Papa' sits at B (answer D -> B). The two items previously marked revise were re-reviewed in full; the reordered questions were checked for key/option agreement and letter references; key balance was recomputed.",
+    "verdict": "pass",
+    "previous_source_sha256": "c921d32ae0b8863ea6ed762c41c522db8e1b5f6b19b01aa4c6323fda7271595a",
+    "source_sha256": "859664e53824ef4387c2cdc258c907353df7beea78f4c1933ae979ee24f6e573",
+    "change_verified": "The batch file is untracked in git, so no diff against the reviewed version exists. Instead the reviewer reverted exactly the five recorded edits in a copy (old bloedprikken q1 prompt, options back to Noord/Zuid/huisarts/ziekenhuis with answer D; old praktijkles q1 prompt and q3 option A 'De cursisten moeten een les kiezen.'; picknick q2 options back to Roos/Sem/Tante Nadia/Papa with answer D) and re-serialised with the file's own format (two-space indent, UTF-8, trailing newline): the result hashes to c921d32ae0b8863ea6ed762c41c522db8e1b5f6b19b01aa4c6323fda7271595a, the version of the full review, byte for byte. So no text, situation, title, other question, option wording, key, evidence, explanation or metadata field changed. Independently: every quotation the full review took from an untouched item is still verbatim in the file; word counts (162, 142, 150, 144, 153, 158, 150, 161, 164, 137, 136, 178) and the key sequences of the ten untouched items are as recorded; parkeervergunning, telefoon, verwarming, herhaalrecept, stadsbus and magazijn were re-read in full (all prompts, options, keys, evidence and explanations) against the item findings and match. npm run batch:check content/batches/004-original.json: 12 items, 30 questions, keys {C:9, A:9, B:9, D:3}, options {3:18, 4:12}, the four known table-row sentence warnings, no failures.",
+    "items": {
+      "bloedprikken": "pass: prompt 'Meneer De Vries werkt elke ochtend van 7.00 tot 12.00 uur. Waar kan hij bloed laten prikken?' Key A 'In het ziekenhuis.' from 'Ziekenhuis Westerhout, ingang B – maandag tot en met vrijdag – 7.30 tot 16.00 uur': open until 16.00, so he can go after 12.00. B Gezondheidscentrum Noord (maandag en donderdag, 8.00 tot 10.30 uur) and C Apotheek Zuid (dinsdag en vrijdag, 7.30 tot 9.30 uur) lie entirely inside 7.00-12.00; nothing opens before 7.00 and nothing is open at the weekend, so 'elke ochtend' leaves no gap; D huisarts only receives the result ('De uitslag gaat binnen drie werkdagen naar uw huisarts.'). Rubric checks 4 and 5 now pass. The acceptance condition of the full review holds (only the hospital's afternoon hours fall outside his working time; evidence and explanation unchanged). Answer letter A matches the moved option; the explanation names Noord, Zuid and the huisarts, not letters; the four options keep their wording and are parallel (three words each). A man of about 60 (config/illustration.json) plausibly works mornings.",
+      "praktijkles": "pass: prompt 'Fatima werkt van maandag tot en met vrijdag van 9.00 tot 17.00 uur. Welke les kan zij volgen?' Key C from '3. Praten in de winkel: zaterdag 6 februari, 10.00 tot 12.00 uur.'; A (dinsdag 2 februari, 9.30 tot 11.30 uur) and B (donderdag 4 februari, 13.30 tot 15.30 uur) lie inside 9.00-17.00 on weekdays, so they are excluded; 2, 4 and 6 February 2027 are Tuesday, Thursday and Saturday. The double 'tot' is gone and the sentence is idiomatic. The explanation ('op werkdagen vóór 17.00 uur') stays true and sufficient. q3 key A 'De cursisten kunnen een extra les kiezen.' matches 'In februari geven wij drie extra lessen. ... U kiest één les.' and the invitation 'Wilt u meedoen?'; the explanation ('biedt drie extra lessen aan en vraagt de cursisten om er één te kiezen') agrees with 'kunnen'; B (address misread as a move) and C (conditional 'Is de groep vol?' misread as a fact) remain clearly false. Key letters unchanged (C, B, A).",
+      "picknick": "pass: q2 options now Roos / Papa / Tante Nadia / Sem, answer B; 'Papa brengt mama om 12.30 uur naar het park.' is the key's evidence; the explanation names Papa and Roos, not letters; option wording unchanged (Papa and Sem swapped)."
+    },
+    "key_balance": "Four-option questions: A3 B3 C3 D3 (25% each). Three-option questions: A6 B6 C6. All 30 questions: A9 B9 C9 D3 (30/30/30/10%); D cannot exceed 10% of all questions with three four-option keys, and within its own group it sits inside the 20-40% band. No item keys the same letter twice in a row.",
+    "observations_not_blocking": [
+      "praktijkles q3: key A is now 7 words / 41 characters against B's 6 words / 40 characters (before the edit A was 6 words); a one-character difference is not a usable length cue and the checker's length-spread warning did not fire.",
+      "The optional notes of the full review (werkkleding q2 option A, picknick sentence order and 'maken', telefoon q3 concept repeat, verwarming wording, magazijn wage) were not applied; they remain optional.",
+      "content/batches/004-notes.md sections 4 (items 3, 4 and 7) and 5 still describe the pre-revision option letters and key positions (3 C-B-A with 'moeten', 4 C-D, 7 D-B); the coordinator's addendum records the change, so the notes read as a history. No learner-facing effect."
+    ]
+  },
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 12,
+    "distribution": {"A2_reading": 12},
+    "question_count": 30,
+    "option_counts": {"3": 18, "4": 12},
+    "key_counts": {"A": 9, "B": 9, "C": 9, "D": 3},
+    "key_counts_four_option_questions": {"A": 3, "B": 3, "C": 3, "D": 3},
+    "key_counts_three_option_questions": {"A": 6, "B": 6, "C": 6},
+    "closed_evidence_is_verbatim": true,
+    "persona_prompts": 12,
+    "purpose_questions": 6,
+    "texts_with_table": 3,
+    "word_count_range": "136-178",
+    "prose_sentence_average_range": "5.9-8.8",
+    "prose_longest_sentence": 15,
+    "calendar_pairs_verified": true,
+    "batch_check": "12 items, 30 questions, 4 warnings (table rows merged by the sentence splitter), no failures (re-run on the revised file, same result)",
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false
+  },
+  "items": [
+    {
+      "id": "A2:reading:batch004-parkeervergunning:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "A 162-word gemeente letter whose first question combines the purpose sentence with a deadline; the other two are one-line lookups, as in official gemeente letters.",
+      "evidence": "q1 C follows from 'Wilt u ook volgend jaar in uw buurt parkeren? Verleng dan uw vergunning vóór 1 december.'; A confuses the expiry date, B the kenteken rule, D reverses 'De vergunning stopt dan vanzelf'. q2 A from 'Maak daarvoor eerst een afspraak.'; DigiD belongs to the online route. q3 B from 'geldig tot en met 31 december'; the new car and the appointment are conditional examples."
+    },
+    {
+      "id": "A2:reading:batch004-werkkleding:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "A staff letter with four verified dates; one date-exclusion question and one purpose question.",
+      "evidence": "q1 A follows from 'Dat kan op woensdag 28 oktober of donderdag 29 oktober tussen 8.00 en 16.00 uur.' with Wednesday excluded; B is the form deadline, C the first wearing day. q2 D from 'Iedereen krijgt twee broeken, drie shirts en een jas. De kleding is gratis.'; B reversed by 'gratis', C reversed by the pick-up days. Option A 'Het bedrijf gaat verhuizen' is anchored only by the repeated address; weak but not defensible.",
+      "notes": "Optional: replace q2 option A with a distractor grounded in a stated detail."
+    },
+    {
+      "id": "A2:reading:batch004-praktijkles:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "A three-slot schedule with a price condition and a sign-up rule; each persona question combines one constraint with one line of the text.",
+      "evidence": "q1 C follows from '3. Praten in de winkel: zaterdag 6 februari, 10.00 tot 12.00 uur.' with the revised prompt 'Fatima werkt van maandag tot en met vrijdag van 9.00 tot 17.00 uur. Welke les kan zij volgen?': lesson 1 (dinsdag 2 februari, 9.30 tot 11.30 uur) and lesson 2 (donderdag 4 februari, 13.30 tot 15.30 uur) both lie inside 9.00-17.00 on a weekday, so A and B are excluded and the Saturday lesson is the only one she can attend; 2, 4 and 6 February 2027 are a Tuesday, a Thursday and a Saturday. q2 B from 'Volgt u alleen de avondles? Dan betaalt u 15 euro.'; 10 and 20 are numbers taken from the text. q3 A 'De cursisten kunnen een extra les kiezen.' from 'In februari geven wij drie extra lessen. ... U kiest één les.' and the invitation 'Wilt u meedoen?'; B misreads the address 'Schoolstraat 4' as a move, C misreads the conditional 'Is de groep vol? Dan krijgt u bericht van ons.' as a fact; the explanation ('biedt drie extra lessen aan en vraagt de cursisten om er één te kiezen') agrees with 'kunnen'.",
+      "revision_applied": {
+        "fields": "questions[0].prompt; questions[2].options.A",
+        "before": "Fatima werkt van maandag tot en met vrijdag tot 17.00 uur. Welke les kan zij volgen? / De cursisten moeten een les kiezen.",
+        "after": "Fatima werkt van maandag tot en met vrijdag van 9.00 tot 17.00 uur. Welke les kan zij volgen? / De cursisten kunnen een extra les kiezen.",
+        "verified_in_focused_rereview": "2026-09-10: both weekday lessons lie inside the stated hours, the double 'tot' is gone, the q3 key matches the e-mail's invitation and its explanation; evidence quotes, explanations and key letters (C, B, A) unchanged."
+      }
+    },
+    {
+      "id": "A2:reading:batch004-picknick:1",
+      "verdict": "pass",
+      "level_check": "easier",
+      "level_reason": "Shortest sentences in the batch, informal register, direct lookups and one simple weather condition; comparable with the easier official family e-mails.",
+      "evidence": "q1 C follows from 'Regent het zondag? Dan gaan we niet naar het park. We eten dan bij mij thuis, Lindelaan 14.'; A and B are the fair-weather places. q2 (key D in the full review, B after the focused re-review's reorder: Roos / Papa / Tante Nadia / Sem) from 'Papa brengt mama om 12.30 uur naar het park.'; Roos, Sem and tante Nadia have other named tasks. 'zondag 13 juni' is a Sunday in 2027.",
+      "notes": "Optional naturalness: place 'Ze weet het nog niet, dus zeg niets tegen haar!' after the picnic sentence; 'organiseren' for 'maken'."
+    },
+    {
+      "id": "A2:reading:batch004-telefoon:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "A price table plus a time cut-off, the official folder pattern; q1 is the batch's hardest combination but stays within one paragraph.",
+      "evidence": "q1 B: Tuesday 14.00 is after the cut-off, so 'Brengt u hem later? Dan is het scherm de volgende dag klaar.' gives Wednesday; A is the table row without its condition, C the two-day row, D the Saturday rule. q2 A from 'Op zaterdag doen wij alleen batterijen. ... U kunt de telefoon dan op maandag ophalen.' q3 C from 'U betaalt bij het ophalen.'; B is the ready call.",
+      "notes": "q3 repeats the pay-at-pick-up concept of batch003-kantine; optional swap for a guarantee question. Same setting as A2:listening:batch005-scherm:1 (allowed across parts)."
+    },
+    {
+      "id": "A2:reading:batch004-stadsbus:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "Table lookups plus one question that combines the weekend frequency with the after-22.00 rule.",
+      "evidence": "q1 A from 'Kinderen tot en met 3 jaar – gratis – samen met een volwassene'; B is the 4-11 fare. q2 B from 'Hebt u geen pinpas? Koop dan een kaartje in de app Stadsbus of bij de balie op het station.'; A fails on 'alleen met uw pinpas', C on the website being information only. q3 C from 'In het weekend rijden ze elk half uur. Na 22.00 uur rijdt alleen lijn 3.'; each distractor breaks one of the two rules.",
+      "notes": "Pin-only rule also appears in A2:listening:batch005-bus:1 (allowed across parts)."
+    },
+    {
+      "id": "A2:reading:batch004-bloedprikken:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "A three-row rooster with hours, a persona constraint and a glossed rule ('nuchter'); the learner must read the Tijden column of all three rows against the stated shift.",
+      "evidence": "q1 key A 'In het ziekenhuis.' from 'Ziekenhuis Westerhout, ingang B – maandag tot en met vrijdag – 7.30 tot 16.00 uur' with the revised prompt 'Meneer De Vries werkt elke ochtend van 7.00 tot 12.00 uur. Waar kan hij bloed laten prikken?': the hospital is open until 16.00, so the afternoon is free. B 'Gezondheidscentrum Noord, Molenweg 3 – maandag en donderdag – 8.00 tot 10.30 uur' and C 'Apotheek Zuid, Zuidplein 20 – dinsdag en vrijdag – 7.30 tot 9.30 uur' lie entirely inside 7.00-12.00; no location opens before 7.00 and none is open at the weekend, so 'elke ochtend' leaves no free morning slot; D huisarts only receives the result ('De uitslag gaat binnen drie werkdagen naar uw huisarts.'). Options rotated so the hospital sits at A; all four option wordings unchanged and parallel; the explanation names Noord, Zuid and the huisarts, not letters. q2 B from 'Water drinken mag wel. Koffie en thee mogen niet.' is unchanged and sound.",
+      "revision_applied": {
+        "fields": "questions[0].prompt; questions[0].options (order); questions[0].answer",
+        "before": "Meneer De Vries werkt elke ochtend tot 12.00 uur. Waar kan hij bloed laten prikken? / A Noord, B Zuid, C huisarts, D ziekenhuis / answer D",
+        "after": "Meneer De Vries werkt elke ochtend van 7.00 tot 12.00 uur. Waar kan hij bloed laten prikken? / A ziekenhuis, B Noord, C Zuid, D huisarts / answer A",
+        "verified_in_focused_rereview": "2026-09-10: acceptance condition met (only the hospital's afternoon hours fall outside his working time); rubric checks 4 and 5 pass; evidence and explanation unchanged; answer letter matches the moved option."
+      }
+    },
+    {
+      "id": "A2:reading:batch004-verwarming:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "Practical vocabulary (thermostaat, waterdruk, cv-ketel) is slightly heavier than average but genre-typical; the questions test step order and a condition, not the words.",
+      "evidence": "q1 C from '1. Kijk op de thermostaat.'; the reset button is step 3 and reporting comes after the three checks. q2 A from 'Meld de storing op www.deberk.nl/storing. Dat kan de hele dag en de hele nacht.'; B is the no-hot-water number and Fatima has hot water, C is forbidden ('Bel ook niet zelf een monteur.'), D has no support.",
+      "notes": "Optional: add 'ook in het weekend' to the website sentence; 'informatiekaart' in the situation line."
+    },
+    {
+      "id": "A2:reading:batch004-magazijn:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "Eligibility and how-to-apply questions on a sectioned job ad, as in official vacancy items.",
+      "evidence": "q1 D from 'U bent 18 jaar of ouder.' with Sem at 17; A and B are true facts that do not override the age rule, C gives a reason the ad denies ('Ervaring is niet nodig.'). q2 B from 'Bel Petra Jansen op werkdagen tussen 9.00 en 12.00 uur'; A is outside the window, C fails on 'Kom niet zonder afspraak naar het magazijn.'",
+      "notes": "Optional realism: 14,50 euro per uur is below the 2026 adult minimum wage; 15,50 would be safer. Second job ad in the bank after p4 (bloemenwinkel) but different sector, rule and channel."
+    },
+    {
+      "id": "A2:reading:batch004-ramen:1",
+      "verdict": "pass",
+      "level_check": "easier",
+      "level_reason": "q1 is a single lookup and the purpose is stated in the first sentence; comparable with the simpler official krant items.",
+      "evidence": "q1 B from 'Daarna volgen de Rozenstraat (vanaf 12 oktober)'; A and C are the other streets. q2 A from 'In oktober krijgen 120 huurwoningen in de Bloemenbuurt nieuwe ramen.'; B reversed by 'gratis', C by 'De huur gaat niet omhoog.', D by 'een brief met de precieze dag'. Dates verified for 2026."
+    },
+    {
+      "id": "A2:reading:batch004-flessenautomaat:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "A temporary-procedure notice with hours, a limit and an exception; three questions of increasing integration.",
+      "evidence": "q1 C from 'Dat kan van maandag tot en met vrijdag tussen 9.00 en 17.00 uur.'; 8.30 and 19.00 fall outside. q2 D from 'Kleine flesjes van 0,5 liter kunnen wij bij de balie niet aannemen. Bewaar die flesjes thuis.'; B confuses bottles with the voucher, C fails on the weekend rule. q3 A from 'De flessenautomaat is kapot. ... inleveren bij de servicebalie.'; B and C are reversals. 'vrijdag 7 mei' is a Friday in 2027."
+    },
+    {
+      "id": "A2:reading:batch004-herhaalrecept:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "A procedural letter with a time rule, an age rule and an exception; q1 needs two steps, as the official apotheek and huisarts letters do.",
+      "evidence": "q1 C: Monday 10.00 is before the cut-off, so 'Dan liggen uw medicijnen de volgende werkdag vanaf 14.00 uur klaar.' gives Tuesday; A ignores 'de volgende werkdag', B swaps cut-off and pick-up, D applies the after-12.00 rule. q2 B from 'Bent u jonger dan 70 jaar? Dan betaalt u 2,50 euro per bezorging.' with mevrouw Bakker at 66. q3 C from 'Vanaf 1 maart bestelt u herhaalmedicijnen anders.'; A and B are refuted by 'Krijgt u een nieuw medicijn ...? Dan komt u zoals altijd naar de balie.'",
+      "notes": "Same setting and persona as A2:listening:batch005-tabletten:1 (allowed across parts)."
+    }
+  ],
+  "batch_level_requests": [
+    {
+      "severity": "recommended",
+      "field": "option order in two four-option questions",
+      "issue": "Within the twelve four-option questions D is keyed 5 times (42%) and A and B twice each (17%), outside the blueprint's 20-40% band; across all 30 questions the letters are within the band as far as a 60/40 mix allows.",
+      "repair": "Reorder bloedprikken q1 so the hospital sits at A and picknick q2 so 'Papa' sits at B; result A3 B3 C3 D3 among four-option questions. No text, evidence or explanation changes.",
+      "status": "applied; verified in the focused re-review of 2026-09-10 (four-option keys A3 B3 C3 D3, all questions A9 B9 C9 D3, answers match the moved options, explanations refer to no letters)"
+    }
+  ],
+  "diversity_review": "Twelve distinct settings covering all eight task types and all eight domains; tested operations vary (deadline, date exclusion, schedule against working hours, weather condition, time cut-off with day arithmetic, age band and payment channel, location by hours, step order with an emergency condition, eligibility and calling window, per-street schedule, temporary procedure with limit and exception, ordering cut-off with age-based fee). No slug reuse and no re-skin of a catalogue item; nearest neighbours (p4 job ad, p1/batch003-kantine pay-at-pick-up, batch003-lift maintenance notice) differ in text type, structure and rule tested, and the blueprint's needed-topics list asks for exactly these settings. Four settings recur in the parallel listening batch 005 (telefoonwinkel, apotheek with mevrouw Bakker, gemeente parkeervergunning with the same slug in another part, city bus with the pin-only rule); allowed across parts, but mixed drills should not pair them. Neighbourhood topics appear twice; personas recur (Fatima and Roos in five items each), which mock forms should not place in consecutive texts.",
+  "limitations": [
+    "This is an AI editorial review. It does not replace independent Dutch-language educator review, learner trials, blueprint validation or psychometric calibration, and it does not establish equivalence with the official DUO exam. The A2 label remains an unvalidated authoring target.",
+    "Originality against official practice items rests on the author's declaration and the reviewer's reading; the texts were not compared with official practice exams line by line.",
+    "No exemplar files exist (content/exemplars/ is absent); level judgements compare each item with the blueprint's description of the official A2 texts and with the shorter catalogue items. The independent second level check of blueprint section 12 step 5 has not taken place.",
+    "The picture-answer requirement is per launch bank, not per batch; this batch contains none.",
+    "The recorded hash covers the file after the coordinator's revision and the focused re-review of 2026-09-10 (see focused_rereview); the full-review findings above were written against the previous hash, which the re-review shows differs only in the fields named there. Any further byte change invalidates the gate and requires another focused re-review."
+  ]
+}
