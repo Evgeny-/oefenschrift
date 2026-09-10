@@ -11,3 +11,21 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg
+      - run: npm ci
+      - run: npm run test:browser
+      - run: npm run test:production
+      - uses: actions/upload-artifact@v6
+        if: failure()
+        with:
+          name: browser-logs
+          path: tmp/
+          if-no-files-found: ignore
