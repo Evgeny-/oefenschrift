@@ -3,7 +3,7 @@
 **Verdict:** Pass. All 32 items are ready for integration.
 
 **Reviewed source:** `content/batches/003-original.json`  
-**SHA-256:** `8295ec2e0fa4368add9e9c35c013ab85c624e306fb64e4b6767cf509028c2556`
+**SHA-256:** `77b973e22b169182a051314dd6aab92b47bf25b304d77e8ebdee57c2cfdf763a` (after the focused re-review at the end of this document; the review below was written against `8295ec2e0fa4368add9e9c35c013ab85c624e306fb64e4b6767cf509028c2556`, which differs only by the `taskType` field named there)
 
 The batch contains eight A2 KNM items, four A2 and four B1 reading items, four A2 and four B1 writing items, and four A2 and four B1 speaking items. All IDs are unique. Every closed `evidence` value is a verbatim source substring that supports the key. Every open sample quote matches exactly, the null marks its omitted goal, and each model covers all three criteria.
 
@@ -55,3 +55,15 @@ The voting item was revised before acceptance. Its original wording required a �
 No item duplicates an earlier title or repeats an earlier item by changing only names, objects, or numbers. Familiar domains recur where appropriate, while the tested action and information structure differ. B1 tasks add connected conditions, consequences, explanations, or negotiation beyond the A2 pattern.
 
 This is an AI editorial review. It does not replace review by Dutch-language educators, learner trials, blueprint validation, or psychometric calibration. The A2 and B1 labels remain unvalidated authoring targets. Official pages support KNM facts; they do not validate exercise quality, official equivalence, readiness, or a pass score. Facts need periodic rechecking.
+
+## Focused re-review after the level check (10 September 2026)
+
+**Reviewed SHA-256:** `77b973e22b169182a051314dd6aab92b47bf25b304d77e8ebdee57c2cfdf763a` (supersedes `8295ec2e0fa4368add9e9c35c013ab85c624e306fb64e4b6767cf509028c2556`). **Verdict:** pass; all 32 items keep their pass verdicts, `ready_for_integration` stays true.
+
+**Scope.** The coordinator revision recorded at the end of `content/batches/003-notes.md`, asked for by `content/blueprint.md` §4.5 (last bullet) and `content/reviews/006-007-level-check.md` (recommended action 3): the eight KNM items `inschrijven`, `verhuizing`, `digid`, `zorgverzekering`, `noodnummer`, `leerplicht`, `stemmen` and `discriminatie` received `taskType: "leerkaart"`.
+
+**Only the added field changed.** A copy of the current batch with the `taskType` key removed from the eight KNM items, serialised with the batch's own formatting (which reproduces the current file byte for byte), hashes to `8295ec2e…` byte for byte, the hash of the reviewed file. The key was appended after `targetLevelValidated` in each of the eight items with the value `leerkaart` in all eight; a field-by-field comparison with the catalogue copies (which still lack the field until re-integration) shows no other difference, and the 24 reading, writing and speaking items are byte-identical. `leerkaart` is the value the blueprint prescribes, the checker accepts it for A2 KNM (`scripts/batch-check.ts`: `knm: { A2: ['feit', 'leerkaart'] }`) and the app labels it "Leerkaart / Study card" (`app/domain/labels.ts`). No text, prompt or option changed, so no audio or image work follows.
+
+**Checker.** `npm run batch:check content/batches/003-original.json` reports 9 warnings and 211 failures, all schema drift of this pre-blueprint batch under the current checker (exam and domain vocabularies, question counts, skill names, text lengths, situation lines, rubric names, key balance); the reconstructed previous file gives the identical output plus eight failures "taskType must be one of feit, leerkaart", one per KNM item, so the revision removes failures and adds none. The checker post-dates this review and was never part of its checks; the integration gate (`scripts/content.ts`) checks the hash, verdict and readiness. The 211 pre-existing failures are outside the scope of this re-review and are left for the coordinator. The level check's companion instruction, to keep these cards out of any KNM form, is a practice-set matter at integration.
+
+**Record.** `003-review.json`: `source_sha256` `77b973e2…`, `previous_source_sha256` `8295ec2e…`, verdict pass and ready, a `re_review` block on each of the eight KNM items, a `focused_rereview` block at batch level and a `revisions` entry (reviewer "focused re-review (level check)"). Any further byte change to the batch file needs another focused re-review.

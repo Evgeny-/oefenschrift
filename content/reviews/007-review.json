@@ -1,7 +1,7 @@
 {
   "review_id": "batch007-editorial-review",
   "source": "content/batches/007-original.json",
-  "source_sha256": "9b045ce8798eeb99ed79649222530b472cc173e5cde15e31866b124f97cbe69c",
+  "source_sha256": "3779a18e289232c9d65ac290f7c350eee0f5c6bf8a4eca2d1db94c66ce885a4c",
   "review_type": "Independent AI editorial and fact review of 24 original KNM items (July 2025 format: one picture, one factual question, three options) for themes 6 Instanties, 7 Staatsinrichting en rechtsstaat and 8 Onderwijs en opvoeding, against content/reviews/rubric.md (check 13 decisive), content/blueprint.md sections 1, 3, 4.5, 5, 7, 8, 10, 13 and docs/research/content-workflow.md section 5. Every cited source page was opened by the reviewer on 2026-09-10 (curl, HTTP 200 for all 24; the participatieverklaring image was downloaded and read); no search snippet was used as verification. The reviewer did not author or edit the batch.",
   "rubric": "content/reviews/rubric.md",
   "reviewed_at": "2026-09-10",
@@ -234,7 +234,16 @@
       "level_reason": "10-word direct question, three 3-4-word options, fact card sentences of 4-13 words.",
       "notes": [
         "Optional: the key repeats 'juridisch' from the prompt ('gratis juridisch advies' -> 'Juridisch Loket'); inherent in the institution's name. A prompt without the adjective ('gratis advies bij een probleem met huur, werk of een uitkering') would remove the echo if wanted."
-      ]
+      ],
+      "level_check_rereview": {
+        "date": "2026-09-10",
+        "sha256": "3779a18e289232c9d65ac290f7c350eee0f5c6bf8a4eca2d1db94c66ce885a4c",
+        "verdict": "pass",
+        "changed_fields": [
+          "questions[0].prompt"
+        ],
+        "checked": "Prompt 'Waar krijgen mensen met een laag inkomen gratis advies bij een conflict over huur of werk?' is the level check's text verbatim, 16 words (limit 20), plain A2 words ('conflict' is an international word). 'juridisch' no longer appears in the prompt, so the key 'Bij het Juridisch Loket' shares no word with it and the lexical match the level check flagged is gone. The prompt's 'huur' and 'werk' are covered by the fact text's second sentence ('Juristen helpen bij problemen met bijvoorbeeld huur, werk of een uitkering') and by the cited page, re-fetched 2026-09-10 with curl (HTTP 200 at the cited address, no redirect), which lists 'ontslag' and 'huur/wonen' among juridische problemen and states 'Het Juridisch Loket geeft daarnaast gratis persoonlijk advies als u een inkomen en vermogen onder een bepaalde grens heeft.' Key A is stated by the evidence (unchanged, verbatim). B (the Nationale ombudsman handles complaints about government conduct) and C (the police take aangifte) are false and refuted by the unchanged explanation; the page's other free helpers (rechtswinkels, sociaal raadslieden) are not options, so one defensible answer. Options 4/4/3 words, three 'Bij ...' phrases, key not the longest. The picture (a woman with a folder opposite an adviser) still fits. This item's optional note above is thereby applied in a variant."
+      }
     },
     {
       "id": "A2:knm:batch007-wa-verzekering:1",
@@ -343,7 +352,21 @@
       "source_sentence": "Participatieverklaring image (same file as item 12): \"iedereen een eigen geloof mag hebben en vrij is wel of niet te geloven\" and \"Wat iemand doet of zegt mag nooit in strijd zijn met de wet.\" Grondwet art. 6 lid 1 (read on wetten.overheid.nl BWBR0001840/2023-02-22): \"Ieder heeft het recht zijn godsdienst of levensovertuiging, individueel of in gemeenschap met anderen, vrij te belijden, behoudens ieders verantwoordelijkheid volgens de wet.\"",
       "evidence": "Fact verified: everyone chooses freely whether and what to believe (key A); no state religion (B false); religion is not inherited by law (C false). Evidence verbatim; constitutional, stable.",
       "level_check": "comparable",
-      "level_reason": "5-word direct question, three parallel 7-word options, fact card sentences of 4-15 words; 'godsdienstvrijheid' is the KNM term."
+      "level_reason": "5-word direct question, three parallel 7-word options, fact card sentences of 4-15 words; 'godsdienstvrijheid' is the KNM term.",
+      "level_check_rereview": {
+        "date": "2026-09-10",
+        "sha256": "3779a18e289232c9d65ac290f7c350eee0f5c6bf8a4eca2d1db94c66ce885a4c",
+        "verdict": "pass",
+        "changed_fields": [
+          "text (third sentence)",
+          "questions[0].prompt",
+          "questions[0].options",
+          "questions[0].evidence",
+          "questions[0].explanation",
+          "sourceNote"
+        ],
+        "checked": "The item is now the level check's 'wet boven geloof' twin, replacing the definitional question, with every changed field as the level check proposed: text third sentence 'De wet van de staat gaat boven de regels van een geloof of traditie.' (text 4/15/14 words, 33 in all, longest 15, present tense, no subordinator), prompt 'In Nederland geldt godsdienstvrijheid. Wat is belangrijker: de wet of de regels van een geloof?' (15 words, a direct fact in two sentences), options A* 'De wet van de staat.' / B 'De regels van het geloof.' / C 'Dat kiest iedereen zelf.' (5/5/4 words, key not the longest, no polarity or hedge), evidence 'De wet van de staat gaat boven de regels van een geloof' (verbatim substring of the new sentence), explanation as proposed. Eindterm 7.2.3 wording confirmed in the Staatscourant 2024-15802 XML fetched 2026-09-10 from repository.overheid.nl: '7.2.3 Is ervan op de hoogte dat in Nederland godsdienstvrijheid geldt. Weet dat iedereen vrij is om in Nederland zelf een godsdienst, levensbeschouwing of idealen te kiezen; weet dat de wetten van de staat boven die van religie en traditie staan; weet dat de overheid zich niet mengt in de interne aangelegenheden van godsdienstige of levensbeschouwelijke genootschappen, zolang die zich aan de wet houden.' The sourceNote quotes the heading and the second indicator verbatim, an improvement on the level check's paraphrase. The cited sourceUrl (Besluit inburgering 2021, bijlage participatieverklaring; image 266378.png downloaded and read 2026-09-10) supports the key's substance: 'iedereen een eigen geloof mag hebben en vrij is wel of niet te geloven' followed by 'Hier zijn ook grenzen aan verbonden. Wat iemand doet of zegt mag nooit in strijd zijn met de wet.', and 'iedereen zich aan dezelfde regels moet houden'; Grondwet art. 6 'behoudens ieders verantwoordelijkheid volgens de wet' as quoted in the sourceNote. B is false by the indicator and the key sentence; C is the over-generalisation of the text's second sentence (free choice of belief) to the law, false by the third sentence, and the explanation says exactly that ('geldt voor het geloof, niet voor de wet'). The prompt's either/or names both alternatives, so 'wet' recurs in A and 'regels' and 'geloof' in B, symmetrically; no signal. Title, picture (a church tower and a minaret), skill and eindterm unchanged and still fit. The eindterm_check, source_sentence, evidence, level_check and level_reason fields above describe the previous definitional item and are superseded by this block; the item still tests an exact 7.2.3 bullet, now the second one, so checks.eindterm_mapping_exact_bullet remains right."
+      }
     },
     {
       "id": "A2:knm:batch007-geweldloos-opvoeden:1",
@@ -355,7 +378,17 @@
       "source_sentence": "Resolved to https://wetten.overheid.nl/BWBR0002656/2025-07-05, Burgerlijk Wetboek Boek 1, artikel 247 lid 2: \"In de verzorging en opvoeding van het kind passen de ouders geen geestelijk of lichamelijk geweld of enige andere vernederende behandeling toe.\"",
       "evidence": "Fact verified from the law text: no physical or mental violence in upbringing, without exception for disobedience (A) or for the home (C); key B. Tone neutral, picture calm. Evidence verbatim; in force since 2007, stable.",
       "level_check": "comparable",
-      "level_reason": "15-word prompt, options of 4-6 words, fact card sentences of 4-11 words; 'lichamelijk of geestelijk geweld' explained by 'Een kind slaan is dus verboden'."
+      "level_reason": "15-word prompt, options of 4-6 words, fact card sentences of 4-11 words; 'lichamelijk of geestelijk geweld' explained by 'Een kind slaan is dus verboden'.",
+      "level_check_rereview": {
+        "date": "2026-09-10",
+        "sha256": "3779a18e289232c9d65ac290f7c350eee0f5c6bf8a4eca2d1db94c66ce885a4c",
+        "verdict": "pass",
+        "changed_fields": [
+          "questions[0].options (B and C)",
+          "questions[0].explanation"
+        ],
+        "checked": "B 'Nee, dat is bij wet verboden.' (key) and C 'Nee, maar een tik mag wel.', and the explanation's added last sentence 'Ook een tik is lichamelijk geweld en mag niet.', all as the level check proposed. Options 6/6/6 words, three Ja/Nee clauses; polarity Ja/Nee*/Nee, so the key shares its polarity with C; the key is the least qualified option, which blueprint section 5 does not treat as a signal (it forbids a more hedged key); no prompt word recurs in the key (A echoes the prompt's 'kind ... niet luistert', a lure, not the key). The key is stated by the fact text (evidence unchanged and verbatim: 'Ouders mogen bij de opvoeding geen lichamelijk of geestelijk geweld gebruiken') and by the cited article, re-fetched 2026-09-10 (the jci link resolves to BWBR0002656/2025-07-05, HTTP 200): BW 1:247 lid 2 'In de verzorging en opvoeding van het kind passen de ouders geen geestelijk of lichamelijk geweld of enige andere vernederende behandeling toe.' A is false (no exception for disobedience); C is false because a tik is lichamelijk geweld under that article (the 2007 amendment was aimed at the corrective tik) and is now a real belief instead of a throwaway ('alleen thuis'); the explanation refutes both, and its 'ook niet thuis' now addresses a retired distractor but remains true. Eindterm 7.2.6 ('slaan van kinderen') unchanged."
+      }
     },
     {
       "id": "A2:knm:batch007-donorregister:1",
@@ -659,6 +692,19 @@
       "re_reviewed_sha256": "9b045ce8798eeb99ed79649222530b472cc173e5cde15e31866b124f97cbe69c",
       "verdict": "pass",
       "note": "Second focused re-review of the europese-unie options after the first re-review's revision request. The file at 9b045ce8... differs from the file at b3aa398a... only in that item's options B and C (verified by reverting the two strings and reproducing the earlier hash); batch:check passes; keys 8/8/8. The applied option set is the one the first re-review proposed: 8/8/8 words, three Ja/Nee full clauses, key neither longest nor lone polarity nor most specific, both distractors refuted by the unchanged evidence sentence, rationales recorded in the batch notes, cited page and eindterm bullet re-read on 2026-09-10. All 24 items pass; batch_verdict pass; ready_for_integration true; source_sha256 set to 9b045ce8...."
+    },
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review (level check)",
+      "items": [
+        "A2:knm:batch007-juridischloket:1",
+        "A2:knm:batch007-godsdienstvrijheid:1",
+        "A2:knm:batch007-geweldloos-opvoeden:1"
+      ],
+      "previous_sha256": "9b045ce8798eeb99ed79649222530b472cc173e5cde15e31866b124f97cbe69c",
+      "re_reviewed_sha256": "3779a18e289232c9d65ac290f7c350eee0f5c6bf8a4eca2d1db94c66ce885a4c",
+      "verdict": "pass",
+      "note": "Focused re-review of the three items revised on the required actions of content/reviews/006-007-level-check.md. The file at 3779a18e... differs from the file at 9b045ce8... in exactly nine leaf fields of those three items, verified by substituting the catalogue's copies back and reproducing the previous hash byte for byte; batch:check ends 'No failures, no warnings'; keys 8/8/8. All three items pass: each change matches the level check's request (the sourceNote's literal Staatscourant quotation is the one deviation, an improvement), each key is stated by the fact text and the re-fetched source, both distractors are false and plausible, evidence verbatim, prompts at most 20 words, options parallel without a length, polarity or keyword signal, explanations refute the current distractors, A2 wording; the eindterm 7.2.3 indicator 'weet dat de wetten van de staat boven die van religie en traditie staan' was confirmed in the Staatscourant 2024-15802 XML. All 24 items pass; batch_verdict pass; ready_for_integration true; source_sha256 set to 3779a18e.... Integration must regenerate question audio for the three items."
     }
   ],
   "re_review_2_checks": {
@@ -700,5 +746,58 @@
     ],
     "all_refetched_http_200": true,
     "batch_notes_checked": "content/batches/007-notes.md section 2 items 1 and 10 now carry the rationales of the current distractors; section 3's option-length statement was amended; the 'Second coordinator revision' section describes exactly the change found in the file."
+  },
+  "previous_source_sha256": "9b045ce8798eeb99ed79649222530b472cc173e5cde15e31866b124f97cbe69c",
+  "re_review_3_checks": {
+    "date": "2026-09-10",
+    "scope": "Focused re-review after the independent KNM level check (content/reviews/006-007-level-check.md) of the three items revised on its required actions, as recorded under 'Revision after the level check (10 September 2026)' at the end of content/batches/007-notes.md: juridischloket (prompt), godsdienstvrijheid (text third sentence, prompt, options, evidence, explanation, sourceNote), geweldloos-opvoeden (options B and C, explanation).",
+    "sha256_re_reviewed": "3779a18e289232c9d65ac290f7c350eee0f5c6bf8a4eca2d1db94c66ce885a4c",
+    "previous_sha256": "9b045ce8798eeb99ed79649222530b472cc173e5cde15e31866b124f97cbe69c",
+    "batch_check": "npm run batch:check content/batches/007-original.json: Checked 24 items, 24 questions. Keys: {\"A\":8,\"B\":8,\"C\":8}. Options: {\"3\":24}. info: 24 of 24 items are already in the catalogue (a revision of an integrated batch). No failures, no warnings.",
+    "key_counts": {
+      "A": 8,
+      "B": 8,
+      "C": 8
+    },
+    "keys_per_theme": {
+      "6": {
+        "A": 3,
+        "B": 3,
+        "C": 2
+      },
+      "7": {
+        "A": 3,
+        "B": 2,
+        "C": 3
+      },
+      "8": {
+        "A": 2,
+        "B": 3,
+        "C": 3
+      }
+    },
+    "unchanged_items": 21,
+    "unchanged_items_method": "content/catalogue.json still holds the copies of all 24 items integrated from the previously reviewed file (they differ from the batch only in status, revision, the images array and questionAudio). A copy of the current batch file in which the catalogue's values were substituted back for exactly nine leaf fields (juridischloket prompt; godsdienstvrijheid text, prompt, options, evidence, explanation, sourceNote; geweldloos-opvoeden options, explanation), serialised with the batch's own formatting (JSON, two-space indent, trailing newline, which reproduces the current file byte for byte), hashes to 9b045ce8798eeb99ed79649222530b472cc173e5cde15e31866b124f97cbe69c byte for byte, the hash of the file the second focused re-review cleared; the current file hashes to 3779a18e289232c9d65ac290f7c350eee0f5c6bf8a4eca2d1db94c66ce885a4c. A field-by-field comparison of all 24 items against the catalogue copies shows no other differing field, so the other 21 items and every other field of the three revised items are unchanged.",
+    "level_check_match": "Every change is the level check's required text verbatim; the one deviation, the godsdienstvrijheid sourceNote quoting the Staatscourant's literal indicator 'weet dat de wetten van de staat boven die van religie en traditie staan' instead of the level check's paraphrase, is an improvement and was verified against the XML. The optional suggestions (wording, sharper distractors, fact-text simplification, the seksuele-vorming and identificatieplicht polarity variants) were not applied and remain optional.",
+    "prompt_word_range": "7-20 (limit 20; aansprakelijkheid is at 20; godsdienstvrijheid now 15 instead of 5)",
+    "text_word_range": "24-41 (godsdienstvrijheid now 33)",
+    "option_word_range": "1-8",
+    "closed_evidence_is_verbatim": true,
+    "yes_no_polarity_after_revision": "geweldloos-opvoeden Ja/Nee*/Nee now shares the key's polarity with a distractor; identificatieplicht, seksuele-vorming and ouderbijdrage keep the key as the odd polarity out (optional variants not applied); europese-unie unchanged. Across batches 006 and 007 the odd polarity marks the key in four of the nine two-polarity items, as the level check predicted.",
+    "sources_refetched": [
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/bescherming-van-consumenten/waar-kan-ik-terecht-voor-hulp-bij-een-juridisch-probleem-of-conflict",
+      "https://wetten.overheid.nl/BWBR0045555/2026-04-02 (and the bijlage image afbeelding?toestandid=BWBR0045555/2026-04-02_0&naam=266378.png)",
+      "https://repository.overheid.nl/frbr/officielepublicaties/stcrt/2024/stcrt-2024-15802/1/xml/stcrt-2024-15802.xml (eindtermen 6.5.2, 7.2.3, 7.2.6)",
+      "https://wetten.overheid.nl/jci1.3:c:BWBR0002656&boek=1&titeldeel=14&afdeling=2&artikel=247 (resolves to BWBR0002656/2025-07-05)"
+    ],
+    "all_refetched_http_200": true,
+    "media": "The three revised questions need new question audio: content/audio-manifest.json still holds the previous prompt and option text for A2:knm:batch007-{juridischloket,godsdienstvrijheid,geweldloos-opvoeden}:1#q1, and scripts/content.ts drops questionAudio when a question changes. No picture changes.",
+    "batch_notes_checked": "content/batches/007-notes.md 'Revision after the level check' describes exactly the change found in the file, including the sourceNote wording; the per-item rationales in section 2 for items 7, 13 and 14 still describe the previous versions, so the notes read as a history (the retired distractors 'Ja, maar alleen thuis' and the old godsdienstvrijheid options).",
+    "observations_not_blocking": [
+      "godsdienstvrijheid: the record's eindterm_check, source_sentence, evidence, level_check and level_reason fields describe the retired definitional item; the level_check_rereview block on the item carries the current findings.",
+      "geweldloos-opvoeden: 'ook niet thuis' in the explanation now refutes a retired distractor; true and harmless.",
+      "juridischloket: 'Bij het politiebureau' stays the weaker third option, as the level check noted while keeping the options unchanged.",
+      "Any further byte change to content/batches/007-original.json needs another focused re-review under a new hash."
+    ]
   }
 }

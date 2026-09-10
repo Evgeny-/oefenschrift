@@ -1,0 +1,336 @@
+{
+  "review_id": "batch024-editorial-review",
+  "source": "content/batches/024-original.json",
+  "original_sha256": "f5dfba436654ee60b9dccd90a89b82c1f1fac771ef7c98c72cbc023db22d8114",
+  "proposed": "content/batches/024-proposed.json",
+  "source_sha256": "ca005d70c3768dde5733097c4a4a4a13f5a9811b8f95932faabe2da8bf869c8e",
+  "starters_source": null,
+  "starters_sha256": null,
+  "starters_verdict": "not-applicable (closed items only)",
+  "review_type": "Independent AI editorial review of three original B1 reading texts (Staatsexamen NT2 Programma I, Lezen I shape: studieboek, opiniestuk, examenreglement as look-up text) against content/reviews/rubric.md (fourteen checks), content/blueprint.md sections 1, 3, 4.6, 5, 8, 9, 10, 12 and 13, the Lezen I paragraph of docs/research/exam-blueprints-2026-09-10.md and docs/briefs/author.md; every key proven from the verbatim evidence, every distractor tested against the text, level judged per text; small repairs applied in the proposed file (docs/briefs/review.md); the author notes were read after the items had been judged and their section 8 doubts decided.",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 3,
+    "distribution": {
+      "B1_reading": 3
+    },
+    "task_types": {
+      "studieboek": 1,
+      "artikel": 1,
+      "opzoektekst": 1
+    },
+    "text_types": {
+      "descriptief": 1,
+      "persuasief": 1,
+      "instructief": 1
+    },
+    "domains": {
+      "werk": 1,
+      "overig": 1,
+      "educatie": 1
+    },
+    "question_count": 20,
+    "questions_per_text": [
+      7,
+      6,
+      7
+    ],
+    "option_counts": {
+      "3": 20
+    },
+    "key_counts": {
+      "A": 7,
+      "B": 6,
+      "C": 7
+    },
+    "key_sequence": "ABCACBC BCACBA BAACACB",
+    "no_key_three_in_a_row": true,
+    "purpose_question_last_per_text": true,
+    "purpose_keys": [
+      "informeren",
+      "waarschuwen",
+      "uitleggen"
+    ],
+    "purpose_option_form_informeren_overtuigen_waarschuwen": true,
+    "opinion_or_inference_item_in_texts_1_and_2": true,
+    "lookup_text_shape_text_3": "quantity item combining two figures (q4), four rule-application items (q1, q2, q3, q6), one time-place item (q5), purpose last",
+    "evidence_verbatim_in_text": true,
+    "evidence_two_line_quote_renders_in_app": "text 3 q4: app splits on blank lines and highlights by substring within the block; .passage uses white-space: pre-line",
+    "key_never_longest_option": true,
+    "key_odd_polarity_out": "none after edits (text 1 q4, text 3 q6 repaired)",
+    "prompt_word_recurring_only_in_key": "none after edits (text 2 q1, text 3 q5, text 3 q6 repaired)",
+    "absolute_terms_in_keys": false,
+    "words_per_text": [
+      693,
+      627,
+      569
+    ],
+    "prose_sentence_stats": {
+      "klachtenafhandeling": {
+        "sentences": 42,
+        "average": 15.8,
+        "longest": 28
+      },
+      "gratis-zwemles": {
+        "sentences": 37,
+        "average": 16.2,
+        "longest": 27
+      },
+      "examenreglement": {
+        "sentences": 34,
+        "average": 15.4,
+        "longest": 27
+      }
+    },
+    "level_band_b1": "average 12-18, none over 30: all three inside",
+    "situation_lines": [
+      "U leest een bladzijde uit een studieboek …",
+      "U leest een opiniestuk op de website van een regionale krant.",
+      "U zoekt iets op in het examenreglement van een taalschool."
+    ],
+    "ids_and_slugs_new_to_catalogue_and_batches_020_025": true,
+    "status_draft_targetLevelValidated_false": true,
+    "web_checks_2026_09_10": {
+      "Taalschool Berkenpoort": "no hits",
+      "gemeente Westerhout": "no municipality; neighbourhood in Beverwijk, business park in Druten, street in Noordwijkerhout; bank fiction since batches 004/011",
+      "Thérèse Vermeulen": "no public figure found in a swimming context"
+    },
+    "consumer_law_checked_against": "ACM ConsuWijzer (consument.acm.nl: garantie; spijt van aankoop), 2026-09-10",
+    "avoid_list_section_9": "nothing graphic, political or religious; no brand, real address or real institution; water safety mentioned soberly",
+    "batch_check_on_proposed": "Checked 3 items, 20 questions. Keys: {\"A\":7,\"B\":6,\"C\":7}. Options: {\"3\":20}. No failures, no warnings."
+  },
+  "edits": [
+    {
+      "item": "B1:reading:batch024-klachtenafhandeling:1",
+      "field": "text; questions.q5.evidence",
+      "severity": "required",
+      "from": "Gaat een product te snel kapot, dan heeft de klant recht op gratis reparatie of een nieuw exemplaar.",
+      "to": "Gaat een product bij normaal gebruik te snel kapot, dan heeft de klant recht op gratis reparatie of een nieuw exemplaar.",
+      "why": "The right to free repair or replacement presupposes a defect that is not the customer's doing; the hedge keeps the page accurate. Evidence rebuilt verbatim."
+    },
+    {
+      "item": "B1:reading:batch024-klachtenafhandeling:1",
+      "field": "text; questions.q4.evidence; questions.q4.explanation",
+      "severity": "required",
+      "from": "Alleen bij een aankoop via internet geldt een wettelijke bedenktijd van veertien dagen.",
+      "to": "Alleen als de klant niet in de winkel koopt, bijvoorbeeld via internet, geldt een wettelijke bedenktijd van veertien dagen.",
+      "why": "The statutory 14-day bedenktijd also covers telephone, street and door sales (ACM); \"alleen via internet\" taught something false. Explanation paraphrases the new sentence."
+    },
+    {
+      "item": "B1:reading:batch024-klachtenafhandeling:1",
+      "field": "questions.q4.options.C",
+      "severity": "recommended",
+      "from": "De winkel moet de jas terugnemen als Roos de kassabon kan laten zien.",
+      "to": "De winkel hoeft de jas alleen terug te nemen als Roos de kassabon laat zien.",
+      "why": "The key was the only negative option (odd polarity out); C still misapplies the receipt sentence and is still false."
+    },
+    {
+      "item": "B1:reading:batch024-gratis-zwemles:1",
+      "field": "text",
+      "severity": "recommended",
+      "from": "Een gemeente die op zwemles bezuinigt, betaalt die kosten later dubbel terug.",
+      "to": "Een gemeente die op zwemles bezuinigt, betaalt daar later dubbel voor.",
+      "why": "\"kosten terugbetalen\" means refund; the idiom is \"ergens dubbel voor betalen\". Not part of any evidence quote."
+    },
+    {
+      "item": "B1:reading:batch024-gratis-zwemles:1",
+      "field": "text",
+      "severity": "recommended",
+      "from": "Ouders tekenen daar een afspraak: wie drie keer zonder bericht wegblijft, …",
+      "to": "Ouders zetten daar hun handtekening onder één regel: wie drie keer zonder bericht wegblijft, …",
+      "why": "\"een afspraak tekenen\" is not a collocation and \"afspraak\" reads as appointment; the rebuttal needs a signed commitment. Not part of any evidence quote."
+    },
+    {
+      "item": "B1:reading:batch024-gratis-zwemles:1",
+      "field": "questions.q1.options.C",
+      "severity": "recommended",
+      "from": "Omdat de zwembaden de prijs van een diploma sterk hebben verhoogd.",
+      "to": "Omdat de zwembaden de prijs van zwemlessen sterk hebben verhoogd.",
+      "why": "\"zwemles\" from the prompt recurred only in the key; the distractor stays anchored in the cost figures and false (no price rise is claimed)."
+    },
+    {
+      "item": "B1:reading:batch024-examenreglement:1",
+      "field": "taskType",
+      "severity": "required",
+      "from": "voorwaarden",
+      "to": "opzoektekst",
+      "why": "The coordinator brief calls the text a look-up text and blueprint 4.6 ties that shape to opzoektekst; as voorwaarden (read in full) the text would lack the paragraph-span detail and opinion/inference items 4.6 requires. Situation line already \"U zoekt iets op …\". Sets are explicit id lists; revert at adoption if the original label is preferred."
+    },
+    {
+      "item": "B1:reading:batch024-examenreglement:1",
+      "field": "text (fee list); questions.q4.prompt; questions.q4.evidence; questions.q4.explanation",
+      "severity": "required",
+      "from": "Late aanmelding: 20 euro extra. | Roos heeft een onvoldoende voor Lezen en voor Schrijven. Zes dagen vóór de volgende examendatum meldt zij zich aan voor de herkansing van beide onderdelen. Wat betaalt zij in totaal?",
+      "to": "Late aanmelding: 20 euro extra per aanmelding. | Modibo heeft een onvoldoende voor Lezen en voor Schrijven. Zes dagen vóór de volgende examendatum meldt hij zich in één keer aan voor de herkansing van beide onderdelen. Wat betaalt hij in totaal?",
+      "why": "A learner reading the surcharge as per part computed 110 euro, which no option offers; one registration and a per-registration surcharge make 90 the only reading. Persona Roos already carries text 1 q4 in this batch. Key C unchanged; explanation states the per-registration rule."
+    },
+    {
+      "item": "B1:reading:batch024-examenreglement:1",
+      "field": "questions.q5.options.B; questions.q5.options.C; questions.q5.explanation",
+      "severity": "recommended",
+      "from": "Binnen vier weken een kopie van haar werk aanvragen via Mijn Berkenpoort. | Binnen tien werkdagen zonder afspraak langsgaan bij de administratie van de school.",
+      "to": "Uiterlijk 6 juli een kopie van haar werk aanvragen via Mijn Berkenpoort. | Uiterlijk 22 juni zonder afspraak langsgaan bij de administratie van de school.",
+      "why": "The key was the only dated option (the only one that used 8 juni); official look-up items date every option (cf. 010 busabonnement q4). B keeps the four-week certificate term misread as a deadline; C keeps the inspection rule without its appointment. Key A unchanged."
+    },
+    {
+      "item": "B1:reading:batch024-examenreglement:1",
+      "field": "questions.q6.prompt; questions.q6.options.B; questions.q6.options.C; questions.q6.explanation",
+      "severity": "recommended",
+      "from": "… haalde hij Schrijven opnieuw niet. | B: Hij kan Schrijven tot februari volgend jaar herkansen, omdat zijn voldoendes zo lang geldig zijn. | C: Hij moet het hele examen opnieuw doen, ook de drie onderdelen die hij al haalde.",
+      "to": "… haalde hij Schrijven weer niet. | B: Hij hoeft alleen Schrijven opnieuw te doen, omdat zijn voldoendes twaalf maanden geldig blijven. | C: Hij moet alle vier de onderdelen opnieuw doen, ook de drie met een voldoende.",
+      "why": "\"examen\", \"opnieuw\" and \"haalde\" from the prompt recurred only in the key, and the key was the only obligation among two permissions; the learner now maps \"het hele examen\" onto \"alle vier de onderdelen\". Key C, evidence and the two-re-sit logic unchanged."
+    }
+  ],
+  "rejected": [],
+  "decisions_on_author_doubts": [
+    {
+      "doubt": "Purpose key waarschuwen instead of overtuigen for the opinion piece (text 2 q6)",
+      "decision": "Accepted. The text is built as a warning (title, \"Dit stuk is een waarschuwing\", danger in opening and close, the proposal as remedy); the blueprint purpose form lists waarschuwen and the 010 review asked for it in later persuasief texts; the overtuigen option states the opponents' position and is false on content, so one defensible answer remains. Level: q6 easier than an official purpose item because of the self-description; accepted under the house rule of verbatim evidence for purpose keys. The swap to overtuigen is not applied."
+    },
+    {
+      "doubt": "Legal simplification of the law paragraph (text 1)",
+      "decision": "Does not mislead; two overstatements hedged (edits 1 and 2) after checking ACM ConsuWijzer. Burden-of-proof rule may stay out; \"Dat is onjuist\" stands; \"binnen een redelijke tijd\" kept verbatim."
+    },
+    {
+      "doubt": "Text 1 q5 distractor A (kapot binnen een jaar)",
+      "decision": "Kept: wrong remedy, anchored in the example's guarantee year; the alternative \"naar de fabrikant gestuurd\" is contrived."
+    },
+    {
+      "doubt": "Sensitivity of text 2",
+      "decision": "Within section 9: no accident described, sober mentions only."
+    },
+    {
+      "doubt": "Fictional evidence (Westerhout, bijna verdubbeld)",
+      "decision": "Accepted, as for Modibo in 010; fictional town, opinion-piece genre."
+    },
+    {
+      "doubt": "taskType of text 3",
+      "decision": "opzoektekst (edit 7); text-6 candidate of mock form 2."
+    },
+    {
+      "doubt": "Line break in text 3 q4 evidence",
+      "decision": "Kept; the app highlights by substring within a blank-line block and renders it with white-space: pre-line."
+    },
+    {
+      "doubt": "Text 3 q6 counting April and June as the two re-sits; \"kreeg hij een 5\"",
+      "decision": "Accepted; wording lightened (edit 10) without changing the logic; a 5 against \"een 6 of hoger is een voldoende\" is a fair B1 combination."
+    },
+    {
+      "doubt": "Twenty questions (7 + 6 + 7)",
+      "decision": "Set decision: klachtenafhandeling + gratis-zwemles = 13-question drill; examenreglement waits for a six-question partner or serves as text 6 of mock form 2."
+    },
+    {
+      "doubt": "No exemplars for the level comparison",
+      "decision": "Level judged against the Lezen I description and the calibrated 010/011 texts, as in earlier batches."
+    }
+  ],
+  "items": [
+    {
+      "id": "B1:reading:batch024-klachtenafhandeling:1",
+      "verdict": "pass",
+      "edited": true,
+      "task_type": "studieboek",
+      "text_type": "descriptief",
+      "domain": "werk",
+      "words": 693,
+      "questions": 7,
+      "keys": "ABCACBC",
+      "level_figures": {
+        "prose_sentences": 42,
+        "average_sentence": 15.8,
+        "longest_sentence": 28
+      },
+      "level": "comparable",
+      "level_reason": "Textbook page in the official studieboek shape: numbered paragraph, three procedural steps under subheadings, a plain-terms law paragraph, a worked example; inverted conditionals, relative clauses and passives throughout; the less common words (deugdelijk, bedenktijd, fabrieksgarantie) are explained in place. Questions demand paraphrase over two to four sentences (q1-q3), rule to case (q4), a two-step rule (q5), the function of the example (q6) and the purpose (q7); distractors are reversed steps, over-generalisations and the guarantee-year misconception.",
+      "evidence": [
+        "q1 A: \"Een klant die wél klaagt, geeft het bedrijf de kans om de fout te herstellen en de klant te houden.\" B (favourite products) misreads the step-3 pattern sentence (a bad product or supplier); C (staying calm) is an instruction, not the reason.",
+        "q2 B: \"luistert eerst rustig en laat de klant uitpraten … Daarna schrijft zij de feiten op\". A reversed (\"belooft nog niets\"); C contradicted by \"Niet elke klacht hoeft naar de baas\".",
+        "q3 C: \"wat een medewerker zelf mag regelen, bijvoorbeeld een product omruilen of een kleine korting geven. Over grotere zaken … beslist de eigenaar of de bedrijfsleider.\" A over-generalises the owner's role; B introduces a customer wish absent from the text.",
+        "q4 A: \"ruilen is geen recht … mag het alleen terugbrengen als de winkel dat als service aanbiedt.\" B applies the bedenktijd, which holds only outside the shop; C makes the receipt a condition of a duty that does not exist. Polarity balanced after edit.",
+        "q5 C: \"Lukt dat niet binnen een redelijke tijd, dan krijgt de klant zijn geld terug.\" A names the wrong remedy (repair or replacement first); B: a receipt only proves the purchase.",
+        "q6 B: \"De verkoper zegt dat de garantie van de fabrikant een jaar was … Dat is onjuist.\" A draws the wrong lesson from the year; C contradicts \"mag de klant hiervoor niet doorsturen naar de fabrikant\".",
+        "q7 C: \"In deze paragraaf leest u hoe een klein bedrijf klachten afhandelt en wat de wet daarbij van een verkoper vraagt.\" A contradicted by \"Is de klacht niet terecht\"; B: no misuse of guarantees is mentioned."
+      ]
+    },
+    {
+      "id": "B1:reading:batch024-gratis-zwemles:1",
+      "verdict": "pass",
+      "edited": true,
+      "task_type": "artikel",
+      "text_type": "persuasief",
+      "domain": "overig",
+      "words": 627,
+      "questions": 6,
+      "keys": "BCACBA",
+      "level_figures": {
+        "prose_sentences": 37,
+        "average_sentence": 16.2,
+        "longest_sentence": 27
+      },
+      "level": "comparable (q6 on the easy side)",
+      "level_reason": "Opinion piece with thesis, cost argument with figures, a worked example, two objections rebutted one by one, an appeal and a byline: the persuasief text of the official form. Signal words (toch, daarom, terwijl, bovendien, voordat), relative clauses, a rhetorical question; concrete argument, no abstract passage. q1-q2 paraphrase a cause and a group over two to three sentences, q3 is the official example-function item, q4 requires following the rebuttal rather than the objection, q5 the official summary item, q6 the purpose. q6 is answerable from \"Dit stuk is een waarschuwing\" and is therefore lighter than an official purpose item; the rest is at level.",
+      "evidence": [
+        "q1 B: \"Dat schoolzwemmen is in de meeste gemeenten verdwenen, en de rekening ligt nu bij de ouders.\" A: the scheme exists; C: no price rise is claimed.",
+        "q2 C: \"Het gezin dat net iets meer verdient, krijgt niets … Precies die gezinnen zie ik afhaken.\" A: those under the limit are helped, knowledge is not discussed; B: more children raise the cost.",
+        "q3 A: \"Met alleen diploma A kun je in een zwembad vooruitkomen, maar in open water … is dat niet genoeg … Amina is geen uitzondering\". B: the brother explains only why Amina has no B; C: the trip is the setting, not the target.",
+        "q4 C: \"het probleem is niet hun verantwoordelijkheid, maar hun portemonnee\". A contradicts the disappearance of school swimming; B inverts the Westerhout point.",
+        "q5 B: \"Daarom vind ik dat elke gemeente gratis zwemles moet aanbieden aan alle kinderen.\" A lays the bill with parents; C proposes what the writer never proposes.",
+        "q6 A: \"Dit stuk is een waarschuwing. Als zwemles een luxe wordt, betalen we daar als land een hoge prijs voor.\" B is the opponents' position; C misdescribes one paragraph and one region."
+      ]
+    },
+    {
+      "id": "B1:reading:batch024-examenreglement:1",
+      "verdict": "pass",
+      "edited": true,
+      "task_type": "opzoektekst",
+      "text_type": "instructief",
+      "domain": "educatie",
+      "words": 569,
+      "questions": 7,
+      "keys": "BAACACB",
+      "level_figures": {
+        "prose_sentences": 34,
+        "average_sentence": 15.4,
+        "longest_sentence": 27
+      },
+      "level": "comparable",
+      "level_reason": "A regulation in eight numbered articles with a fee list and contact hours, the look-up text the official form places sixth; the conditional register of Dutch regulations (\"Bent u ziek …, dan …\", \"Meldt u zich niet of te laat af, dan …\"), exceptions and cross-references (article 6 to article 1). Six persona scanning items: single-rule applications (q1-q3, lighter), a sum of two figures with a deadline rule (q4), a date computation (q5) and a count of re-sits against a maximum and a validity period (q6, the hardest), then the purpose. Comparable with 010 busabonnement.",
+      "evidence": [
+        "q1 B: \"Een kopie of een foto op uw telefoon wordt niet geaccepteerd … verplaatst naar de volgende examendatum en u betaalt 15 euro administratiekosten.\" A contradicted; C uses the re-sit rate.",
+        "q2 A: \"Bij Lezen en Schrijven mag u tot vijftien minuten na het begin nog binnenkomen; u krijgt dan geen extra tijd.\" B reversed; C confuses opening time with a closing rule that applies to Luisteren and Spreken.",
+        "q3 A: \"meldt u zich vóór het begin van het examen af … U kunt dat onderdeel dan één keer zonder kosten doen op de volgende examendatum.\" B is the no-cancellation rate; C contradicted by \"Een verklaring van een arts is niet nodig\".",
+        "q4 C: \"Herkansing: 35 euro per onderdeel. / Late aanmelding: 20 euro extra per aanmelding.\" with article 6 \"de regel voor late aanmelding geldt dus ook hier\": 2 × 35 + 20 = 90. A = one part plus surcharge; B forgets the surcharge. Unambiguous after edit.",
+        "q5 A: \"binnen twee weken na de uitslag een afspraak met de administratie. Inzage is alleen mogelijk op de school\": 8 + 14 = 22 juni. B misreads the four-week certificate term (6 juli) as a deadline; C drops the appointment.",
+        "q6 C: \"Per onderdeel zijn maximaal twee herkansingen mogelijk. Hebt u een onderdeel na twee herkansingen nog niet gehaald, dan doet u het hele examen opnieuw.\" April and June are the two re-sits; A invents a third; B misreads the twelve-month validity as a licence to re-sit only Schrijven.",
+        "q7 B: \"Dit reglement geldt voor de examens die Taalschool Berkenpoort aan het einde van elke cursus afneemt.\" A and C name one article each, not the purpose."
+      ]
+    }
+  ],
+  "diversity_review": "Three settings, domains, text types and task types with distinct tested operations; personas unique within the batch after the q4 rename; first studieboek text, first examination regulation and first B1 plea for a public measure for children in the bank; nearest neighbours (A2 batch021-terugbrengen shop return rules, A2 p3 swimming e-mail, B1 writing batch015-kledingkast complaint letter) differ in level or shape. With 010 + 011: three texts per domain; text types beschouwend 2, persuasief 2, instructief 3, descriptief 2.",
+  "set_assembly": {
+    "drills": [
+      "b1-reading-06: klachtenafhandeling + gratis-zwemles (13 Q)",
+      "examenreglement (7 Q) pairs with a six-question text from the next B1 reading batch"
+    ],
+    "mock_form_2": "klachtenafhandeling (werk, descriptief), gratis-zwemles (overig, persuasief), examenreglement (educatie, instructief, text 6) plus three texts from a later batch: one per domain, at least one beschouwend (interview or nieuwsbericht)."
+  },
+  "media_notes": [
+    "None: B1 reading items carry no audio or pictures."
+  ],
+  "coordinator_notes": [
+    "Adopt with npm run batch:adopt 024; source_sha256 is the hash of content/batches/024-proposed.json.",
+    "content/batches/024-notes.md is stale in four places after the edits (text 3 q4 persona and surcharge, text 3 q5/q6 wordings, taskType, the \"tekenen een afspraak\" sentence); the notes were not edited.",
+    "taskType opzoektekst can be reverted to voorwaarden at adoption if the original brief is preferred; the checker accepts both and no set depends on it.",
+    "The app prints \"Lees eerst de vraag. Lees daarna de tekst.\" under the situation line of nt2-i reading items (noted in the 010/011 level check); not a content matter."
+  ],
+  "limitations": [
+    "AI editorial review; no independent educator review, learner trial or psychometric calibration; no claim of equivalence with the Staatsexamen NT2 Programma I. Level labels remain unvalidated authoring targets.",
+    "The level column compares each text with the Lezen I description and the calibrated 010/011 texts; content/exemplars/ does not exist.",
+    "Originality rests on the author's declaration and the reviewer's reading of the official formats; the consumer-law statements were checked against ACM ConsuWijzer on 2026-09-10 and are a textbook simplification, not legal advice."
+  ]
+}

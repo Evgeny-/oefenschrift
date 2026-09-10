@@ -25,7 +25,7 @@ Conventions:
 | 6 | loonheffing | 1 | 1.2.3 | loonheffing = tax and premie withheld by the employer | A | rule-application |
 | 7 | sollicitatie | 1 | 1.3.1 | rejecting an applicant for his origin is prohibited discrimination | C | rule-application |
 | 8 | kvk | 1 | 1.4.1 | a new business is registered with KVK | B | rule-application |
-| 9 | huurcontract | 3 | 3.1.1 | a huurcontract records the agreements between tenant and landlord | A | rule-application |
+| 9 | huurcontract | 3 | 3.1.1 | the parties to a huurcontract are the tenant and the landlord | A | rule-application |
 | 10 | huuropzegging | 3 | 3.1.2 | a landlord may only terminate with a valid reason | B | rule-application |
 | 11 | huurcommissie | 3 | 3.1.2 | disputes about the rent increase go to the Huurcommissie | C | rule-application |
 | 12 | woningcorporatie | 3 | 3.1.3 | for social housing you register with a woningcorporatie | C | rule-application |
@@ -134,24 +134,25 @@ Format per item: eindterm; source (URL, page title, accessed 2026-09-10); the se
 - Source: https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/welke-afspraken-staan-er-in-het-huurcontract-van-mijn-woning — "Welke afspraken staan er in het huurcontract van mijn woning? | Rijksoverheid.nl".
 - Supports key: "In een huurcontract staan de afspraken tussen u en uw verhuurder. Bijvoorbeeld hoe hoog de huur is. Ook staat er een omschrijving van de woning in." and "Uw verhuurder moet een schriftelijk huurcontract opstellen."
 - Volatility: low.
-- B "Een bewijs dat hij de woning koopt." — confusion with a koopcontract/leveringsakte; huur is not koop.
-- C "Een brief van de gemeente over huurtoeslag." — huurtoeslag is a toeslag from Dienst Toeslagen, not from the gemeente, and not a contract.
+- Question (revised after the level check): "Wie maken samen de afspraken in het huurcontract?" — tests the parties to the contract instead of the word itself.
+- B "De huurder en de gemeente." — the newcomer's confusion that the gemeente, which often points to a first home, is a party to the contract; it is not.
+- C "De verhuurder en de notaris." — the notaris belongs to buying a house (leveringsakte, hypotheekakte), not to renting one.
 
 ### 10 huuropzegging — 3.1.2 ("huurders in Nederland wettelijke rechten hebben")
 
 - Source: https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/verhuurder-zegt-huur-op-woning — "Mag mijn verhuurder de huur opzeggen van mijn woning? | Rijksoverheid.nl".
 - Supports key: "Uw verhuurder mag niet zomaar de huur opzeggen van uw woning. Dat kan alleen met een goede reden. Bijvoorbeeld als u al meerdere maanden geen huur betaalt. Als u het niet eens bent met de opzegging, kunt u bezwaar maken." and "De rechter doet dan een uitspraak. Tot die tijd mag u in de woning blijven wonen."
 - Volatility: the list of valid reasons and the rules for tijdelijke contracten changed in 2024 (Wet vaste huurcontracten); the principle "not without a valid reason" is stable. A tijdelijk contract ends on its end date without opzegging; the item's persona simply "huurt een woning", and the key "alleen met een goede reden" holds for the opzegging the question asks about.
-- A "Ja, dat mag altijd." — reversal.
+- A "Nee, dat mag nooit." (revised after the level check; was "Ja, dat mag altijd.") — the opposite absolute: huurbescherming is strong but not absolute, a verhuurder with a legal reason may terminate.
 - C "Ja, als hij een maand eerder belt." — confusion with the opzegtermijn; notice alone, and by phone, is not enough, a legal reason is needed.
 
 ### 11 huurcommissie — 3.1.2 ("hoe hij hulp kan inschakelen in geval van … onterechte huurverhoging, achterstallig onderhoud")
 
 - Source: https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/wanneer-kan-ik-terecht-bij-de-huurcommissie-en-wanneer-bij-de-kantonrechter — "Wanneer kan ik terecht bij de Huurcommissie, de gemeente en de kantonrechter? | Rijksoverheid.nl".
 - Supports key: "Huurt u een sociale huurwoning of middenhuurwoning? En bent u het niet eens met de hoogte van de huur of de jaarlijkse huurverhoging? Of heeft u een verschil van mening met uw verhuurder over het onderhoud of de servicekosten? Als u hier samen niet uitkomt, kijk dan wanneer u de Huurcommissie kunt inschakelen." Also "De partij die het niet eens is met de uitspraak van de Huurcommissie kan een uitspraak van de kantonrechter vragen."
-- Volatility: medium; the Wet betaalbare huur (1 July 2024) widened the Huurcommissie's scope to middenhuur and to servicekosten in newer contracts. The page also says the gemeente can act when the *huurprijs* is too high, which is why "de gemeente" is deliberately not a distractor.
-- A "De politie." — institution confusion; a rent dispute is not a criminal matter.
-- B "De Belastingdienst." — confusion with huurtoeslag/tax; it does not judge rents.
+- Volatility: medium; the Wet betaalbare huur (1 July 2024) widened the Huurcommissie's scope to middenhuur and to servicekosten in newer contracts. The page also says the gemeente can act when the *huurprijs* is too high ("Als uw huurprijs te hoog is, kunt u ook bij de gemeente terecht"); the question therefore asks who assesses the *huurverhoging*, which the page assigns to the Huurcommissie, and the explanation says the gemeente "gaat niet over de huurverhoging" rather than the level check's "huurprijs".
+- A "De gemeente." (revised after the level check; was "De politie.") — the body a tenant considers first; it handles a too-high huurprijs under the rent rules, not the assessment of the annual huurverhoging.
+- B "De woningcorporatie zelf." (was "De Belastingdienst.") — the verhuurder, which sets the increase and does not judge its own huurverhoging.
 
 ### 12 woningcorporatie — 3.1.3 ("het belang van spoedige inschrijving als woningzoekende"; "contact … met de passende instantie")
 
@@ -175,7 +176,7 @@ Format per item: eindterm; source (URL, page title, accessed 2026-09-10); the se
 - Supports key: "Bij vragen over gas- of stroomstoringen moet u bij de netbeheerder zijn. De netbeheerders hebben 1 landelijk storingsnummer: 0800-9009. De netbeheerder is verantwoordelijk voor: de aanleg van elektriciteitskabels en gasleidingen; het transport van elektriciteit of gas over zijn netwerk."
 - Volatility: low; the number is not tested. (A storing of a warmtenet goes to the warmtebedrijf; the item is about stroom.)
 - A "Bij de gemeente." — institution confusion; the gemeente handles public space, not the energy network.
-- C "Bij de energieleverancier." — the tempting one: the leverancier sells and bills the energy; the network and its outages belong to the netbeheerder (the page's own distinction).
+- C "Bij het alarmnummer 112." (revised after the level check; was "Bij de energieleverancier.") — 112 is for life-threatening emergencies, not for an outage. The leverancier was retired as a distractor because eindterm 3.2.1 itself says "meldt bij de leverancier van de nutsvoorziening", which made it defensible; the explanation still names the leverancier as the body that bills but does not repair.
 
 ### 15 energietarief — 3.2.2 ("kent het verschil tussen een energiecontract met tijdelijke en vaste tarieven")
 
@@ -198,8 +199,9 @@ Format per item: eindterm; source (URL, page title, accessed 2026-09-10); the se
 - Source: https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts — "Hoe verander ik van huisarts? | Rijksoverheid.nl".
 - Supports key: "Het is meestal mogelijk om zelf uw huisarts te kiezen en ook om van huisarts te veranderen. Een huisarts mag in bepaalde situaties weigeren u als patiënt aan te nemen. Bijvoorbeeld als u te ver weg woont." and "Lukt het niet een nieuwe huisarts te vinden, neem dan contact op met uw zorgverzekeraar. De verzekeraar helpt een nieuwe huisarts te zoeken."
 - Volatility: low. The key is qualified ("meestal") because a full practice may refuse.
+- A "Ja, zij kiest meestal zelf een huisarts." (revised after the level check; was "Ja, meestal wel.", which was the shortest, the only hedged and the only "Ja" option) — now 7 words against 7 and 8, and it shares its polarity with C.
 - B "Nee, de gemeente wijst een huisarts aan." — institution confusion (the gemeente registers residents, not patients).
-- C "Nee, de zorgverzekeraar kiest de huisarts." — the insurer only helps when you cannot find one; it does not choose.
+- C "Ja, maar zij mag later niet meer veranderen." (was "Nee, de zorgverzekeraar kiest de huisarts.") — the fact's own second sentence reversed: changing huisarts is allowed.
 
 ### 18 receptmedicijnen — 4.1.2 ("weet dat hij een recept nodig heeft voordat hij bij de apotheek medicijnen kan ophalen")
 
@@ -238,8 +240,8 @@ Format per item: eindterm; source (URL, page title, accessed 2026-09-10); the se
 - Source: https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/eigen-risico-zorgverzekering — "Wanneer betaal ik een eigen risico voor mijn zorg? | Rijksoverheid.nl".
 - Supports key: "U betaalt een eigen risico als u 18 jaar of ouder bent en gebruikmaakt van zorg uit het basispakket. Behalve als het over zorg gaat waarvoor geen eigen risico geldt, zoals de huisarts." and "Voor de volgende zorg uit het basispakket betaalt u geen eigen risico: huisartsenzorg (waaronder de huisartsenpost); …". Confirmed on https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/huisartskosten-op-zorgnota ("Moet ik de huisartskosten zelf betalen?": "een bezoek aan de huisarts gaat niet ten koste van uw verplichte eigen risico").
 - Volatility: the amount (€ 385 in 2026) changes and is expected to fall in 2027; it is not tested. The exemption for huisartsenzorg is stable. Tests and medicines the huisarts orders do fall under the eigen risico; the explanation says so.
-- A "Ja, elk bezoek kost eigen risico." — reversal.
-- C "Ja, alleen het eerste bezoek per jaar." — invented partial rule; no huisarts visit counts.
+- A "Ja, elk bezoek aan de huisarts kost eigen risico." (revised after the level check; was "Ja, elk bezoek kost eigen risico.") — reversal; now also carries "huisarts", so that word is no longer only in the key. Nine words, one above the batch's usual eight.
+- C "Nee, en medicijnen op recept ook niet." (was "Ja, alleen het eerste bezoek per jaar.") — shares the key's polarity and is wrong on the medicines: prescription medicines do count against the eigen risico, as the explanation says.
 
 ### 23 zorgnota — 4.4.3 ("veel administratieve aspecten van de zorg digitaal geregeld worden")
 
@@ -286,3 +288,16 @@ Facts verified on the same day that can replace an item if the reviewer rejects 
 ## Coordinator revision after review (10 September 2026)
 
 Applied the three review requests: the woningcorporatie explanation now argues from registering as woningzoekende (the cited page also names other organisations that offer social housing); the hypotheek item cites the page that states the loan fact (maximaal-bedrag-lenen-koopwoning); the huisartsenpost prompt is a persona case ("Amina is 's nachts ziek. Wat is de huisartsenpost?") that no longer restates the key. No other field changed. Checker: no failures.
+
+## Revision after the level check (10 September 2026)
+
+Applied from `content/reviews/006-007-level-check.md` (required actions 1; the optional wording, distractor and fact-text suggestions were not applied). Key letters unchanged: A 8 / B 9 / C 7, per theme 1 A3/B3/C2, 3 A2/B3/C3, 4 A3/B3/C2.
+
+- **huurcontract** (`prompt`, `options`, `evidence`, `explanation`): the old question could be answered from the word itself. New prompt "Karim gaat een woning huren. Wie maken samen de afspraken in het huurcontract?" (13 words), options "De huurder en de verhuurder." (key A) / "De huurder en de gemeente." / "De verhuurder en de notaris.", evidence "de afspraken tussen de huurder en de verhuurder", explanation as given by the level check. Fact text and picture unchanged.
+- **huurcommissie** (`options`, `explanation`): "De politie." and "De Belastingdienst." were not bodies anyone consults about a huurverhoging, and the key was the only option containing "huur". Now "De gemeente." / "De woningcorporatie zelf." / "De Huurcommissie." (key C). The level check's explanation sentence was added in place of the sentence about the retired Belastingdienst distractor, with one word changed: "de gemeente gaat niet over de huurverhoging" instead of "… de huurprijs", because the cited page says "Als uw huurprijs te hoog is, kunt u ook bij de gemeente terecht" (see item 11 above).
+- **stroomstoring** (`options`, `explanation`, `imageBrief`): eindterm 3.2.1 names the leverancier, so "Bij de energieleverancier." was defensible; replaced by "Bij het alarmnummer 112." (key B unchanged) with the level check's explanation. The picture brief now says that the houses across the street are dark too, with no lit windows anywhere in the street (the generated drawing showed lit windows during a street-wide outage); cast traits and the candle unchanged. The image needs regenerating.
+- **huisartskeuze** (`options`): the key was the shortest, the only hedged and the only "Ja" option. Now "Ja, zij kiest meestal zelf een huisarts." (key A) / "Nee, de gemeente wijst een huisarts aan." / "Ja, maar zij mag later niet meer veranderen." Evidence and explanation unchanged.
+- **huuropzegging** (`options`, `explanation`): polarity edit, A "Ja, dat mag altijd." → "Nee, dat mag nooit."; explanation ends with "Opzeggen mag dus niet zomaar, maar ook niet nooit." Key B.
+- **eigenrisico** (`options`): polarity edit, A "Ja, elk bezoek aan de huisarts kost eigen risico.", C "Nee, en medicijnen op recept ook niet."; explanation unchanged (it already says medicines count). Key B.
+
+Media: the six revised items need new question audio (prompt or options changed in every one); stroomstoring needs a new picture. `npm run batch:check content/batches/006-original.json`: 24 items, 24 questions, keys A 8 / B 9 / C 7, no failures, no warnings. SHA-256 of the batch after this revision: `6dacacce68f3752ab7b5265f6413c2c5183eb82111bcd17fbff1c4edf3cf9739`.

@@ -1,0 +1,335 @@
+{
+  "review_id": "batch020-editorial-review",
+  "source": "content/batches/020-original.json",
+  "original_sha256": "e0086d86abfc4a675c527578a49349c137104184bc5e20ecfc025cbba1a3e2c6",
+  "source_sha256": "b8503e2b188f0665a2d82ff66d23859a6de9fe1090849de05748f24837e379db",
+  "source_note": "source_sha256 is the SHA-256 of content/batches/020-proposed.json, the bytes to adopt with npm run batch:adopt 020; original_sha256 is the author file the review started from.",
+  "starters_source": null,
+  "starters_sha256": null,
+  "starters_verdict": "not applicable: closed reading items only",
+  "review_type": "Independent AI editorial review of original A2 reading items against content/reviews/rubric.md, content/blueprint.md sections 1, 3, 4.1, 5, 8, 9, 10, 12 and 13 and the Lezen A2 paragraph of docs/research/exam-blueprints-2026-09-10.md; the reviewer did not author the batch and wrote the proposed copy with every required and recommended edit applied (docs/briefs/review.md)",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "summary": {
+    "items": 9,
+    "questions": 23,
+    "passed_unchanged": 4,
+    "passed_after_edit": 5,
+    "rejected": 0,
+    "questions_edited": 8,
+    "level_flags": 0
+  },
+  "checks": {
+    "json_parses": true,
+    "ids_unique": true,
+    "evidence_verbatim": "all 23 quotes are substrings of their text (verified by script)",
+    "keys_in_options": true,
+    "text_lengths": "134–176 words (blueprint 100–250)",
+    "questions_per_text": "5 texts with 3, 4 texts with 2",
+    "option_mix_proposed": "13 three-option, 10 four-option (43%)",
+    "persona_prompts": "19 of 23 prompts; every text has at least one",
+    "purpose_questions": 4,
+    "key_balance_proposed": {
+      "A": 7,
+      "B": 7,
+      "C": 6,
+      "D": 3
+    },
+    "four_option_keys_proposed": {
+      "A": 3,
+      "B": 2,
+      "C": 2,
+      "D": 3
+    },
+    "key_sequence_proposed": "C A D B B A C C A D B A C A B C A B A C D B B (no letter three times in a row; no key the longest option)",
+    "a2_heuristics": "prose average 5.9–7.9 words per sentence, longest 16; subordination als/dat and one relative die; question-then-dan conditions; one simple past (kostte) in the ad",
+    "calendar": "31 Aug Mon, 2 Sep Wed, 5 Sep Sat, 16 Oct Fri, 17 Oct Sat, 19 Oct Mon (2026) all hold",
+    "invented_names_web_checked": "Kwekerij Groenwater, Wasserij De Zilverreiger, VV Reigerhoek, Tandartspraktijk Wilgenhoek: no such firms; Modibo Doumbia common name, no public figure; Zuidstad/Noorddorp not stations (10 Sep 2026)",
+    "facts_mirrored": "pasfoto max six months and collection in person; vakantiegeld 8%; 0,23 euro per km; dental care under 18 in the basisverzekering; huisartsenpost care without eigen risico; online aangifte with DigiD; lost property via the gemeente; no KNM claim",
+    "checker_proposed": "Checked 9 items, 23 questions. Keys: {\"C\":6,\"A\":7,\"D\":3,\"B\":7}. Options: {\"3\":13,\"4\":10}. No failures, no warnings.",
+    "checker_original": "Checked 9 items, 23 questions. Keys: {\"C\":7,\"A\":6,\"D\":3,\"B\":7}. Options: {\"3\":14,\"4\":9}. No failures, no warnings.",
+    "unchanged_fields": "texts, situations, titles, ids and metadata identical between original and proposed (verified by script)"
+  },
+  "edits": [
+    {
+      "item": "A2:reading:batch020-identiteitskaart:1",
+      "question": "q1",
+      "fields": [
+        "options",
+        "explanation"
+      ],
+      "new": {
+        "options": {
+          "A": "Ja, want de foto is nog geen jaar oud.",
+          "B": "Nee, want de gemeente maakt de foto zelf.",
+          "C": "Nee, want de foto is te oud."
+        },
+        "answer": "C",
+        "explanation": "De pasfoto mag niet ouder zijn dan zes maanden. Een foto van tien maanden geleden is dus te oud, ook al is hij nog geen jaar oud. Modibo laat een nieuwe foto maken bij een fotograaf; de gemeente maakt de foto niet."
+      },
+      "why": "Key was the lone Nee among two Ja options; the dropped \"Ja, als hij de foto meeneemt naar de balie\" was a non sequitur. New B reverses step 2 of the letter (photo at a photographer, not at the gemeente)."
+    },
+    {
+      "item": "A2:reading:batch020-identiteitskaart:1",
+      "question": "q2",
+      "fields": [
+        "prompt",
+        "options",
+        "evidence",
+        "explanation"
+      ],
+      "new": {
+        "prompt": "De nieuwe kaart van Modibo is klaar. Wat moet hij nu doen?",
+        "options": {
+          "A": "Zelf de kaart ophalen aan de balie.",
+          "B": "Eerst een afspraak maken.",
+          "C": "Zijn vrouw de kaart laten ophalen."
+        },
+        "answer": "A",
+        "evidence": "U haalt de kaart zelf op aan de balie. Een ander mag dat niet voor u doen. Voor het ophalen hoeft u geen afspraak te maken.",
+        "explanation": "Ophalen doet Modibo zelf aan de balie; een ander, dus ook zijn vrouw, mag dat niet voor hem doen. Een afspraak hoort bij het aanvragen van de kaart; voor het ophalen hoeft hij geen afspraak te maken."
+      },
+      "why": "Second lone-Nee key in the same text. Recast as a non-polar question with the same premise (his wife may not collect); each distractor is a misread negation in the collection paragraph."
+    },
+    {
+      "item": "A2:reading:batch020-loonstrook-uitleg:1",
+      "question": "q3",
+      "fields": [
+        "options.A",
+        "explanation"
+      ],
+      "new": {
+        "options.A": "Haar loonstrook komt op de website.",
+        "explanation": "De brief legt uit dat de loonstrook vanaf januari niet meer op papier komt maar op de website staat, en wat erop staat. Over een fout staat niets in de brief, het vakantiegeld komt gewoon in mei, en het personeelsnummer heeft zij al: zij logt ermee in."
+      },
+      "why": "Purpose key repeated the first sentence of the letter almost verbatim; paraphrased."
+    },
+    {
+      "item": "A2:reading:batch020-voetbalseizoen:1",
+      "question": "q2",
+      "fields": [
+        "options",
+        "explanation"
+      ],
+      "new": {
+        "options": {
+          "A": "Een shirt en broekje.",
+          "B": "Voetbalschoenen.",
+          "C": "Niets meer.",
+          "D": "Scheenbeschermers."
+        },
+        "answer": "D",
+        "explanation": "Ouders kopen zelf voetbalschoenen en scheenbeschermers. De voetbalschoenen heeft Karim al, dus hij moet nog scheenbeschermers kopen; zonder scheenbeschermers mag Adam niet spelen. Het shirt en het broekje krijgt elk kind van de club."
+      },
+      "why": "Options A and B were subsets of C (blueprint section 5) and carried one misunderstanding three times; \"Alleen\" made the key the odd form out. New distractors: the club-provided pair, the item already bought, and \"Niets meer\"."
+    },
+    {
+      "item": "A2:reading:batch020-voetbalseizoen:1",
+      "question": "q3",
+      "fields": [
+        "options",
+        "answer"
+      ],
+      "new": {
+        "options": {
+          "A": "De eerste training van het seizoen gaat niet door.",
+          "B": "De ouders krijgen informatie over het seizoen.",
+          "C": "De club heeft geen shirts meer voor de kinderen.",
+          "D": "De ouderavond is op een andere dag."
+        },
+        "answer": "B"
+      },
+      "why": "Reorder only, wording unchanged: spreads the keys of the ten four-option questions to A 3, B 2, C 2, D 3."
+    },
+    {
+      "item": "A2:reading:batch020-tandartsregels:1",
+      "question": "q1",
+      "fields": [
+        "options",
+        "answer",
+        "explanation"
+      ],
+      "new": {
+        "options": {
+          "A": "Maandag vóór 14.00 uur.",
+          "B": "Maandag vóór 17.00 uur.",
+          "C": "Dinsdag vóór 10.00 uur.",
+          "D": "Dinsdag vóór 14.00 uur."
+        },
+        "answer": "A",
+        "explanation": "Afzeggen moet minstens 24 uur van tevoren. De afspraak is dinsdag om 14.00 uur, dus zij zegt uiterlijk maandag om 14.00 uur af. Maandag om 17.00 uur is minder dan 24 uur van tevoren en dus te laat; dinsdag is de dag van de afspraak zelf, en 10.00 uur is de tijd om te bellen bij pijn."
+      },
+      "why": "\"Maandag vóór 10.00 uur\" satisfied the 24-hour rule and was wrong only through \"uiterlijk\"; \"13.55\" is not derivable from the text; the prompt time 14.00 recurred only in the key. New 2 x 2 grid: the key is the only moment that meets the rule; the distractors are too late (closing time the day before, the pain cut-off, the same day before the appointment)."
+    },
+    {
+      "item": "A2:reading:batch020-tandartsregels:1",
+      "question": "q2",
+      "fields": [
+        "prompt"
+      ],
+      "new": {
+        "prompt": "Meneer De Vries komt twaalf minuten te laat bij de tandarts. Wat gebeurt er?"
+      },
+      "why": "\"afspraak\" was a prompt word that recurred only in the key."
+    },
+    {
+      "item": "A2:reading:batch020-spoorwerk:1",
+      "question": "q2",
+      "fields": [
+        "options.D",
+        "explanation"
+      ],
+      "new": {
+        "options.D": "Nee, alleen een rolstoel mag mee.",
+        "answer": "C",
+        "explanation": "Een gewone fiets mag niet mee in de bus; alleen een vouwfiets mag. Het treinkaartje gaat over betalen, niet over fietsen. De zin over de rolstoel gaat over hulp bij het instappen: een rolstoel is geen fiets, en de chauffeur helpt alleen mensen met een rolstoel."
+      },
+      "why": "Third lone-Nee key in the batch; fourth option (the wheelchair sentence misread) gives two Ja and two Nee options, parallel in form to the key."
+    }
+  ],
+  "rejected": [],
+  "doubts_answered": {
+    "text 7 domain": "keep winkels-diensten: the item is a purchase (viewing hours, bundle price); vervoer is served by text 8",
+    "text 9 rooster and theft": "accepted: opening hours plus a procedure is the rooster shape (as 004-bloedprikken); a stolen bicycle is everyday and non-graphic; a police report is on the needed list",
+    "text 2 q2 die maand": "unambiguous: the only coherent reading is the month of mailing; the other reading also yields April; no change",
+    "Ja, want form": "form accepted; the lone-Nee keys (1 q1, 1 q2, 8 q2) were the problem and are fixed",
+    "alleen in 4 q2 key": "removed with the option rebuild",
+    "112 in two texts": "keep both: different wording, realistic closers, only text 5 uses it in a question",
+    "prices, persona ages": "plausible; no change"
+  },
+  "items": {
+    "A2:reading:batch020-identiteitskaart:1": {
+      "verdict": "pass",
+      "edited": true,
+      "level": "comparable",
+      "keys": [
+        "C",
+        "A",
+        "D"
+      ],
+      "evidence": {
+        "q1": "De foto mag niet ouder zijn dan zes maanden. — ten months exceeds six; A applies a one-year limit, B reverses \"Laat een pasfoto maken bij een fotograaf\".",
+        "q2": "U haalt de kaart zelf op aan de balie. Een ander mag dat niet voor u doen. Voor het ophalen hoeft u geen afspraak te maken. — B and C misread the two negations.",
+        "q3": "Uw identiteitskaart is geldig tot 14 februari. Daarna kunt u de kaart niet meer gebruiken. Vraag daarom op tijd een nieuwe kaart aan. — A reads the collection paragraph as the present, B and C are steps or conditions, not the reason."
+      }
+    },
+    "A2:reading:batch020-loonstrook-uitleg:1": {
+      "verdict": "pass",
+      "edited": true,
+      "level": "comparable; q2 at the harder end of A2 (date against a cut-off plus a month step)",
+      "keys": [
+        "B",
+        "B",
+        "A"
+      ],
+      "evidence": {
+        "q1": "Nettoloon: het bedrag dat u op uw rekening krijgt. — brutoloon is before tax, loonheffing is the tax.",
+        "q2": "Doe dit vóór de 10e van de maand. Dan verbeteren wij de fout op de loonstrook van die maand. Mailt u later? Dan ziet u de verbetering pas een maand later. — 12 March is after the 10th, so April; May is the vakantiegeld month.",
+        "q3": "Uw loonstrook komt vanaf januari niet meer op papier. plus \"U vindt de loonstrook elke maand op de website voor medewerkers.\" — the error paragraph is conditional, vakantiegeld is paid in May, the personeelsnummer is already hers."
+      }
+    },
+    "A2:reading:batch020-dienstwissel:1": {
+      "verdict": "pass",
+      "edited": false,
+      "level": "comparable",
+      "keys": [
+        "C",
+        "C"
+      ],
+      "evidence": {
+        "q1": "donderdag en vrijdag: avonddienst, 14.00 tot 22.00 uur. — 6.00 is the old (and Monday/Tuesday) start, 12.00 the e-mail deadline, 22.00 the end.",
+        "q2": "Kun je vrijdag niet werken? Ruil dan met een collega. Geef de ruil aan mij door. Stuur mij daarvoor vóór woensdag 12.00 uur een e-mail. — phoning is the Thursday-evening rule, the day off is the overtime rule."
+      }
+    },
+    "A2:reading:batch020-voetbalseizoen:1": {
+      "verdict": "pass",
+      "edited": true,
+      "level": "comparable",
+      "keys": [
+        "A",
+        "D",
+        "B"
+      ],
+      "evidence": {
+        "q1": "Speelt het team uit? Dan verzamelen we om 8.15 uur bij de kantine. — 9.00 is a home match, 17.30 training.",
+        "q2": "Voetbalschoenen en scheenbeschermers koopt u zelf. — shoes already bought; shirt and broekje come from the club; \"Niets meer\" fails on \"Zonder scheenbeschermers mag een kind niet spelen\".",
+        "q3": "Op zaterdag 5 september begint het seizoen. Hieronder leest u wat u moet weten. — the training goes ahead, the club gives a shirt, the ouderavond is announced, not moved."
+      }
+    },
+    "A2:reading:batch020-huisartsenpost-folder:1": {
+      "verdict": "pass",
+      "edited": false,
+      "level": "comparable",
+      "keys": [
+        "A",
+        "C"
+      ],
+      "evidence": {
+        "q1": "Overdag belt u uw eigen huisarts. Dat geldt op werkdagen van 8.00 tot 17.00 uur. — Wednesday 15.00 is a weekday daytime; the post is for evenings, nights and weekends; 112 only for direct danger.",
+        "q2": "Bel altijd eerst: 0299 50 50 50. Kom niet zonder afspraak naar de post. — Sunday is a post day; the own huisarts is for weekday daytime."
+      }
+    },
+    "A2:reading:batch020-tandartsregels:1": {
+      "verdict": "pass",
+      "edited": true,
+      "level": "comparable; q1 at the harder end of A2 (24 hours back from an appointment)",
+      "keys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "evidence": {
+        "q1": "Zeg uw afspraak dan minstens 24 uur van tevoren af. — Tuesday 14.00 minus 24 h is Monday 14.00; Monday 17.00 is 21 h before; Tuesday options are the same day.",
+        "q2": "Bent u meer dan tien minuten te laat? Dan kan de behandeling niet doorgaan. U krijgt dan een nieuwe afspraak. — 35 euro is for cancelling too late.",
+        "q3": "In het weekend belt u de tandarts die dienst heeft: 0299 33 44 00. — the practice number and the 10.00 rule are for working days; e-mail is for cancelling."
+      }
+    },
+    "A2:reading:batch020-tweedehandsfiets:1": {
+      "verdict": "pass",
+      "edited": false,
+      "level": "comparable; easier end (short ad, one direct price question)",
+      "keys": [
+        "A",
+        "B"
+      ],
+      "evidence": {
+        "q1": "Ik ben thuis op dinsdag en donderdag na 18.00 uur, en op zaterdag de hele dag. — Tuesday 19.00 is after 18.00 and after 17.30; Thursday 12.00 and 17.00 are before 18.00; Saturday is not a working day.",
+        "q2": "Koopt u de fiets en het zitje samen? Dan betaalt u 150 euro. — 140 is the bicycle alone, 160 the separate prices added."
+      }
+    },
+    "A2:reading:batch020-spoorwerk:1": {
+      "verdict": "pass",
+      "edited": true,
+      "level": "comparable",
+      "keys": [
+        "A",
+        "C",
+        "D"
+      ],
+      "evidence": {
+        "q1": "In plaats van de trein rijden er bussen. De bussen vertrekken aan de achterkant van het station, bij bushalte D. — spoor 2 serves Noorddorp; the train ticket is valid on the bus.",
+        "q2": "Fietsen mogen niet mee in de bus. Een vouwfiets mag wel. — the ticket rule is about paying; the wheelchair sentence is about help boarding.",
+        "q3": "Er is werk aan het spoor. Daarom rijden er dit weekend geen treinen tussen Westerhout en Zuidstad. — the station stays open, the buses run, no new ticket is needed."
+      }
+    },
+    "A2:reading:batch020-politiebureau:1": {
+      "verdict": "pass",
+      "edited": false,
+      "level": "comparable",
+      "keys": [
+        "B",
+        "B"
+      ],
+      "evidence": {
+        "q1": "Dat kan alleen op dinsdag en donderdag tussen 9.00 en 12.00 uur. — Monday, Thursday evening and Saturday are opening hours, not walk-in hours.",
+        "q2": "Kijk op www.westerhout.nl/gevonden, de website van de gemeente. Daar staan alle gevonden voorwerpen. — the police website and the walk-in hours are for reporting theft."
+      }
+    }
+  },
+  "diversity_review": "No setting repeats the catalogue or batch 021; the nine operations differ within the batch. The \"slot against the persona's hours\" operation also appears in 021-zwemrooster q1, 021-openingstijden q1, 004-praktijkles q1 and 004-bloedprikken q1: spread over drills. Cross-part neighbours not to pair in a mixed set: voetbalseizoen/A2:listening:batch005-voetbal, huisartsenpost-folder/A2:knm:batch006-huisartsenpost, loonstrook-uitleg/A2:writing:batch003-loonstrook and A2:knm:batch006-loonheffing, identiteitskaart/A2:speaking:batch009-paspoort, tandartsregels/A2:listening:tandarts.",
+  "set_assembly": "Drills: gezondheid (huisartsenpost-folder, tandartsregels, 004-herhaalrecept, 004-bloedprikken); werk (loonstrook-uitleg, dienstwissel, 004-werkkleding, 004-magazijn); instanties/vervoer (identiteitskaart, politiebureau, spoorwerk, 004-stadsbus). Mocks: 004 + 020 + 021 give 30 texts / 74 questions, enough for two ten-text forms without shared items; 020 has no krant (021 has); the schedule texts here are hours lists, the column tables remain 004 telefoon/stadsbus/bloedprikken; no picture-answer item exists yet in 004, 020 or 021.",
+  "media_notes": "Reading items: no audio, no pictures.",
+  "limitations": "AI editorial review without learner data; level verdicts are judgments against the official task types as described in the research document (no content/exemplars/ directory exists yet). Prices, phone numbers and opening hours are invented; the general facts mirrored carry no KNM claim."
+}

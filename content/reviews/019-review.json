@@ -1,0 +1,470 @@
+{
+  "review_id": "batch019-editorial-review",
+  "source": "content/batches/019-original.json",
+  "source_sha256": "892e3e205069e95a967961362f58abaf2c55d175242888e781c39ee773aae6e9",
+  "source_sha256_note": "SHA-256 of content/batches/019-proposed.json, the bytes to adopt (docs/briefs/review.md). The author's original hashes to d67502286ef61d6feca0c990cb1a842f2ee49e377d297c6aa756c5e833764642.",
+  "proposed": "content/batches/019-proposed.json",
+  "original_sha256": "d67502286ef61d6feca0c990cb1a842f2ee49e377d297c6aa756c5e833764642",
+  "starters_source": null,
+  "starters_sha256": null,
+  "starters_verdict": "not applicable (closed items only, no starters file)",
+  "review_type": "AI editorial review of twelve KNM feit items (July 2025 format: picture brief, one factual question of at most twenty words, three options) filling eindterm gaps in themes 1, 4, 6, 7 and 8: source verification by fetching every cited page (rubric check 13), eindterm texts read on wetten.overheid.nl, key proof from evidence, distractor tests, KNM level-check rules (no decodable key, no prompt word only in the key, no odd-polarity key, no longest key, no behaviour question, cast traits verbatim), A2 heuristics, diversity against the batch-003 cards and batches 006, 007 and 018, level verdict per item",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_counts": {
+    "pass": 12,
+    "pass_unchanged": 6,
+    "pass_edited": 6,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "item": "A2:knm:batch019-scholing:1",
+      "field": "questions[0].explanation",
+      "before": "Scholing die de werkgever verplicht moet geven, zoals een cursus voor een nieuw computersysteem op het werk, is gratis voor de werknemer en telt als werktijd. Julio betaalt dus niets. Het UWV is er voor mensen met een uitkering, niet voor deze cursus.",
+      "after": "Scholing die de werkgever verplicht moet geven, zoals een cursus voor een nieuw computersysteem op het werk, is gratis voor de werknemer en telt als werktijd. Julio betaalt dus niets. Het UWV is er voor mensen met een uitkering, niet voor deze cursus. Een opleiding die u zelf kiest, hoeft de werkgever meestal niet te betalen.",
+      "why": "Stops the over-generalisation \"the employer pays for my bijscholing\": the free-training rule covers required training only; \"meestal\" because a cao may oblige a contribution. Sourced by the leren-naast-werk page."
+    },
+    {
+      "item": "A2:knm:batch019-scholing:1",
+      "field": "sourceUrl",
+      "before": "https://www.rijksoverheid.nl/documenten/publicaties/2022/08/02/faq-transparante-arbeidsvoorwaarden",
+      "after": "https://www.rijksoverheid.nl/documenten/2022/08/02/faq-transparante-arbeidsvoorwaarden",
+      "why": "The cited /documenten/publicaties/2022/08/02/… address redirects to this page, which links the PDF; the live address keeps the audit trail on the page that exists."
+    },
+    {
+      "item": "A2:knm:batch019-scholing:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, FAQ Transparante arbeidsvoorwaarden (Ministerie van SZW, 2 August 2022, PDF): 'Opleidingen die de werkgever op grond van de wet of cao verplicht aan de werknemer moet verstrekken, moeten, kosteloos worden aangeboden. ... Als dat redelijkerwijs mogelijk is, moet de werknemer de mogelijkheid krijgen de opleiding tijdens werktijd te volgen. Bijvoorbeeld scholing die de werknemer moet volgen om met een nieuw computersysteem te kunnen werken dat door de werkgever wordt ingevoerd.' Law: Burgerlijk Wetboek boek 7, artikel 611a lid 1-2 (wetten.overheid.nl): necessary training is 'kosteloos aangeboden' and 'beschouwd als arbeidstijd'. In force since 1 August 2022; stable.",
+      "after": "Rijksoverheid, FAQ Transparante arbeidsvoorwaarden (Ministerie van SZW, 2 August 2022, PDF): 'Opleidingen die de werkgever op grond van de wet of cao verplicht aan de werknemer moet verstrekken, moeten, kosteloos worden aangeboden. ... Als dat redelijkerwijs mogelijk is, moet de werknemer de mogelijkheid krijgen de opleiding tijdens werktijd te volgen. Bijvoorbeeld scholing die de werknemer moet volgen om met een nieuw computersysteem te kunnen werken dat door de werkgever wordt ingevoerd.' Law: Burgerlijk Wetboek boek 7, artikel 611a lid 1-2 (wetten.overheid.nl): necessary training is 'kosteloos aangeboden' and 'beschouwd als arbeidstijd'. In force since 1 August 2022; stable. The earlier address /documenten/publicaties/2022/08/02/faq-transparante-arbeidsvoorwaarden redirects to this page, which links the PDF (checked 10 September 2026). Secondary page for the first two text sentences and the explanation's last sentence: https://www.rijksoverheid.nl/vraag-en-antwoord/leven-lang-ontwikkelen/hoe-kan-ik-leren-naast-mijn-werk ('Cursus: een korte opleiding die u naast uw werk kunt volgen.'; for training the employee chooses: 'Misschien kunt u studieverlof krijgen of een bijdrage in de kosten.').",
+      "why": "Records the redirect and names the secondary page for the first two card sentences and the explanation's last sentence, with its quotes."
+    },
+    {
+      "item": "A2:knm:batch019-tandartskeuze:1",
+      "field": "sourceUrl",
+      "before": "https://www.rijksoverheid.nl/onderwerpen/eerstelijnszorg",
+      "after": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/eerstelijnszorg",
+      "why": "The cited /onderwerpen/eerstelijnszorg redirects to this page; the supporting sentence is on it."
+    },
+    {
+      "item": "A2:knm:batch019-tandartskeuze:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, Eerstelijnszorg: 'Eerstelijnszorg is zorg waar u zelf zonder verwijzing naartoe kunt gaan. Dit kan behandeling zijn door de huisarts, tandarts, fysiotherapeut, apotheker, maatschappelijk werker of wijkverpleegkundige.' Structural; stable. The regular check-up is the eindterm's own indicator ('een regelmatig bezoek aan een tandarts en/of mondhygienist gebruikelijk is'); what the basispakket pays (children under 18) is not tested.",
+      "after": "Rijksoverheid, Eerstelijnszorg: 'Eerstelijnszorg is zorg waar u zelf zonder verwijzing naartoe kunt gaan. Dit kan behandeling zijn door de huisarts, tandarts, fysiotherapeut, apotheker, maatschappelijk werker of wijkverpleegkundige.' Structural; stable. The regular check-up is the eindterm's own indicator ('een regelmatig bezoek aan een tandarts en/of mondhygienist gebruikelijk is'); what the basispakket pays (children under 18) is not tested. The earlier address /onderwerpen/eerstelijnszorg redirects to this page (checked 10 September 2026).",
+      "why": "Records the redirect."
+    },
+    {
+      "item": "A2:knm:batch019-alarmnummer:1",
+      "field": "sourceUrl",
+      "before": "https://www.rijksoverheid.nl/onderwerpen/alarmnummer-112/vraag-en-antwoord/wat-gebeurt-er-als-ik-alarmnummer-112-bel",
+      "after": "https://www.rijksoverheid.nl/vraag-en-antwoord/alarmnummer-112/wat-gebeurt-er-als-ik-alarmnummer-112-bel",
+      "why": "The cited /onderwerpen/alarmnummer-112/vraag-en-antwoord/… address redirects to this page; the supporting sentences are on it."
+    },
+    {
+      "item": "A2:knm:batch019-alarmnummer:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid: 'U kunt het alarmnummer 112 altijd bereiken. Ook als u met uw mobiel belt zonder beltegoed en zonder een (geldige) simkaart.' and 'De medewerker van de centrale meldkamer verbindt u onmiddellijk door met de politie, brandweer of ambulancedienst in uw regio.' Companion page '112 bellen in het buitenland': 'Net als in Nederland is dit alarmnummer gratis en te bereiken vanaf vaste en mobiele telefoons.' Stable.",
+      "after": "Rijksoverheid: 'U kunt het alarmnummer 112 altijd bereiken. Ook als u met uw mobiel belt zonder beltegoed en zonder een (geldige) simkaart.' and 'De medewerker van de centrale meldkamer verbindt u onmiddellijk door met de politie, brandweer of ambulancedienst in uw regio.' Companion page https://www.rijksoverheid.nl/vraag-en-antwoord/alarmnummer-112/112-bellen-in-buitenland ('112 bellen in het buitenland'): 'Net als in Nederland is dit alarmnummer gratis en te bereiken vanaf vaste en mobiele telefoons.' Stable. Both pages now live under /vraag-en-antwoord/alarmnummer-112/; the earlier /onderwerpen/alarmnummer-112/vraag-en-antwoord/ addresses redirect there (checked 10 September 2026).",
+      "why": "Names the companion page's live address and records the redirects."
+    },
+    {
+      "item": "A2:knm:batch019-belastingteruggave:1",
+      "field": "text",
+      "before": "Wie werkt, betaalt belasting: de werkgever houdt loonheffing in op het loon. Is er te veel ingehouden? Dan krijgt u dat geld terug via de aangifte inkomstenbelasting. Aangifte doen is vaak verplicht.",
+      "after": "Wie werkt, betaalt belasting: de werkgever houdt loonheffing in op het loon. Is er te veel ingehouden? Dan krijgt u dat geld terug, maar niet vanzelf: u moet aangifte inkomstenbelasting doen. Aangifte doen is vaak verplicht.",
+      "why": "The card now states the mechanism the key rests on: a refund comes only through the aangifte, not automatically."
+    },
+    {
+      "item": "A2:knm:batch019-belastingteruggave:1",
+      "field": "questions[0].options",
+      "before": {
+        "A": "Nee, betaalde belasting krijgt hij niet terug.",
+        "B": "Alleen als zijn werkgever het terugbetaalt.",
+        "C": "Ja, via de aangifte inkomstenbelasting."
+      },
+      "after": {
+        "A": "Nee, betaalde belasting krijgt hij niet terug.",
+        "B": "Ja, de Belastingdienst betaalt het vanzelf terug.",
+        "C": "Alleen als hij aangifte inkomstenbelasting doet."
+      },
+      "why": "As written the key \"Ja, via de aangifte\" was the hopeful guess and \"Alleen als zijn werkgever het terugbetaalt\" a thin distractor; the neutral qualification is now the key (author's doubt 7: the \"Alleen …\" option was a distractor in all four ja / nee / alleen items) and the automatic-refund belief is the tempting wrong answer. Key letter C unchanged; 46/49/48 characters."
+    },
+    {
+      "item": "A2:knm:batch019-belastingteruggave:1",
+      "field": "questions[0].evidence",
+      "before": "Dan krijgt u dat geld terug via de aangifte inkomstenbelasting",
+      "after": "niet vanzelf: u moet aangifte inkomstenbelasting doen",
+      "why": "Follows the new text sentence; verbatim substring."
+    },
+    {
+      "item": "A2:knm:batch019-belastingteruggave:1",
+      "field": "questions[0].explanation",
+      "before": "Is er over uw loon te veel belasting ingehouden, dan krijgt u dat na afloop van het jaar terug door aangifte inkomstenbelasting te doen. De werkgever betaalt het niet terug: hij heeft de loonheffing al aan de Belastingdienst afgedragen.",
+      "after": "Te veel ingehouden loonheffing krijgt u niet vanzelf terug: u moet na afloop van het jaar aangifte inkomstenbelasting doen. De Belastingdienst berekent dan wat u terugkrijgt. De werkgever betaalt het niet terug: hij heeft de loonheffing al aan de Belastingdienst afgedragen.",
+      "why": "States the mechanism (file after the year, the Belastingdienst calculates the refund) and keeps the employer point."
+    },
+    {
+      "item": "A2:knm:batch019-belastingteruggave:1",
+      "field": "sourceNote",
+      "before": "Belastingdienst, 'Kan ik belasting terugvragen?': 'Als je in loondienst werkte, is er mogelijk over je loon te veel belasting ingehouden. Je kunt de te veel betaalde belasting na afloop van het jaar terugkrijgen via de aangifte.' Companion pages: 'Als u een aangiftebrief van ons hebt gehad, moet u aangifte doen.' (moet_ik_aangifte_doen) and 'U kunt recht hebben op een belastingteruggave. Vul daarom altijd de aangifte om te zien of u geld terugkrijgt.' (belasting_betalen_terugvragen). The thresholds (EUR 19 back, EUR 58 to pay, tax year 2025) change yearly and are not used; the mechanism is stable.",
+      "after": "Belastingdienst, 'Kan ik belasting terugvragen?': 'Als je in loondienst werkte, is er mogelijk over je loon te veel belasting ingehouden. Je kunt de te veel betaalde belasting na afloop van het jaar terugkrijgen via de aangifte.' Companion pages: 'Als u een aangiftebrief van ons hebt gehad, moet u aangifte doen.' (moet_ik_aangifte_doen) and 'U kunt recht hebben op een belastingteruggave. Vul daarom altijd de aangifte om te zien of u geld terugkrijgt.' (belasting_betalen_terugvragen). The thresholds (EUR 19 back, EUR 58 to pay, tax year 2025) change yearly and are not used; the mechanism is stable. The key (only through the aangifte, not automatically) rests on the same page's worked example, 'Die € 104 loonheffing kun je terugvragen door aangifte te doen.', and on 'Vul daarom altijd de aangifte om te zien of u geld terugkrijgt.' (belasting_betalen_terugvragen).",
+      "why": "Records the two page sentences behind \"not automatically\"."
+    },
+    {
+      "item": "A2:knm:batch019-kiesrecht:1",
+      "field": "questions[0].prompt",
+      "before": "Hasan komt van buiten de EU en woont zes jaar legaal in Nederland. Voor welke verkiezing mag hij stemmen?",
+      "after": "Hasan is geen EU-burger en woont zes jaar legaal in Nederland. Voor welke verkiezing mag hij stemmen?",
+      "why": "\"komt van buiten de EU\" describes origin, not nationality; a naturalised Hasan would vote for the Tweede Kamer. The rule turns on nationality, now stated outright (rubric 4). 17 words."
+    },
+    {
+      "item": "A2:knm:batch019-kiesrecht:1",
+      "field": "text",
+      "before": "Voor de Tweede Kamer stemmen alleen Nederlanders. Voor de gemeenteraad mogen ook inwoners uit een ander EU-land stemmen. Wie van buiten de EU komt, mag voor de gemeenteraad stemmen na vijf jaar legaal in Nederland.",
+      "after": "Voor de Tweede Kamer stemmen alleen Nederlanders. Voor de gemeenteraad mogen ook inwoners uit een ander EU-land stemmen. Wie geen EU-burger is, mag voor de gemeenteraad stemmen na vijf jaar legaal in Nederland.",
+      "why": "Same wording as the prompt so the card, the evidence and the explanation use one term."
+    },
+    {
+      "item": "A2:knm:batch019-kiesrecht:1",
+      "field": "questions[0].evidence",
+      "before": "Wie van buiten de EU komt, mag voor de gemeenteraad stemmen na vijf jaar legaal in Nederland",
+      "after": "Wie geen EU-burger is, mag voor de gemeenteraad stemmen na vijf jaar legaal in Nederland",
+      "why": "Follows the new text sentence; verbatim substring."
+    },
+    {
+      "item": "A2:knm:batch019-kiesrecht:1",
+      "field": "questions[0].explanation",
+      "before": "Iemand van buiten de EU mag na vijf jaar legaal verblijf stemmen voor de gemeenteraad, dus Hasan mag dat na zes jaar. Voor de Tweede Kamer is de Nederlandse nationaliteit nodig en voor het Europees Parlement de nationaliteit van een EU-land.",
+      "after": "Wie geen EU-burger is, mag na vijf jaar legaal verblijf stemmen voor de gemeenteraad, dus Hasan mag dat na zes jaar. Voor de Tweede Kamer is de Nederlandse nationaliteit nodig en voor het Europees Parlement de nationaliteit van een EU-land.",
+      "why": "Same term as the prompt and the card."
+    },
+    {
+      "item": "A2:knm:batch019-kwalificatieplicht:1",
+      "field": "questions[0].explanation",
+      "before": "Een vmbo-diploma is geen startkwalificatie. Tot zijn achttiende moet Sem daarom een opleiding volgen, bijvoorbeeld mbo niveau 2; dat heet de kwalificatieplicht. Een baan is geen reden om te stoppen: kwalificatieplichtige jongeren mogen niet voltijd werken.",
+      "after": "Een vmbo-diploma is geen startkwalificatie. Sem moet daarom een opleiding volgen tot hij 18 is, of tot hij eerder een startkwalificatie haalt, bijvoorbeeld mbo niveau 2. Dat heet de kwalificatieplicht. Een baan is geen reden om te stoppen: kwalificatieplichtige jongeren mogen niet voltijd werken.",
+      "why": "The notes claim the explanation states that the duty ends earlier with a startkwalificatie; it did not. Added, with mbo 2 as the example of a startkwalificatie."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 12,
+    "distribution": {
+      "A2_knm": 12
+    },
+    "themes": {
+      "1": 2,
+      "4": 3,
+      "6": 3,
+      "7": 3,
+      "8": 1
+    },
+    "eindtermen": [
+      "1.1.2",
+      "1.1.5",
+      "4.1.3",
+      "4.3.2",
+      "4.4.4",
+      "6.1.1",
+      "6.2.1",
+      "6.3.2",
+      "7.1.4",
+      "7.2.4",
+      "7.2.5",
+      "8.1.3"
+    ],
+    "eindtermen_verified_against": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Geldend van 18-04-2026 t/m heden), bijlage 2 \"Eindtermen kennis van de Nederlandse maatschappij\", fetched with curl on 2026-09-10; all twelve numbers exist, sit under the stated theme (Thema 1 Werk en inkomen, 4 Gezondheid en gezondheidszorg, 6 Instanties, 7 Staatsinrichting en rechtsstaat, 8 Onderwijs en opvoeding), and the eindterm and indicator texts quoted in the notes match the page verbatim",
+    "batch_check_original": "npm run batch:check content/batches/019-original.json: Checked 12 items, 12 questions. Keys: {\"B\":4,\"C\":4,\"A\":4}. Options: {\"3\":12}. No failures, no warnings.",
+    "batch_check_proposed": "npm run batch:check content/batches/019-proposed.json: Checked 12 items, 12 questions. Keys: {\"B\":4,\"C\":4,\"A\":4}. Options: {\"3\":12}. No failures, no warnings. (re-run after batch 018 was integrated into the catalogue during the review)",
+    "key_counts": {
+      "A": 4,
+      "B": 4,
+      "C": 4
+    },
+    "key_sequence": "B C A C A B A C B A C B",
+    "option_counts": {
+      "3": 12
+    },
+    "prompt_word_range": "11-18 (limit 20)",
+    "text_word_range": "27-36 in 3-4 sentences",
+    "longest_text_sentence_words": 16,
+    "average_text_sentence_words_range": "9.0-11.7",
+    "option_word_range": "2-10, parallel within each item",
+    "key_longest_option_by_more_than_two_characters": 0,
+    "prompt_word_recurring_only_in_key": 0,
+    "yes_no_items": "uitzendbureau Ja/Nee*/Alleen, tandartskeuze Nee*/Ja/Nee, alarmnummer Nee/Ja/Ja*, belastingteruggave Nee/Ja/Alleen*, privacy Nee/Alleen/Ja*, kwalificatieplicht Ja/Nee*/Alleen: no key is the odd polarity out; the neutral option is the key once and a distractor three times",
+    "behaviour_questions": 0,
+    "closed_evidence_is_verbatim": true,
+    "task_type": "feit on all 12; skill rule-application on all 12",
+    "question_forms": "6 yes/no with qualification, 6 persona facts (institution 2, document 1, definition 1, which election 1, who pays 1); no direct-fact question",
+    "required_knm_fields_present": "theme, eindterm, sourceUrl, sourceNote, sourceReviewedAt (2026-09-10), imageBrief, imageAlt on all 12; status draft; targetLevelValidated false; exam knm; domain werk/gezondheid/instanties/opleiding",
+    "all_sources_opened": true,
+    "sources_fetched_with_curl_on": "2026-09-10",
+    "sources_http_status": "all 20 pages HTTP 200 (12 cited pages, the Regeling, Grondwet, BW boek 7, and 6 secondary pages) plus the FAQ PDF (HTTP 200, text extracted with pdftotext)",
+    "sources_redirected": {
+      "scholing": "https://www.rijksoverheid.nl/documenten/publicaties/2022/08/02/faq-transparante-arbeidsvoorwaarden -> https://www.rijksoverheid.nl/documenten/2022/08/02/faq-transparante-arbeidsvoorwaarden",
+      "tandartskeuze": "https://www.rijksoverheid.nl/onderwerpen/eerstelijnszorg -> https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/eerstelijnszorg",
+      "alarmnummer": "https://www.rijksoverheid.nl/onderwerpen/alarmnummer-112/vraag-en-antwoord/wat-gebeurt-er-als-ik-alarmnummer-112-bel -> https://www.rijksoverheid.nl/vraag-en-antwoord/alarmnummer-112/wat-gebeurt-er-als-ik-alarmnummer-112-bel (companion page likewise)"
+    },
+    "sources_unreachable": [],
+    "secondary_sources_opened": [
+      "https://open.overheid.nl/repository/ronl-ca958cf89d600038ed4b243754af202a74e183dc/1/pdf/FAQ%20Transparante%20arbeidsvoorwaarden.pdf",
+      "https://wetten.overheid.nl/BWBR0005290/2026-01-01 (BW boek 7, artikel 611a)",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/leven-lang-ontwikkelen/hoe-kan-ik-leren-naast-mijn-werk",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/alarmnummer-112/112-bellen-in-buitenland",
+      "https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/overheidsbrede-dienstverlening/informatiepunt-digitale-overheid/",
+      "https://www.belastingdienst.nl/wps/wcm/connect/nl/belastingaangifte/content/moet_ik_aangifte_doen",
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/belasting_betalen_terugvragen/belasting_betalen_terugvragen",
+      "https://www.kiesraad.nl/verkiezingen/gemeenteraden/stemmen/niet-nederlandse-inwoners",
+      "https://wetten.overheid.nl/BWBR0001840/2023-02-22 (Grondwet, also the cited source of item 10)"
+    ],
+    "supporting_sentence_on_page_today": true,
+    "facts_different_from_batch003_cards": true,
+    "facts_different_from_batches_006_007_018": true,
+    "phrase_scan_six_word_shingles": "only stock formulas recur against the catalogue and all batches: \"voor specialistische zorg bijvoorbeeld in het ziekenhuis\" (006 verwijsbrief), \"een bijdrage in de kosten van\" (007 kinderopvangtoeslag), \"de ambtenaar van de burgerlijke stand\" (018 burgerlijk-huwelijk), \"kinderen van 5 tot 16 jaar\" (003 leerplicht)",
+    "slugs_new_to_catalogue": true,
+    "picture_briefs_cast_traits_verbatim": true,
+    "picture_briefs_no_text": true,
+    "pictures_do_not_reveal_key": true,
+    "invented_organisation_names": "none; only real institutions the items are about",
+    "level_flags": [],
+    "exemplars_available": false,
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch019-uitzendbureau:1",
+      "theme": 1,
+      "eindterm": "1.1.2",
+      "verdict": "pass",
+      "level": "comparable (easy end)",
+      "level_reason": "11-word persona prompt, options 6-8 words in the ja / nee / alleen shape, fact card 32 words in three sentences (longest 13). The rule is knowable, not decodable: a monthly fee and a placement fee are what agencies charge in many countries.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM): \"1.1.2 Is op de hoogte van de manieren waarop mensen in Nederland vacatures/ werk vinden.\" with the indicator \"weet hoe hij zich kan inschrijven bij uitzendbureaus\". On topic; the item tests that registering and placement cost the worker nothing, which is part of how one registers.",
+      "source_check": "https://www.rijksoverheid.nl/vraag-en-antwoord/arbeidsovereenkomst-en-cao/welke-arbeidsvoorwaarden-heb-ik-als-uitzendkracht (HTTP 200, no redirect): \"Als uitzendkracht heeft u een arbeidscontract met het uitzendbedrijf, maar werkt u voor een ander bedrijf (de inlener).\" and, under \"Regels voor uitzendbureaus\", \"Het uitzendbureau mag u geen geld of een andere tegenprestatie vragen voor het uitzenden.\"",
+      "evidence": "Key B \"Nee, het bureau mag geen geld vragen.\" entailed by \"Inschrijven kost niets: het uitzendbureau mag u geen geld vragen voor het uitzenden\". A (a fixed monthly amount) and C (only when the agency finds her work, the placement fee) are both a tegenprestatie voor het uitzenden, which the page forbids. Key 37 characters against 30 and 41; \"uitzendbureau\" of the prompt is not echoed only in the key (\"het bureau\"). Picture: agency desk with a laptop turned towards Fatima, shows the situation, not the answer.",
+      "key": "B",
+      "evidence_quote": "het uitzendbureau mag u geen geld vragen voor het uitzenden",
+      "edited_fields": []
+    },
+    {
+      "id": "A2:knm:batch019-scholing:1",
+      "theme": 1,
+      "eindterm": "1.1.5",
+      "verdict": "pass (edited)",
+      "level": "comparable; eindterm mapping loose",
+      "level_reason": "18-word persona prompt in three main clauses, three parallel 5-7-word sentences as options, fact card 35 words (longest 14, one relative clause). The persona is the FAQ's own example, so the item does not stretch the rule; the eindterm's own statement (bijscholing improves your chances) is in the card, not tested.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM): \"1.1.5 Is op de hoogte van het belang van (bij)scholing voor de kansen op de arbeidsmarkt.\" (no indicators). The tested fact (required training is free for the employee) is a rule about bijscholing that the eindterm does not name; accepted as a loose mapping, as the 007 review did for five items, because the eindterm's own statement is a common-sense key and the card carries it.",
+      "source_check": "https://www.rijksoverheid.nl/documenten/2022/08/02/faq-transparante-arbeidsvoorwaarden (HTTP 200; the cited /documenten/publicaties/2022/08/02/… address redirects here) links \"FAQ Transparante arbeidsvoorwaarden (PDF | 3 pagina's | 90 kB)\"; the PDF, section \"2. Kosteloze scholing\": \"Opleidingen die de werkgever op grond van de wet of cao verplicht aan de werknemer moet verstrekken, moeten, kosteloos worden aangeboden. Er mag dus geen studiekostenbeding gelden voor deze opleidingen. Als dat redelijkerwijs mogelijk is, moet de werknemer de mogelijkheid krijgen de opleiding tijdens werktijd te volgen. Bijvoorbeeld scholing die de werknemer moet volgen om met een nieuw computersysteem te kunnen werken dat door de werkgever wordt ingevoerd.\" BW boek 7 art. 611a lid 2 on wetten.overheid.nl (geldend van 01-01-2026): \"wordt de in lid 1 bedoelde scholing kosteloos aangeboden aan de werknemers, beschouwd als arbeidstijd\". Secondary https://www.rijksoverheid.nl/vraag-en-antwoord/leven-lang-ontwikkelen/hoe-kan-ik-leren-naast-mijn-werk: \"Cursus: een korte opleiding die u naast uw werk kunt volgen.\" and \"Misschien kunt u studieverlof krijgen of een bijdrage in de kosten.\"",
+      "evidence": "Key C \"Zijn werkgever betaalt de cursus.\" entailed by \"Scholing die nodig is voor uw functie, moet de werkgever gratis aanbieden\". A (Julio pays himself) is the studiekostenbeding the FAQ rules out for required training; B (UWV pays) confuses the scholing that UWV or the gemeente may arrange for people on a benefit (1.1.7) with an employee's required course. Key 33 characters, the shortest; \"bedrijf\" in the prompt, \"werkgever\" in the key, no echo. Picture: Julio at a monitor with a colleague pointing, neutral.",
+      "key": "C",
+      "evidence_quote": "Scholing die nodig is voor uw functie, moet de werkgever gratis aanbieden",
+      "edited_fields": [
+        "questions[0].explanation",
+        "sourceUrl",
+        "sourceNote"
+      ]
+    },
+    {
+      "id": "A2:knm:batch019-tandartskeuze:1",
+      "theme": 4,
+      "eindterm": "4.1.3",
+      "verdict": "pass (edited)",
+      "level": "comparable (easy end)",
+      "level_reason": "17-word persona prompt, options 7-9 words, fact card 29 words in three sentences (longest 12). Easy end because direct access to a dentist is common sense in many countries; still the eindterm's own fact, and B is the specialist rule a careful learner may over-apply.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM): \"4.1.3 Is op de hoogte van hoe hij een tandarts kan vinden.\" with indicators \"Weet dat een regelmatig bezoek aan een tandarts en/of mondhygiënist gebruikelijk is\" and \"weet hoe hij een eigen tandarts kan kiezen\". The item tests the \"zelf, zonder verwijzing\" half of choosing one's own dentist; the check-up indicator is in the card.",
+      "source_check": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/eerstelijnszorg (HTTP 200; the cited /onderwerpen/eerstelijnszorg redirects here): \"Eerstelijnszorg is zorg waar u zelf zonder verwijzing naartoe kunt gaan. Dit kan behandeling zijn door de huisarts, tandarts, fysiotherapeut, apotheker, maatschappelijk werker of wijkverpleegkundige.\"",
+      "evidence": "Key A \"Nee, zij kan zelf naar een tandarts gaan.\" entailed by \"Daar kunt u zelf naartoe gaan, zonder verwijzing van de huisarts\". B (huisarts must refer first) contradicts \"zonder verwijzing\"; C (the insurer assigns a dentist) contradicts \"U zoekt zelf een tandarts\" and no source gives insurers that role. Polarity Nee* / Ja / Nee, key shares its polarity with C; key 41 characters against 46 and 57. Picture: Roos on a sofa with a hand on her cheek, no dentist.",
+      "key": "A",
+      "evidence_quote": "Daar kunt u zelf naartoe gaan, zonder verwijzing van de huisarts",
+      "edited_fields": [
+        "sourceUrl",
+        "sourceNote"
+      ]
+    },
+    {
+      "id": "A2:knm:batch019-alarmnummer:1",
+      "theme": 4,
+      "eindterm": "4.3.2",
+      "verdict": "pass (edited)",
+      "level": "comparable (easy end)",
+      "level_reason": "16-word persona prompt in three short sentences, options 6-7 words, fact card 30 words (longest 15). Easy end: EU-wide rule many learners know; the prepaid case is the obstacle the page addresses first, and B is a real belief.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM): \"4.3.2 Weet dat bij levensbedreigende situaties het nummer 112 moet worden gebeld.\" (no indicators). The card states the eindterm's own fact; the item states that 112 is reachable without credit or SIM, a rule about the same number. On topic; accepted under the coordinator's constraint of a fact different from the card.",
+      "source_check": "https://www.rijksoverheid.nl/vraag-en-antwoord/alarmnummer-112/wat-gebeurt-er-als-ik-alarmnummer-112-bel (HTTP 200; the cited /onderwerpen/alarmnummer-112/vraag-en-antwoord/… address redirects here): \"U kunt het alarmnummer 112 altijd bereiken. Ook als u met uw mobiel belt zonder beltegoed en zonder een (geldige) simkaart.\" and \"De medewerker van de centrale meldkamer verbindt u onmiddellijk door met de politie, brandweer of ambulancedienst in uw regio.\" Companion https://www.rijksoverheid.nl/vraag-en-antwoord/alarmnummer-112/112-bellen-in-buitenland: \"Net als in Nederland is dit alarmnummer gratis en te bereiken vanaf vaste en mobiele telefoons.\"",
+      "evidence": "Key C \"Ja, 112 werkt ook zonder beltegoed.\" entailed by \"altijd bereikbaar, ook met een mobiele telefoon zonder beltegoed\". A (does not work without credit) contradicts it; B (only from a landline) contradicts \"vanaf vaste en mobiele telefoons\". Polarity Nee / Ja / Ja*, key shares its polarity with B; \"112\" and \"beltegoed\" appear in A as well as in the key; key 35 characters, the shortest. Picture: Modibo on a pavement with a phone, a bicycle on the road in the distance, nobody hurt.",
+      "key": "C",
+      "evidence_quote": "altijd bereikbaar, ook met een mobiele telefoon zonder beltegoed",
+      "edited_fields": [
+        "sourceUrl",
+        "sourceNote"
+      ]
+    },
+    {
+      "id": "A2:knm:batch019-zorgtoeslag:1",
+      "theme": 4,
+      "eindterm": "4.4.4",
+      "verdict": "pass",
+      "level": "comparable (easy end)",
+      "level_reason": "15-word persona prompt, two-word options, fact card 36 words in four sentences (longest 12). Easy end and the closest item to the digid card: a learner who knows DigiD is the government login answers it; the distractors are non-logins, so the answer logic is clean. Place early in the theme-4 drill.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM): \"4.4.4 Weet dat voor het aanvragen en declareren van veel zorgvoorzieningen een DigiD nodig is.\" with the indicator \"Weet waar hij hulp bij het aanvragen van zorgregelingen kan krijgen.\" The item is the eindterm's statement for one zorgregeling; the help indicator is in the card and the explanation.",
+      "source_check": "https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/kan-ik-zorgtoeslag-krijgen (HTTP 200, no redirect): \"Zorgtoeslag is een bijdrage in de kosten van uw Nederlandse zorgverzekering.\", \"U kunt zorgtoeslag online aanvragen met Mijn toeslagen. Hiervoor heeft u DigiD nodig.\", \"U vraagt zorgtoeslag aan via Mijn toeslagen op toeslagen.nl.\"; help: \"een toeslagenservicepunt. Dit zijn bijvoorbeeld sociaal raadslieden of buurtteams.\", \"een bibliotheek\", \"de Belastingtelefoon\", \"De balie van uw belastingkantoor\".",
+      "evidence": "Key A \"Haar DigiD.\" entailed by \"Daarvoor heeft u DigiD nodig\". B (zorgpas) identifies her to a care provider, not to Mijn toeslagen; C (bankpas) is no login for a government portal (iDIN is not accepted there). Options 2/2/2 words; no prompt word in the key. Difference from the batch-003 digid card: the card defines DigiD and its safe use; this item states that the zorgtoeslag application needs it, which the card never mentions. Picture: Sabrina at a kitchen table with a laptop and a phone, nothing readable.",
+      "key": "A",
+      "evidence_quote": "Daarvoor heeft u DigiD nodig",
+      "edited_fields": []
+    },
+    {
+      "id": "A2:knm:batch019-informatiepunt:1",
+      "theme": 6,
+      "eindterm": "6.1.1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "17-word persona prompt, options 3-4 words, fact card 29 words (longest 12, one wie-clause). The library is not guessable from the prompt, and the Juridisch Loket is the other free desk of theme 6, a real confusion.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM): \"6.1.1 Is ervan op de hoogte dat informatie vanuit en contact met overheidsinstanties meestal digitaal plaatsvindt.\" with indicators on safe use of BSN and DigiD, finding information and making appointments online, and \"weet waar je hulp kunt krijgen bij vragen rondom digitaal contact.\" The item is the third indicator verbatim.",
+      "source_check": "https://www.rijksoverheid.nl/vraag-en-antwoord/digitale-overheid/waar-kan-ik-hulp-vinden-om-vaardiger-te-worden-met-de-computer-en-internet (HTTP 200, no redirect): \"Het Informatiepunt Digitale Overheid helpt u om zelfstandig gebruik te maken van digitale dienstverlening. Bijvoorbeeld van gemeenten, UWV en de Belastingdienst.\", \"Voor hulp en cursussen over omgaan met computer en internet kunt u vaak ook terecht in een openbare bibliotheek.\" and the heading \"Hulp in de bibliotheek\". Secondary https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/overheidsbrede-dienstverlening/informatiepunt-digitale-overheid/ (HTTP 200): \"biedt laagdrempelig, gratis en voor iedereen toegankelijke ondersteuning\", \"De Informatiepunten zijn vooral in lokale bibliotheken te vinden, maar ook steeds vaker buiten de muren van de bibliotheken, zoals in wijkgebouwen.\", \"Bij een IDO, uitgevoerd door de bibliotheek, kunnen mensen terecht als zij vragen hebben over bijvoorbeeld toeslagen, belastingen, DigiD, AOW, werk, uitkering, rijbewijs en zorg.\", \"In december 2025 telde Nederland 871 punten.\"",
+      "evidence": "Key B \"In de bibliotheek.\" entailed by \"Zo'n informatiepunt vindt u meestal in de bibliotheek\". A (Juridisch Loket) gives legal advice, not DigiD help; C (the bank) helps with banking only. The hedge sits in the card (\"meestal\", true by the BZK page), not in the option; both distractors are wrong disciplines, so the hedge makes neither defensible. Key 18 characters against 24 and 12. Picture: mevrouw Bakker puzzled at a tablet, no library.",
+      "key": "B",
+      "evidence_quote": "Zo'n informatiepunt vindt u meestal in de bibliotheek",
+      "edited_fields": []
+    },
+    {
+      "id": "A2:knm:batch019-geboorteaangifte:1",
+      "theme": 6,
+      "eindterm": "6.2.1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "17-word persona prompt, three-word options, fact card 35 words (longest 16, one relative clause; \"duomoeder\" is the page's word and not needed). The ziekenhuis distractor is what many newcomers expect from home, the SVB is the body of the 007 kinderbijslag item.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM): \"6.2.1 Is ervan op de hoogte dat hij wijzigingen in de gezinssamenstelling moet doorgeven aan de gemeente (BRP).\" with the indicator \"Geeft wijzigingen door zoals geboorte, huwelijk, samenwonen, echtscheiding, overlijden, verhuizing en migratie\". Literal.",
+      "source_check": "https://www.rijksoverheid.nl/vraag-en-antwoord/aangifte-geboorte-en-naamskeuze-kind/aangifte-geboorte (HTTP 200, no redirect): \"U moet binnen 3 dagen na de geboorte van uw baby aangifte doen. Dat doet u in de gemeente waar uw kind is geboren. Na de aangifte geeft de ambtenaar van de burgerlijke stand een geboorteakte af.\" and \"De vader of duomoeder van het kind is verplicht om de geboorteaangifte te doen. De moeder uit wie het kind is geboren, mag aangifte doen, maar dat is niet verplicht.\"",
+      "evidence": "Key A \"Bij de gemeente.\" entailed by \"aangeven bij de gemeente waar het kind is geboren\". B (ziekenhuis): the page gives the hospital only a \"verklaring van de geboorte\" and, when no parent can, the duty to make the aangifte, still at the gemeente; C (SVB) handles kinderbijslag after the gemeente passes the birth on (007 kinderbijslag card). Options 3/3/3 words; the card verhuizing keys the gemeente for a move, a different wijziging. Picture: Karim holding a newborn in a living room, no town hall.",
+      "key": "A",
+      "evidence_quote": "aangeven bij de gemeente waar het kind is geboren",
+      "edited_fields": []
+    },
+    {
+      "id": "A2:knm:batch019-belastingteruggave:1",
+      "theme": 6,
+      "eindterm": "6.3.2",
+      "verdict": "pass (edited)",
+      "level": "comparable (easier as written)",
+      "level_reason": "18-word persona prompt in three short sentences, options 6-7 words (46/49/48 characters), fact card 36 words in four sentences (longest 14). As written the key \"Ja, via de aangifte\" was the hopeful guess against a thin \"Nee\" and a thin employer distractor; keyed on the mechanism it now discriminates between \"automatic\" and \"only by filing\".",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM): \"6.3.2 Is ervan op de hoogte dat hij in sommige gevallen belasting moet betalen, maar in andere gevallen belasting terug kan krijgen.\" with the indicator \"Weet dat het aangifte doen voor de inkomstenbelasting in veel gevallen verplicht is\". The item is the \"terug kan krijgen\" half; the card carries \"vaak verplicht\".",
+      "source_check": "https://www.belastingdienst.nl/wps/wcm/connect/nl/jongeren/content/kan-ik-belasting-terugvragen (HTTP 200, no redirect): \"Als je in loondienst werkte, is er mogelijk over je loon te veel belasting ingehouden. Je kunt de te veel betaalde belasting na afloop van het jaar terugkrijgen via de aangifte.\" and the worked example \"Je werkt in de zomervakantie 2 maanden fulltime als afwasser. … Die € 104 loonheffing kun je terugvragen door aangifte te doen.\" Companions (HTTP 200): moet_ik_aangifte_doen \"Als u een aangiftebrief van ons hebt gehad, moet u aangifte doen.\"; belasting_betalen_terugvragen \"U kunt recht hebben op een belastingteruggave. Vul daarom altijd de aangifte om te zien of u geld terugkrijgt.\"",
+      "evidence": "Key C \"Alleen als hij aangifte inkomstenbelasting doet.\" entailed by \"niet vanzelf: u moet aangifte inkomstenbelasting doen\" (page: refund \"door aangifte te doen\", \"Vul daarom altijd de aangifte\"). A (never refunded) contradicts the page; B (the Belastingdienst refunds automatically) contradicts \"door aangifte te doen\" and \"Vul daarom altijd de aangifte\". Polarity Nee / Ja / Alleen*; no prompt content word recurs only in the key (\"terug\" is in A and B). Picture: Sem at a desk with a laptop and one sheet of paper, nothing readable.",
+      "key": "C",
+      "evidence_quote": "niet vanzelf: u moet aangifte inkomstenbelasting doen",
+      "edited_fields": [
+        "text",
+        "questions[0].options",
+        "questions[0].evidence",
+        "questions[0].explanation",
+        "sourceNote"
+      ]
+    },
+    {
+      "id": "A2:knm:batch019-kiesrecht:1",
+      "theme": 7,
+      "eindterm": "7.1.4",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "17-word persona prompt after the edit, options 3-4 words, fact card 33 words (longest 15, one wie-clause). The six-year persona satisfies both \"langer dan vijf jaar\" (eindterm) and \"ten minste vijf jaar\" (Kieswet); the Tweede Kamer is the assumption of most long-term residents.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM): \"7.1.4 Is op de hoogte van wat ‘kiesrecht’ inhoudt en wat het belang van stemmen is.\" with the indicator \"weet dat niet-Nederlanders die langer dan vijf jaar in Nederland wonen, mogen deelnemen aan de gemeenteraadsverkiezingen.\" Literal.",
+      "source_check": "https://www.rijksoverheid.nl/vraag-en-antwoord/verkiezingen/wie-mag-stemmen-bij-de-gemeenteraadsverkiezingen (HTTP 200, no redirect): \"U heeft de Nederlandse nationaliteit. Of de nationaliteit van een ander land uit de Europese Unie. Of u heeft de nationaliteit van een land buiten de EU én u woont op 2 februari 2026 5 jaar of langer legaal in Nederland.\" (dates belong to the election of 18 March 2026). Secondary https://www.kiesraad.nl/verkiezingen/gemeenteraden/stemmen/niet-nederlandse-inwoners (HTTP 200): non-EU residents \"verblijven op de dag van kandidaatstelling voor ten minste vijf jaar legaal en onafgebroken in Nederland\" with a valid verblijfstitel; EU citizens vote for the gemeenteraad when registered in a Dutch gemeente.",
+      "evidence": "Key B \"Voor de gemeenteraad.\" entailed by \"Wie geen EU-burger is, mag voor de gemeenteraad stemmen na vijf jaar legaal in Nederland\". A (Tweede Kamer) needs Dutch nationality (\"Voor de Tweede Kamer stemmen alleen Nederlanders\", Kieswet B 1); C (Europees Parlement) needs the nationality of an EU member state, which \"geen EU-burger\" excludes. Waterschappen are kept out of the options because non-Dutch residents with a verblijfstitel may vote there. Key 21 characters against 21 and 28. Picture: Hasan walking to a community building with a folded card, no flags, no ballot box.",
+      "key": "B",
+      "evidence_quote": "Wie geen EU-burger is, mag voor de gemeenteraad stemmen na vijf jaar legaal in Nederland",
+      "edited_fields": [
+        "questions[0].prompt",
+        "text",
+        "questions[0].evidence",
+        "questions[0].explanation"
+      ]
+    },
+    {
+      "id": "A2:knm:batch019-grondwet:1",
+      "theme": 7,
+      "eindterm": "7.2.4",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "15-word persona prompt, options 5-7 words, fact card 27 words in three 9-word sentences. The article number must be known; the Koning (art. 24 ff.) and onderwijs (art. 23) are real constitutional subjects, and \"school\" in the prompt pulls a guesser to C, not to the key.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM): \"7.2.4 Is op de hoogte van wat ‘gelijke behandeling’ en ‘discriminatieverbod’ inhoudt.\" with the indicator \"Weet dat Artikel 1 van de Grondwet gelijke behandeling in gelijke gevallen voorschrijft en onderscheid maken op grond van godsdienst, levensovertuiging, politieke gezindheid, ras, geslacht, handicap, seksuele gerichtheid of op welke grond dan ook verbiedt\". Literal.",
+      "source_check": "https://wetten.overheid.nl/BWBR0001840/2023-02-22 (HTTP 200, \"Geldend van 22-02-2023 t/m heden\"), artikel 1: \"Allen die zich in Nederland bevinden, worden in gelijke gevallen gelijk behandeld. Discriminatie wegens godsdienst, levensovertuiging, politieke gezindheid, ras, geslacht, handicap, seksuele gerichtheid of op welke grond dan ook, is niet toegestaan.\"",
+      "evidence": "Key A \"Over gelijke behandeling van iedereen.\" entailed by \"Artikel 1 van de Grondwet gaat over gelijke behandeling\". B (the King's tasks) and C (children's right to education) are other articles. Key 38 characters against 28 and 41; no prompt word in the key. The batch-003 discriminatie card states the right and where to get help and never names the Grondwet or article 1. The card lists four grounds in A2 words (\"geloof, afkomst, geslacht of handicap\"), a simplification of the legal list, not a change of meaning. Picture: Amina at a school desk with a booklet, nothing readable.",
+      "key": "A",
+      "evidence_quote": "Artikel 1 van de Grondwet gaat over gelijke behandeling",
+      "edited_fields": []
+    },
+    {
+      "id": "A2:knm:batch019-privacy:1",
+      "theme": 7,
+      "eindterm": "7.2.5",
+      "verdict": "pass",
+      "level": "comparable (easy end)",
+      "level_reason": "15-word persona prompt, options 6-8 words, fact card 30 words (longest 16). A rights-friendly guess reaches the key, which is why it sits at the easy end, but A (the holder owns the data) and B (a court order is needed) are beliefs learners bring from elsewhere and nothing in the wording marks C.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM): \"7.2.5 Is ervan op de hoogte dat de privacy van de burger door de wet wordt beschermd.\" with indicators \"Weet dat hij alleen die persoonsgegevens deelt … die zij nodig hebben voor hun taak\" and \"weet dat hij de persoonsgegevens die hij heeft gedeeld met overheids- en andere instanties altijd mag inzien en zo nodig wijzigen.\" The key is the second indicator in A2 words; \"altijd\" is the indicator's own word and sits in the card, not in the option.",
+      "source_check": "https://www.rijksoverheid.nl/themas/overheid-en-democratie/privacy-en-persoonsgegevens/privacyregels-beschermen-persoonsgegevens (HTTP 200, no redirect): \"Daarom heeft iedereen het recht op: Inzage: u kunt de gegevens bekijken die van u verzameld zijn. Correctie: u kunt gegevens die niet kloppen, laten aanpassen. … Beperking: een organisatie mag niet meer gegevens van u verzamelen dan nodig.\" and \"Als organisaties vragen krijgen over persoonsgegevens, moeten zij binnen 1 maand reageren\".",
+      "evidence": "Key C \"Ja, en fouten mag hij laten corrigeren.\" entailed by \"U heeft altijd het recht om uw gegevens in te zien en fouten te laten corrigeren\". A contradicts the right of inzage; B contradicts it too (the page requires only a request, answered within a month). Polarity Nee / Alleen / Ja*, no odd polarity; key 39 characters against 50 and 38; \"gegevens\" and \"organisatie\" from the prompt recur in A, not only in the key. \"Verwijdering\" was rightly kept out of the distractors (the page lists a limited right to it). Picture: meneer De Vries reading a letter at a desk, nothing readable.",
+      "key": "C",
+      "evidence_quote": "U heeft altijd het recht om uw gegevens in te zien en fouten te laten corrigeren",
+      "edited_fields": []
+    },
+    {
+      "id": "A2:knm:batch019-kwalificatieplicht:1",
+      "theme": 8,
+      "eindterm": "8.1.3",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "13-word persona prompt, options 8-10 words (46-48 characters), fact card 33 words (longest 14). The learner must know that a vmbo diploma is no startkwalificatie; A is the belief that any diploma ends the duty, C that a job replaces school.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM): \"8.1.3 Is ervan op de hoogte dat er een wettelijke verplichting is om kinderen van 5 tot 18 jaar onderwijs te laten volgen.\" with the indicator \"Weet wat het betekent dat kinderen tussen 5 en 16 jaar leerplichtig zijn en tussen 16 en 18 jaar kwalificatieplichtig\". Literal; the card leerplicht covers the 5-16 half.",
+      "source_check": "https://www.rijksoverheid.nl/themas/onderwijs/leerplicht/leerplicht-en-kwalificatieplicht (HTTP 200, no redirect): \"Leerlingen van 5 tot 16 jaar zijn leerplichtig. Jongeren tussen de 16 en 18 jaar die nog geen startkwalificatie hebben behaald zijn kwalificatieplichtig. Een startkwalificatie is (minimaal) een diploma havo, vwo of mbo (niveau 2 of hoger).\" and \"De kwalificatieplichtige jongeren moeten volledig dagonderwijs volgen. Ze mogen niet voltijd werken. Volgt een leerling de beroepsbegeleidende leerweg (bbl) in het mbo? Dan kan hij leren en werken combineren.\" Exceptions (praktijkonderwijs, vso uitstroomprofielen) do not apply to a vmbo graduate.",
+      "evidence": "Key B \"Nee, hij moet tot zijn achttiende naar school.\" entailed by \"jongeren zonder startkwalificatie moeten een opleiding volgen\" with \"tot 18 jaar\" in the same sentence and \"Een startkwalificatie is een diploma havo, vwo of mbo niveau 2\" (vmbo is not one). A contradicts that; C contradicts \"mogen niet voltijd werken\" (a bbl contract still means school). Polarity Ja / Nee* / Alleen; \"school\" of the prompt recurs in A as well as in the key; key 46 characters against 48 and 47. The key's \"tot zijn achttiende\" is the eindterm's own framing; the earlier end with a startkwalificatie is now in the explanation. Picture: Sem at a bus stop with a backpack, a school building far off, no name.",
+      "key": "B",
+      "evidence_quote": "jongeren zonder startkwalificatie moeten een opleiding volgen",
+      "edited_fields": [
+        "questions[0].explanation"
+      ]
+    }
+  ],
+  "decisions_on_author_doubts": {
+    "1_scholing_1_1_5": "Kept as the rule item (required training free, BW 7:611a) with the FAQ example as the case; eindterm 1.1.5 has no indicator and its own statement is a common-sense key that the fact card carries. Loose mapping accepted as in the 007 review; a second 1.1.5 item should take the \"belang\" angle.",
+    "2_zorgtoeslag_4_4_4_digid_card": "Kept unchanged: the card defines DigiD and its safe use, the item states that the zorgtoeslag application runs through Mijn toeslagen with DigiD (the literal 4.4.4, absent from the card); the concept overlap is unavoidable for 4.4.4; reframing around the channel would let the laptop in the picture reveal the key. Comparable (easy end); early in the theme-4 drill; the second 4.4.4 item should test the help indicator or \"declareren\".",
+    "3_informatiepunt_6_1_1_hedge": "Accepted: the hedge is in the card, not the option; BZK \"uitgevoerd door de bibliotheek\", Rijksoverheid names the library twice, the zorgtoeslag page lists it as a help point; the distractors are wrong disciplines. Yearly re-check that the IDO network exists.",
+    "4_alarmnummer_4_3_2": "Kept (reachability without credit or SIM); the card holds the core fact under the coordinator's different-fact constraint. The core \"welk nummer\" item is the natural second 4.3.2 item if the coordinator wants it.",
+    "5_kwalificatieplicht_8_1_3": "Key \"tot zijn achttiende\" kept (the eindterm's framing); the earlier end with a startkwalificatie added to the explanation, where the notes said it already was.",
+    "6_kiesrecht_country": "No country needed; the prompt now states the nationality (\"geen EU-burger\") instead of an origin.",
+    "7_alleen_options": "Fixed in this batch: belastingteruggave keys the neutral qualification; bank-wide the shape is now five \"Alleen …\" options with one keyed.",
+    "8_pictures": "Accepted; calm scenes, nobody hurt; contact-sheet checks listed in media_notes.",
+    "9_concurrent_work": "Batch 018 was integrated during the review; no overlap; checker re-run against the current catalogue."
+  },
+  "level_summary": "All twelve comparable to the official KNM item; five at the easy end (uitzendbureau, tandartskeuze, alarmnummer, zorgtoeslag, privacy), belastingteruggave easier as written and comparable after the edit, scholing comparable with a loose eindterm mapping. No item off-level in language (prompts 11-18 words, options 2-10 words, cards under the §10 limits), none off-format, no flags.",
+  "diversity_review": "Every item states a fact absent from the eight batch-003 cards and from batches 006, 007 and 018; nearest neighbours: 006 verwijsbrief (complement of tandartskeuze), 007 kinderbijslag (SVB/gemeente pair reversed in geboorteaangifte), the digid card (concept only, see decision 2), 003 leerplicht (5-16 half of 8.1.3), 003 stemmen (procedure, not who may vote), 003 noodnummer (when to call, not reachability), 003 discriminatie (help, not article 1). Twelve distinct settings, eleven cast members (Sem twice), domains werk 2 / gezondheid 3 / instanties 6 / opleiding 1; forms 6 yes/no with qualification and 6 persona facts; no direct-fact question.",
+  "set_assembly": "Theme sizes after adoption: 1 -> 10, 2 -> 12, 3 -> 8, 4 -> 11, 6 -> 11, 7 -> 11, 8 -> 9; keys per theme within 20-40 %. Suggested placement in the existing theme drills (easy first, no letter three times in a row): theme 1 uitzendbureau (B), scholing (C) after sollicitatie; theme 4 zorgtoeslag (A) first, tandartskeuze (A) after receptmedicijnen, alarmnummer (C) after huisartsenpost; theme 6 informatiepunt (B) after wa-verzekering, geboorteaangifte (A) after kinderbijslag, belastingteruggave (C) after jaaropgave; theme 7 grondwet (A) after godsdienstvrijheid, privacy (C) after zelfbeschikking, kiesrecht (B) after europese-unie; theme 8 kwalificatieplicht (B) after vmbo. Still uncovered in themes 1, 4, 6, 7, 8: 1.1.1, 1.1.3, 1.1.6, 4.4.2, 6.1.2, 6.2.4, 7.2.1, 8.1.4, 8.2.3; theme 5 has no items.",
+  "media_notes": "Twelve single illustrations, 816x816, house style; cast traits verbatim in all briefs; \"Mevrouw\"/\"Meneer\" capitalised at sentence start as in 006/007 (expandCast adds no note, traits already in the brief). Contact-sheet checks: informatiepunt no library; geboorteaangifte no town hall; tandartskeuze no dentist or referral letter; kiesrecht no flag or ballot box; alarmnummer no casualty, no ambulance, nothing readable on the phone; zorgtoeslag and belastingteruggave nothing readable on the laptop; kwalificatieplicht no school name; Sem's traits consistent across belastingteruggave and kwalificatieplicht. Question audio: prompt plus options for all twelve from the proposed text (kiesrecht prompt and belastingteruggave options exist only there).",
+  "retire_triggers": {
+    "informatiepunt": "re-check at every release that the IDO network exists (2026 funding cut reversed; gemeenten finance since 2022)",
+    "zorgtoeslag": "yearly; toeslagen reform (kinderopvangtoeslag replaced 2029); DigiD login stable; income limits not tested",
+    "belastingteruggave": "yearly; thresholds and dates not tested",
+    "uitzendbureau": "yearly; flex-work bills touch contract phases and agency certification, not the no-fee rule (Waadi)",
+    "scholing": "yearly; BW 7:611a, no movement announced",
+    "kiesrecht": "check after the next Kieswet amendment; the page's dates belong to the 18 March 2026 election",
+    "kwalificatieplicht": "yearly; Leerplichtwet 1969, no movement announced",
+    "structural": "tandartskeuze, alarmnummer, geboorteaangifte, grondwet, privacy"
+  },
+  "coordinator_notes": [
+    "Adopt with npm run batch:adopt 019; the review hash is of the proposed file.",
+    "Second items for the launch bank (\"every eindterm at least twice\"): 1.1.5 on the \"belang\" angle, 4.3.2 on the core \"welk nummer\" fact, 4.4.4 on the help indicator or \"declareren\", so that no pair is two items of the same shape.",
+    "Three cited Rijksoverheid addresses redirect to reorganised paths; the proposed file carries the live addresses. The same migration may affect older batches' sourceUrls at the next yearly check.",
+    "Batch 018 was adopted and integrated during this review; the checker was re-run on the proposed file against the current catalogue."
+  ],
+  "limitations": [
+    "AI editorial review; no educator review, learner trial or psychometric calibration; A2 is an authoring target; no claim of official equivalence.",
+    "Level judged against the research document's description of the official item; content/exemplars/ does not exist.",
+    "Pictures and audio do not exist yet; briefs judged as text.",
+    "The scholing rule rests on a ministry FAQ brochure (PDF) and the Burgerlijk Wetboek; no learner-facing Rijksoverheid page states it (searched on the review date)."
+  ]
+}

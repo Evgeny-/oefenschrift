@@ -104,7 +104,7 @@ try {
   await navigate('/listening');
   await evaluate('document.fonts.ready.then(()=>true)');
   await check(
-    `document.querySelectorAll('[data-set]').length===2&&!document.querySelector('[data-item]')`,
+    `document.querySelectorAll('[data-set]').length===${sets.filter((s) => s.level === 'A2' && s.part === 'listening').length}&&!document.querySelector('[data-item]')`,
     'Subject catalogue offers multi-exercise practice sets',
   );
   await check(

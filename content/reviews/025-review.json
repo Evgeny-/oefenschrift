@@ -1,0 +1,509 @@
+{
+  "review_id": "batch025-editorial-review",
+  "source": "content/batches/025-original.json",
+  "source_original_sha256": "f1c3256c5a210517294be7dd7a382109e3bbe335d9696eb959c7b0862b4ac63f",
+  "source_sha256": "0954b7847d3e4532f682820ea861f7c925a6de3569bf2973ced4c241a88510ce",
+  "proposed": "content/batches/025-proposed.json",
+  "starters_source": null,
+  "starters_sha256": null,
+  "starters_verdict": "not applicable: no open tasks in this batch",
+  "review_type": "AI editorial review of B1 listening scripts (Staatsexamen NT2 Programma I shape) before audio: shape, spoken naturalness, level, keys proven from evidence, every distractor tested, coherence, medical content kept generic, diversity and media notes; repairs applied in the proposed file",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_summary": "Both texts pass in the proposed file after ten edits: two required option-form repairs (kinderboeken q1 A, medicijnlijst q1 B), the required hedge of the missed-dose rule with a matching no-asterisk condition in the q3 prompt, the q2 key moved off the \"minstens een uur\" boundary, the with-food shift removed, q3 of text 1 relabelled detail, the q5 prompt and the intro of text 1 and the q6 close of text 2 tidied. No item rejected. Checker on the proposed file: no failures, no warnings.",
+  "edits": [
+    {
+      "id": "E1",
+      "item": "B1:listening:batch025-kinderboeken:1",
+      "field": "intro",
+      "kind": "recommended",
+      "new": "U hoort een interview uit een radioprogramma over taal en leren. De presentator praat met Jari, docent Nederlands voor volwassenen. Hij vindt dat volwassenen die Nederlands leren, kinderboeken en kranten voor jonge lezers moeten lezen.",
+      "why": "Aligned with the printed situation line (\"over taal en leren\"); the narrator speaks the intro."
+    },
+    {
+      "id": "E2",
+      "item": "B1:listening:batch025-kinderboeken:1",
+      "field": "questions[q1].options.A",
+      "kind": "required",
+      "new": "Doordat een cursist sneller vooruitging dan de anderen.",
+      "why": "The key was the only \"Door + noun\" option among \"Doordat + clause\" options: a form signal (blueprint §5)."
+    },
+    {
+      "id": "E3",
+      "item": "B1:listening:batch025-kinderboeken:1",
+      "field": "questions[q3].skill",
+      "kind": "recommended",
+      "new": "detail",
+      "why": "The evidence sentence states the meaning literally; inference is used in the catalogue for unstated answers. Decision on the author's doubt 1."
+    },
+    {
+      "id": "E4",
+      "item": "B1:listening:batch025-kinderboeken:1",
+      "field": "questions[q5].prompt",
+      "kind": "recommended",
+      "new": "Sabrina leest een kinderboek en ziet voor de tweede keer een woord dat ze niet kent. Wat moet ze volgens Jari doen?",
+      "why": "Jari never addresses Sabrina; persona form as in 013 q5."
+    },
+    {
+      "id": "E5",
+      "item": "B1:listening:batch025-medicijnlijst:1",
+      "field": "questions[q1].options.B",
+      "kind": "required",
+      "new": "Omdat andere zorgverleners dan direct zien wat hij gebruikt.",
+      "why": "The key was the only \"Zodat\" among \"Omdat\" options: a form signal."
+    },
+    {
+      "id": "E6",
+      "item": "B1:listening:batch025-medicijnlijst:1",
+      "field": "questions[q2].script[3].text",
+      "kind": "recommended",
+      "new": "Voor het medicijn op een lege maag is dat geen probleem. Bij de tabletten die u bij het eten neemt, eet u 's ochtends dan gewoon een beschuit. Een klein beetje is al genoeg.",
+      "why": "Moving with-food tablets to lunch or dinner is advice that depends on the medicine; a rusk with the tablets is safe for any medicine (coordinator's rule on generic pharmacy instructions)."
+    },
+    {
+      "id": "E7",
+      "item": "B1:listening:batch025-medicijnlijst:1",
+      "field": "questions[q2].prompt, options.A, options.B, explanation",
+      "kind": "recommended",
+      "new": {
+        "prompt": "Meneer De Vries eet 's avonds om zeven uur. Wanneer kan hij het medicijn innemen dat hij op een lege maag moet nemen?",
+        "options": {
+          "A": "Om half zeven.",
+          "B": "Om acht uur.",
+          "C": "Om vijf uur."
+        },
+        "explanation": "Op een lege maag betekent minstens een uur voordat u eet, of twee uur nadat u hebt gegeten. Vijf uur is twee uur vóór het eten om zeven uur, dus ruim op tijd. Half zeven is maar een half uur ervoor, en acht uur is pas een uur erna; dat is allebei te kort."
+      },
+      "why": "Key moved off the \"minstens een uur\" boundary: meal at seven, key two hours before, distractors half an hour before and one hour after. Decision on doubt 3."
+    },
+    {
+      "id": "E8",
+      "item": "B1:listening:batch025-medicijnlijst:1",
+      "field": "questions[q3].script[1].text, script[3].text",
+      "kind": "required",
+      "new": {
+        "turn2_opening": "Dat hangt af van het medicijn. Voor de meeste van uw medicijnen geldt een simpele regel.",
+        "turn4_closing": "Maar let op: voor een paar medicijnen geldt een andere regel. Die staan op de lijst met een sterretje, en daar staat die regel erbij. Twijfelt u, bel ons dan."
+      },
+      "why": "The missed-dose rule is hedged audibly before and after it is heard, tied to his list, with the exception mechanism and the phone fallback (coordinator's requirement). Evidence sentence unchanged."
+    },
+    {
+      "id": "E9",
+      "item": "B1:listening:batch025-medicijnlijst:1",
+      "field": "questions[q3].prompt, explanation",
+      "kind": "required",
+      "new": {
+        "prompt": "Meneer De Vries neemt elke ochtend één tablet van een medicijn zonder sterretje. Op zaterdagavond merkt hij dat hij die tablet vergeten is. Wat moet hij doen?",
+        "explanation": "Bij dit medicijn staat geen sterretje, dus geldt de algemene regel. Hij merkt het dezelfde dag nog, dus hij neemt de tablet alsnog in. Overslaan geldt alleen als hij het pas de volgende dag merkt, en een dubbele dosis nemen mag nooit. Voor een medicijn met een sterretje geldt de regel die op de lijst staat."
+      },
+      "why": "After the hedge, a case about an unspecified tablet has no determinate answer; the prompt names the no-asterisk condition so the general rule applies."
+    },
+    {
+      "id": "E10",
+      "item": "B1:listening:batch025-medicijnlijst:1",
+      "field": "questions[q6].script[2].text",
+      "kind": "recommended",
+      "new": "Dan is het gesprek geslaagd. Hier is uw lijst; uw medicijnen liggen al klaar.",
+      "why": "\"voor deze maand\" contradicted the three-month repeat of q4."
+    },
+    {
+      "id": "derived",
+      "item": "B1:listening:batch025-medicijnlijst:1",
+      "field": "questions[q2,q3,q6].text; text",
+      "kind": "derived",
+      "new": "rebuilt mechanically from the scripts",
+      "why": "Blueprint §4.7: question text = script joined as \"Speaker: text\" lines; item text = fragments joined with a blank line."
+    }
+  ],
+  "rejected": [],
+  "author_doubts_decisions": {
+    "q3_inference_label": "relabelled detail (E3); the text keeps opinion (q4) and summary (q7) as integrative items; an inference item on the same fragment is possible later in the \"function of the example\" form",
+    "third_rule_application": "kept: q5 combines two rules (fridge medicines never in the locker; a mixed order stays together), which is application, not time-place retrieval; the three items apply three different rules",
+    "q2_minstens_boundary": "moved off the boundary (E7): meal at seven, key five o'clock (two hours before), distractors half zeven (half an hour before) and acht uur (one hour after); no half-hour key",
+    "missed_dose_hedge": "strengthened at both ends and tied to the list (E8); the q3 prompt names the no-asterisk condition and the explanation says the asterisk medicines follow the rule printed on the list (E9); the with-food shift in q2 removed on the same principle (E6)",
+    "apotheker_label": "kept: function labels are established in the catalogue, the app shows the label, a medication talk is a pharmacist's task and the intro says so",
+    "je_register_text1": "kept",
+    "length": "text 2 now 888 of 900 item words; fragment q3 158 spoken words (65–74 s), inside the band",
+    "sign_off_and_persona_prompts": "fine as written"
+  },
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 2,
+    "distribution": {
+      "B1_listening": 2
+    },
+    "task_types": {
+      "interview": 1,
+      "instructie": 1
+    },
+    "text_types": {
+      "persuasief": 1,
+      "instructief": 1
+    },
+    "domains": {
+      "educatie": 1,
+      "overig": 1
+    },
+    "exam_field": "nt2-i on both",
+    "situation_lines": "both follow the B1 form of blueprint §3",
+    "intro_words": {
+      "kinderboeken": 35,
+      "medicijnlijst": 46
+    },
+    "question_count": 13,
+    "questions_per_text": {
+      "kinderboeken": 7,
+      "medicijnlijst": 6
+    },
+    "option_counts": {
+      "3": 13
+    },
+    "key_counts": {
+      "A": 5,
+      "B": 4,
+      "C": 4
+    },
+    "key_shares": {
+      "A": 0.38,
+      "B": 0.31,
+      "C": 0.31
+    },
+    "key_sequence": {
+      "kinderboeken": "ACBBACA",
+      "medicijnlijst": "BCABCA"
+    },
+    "consecutive_same_key_three_times": false,
+    "closed_evidence_is_verbatim": true,
+    "evidence_from_own_fragment": true,
+    "evidence_occurs_once_in_item_text": true,
+    "evidence_entails_key": "13 of 13",
+    "distractors_anchored_and_false": "26 of 26",
+    "option_form_parallel": "after E2 and E5",
+    "key_longest_by_checker_rule": 0,
+    "prompt_words_only_in_key": 0,
+    "question_text_equals_joined_script": true,
+    "item_text_equals_fragments_joined_with_blank_line": true,
+    "voice_roles_valid": true,
+    "two_roles_per_text": {
+      "kinderboeken": [
+        "presenter",
+        "m-adult"
+      ],
+      "medicijnlijst": [
+        "f-adult",
+        "m-older"
+      ]
+    },
+    "speaker_labels_consistent": true,
+    "third_voice": false,
+    "spoken_words_per_fragment": {
+      "kinderboeken": [
+        127,
+        124,
+        118,
+        128,
+        124,
+        129,
+        115
+      ],
+      "medicijnlijst": [
+        139,
+        138,
+        158,
+        140,
+        131,
+        138
+      ]
+    },
+    "fragment_seconds_estimate": {
+      "kinderboeken": [
+        [
+          52,
+          59
+        ],
+        [
+          51,
+          57
+        ],
+        [
+          48,
+          55
+        ],
+        [
+          52,
+          59
+        ],
+        [
+          51,
+          57
+        ],
+        [
+          53,
+          60
+        ],
+        [
+          47,
+          54
+        ]
+      ],
+      "medicijnlijst": [
+        [
+          58,
+          65
+        ],
+        [
+          57,
+          65
+        ],
+        [
+          65,
+          74
+        ],
+        [
+          58,
+          66
+        ],
+        [
+          54,
+          61
+        ],
+        [
+          57,
+          64
+        ]
+      ]
+    },
+    "spoken_words_per_text": {
+      "kinderboeken": 865,
+      "medicijnlijst": 844
+    },
+    "turns_per_text": {
+      "kinderboeken": 15,
+      "medicijnlijst": 24
+    },
+    "minutes_with_turn_gaps": {
+      "kinderboeken": [
+        5.88,
+        6.67
+      ],
+      "medicijnlijst": [
+        5.81,
+        6.57
+      ]
+    },
+    "item_text_words": {
+      "kinderboeken": 880,
+      "medicijnlijst": 888
+    },
+    "item_text_cap": 900,
+    "sentence_average_words": {
+      "kinderboeken": 12.4,
+      "medicijnlijst": 11.7
+    },
+    "explaining_speaker_sentence_average": {
+      "Jari": 13.6,
+      "Apotheker": 12.6
+    },
+    "longest_sentence_words": {
+      "kinderboeken": 26,
+      "medicijnlijst": 26
+    },
+    "sentences_over_30_words": 0,
+    "digits_in_spoken_text": false,
+    "abbreviations_in_spoken_text": false,
+    "transcribed_fillers": false,
+    "b1_connectors_in_use": true,
+    "last_question_whole_text": {
+      "kinderboeken": "summary",
+      "medicijnlijst": "opinion"
+    },
+    "skills": {
+      "detail": 4,
+      "rule-application": 4,
+      "opinion": 2,
+      "quantity": 2,
+      "summary": 1,
+      "inference": 0
+    },
+    "invented_organisation_names": "none; \"kinderkrant\" confirmed a common noun on the web (many local papers use it), no title named",
+    "avoid_list": "no politics, religion, graphic illness, crime, brands, real addresses",
+    "six_word_phrase_overlap": "only formula phrases (situation line shared with 012-buschauffeur; \"Wat is de belangrijkste boodschap van\" with 012-mantelzorg; \"krijgt u een berichtje op uw telefoon\" with 023-bezorgservice); none between the two texts",
+    "checker_original": "Checked 2 items, 13 questions. Keys: {\"A\":5,\"C\":4,\"B\":4}. Options: {\"3\":13}. No failures, no warnings.",
+    "checker_proposed": "Checked 2 items, 13 questions. Keys: {\"A\":5,\"C\":4,\"B\":4}. Options: {\"3\":13}. No failures, no warnings.",
+    "diff_original_to_proposed_verified_field_by_field": true
+  },
+  "items": {
+    "B1:listening:batch025-kinderboeken:1": {
+      "verdict": "pass",
+      "level": "comparable (upper range)",
+      "level_reason": "Jari's sentences average 13.6 words with 64% at twelve or more and a longest of 26; inverted conditionals, a counterfactual, relative clauses and signal words; an argued position (claim, reasons, objection and reply, method, example, message) as in the official beschouwend/persuasief interviews; common vocabulary with prentenboek, opstap, trede, schriftje carried by context. Harder than 012-buschauffeur (narrative), comparable to the official interview items; not off-level.",
+      "edits": [
+        "E1",
+        "E2",
+        "E3",
+        "E4"
+      ],
+      "questions": {
+        "q1": {
+          "key": "A",
+          "skill": "detail",
+          "evidence": "Haar Nederlands ging dat jaar sneller vooruit dan dat van de rest van de groep, terwijl ze minder tijd had om te studeren. Dat zette me aan het denken.",
+          "proof": "The cursist who read to her daughter progressed faster than the rest of the group and that set him thinking; \"de anderen\" paraphrases \"de rest van de groep\".",
+          "distractors": {
+            "B": "reverses \"na twee alinea's … gingen de woordenboeken open\"",
+            "C": "he read children's books after the idea, as a teacher, not as a child"
+          },
+          "note": "option A reworded to \"Doordat …\" for parallel form (E2)"
+        },
+        "q2": {
+          "key": "C",
+          "skill": "detail",
+          "evidence": "Als je een bladzijde leest, begrijp je misschien negentig procent. Die laatste tien procent raad je uit de zinnen eromheen, en zo leer je nieuwe woorden zonder woordenboek.",
+          "proof": "Ninety percent understood, the rest guessed from the surrounding sentences, words learned without a dictionary; \"bijna alles\" paraphrases \"negentig procent\".",
+          "distractors": {
+            "A": "looking up every third word is the newspaper habit and the book works \"zonder woordenboek\"",
+            "B": "reverses the contrast between everyday words and \"de rente en de beurs\""
+          }
+        },
+        "q3": {
+          "key": "B",
+          "skill": "detail",
+          "evidence": "Voor iemand die nieuw is in Nederland is dat twee keer winst: je leert de taal, en je leert hoe het land werkt.",
+          "proof": "The expression is defined in the same sentence; \"Nederland\" paraphrases \"het land\".",
+          "distractors": {
+            "A": "takes the traffic-rule example for the general point; what the minister decided is what the ordinary newspaper reports",
+            "C": "friends are never mentioned; \"kan meepraten\" is a consequence, not the definition"
+          },
+          "note": "relabelled from inference to detail (E3)"
+        },
+        "q4": {
+          "key": "B",
+          "skill": "opinion",
+          "evidence": "Ik bedoel boeken voor kinderen van tien tot twaalf jaar. Dat zijn echte verhalen, met humor en spanning, en veel volwassenen lezen ze met plezier.",
+          "proof": "Books for ten- to twelve-year-olds are real stories that many adults read with pleasure; \"leuk\" paraphrases \"met plezier\".",
+          "distractors": {
+            "A": "reverses \"ik zeg niet dat je prentenboeken voor peuters moet lezen\"",
+            "C": "reverses \"Wie meteen de zware krant pakt, houdt het meestal geen maand vol\""
+          }
+        },
+        "q5": {
+          "key": "A",
+          "skill": "rule-application",
+          "evidence": "Kom je een woord tegen dat je niet kent, dan lees je gewoon door, want vaak wordt het een paar zinnen later duidelijk. Kom je hetzelfde woord voor de derde keer tegen en snap je het nog steeds niet? Dan pas zoek je het op, en schrijf je het in een schriftje.",
+          "proof": "Read on past an unknown word; look it up only at the third encounter, so the second encounter means reading on.",
+          "distractors": {
+            "B": "the third-encounter rule",
+            "C": "the rule for a first page understood for less than half"
+          },
+          "note": "prompt reworded to \"Wat moet ze volgens Jari doen?\" (E4)"
+        },
+        "q6": {
+          "key": "C",
+          "skill": "quantity",
+          "evidence": "In totaal heeft hij daar anderhalf jaar over gedaan.",
+          "proof": "\"In totaal … anderhalf jaar\" answers the total; consistent with starting two years ago and reading the newspaper for half a year.",
+          "distractors": {
+            "A": "the half year until books for twelve-year-olds",
+            "B": "\"twee jaar geleden\" is when he started"
+          }
+        },
+        "q7": {
+          "key": "A",
+          "skill": "summary",
+          "evidence": "Lees elke dag iets wat je bijna helemaal begrijpt en waar je plezier in hebt.",
+          "proof": "His one-thing-to-remember: read every day something you almost fully understand and enjoy.",
+          "distractors": {
+            "B": "reverses \"Kies dus makkelijk\" and the q4 warning",
+            "C": "reverses \"niet omdat Nederlands te moeilijk is, maar omdat ze teksten kiezen die te moeilijk zijn\""
+          }
+        }
+      }
+    },
+    "B1:listening:batch025-medicijnlijst:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "The pharmacist's sentences average 12.6 words with 51% at twelve or more and a longest of 26; conditional instructions with inversion throughout, relative clauses, zodat/voordat/nadat/namelijk/anders; three applied-rule items each combining two conditions. Comparable to 013-ziekenhuiskeuken and to the official instructief conversation (personal trainer); not off-level.",
+      "edits": [
+        "E5",
+        "E6",
+        "E7",
+        "E8",
+        "E9",
+        "E10"
+      ],
+      "questions": {
+        "q1": {
+          "key": "B",
+          "skill": "detail",
+          "evidence": "Wij wel, maar andere zorgverleners niet. Komt u in het ziekenhuis, of bij een andere arts, dan ziet die in één oogopslag wat u gebruikt.",
+          "proof": "The pharmacy knows; other care providers see at a glance what he takes when he is in hospital or with another doctor; \"direct\" paraphrases \"in één oogopslag\".",
+          "distractors": {
+            "A": "reverses \"Wij wel\"",
+            "C": "never said; he must report drugstore products because some combine badly"
+          },
+          "note": "option B reworded to \"Omdat … dan …\" for parallel form (E5)"
+        },
+        "q2": {
+          "key": "C",
+          "skill": "rule-application",
+          "evidence": "Dat betekent: minstens een uur voordat u eet, of twee uur nadat u hebt gegeten.",
+          "proof": "At least one hour before eating or two hours after; with the meal at seven, five o'clock is two hours before and satisfies the rule under any reading of \"minstens\".",
+          "distractors": {
+            "A": "half zeven is half an hour before eating",
+            "B": "acht uur is one hour after eating where two are required"
+          },
+          "note": "meal moved from six to seven, options A/B and explanation rewritten (E7); with-food shift removed from the script (E6)"
+        },
+        "q3": {
+          "key": "A",
+          "skill": "rule-application",
+          "evidence": "Neemt u een medicijn één keer per dag, en merkt u dezelfde dag nog dat u hem vergeten bent, dan neemt u de tablet alsnog in.",
+          "proof": "Once a day, noticed the same day: take it. The prompt states the medicine has no asterisk, so the general rule applies.",
+          "distractors": {
+            "B": "the rule for noticing the next day",
+            "C": "the double dose that is never taken"
+          },
+          "note": "hedges added to the script (E8); prompt condition and explanation (E9)"
+        },
+        "q4": {
+          "key": "B",
+          "skill": "quantity",
+          "evidence": "Reken op twee werkdagen, want wij vragen het recept eerst aan bij uw huisarts, en die moet het goedkeuren.",
+          "proof": "\"Reken op twee werkdagen\" because the huisarts must approve the prescription first.",
+          "distractors": {
+            "A": "the week of supply he should still have when ordering",
+            "C": "the period a repeat prescription covers"
+          }
+        },
+        "q5": {
+          "key": "C",
+          "skill": "rule-application",
+          "evidence": "En bestelt u een koelkastmedicijn samen met andere medicijnen, dan leggen wij alles bij de balie, zodat u niet twee keer hoeft te komen.",
+          "proof": "A fridge medicine ordered with other medicines: everything is kept at the counter so he comes once.",
+          "distractors": {
+            "A": "applies only the fridge rule and ignores \"alles bij de balie\"",
+            "B": "reverses \"Dat gaat nooit in de kluis\""
+          }
+        },
+        "q6": {
+          "key": "A",
+          "skill": "opinion",
+          "evidence": "Dit is meer werk voor mij, dat wel. Maar ik snap het: in het ziekenhuis weten ze meteen wat ik gebruik, en met die kluis hoef ik niet meer in de rij te staan.",
+          "proof": "More work, \"dat wel\", but he understands the advantages (hospital, no queue).",
+          "distractors": {
+            "B": "reverses \"meer werk\"; his daughter does the website",
+            "C": "contradicted by \"Maar ik snap het\" and the website plan"
+          }
+        }
+      }
+    }
+  },
+  "diversity_review": "Within the batch: two task types, text types, domains and voice pairs; no shared six-word phrase; skills differ. Against the B1 listening catalogue both settings are new; kinderboeken is the first persuasief B1 listening text and the second radio interview (situation formula and presenter role shared with 012-buschauffeur); medicijnlijst is the third instructief text. Cross-part echoes, acceptable because parts never share a set: A2 listening 023-herhaalmedicijn states the same generic arrangements as text 2 q4–q5 (website order with a week of supply left, two working days, a locker outside with a code) with different tested points; A2 listening 005-tabletten gives the missed-dose rule in its A2 form, consistent; A2 reading 004-herhaalrecept differs in facts.",
+  "set_assembly": "Each text is one B1 listening drill. With 012, 013 and 025 there are six blueprint-shaped B1 listening texts with exactly 39 questions, the count of a Luisteren I form, but three instructief texts, one beschouwend, no video text; add a descriptief or beschouwend werk text before freezing a mock form. Two mocks need twelve texts.",
+  "media_notes": "Text 1 Presentator→presenter (Peter), Jari→m-adult (Robert); text 2 Apotheker→f-adult (Esmee), Meneer De Vries→m-older (Arjen); narrator (Serge) reads intro and questions; stitched mode. All numbers and times in words; \"'s ochtends\" only mid-sentence; colons and one semicolon as pauses; no quotation marks in turns. Round trip may normalise \"dag één\" to \"dag 1\". No pictures.",
+  "coordinator_notes": "Adopt with npm run batch:adopt 025 (verifies source_sha256 against the proposed bytes). Text 2 has 12 words of headroom under the 900-word cap. The fragment q3 of text 2 is the longest of the batch (158 spoken words, 65–74 s); listen to its clip near the limit. Steer the next B1 listening batch to a descriptief or beschouwend werk text.",
+  "limitations": "AI editorial review, no human difficulty validation; audio does not exist yet and published items stay blocked until the media review; content/exemplars/ does not exist, level judged against 012/013 and the research description of the official texts; medical content checked only against generic public patient wording, not by a pharmacist; the reviewer's own wording (E6–E9) has had no independent second reading beyond the coordinator's diff."
+}

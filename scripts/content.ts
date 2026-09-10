@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { existsSync } from 'node:fs';
 import { readFile, readdir, realpath, rename, writeFile } from 'node:fs/promises';
 import { resolve, sep } from 'node:path';
 
@@ -52,6 +53,16 @@ export async function checkContent(write = false, refreshHints = '') {
       console.log(`Skipping ${filename}: not ready for integration (${review.batch_verdict}).`);
       continue;
     }
+    // A reviewer's proposed file that has not been adopted yet (blueprint §12, step 4) waits too.
+    const proposed = String(review.source || '').replace(/-original\.json$/, '-proposed.json');
+    if (
+      proposed !== review.source &&
+      existsSync(proposed) &&
+      digest(await readFile(proposed)) === review.source_sha256
+    ) {
+      console.log(`Skipping ${filename}: awaiting npm run batch:adopt.`);
+      continue;
+    }
     // A batch of open tasks brings reviewed sentence starters; they are merged into the overlay below.
     if (review.starters_source && review.starters_verdict === 'pass') {
       const batchStarters = await reviewedSource(
@@ -97,14 +108,12 @@ export async function checkContent(write = false, refreshHints = '') {
             ? { ...image, file: kept.file, kind: kept.kind }
             : image;
         });
-      if (
-        item.imageBrief &&
-        previousImages[0]?.file &&
-        previousImages[0].brief === item.imageBrief
-      ) {
-        previous.images = [previousImages[0]];
-        delete previous.imageBrief;
-        delete previous.imageAlt;
+      if (item.imageBrief && previousImages[0]?.file) {
+        if (previousImages[0].brief === item.imageBrief) {
+          previous.images = [previousImages[0]];
+          delete previous.imageBrief;
+          delete previous.imageAlt;
+        } else delete previous.images; // a changed brief means a new drawing
       }
       for (const q of previous.questions || []) {
         const kept = questionAudio.get(q.id);

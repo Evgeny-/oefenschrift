@@ -1,0 +1,475 @@
+{
+  "review_id": "batch022-editorial-review",
+  "source": "content/batches/022-original.json",
+  "source_sha256": "a803db3fe6dc74e7a62c1c59dd4b39924cd0c73526a18cb1b8c9e1e3391ecf71",
+  "source_note": "source_sha256 is the SHA-256 of content/batches/022-proposed.json, the bytes to adopt with npm run batch:adopt 022. The author's original hashes to 359745e04e0464827dd5b996f2bb1973c2585680d57a26510e9478750ab8765d; the proposed file differs from it only in the edits listed under \"edits\" and in the text fields rebuilt from the edited scripts.",
+  "proposed_file": "content/batches/022-proposed.json",
+  "original_sha256": "359745e04e0464827dd5b996f2bb1973c2585680d57a26510e9478750ab8765d",
+  "starters_source": null,
+  "starters_sha256": null,
+  "starters_verdict": "not applicable: closed items only, no starters file",
+  "review_type": "AI editorial review of A2 listening scripts (DUO Luisteren A2 shape) before audio: every key proven from verbatim evidence, every distractor tested, option form and length checked for signals, spoken naturalness and TTS safety read turn by turn, level judged against the official fragment description and batch 005, diversity against the catalogue and batches 020-023, invented names checked on the web; small repairs applied in the proposed file rather than requested",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "summary": {
+    "items": 9,
+    "questions": 26,
+    "passed": 9,
+    "edited": 6,
+    "rejected": 0,
+    "required_edits": 4,
+    "recommended_edits": 12,
+    "level_flags": []
+  },
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 9,
+    "distribution": {
+      "A2_listening": 9
+    },
+    "task_types": {
+      "gesprek": 3,
+      "voicemail": 2,
+      "omroep": 1,
+      "nieuws": 1,
+      "uitleg": 1,
+      "reclame": 1
+    },
+    "domains": {
+      "vervoer": 2,
+      "vrije-tijd-familie": 2,
+      "winkels-diensten": 1,
+      "wonen-buurt": 1,
+      "werk": 1,
+      "instanties": 1,
+      "opleiding": 1
+    },
+    "batch_check_proposed": "npm run batch:check content/batches/022-proposed.json: Checked 9 items, 26 questions. Keys: {\"C\":7,\"B\":8,\"A\":7,\"D\":4}. Options: {\"3\":18,\"4\":8}. No failures, no warnings.",
+    "batch_check_original": "npm run batch:check content/batches/022-original.json: same counts, no failures, no warnings.",
+    "closed_evidence_is_verbatim": true,
+    "text_equals_joined_script": true,
+    "voice_roles_valid": true,
+    "two_roles_per_conversation": true,
+    "spoken_words_range": [
+      105,
+      168
+    ],
+    "spoken_words_per_item": {
+      "garage": 168,
+      "kinderopvang": 147,
+      "sluitingstijd": 105,
+      "fietsbrug": 157,
+      "koffiegeld": 156,
+      "taalcafe": 137,
+      "loket": 143,
+      "paspoort-klaar": 153,
+      "pakket": 157
+    },
+    "estimated_seconds_range": [
+      42,
+      71
+    ],
+    "a2_sentence_heuristics_pass": true,
+    "sentence_average_range": [
+      5.4,
+      9.0
+    ],
+    "longest_sentence": 17,
+    "numbers_in_words_no_digits": true,
+    "fillers_or_abbreviations": false,
+    "key_balance": {
+      "A": 7,
+      "B": 8,
+      "C": 7,
+      "D": 4
+    },
+    "key_sequence": "CBAACBBCABDACABABDBCDACCDB",
+    "no_key_three_in_a_row": true,
+    "no_shared_key_within_item": true,
+    "four_option_share": 0.31,
+    "key_longest_by_more_than_two_chars": 0,
+    "key_odd_form_out": 0,
+    "persona_prompt_per_item": true,
+    "purpose_questions": 4,
+    "skills": {
+      "rule-application": 8,
+      "time-place": 6,
+      "purpose": 4,
+      "detail": 3,
+      "quantity": 2,
+      "advice": 2,
+      "person": 1
+    },
+    "phrase_overlap_6_words": "only stock formulas against the catalogue and batches 001-025: \"wij wensen u een fijne avond\" (batch005-winkelcentrum), \"hier is het nieuws uit de regio\" (batch005-speelplaats), \"van tien tot twaalf uur de\" (batch005-computercursus), \"van maandag tot en met vrijdag\" and \"mag dat niet voor u doen\" (reading items)",
+    "invented_names_web_check": {
+      "De Bonte Ekster": "no café or restaurant of that name found (hits: De Bonte Koe, De Bonte Os, De Bonte Veer, Café Exter in Antwerp)",
+      "Rietburg": "not a Dutch gemeente (castle ruin near Rhodt unter Rietburg, Germany); consistent with batch 005",
+      "Kanaalzicht": "exists as a buurt in Hellevoetsluis and as a street name in Purmerend and Sluiskil; a generic descriptive name of the Lindenstraat/Vijverlaan kind, no business and no address; kept"
+    },
+    "image_briefs": "five stills (garage, fietsbrug, taalcafe, loket, pakket); cast keys Sabrina, meneer De Vries, Julio, mevrouw Bakker expand case-sensitively; no brief shows a tested fact after the fietsbrug edit; alts in Dutch without a key",
+    "conversation_notes_present": true
+  },
+  "edits": [
+    {
+      "n": 1,
+      "id": "A2:listening:batch022-kinderopvang:1",
+      "field": "script[0].text",
+      "old": "Dank u wel en sterkte voor Lina.",
+      "new": "Dank u wel, en beterschap voor Lina.",
+      "kind": "recommended",
+      "why": "beterschap is the wish for the person who is ill; sterkte is for the person coping (recommended, naturalness)"
+    },
+    {
+      "n": 2,
+      "id": "A2:listening:batch022-kinderopvang:1",
+      "field": "questions[1].options.D",
+      "old": "Morgen weer bellen naar Jolien.",
+      "new": "Jolien morgen terugbellen.",
+      "kind": "recommended",
+      "why": "\"Morgen weer bellen naar Jolien\" implied an earlier call by Karim; terugbellen is what the message asks for, morgen keeps it wrong (recommended, option wording)"
+    },
+    {
+      "n": 3,
+      "id": "A2:listening:batch022-fietsbrug:1",
+      "field": "script[0].text",
+      "old": "Bewoners van de wijk vroegen al jaren om een brug.",
+      "new": "Bewoners van de wijk vragen al jaren om een brug.",
+      "kind": "recommended",
+      "why": "Dutch says \"vragen al jaren\" (present with al) for a request that continues; the simple past read as if the asking had stopped (recommended, naturalness and A2 tense)"
+    },
+    {
+      "n": 4,
+      "id": "A2:listening:batch022-fietsbrug:1",
+      "field": "script[0].text",
+      "old": "Vroeger fietste je in vijfentwintig minuten naar de zwemplas, via de oude brug bij de fabriek. Straks is dat tien minuten.",
+      "new": "Nu fiets je nog vijfentwintig minuten naar de zwemplas, via de oude brug bij de fabriek. Straks is dat tien minuten.",
+      "kind": "recommended",
+      "why": "the bridge is not open yet (\"bijna klaar\", opening Saturday), so the long route is the present, not \"vroeger\"; present tense also fits the A2 heuristics (recommended, coherence)"
+    },
+    {
+      "n": 5,
+      "id": "A2:listening:batch022-fietsbrug:1",
+      "field": "imageBrief",
+      "old": "A new bicycle bridge with a gentle arch over a canal, two cyclists and a walker crossing it, trees and a small lake on the far bank; no sign, no banner, no text.",
+      "new": "A new bicycle bridge with a gentle arch over a canal, nobody on it yet, trees and a small lake on the far bank; no people, no vehicles, no sign, no banner, no text.",
+      "kind": "required",
+      "why": "the still showed cyclists and a walker, which is q2's key \"Fietsers en voetgangers\"; an empty new bridge supports the situation without answering a question (required, blueprint 4.2)"
+    },
+    {
+      "n": 6,
+      "id": "A2:listening:batch022-fietsbrug:1",
+      "field": "imageAlt",
+      "old": "Een fietsbrug over een kanaal met fietsers erop en bomen aan de overkant.",
+      "new": "Een nieuwe fietsbrug over een kanaal, met bomen en water aan de overkant.",
+      "kind": "required",
+      "why": "alt follows the new brief and names no users of the bridge"
+    },
+    {
+      "n": 7,
+      "id": "A2:listening:batch022-koffiegeld:1",
+      "field": "script[0].text",
+      "old": "Op de eerste maandag van de maand ga ik langs alle collega's.",
+      "new": "Op de eerste maandag van de maand tel ik het geld.",
+      "kind": "recommended",
+      "why": "the money goes into the pot, so Ruud going round the colleagues clashed with that; counting the pot on the first Monday gives \"betaal dus liever niet aan het eind\" its reason (recommended, coherence)"
+    },
+    {
+      "n": 8,
+      "id": "A2:listening:batch022-koffiegeld:1",
+      "field": "questions[1].explanation",
+      "old": "Het geld gaat aan het begin van de maand in de pot; Ruud komt op de eerste maandag langs. Aan het eind van de maand betalen raadt hij af. Op vrijdag koopt hij alleen koek.",
+      "new": "Het geld gaat aan het begin van de maand in de pot; op de eerste maandag telt Ruud het geld. Aan het eind van de maand betalen raadt hij af. Op vrijdag koopt hij alleen koek.",
+      "kind": "recommended",
+      "why": "follows the script edit"
+    },
+    {
+      "n": 9,
+      "id": "A2:listening:batch022-loket:1",
+      "field": "script[2].text",
+      "old": "Dus ik moet één keer overstappen. En in Amersfoort?",
+      "new": "Dus ik moet één keer overstappen. Moet ik in Amersfoort ook overstappen?",
+      "kind": "recommended",
+      "why": "the elliptical \"En in Amersfoort?\" is natural on paper but thin when heard once; the full question makes the Amersfoort distractor audible for an A2 listener (recommended, clarity when heard)"
+    },
+    {
+      "n": 10,
+      "id": "A2:listening:batch022-paspoort-klaar:1",
+      "field": "script[0].text",
+      "old": "Uw vrouw of een vriend mag dat niet voor u doen.",
+      "new": "Iemand anders mag dat niet voor u doen.",
+      "kind": "required",
+      "why": "the line assumed Modibo has a wife; the neutral phrasing keeps the rule and its distractor anchor (required, coordinator instruction)"
+    },
+    {
+      "n": 11,
+      "id": "A2:listening:batch022-paspoort-klaar:1",
+      "field": "questions[0].options.C",
+      "old": "Modibo moet een nieuwe pasfoto brengen.",
+      "new": "De gemeente heeft nog een pasfoto nodig.",
+      "kind": "recommended",
+      "why": "three distractors all read \"Modibo moet …\" while the key was the only plain statement, an odd-one-out signal (blueprint 5); one distractor in another form removes it (recommended)"
+    },
+    {
+      "n": 12,
+      "id": "A2:listening:batch022-paspoort-klaar:1",
+      "field": "questions[0].explanation",
+      "old": "De gemeente belt omdat het nieuwe paspoort klaar is. Een afspraak is niet nodig, betalen heeft Modibo al gedaan, en een nieuwe pasfoto is niet nodig.",
+      "new": "De gemeente belt omdat het nieuwe paspoort klaar is. Een afspraak is niet nodig, betalen heeft Modibo bij de aanvraag al gedaan, en een nieuwe pasfoto heeft de gemeente niet nodig.",
+      "kind": "recommended",
+      "why": "names the reworded distractor C"
+    },
+    {
+      "n": 13,
+      "id": "A2:listening:batch022-paspoort-klaar:1",
+      "field": "questions[2].options.B",
+      "old": "Zijn vrouw haalt het paspoort voor hem.",
+      "new": "Iemand anders haalt het paspoort voor hem.",
+      "kind": "required",
+      "why": "re-anchored on the neutral line \"Iemand anders mag dat niet voor u doen\" (required, follows the script edit)"
+    },
+    {
+      "n": 14,
+      "id": "A2:listening:batch022-paspoort-klaar:1",
+      "field": "questions[2].explanation",
+      "old": "Na drie maanden moet Modibo een nieuw paspoort aanvragen en opnieuw betalen. Een afspraak is nooit nodig, en zijn vrouw mag het paspoort niet voor hem halen.",
+      "new": "Na drie maanden moet Modibo een nieuw paspoort aanvragen en opnieuw betalen. Een afspraak is nooit nodig, en iemand anders mag het paspoort niet voor hem halen.",
+      "kind": "recommended",
+      "why": "follows the script and option edits"
+    },
+    {
+      "n": 15,
+      "id": "A2:listening:batch022-pakket:1",
+      "field": "script[6].text",
+      "old": "Buiten zetten mag niet, want het is te duur.",
+      "new": "Buiten zetten mag niet, want de printer is duur.",
+      "kind": "recommended",
+      "why": "\"het is te duur\" had no clear referent when heard; naming the printer makes Julio's reason plain (recommended, clarity)"
+    },
+    {
+      "n": 16,
+      "id": "A2:listening:batch022-pakket:1",
+      "field": "questions[2].explanation",
+      "old": "Als niemand thuis is, brengt de bezorger het pakket naar het pakketpunt in de supermarkt. Hij komt niet terug, en buiten zetten mag niet omdat de printer te duur is.",
+      "new": "Als niemand thuis is, brengt de bezorger het pakket naar het pakketpunt in de supermarkt. Hij komt niet terug, en buiten zetten mag niet omdat de printer duur is.",
+      "kind": "recommended",
+      "why": "follows the script edit"
+    }
+  ],
+  "rejected": [],
+  "decisions_on_author_doubts": {
+    "domain_tags": "keep garage as vervoer and fietsbrug as vrije-tijd-familie (coordinator counts; tag only); a later re-tag needs a focused re-review under the hash gate",
+    "achtendertig_en_een_half": "keep: natural spoken fever, unambiguous for TTS, transparent at A2 after \"koorts\", no question depends on it; \"achtendertig vijf\" reads as two numbers to a synthesiser, \"komma vijf\" is equally safe but less transparent",
+    "walker_in_bridge_still": "cut together with the cyclists; the still is the empty new bridge (bijna klaar)",
+    "real_route_invented_fares": "keep Groningen, Zwolle, Amersfoort (the official exam and the bank use real cities: batch002-trein, batch023-spoor); the change in Zwolle, the thirty/twenty-euro rule and the free child fare are the counter's own statements, no carrier named, no outside knowledge needed",
+    "uw_vrouw_of_een_vriend": "replaced by \"Iemand anders mag dat niet voor u doen.\"; q3-B re-anchored as \"Iemand anders haalt het paspoort voor hem.\"",
+    "buiten_zetten_te_duur": "kept as Julio's own reason with the printer named: \"want de printer is duur\"",
+    "met_het_werk_erbij_and_accu": "fine at A2; accu glossed by context",
+    "gender_and_roles": "balanced; no change"
+  },
+  "diversity_review": {
+    "within_batch": "nine distinct settings and purposes; skills rule-application 8, time-place 6, purpose 4, detail 3, quantity 2, advice 2, person 1; all cast adults used once each",
+    "against_bank_keep_apart": [
+      {
+        "item": "sluitingstijd",
+        "counterpart": "A2:listening:batch001-markt:1",
+        "reason": "same concept (closes an hour early) and the same two question types; sluitingstijd adds the till time, the delivery rule and a different reason; the markt clip is a 45-word legacy item"
+      },
+      {
+        "item": "fietsbrug",
+        "counterpart": "A2:listening:batch005-speelplaats:1",
+        "reason": "same regional-news template (residents asked, gemeente pays, Saturday opening by an official, children) and the \"Wie betaalt\" question with the bewoners distractor; here a comparison of two amounts and two new questions; next nieuws items should leave the new-facility template"
+      },
+      {
+        "item": "paspoort-klaar",
+        "counterpart": "A2:listening:batch005-parkeervergunning:1",
+        "reason": "gemeente Rietburg voicemail with balie hours plus one evening, a payment rule and a four-option purpose question keyed D; also shares Modibo, Burgerzaken and the zelf-ophalen rule with the uncatalogued reading item A2:reading:batch020-identiteitskaart:1 (different part, never one drill; the 020 letter still asks about \"zijn vrouw\")"
+      }
+    ],
+    "new_settings": [
+      "garage call with a second fault",
+      "daycare and a sick child",
+      "workplace kitty",
+      "conversation café",
+      "station ticket counter",
+      "parcel favour asked in advance"
+    ],
+    "cross_part_contrasts": "pakket reverses A2 speaking burenpakket and reading pakketpunt; loket differs from the platform announcements batch002-trein and batch023-spoor; taalcafe differs from buurthuis taalles and batch005-computercursus",
+    "domains_note": "no gezondheid in this batch (batch 023 carries three); wonen-buurt once, as section 9 asks"
+  },
+  "set_assembly": "Type drills of four: the three gesprek items plus one from 005 or 023; each monologue type completes a drill with 005/023 items under the keep-apart constraints. With 005, 022 and 023 adopted the A2 listening bank holds 30 blueprint-shaped fragments and 80 questions, enough for two mock forms of about eleven fragments with no shared items.",
+  "media_notes": {
+    "voice_pairing": {
+      "garage": "m-shop (Jerry) + f-adult (Esmee); the stitched clip opens on the shop voice, right for an answered call",
+      "loket": "m-older (Arjen) + f-adult (Esmee)",
+      "pakket": "m-young (Nick) + f-older (Hanneke)",
+      "kinderopvang": "f-young (voice named Roos; the cast persona Roos is only addressed in koffiegeld)",
+      "sluitingstijd": "narrator, also the question voice, as voices.json prescribes for omroep and as batch 005 did",
+      "fietsbrug, taalcafe": "presenter",
+      "koffiegeld, paspoort-klaar": "both m-adult (Robert): fine as separate items, avoid adjacent placement in one drill"
+    },
+    "tts": "all numbers, times and prices in words; apostrophe forms (\"'s ochtends\", \"kassa's\", \"auto's\"), \"Taalcafé\" and \"één\" as in batch 005; \"achtendertig en een half\" spoken as written; speaker labels with spaces are not spoken",
+    "picture_risks": {
+      "garage": "the model may add a clock or calendar at the kitchen table; the brief excludes them",
+      "fietsbrug": "the model may add people, vehicles or a sign to the empty bridge; excluded",
+      "taalcafe": "six adults and children is the highest figure count in the batch for the flat style; check hands and faces at display size; the count is not answer-relevant",
+      "loket": "a departure board or clock would be text; excluded",
+      "pakket": "no house number; excluded"
+    },
+    "stills_absent": "kinderopvang, sluitingstijd, koffiegeld, paspoort-klaar (voicemails, announcement, uitleg), as in batch 005"
+  },
+  "coordinator_notes": [
+    "Adopt with npm run batch:adopt 022; the proposed hash above must match.",
+    "Keep sluitingstijd, fietsbrug and paspoort-klaar out of the same drill or mock form as their 001/005 counterparts named under diversity_review.",
+    "The domain tags garage=vervoer and fietsbrug=vrije-tijd-familie were kept as assigned; any re-tag is a byte change that needs a focused re-review.",
+    "The uncatalogued reading item batch020-identiteitskaart still uses \"zijn vrouw\" for Modibo; outside this review, noted for consistency with the neutral phrasing chosen here."
+  ],
+  "limitations": [
+    "AI editorial review of scripts before audio; no replacement for review by a Dutch-language educator, learner trials or psychometric calibration; no equivalence with the DUO exam is established; A2 remains an unvalidated authoring target",
+    "content/exemplars/ does not exist, so level was compared with the blueprint description of the official fragments and with batch 005 rather than with two exemplars per task type",
+    "originality judged by plausibility and a six-word phrase scan against the catalogue and all batch files, not by comparison with the official practice audio",
+    "naturalness judged by reading; the round-trip check and the media review must confirm the rendered clips; stills must pass the checklist in config/illustration.json"
+  ],
+  "items": {
+    "A2:listening:batch022-garage:1": {
+      "verdict": "pass",
+      "edited": false,
+      "task_type": "gesprek",
+      "domain": "vervoer",
+      "roles": {
+        "Medewerker": "m-shop",
+        "Sabrina": "f-adult"
+      },
+      "spoken_words": 168,
+      "turns": 10,
+      "keys": "CBA",
+      "level": "comparable",
+      "level_reason": "Ten-turn customer call at the fuller end of the window (about 70 s); three times and two prices to hold apart, as in the official repair and shop conversations; average 5.6 words per sentence, longest 10.",
+      "evidence": "q1 (rule-application, C \"Tot zes uur.\"): proven by \"Wij zijn open tot zes uur.\"; A drie uur is when the car is ready (\"Morgen om drie uur is de auto klaar\"), B vijf uur is her own working hours, D één uur is Saturday (\"Op zaterdag zijn we open tot één uur\") while the pick-up is tomorrow. q2 (detail, B \"De accu is bijna kapot.\"): proven by \"De accu is bijna kapot.\"; A the brakes are the finished job (\"De remmen zijn gemaakt\"), C the tyres are Sabrina's fear, refuted (\"die zijn nog goed\"). q3 (purpose, A \"Ze wil weten of haar auto klaar is.\"): proven by \"Ik bel over mijn auto. Die staat sinds vanochtend bij u. Is hij al klaar?\"; B the battery is the garage's proposal during the call, C no appointment is discussed and the brakes are done. Options parallel (\"Tot … uur.\", full sentences of 6–8 words); key never the longest by more than two characters. u both ways; natural phone Dutch; \"accu\" glossed by \"bijna kapot\" and \"nieuwe accu nodig\". Still: Sabrina at the kitchen table on the phone, no clock or calendar, reveals nothing; alt neutral."
+    },
+    "A2:listening:batch022-kinderopvang:1": {
+      "verdict": "pass",
+      "edited": true,
+      "task_type": "voicemail",
+      "domain": "vrije-tijd-familie",
+      "roles": {
+        "Medewerker kinderdagverblijf": "f-young"
+      },
+      "spoken_words": 147,
+      "turns": 1,
+      "keys": "ACB",
+      "level": "comparable",
+      "level_reason": "Voicemail to a parent of the official kind (compare the school and trainer voicemails): three rules said once each, competing details nearby (half zeven, morgen, eten en spelen); average 8.2 words per sentence, longest 14.",
+      "evidence": "q1 (purpose, A \"Lina heeft koorts en moet naar huis.\"): proven by \"Ik bel omdat Lina ziek is. Ze heeft koorts, achtendertig en een half.\" plus \"Bij koorts moeten kinderen naar huis\"; B reverses \"Vanochtend heeft ze nog goed gegeten en gespeeld\", C the list exists and oma is on it, nothing is asked about it. q2 (rule-application, C \"Oma vragen om Lina te halen.\"): proven by \"Kunt u niet weg van uw werk? Dan mag oma haar ook halen.\"; A excluded by \"Wij kunnen haar ook niet thuisbrengen\", B by \"Wij zijn open tot half zeven, maar zo lang kan Lina niet blijven\", D (now \"Jolien morgen terugbellen.\") by \"Belt u mij even terug? Dan weet ik wie er komt\" (today) and \"Morgen blijft ze dus thuis\". q3 (rule-application, B \"Als ze een dag geen koorts heeft.\"): proven by \"Lina mag pas weer komen als ze een hele dag geen koorts meer heeft.\"; A contradicted by \"Morgen blijft ze dus thuis\" (\"na het slapen\" is when the fever started), C eating and playing describe this morning. Key B is 33 characters against 31, within tolerance. \"achtendertig en een half\" kept as the spoken fever (TTS-safe, no question depends on it); closing wish changed to \"beterschap\"; \"Hallo Karim\" with u is the plausible young-worker register."
+    },
+    "A2:listening:batch022-sluitingstijd:1": {
+      "verdict": "pass",
+      "edited": false,
+      "task_type": "omroep",
+      "domain": "winkels-diensten",
+      "roles": {
+        "Omroeper": "narrator"
+      },
+      "spoken_words": 105,
+      "turns": 1,
+      "keys": "BCA",
+      "level": "comparable, lighter end",
+      "level_reason": "Shortest fragment (about 42 s, inside 30–90 s); q1 is answered in the first sentence with the till time as the competing detail, q2 and q3 need the reason and the delivery rule; average 8.1 words, longest 15.",
+      "evidence": "q1 (time-place, B \"Om acht uur.\"): proven by \"Let op: onze winkel sluit vandaag om acht uur.\"; A vijf voor acht is the till time, C negen uur the normal time (\"Normaal zijn wij open tot negen uur\"). q2 (detail, C \"De kassa's krijgen een nieuwe vloer.\"): proven by \"De kassa's krijgen vanavond namelijk een nieuwe vloer.\"; A mishears the floor as new tills, B is a fact said as reassurance, not the reason. q3 (rule-application, A \"Die wordt vanavond bezorgd.\"): proven by \"Hebt u boodschappen besteld voor thuis? Die bezorgen wij vanavond gewoon.\"; B tomorrow refers to the shop opening, C collecting is never said. Options parallel; B of q2 is the longest option (40 characters) and is a distractor. Narrator role as voices.json prescribes for omroep. Concept overlaps the legacy markt item (early closing, same two question types); flagged for set assembly, not a defect of the item."
+    },
+    "A2:listening:batch022-fietsbrug:1": {
+      "verdict": "pass",
+      "edited": true,
+      "task_type": "nieuws",
+      "domain": "vrije-tijd-familie",
+      "roles": {
+        "Nieuwslezer": "presenter"
+      },
+      "spoken_words": 157,
+      "turns": 1,
+      "keys": "BDA",
+      "level": "comparable",
+      "level_reason": "Regional news item like the official television news fragments: an opening time against the ride time and the public opening day, a rule with two excluded groups, and a who-pays-most question that combines two amounts; average 8.7 words, longest 16; present tense after the edit.",
+      "evidence": "q1 (time-place, B \"Zaterdag om elf uur.\"): proven by \"De opening is zaterdag om elf uur.\"; A twaalf uur is the children's ride, C zondag is when everyone may use the bridge, no time given. q2 (detail, D \"Fietsers en voetgangers.\"): proven by \"De brug is alleen voor fietsers en voetgangers.\"; A scooters and B cars excluded by \"Auto's en scooters mogen er niet op\", C the children's ride is one event; \"Vanaf zondag kan iedereen de brug gebruiken\" makes B a fair temptation but \"ook auto's\" is contradicted. q3 (person, A \"De gemeente.\"): proven by \"De gemeente betaalt twee miljoen, de provincie betaalt één miljoen.\"; B pays the smaller part, C asked for the bridge and pays nothing. C of q2 (28 characters) is longer than the key (24). Edits: \"vragen al jaren\", \"Nu fiets je nog vijfentwintig minuten … Straks is dat tien minuten\" (the bridge is not open yet); still redrawn as the empty new bridge because the walker and cyclists showed q2's key. Kanaalzicht checked on the web: a generic descriptive name (buurt in Hellevoetsluis, street in Purmerend and Sluiskil), no business, kept. \"De burgemeester opent de brug\" is the only official; no politics."
+    },
+    "A2:listening:batch022-koffiegeld:1": {
+      "verdict": "pass",
+      "edited": true,
+      "task_type": "uitleg",
+      "domain": "werk",
+      "roles": {
+        "Ruud": "m-adult"
+      },
+      "spoken_words": 156,
+      "turns": 1,
+      "keys": "CAB",
+      "level": "comparable",
+      "level_reason": "A colleague explaining a workplace rule, like the official teacher and first-day explanations; the five-euro rule has an exception (water) and an old price nearby, the payment moment has a discouraged alternative; average 7.8 words, longest 13; je between colleagues.",
+      "evidence": "q1 (quantity, C \"Vijf euro.\"): proven by \"Iedereen die koffie of thee drinkt, betaalt vijf euro per maand.\"; A niets only for water drinkers (\"Drink je alleen water? Dan betaal je niets\"), B drie euro is the old price, D tien euro is the Friday biscuits. q2 (time-place, A \"Aan het begin van de maand.\"): proven by \"Het geld doe je in de pot, aan het begin van de maand.\"; B is discouraged (\"Betaal dus liever niet aan het eind van de maand\"), C Friday is when Ruud buys biscuits. q3 (rule-application, B \"Nieuwe koffie zetten.\"): proven by \"Dan zet je nieuwe koffie.\"; A Ruud is for questions (\"Heb je vragen? Ik zit daar\"), C the pot is paid monthly. Options numeric in order (q1) or parallel six-word phrases (q2); no length signal. Edit: \"Op de eerste maandag van de maand tel ik het geld.\" replaces the round of colleagues so that the pot and the \"dus\" are coherent; q2 explanation follows."
+    },
+    "A2:listening:batch022-taalcafe:1": {
+      "verdict": "pass",
+      "edited": false,
+      "task_type": "reclame",
+      "domain": "opleiding",
+      "roles": {
+        "Presentator": "presenter"
+      },
+      "spoken_words": 137,
+      "turns": 1,
+      "keys": "ABD",
+      "level": "comparable",
+      "level_reason": "Radio spot like the official promotion fragments (compare batch005-computercursus): a walk-in rule, a pay-only-for-other-drinks rule and a second session against two other Wednesday times; average 8.6 words, longest 17.",
+      "evidence": "q1 (advice, A \"Gewoon binnenlopen.\"): proven by \"Aanmelden is niet nodig, u loopt gewoon binnen.\"; B reverses it, C \"er is geen toets\". q2 (rule-application, B \"Alleen de cola.\"): proven by \"Wilt u iets anders drinken? Dat betaalt u zelf.\" with \"Koffie en thee zijn ook gratis\"; A adds free coffee, C ignores the other-drink rule. q3 (time-place, D \"Zaterdagochtend, van tien tot twaalf.\"): proven by \"Nieuw: op zaterdagochtend is er ook een Taalcafé voor ouders met kinderen, van tien tot twaalf uur.\"; A is the regular café, B the games evening, C mixes the right day with the Wednesday time. Key of q1 is the shortest option; key of q3 is 37 characters against 35, within tolerance. \"De Bonte Ekster\" has no real café or restaurant on the web. Still: adults at two tables with children on a rug, no board or sign; shows neither day, price nor sign-up."
+    },
+    "A2:listening:batch022-loket:1": {
+      "verdict": "pass",
+      "edited": true,
+      "task_type": "gesprek",
+      "domain": "vervoer",
+      "roles": {
+        "Meneer De Vries": "m-older",
+        "Medewerker": "f-adult"
+      },
+      "spoken_words": 143,
+      "turns": 10,
+      "keys": "BC",
+      "level": "comparable",
+      "level_reason": "Counter conversation with two questions, as the official shorter conversations; q2 needs \"tien over negen\" placed after nine, the exam-typical combination of two details; average 5.5 words, longest 12; u both ways.",
+      "evidence": "q1 (time-place, B \"In Zwolle.\"): proven by \"In Zwolle stapt u over op de trein naar Groningen.\"; A Amersfoort is a stop where he stays seated (\"daar blijft u gewoon zitten\"), C Groningen is the destination, D reverses \"één keer overstappen\". q2 (quantity, C \"Twintig euro.\"): proven by \"Vertrekt u na negen uur? Dan is het twintig euro.\" with \"Om tien over negen\"; A dertig euro is the fare before nine, B niets is the grandson's fare (\"Kinderen tot vier jaar reizen gratis\"). D of q1 (27 characters) is the longest option and a distractor. Edit: \"Moet ik in Amersfoort ook overstappen?\" replaces the elliptical \"En in Amersfoort?\". Real route kept (Zwolle change, Amersfoort stop); fares and the before/after-nine rule are the counter's own statements, no carrier named, no outside knowledge needed; \"kinderen tot vier jaar reizen gratis\" matches Dutch practice. Still: counter scene without board or clock; \"meneer De Vries\" in lower case expands to the cast traits."
+    },
+    "A2:listening:batch022-paspoort-klaar:1": {
+      "verdict": "pass",
+      "edited": true,
+      "task_type": "voicemail",
+      "domain": "instanties",
+      "roles": {
+        "Medewerker gemeente": "m-adult"
+      },
+      "spoken_words": 153,
+      "turns": 1,
+      "keys": "DAC",
+      "level": "comparable, fuller end",
+      "level_reason": "Institutional voicemail at the fuller end (average 9.0 words per sentence, longest 16, all under the A2 targets), like batch005-parkeervergunning; three negated conditions (no appointment, no photo, no payment) surround the purpose, and q3 needs four months placed after three.",
+      "evidence": "q1 (purpose, D \"Het paspoort van Modibo is klaar.\"): proven by \"Ik bel over uw nieuwe paspoort. Twee weken geleden hebt u dat paspoort aangevraagd. Het is nu klaar.\"; A contradicted by \"Daarvoor hebt u geen afspraak nodig\", B by \"Betalen hoeft u ook niet meer, dat hebt u bij de aanvraag gedaan\", C (now \"De gemeente heeft nog een pasfoto nodig.\") by \"Een nieuwe pasfoto is niet nodig, die hebben wij al\". After the edit the four options have mixed forms (moet, moet, heeft nodig, is klaar), so the key is no longer the odd one out; lengths 31/24/39/33, key not the longest. q2 (advice, A \"Zijn oude paspoort.\"): proven by \"Neem uw oude paspoort mee, want dat nemen wij in.\"; B and C contradicted as above. q3 (rule-application, C \"Hij vraagt een nieuw paspoort aan.\"): proven by \"Haalt u het paspoort binnen drie maanden op? Anders moet u een nieuw paspoort aanvragen, en dan betaalt u opnieuw.\"; A no appointment is ever needed, B (now \"Iemand anders haalt het paspoort voor hem.\") contradicted by \"Iemand anders mag dat niet voor u doen\". Key of q3 is the shortest option. Rietburg confirmed not a Dutch gemeente. The rules (collect in person, old passport taken in, photo and payment at application, three months) are stated inside the fragment; no KNM claim."
+    },
+    "A2:listening:batch022-pakket:1": {
+      "verdict": "pass",
+      "edited": true,
+      "task_type": "gesprek",
+      "domain": "wonen-buurt",
+      "roles": {
+        "Julio": "m-young",
+        "Mevrouw Bakker": "f-older"
+      },
+      "spoken_words": 157,
+      "turns": 10,
+      "keys": "CDB",
+      "level": "comparable",
+      "level_reason": "Neighbour conversation like the official community-centre and street conversations; the delivery slot sits among three other moments (market morning, Sunday return, Monday pick-up) and q3 tests a stated consequence; average 5.4 words, longest 10; u from Julio, je back from the older neighbour.",
+      "evidence": "q1 (purpose, C \"Hij wil dat zij een pakket aanneemt.\"): proven by \"Maar dinsdag komt er een pakket voor mij. Wilt u dat pakket aannemen?\"; A reverses the direction (he collects it only Monday evening), B the market is mevrouw Bakker's own plan. q2 (time-place, D \"Dinsdagmiddag.\"): proven by \"De bezorger komt dinsdag tussen twee en vijf uur. Dus 's middags.\"; A dinsdagochtend is the market, B maandagavond the pick-up, C zondag the return. q3 (rule-application, B \"Het pakket gaat naar de supermarkt.\"): proven by \"Hij brengt het pakket naar het pakketpunt in de supermarkt.\"; A contradicted by \"Dan komt de bezorger niet terug\", C by \"Buiten zetten mag niet\". Key of q1 is 36 characters against 36 and 31; no signal. Timeline consistent (away next week, parcel Tuesday, back Sunday, collect Monday evening). Edit: \"want de printer is duur\" names the referent of Julio's reason; q3 explanation follows. Still: Julio and mevrouw Bakker at the front door, no house number, no parcel."
+    }
+  }
+}

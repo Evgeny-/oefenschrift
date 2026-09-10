@@ -1,7 +1,7 @@
 {
   "review_id": "batch003-editorial-review",
   "source": "content/batches/003-original.json",
-  "source_sha256": "8295ec2e0fa4368add9e9c35c013ab85c624e306fb64e4b6767cf509028c2556",
+  "source_sha256": "77b973e22b169182a051314dd6aab92b47bf25b304d77e8ebdee57c2cfdf763a",
   "review_type": "AI editorial review with current primary-source fact checks",
   "rubric": "content/reviews/rubric.md",
   "batch_verdict": "pass",
@@ -10,50 +10,278 @@
     "json_parses": true,
     "unique_item_ids": true,
     "item_count": 32,
-    "distribution": {"A2_knm":8,"A2_reading":4,"B1_reading":4,"A2_writing":4,"B1_writing":4,"A2_speaking":4,"B1_speaking":4},
+    "distribution": {
+      "A2_knm": 8,
+      "A2_reading": 4,
+      "B1_reading": 4,
+      "A2_writing": 4,
+      "B1_writing": 4,
+      "A2_speaking": 4,
+      "B1_speaking": 4
+    },
     "closed_evidence_is_verbatim": true,
     "open_sample_quotes_are_verbatim": true,
     "all_target_levels_validated": false,
     "official_equivalence_claim": false
   },
   "items": [
-    {"id":"A2:knm:batch003-inschrijven:1","verdict":"pass","evidence":"Government.nl confirms registration with the municipality within five days for residence over four months and issuance of a BSN. Wrong options name unrelated bodies/documents.","official_source":"https://www.government.nl/faq/when-should-i-register-with-the-personal-records-database-as-a-resident"},
-    {"id":"A2:knm:batch003-verhuizing:1","verdict":"pass","evidence":"Government.nl confirms municipal notification from four weeks before through five days after moving and accepts a rental contract as proof of occupancy. Distractors are unrelated records.","official_source":"https://www.government.nl/faq/how-do-i-inform-the-municipality-of-a-change-of-address"},
-    {"id":"A2:knm:batch003-digid:1","verdict":"pass","evidence":"Government.nl confirms DigiD as an online identity tool, advises against sharing login details, and supports authorisation with the representative’s own login. Distractors confuse DigiD with payment, travel, or a second identity.","official_source":"https://www.government.nl/themes/government-and-democracy/online-access-to-public-services-european-economic-area-eidas/digid/digid-applications-from-the-netherlands"},
-    {"id":"A2:knm:batch003-zorgverzekering:1","verdict":"pass","evidence":"Government.nl confirms compulsory standard insurance for people who live or work in the Netherlands and optional supplementary insurance. Travel and bicycle insurance do not compete.","official_source":"https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance"},
-    {"id":"A2:knm:batch003-noodnummer:1","verdict":"pass","evidence":"Government.nl confirms 112 for urgent danger, 0900-8844 for non-urgent police help, and the operator’s core questions. Distractors reverse urgency or supply irrelevant information.","official_source":"https://www.government.nl/faq/emergency-number-112/when-can-i-call-112"},
-    {"id":"A2:knm:batch003-leerplicht:1","verdict":"pass","evidence":"Government.nl confirms compulsory attendance ages 5–16, reporting illness to school, and advance headteacher permission for a wedding or funeral. Wrong options do not satisfy those duties.","official_source":"https://www.government.nl/themes/education/compulsory-school-attendance/exemptions-from-compulsory-school-attendance"},
-    {"id":"A2:knm:batch003-stemmen:1","verdict":"pass","evidence":"Government.nl confirms a voting pass plus identity document, permits an identity document expired no more than five years, and places ballot completion in the booth. The revised wording removes the former validity and decision-location ambiguities.","official_source":"https://www.government.nl/faq/elections/what-do-i-need-to-vote-in-the-municipal-elections"},
-    {"id":"A2:knm:batch003-discriminatie:1","verdict":"pass","evidence":"Government.nl confirms local antidiscrimination services provide advice and assistance and that an offence can be reported to police. Distractors name bodies or actions without that role.","official_source":"https://www.government.nl/themes/migration-and-travel/discrimination/reporting-discrimination"},
-    {"id":"A2:reading:batch003-dierenarts:1","verdict":"pass","evidence":"Saturday explicitly keys q1 B; refusal to eat explicitly keys q2 A. Friday and ten days are nearby timing distractors with different functions."},
-    {"id":"A2:reading:batch003-lift:1","verdict":"pass","evidence":"The Tuesday 8.00–16.00 outage keys q1 B; the Monday 15.00 call deadline keys q2 A. Other options reverse dates or unsafe actions."},
-    {"id":"A2:reading:batch003-bibliobus:1","verdict":"pass","evidence":"15.30 explicitly keys q1 B and bibliotheekpas keys q2 C. The other times describe the old arrival or departure; money applies only as a false borrowing assumption."},
-    {"id":"A2:reading:batch003-kantine:1","verdict":"pass","evidence":"Payment at pickup keys q1 B and talking first with the cook keys q2 C. Ordering time, Friday soup, and writing a name are distinct nearby details."},
-    {"id":"B1:reading:batch003-deelauto:1","verdict":"pass","evidence":"The questions test purpose, an exception to a fee, and application of a charging failure. A, B, C follow from their stored quotes; distractors mix reservation, battery, and unrelated remedies."},
-    {"id":"B1:reading:batch003-stage:1","verdict":"pass","evidence":"Limited placements, provisional allocation, and default assignment key A, B, A. Distractors alter duration, reason, or sequence and are contradicted by the text."},
-    {"id":"B1:reading:batch003-warmtefonds:1","verdict":"pass","evidence":"The item distinguishes immediate small measures from later large work and applies WoonGoed’s decision and priority rules. B, A, A are uniquely supported."},
-    {"id":"B1:reading:batch003-ouderavond:1","verdict":"pass","evidence":"The questions connect the failed prior format, separate personal appointments, and centrally answered repeated questions. A, B, A follow directly; distractors misassign channels or purpose."},
-    {"id":"A2:writing:batch003-container:1","verdict":"pass","evidence":"Criteria cover the wrong container, its number, and a request for action. Exact sample quotes prove the first two; the model supplies the third."},
-    {"id":"A2:writing:batch003-sportles:1","verdict":"pass","evidence":"Criteria cover class, stop date, and confirmation. Exact sample quotes prove the first two; the model asks for confirmation."},
-    {"id":"A2:writing:batch003-logeerkamer:1","verdict":"pass","evidence":"Criteria cover visit dates, availability, and nightly price. Exact sample quotes prove the first two; the model asks the price."},
-    {"id":"A2:writing:batch003-loonstrook:1","verdict":"pass","evidence":"Criteria cover worked hours, recorded hours, and review. Exact sample quotes prove 80 versus 72; the model asks for a check."},
-    {"id":"B1:writing:batch003-verkeerssituatie:1","verdict":"pass","evidence":"Criteria require describing risk, locating it in time, and proposing a concrete measure. Quotes map exactly; the model proposes infrastructure changes."},
-    {"id":"B1:writing:batch003-opleiding:1","verdict":"pass","evidence":"Criteria require work relevance, a specific study period, and work coverage. Quotes map exactly; the model explains task completion and phone handoff."},
-    {"id":"B1:writing:batch003-reparatie:1","verdict":"pass","evidence":"Criteria require agreed date, urgency, and a timed remedy. Quotes map exactly; the model requests repair by Friday or a temporary device."},
-    {"id":"B1:writing:batch003-vrijwilligersrooster:1","verdict":"pass","evidence":"Criteria require problem, consequence, and procedure. Quotes map exactly; the model proposes an actionable reserve list."},
-    {"id":"A2:speaking:batch003-tramkaart:1","verdict":"pass","evidence":"Criteria cover destination, screen problem, and request for purchase help. Quotes map exactly; the model asks for help."},
-    {"id":"A2:speaking:batch003-jas:1","verdict":"pass","evidence":"Criteria cover the mix-up, coat description, and visit time. Quotes map exactly; the model asks when to exchange coats."},
-    {"id":"A2:speaking:batch003-monteur:1","verdict":"pass","evidence":"Criteria cover appointment window, absence, and expected arrival. Quotes map exactly; the model asks when the technician will come."},
-    {"id":"A2:speaking:batch003-speeltuin:1","verdict":"pass","evidence":"Criteria cover broken object, location, and danger. Quotes map exactly; the model explains the risk to small children."},
-    {"id":"B1:speaking:batch003-werkdruk:1","verdict":"pass","evidence":"Criteria require concurrent deadlines, quality risk, and prioritisation. Quotes map exactly; the model asks which task comes first."},
-    {"id":"B1:speaking:batch003-buurtvergadering:1","verdict":"pass","evidence":"Criteria require benefit, drawback, and compromise. Quotes map exactly; the model balances greening with retained parking."},
-    {"id":"B1:speaking:batch003-inwerken:1","verdict":"pass","evidence":"Criteria require cause, one guidance structure, and evaluation. Quotes map exactly; the model schedules a two-week check."},
-    {"id":"B1:speaking:batch003-cursuslocatie:1","verdict":"pass","evidence":"Criteria require return-trip problem, affected group, and feasible alternative. Quotes map exactly; the model proposes a station location or earlier finish."}
+    {
+      "id": "A2:knm:batch003-inschrijven:1",
+      "verdict": "pass",
+      "evidence": "Government.nl confirms registration with the municipality within five days for residence over four months and issuance of a BSN. Wrong options name unrelated bodies/documents.",
+      "official_source": "https://www.government.nl/faq/when-should-i-register-with-the-personal-records-database-as-a-resident",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "77b973e22b169182a051314dd6aab92b47bf25b304d77e8ebdee57c2cfdf763a",
+        "verdict": "pass",
+        "changed": "taskType 'leerkaart' added as the item's last key; title, type, text, both questions (prompts, options, keys, evidence, explanations), sourceNote, sourceUrl, sourceReviewedAt, status and targetLevelValidated are byte-identical to the reviewed version and to the catalogue copy."
+      }
+    },
+    {
+      "id": "A2:knm:batch003-verhuizing:1",
+      "verdict": "pass",
+      "evidence": "Government.nl confirms municipal notification from four weeks before through five days after moving and accepts a rental contract as proof of occupancy. Distractors are unrelated records.",
+      "official_source": "https://www.government.nl/faq/how-do-i-inform-the-municipality-of-a-change-of-address",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "77b973e22b169182a051314dd6aab92b47bf25b304d77e8ebdee57c2cfdf763a",
+        "verdict": "pass",
+        "changed": "taskType 'leerkaart' added as the item's last key; title, type, text, both questions (prompts, options, keys, evidence, explanations), sourceNote, sourceUrl, sourceReviewedAt, status and targetLevelValidated are byte-identical to the reviewed version and to the catalogue copy."
+      }
+    },
+    {
+      "id": "A2:knm:batch003-digid:1",
+      "verdict": "pass",
+      "evidence": "Government.nl confirms DigiD as an online identity tool, advises against sharing login details, and supports authorisation with the representative’s own login. Distractors confuse DigiD with payment, travel, or a second identity.",
+      "official_source": "https://www.government.nl/themes/government-and-democracy/online-access-to-public-services-european-economic-area-eidas/digid/digid-applications-from-the-netherlands",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "77b973e22b169182a051314dd6aab92b47bf25b304d77e8ebdee57c2cfdf763a",
+        "verdict": "pass",
+        "changed": "taskType 'leerkaart' added as the item's last key; title, type, text, both questions (prompts, options, keys, evidence, explanations), sourceNote, sourceUrl, sourceReviewedAt, status and targetLevelValidated are byte-identical to the reviewed version and to the catalogue copy."
+      }
+    },
+    {
+      "id": "A2:knm:batch003-zorgverzekering:1",
+      "verdict": "pass",
+      "evidence": "Government.nl confirms compulsory standard insurance for people who live or work in the Netherlands and optional supplementary insurance. Travel and bicycle insurance do not compete.",
+      "official_source": "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "77b973e22b169182a051314dd6aab92b47bf25b304d77e8ebdee57c2cfdf763a",
+        "verdict": "pass",
+        "changed": "taskType 'leerkaart' added as the item's last key; title, type, text, both questions (prompts, options, keys, evidence, explanations), sourceNote, sourceUrl, sourceReviewedAt, status and targetLevelValidated are byte-identical to the reviewed version and to the catalogue copy."
+      }
+    },
+    {
+      "id": "A2:knm:batch003-noodnummer:1",
+      "verdict": "pass",
+      "evidence": "Government.nl confirms 112 for urgent danger, 0900-8844 for non-urgent police help, and the operator’s core questions. Distractors reverse urgency or supply irrelevant information.",
+      "official_source": "https://www.government.nl/faq/emergency-number-112/when-can-i-call-112",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "77b973e22b169182a051314dd6aab92b47bf25b304d77e8ebdee57c2cfdf763a",
+        "verdict": "pass",
+        "changed": "taskType 'leerkaart' added as the item's last key; title, type, text, both questions (prompts, options, keys, evidence, explanations), sourceNote, sourceUrl, sourceReviewedAt, status and targetLevelValidated are byte-identical to the reviewed version and to the catalogue copy."
+      }
+    },
+    {
+      "id": "A2:knm:batch003-leerplicht:1",
+      "verdict": "pass",
+      "evidence": "Government.nl confirms compulsory attendance ages 5–16, reporting illness to school, and advance headteacher permission for a wedding or funeral. Wrong options do not satisfy those duties.",
+      "official_source": "https://www.government.nl/themes/education/compulsory-school-attendance/exemptions-from-compulsory-school-attendance",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "77b973e22b169182a051314dd6aab92b47bf25b304d77e8ebdee57c2cfdf763a",
+        "verdict": "pass",
+        "changed": "taskType 'leerkaart' added as the item's last key; title, type, text, both questions (prompts, options, keys, evidence, explanations), sourceNote, sourceUrl, sourceReviewedAt, status and targetLevelValidated are byte-identical to the reviewed version and to the catalogue copy."
+      }
+    },
+    {
+      "id": "A2:knm:batch003-stemmen:1",
+      "verdict": "pass",
+      "evidence": "Government.nl confirms a voting pass plus identity document, permits an identity document expired no more than five years, and places ballot completion in the booth. The revised wording removes the former validity and decision-location ambiguities.",
+      "official_source": "https://www.government.nl/faq/elections/what-do-i-need-to-vote-in-the-municipal-elections",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "77b973e22b169182a051314dd6aab92b47bf25b304d77e8ebdee57c2cfdf763a",
+        "verdict": "pass",
+        "changed": "taskType 'leerkaart' added as the item's last key; title, type, text, both questions (prompts, options, keys, evidence, explanations), sourceNote, sourceUrl, sourceReviewedAt, status and targetLevelValidated are byte-identical to the reviewed version and to the catalogue copy."
+      }
+    },
+    {
+      "id": "A2:knm:batch003-discriminatie:1",
+      "verdict": "pass",
+      "evidence": "Government.nl confirms local antidiscrimination services provide advice and assistance and that an offence can be reported to police. Distractors name bodies or actions without that role.",
+      "official_source": "https://www.government.nl/themes/migration-and-travel/discrimination/reporting-discrimination",
+      "re_review": {
+        "date": "2026-09-10",
+        "sha256": "77b973e22b169182a051314dd6aab92b47bf25b304d77e8ebdee57c2cfdf763a",
+        "verdict": "pass",
+        "changed": "taskType 'leerkaart' added as the item's last key; title, type, text, both questions (prompts, options, keys, evidence, explanations), sourceNote, sourceUrl, sourceReviewedAt, status and targetLevelValidated are byte-identical to the reviewed version and to the catalogue copy."
+      }
+    },
+    {
+      "id": "A2:reading:batch003-dierenarts:1",
+      "verdict": "pass",
+      "evidence": "Saturday explicitly keys q1 B; refusal to eat explicitly keys q2 A. Friday and ten days are nearby timing distractors with different functions."
+    },
+    {
+      "id": "A2:reading:batch003-lift:1",
+      "verdict": "pass",
+      "evidence": "The Tuesday 8.00–16.00 outage keys q1 B; the Monday 15.00 call deadline keys q2 A. Other options reverse dates or unsafe actions."
+    },
+    {
+      "id": "A2:reading:batch003-bibliobus:1",
+      "verdict": "pass",
+      "evidence": "15.30 explicitly keys q1 B and bibliotheekpas keys q2 C. The other times describe the old arrival or departure; money applies only as a false borrowing assumption."
+    },
+    {
+      "id": "A2:reading:batch003-kantine:1",
+      "verdict": "pass",
+      "evidence": "Payment at pickup keys q1 B and talking first with the cook keys q2 C. Ordering time, Friday soup, and writing a name are distinct nearby details."
+    },
+    {
+      "id": "B1:reading:batch003-deelauto:1",
+      "verdict": "pass",
+      "evidence": "The questions test purpose, an exception to a fee, and application of a charging failure. A, B, C follow from their stored quotes; distractors mix reservation, battery, and unrelated remedies."
+    },
+    {
+      "id": "B1:reading:batch003-stage:1",
+      "verdict": "pass",
+      "evidence": "Limited placements, provisional allocation, and default assignment key A, B, A. Distractors alter duration, reason, or sequence and are contradicted by the text."
+    },
+    {
+      "id": "B1:reading:batch003-warmtefonds:1",
+      "verdict": "pass",
+      "evidence": "The item distinguishes immediate small measures from later large work and applies WoonGoed’s decision and priority rules. B, A, A are uniquely supported."
+    },
+    {
+      "id": "B1:reading:batch003-ouderavond:1",
+      "verdict": "pass",
+      "evidence": "The questions connect the failed prior format, separate personal appointments, and centrally answered repeated questions. A, B, A follow directly; distractors misassign channels or purpose."
+    },
+    {
+      "id": "A2:writing:batch003-container:1",
+      "verdict": "pass",
+      "evidence": "Criteria cover the wrong container, its number, and a request for action. Exact sample quotes prove the first two; the model supplies the third."
+    },
+    {
+      "id": "A2:writing:batch003-sportles:1",
+      "verdict": "pass",
+      "evidence": "Criteria cover class, stop date, and confirmation. Exact sample quotes prove the first two; the model asks for confirmation."
+    },
+    {
+      "id": "A2:writing:batch003-logeerkamer:1",
+      "verdict": "pass",
+      "evidence": "Criteria cover visit dates, availability, and nightly price. Exact sample quotes prove the first two; the model asks the price."
+    },
+    {
+      "id": "A2:writing:batch003-loonstrook:1",
+      "verdict": "pass",
+      "evidence": "Criteria cover worked hours, recorded hours, and review. Exact sample quotes prove 80 versus 72; the model asks for a check."
+    },
+    {
+      "id": "B1:writing:batch003-verkeerssituatie:1",
+      "verdict": "pass",
+      "evidence": "Criteria require describing risk, locating it in time, and proposing a concrete measure. Quotes map exactly; the model proposes infrastructure changes."
+    },
+    {
+      "id": "B1:writing:batch003-opleiding:1",
+      "verdict": "pass",
+      "evidence": "Criteria require work relevance, a specific study period, and work coverage. Quotes map exactly; the model explains task completion and phone handoff."
+    },
+    {
+      "id": "B1:writing:batch003-reparatie:1",
+      "verdict": "pass",
+      "evidence": "Criteria require agreed date, urgency, and a timed remedy. Quotes map exactly; the model requests repair by Friday or a temporary device."
+    },
+    {
+      "id": "B1:writing:batch003-vrijwilligersrooster:1",
+      "verdict": "pass",
+      "evidence": "Criteria require problem, consequence, and procedure. Quotes map exactly; the model proposes an actionable reserve list."
+    },
+    {
+      "id": "A2:speaking:batch003-tramkaart:1",
+      "verdict": "pass",
+      "evidence": "Criteria cover destination, screen problem, and request for purchase help. Quotes map exactly; the model asks for help."
+    },
+    {
+      "id": "A2:speaking:batch003-jas:1",
+      "verdict": "pass",
+      "evidence": "Criteria cover the mix-up, coat description, and visit time. Quotes map exactly; the model asks when to exchange coats."
+    },
+    {
+      "id": "A2:speaking:batch003-monteur:1",
+      "verdict": "pass",
+      "evidence": "Criteria cover appointment window, absence, and expected arrival. Quotes map exactly; the model asks when the technician will come."
+    },
+    {
+      "id": "A2:speaking:batch003-speeltuin:1",
+      "verdict": "pass",
+      "evidence": "Criteria cover broken object, location, and danger. Quotes map exactly; the model explains the risk to small children."
+    },
+    {
+      "id": "B1:speaking:batch003-werkdruk:1",
+      "verdict": "pass",
+      "evidence": "Criteria require concurrent deadlines, quality risk, and prioritisation. Quotes map exactly; the model asks which task comes first."
+    },
+    {
+      "id": "B1:speaking:batch003-buurtvergadering:1",
+      "verdict": "pass",
+      "evidence": "Criteria require benefit, drawback, and compromise. Quotes map exactly; the model balances greening with retained parking."
+    },
+    {
+      "id": "B1:speaking:batch003-inwerken:1",
+      "verdict": "pass",
+      "evidence": "Criteria require cause, one guidance structure, and evaluation. Quotes map exactly; the model schedules a two-week check."
+    },
+    {
+      "id": "B1:speaking:batch003-cursuslocatie:1",
+      "verdict": "pass",
+      "evidence": "Criteria require return-trip problem, affected group, and feasible alternative. Quotes map exactly; the model proposes a station location or earlier finish."
+    }
   ],
-  "diversity_review":"No item duplicates an earlier title or reproduces an earlier item by changing only names, objects, or numbers. Some everyday domains recur, but the tested action and information structure differ. Within batch003, settings and communicative purposes are distinct.",
-  "limitations":[
+  "diversity_review": "No item duplicates an earlier title or reproduces an earlier item by changing only names, objects, or numbers. Some everyday domains recur, but the tested action and information structure differ. Within batch003, settings and communicative purposes are distinct.",
+  "limitations": [
     "This is an AI editorial review. It does not replace independent Dutch-language educator review, learner trials, blueprint validation, or psychometric calibration, and it does not establish equivalence with an official exam.",
     "Official sources support the KNM facts, not the quality or difficulty of the questions. Facts must be rechecked when an item is revised or periodically reviewed.",
     "The A2 and B1 labels remain unvalidated authoring targets."
+  ],
+  "previous_source_sha256": "8295ec2e0fa4368add9e9c35c013ab85c624e306fb64e4b6767cf509028c2556",
+  "focused_rereview": {
+    "date": "2026-09-10",
+    "scope": "The coordinator revision recorded at the end of content/batches/003-notes.md and asked for by content/reviews/006-007-level-check.md (recommended action 3) and content/blueprint.md section 4.5 (last bullet): the eight KNM items A2:knm:batch003-{inschrijven,verhuizing,digid,zorgverzekering,noodnummer,leerplicht,stemmen,discriminatie}:1 received taskType 'leerkaart'. Verified that they differ from the reviewed version only by that field and that the 24 language items are unchanged.",
+    "verdict": "pass",
+    "previous_source_sha256": "8295ec2e0fa4368add9e9c35c013ab85c624e306fb64e4b6767cf509028c2556",
+    "source_sha256": "77b973e22b169182a051314dd6aab92b47bf25b304d77e8ebdee57c2cfdf763a",
+    "change_verified": "A copy of the current batch file with the taskType key removed from the eight KNM items, serialised with the batch's own formatting (JSON, two-space indent, trailing newline, which reproduces the current file byte for byte), hashes to 8295ec2e0fa4368add9e9c35c013ab85c624e306fb64e4b6767cf509028c2556 byte for byte, the hash of the reviewed file; the current file hashes to 77b973e22b169182a051314dd6aab92b47bf25b304d77e8ebdee57c2cfdf763a. So the only difference is the added key, appended after targetLevelValidated in each of the eight items, with the value 'leerkaart' in all eight; no other item and no other field changed. Independently, a field-by-field comparison of the eight KNM items with their copies in content/catalogue.json (which still lack taskType until the batch is re-integrated) shows taskType as the only differing field; the 24 reading, writing and speaking items carry no taskType and are byte-identical.",
+    "value_checked": "'leerkaart' is the value blueprint section 4.5 prescribes ('The existing eight passage-style KNM items are study cards, not exam items; give them taskType: leerkaart'), the checker accepts it for A2 KNM (scripts/batch-check.ts: knm: { A2: ['feit', 'leerkaart'] }) and the app labels it 'Leerkaart / Study card' (app/domain/labels.ts). The level check's companion instruction, to keep these cards out of any KNM form, is a practice-set matter for integration, not a batch-file matter.",
+    "batch_check": "npm run batch:check content/batches/003-original.json (2026-09-10): 'Checked 32 items, 36 questions. Keys: {\"A\":17,\"B\":16,\"C\":3}. Options: {\"3\":36}.' followed by 9 warnings and 211 failures. All 211 are schema drift of this pre-blueprint batch under the current checker (exam vocabulary, domain vocabulary, question counts, skill names, text lengths, situation lines, rubric names, key balance); none concerns the KNM taskType. The reconstructed previous file gives the identical output plus eight more failures, 'taskType must be one of feit, leerkaart', one per KNM item, so the revision removes failures and adds none. The checker post-dates this batch's review and its output was never part of this record's checks; the integration gate (scripts/content.ts) checks the hash, verdict and readiness, not batch:check. The 211 pre-existing failures are outside the scope of this re-review and are left for the coordinator (the level check calls the eight cards reading items that should not stand in for exam items).",
+    "media": "No text, prompt or option changed, so no audio or image work follows from this revision.",
+    "observations_not_blocking": [
+      "content/catalogue.json copies of the eight cards still have no taskType; the field reaches learners only when the batch is re-integrated.",
+      "The catalogue copies carry type 'information' and two questions per card, the shape the level check used as its calibration lower bound; unchanged here."
+    ]
+  },
+  "revisions": [
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review (level check)",
+      "items": [
+        "A2:knm:batch003-inschrijven:1",
+        "A2:knm:batch003-verhuizing:1",
+        "A2:knm:batch003-digid:1",
+        "A2:knm:batch003-zorgverzekering:1",
+        "A2:knm:batch003-noodnummer:1",
+        "A2:knm:batch003-leerplicht:1",
+        "A2:knm:batch003-stemmen:1",
+        "A2:knm:batch003-discriminatie:1"
+      ],
+      "previous_sha256": "8295ec2e0fa4368add9e9c35c013ab85c624e306fb64e4b6767cf509028c2556",
+      "re_reviewed_sha256": "77b973e22b169182a051314dd6aab92b47bf25b304d77e8ebdee57c2cfdf763a",
+      "verdict": "pass",
+      "note": "Focused re-review of the coordinator revision that gives the eight KNM study cards taskType 'leerkaart' (blueprint 4.5; level check recommended action 3). Removing that key from the eight items reproduces the reviewed file's hash 8295ec2e... byte for byte, so nothing else changed; the value is the prescribed one and is accepted by scripts/batch-check.ts and labelled in app/domain/labels.ts. All 32 items keep their pass verdicts; batch_verdict pass; ready_for_integration true; source_sha256 set to 77b973e2.... batch:check reports 211 pre-existing schema-drift failures on this pre-blueprint batch (219 before the revision, the eight removed being the missing-taskType failures); they are outside this re-review's scope and recorded under focused_rereview.batch_check."
+    }
   ]
 }

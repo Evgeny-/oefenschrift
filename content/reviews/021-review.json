@@ -1,0 +1,283 @@
+{
+  "review_id": "batch021-editorial-review",
+  "source": "content/batches/021-original.json",
+  "original_sha256": "49f6973121212d81c9ff5f37ec5c365b584d2eeb57e784e9622db8caca7d592c",
+  "proposed": "content/batches/021-proposed.json",
+  "source_sha256": "9a46da9252846d5de84a43629b1f970b431906d974d540c36ed6f533f305ed50",
+  "starters_source": null,
+  "starters_sha256": null,
+  "starters_verdict": "not-applicable (closed items only)",
+  "review_type": "Independent AI editorial review of nine original A2 Lezen texts (26 closed questions) against content/reviews/rubric.md, content/blueprint.md sections 1, 3, 4.1, 5, 8, 9, 10, 12 and 13 and the Lezen A2 paragraph of docs/research/exam-blueprints-2026-09-10.md; keys proved from the verbatim evidence, distractors tested against the text, key signals scanned by script, level judged per text; small repairs applied in the proposed file per docs/briefs/review.md. The reviewer did not author the batch; the batch and the author's notes were read in that order and every verdict was checked against the batch text itself.",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_counts": {
+    "pass_unchanged": 3,
+    "pass_after_edit": 6,
+    "rejected": 0
+  },
+  "edits": [
+    {
+      "item": "A2:reading:batch021-terugbrengen:1",
+      "question": "q2",
+      "field": "options.B",
+      "from": "Ja, maar alleen binnen 14 dagen na de koop.",
+      "to": "Nee, want ruilen kan alleen binnen 14 dagen.",
+      "why": "The key was the only \"Nee\" against two \"Ja\" options (odd polarity out, blueprint section 5) and the shortest option by words. The distractor keeps its anchor (the 14-day rule) as a wrong reason that the text contradicts directly (\"U kunt het kledingstuk wel ruilen\" after 14 days).",
+      "severity": "recommended"
+    },
+    {
+      "item": "A2:reading:batch021-terugbrengen:1",
+      "question": "q2",
+      "field": "explanation",
+      "to": "Zwemkleding neemt de winkel nooit terug, ook niet met prijskaartje. De regel over het prijskaartje geldt alleen voor andere kleding. Andere kleding kunt u ook na 14 dagen nog ruilen; alleen geld terug krijgt u binnen 14 dagen.",
+      "why": "Follows the new distractor B.",
+      "severity": "derived"
+    },
+    {
+      "item": "A2:reading:batch021-dierentuin:1",
+      "question": "q3",
+      "field": "question (skill, prompt, options, answer, evidence, explanation)",
+      "from": "purpose: \"Waarom stuurt de juf deze e-mail?\" with key A \"De klas gaat op schoolreis.\"",
+      "to": "detail: \"Amina gaat mee op schoolreis. Wat moet Fatima vóór vrijdag 15 mei doen?\" A \"7,50 euro voor Amina betalen in de school-app.\" (key) / B \"Amina 7,50 euro meegeven naar school.\" / C \"Amina om 8.15 uur naar het schoolplein brengen.\"; evidence \"De schoolreis kost 7,50 euro per kind. Betaal dit vóór vrijdag 15 mei in de school-app.\"",
+      "why": "The purpose key was readable from the subject line \"Onderwerp: schoolreis vrijdag 22 mei\" without the text; the coordinator asked for the replacement the author offered in that case. Distractor B is reversed by \"Geen geld en geen telefoon\" and the app instruction; C is the 22 May time. Purpose questions drop from four to three for nine texts, which still meets one per two or three texts.",
+      "severity": "required"
+    },
+    {
+      "item": "A2:reading:batch021-schoonmaker:1",
+      "question": "text, q2",
+      "field": "text (\"U verdient 14,40 euro per uur.\" → \"U verdient 15,20 euro per uur.\"), q2 options (14,40/15,40 → 15,20/16,20), q2 evidence, q2 explanation",
+      "to": "A \"15,20 euro per uur en zijn reiskosten.\" (key) / B \"15,20 euro per uur, geen reiskosten.\" / C \"16,20 euro per uur en zijn reiskosten.\" / D \"16,20 euro per uur, geen reiskosten.\"",
+      "why": "14,40 is the statutory minimum hourly wage of 1 July 2025; from 1 January 2026 the adult (21+) minimum is 14,71 and from 1 July 2026 14,99 (rijksoverheid.nl, checked 2026-09-10), so the advertised wage would be below the legal minimum in the year of the text (open morning zaterdag 6 juni 2026), against blueprint section 8. The arithmetic of q2 is unchanged in shape.",
+      "severity": "required-minor"
+    },
+    {
+      "item": "A2:reading:batch021-schoonmaker:1",
+      "question": "q3",
+      "field": "options.A",
+      "from": "Blinkvast bellen en naar de baan vragen.",
+      "to": "Op zaterdag 6 juni om 11.00 uur Blinkvast bellen.",
+      "why": "B and C were twins differing only in the time while A stood apart in form, which isolates the key pair for a test-wise learner. A now shares the date-and-time frame and still tests \"U hoeft niet te bellen: wij bellen u\".",
+      "severity": "recommended"
+    },
+    {
+      "item": "A2:reading:batch021-weekmarkt:1",
+      "question": "q2",
+      "field": "options.D",
+      "from": "De markt staat een half jaar ergens anders.",
+      "to": "De markt is een half jaar ergens anders.",
+      "why": "\"staat\" from the prompt (\"Waarom staat dit bericht in de krant?\") recurred only in the key.",
+      "severity": "recommended"
+    },
+    {
+      "item": "A2:reading:batch021-trappenhuis:1",
+      "question": "q2",
+      "field": "options.A",
+      "from": "Zij wil dat de buren de lamp repareren.",
+      "to": "Zij wil dat de buren de kapotte lamp zelf repareren.",
+      "why": "The key was the longest option by words (10 against 8/7/8); the distractor gains its anchor words and is now the longest, and \"zelf\" sharpens the misreading (she has reported the lamp to the corporation).",
+      "severity": "recommended"
+    },
+    {
+      "item": "A2:reading:batch021-trappenhuis:1",
+      "question": "q3",
+      "field": "options.B",
+      "from": "De lamp op de tweede verdieping melden.",
+      "to": "De kapotte lamp melden.",
+      "why": "The three-word key stood against options of seven and five words; the distractor is trimmed to the same register (3/4/5 words).",
+      "severity": "recommended"
+    },
+    {
+      "item": "A2:reading:batch021-gezinskaart:1",
+      "question": "q1",
+      "field": "options.D (added)",
+      "to": "Ja, maar het kind van 3 jaar kost 6,00 euro extra.",
+      "why": "The key was the only \"Ja\" against two \"Nee\" options; the fourth option balances the polarity 2:2, is anchored on the 6,00 child price and is contradicted by \"Kinderen tot en met 3 jaar tellen niet mee: zij zijn altijd gratis.\" Four-option share stays 11 of 26.",
+      "severity": "recommended"
+    },
+    {
+      "item": "A2:reading:batch021-gezinskaart:1",
+      "question": "q1",
+      "field": "explanation",
+      "to": "Het kind van 3 jaar is gratis en telt niet mee. Dan blijven er drie kinderen van 5, 8 en 11 jaar over, en dat past precies bij een gezinskaart: maximaal drie kinderen van 4 tot en met 12 jaar. Voor het kind van 3 jaar betaalt het gezin niets extra.",
+      "why": "Names why the new distractor D fails.",
+      "severity": "derived"
+    },
+    {
+      "item": "A2:reading:batch021-gezinskaart:1",
+      "question": "q2",
+      "field": "options.B",
+      "from": "Op maandag om 14.00 uur naar het museum komen.",
+      "to": "Amina op maandag om 14.00 uur naar het museum brengen.",
+      "why": "\"Amina\" from the prompt recurred only in the key; the distractor now carries the name in the same frame (\"Amina op …dag …\").",
+      "severity": "recommended"
+    }
+  ],
+  "rejected": [],
+  "decisions_on_author_doubts": {
+    "item 2 domain": "Keep `opleiding`: the change is made for evening study and the text names studieplekken and the Taalcafé; the coordinator asked for two opleiding texts.",
+    "item 4 q3 purpose visible from the subject line": "Replaced by the payment question (edit list); the key was verbatim in the header.",
+    "item 5 q1 lunch break": "Accepted as written: \"'s avonds\" in the prompt excludes the 12.00 slot on its own, and the key row is the only evening lap-swimming row.",
+    "item 6 q2 skill quantity vs rule-application": "Keep `quantity`; the answer is an amount plus a yes/no on travel costs.",
+    "item 7 two waarom questions": "Keep both: q2 asks why the item is in the paper (the relocation), q3 the cause (the renovation), different evidence. In the app the reason prompt comes after the purpose question, so its presupposition (\"verhuist\") can only reach q2 by deliberate back-navigation, as in the official player. The headline gives the gist of q2, as the headline of the adopted batch004-ramen krant item does; the key still needs \"een half jaar\" and the paraphrase \"ergens anders\".",
+    "item 8 q3 18 April clean-up": "Accepted: the joint clean-up is an invitation (\"Komt u ook?\") for the hallway and the shed; the rota sentence names number 28 for the stairs and the prompt uses \"moet\".",
+    "item 9 maximaal": "Keep: high-frequency signage word and the next sentence (\"Kinderen tot en met 3 jaar tellen niet mee\") carries the rule the key needs.",
+    "level without exemplars": "content/exemplars/ still does not exist; each text was compared with the official description (research 3.1, blueprint 4.1 and 10) and with the adopted, level-checked batch 004 as the calibrated reference."
+  },
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "slugs_new_to_catalogue_and_batches_001_020": true,
+    "item_count": 9,
+    "distribution": {
+      "A2_reading": 9
+    },
+    "task_types": {
+      "regels": 1,
+      "bericht": 2,
+      "brief": 1,
+      "email": 1,
+      "rooster": 1,
+      "advertentie": 1,
+      "krant": 1,
+      "folder": 1
+    },
+    "domains": {
+      "winkels-diensten": 2,
+      "opleiding": 2,
+      "wonen-buurt": 2,
+      "vrije-tijd-familie": 2,
+      "werk": 1
+    },
+    "question_count": 26,
+    "option_counts": {
+      "3": 15,
+      "4": 11
+    },
+    "four_option_share": "42%",
+    "key_counts": {
+      "B": 8,
+      "C": 8,
+      "A": 7,
+      "D": 3
+    },
+    "key_counts_four_option_questions": {
+      "B": 2,
+      "D": 3,
+      "C": 3,
+      "A": 3
+    },
+    "key_counts_three_option_questions": {
+      "B": 6,
+      "C": 5,
+      "A": 4
+    },
+    "key_sequence": "B C B A C D B C D B A C C B B A C A D A B C A A C B",
+    "no_key_three_times_in_a_row": true,
+    "key_is_longest_option_by_words_or_characters": "none after edits",
+    "prompt_word_recurring_only_in_key": "none after edits (was: weekmarkt q2 \"staat\", gezinskaart q2 \"Amina\")",
+    "yes_no_questions_polarity": "terugbrengen q2 Ja/Nee/Nee key C; zwemrooster q2 Ja/Nee/Nee key C; gezinskaart q1 Ja/Nee/Nee/Ja key A — the key is never the odd polarity out after edits (was so in terugbrengen q2 and gezinskaart q1)",
+    "closed_evidence_is_verbatim": true,
+    "persona_prompts_checker_regex": 21,
+    "persona_prompts_per_text": "every text has at least one (ketel 1 of 2, weekmarkt 1 of 3, openingstijden and trappenhuis 2 of 3, the other five all)",
+    "purpose_questions": 3,
+    "skills": {
+      "rule-application": 13,
+      "time-place": 4,
+      "detail": 3,
+      "purpose": 3,
+      "quantity": 2,
+      "advice": 1
+    },
+    "texts_with_table": 3,
+    "picture_answer_items": 0,
+    "word_count_range": "156-224",
+    "prose_sentence_average_range": "6.3-9.1",
+    "prose_longest_sentence": 17,
+    "subordinators_used": "omdat, als, dat only; \"die\" occurs only as a sentence-initial demonstrative; no passive, no relative clause, no zou",
+    "calendar_pairs_verified_2026": true,
+    "invented_names_checked_on_web_2026_09_10": "Kledingwinkel Vlierbes, Bibliotheek Westerhout (only a publication \"Het Westerhout\" of a historical society), Woningcorporatie Sleedoorn (only street names), Zwembad De Waterspiegel, Schoonmaakbedrijf Blinkvast and blinkvast.nl (only unrelated \"Blink…\" firms), Museum Het Blikken Paard (only Blik(ken)musea), Sportcentrum Oost (generic, like Apotheek Zuid in 004): none is a real business",
+    "real_world_facts_checked": "statutory minimum hourly wage 2026 (14,71 from 1 January, 14,99 from 1 July; rijksoverheid.nl) — the reason for the wage edit",
+    "batch_check_original": "npm run batch:check content/batches/021-original.json: Checked 9 items, 26 questions. Keys: {\"B\":8,\"C\":8,\"A\":7,\"D\":3}. Options: {\"3\":15,\"4\":11}. 6 warnings (table rows and header lines merged by the sentence splitter), no failures.",
+    "batch_check_proposed": "npm run batch:check content/batches/021-proposed.json: Checked 9 items, 26 questions. Keys: {\"B\":8,\"C\":8,\"A\":7,\"D\":3}. Options: {\"3\":15,\"4\":11}. 6 warnings (the same splitter artefacts), no failures.",
+    "level_flags": "none; every text comparable with the official A2 Lezen text of its type",
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false
+  },
+  "items": [
+    {
+      "id": "A2:reading:batch021-terugbrengen:1",
+      "verdict": "pass (after edit)",
+      "level_check": "comparable",
+      "level_reason": "182 words, prose average 6.3, longest 11; the register of a shop's house rules (question-then-dan conditions, imperatives). Three rule applications: 21 days between the 14- and 30-day thresholds, an exclusion that overrides the price-tag condition, a refund delay against the return deadlines. Like the official company-rules text.",
+      "evidence": "q1 B from \"Brengt u het kledingstuk na 14 dagen terug? Dan krijgt u geen geld terug. U kunt het kledingstuk wel ruilen. Of u krijgt een tegoedbon.\"; three weeks is after 14 and before 30 days (\"Na 30 dagen nemen wij niets meer terug\"); A is the within-14-days rule, C the after-30-days rule. q2 C from \"Ondergoed, sokken en zwemkleding nemen wij nooit terug. Ook niet met prijskaartje.\"; A applies the tag condition that the same sentence overrides; B (edited) claims an exchange limit of 14 days, contradicted by \"U kunt het kledingstuk wel ruilen\" after 14 days. q3 B from \"Het geld staat binnen vijf werkdagen op uw rekening.\" (one week is within 14 days, so the refund applies); A reads \"Dan krijgt u uw geld terug\" as at the till, C and D are the return deadlines."
+    },
+    {
+      "id": "A2:reading:batch021-openingstijden:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "level_reason": "156 words with a four-row hours table; q1 combines the Thursday row with the after-18.00 rule, q2 the Saturday closing time with the return box, q3 is a one-line reason lookup. Domain opleiding accepted.",
+      "evidence": "q1 A from the row \"dinsdag en donderdag – 10.00 tot 20.00 uur\" and \"Na 18.00 uur is er geen medewerker in de bibliotheek. De balie is dan dicht. Boeken lenen kan dan alleen bij de automaat.\"; B the desk is closed after 18.00, C the library is open until 20.00. q2 C from \"Wilt u boeken inleveren? Gebruik dan de brievenbus naast de ingang. Dat kan dag en nacht, ook als de bibliotheek dicht is.\"; A 18.00 is the Mon/Wed/Fri time, Saturday closes at 16.00; B \"zondag – gesloten\". q3 D from \"Veel mensen willen 's avonds komen om te leren en te lezen. Daarom zijn wij op dinsdag en donderdag langer open.\"; A reversed (no staff after 18.00), B a table fact with no causal link, C the Taalcafé is Wednesday 10.30–12.00."
+    },
+    {
+      "id": "A2:reading:batch021-ketel:1",
+      "verdict": "pass",
+      "level_check": "comparable (easy end: two questions)",
+      "level_reason": "180 words in the standard corporation-letter register (Betreft, Geachte heer, question-then-dan conditions). q1 is the archetypal deadline-with-alternative operation (call before 7 April, not on 14 April; website is for a problem; a no-show costs 45 euro); q2 purpose needs the first sentence against two conditionals in the letter.",
+      "evidence": "q1 B from \"Kunt u op 14 april niet thuis zijn? Bel dan vóór dinsdag 7 april naar 0299 88 12 12. Wij maken dan een nieuwe afspraak met u.\"; A is the visit day and before calling hours (8.30), C the website is for an existing heating problem, D reversed by \"U betaalt dan 45 euro\". q2 C from \"Elk jaar controleren wij de cv-ketel in uw woning.\"; A and B are conditionals (\"Hebt u nu al een probleem…?\", \"is er niemand thuis…?\"), not the reason for the letter."
+    },
+    {
+      "id": "A2:reading:batch021-dierentuin:1",
+      "verdict": "pass (after edit)",
+      "level_check": "comparable",
+      "level_reason": "196 words, prose average 6.9, longest 12; an e-mail with header, list and four dated instructions. After the replacement: pick-up time against three other times, the helper deadline against the payment deadline, the payment channel and deadline against the no-money rule and the trip day.",
+      "evidence": "q1 D from \"Op 22 mei komen wij pas om 15.30 uur terug. Haal uw kind dan op school op.\"; A and B are the morning times, C the normal Friday end explicitly contrasted. q2 B from \"Wilt u helpen? Antwoord dan vóór vrijdag 8 mei op deze e-mail.\"; A is the payment deadline for the child, C the route for questions. q3 (new) A from \"De schoolreis kost 7,50 euro per kind. Betaal dit vóór vrijdag 15 mei in de school-app.\"; B reversed by \"Geen geld en geen telefoon\" and the app instruction, C is 22 May."
+    },
+    {
+      "id": "A2:reading:batch021-zwemrooster:1",
+      "verdict": "pass",
+      "level_check": "comparable (upper end)",
+      "level_reason": "176 words with a six-row activity table and a price list; a schedule against working hours (q1), a holiday exception that overrides the table (q2) and a three-person sum with an age exemption (q3). Difficulty from combining details, not vocabulary; \"banen zwemmen\"/\"vrij zwemmen\" are labels a learner meets on any pool board.",
+      "evidence": "q1 C from \"Banen zwemmen 's avonds – dinsdag en donderdag – 19.00 tot 21.00 uur\"; A Wednesday is afternoon free swimming, B a real lap slot but at 12.00 (inside her working day and not evening), D weekend free swimming ends at 17.00. q2 C from \"In de schoolvakanties is het rooster anders. Dan is er elke dag vrij zwemmen van 10.00 tot 17.00 uur. Banen zwemmen en de andere activiteiten zijn er in de vakantie niet.\"; A is true outside the holidays only, B is a wrong fact (Tuesday also has 7.00–8.30 and 12.00–13.30). q3 B: 5,50 + 4,00 = 9,50 from \"Volwassenen: 5,50 euro. Kinderen van 4 tot en met 12 jaar: 4,00 euro. Kinderen tot en met 3 jaar: gratis.\"; A omits the son, C charges the three-year-old."
+    },
+    {
+      "id": "A2:reading:batch021-schoonmaker:1",
+      "verdict": "pass (after edit)",
+      "level_check": "comparable (upper end)",
+      "level_reason": "203 words, prose average 7.7, longest 15; two jobs to choose between by time (q1), a 2×2 combination of two pay rules (q2), a channel-and-time question (q3). Third job advertisement in the bank but structurally different from magazijn and p4.",
+      "evidence": "q1 B from \"U maakt schoon in drie kantoren in het centrum. U werkt van maandag tot en met vrijdag van 18.00 tot 21.00 uur.\"; A 7.00–10.00 overlaps the 9.00 start, C the evening job fits. q2 A from \"U verdient 15,20 euro per uur. Voor de ochtendbaan krijgt u 1 euro per uur extra, omdat u vroeg begint. Woont u meer dan 10 kilometer van uw werk? Dan betalen wij uw reiskosten.\" (15 km is more than 10; the supplement is for the morning job only); B, C and D each miss one or both rules. q3 C from \"Of kom naar onze open ochtend in Sportcentrum Oost. Die is op zaterdag 6 juni van 10.00 tot 12.00 uur. U hoeft niet te bellen: wij bellen u.\"; A (edited) reversed, B 14.00 is after the open morning; e-mail is a second valid route not among the options."
+    },
+    {
+      "id": "A2:reading:batch021-weekmarkt:1",
+      "verdict": "pass (after edit)",
+      "level_check": "comparable",
+      "level_reason": "158 words, prose average 8.5, longest 12; neutral news register with one quoted speaker and the connectors toch/daarom. Location lookup with a date inside the period, purpose against three reversed statements, cause against consequence.",
+      "evidence": "q1 A from \"De zaterdagmarkt van Westerhout is vanaf zaterdag 4 april op het Stationsplein.\" with \"De markt blijft daar een half jaar.\"; B is under renovation from 30 March, C was rejected as too small. q2 D from the same two sentences; A reversed (same hours continue), B reversed (35 instead of 40), C only five stalls go to the Wednesday market. q3 A from \"De gemeente gaat het Marktplein in het centrum opknappen. … Op het plein kan dan geen markt staan.\"; B reversed (\"minder ruimte\"), C a consequence not the cause, D the racks come with the new site."
+    },
+    {
+      "id": "A2:reading:batch021-trappenhuis:1",
+      "verdict": "pass (after edit)",
+      "level_check": "comparable (upper end)",
+      "level_reason": "189 words, longest sentence 17 and the most subordinate clauses in the batch (omdat, dat ×3), still within the section 10 heuristics; an informal resident-to-resident note. q3 combines the rota rule with a house number; q2 purpose needs the problem paragraph against three things the note explicitly does not ask.",
+      "evidence": "q1 B from \"Wilt u uw fiets in de fietsenberging achter het gebouw zetten?\"; A against the wall is the rule for prams, C the key comes from the woningcorporatie. q2 C from \"Er staan steeds fietsen en kinderwagens op de trap en in de gang beneden. Dat is gevaarlijk. Bij brand kunnen we er niet langs.\" (with \"Ik schrijf dit briefje, omdat het niet goed gaat met de trap.\"); A (edited) the lamp is already reported, B reversed by the joint clean-up, D nothing is asked about the rota. q3 A from \"Wij maken de trap om de beurt schoon. Het rooster hangt naast de voordeur. In april is nummer 28 aan de beurt.\"; B (edited) already reported, C the coffee is at the writer's home; the 18 April clean-up is an invitation for the hallway and shed, not a duty."
+    },
+    {
+      "id": "A2:reading:batch021-gezinskaart:1",
+      "verdict": "pass (after edit)",
+      "level_check": "comparable (upper end)",
+      "level_reason": "224 words, the longest text of the batch, longest sentence 17; a folder with a four-row price table and three rule paragraphs. q1 applies a membership rule with an age exemption to a family of four children, q2 the workshop sign-up rule with a day, q3 a parking rule. \"maximaal\" is unglossed but the exemption sentence carries the rule.",
+      "evidence": "q1 A from \"De gezinskaart is voor twee volwassenen en maximaal drie kinderen van 4 tot en met 12 jaar. Kinderen tot en met 3 jaar tellen niet mee: zij zijn altijd gratis.\"; B counts the three-year-old, C 11 is inside 4–12, D (added) contradicted by \"altijd gratis\". q2 C from \"Meld uw kind op de dag zelf aan bij de kassa.\" with \"Elke woensdag om 14.00 uur is er een workshop.\"; A reversed (free with a ticket), B (edited) Monday is closed, D the family ticket brings the treasure hunt, not the workshop. q3 B from \"Bij het museum kunt u niet parkeren. Komt u met de auto? Parkeer dan in de parkeergarage aan de Havenweg.\"; A reversed, C the station is for train travellers."
+    }
+  ],
+  "diversity_review": "Nine distinct settings covering all eight A2 reading task types (bericht twice) and five of the eight domains (winkels-diensten, opleiding, wonen-buurt, vrije-tijd-familie ×2 each, werk ×1; gezondheid, instanties and vervoer are covered by the sibling batch 020). No slug reuse against the catalogue or batches 001–020 and no re-skin of an existing item; tested operations vary (threshold rules, table plus after-hours rule, deadline with alternative, dated instructions in an e-mail, schedule against working hours with a holiday exception and a price sum, two-job choice with a 2×2 pay rule, temporary relocation with cause, rota plus house number, membership rule with an exemption). Nearest neighbours: gezinskaart and zwemrooster share the age-band price structure and the sentence \"Kinderen tot en met 3 jaar: gratis\" (also close to batch004-stadsbus); ketel and batch004-verwarming both concern the cv-ketel of a housing corporation (planned check vs failure card); schoonmaker is the third job advertisement (different structure from batch004-magazijn and p4); openingstijden and batch020-politiebureau are both opening-hours texts; dierentuin and the listening item batch001-schoolreis share the school-trip setting across parts. Personas: Fatima in five texts (1, 2, 4, 5, 9), Karim in five (3, 5, 6, 7, 9), Roos in four; Fatima's children (a son in 1, Amina 10 in 4 and 9, a daughter of 3 and a son of 8 in 5) and Karim's four children in 9 are not contradictory but forms should not place these texts consecutively.",
+  "set_assembly": "Balanced drills of three texts (keys within 20–40% per letter, near neighbours apart): A = terugbrengen + openingstijden + schoonmaker (regels, bericht, advertentie; 9 Q, keys A2 B3 C3 D1); B = ketel + weekmarkt + gezinskaart (brief, krant, folder; 8 Q, A3 B2 C2 D1; Karim appears in all three); C = dierentuin + zwemrooster + trappenhuis (email, rooster, bericht; 9 Q, A2 B3 C3 D1). Do not put zwemrooster and gezinskaart, or ketel and batch004-verwarming, in one drill. A mock form needs about ten texts and 25 questions: this batch supplies nine texts and 26 questions on its own; with 020 (nine texts, 23 questions) and 004 (twelve texts, 30 questions) two forms without shared items are possible, but each form must be re-checked for key balance (the checker fails an unbalanced form) and for the yes/no polarity pattern: 020 has three yes/no questions whose key is the odd polarity out (identiteitskaart q1 and q2, spoorwerk q2), so a form should not stack them with the three balanced ones here. No picture-answer item exists yet in 004, 020 or 021; the launch bank still needs one (blueprint 4.1).",
+  "media_notes": "Reading items: no audio, no pictures. Three texts carry a plain-text table with \" – \" separated rows (openingstijden, zwemrooster, gezinskaart), rendered by the app with white-space: pre-line as in batch 004; the checker's six sentence-length warnings come from those rows and the letter/e-mail headers merging with the next sentence and are known artefacts.",
+  "observations_not_blocking": [
+    "zwemrooster writes the activity labels \"Banen zwemmen\" and \"Vrij zwemmen\" as two words; the one-word compounds are also common on pool boards; left as written because both forms are in wide use and the two-word form is more transparent at A2.",
+    "weekmarkt q2 (purpose) has its gist in the headline \"Zaterdagmarkt verhuist naar het Stationsplein\", like the adopted batch004-ramen item; the key still needs \"een half jaar\" and the paraphrase \"ergens anders\", and the three distractors are each contradicted by the body.",
+    "Three keys are the shortest option by one word (ketel q2, zwemrooster q2, weekmarkt q3), never by characters; not a usable signal."
+  ],
+  "coordinator_notes": "The proposed file was adopted over content/batches/021-original.json by another process at about 19:00 on 2026-09-10, right after this review JSON appeared; the adopted bytes hash to the recorded source_sha256 and pass npm run batch:check (six known splitter warnings, no failures). The catalogue does not yet hold the 021 items (npm run content:integrate not run). No starters file exists for this batch. The author notes (021-notes.md) still describe the old dierentuin q3, the 14,40 wage and the three-option gezinskaart q1; the notes are the author's and were not edited.",
+  "limitations": "AI editorial review of original practice material; difficulty labels remain unvalidated authoring targets and no official approval, scoring or exam equivalence is claimed. The level column compares each text with the official description and with the calibrated batch 004, not with a teacher rating or learner data; content/exemplars/ does not exist yet."
+}

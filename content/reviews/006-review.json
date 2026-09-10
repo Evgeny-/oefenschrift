@@ -1,10 +1,10 @@
 {
   "review_id": "batch006-editorial-review",
   "source": "content/batches/006-original.json",
-  "source_sha256": "145a5c131b55e405d2961080a1b559e5565c220f18a78377553b94b9ceb720a1",
-  "previous_source_sha256": "3628cf2efafdb5012bcac86fc40d01dc0be27294f697c4d8239f6e7061a99ec9",
+  "source_sha256": "6dacacce68f3752ab7b5265f6413c2c5183eb82111bcd17fbff1c4edf3cf9739",
+  "previous_source_sha256": "145a5c131b55e405d2961080a1b559e5565c220f18a78377553b94b9ceb720a1",
   "review_date": "2026-09-10",
-  "review_type": "AI editorial review with current primary-source fact checks (every cited page opened and read by the reviewer); focused re-review of the three revised items on the same day",
+  "review_type": "AI editorial review with current primary-source fact checks (every cited page opened and read by the reviewer); focused re-review of the three revised items on the same day; second focused re-review, after the independent KNM level check (content/reviews/006-007-level-check.md), of the six items revised on that check's required actions, on the same day",
   "rubric": "content/reviews/rubric.md",
   "batch_verdict": "pass",
   "ready_for_integration": true,
@@ -40,7 +40,9 @@
     "json_parses": true,
     "unique_item_ids": true,
     "item_count": 24,
-    "distribution": {"A2_knm": 24},
+    "distribution": {
+      "A2_knm": 24
+    },
     "batch_check": "Checked 24 items, 24 questions. Keys: {\"A\":8,\"B\":9,\"C\":7}. Options: {\"3\":24}. No failures, no warnings.",
     "closed_evidence_is_verbatim": true,
     "prompts_at_most_20_words": true,
@@ -50,39 +52,279 @@
     "rereview_change_scope": "exactly four leaf fields differ from the previously reviewed file (woningcorporatie explanation, hypotheek sourceUrl and sourceNote, huisartsenpost prompt); verified by rebuilding the reviewed file byte for byte (see focused_rereview.change_verified)",
     "eindterm_mapping_verified_against": "Staatscourant 2024-15802 (zoek.officielebekendmakingen.nl/stcrt-2024-15802.html)",
     "all_target_levels_validated": false,
-    "official_equivalence_claim": false
+    "official_equivalence_claim": false,
+    "level_check_rereview_change_scope": "exactly fourteen leaf fields in six items differ from the previously reviewed file (huurcontract prompt, options, evidence, explanation; huurcommissie options, explanation; stroomstoring options, explanation, imageBrief; huisartskeuze options; huuropzegging options, explanation; eigenrisico options); verified by reconstruction (see level_check_rereview.change_verified)",
+    "level_check_rereview_sources_reopened": "7 pages re-fetched with curl on 2026-09-10 (the six revised items' cited pages and the eigenrisico companion page huisartskosten-op-zorgnota): all HTTP 200 at the cited address, no redirects; every sentence quoted in the level_check_rereview blocks is on its page; the Staatscourant 2024-15802 XML (repository.overheid.nl) was fetched for eindtermen 3.1.1, 3.1.2, 3.2.1, 4.1.1, 4.3.2 and 4.4.1, and the government.nl 112 page cited by A2:knm:batch003-noodnummer:1 for the 112 clause",
+    "level_check_rereview_batch_check": "npm run batch:check content/batches/006-original.json (2026-09-10, after the revision): Checked 24 items, 24 questions. Keys: {\"A\":8,\"B\":9,\"C\":7}. Options: {\"3\":24}. info: 24 of 24 items are already in the catalogue (a revision of an integrated batch). No failures, no warnings."
   },
-  "verdict_counts": {"pass": 24, "revise": 0, "reject": 0},
+  "verdict_counts": {
+    "pass": 24,
+    "revise": 0,
+    "reject": 0
+  },
   "items": [
-    {"id":"A2:knm:batch006-diplomawaardering:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'Een diplomawaardering of opleidingswaardering beschrijft met welke Nederlandse opleiding of Nederlands diploma uw buitenlandse diploma of opleiding vergelijkbaar is.' Translation and new exam are not described; eindterm 1.1.4 matches; stable.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/onderwijs-en-internationalisering/hoe-laat-ik-mijn-buitenlandse-diploma-in-nederland-waarderen-of-erkennen"},
-    {"id":"A2:knm:batch006-ww-uitkering:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'Als u werknemer bent en geheel of gedeeltelijk werkloos wordt, heeft u mogelijk recht op een WW-uitkering.' and 'UWV voert de WW uit.' Gemeente (bijstand) and Belastingdienst have no WW role; eindterm 1.1.7 (UWV after an arbeidsverleden) matches; conditions that change are not tested.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/ww-uitkering/wanneer-heb-ik-recht-op-een-ww-uitkering"},
-    {"id":"A2:knm:batch006-bijstandsplicht:1","verdict":"pass","level_check":"comparable","evidence":"Page lists 'u moet aangeboden werk aanvaarden en zien te behouden;' and 'Voldoet u niet aan deze plichten? Dan moet uw gemeente uw bijstandsuitkering verlagen.' Exemptions (single parents of under-5s on request, mantelzorgers, full arbeidsongeschiktheid) do not apply to the persona and make no distractor defensible; eindterm 1.1.8 'in principe aangeboden werk moet accepteren' matches. Re-check yearly (Participatiewet changes 2026/2027). Non-blocking: 'aanvaarden' in text is B1; option C not Ja/Nee-shaped.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/bijstand/wat-zijn-mijn-rechten-en-plichten-in-de-bijstand"},
-    {"id":"A2:knm:batch006-cao:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'Een collectieve arbeidsovereenkomst (cao) is een schriftelijke overeenkomst waarin afspraken over arbeidsvoorwaarden staan. Bijvoorbeeld over loon, ... werktijden ... Een cao geldt voor een grote groep mensen.' and that it is concluded by employers(' organisations) and 'werknemersorganisaties (meestal vakbonden)'. Eindterm 1.2.1 matches; stable.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/arbeidsovereenkomst-en-cao/wat-is-een-cao"},
-    {"id":"A2:knm:batch006-ondernemingsraad:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'Ondernemingen en organisaties met 50 of meer medewerkers moeten een ondernemingsraad (OR) hebben. Deze raad bestaat uit eigen werknemers die namens het personeel overleggen met directie of bestuur.' Directie and vakbond are the named contrasts; eindterm 1.2.2 names the ondernemingsraad; stable.","official_source":"https://www.rijksoverheid.nl/themas/werk/ondernemingsraad"},
-    {"id":"A2:knm:batch006-loonheffing:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'U houdt als werkgever elke maand loonheffing in op het salaris van uw werknemers.' and 'Loonheffing is de verzamelnaam voor loonbelasting en de premie voor de volksverzekeringen.'; overwerkloon and vakantiegeld are listed as loon on which loonheffing is due. Eindterm 1.2.3 matches; rates change but are not tested.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/inkomstenbelasting/loonheffing-premies-werkgever"},
-    {"id":"A2:knm:batch006-sollicitatie:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'Bij een sollicitatie en op het werk mag geen sprake zijn van ongelijke behandeling.' and 'Volgens artikel 1 van de Grondwet is discriminatie verboden. ... discriminatiegronden in de wet, zoals ras, godsdienst en leeftijd.' No exception covers origin or company size. Distinct from the existing discriminatie card (where to get advice); eindterm 1.3.1 matches; stable. Persona Modibo is not in the illustration cast (coordinator note).","official_source":"https://www.rijksoverheid.nl/themas/werk/gelijke-behandeling-op-het-werk/regels-gelijke-behandeling-op-het-werk"},
-    {"id":"A2:knm:batch006-kvk:1","verdict":"pass","level_check":"comparable","evidence":"Ondernemersplein (overheid.nl, published by KVK, checked 18 Nov 2025) states 'Start u een eigen bedrijf, dan moet u zich inschrijven in het Handelsregister van KVK.' and 'U hoeft zich niet apart in te schrijven bij de Belastingdienst. Dat gebeurt automatisch na uw inschrijving bij KVK.' Eindterm 1.4.1 matches exactly; the fee changes and is not tested.","official_source":"https://ondernemersplein.overheid.nl/bedrijf-starten/inschrijven-bij-kvk/inschrijven-bij-kvk/"},
-    {"id":"A2:knm:batch006-huurcontract:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'In een huurcontract staan de afspraken tussen u en uw verhuurder. Bijvoorbeeld hoe hoog de huur is.' and 'Uw verhuurder moet een schriftelijk huurcontract opstellen.' Purchase proof and huurtoeslag letter are other documents; eindterm 3.1.1 'weet wat een huurcontract inhoudt' matches; stable.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/welke-afspraken-staan-er-in-het-huurcontract-van-mijn-woning"},
-    {"id":"A2:knm:batch006-huuropzegging:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'Uw verhuurder mag niet zomaar de huur opzeggen van uw woning. Dat kan alleen met een goede reden.' and 'De rechter doet dan een uitspraak.' A phone call one month ahead is neither a legal reason nor the written 3-6 month notice on the page; the tijdelijk-contract end-date rule matches no option. Eindterm 3.1.2 matches.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/verhuurder-zegt-huur-op-woning"},
-    {"id":"A2:knm:batch006-huurcommissie:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'Huurt u een sociale huurwoning of middenhuurwoning? En bent u het niet eens met de hoogte van de huur of de jaarlijkse huurverhoging? ... kijk dan wanneer u de Huurcommissie kunt inschakelen.' The gemeente (named on the page for a too-high huurprijs) is rightly not a distractor. Eindterm 3.1.2 'onterechte huurverhoging' matches; re-check when housing law changes. Non-blocking: prompt is three sentences.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/wanneer-kan-ik-terecht-bij-de-huurcommissie-en-wanneer-bij-de-kantonrechter"},
-    {"id":"A2:knm:batch006-woningcorporatie:1","verdict":"pass","level_check":"comparable","evidence":"Key and text supported: 'U moet zich inschrijven bij een woningcorporatie. Of bij een andere organisatie die sociale huurwoningen aanbiedt.' and 'Woningbouwcorporaties mogen eisen stellen aan uw inkomen. Of aan de grootte van uw gezin.' (page re-opened 2026-09-10). Re-review of the rewritten explanation: its first sentence paraphrases the page and names the other organisations, so 'Sociale huurwoningen zijn van woningcorporaties' is gone; the reason for rejecting 'Bij een makelaar' is now registration, which the page never attributes to a makelaar (its makelaar route is 'Zoek een sociale huurwoning ... bij een particuliere verhuurder. Dat kan bijvoorbeeld een makelaar zijn.', searching, not inschrijven), so the explanation no longer contradicts the page's statement that other organisations, including via a makelaar, can offer social housing. Rubric check 9 and blueprint section 5 pass. Non-blocking: the gloss 'een makelaar bemiddelt bij koop en vrije huur' is true but incomplete; 'koop en huur' would be exact. Income limits change yearly and are not used.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/wanneer-kom-ik-in-aanmerking-voor-een-sociale-huurwoning","revision_applied":{"field":"explanation","previous_failure":"'Sociale huurwoningen zijn van woningcorporaties' and 'Een makelaar helpt bij koopwoningen en huur in de vrije sector' are contradicted by the cited page; eindterm 3.1.3 also names a makelaar as a contact for a huurhuis.","rereviewed":"2026-09-10"}},
-    {"id":"A2:knm:batch006-hypotheek:1","verdict":"pass","level_check":"comparable","evidence":"sourceUrl now https://www.rijksoverheid.nl/vraag-en-antwoord/huis-kopen/maximaal-bedrag-lenen-koopwoning ('Hoeveel kan ik maximaal lenen voor mijn koopwoning?', HTTP 200, no redirect, re-opened 2026-09-10), which states 'U kunt een hypotheek afsluiten tot 100% van de waarde van het huis. U kunt dus niet meer lenen dan het huis waard is.': the loan fact and the 100% rule, containing the item's second text sentence verbatim. sourceNote names this page, states both facts and keeps hypotheek-aanvragen-wat-moet-ik-regelen as the companion page ('U wilt een huis kopen. Om dat te betalen wilt u een hypotheek afsluiten.', re-opened). Question, options, key A, evidence and explanation unchanged; eindterm 3.1.3 acceptable; lending norms change yearly and are not used. Rubric check 13 passes.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/huis-kopen/maximaal-bedrag-lenen-koopwoning","revision_applied":{"field":"sourceUrl (and sourceNote)","previous_failure":"The recorded URL does not support the precise claim (rubric check 13).","rereviewed":"2026-09-10"},"previous_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/huis-kopen/hypotheek-aanvragen-wat-moet-ik-regelen"},
-    {"id":"A2:knm:batch006-stroomstoring:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'Bij vragen over gas- of stroomstoringen moet u bij de netbeheerder zijn. De netbeheerders hebben 1 landelijk storingsnummer: 0800-9009.' and that the netbeheerder is responsible for cables, pipes and transport. Energieleverancier and gemeente are not named. Eindterm 3.2.1 says 'bij de leverancier van de nutsvoorziening'; the item follows the government's explicit rule (coordinator note). Number not tested.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/energie-thuis/vragen-over-gas-of-stroomstoringen"},
-    {"id":"A2:knm:batch006-energietarief:1","verdict":"pass","level_check":"comparable","evidence":"ACM ConsuWijzer (responsible public supervisor) states 'Bij een contract met een vast tarief betaalt u dezelfde prijs voor elektriciteit of gas. ... Het tarief per kWh of m3 verandert in dit contract niet.' and 'Bij een contract met een variabel tarief mag de leverancier het tarief per kWh en m3 veranderen.'; switching is allowed with a possible opzegvergoeding. Taxes and network costs can change, which the item excludes by speaking of the price for stroom en gas. Eindterm 3.2.2 matches.","official_source":"https://consument.acm.nl/elektriciteit-en-gas/wat-betaal-ik-voor-mijn-energie/vaste-variabele-leveringskosten-energie"},
-    {"id":"A2:knm:batch006-gft:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'Groenteafval, fruitafval en tuinafval mag u in de gft-bak doen. Van dit afval kan compost gemaakt worden.' and 'Hoe u het gft-afval moet inleveren, verschilt per gemeente.' Eindterm 3.3.1 matches; stable. Non-blocking: 'In de glasbak' is a weak distractor; 'Bij het plastic afval' would be more plausible.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/afval/welk-afval-mag-ik-in-de-gft-bak-doen"},
-    {"id":"A2:knm:batch006-huisartskeuze:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'Het is meestal mogelijk om zelf uw huisarts te kiezen en ook om van huisarts te veranderen. Een huisarts mag in bepaalde situaties weigeren u als patiënt aan te nemen.' and that the zorgverzekeraar only helps to find one. The hedge 'meestal' in the key mirrors the source; eindterm 4.1.1 matches; stable.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts"},
-    {"id":"A2:knm:batch006-receptmedicijnen:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'Receptmedicijnen kunt u alleen bij een apotheek kopen. Voor zelfzorgmedicijnen heeft u geen recept nodig. Deze zijn ook bij de drogist of andere winkels te koop.' and 'Receptmedicijnen krijgt u alleen met een recept van uw (huis)arts. Deze geneesmiddelen koopt u in een apotheek.' Eindterm 4.1.2 matches both bullets; stable.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/geneesmiddelen/waar-kan-ik-medicijnen-kopen"},
-    {"id":"A2:knm:batch006-consultatiebureau:1","verdict":"pass","level_check":"comparable","evidence":"Page heading 'Consultatiebureau: ontwikkeling kind volgen'; text 'U kunt vragen stellen over uw baby aan de jeugdarts of verpleegkundige van het consultatiebureau (gratis jeugdgezondheidszorg). ... Ook krijgt uw baby inentingen tegen kinderziekten op het consultatiebureau.' Childcare and birth registration are other bodies; eindterm 4.1.4 matches; stable.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/zwangerschap-en-geboorte/bij-wie-kan-ik-terecht-met-vragen-over-de-gezondheid-en-opvoeding-van-mijn-kind"},
-    {"id":"A2:knm:batch006-verwijsbrief:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'Voor specialistische zorg, bijvoorbeeld in ziekenhuizen, heeft u een verwijsbrief nodig.', 'De huisarts geeft alleen een verwijzing als dit medisch nodig is.' and that without one you may have to pay yourself. The no-referral list (fysiotherapeut etc.) does not cover a hospital specialist; eindterm 4.2.1 matches; stable.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/wanneer-heb-ik-een-verwijsbrief-van-mijn-huisarts-nodig-en-wanneer-mag-hij-deze-weigeren"},
-    {"id":"A2:knm:batch006-huisartsenpost:1","verdict":"pass","level_check":"comparable","evidence":"Fact verified again 2026-09-10: 'Is uw huisartsenpraktijk dicht? Dan verwijst de huisarts u door naar de huisartsenpost.' and 'Neem altijd eerst contact op met uw huisartsenpost voordat u naar de spoedeisende hulppost gaat. Behalve bij een levensbedreigende situatie. Dan kunt u het beste direct 112 bellen.'; hours on the huisarts page ('in de avond, nacht of in het weekend kunt u gebruikmaken van een huisartsenpost') and in eindterm 4.3.1. New prompt 'Amina is ’s nachts ziek. Wat is de huisartsenpost?': 9 words, blueprint section 4.5 persona-fact form, A2 vocabulary; Amina is in the cast (girl of about 10) and the scene matches the unchanged imageBrief. Key C is the only correct definition (A is the spoedeisende hulppost, B a pharmacy). No content word of the prompt recurs only in the key ('praktijk' and 'dicht' are gone); ''s nachts' recurs in distractor B only, a lure rather than a key signal; the prompt no longer restates the key's logic. Blueprint section 5 passes. The optional evidence extension was not applied and stays optional.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/huisartsenpost-spoedeisende-hulp","revision_applied":{"field":"prompt (optionally evidence)","previous_failure":"The context sentence 'De praktijk van de huisarts is 's avonds dicht.' shares 'praktijk' and 'dicht' with the key only and restates the key's logic (blueprint section 5).","rereviewed":"2026-09-10"}},
-    {"id":"A2:knm:batch006-eigenrisico:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'Behalve als het over zorg gaat waarvoor geen eigen risico geldt, zoals de huisarts.' and lists 'huisartsenzorg (waaronder de huisartsenpost)' under care without eigen risico; the explanation's claim about medicines and blood tests confirmed on https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/huisartskosten-op-zorgnota ('Deze zorg valt wel onder uw verplichte eigen risico. Net als de geneesmiddelen die een huisarts voorschrijft.'). Eindterm 4.4.1 matches exactly; the amount changes and is not tested. Word echo balanced (huisarts in key, eigen risico in distractors).","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/eigen-risico-zorgverzekering"},
-    {"id":"A2:knm:batch006-zorgnota:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'U kunt een zorgnota inzien op de website van uw zorgverzekeraar.', 'Een zorgverlener stuurt een rekening meestal rechtstreeks naar uw zorgverzekeraar.' and 'Daarna kunt u de rekening zien via ‘mijn omgeving’ op de website van uw zorgverzekeraar.' Gemeente and huisartsenpost hold no such bills; eindterm 4.4.3 matches; stable. Persona Sabrina is not in the illustration cast (coordinator note).","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/zorgnota-controleren"},
-    {"id":"A2:knm:batch006-wmo:1","verdict":"pass","level_check":"comparable","evidence":"Page states 'Meldt u zich bij de gemeente met het verzoek om ondersteuning, zodat u thuis kunt blijven wonen? Dan moet de gemeente onderzoek doen ...' and 'Het Wmo-loket of het sociale wijkteam van uw gemeente ... helpt u bij de aanvraag van voorzieningen uit de Wmo.'; companion page https://www.rijksoverheid.nl/vraag-en-antwoord/zorg-en-ondersteuning-thuis/ondersteuning-gemeente-wmo-2015 lists 'huishoudelijke hulp (zoals hulp bij het opruimen, schoonmaken en ramen zemen)'. Insurer covers wijkverpleging, not household help; the Wlz exception is not an option. Eindterm 4.5.1 'hulp thuis, bijvoorbeeld voor ouderen' matches; re-check yearly.","official_source":"https://www.rijksoverheid.nl/vraag-en-antwoord/zorg-en-ondersteuning-thuis/ondersteuning-gemeente-wmo-2015-aanvragen"}
+    {
+      "id": "A2:knm:batch006-diplomawaardering:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'Een diplomawaardering of opleidingswaardering beschrijft met welke Nederlandse opleiding of Nederlands diploma uw buitenlandse diploma of opleiding vergelijkbaar is.' Translation and new exam are not described; eindterm 1.1.4 matches; stable.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/onderwijs-en-internationalisering/hoe-laat-ik-mijn-buitenlandse-diploma-in-nederland-waarderen-of-erkennen"
+    },
+    {
+      "id": "A2:knm:batch006-ww-uitkering:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'Als u werknemer bent en geheel of gedeeltelijk werkloos wordt, heeft u mogelijk recht op een WW-uitkering.' and 'UWV voert de WW uit.' Gemeente (bijstand) and Belastingdienst have no WW role; eindterm 1.1.7 (UWV after an arbeidsverleden) matches; conditions that change are not tested.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/ww-uitkering/wanneer-heb-ik-recht-op-een-ww-uitkering"
+    },
+    {
+      "id": "A2:knm:batch006-bijstandsplicht:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page lists 'u moet aangeboden werk aanvaarden en zien te behouden;' and 'Voldoet u niet aan deze plichten? Dan moet uw gemeente uw bijstandsuitkering verlagen.' Exemptions (single parents of under-5s on request, mantelzorgers, full arbeidsongeschiktheid) do not apply to the persona and make no distractor defensible; eindterm 1.1.8 'in principe aangeboden werk moet accepteren' matches. Re-check yearly (Participatiewet changes 2026/2027). Non-blocking: 'aanvaarden' in text is B1; option C not Ja/Nee-shaped.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/bijstand/wat-zijn-mijn-rechten-en-plichten-in-de-bijstand"
+    },
+    {
+      "id": "A2:knm:batch006-cao:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'Een collectieve arbeidsovereenkomst (cao) is een schriftelijke overeenkomst waarin afspraken over arbeidsvoorwaarden staan. Bijvoorbeeld over loon, ... werktijden ... Een cao geldt voor een grote groep mensen.' and that it is concluded by employers(' organisations) and 'werknemersorganisaties (meestal vakbonden)'. Eindterm 1.2.1 matches; stable.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/arbeidsovereenkomst-en-cao/wat-is-een-cao"
+    },
+    {
+      "id": "A2:knm:batch006-ondernemingsraad:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'Ondernemingen en organisaties met 50 of meer medewerkers moeten een ondernemingsraad (OR) hebben. Deze raad bestaat uit eigen werknemers die namens het personeel overleggen met directie of bestuur.' Directie and vakbond are the named contrasts; eindterm 1.2.2 names the ondernemingsraad; stable.",
+      "official_source": "https://www.rijksoverheid.nl/themas/werk/ondernemingsraad"
+    },
+    {
+      "id": "A2:knm:batch006-loonheffing:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'U houdt als werkgever elke maand loonheffing in op het salaris van uw werknemers.' and 'Loonheffing is de verzamelnaam voor loonbelasting en de premie voor de volksverzekeringen.'; overwerkloon and vakantiegeld are listed as loon on which loonheffing is due. Eindterm 1.2.3 matches; rates change but are not tested.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/inkomstenbelasting/loonheffing-premies-werkgever"
+    },
+    {
+      "id": "A2:knm:batch006-sollicitatie:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'Bij een sollicitatie en op het werk mag geen sprake zijn van ongelijke behandeling.' and 'Volgens artikel 1 van de Grondwet is discriminatie verboden. ... discriminatiegronden in de wet, zoals ras, godsdienst en leeftijd.' No exception covers origin or company size. Distinct from the existing discriminatie card (where to get advice); eindterm 1.3.1 matches; stable. Persona Modibo is not in the illustration cast (coordinator note).",
+      "official_source": "https://www.rijksoverheid.nl/themas/werk/gelijke-behandeling-op-het-werk/regels-gelijke-behandeling-op-het-werk"
+    },
+    {
+      "id": "A2:knm:batch006-kvk:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Ondernemersplein (overheid.nl, published by KVK, checked 18 Nov 2025) states 'Start u een eigen bedrijf, dan moet u zich inschrijven in het Handelsregister van KVK.' and 'U hoeft zich niet apart in te schrijven bij de Belastingdienst. Dat gebeurt automatisch na uw inschrijving bij KVK.' Eindterm 1.4.1 matches exactly; the fee changes and is not tested.",
+      "official_source": "https://ondernemersplein.overheid.nl/bedrijf-starten/inschrijven-bij-kvk/inschrijven-bij-kvk/"
+    },
+    {
+      "id": "A2:knm:batch006-huurcontract:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'In een huurcontract staan de afspraken tussen u en uw verhuurder. Bijvoorbeeld hoe hoog de huur is.' and 'Uw verhuurder moet een schriftelijk huurcontract opstellen.' Purchase proof and huurtoeslag letter are other documents; eindterm 3.1.1 'weet wat een huurcontract inhoudt' matches; stable.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/welke-afspraken-staan-er-in-het-huurcontract-van-mijn-woning",
+      "level_check_rereview": {
+        "date": "2026-09-10",
+        "sha256": "6dacacce68f3752ab7b5265f6413c2c5183eb82111bcd17fbff1c4edf3cf9739",
+        "verdict": "pass",
+        "changed_fields": [
+          "questions[0].prompt",
+          "questions[0].options",
+          "questions[0].evidence",
+          "questions[0].explanation"
+        ],
+        "checked": "The level check's replacement was applied verbatim (prompt, three options, evidence, explanation). Prompt 'Karim gaat een woning huren. Wie maken samen de afspraken in het huurcontract?' is 13 words (limit 20), situation first and question second, plain A2 words. Key A 'De huurder en de verhuurder.' is stated by the fact text ('de afspraken tussen de huurder en de verhuurder', now the evidence and a verbatim substring of the unchanged text) and by the cited page, re-fetched 2026-09-10 with curl (HTTP 200 at the cited address, no redirect): 'In een huurcontract staan de afspraken tussen u en uw verhuurder. Bijvoorbeeld hoe hoog de huur is.' and, in its list of points, 'uw naam; de naam van de verhuurder; ... uw handtekening en de handtekening van de verhuurder'. B 'De huurder en de gemeente.' is false by that page (the gemeente is not a party) and plausible because indicator 3.1.1 says first housing often comes via the gemeente; C 'De verhuurder en de notaris.' is false (no notary on the page) and plausible because a notary belongs to buying a house. Options 5/5/5 words, all of the form 'De X en de Y.', no polarity, no hedge; 'huurder' recurs in B and 'verhuurder' in C, so no prompt word recurs only in the key. The explanation names both distractors and says why they fail; its clause 'een notaris hoort bij het kopen van een huis' is not on the cited page but is general knowledge and agrees with the woningcorporatie explanation in the same batch ('een notaris regelt de koopakte'). Eindterm 3.1.1 'weet wat een huurcontract inhoudt' still fits: the question now tests who the parties are instead of the word. The 'evidence' field above (which quotes the page for the previous definitional question) remains true of the page."
+      }
+    },
+    {
+      "id": "A2:knm:batch006-huuropzegging:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'Uw verhuurder mag niet zomaar de huur opzeggen van uw woning. Dat kan alleen met een goede reden.' and 'De rechter doet dan een uitspraak.' A phone call one month ahead is neither a legal reason nor the written 3-6 month notice on the page; the tijdelijk-contract end-date rule matches no option. Eindterm 3.1.2 matches.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/verhuurder-zegt-huur-op-woning",
+      "level_check_rereview": {
+        "date": "2026-09-10",
+        "sha256": "6dacacce68f3752ab7b5265f6413c2c5183eb82111bcd17fbff1c4edf3cf9739",
+        "verdict": "pass",
+        "changed_fields": [
+          "questions[0].options (A)",
+          "questions[0].explanation"
+        ],
+        "checked": "A 'Ja, dat mag altijd.' became 'Nee, dat mag nooit.' and the explanation gained the last sentence 'Opzeggen mag dus niet zomaar, maar ook niet nooit.', as requested. Key B 'Nee, alleen met een goede reden.' is stated by the fact text (evidence unchanged and verbatim) and by the cited page, re-fetched 2026-09-10 (HTTP 200 at the cited address, no redirect): 'Uw verhuurder mag niet zomaar de huur opzeggen van uw woning. Dat kan alleen met een goede reden. Bijvoorbeeld als u al meerdere maanden geen huur betaalt.' and 'De rechter doet dan een uitspraak.' A is false by the same sentence (it can, with a good reason) and is now a real belief (huurbescherming as absolute) instead of a throwaway absolute; C is false (a phone call a month ahead is neither a legal reason nor the written notice of three to six months the page describes). Polarity Nee/Nee*/Ja, so the key shares its polarity with a distractor; options 4/6/7 words with the key in the middle; no prompt word recurs only in the key. The explanation refutes both current distractors."
+      }
+    },
+    {
+      "id": "A2:knm:batch006-huurcommissie:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'Huurt u een sociale huurwoning of middenhuurwoning? En bent u het niet eens met de hoogte van de huur of de jaarlijkse huurverhoging? ... kijk dan wanneer u de Huurcommissie kunt inschakelen.' The gemeente (named on the page for a too-high huurprijs) is rightly not a distractor. Eindterm 3.1.2 'onterechte huurverhoging' matches; re-check when housing law changes. Non-blocking: prompt is three sentences.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/wanneer-kan-ik-terecht-bij-de-huurcommissie-en-wanneer-bij-de-kantonrechter",
+      "level_check_rereview": {
+        "date": "2026-09-10",
+        "sha256": "6dacacce68f3752ab7b5265f6413c2c5183eb82111bcd17fbff1c4edf3cf9739",
+        "verdict": "pass",
+        "changed_fields": [
+          "questions[0].options (A and B)",
+          "questions[0].explanation"
+        ],
+        "checked": "Options are now 'De gemeente.' / 'De woningcorporatie zelf.' / 'De Huurcommissie.' (key C), exactly the level check's set. The explanation's added sentence differs from the level check's proposal in one word: 'de gemeente gaat niet over de huurverhoging' instead of '... de huurprijs'. The reviser is right. The cited page, re-fetched 2026-09-10 (HTTP 200 at the cited address, no redirect; its title now reads 'Wanneer kan ik terecht bij de Huurcommissie, de gemeente en de kantonrechter?'), says 'Als uw huurprijs te hoog is, kunt u ook bij de gemeente terecht.', so 'de gemeente gaat niet over de huurprijs' would contradict the page, while the annual increase is assigned to the Huurcommissie in both the sociale/middenhuur and the vrije-sector paragraphs ('bent u het niet eens met de hoogte van de huur of de jaarlijkse huurverhoging? ... kijk dan wanneer u de Huurcommissie kunt inschakelen'; 'Voor geschillen over de jaarlijkse huurverhoging ... kunt u nog wel naar de Huurcommissie'). The question asks which organisation assesses a too-high huurverhoging in a sociale huurwoning, so A 'De gemeente.' is wrong for the case asked and is the sharpest plausible confusion (the page names the gemeente for the neighbouring case, the huurprijs); B 'De woningcorporatie zelf.' is wrong because the corporation is the landlord, a party and not the assessor, and the explanation says so. Key C is stated by the fact text ('kan naar de Huurcommissie'; evidence unchanged and verbatim) and by the page; eindterm 3.1.2 'onterechte huurverhoging' fits exactly. Options 2/3/2 words, three 'De ...' noun phrases, no polarity or hedge, key not the longest. 'Huur' still occurs only in the key, which is inherent to the institution's name and was accepted by the level check; the point of the request, distractors that a tenant actually considers, is met. The sentence in this item's 'evidence' field above, 'The gemeente ... is rightly not a distractor', described the previous option set and is superseded by this block."
+      }
+    },
+    {
+      "id": "A2:knm:batch006-woningcorporatie:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Key and text supported: 'U moet zich inschrijven bij een woningcorporatie. Of bij een andere organisatie die sociale huurwoningen aanbiedt.' and 'Woningbouwcorporaties mogen eisen stellen aan uw inkomen. Of aan de grootte van uw gezin.' (page re-opened 2026-09-10). Re-review of the rewritten explanation: its first sentence paraphrases the page and names the other organisations, so 'Sociale huurwoningen zijn van woningcorporaties' is gone; the reason for rejecting 'Bij een makelaar' is now registration, which the page never attributes to a makelaar (its makelaar route is 'Zoek een sociale huurwoning ... bij een particuliere verhuurder. Dat kan bijvoorbeeld een makelaar zijn.', searching, not inschrijven), so the explanation no longer contradicts the page's statement that other organisations, including via a makelaar, can offer social housing. Rubric check 9 and blueprint section 5 pass. Non-blocking: the gloss 'een makelaar bemiddelt bij koop en vrije huur' is true but incomplete; 'koop en huur' would be exact. Income limits change yearly and are not used.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/wanneer-kom-ik-in-aanmerking-voor-een-sociale-huurwoning",
+      "revision_applied": {
+        "field": "explanation",
+        "previous_failure": "'Sociale huurwoningen zijn van woningcorporaties' and 'Een makelaar helpt bij koopwoningen en huur in de vrije sector' are contradicted by the cited page; eindterm 3.1.3 also names a makelaar as a contact for a huurhuis.",
+        "rereviewed": "2026-09-10"
+      }
+    },
+    {
+      "id": "A2:knm:batch006-hypotheek:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "sourceUrl now https://www.rijksoverheid.nl/vraag-en-antwoord/huis-kopen/maximaal-bedrag-lenen-koopwoning ('Hoeveel kan ik maximaal lenen voor mijn koopwoning?', HTTP 200, no redirect, re-opened 2026-09-10), which states 'U kunt een hypotheek afsluiten tot 100% van de waarde van het huis. U kunt dus niet meer lenen dan het huis waard is.': the loan fact and the 100% rule, containing the item's second text sentence verbatim. sourceNote names this page, states both facts and keeps hypotheek-aanvragen-wat-moet-ik-regelen as the companion page ('U wilt een huis kopen. Om dat te betalen wilt u een hypotheek afsluiten.', re-opened). Question, options, key A, evidence and explanation unchanged; eindterm 3.1.3 acceptable; lending norms change yearly and are not used. Rubric check 13 passes.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/huis-kopen/maximaal-bedrag-lenen-koopwoning",
+      "revision_applied": {
+        "field": "sourceUrl (and sourceNote)",
+        "previous_failure": "The recorded URL does not support the precise claim (rubric check 13).",
+        "rereviewed": "2026-09-10"
+      },
+      "previous_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/huis-kopen/hypotheek-aanvragen-wat-moet-ik-regelen"
+    },
+    {
+      "id": "A2:knm:batch006-stroomstoring:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'Bij vragen over gas- of stroomstoringen moet u bij de netbeheerder zijn. De netbeheerders hebben 1 landelijk storingsnummer: 0800-9009.' and that the netbeheerder is responsible for cables, pipes and transport. Energieleverancier and gemeente are not named. Eindterm 3.2.1 says 'bij de leverancier van de nutsvoorziening'; the item follows the government's explicit rule (coordinator note). Number not tested.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/energie-thuis/vragen-over-gas-of-stroomstoringen",
+      "level_check_rereview": {
+        "date": "2026-09-10",
+        "sha256": "6dacacce68f3752ab7b5265f6413c2c5183eb82111bcd17fbff1c4edf3cf9739",
+        "verdict": "pass",
+        "changed_fields": [
+          "questions[0].options (C)",
+          "questions[0].explanation",
+          "imageBrief"
+        ],
+        "checked": "Option C 'Bij het alarmnummer 112.' replaces 'Bij de energieleverancier.', which eindterm 3.2.1 ('weet hoe hij een storing meldt bij de leverancier van de nutsvoorziening', Staatscourant 2024-15802 XML fetched 2026-09-10) made defensible; the explanation is the level check's text verbatim; the imageBrief now says the houses across the street are dark too, with no lit windows anywhere in the street, as the level check asked. Key B is stated by the fact text ('Een storing van gas of stroom meldt u bij de netbeheerder'; evidence unchanged and verbatim) and by the cited page, re-fetched 2026-09-10 (HTTP 200 at the cited address, no redirect): 'Bij vragen over gas- of stroomstoringen moet u bij de netbeheerder zijn. De netbeheerders hebben 1 landelijk storingsnummer: 0800-9009.' A 'Bij de gemeente.' is not named on the page (plausible: the gemeente is a newcomer's default public body). C is clearly wrong for a power cut: 112 is for urgent help where every second counts (government.nl page cited by the noodnummer card, re-fetched 2026-09-10: 'for when you need urgent help, for instance when your life is in immediate danger, or if someone is seriously injured ... or if you have witnessed a serious crime'); a street without electricity is none of these; plausible because 112 is the one number every newcomer knows. Options 3/3/4 words, three 'Bij ...' phrases, key not the longest, no prompt word in any option. The explanation refutes both current distractors (gemeente, 112) and still mentions the energieleverancier, which is useful because the eindterm names the leverancier. The clause '112 is alleen voor levensgevaar' was checked against the noodnummer card (A2:knm:batch003-noodnummer:1: 'Het alarmnummer 112 is voor spoed wanneer iedere seconde telt, bijvoorbeeld bij brand, direct levensgevaar of een ernstig ongeluk.') and against eindterm 4.3.2 ('Weet dat bij levensbedreigende situaties het nummer 112 moet worden gebeld'): it is the eindterm's own grain, the card's examples are life-threatening situations and the card's key (a house fire, 112) stays consistent with it, so it is not misleading. It is narrower than the government.nl page, which also names witnessing a serious crime, but that is not the tested fact; if the coordinator prefers the card's wording, the drop-in clause is 'en 112 is alleen voor spoed, als elke seconde telt' (not requested). Coordinator note 1 (the netbeheerder/leverancier tension) is resolved by this edit. The current drawing (lit windows across the street) is not answer-relevant; the picture must be regenerated from the new brief."
+      }
+    },
+    {
+      "id": "A2:knm:batch006-energietarief:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "ACM ConsuWijzer (responsible public supervisor) states 'Bij een contract met een vast tarief betaalt u dezelfde prijs voor elektriciteit of gas. ... Het tarief per kWh of m3 verandert in dit contract niet.' and 'Bij een contract met een variabel tarief mag de leverancier het tarief per kWh en m3 veranderen.'; switching is allowed with a possible opzegvergoeding. Taxes and network costs can change, which the item excludes by speaking of the price for stroom en gas. Eindterm 3.2.2 matches.",
+      "official_source": "https://consument.acm.nl/elektriciteit-en-gas/wat-betaal-ik-voor-mijn-energie/vaste-variabele-leveringskosten-energie"
+    },
+    {
+      "id": "A2:knm:batch006-gft:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'Groenteafval, fruitafval en tuinafval mag u in de gft-bak doen. Van dit afval kan compost gemaakt worden.' and 'Hoe u het gft-afval moet inleveren, verschilt per gemeente.' Eindterm 3.3.1 matches; stable. Non-blocking: 'In de glasbak' is a weak distractor; 'Bij het plastic afval' would be more plausible.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/afval/welk-afval-mag-ik-in-de-gft-bak-doen"
+    },
+    {
+      "id": "A2:knm:batch006-huisartskeuze:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'Het is meestal mogelijk om zelf uw huisarts te kiezen en ook om van huisarts te veranderen. Een huisarts mag in bepaalde situaties weigeren u als patiënt aan te nemen.' and that the zorgverzekeraar only helps to find one. The hedge 'meestal' in the key mirrors the source; eindterm 4.1.1 matches; stable.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+      "level_check_rereview": {
+        "date": "2026-09-10",
+        "sha256": "6dacacce68f3752ab7b5265f6413c2c5183eb82111bcd17fbff1c4edf3cf9739",
+        "verdict": "pass",
+        "changed_fields": [
+          "questions[0].options"
+        ],
+        "checked": "Options are the level check's set verbatim: A* 'Ja, zij kiest meestal zelf een huisarts.' / B 'Nee, de gemeente wijst een huisarts aan.' / C 'Ja, maar zij mag later niet meer veranderen.' (7/7/8 words). The three signals the level check named are gone: the key is no longer the shortest (B is as long, C longer), no longer the only hedged option (C is qualified by 'maar ... niet meer') and no longer the only 'Ja' (C). Key A is stated by the fact text ('In Nederland kunt u meestal zelf uw huisarts kiezen'; evidence unchanged and verbatim) and by the cited page, re-fetched 2026-09-10 (HTTP 200 at the cited address, no redirect): 'Het is meestal mogelijk om zelf uw huisarts te kiezen en ook om van huisarts te veranderen.' B is false (the page names no gemeente; the zorgverzekeraar only helps to find one) and plausible; C is false by 'ook om van huisarts te veranderen' and by the text's second sentence, and plausible (a newcomer may think the first choice is final). The unchanged explanation refutes both ('u mag ook veranderen'; 'De gemeente en de zorgverzekeraar wijzen geen huisarts aan'). Residual, not blocking: 'zelf' and the verb kiezen/kiest recur from the prompt in the key only, because the 'Ja' option restates the proposition asked; that is the shape of the yes/no-with-qualification form in blueprint 4.5 itself ('Is belastingaangifte doen verplicht in Nederland?' - 'Ja, dat is vaak verplicht.'), and the level check treated the same restatement in ouderbijdrage (batch 007) as optional. If the coordinator wants the echo gone: A 'Ja, dat mag zij meestal gewoon doen.' (7 words, same polarity and hedge); not requested."
+      }
+    },
+    {
+      "id": "A2:knm:batch006-receptmedicijnen:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'Receptmedicijnen kunt u alleen bij een apotheek kopen. Voor zelfzorgmedicijnen heeft u geen recept nodig. Deze zijn ook bij de drogist of andere winkels te koop.' and 'Receptmedicijnen krijgt u alleen met een recept van uw (huis)arts. Deze geneesmiddelen koopt u in een apotheek.' Eindterm 4.1.2 matches both bullets; stable.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/geneesmiddelen/waar-kan-ik-medicijnen-kopen"
+    },
+    {
+      "id": "A2:knm:batch006-consultatiebureau:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page heading 'Consultatiebureau: ontwikkeling kind volgen'; text 'U kunt vragen stellen over uw baby aan de jeugdarts of verpleegkundige van het consultatiebureau (gratis jeugdgezondheidszorg). ... Ook krijgt uw baby inentingen tegen kinderziekten op het consultatiebureau.' Childcare and birth registration are other bodies; eindterm 4.1.4 matches; stable.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/zwangerschap-en-geboorte/bij-wie-kan-ik-terecht-met-vragen-over-de-gezondheid-en-opvoeding-van-mijn-kind"
+    },
+    {
+      "id": "A2:knm:batch006-verwijsbrief:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'Voor specialistische zorg, bijvoorbeeld in ziekenhuizen, heeft u een verwijsbrief nodig.', 'De huisarts geeft alleen een verwijzing als dit medisch nodig is.' and that without one you may have to pay yourself. The no-referral list (fysiotherapeut etc.) does not cover a hospital specialist; eindterm 4.2.1 matches; stable.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/wanneer-heb-ik-een-verwijsbrief-van-mijn-huisarts-nodig-en-wanneer-mag-hij-deze-weigeren"
+    },
+    {
+      "id": "A2:knm:batch006-huisartsenpost:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Fact verified again 2026-09-10: 'Is uw huisartsenpraktijk dicht? Dan verwijst de huisarts u door naar de huisartsenpost.' and 'Neem altijd eerst contact op met uw huisartsenpost voordat u naar de spoedeisende hulppost gaat. Behalve bij een levensbedreigende situatie. Dan kunt u het beste direct 112 bellen.'; hours on the huisarts page ('in de avond, nacht of in het weekend kunt u gebruikmaken van een huisartsenpost') and in eindterm 4.3.1. New prompt 'Amina is ’s nachts ziek. Wat is de huisartsenpost?': 9 words, blueprint section 4.5 persona-fact form, A2 vocabulary; Amina is in the cast (girl of about 10) and the scene matches the unchanged imageBrief. Key C is the only correct definition (A is the spoedeisende hulppost, B a pharmacy). No content word of the prompt recurs only in the key ('praktijk' and 'dicht' are gone); ''s nachts' recurs in distractor B only, a lure rather than a key signal; the prompt no longer restates the key's logic. Blueprint section 5 passes. The optional evidence extension was not applied and stays optional.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/huisartsenpost-spoedeisende-hulp",
+      "revision_applied": {
+        "field": "prompt (optionally evidence)",
+        "previous_failure": "The context sentence 'De praktijk van de huisarts is 's avonds dicht.' shares 'praktijk' and 'dicht' with the key only and restates the key's logic (blueprint section 5).",
+        "rereviewed": "2026-09-10"
+      }
+    },
+    {
+      "id": "A2:knm:batch006-eigenrisico:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'Behalve als het over zorg gaat waarvoor geen eigen risico geldt, zoals de huisarts.' and lists 'huisartsenzorg (waaronder de huisartsenpost)' under care without eigen risico; the explanation's claim about medicines and blood tests confirmed on https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/huisartskosten-op-zorgnota ('Deze zorg valt wel onder uw verplichte eigen risico. Net als de geneesmiddelen die een huisarts voorschrijft.'). Eindterm 4.4.1 matches exactly; the amount changes and is not tested. Word echo balanced (huisarts in key, eigen risico in distractors).",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/eigen-risico-zorgverzekering",
+      "level_check_rereview": {
+        "date": "2026-09-10",
+        "sha256": "6dacacce68f3752ab7b5265f6413c2c5183eb82111bcd17fbff1c4edf3cf9739",
+        "verdict": "pass",
+        "changed_fields": [
+          "questions[0].options (A and C)"
+        ],
+        "checked": "A 'Ja, elk bezoek aan de huisarts kost eigen risico.' and C 'Nee, en medicijnen op recept ook niet.', as requested; B and every other field unchanged. Key B is stated by the fact text ('Voor de huisarts geldt geen eigen risico'; evidence verbatim) and by the cited page, re-fetched 2026-09-10 (HTTP 200 at the cited address, no redirect): 'Behalve als het over zorg gaat waarvoor geen eigen risico geldt, zoals de huisarts.' and 'huisartsenzorg (waaronder de huisartsenpost)' in the list of care without eigen risico. A is false by those sentences; C is false by the companion page huisartskosten-op-zorgnota, re-fetched 2026-09-10 (HTTP 200): 'Deze zorg valt wel onder uw verplichte eigen risico. Net als de geneesmiddelen die een huisarts voorschrijft.', and the unchanged explanation says so ('Medicijnen of bloedonderzoek die de huisarts aanvraagt vallen er wel onder'). Polarity Ja/Nee*/Nee, so the key shares its polarity with C; 'huisarts' now occurs in A as well as in the key, so no prompt word recurs only in the key. Option A is nine words (9/7/7): the longest option is a distractor, the checker's spread warning does not fire and blueprint 4.5 asks only for short sentences; acceptable."
+      }
+    },
+    {
+      "id": "A2:knm:batch006-zorgnota:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'U kunt een zorgnota inzien op de website van uw zorgverzekeraar.', 'Een zorgverlener stuurt een rekening meestal rechtstreeks naar uw zorgverzekeraar.' and 'Daarna kunt u de rekening zien via ‘mijn omgeving’ op de website van uw zorgverzekeraar.' Gemeente and huisartsenpost hold no such bills; eindterm 4.4.3 matches; stable. Persona Sabrina is not in the illustration cast (coordinator note).",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/zorgnota-controleren"
+    },
+    {
+      "id": "A2:knm:batch006-wmo:1",
+      "verdict": "pass",
+      "level_check": "comparable",
+      "evidence": "Page states 'Meldt u zich bij de gemeente met het verzoek om ondersteuning, zodat u thuis kunt blijven wonen? Dan moet de gemeente onderzoek doen ...' and 'Het Wmo-loket of het sociale wijkteam van uw gemeente ... helpt u bij de aanvraag van voorzieningen uit de Wmo.'; companion page https://www.rijksoverheid.nl/vraag-en-antwoord/zorg-en-ondersteuning-thuis/ondersteuning-gemeente-wmo-2015 lists 'huishoudelijke hulp (zoals hulp bij het opruimen, schoonmaken en ramen zemen)'. Insurer covers wijkverpleging, not household help; the Wlz exception is not an option. Eindterm 4.5.1 'hulp thuis, bijvoorbeeld voor ouderen' matches; re-check yearly.",
+      "official_source": "https://www.rijksoverheid.nl/vraag-en-antwoord/zorg-en-ondersteuning-thuis/ondersteuning-gemeente-wmo-2015-aanvragen"
+    }
   ],
   "revision_requests": [
-    {"id":"A2:knm:batch006-woningcorporatie:1","field":"explanation","request":"Remove the claims contradicted by the cited page (sociale huurwoningen only from woningcorporaties; makelaar only for koop and vrije sector) and explain the key through registration as a woningzoekende."},
-    {"id":"A2:knm:batch006-hypotheek:1","field":"sourceUrl, sourceNote","request":"Point sourceUrl at https://www.rijksoverheid.nl/vraag-en-antwoord/huis-kopen/maximaal-bedrag-lenen-koopwoning, which states the loan fact and the text sentence; keep the current page as companion in sourceNote."},
-    {"id":"A2:knm:batch006-huisartsenpost:1","field":"prompt (optionally evidence)","request":"Drop or replace the context sentence that shares 'praktijk' and 'dicht' with the key only; optionally quote both text sentences as evidence."}
+    {
+      "id": "A2:knm:batch006-woningcorporatie:1",
+      "field": "explanation",
+      "request": "Remove the claims contradicted by the cited page (sociale huurwoningen only from woningcorporaties; makelaar only for koop and vrije sector) and explain the key through registration as a woningzoekende."
+    },
+    {
+      "id": "A2:knm:batch006-hypotheek:1",
+      "field": "sourceUrl, sourceNote",
+      "request": "Point sourceUrl at https://www.rijksoverheid.nl/vraag-en-antwoord/huis-kopen/maximaal-bedrag-lenen-koopwoning, which states the loan fact and the text sentence; keep the current page as companion in sourceNote."
+    },
+    {
+      "id": "A2:knm:batch006-huisartsenpost:1",
+      "field": "prompt (optionally evidence)",
+      "request": "Drop or replace the context sentence that shares 'praktijk' and 'dicht' with the key only; optionally quote both text sentences as evidence."
+    }
   ],
   "optional_edits": [
     "huurcommissie: two-sentence prompt ('Fatima huurt een sociale huurwoning en vindt de huurverhoging te hoog. Welke organisatie beoordeelt dit?').",
@@ -91,9 +333,62 @@
     "wmo: add the companion URL that names huishoudelijke hulp to sourceNote."
   ],
   "coverage": {
-    "theme_1": {"items": 8, "eindtermen_covered": ["1.1.4","1.1.7","1.1.8","1.2.1","1.2.2","1.2.3","1.3.1","1.4.1"], "eindtermen_total": 13, "not_covered": ["1.1.1","1.1.2","1.1.3","1.1.5","1.1.6"]},
-    "theme_3": {"items": 8, "eindtermen_covered": ["3.1.1","3.1.2","3.1.2","3.1.3","3.1.3","3.2.1","3.2.2","3.3.1"], "eindtermen_total": 6, "not_covered": []},
-    "theme_4": {"items": 8, "eindtermen_covered": ["4.1.1","4.1.2","4.1.4","4.2.1","4.3.1","4.4.1","4.4.3","4.5.1"], "eindtermen_total": 12, "not_covered": ["4.1.3","4.3.2","4.4.2","4.4.4"]}
+    "theme_1": {
+      "items": 8,
+      "eindtermen_covered": [
+        "1.1.4",
+        "1.1.7",
+        "1.1.8",
+        "1.2.1",
+        "1.2.2",
+        "1.2.3",
+        "1.3.1",
+        "1.4.1"
+      ],
+      "eindtermen_total": 13,
+      "not_covered": [
+        "1.1.1",
+        "1.1.2",
+        "1.1.3",
+        "1.1.5",
+        "1.1.6"
+      ]
+    },
+    "theme_3": {
+      "items": 8,
+      "eindtermen_covered": [
+        "3.1.1",
+        "3.1.2",
+        "3.1.2",
+        "3.1.3",
+        "3.1.3",
+        "3.2.1",
+        "3.2.2",
+        "3.3.1"
+      ],
+      "eindtermen_total": 6,
+      "not_covered": []
+    },
+    "theme_4": {
+      "items": 8,
+      "eindtermen_covered": [
+        "4.1.1",
+        "4.1.2",
+        "4.1.4",
+        "4.2.1",
+        "4.3.1",
+        "4.4.1",
+        "4.4.3",
+        "4.5.1"
+      ],
+      "eindtermen_total": 12,
+      "not_covered": [
+        "4.1.3",
+        "4.3.2",
+        "4.4.2",
+        "4.4.4"
+      ]
+    }
   },
   "reserve_facts_verified": [
     "https://www.rijksoverheid.nl/vraag-en-antwoord/arbeidsovereenkomst-en-cao/welke-arbeidsvoorwaarden-heb-ik-als-uitzendkracht",
@@ -110,12 +405,51 @@
     "The batch has no 'situation' field; blueprint section 4.5 does not require it for KNM and the official item has no situation line. Decide at integration.",
     "Modibo and Sabrina are not in the config/illustration.json cast; add them or swap to cast names before illustration.",
     "Yearly re-check: bijstand duties (Participatiewet 2026/2027), Huurcommissie scope, Wmo reforms; amounts (eigen risico, income limits, KVK fee) are not tested.",
-    "Theme 4 eindterm 4.1.3 (tandarts) is not covered; the author's verified reserve on tandartskosten belongs to 4.4.1."
+    "Theme 4 eindterm 4.1.3 (tandarts) is not covered; the author's verified reserve on tandartskosten belongs to 4.4.1.",
+    "Resolved by the revision after the level check: the stroomstoring item no longer offers 'Bij de energieleverancier.' as a distractor, so it no longer hinges on the netbeheerder/leverancier split that eindterm 3.2.1 does not draw; the explanation still names the leverancier as context (note 1 is historical)."
   ],
   "limitations": [
     "This is an AI editorial review. It does not replace independent Dutch-language educator review, learner trials, blueprint validation or psychometric calibration, and it does not establish equivalence with the official KNM exam.",
     "Official pages support the KNM facts as served on 10 September 2026, not the quality or difficulty of the questions. Facts must be rechecked when an item is revised and at the yearly refresh.",
     "The A2 label remains an unvalidated authoring target; level_check compares each item with the blueprint's description of the official KNM item, because content/exemplars/ does not exist yet.",
     "The three revisions were made and re-reviewed on 2026-09-10 (see focused_rereview); source_sha256 is the hash of the re-reviewed file. Any further byte change to the batch file needs another focused re-review."
+  ],
+  "level_check_rereview": {
+    "date": "2026-09-10",
+    "scope": "The revision recorded under 'Revision after the level check (10 September 2026)' at the end of content/batches/006-notes.md, which applies the required actions of content/reviews/006-007-level-check.md: huurcontract (prompt, options, evidence, explanation), huurcommissie (options A and B, explanation), stroomstoring (option C, explanation, imageBrief), huisartskeuze (options), huuropzegging (option A, explanation), eigenrisico (options A and C). Each of the six items was re-reviewed in full: the change against the level check's request, the key against the fact text and the re-fetched source, both distractors for falsity and plausibility, evidence as a verbatim substring, prompt length, option parallelism and the three key signals of blueprint section 5, the explanation against the current distractors, and A2 wording. The claim that nothing else changed was verified by reconstruction.",
+    "verdict": "pass",
+    "previous_source_sha256": "145a5c131b55e405d2961080a1b559e5565c220f18a78377553b94b9ceb720a1",
+    "source_sha256": "6dacacce68f3752ab7b5265f6413c2c5183eb82111bcd17fbff1c4edf3cf9739",
+    "change_verified": "content/catalogue.json still holds the copies of all 24 items integrated from the previously reviewed file (they differ from the batch only in status, revision, the images array and questionAudio). A copy of the current batch file in which the catalogue's values were substituted back for exactly fourteen leaf fields (huurcontract prompt, options, evidence, explanation; huurcommissie options, explanation; stroomstoring options, explanation, imageBrief; huisartskeuze options; huuropzegging options, explanation; eigenrisico options), serialised with the batch's own formatting (JSON, two-space indent, trailing newline, which reproduces the current file byte for byte), hashes to 145a5c131b55e405d2961080a1b559e5565c220f18a78377553b94b9ceb720a1, the hash of the previously reviewed file, byte for byte; the current file hashes to 6dacacce68f3752ab7b5265f6413c2c5183eb82111bcd17fbff1c4edf3cf9739. A field-by-field comparison of all 24 items against the catalogue copies shows no other differing field. So no other text, prompt, option, key, evidence, explanation, image field, eindterm, theme, source field or metadata changed. Re-run of the added checks on the current file: every evidence verbatim in its text, every prompt at most 20 words (longest 17), all KNM fields present, key balance unchanged (A 8, B 9, C 7; per theme 1 A3/B3/C2, 3 A2/B3/C3, 4 A3/B3/C2, as the notes state).",
+    "level_check_match": "Every change is the level check's required text verbatim, with two deliberate deviations, both judged right: huurcommissie's explanation says 'huurverhoging' where the level check wrote 'huurprijs' (the cited page lets the gemeente act on a too-high huurprijs, so the level check's word would have contradicted it), and stroomstoring's imageBrief was rewritten to the level check's 'dark windows' request in the reviser's own words. The level check's optional suggestions (wording, sharper distractors, fact-text simplifications) were not applied and remain optional.",
+    "yes_no_polarity_after_revision": "Of the batch's five yes/no items the key is the odd polarity out only in sollicitatie (unchanged; the level check flagged nothing there); huuropzegging Nee/Nee*/Ja, huisartskeuze Ja*/Nee/Ja, eigenrisico Ja/Nee*/Nee, bijstandsplicht Ja*/Nee/neutral. Across batches 006 and 007 the odd polarity now marks the key in four of the nine two-polarity items, which is what the level check predicted after its four edits.",
+    "media": "The six revised questions need new question audio: content/audio-manifest.json still holds the previous prompt and option text for A2:knm:batch006-{huurcontract,huurcommissie,stroomstoring,huisartskeuze,huuropzegging,eigenrisico}:1#q1, and scripts/content.ts drops questionAudio when a question changes. stroomstoring needs a new drawing from the revised brief; the current file images/1c715ee881b5c048.webp shows lit windows across the street.",
+    "observations_not_blocking": [
+      "stroomstoring: '112 is alleen voor levensgevaar' is the grain of eindterm 4.3.2 and consistent with the noodnummer card; if the coordinator prefers the card's wording, 'en 112 is alleen voor spoed, als elke seconde telt' is a drop-in clause. Not requested.",
+      "huisartskeuze: 'zelf' and kiezen/kiest recur from the prompt in the key only, the natural restatement of a 'Ja' answer (blueprint 4.5's own example does the same). Optional alternative: A 'Ja, dat mag zij meestal gewoon doen.' Not requested.",
+      "huurcommissie: 'huur' still occurs only in the key (the institution's name); inherent, accepted by the level check. The cited page's title has changed since the full review (it now names the gemeente as well); the URL still answers HTTP 200 without redirect and the sourceNote's paraphrase remains accurate.",
+      "eigenrisico: option A is nine words, the longest option in the batch; it is a distractor and the checker does not warn.",
+      "huurcontract: the explanation's 'een notaris hoort bij het kopen van een huis' is not on the cited page; general knowledge, consistent with the woningcorporatie explanation.",
+      "The item findings 9, 10, 11, 14, 17 and 22 of the full review (006-review.md) and the 'evidence' fields of these six items above describe the previous option sets; the level_check_rereview blocks carry the current verdicts. coordinator_notes[0] (the netbeheerder/leverancier tension) is resolved by the stroomstoring edit; see the appended note.",
+      "content/batches/006-notes.md section 4 still describes the pre-revision items; the addendum at the end records the change, so the notes read as a history. Any further byte change to the batch file needs another focused re-review."
+    ]
+  },
+  "revisions": [
+    {
+      "date": "2026-09-10",
+      "reviewer": "focused re-review (level check)",
+      "items": [
+        "A2:knm:batch006-huurcontract:1",
+        "A2:knm:batch006-huurcommissie:1",
+        "A2:knm:batch006-stroomstoring:1",
+        "A2:knm:batch006-huisartskeuze:1",
+        "A2:knm:batch006-huuropzegging:1",
+        "A2:knm:batch006-eigenrisico:1"
+      ],
+      "previous_sha256": "145a5c131b55e405d2961080a1b559e5565c220f18a78377553b94b9ceb720a1",
+      "re_reviewed_sha256": "6dacacce68f3752ab7b5265f6413c2c5183eb82111bcd17fbff1c4edf3cf9739",
+      "verdict": "pass",
+      "note": "Focused re-review of the six items revised on the required actions of content/reviews/006-007-level-check.md (the record's earlier focused re-review, hash chain 3628cf2e... -> 145a5c13..., is recorded under focused_rereview). The file at 6dacacce... differs from the file at 145a5c13... in exactly fourteen leaf fields of those six items, verified by substituting the catalogue's copies back and reproducing the previous hash byte for byte; batch:check ends 'No failures, no warnings'; keys 8/9/7. All six items pass: each change matches the level check's request (the huurcommissie 'huurverhoging' wording and the stroomstoring brief are the reviser's justified deviations), each key is stated by the fact text and the re-fetched source, both distractors are false and plausible, evidence verbatim, prompts at most 17 words, options parallel without a length, polarity or keyword signal beyond the two inherent echoes noted, explanations refute the current distractors, A2 wording. The stroomstoring 112 clause was judged against the noodnummer card and eindterm 4.3.2 and is not misleading. All 24 items pass; batch_verdict pass; ready_for_integration true; source_sha256 set to 6dacacce.... Integration must regenerate question audio for the six items and the stroomstoring picture."
+    }
   ]
 }

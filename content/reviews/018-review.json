@@ -1,0 +1,510 @@
+{
+  "review_id": "batch018-editorial-review",
+  "source": "content/batches/018-original.json",
+  "source_sha256": "ad66645abd1430444fe194f4148337f7f76145ddf44812667f48b7fc34f549c0",
+  "source_sha256_note": "SHA-256 of content/batches/018-proposed.json, the bytes to be adopted (docs/briefs/review.md). The reviewed original hashed to d1ef87f3eae449ae8e8415cc0a1ec0cdaecf8f1181c4d791a7b4315f6523a847.",
+  "proposed": "content/batches/018-proposed.json",
+  "review_type": "Independent AI editorial, fact and level review of 12 original KNM items (July 2025 format: one picture, one factual question of at most twenty words, three options) for theme 2 Omgangsvormen, waarden en normen, against content/reviews/rubric.md (check 13 decisive), content/blueprint.md sections 1, 3, 4.5, 5, 7, 8, 10, 12, 13, docs/research/exam-blueprints-2026-09-10.md section 3.1 'KNM' and the KNM rules of content/reviews/006-007-level-check.md. Every cited page and every secondary page named in a sourceNote was fetched with curl on 2026-09-10 (17 pages, all HTTP 200) and the supporting sentence located in the page text; the theme 2 eindtermen were read on wetten.overheid.nl (Regeling inburgering 2021, bijlage 2, geldend van 18-04-2026). Repairs were applied in the proposed file rather than requested; no premise was changed.",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-10",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_counts": {
+    "pass": 12,
+    "pass_unchanged": 4,
+    "pass_edited": 8,
+    "rejected": 0
+  },
+  "edits": [
+    {
+      "item": "A2:knm:batch018-omgangsvormen:1",
+      "field": "questions[0].explanation",
+      "before": "Omgangsvormen en gewoonten kunnen in Nederland verschillen per sociale groep, regio en generatie. Ze zijn dus niet overal precies hetzelfde, en ze staan niet in de wet; alleen wetten gelden voor iedereen.",
+      "after": "Omgangsvormen en gewoonten kunnen in Nederland verschillen per sociale groep, regio en generatie. Ze zijn dus niet overal precies hetzelfde. Ze staan ook niet in de wet: een wet geldt voor iedereen, een gewoonte niet.",
+      "why": "The original closed with 'alleen wetten gelden voor iedereen', which reads as if norms bind nobody; the new last sentence states the law/custom contrast the distractor C confuses."
+    },
+    {
+      "item": "A2:knm:batch018-directheid:1",
+      "field": "text",
+      "before": "Veel mensen in Nederland zeggen direct wat zij denken of willen. Dat is hier een gewone manier van praten, geen teken van boosheid.",
+      "after": "Veel mensen in Nederland zeggen direct wat zij denken of willen. Dat is hier een gewone manier van praten. Het is meestal geen teken van boosheid.",
+      "why": "'geen teken van boosheid' stated flatly overstates what the source (eindterm 2.1.2) supports; 'meestal' matches the prompt ('meestal bedoeld') and the explanation ('meestal geen teken'). Split into three sentences to stay under the A2 average of 12 words. Evidence unchanged and still verbatim."
+    },
+    {
+      "item": "A2:knm:batch018-gelijk-geslacht:1",
+      "field": "questions[0].options.A",
+      "before": "Alleen een geregistreerd partnerschap is mogelijk.",
+      "after": "Zij moeten eerst een geregistreerd partnerschap sluiten.",
+      "why": "Distractors A and C both began with or contained 'alleen' and were both prohibitive, so the key was the odd polarity out and the only option without an absolute term (blueprint section 5; 006-007 level check). The new A keeps the partnership confusion as a false requirement."
+    },
+    {
+      "item": "A2:knm:batch018-gelijk-geslacht:1",
+      "field": "questions[0].explanation",
+      "before": "De wet zegt dat een huwelijk kan worden gesloten door twee personen van verschillend of van gelijk geslacht. Twee vrouwen of twee mannen kunnen dus trouwen. Een geregistreerd partnerschap of samenwonen kan ook, maar is niet de enige mogelijkheid.",
+      "after": "De wet zegt dat een huwelijk kan worden gesloten door twee personen van verschillend of van gelijk geslacht. Twee vrouwen of twee mannen kunnen dus trouwen. Een geregistreerd partnerschap of samenwonen kan ook, maar dat is niet verplicht en niet de enige mogelijkheid.",
+      "why": "Follows the new distractor A (a partnership is not a required first step)."
+    },
+    {
+      "item": "A2:knm:batch018-burgerlijk-huwelijk:1",
+      "field": "questions[0].options.A",
+      "before": "Trouwen in de moskee is genoeg voor de wet.",
+      "after": "Zij hoeven alleen in de moskee te trouwen.",
+      "why": "Options re-framed in parallel ('Zij hoeven / mogen / moeten ... trouwen') so that the key is not the only option with a different shape (the reisdocument failure of the 007 review)."
+    },
+    {
+      "item": "A2:knm:batch018-burgerlijk-huwelijk:1",
+      "field": "questions[0].options.B",
+      "before": "Trouwen in de moskee is in Nederland niet toegestaan.",
+      "after": "Zij mogen in Nederland niet in een moskee trouwen.",
+      "why": "Same re-framing; the over-correction distractor is kept."
+    },
+    {
+      "item": "A2:knm:batch018-burgerlijk-huwelijk:1",
+      "field": "questions[0].options.C",
+      "before": "Eerst trouwen bij de gemeente, daarna de moskee.",
+      "after": "Zij moeten eerst bij de gemeente trouwen.",
+      "why": "Same re-framing; the key now shares its form with the distractors and is the shortest, not the longest, option."
+    },
+    {
+      "item": "A2:knm:batch018-burgerlijk-huwelijk:1",
+      "field": "questions[0].explanation",
+      "before": "Alleen het huwelijk bij de ambtenaar van de burgerlijke stand van de gemeente geldt voor de wet. Een religieuze ceremonie in een kerk of moskee is toegestaan, maar pas nadat het burgerlijk huwelijk is gesloten.",
+      "after": "Voor de wet telt alleen het huwelijk bij de ambtenaar van de burgerlijke stand van de gemeente. Een religieuze ceremonie in een kerk of moskee is toegestaan, maar pas nadat het burgerlijk huwelijk is gesloten: eerst de gemeente, daarna de moskee.",
+      "why": "Keeps the order rule explicit now that the key no longer names the mosque."
+    },
+    {
+      "item": "A2:knm:batch018-dodenherdenking:1",
+      "field": "questions[0].options.B",
+      "before": "De verjaardag van de Koning wordt gevierd.",
+      "after": "Het einde van de slavernij wordt herdacht.",
+      "why": "A and B both ended in 'wordt gevierd' and only the key in 'worden herdacht', so the key was the odd verb out. The new B (Keti Koti, 1 juli, named in eindterm 2.1.5) shares 'herdacht' with the key and 'Het einde van de' with A; verified on rijksoverheid.nl (Veelgestelde vragen Herdenkingsjaar Slavernijverleden)."
+    },
+    {
+      "item": "A2:knm:batch018-dodenherdenking:1",
+      "field": "questions[0].explanation",
+      "before": "4 mei is de Nationale Herdenking: Nederland herdenkt de doden van de Tweede Wereldoorlog en van oorlogen daarna, met twee minuten stilte om acht uur 's avonds. Het einde van de oorlog wordt gevierd op 5 mei, Bevrijdingsdag; de verjaardag van de Koning op 27 april, Koningsdag.",
+      "after": "4 mei is de Nationale Herdenking: Nederland herdenkt de doden van de Tweede Wereldoorlog en van oorlogen daarna, met twee minuten stilte om acht uur 's avonds. Het einde van de oorlog wordt gevierd op 5 mei, Bevrijdingsdag. Het einde van de slavernij wordt herdacht op 1 juli, Keti Koti.",
+      "why": "Names the day of the new distractor instead of Koningsdag."
+    },
+    {
+      "item": "A2:knm:batch018-dodenherdenking:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Nationale herdenkingen Tweede Wereldoorlog': 'Tijdens de Nationale Herdenking herdenkt Nederland allen – burgers en militairen – die in het Koninkrijk der Nederlanden of waar ook ter wereld zijn omgekomen of vermoord; zowel tijdens de Tweede Wereldoorlog en de onafhankelijkheidsoorlog in Indonesië, als in oorlogssituaties en bij vredesoperaties daarna.', 'Tussen 20:00 en 20:02 uur is iedereen 2 minuten stil.' and 'De nationale herdenking is altijd op 4 mei.' The companion page 'Bevrijdingsdag 5 mei' supports the distractor. Stable.",
+      "after": "Rijksoverheid, 'Nationale herdenkingen Tweede Wereldoorlog': 'Tijdens de Nationale Herdenking herdenkt Nederland allen – burgers en militairen – die in het Koninkrijk der Nederlanden of waar ook ter wereld zijn omgekomen of vermoord; zowel tijdens de Tweede Wereldoorlog en de onafhankelijkheidsoorlog in Indonesië, als in oorlogssituaties en bij vredesoperaties daarna.', 'Tussen 20:00 en 20:02 uur is iedereen 2 minuten stil.' and 'De nationale herdenking is altijd op 4 mei.' The companion page 'Bevrijdingsdag 5 mei' supports distractor A; Rijksoverheid, 'Veelgestelde vragen over het Herdenkingsjaar Slavernijverleden' ('Op 1 juli 1863 werd de slavernij in de voormalige koloniën formeel afgeschaft. Het is ook de datum waarop de Nationale Herdenking Slavernijverleden plaatsvindt.') supports distractor B. Stable.",
+      "why": "Records the source of the new distractor B."
+    },
+    {
+      "item": "A2:knm:batch018-koningsdag:1",
+      "field": "questions[0].options.B",
+      "before": "De verjaardag van de Koning, op 27 april.",
+      "after": "De verjaardag van de Koning.",
+      "why": "The key alone carried a date ('op 27 april'), making it the most specific option (blueprint section 5). The date stays in the fact card and explanation."
+    },
+    {
+      "item": "A2:knm:batch018-koningsdag:1",
+      "field": "questions[0].options.C",
+      "before": "De trouwdag van de Koning en de Koningin.",
+      "after": "De trouwdag van de Koning.",
+      "why": "Shortened to the same five-word frame as the key so the key does not stand alone in length; A (Koninkrijksdag confusion, 15 December in the vlaginstructie) stays as the longer option."
+    },
+    {
+      "item": "A2:knm:batch018-koningsdag:1",
+      "field": "questions[0].explanation",
+      "before": "Koningsdag is de officiële feestdag op 27 april, de verjaardag van Koning Willem-Alexander. Het is niet de trouwdag van het koningspaar en niet de dag waarop Nederland een koninkrijk werd.",
+      "after": "Koningsdag is de officiële feestdag op 27 april, de verjaardag van Koning Willem-Alexander. Het is niet zijn trouwdag en niet de dag waarop Nederland een koninkrijk werd.",
+      "why": "Follows the shortened distractor C."
+    },
+    {
+      "item": "A2:knm:batch018-vrijwilligerswerk:1",
+      "field": "questions[0].explanation",
+      "before": "Vrijwilligerswerk is werk dat u onbetaald en uit vrije wil doet voor anderen of voor de samenleving, bijvoorbeeld bij een sportclub. Een vrijwilliger krijgt geen loon, hoogstens een kleine onkostenvergoeding, en doet het werk niet omdat het moet.",
+      "after": "Vrijwilligerswerk is werk dat u onbetaald en uit vrije wil doet voor anderen of voor de samenleving, bijvoorbeeld bij een sportclub. Een vrijwilliger krijgt geen loon en kiest zelf voor dit werk; het is geen plicht.",
+      "why": "'hoogstens een kleine onkostenvergoeding' is not on the cited page (the Rijksoverheid vergoeding page returned 404 on the review date) and its yearly limit is untested; the explanation now states only what the source states."
+    },
+    {
+      "item": "A2:knm:batch018-trakteren:1",
+      "field": "questions[0].options.C",
+      "before": "De juf geeft de klas vrij.",
+      "after": "De juf trakteert de hele klas.",
+      "why": "'De juf geeft de klas vrij' was a made-up rule anchored in nothing (rubric 7). The new C is the actor confusion (who treats whom) grounded in the same custom and clearly false by the text ('Het deelt zelf iets kleins uit')."
+    },
+    {
+      "item": "A2:knm:batch018-trakteren:1",
+      "field": "questions[0].explanation",
+      "before": "Op veel basisscholen trakteert de jarige: het jarige kind deelt zelf iets kleins uit aan de klas. Sommige scholen vieren een verjaardag zonder traktatie, met een feestje in de klas. Een cadeau van de hele klas of een vrije dag hoort niet bij deze gewoonte.",
+      "after": "Op veel basisscholen trakteert de jarige: het jarige kind deelt zelf iets kleins uit aan de klas. De juf deelt niets uit, en de klas geeft de jarige geen cadeau. Sommige scholen vieren een verjaardag zonder traktatie, met een feestje in de klas.",
+      "why": "Follows the new distractor C."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 12,
+    "distribution": {
+      "A2_knm": 12
+    },
+    "themes": {
+      "2": 12
+    },
+    "eindtermen": {
+      "2.1.1": [
+        "omgangsvormen"
+      ],
+      "2.1.2": [
+        "directheid"
+      ],
+      "2.1.3": [
+        "op-tijd",
+        "wegblijftarief"
+      ],
+      "2.1.4": [
+        "gelijk-geslacht",
+        "burgerlijk-huwelijk",
+        "samenwonen"
+      ],
+      "2.1.5": [
+        "dodenherdenking",
+        "koningsdag"
+      ],
+      "2.2.1": [
+        "vrijwilligerswerk"
+      ],
+      "2.2.2": [
+        "geslaagd",
+        "trakteren"
+      ]
+    },
+    "eindtermen_verified_against": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, bijlage 2, Thema 2, geldend van 18-04-2026 t/m heden); all seven theme 2 eindtermen exist and the eindterm and indicator texts quoted in the sourceNote fields match the page verbatim",
+    "eindterm_mapping_exact_bullet": [
+      "omgangsvormen",
+      "directheid",
+      "op-tijd",
+      "gelijk-geslacht",
+      "samenwonen",
+      "dodenherdenking",
+      "koningsdag",
+      "vrijwilligerswerk",
+      "geslaagd",
+      "trakteren"
+    ],
+    "eindterm_mapping_on_topic_loose": [
+      "wegblijftarief",
+      "burgerlijk-huwelijk"
+    ],
+    "eindtermen_covered_once": [
+      "2.1.1",
+      "2.1.2",
+      "2.2.1"
+    ],
+    "batch_check": "npm run batch:check content/batches/018-proposed.json: Checked 12 items, 12 questions. Keys: {\"A\":4,\"B\":4,\"C\":4}. Options: {\"3\":12}. No failures, no warnings.",
+    "key_counts": {
+      "A": 4,
+      "B": 4,
+      "C": 4
+    },
+    "key_sequence": "A B C A B C A C B C A B",
+    "key_letters_moved_by_edits": false,
+    "option_counts": {
+      "3": 12
+    },
+    "prompt_word_range": "11-19 (limit 20)",
+    "option_word_range": "5-9",
+    "text_word_range": "19-30",
+    "text_sentences_range": "2-3",
+    "longest_text_sentence_words": 15,
+    "average_text_sentence_words_range": "7.7-11.0",
+    "closed_evidence_is_verbatim": true,
+    "key_is_longest_option": false,
+    "prompt_word_only_in_key": false,
+    "yes_no_items": "samenwonen only: ja / ja-maar / nee, key shares polarity with a distractor",
+    "behaviour_questions": 0,
+    "question_forms": "11 persona facts, 1 yes/no with qualification, 0 direct facts",
+    "task_type": "feit on all 12; skill rule-application on all 12",
+    "domains": {
+      "vrije-tijd-familie": 9,
+      "werk": 2,
+      "gezondheid": 1
+    },
+    "required_knm_fields_present": "theme, eindterm, sourceUrl, sourceNote, sourceReviewedAt (2026-09-10), imageBrief, imageAlt on all 12; status draft; targetLevelValidated false",
+    "all_sources_opened": true,
+    "sources_fetched_http_200": [
+      "https://wetten.overheid.nl/BWBR0045574/2026-04-18#Bijlage2",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/moet-ik-een-boete-betalen-als-ik-niet-op-een-ziekenhuisafspraak-kom",
+      "https://wetten.overheid.nl/jci1.3:c:BWBR0002656&boek=1&titeldeel=5&artikel=30",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/trouwen-samenlevingscontract-en-geregistreerd-partnerschap/trouwen-of-geregistreerd-partnerschap-sluiten",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/trouwen-samenlevingscontract-en-geregistreerd-partnerschap/wat-is-het-verschil-tussen-een-huwelijk-geregistreerd-partnerschap-en-samenlevingscontract",
+      "https://www.rijksoverheid.nl/themas/overheid-en-democratie/tweede-wereldoorlog/nationale-herdenkingen",
+      "https://www.koninklijkhuis.nl/onderwerpen/activiteiten-en-werkzaamheden/koningsdag",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/vrijwilligerswerk/wat-is-vrijwilligerswerk",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/grondwet-en-statuut/wanneer-kan-ik-de-vlag-uithangen-en-wat-is-de-vlaginstructie",
+      "https://www.voedingscentrum.nl/nl/zwanger-en-kind/eten-4-12/traktaties-en-kinderfeest.aspx"
+    ],
+    "secondary_sources_fetched_http_200": [
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/trouwen-samenlevingscontract-en-geregistreerd-partnerschap/checklist-samenwonen",
+      "https://www.cbs.nl/nl-nl/visualisaties/dashboard-bevolking/levensloop/samenwonen",
+      "https://www.rijksoverheid.nl/themas/overheid-en-democratie/tweede-wereldoorlog/bevrijdingsdag-5-mei",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/arbeidsovereenkomst-en-cao/koningsdag-27-april-vrije-dag",
+      "https://www.rijksoverheid.nl/actueel/nieuws/2020/04/08/landelijk-moment-voor-geslaagden",
+      "https://www.voedingscentrum.nl/professionals/gezond-op-school/gezond-eten-op-de-basisschool/van-trakteren-naar-feestbeleid-op-de-basisschool.aspx",
+      "https://www.immaterieelerfgoed.nl/nl/page/5447/de-cultuur-van-beschuit-met-muisjes",
+      "https://www.rijksoverheid.nl/themas/migratie-en-reizen/discriminatie-en-racisme/veelgestelde-vragen-herdenkingsjaar-slavernijverleden"
+    ],
+    "sources_unreachable": [
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/vrijwilligerswerk/krijg-ik-een-vergoeding-voor-vrijwilligerswerk (404; not cited by the batch; the unsourced vergoeding aside was removed from the vrijwilligerswerk explanation)"
+    ],
+    "supporting_sentence_found_on_every_cited_page": true,
+    "overlap_with_catalogue": false,
+    "overlap_with_pending_batches": "batches 020-025 hold no KNM items; 019 does not exist",
+    "cast_traits_match_config": true,
+    "image_briefs_no_text_no_answer": true,
+    "alt_texts_dutch_neutral": true,
+    "exemplars_available": false,
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch018-omgangsvormen:1",
+      "theme": 2,
+      "eindterm": "2.1.1",
+      "verdict": "pass",
+      "level": "comparable (easy end)",
+      "level_reason": "13-word persona prompt, three 7-word options, fact card 19 words in two sentences. The key is the eindterm's own generic statement and a learner may reach 'they differ' from general knowledge, but B and C are exactly the two beliefs the eindterm targets and nothing in the wording marks the key.",
+      "source_check": "wetten.overheid.nl BWBR0045574, geldend van 18-04-2026, bijlage 2, 2.1.1: 'Is ervan op de hoogte dat omgangsvormen, waarden en normen kunnen verschillen per sociale groep, regio, generatie en sociaaleconomische klasse.' Matches the sourceNote verbatim; 'sociaaleconomische klasse' left out of the A2 card is a simplification, not a change of meaning.",
+      "evidence": "Key A 'Ze verschillen per groep, regio en generatie.' entailed by the evidence 'Ze kunnen verschillen per sociale groep, regio en generatie.' B 'overal … precies hetzelfde' contradicts the first sentence of the card; C 'vast in de wet' confuses customs with law (customs are nowhere in the Regeling as law). Key 45 characters against 46 and 33; no prompt word recurs only in the key.",
+      "edited_fields": [
+        "questions[0].explanation"
+      ],
+      "key": "A",
+      "evidence_quote": "Ze kunnen verschillen per sociale groep, regio en generatie."
+    },
+    {
+      "id": "A2:knm:batch018-directheid:1",
+      "theme": 2,
+      "eindterm": "2.1.2",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "17-word persona prompt, options 6-6-7 words in one frame ('Als een …'); fact card 26 words in three sentences after the edit (average 8.7). The prompt's 'direct' appears in no option, so the key cannot be matched lexically; C is the tempting misreading.",
+      "source_check": "Regeling 2.1.2: 'Weet dat veel mensen in Nederland zich direct kunnen uiten.' Verbatim on the page. The card's 'meestal geen teken van boosheid' is the item's gloss (now hedged), not a claim on the page.",
+      "evidence": "Key B 'Als een gewone manier van praten.' entailed by 'Dat is hier een gewone manier van praten' (still verbatim after the text edit). A 'officiële klacht' reads feedback as a formal step, false by the card; C 'teken dat zij boos is' is the misreading the eindterm exists to prevent, false by the card's third sentence. Key 33 characters against 34 and 30.",
+      "edited_fields": [
+        "text"
+      ],
+      "key": "B",
+      "evidence_quote": "Dat is hier een gewone manier van praten"
+    },
+    {
+      "id": "A2:knm:batch018-op-tijd:1",
+      "theme": 2,
+      "eindterm": "2.1.3",
+      "verdict": "pass",
+      "level": "easier (common-sense key)",
+      "level_flag": "none",
+      "level_reason": "19-word prompt, options 8-8-7 words, key the shortest (32 characters against 37 and 42). 'tien' recurs in A as well as in the key, so no lexical cue; but 'an appointment at ten means being there at ten' is the literal reading in any culture, so the item tests a value rather than knowledge. Exam-shaped, the indicator's own fact, both distractors are real beliefs (flexible window, start when everyone is there): no flag, use first in the drill (sollicitatie precedent).",
+      "source_check": "Regeling 2.1.3, indicator: 'weet dat veel mensen in Nederland waarde hechten aan op tijd komen en aan het tijdig afmelden van afspraken.' Verbatim on the page.",
+      "evidence": "Key C 'Dat zij om tien uur aanwezig is.' entailed by 'Een afspraak om tien uur begint om tien uur'. A (tussen tien en half elf) and B (begint als iedereen er is) contradict it. 'Wat verwachten veel mensen … van haar?' asks for the norm, not for advice.",
+      "edited_fields": [],
+      "key": "C",
+      "evidence_quote": "Een afspraak om tien uur begint om tien uur"
+    },
+    {
+      "id": "A2:knm:batch018-wegblijftarief:1",
+      "theme": 2,
+      "eindterm": "2.1.3",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "19-word prompt (limit 20), options 7-7-6 words, key 41 characters against 51 and 36; fact card 26 words, three sentences, 'wegblijftarief' explained by the sentence it ends. A genuine rule with a consequence; the tempting distractor B is the opposite of the page.",
+      "source_check": "rijksoverheid.nl 'Moet ik een boete betalen als ik niet op een ziekenhuisafspraak kom?': 'U moet een bedrag betalen als u zonder geldige reden niet op uw afspraak in het ziekenhuis bent. Of de afspraak niet op tijd afzegt. Dit is het wegblijftarief, ook wel het no-show tarief. Het wegblijftarief moet u zelf betalen. U kunt het niet bij uw zorgverzekeraar declareren.' and 'Ziekenhuizen mogen zelf bepalen of en wanneer zij een wegblijftarief in rekening brengen. Dit is niet verplicht.' All verbatim on the page. Eindterm fit: on topic (the consequence of not 'tijdig afmelden'); the theme 4 reading is equally possible but the indicator names the duty.",
+      "evidence": "Key A 'Hem een rekening sturen voor de afspraak.' entailed by 'Dan mag het ziekenhuis u een rekening sturen'. B false by 'U kunt het niet bij uw zorgverzekeraar declareren'; C (no new appointment) is not a consequence the page names and the card names only the bill. 'Wat mag het ziekenhuis doen?' is a rule question about a right, not a behaviour question.",
+      "edited_fields": [],
+      "key": "A",
+      "evidence_quote": "Dan mag het ziekenhuis u een rekening sturen"
+    },
+    {
+      "id": "A2:knm:batch018-gelijk-geslacht:1",
+      "theme": 2,
+      "eindterm": "2.1.4",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "11-word prompt, options 7-7-7 words after the edit, key 38 characters against 56 and 52 (shortest, not marked). 'trouwen' recurs in C as well as the key. After the edit the distractors are one requirement and one prohibition, so the key is no longer the only permissive or the only non-'alleen' option.",
+      "source_check": "wetten.overheid.nl BWBR0002656 (Burgerlijk Wetboek Boek 1, geldend van 05-07-2025) artikel 30 lid 1: 'Een huwelijk kan worden aangegaan door twee personen van verschillend of van gelijk geslacht.' Verbatim on the page. Rijksoverheid trouwen page lists 'Een huwelijk tussen personen van hetzelfde geslacht' among Dutch marriages not recognised in every country. Eindterm 2.1.4 exact ('ook voor partners van gelijk geslacht'; 'huwelijk in de wet geregeld').",
+      "evidence": "Key B 'Het huwelijk is ook voor twee vrouwen.' entailed by 'In Nederland mogen twee mannen of twee vrouwen met elkaar trouwen'. New A 'Zij moeten eerst een geregistreerd partnerschap sluiten.' is false (no such requirement in BW1 or on the Rijksoverheid page; omzetting of a partnership is an option, not a step). C 'alleen samenwonen, niet trouwen' contradicts art. 30.",
+      "edited_fields": [
+        "questions[0].options.A",
+        "questions[0].explanation"
+      ],
+      "key": "B",
+      "evidence_quote": "In Nederland mogen twee mannen of twee vrouwen met elkaar trouwen"
+    },
+    {
+      "id": "A2:knm:batch018-burgerlijk-huwelijk:1",
+      "theme": 2,
+      "eindterm": "2.1.4",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "15-word prompt, options 8-9-7 words in one frame after the edit ('Zij hoeven / mogen / moeten … trouwen'), key 41 characters against 42 and 50; fact card 22 words, two sentences (longest 14). A learner must know that only the civil marriage counts and that the religious ceremony follows it.",
+      "source_check": "rijksoverheid.nl 'Waar moet ik aan denken als ik wil trouwen of een geregistreerd partnerschap wil sluiten?': 'Voor een huwelijk of een geregistreerd partnerschap kunt u terecht bij uw gemeente.' and under 'Religieus huwelijk na burgerlijk huwelijk': 'Wilt u een religieuze ceremonie in bijvoorbeeld een kerk of moskee houden? Die ceremonie mag u pas houden nadat u het burgerlijk huwelijk heeft voltrokken bij de ambtenaar van de burgerlijke stand.' Both verbatim on the page. Eindterm 2.1.4 on topic ('huwelijk in de wet geregeld').",
+      "evidence": "Key C 'Zij moeten eerst bij de gemeente trouwen.' entailed by 'Trouwen voor de wet gebeurt bij de gemeente' plus the evidence 'Een ceremonie in een kerk of moskee mag pas daarna'. A (the mosque alone is enough) false by the same sentences; B (not allowed) false by 'Die ceremonie mag u … houden'.",
+      "edited_fields": [
+        "questions[0].options.A",
+        "questions[0].options.B",
+        "questions[0].options.C",
+        "questions[0].explanation"
+      ],
+      "key": "C",
+      "evidence_quote": "Een ceremonie in een kerk of moskee mag pas daarna"
+    },
+    {
+      "id": "A2:knm:batch018-samenwonen:1",
+      "theme": 2,
+      "eindterm": "2.1.4",
+      "verdict": "pass",
+      "level": "comparable (easy end)",
+      "level_reason": "15-word prompt, the batch's one yes/no item with ja / ja-maar / nee, so the key shares its polarity with B; key 30 characters against 45 and 40; fact card 23 words in three sentences. The frequency half of the key is the indicator's own fact; the 'mag' half is common knowledge, hence easy end.",
+      "source_check": "Regeling 2.1.4 indicator 'weet dat ongehuwd samenwonen in Nederland vaak voorkomt' verbatim; rijksoverheid.nl 'Wat is het verschil tussen trouwen of geregistreerd partnerschap en een samenlevingscontract?': 'Bij een samenlevingscontract hoort u volgens de wet niet bij elkaar. En moet u meer zaken zelf regelen. Dat kan in een samenlevingscontract.' and 'U heeft niet automatisch rechten en plichten tegenover elkaar.'; checklist page: 'Deze afspraken kunnen jullie vastleggen in een samenlevingscontract.' (optional); CBS dashboard 'Samenwonen': 'Jongere generaties gingen vaker eerst ongehuwd samenwonen.' All verbatim on the pages.",
+      "evidence": "Key A 'Ja, dat mag en komt vaak voor.' entailed by 'In Nederland wonen veel stellen samen zonder huwelijk of geregistreerd partnerschap. Dat mag gewoon.' B (only with a contract) false by 'kunnen … vastleggen'; C (only after marriage) false by the same evidence.",
+      "edited_fields": [],
+      "key": "A",
+      "evidence_quote": "In Nederland wonen veel stellen samen zonder huwelijk of geregistreerd partnerschap. Dat mag gewoon."
+    },
+    {
+      "id": "A2:knm:batch018-dodenherdenking:1",
+      "theme": 2,
+      "eindterm": "2.1.5",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "18-word prompt that keeps 'stil' and 'herdenken' out; options 7-7-7 words, key 39 characters against 38 and 42; fact card 30 words, three sentences (longest 13). After the edit every option shares one feature with another (A-B 'Het einde van de', A-C 'oorlog', B-C 'herdacht'), so nothing marks the key; the 4/5 mei confusion carries the test.",
+      "source_check": "rijksoverheid.nl 'Nationale herdenkingen Tweede Wereldoorlog': 'Tijdens de Nationale Herdenking herdenkt Nederland allen – burgers en militairen – die in het Koninkrijk der Nederlanden of waar ook ter wereld zijn omgekomen of vermoord; zowel tijdens de Tweede Wereldoorlog en de onafhankelijkheidsoorlog in Indonesië, als in oorlogssituaties en bij vredesoperaties daarna.', 'Tussen 20:00 en 20:02 uur is iedereen 2 minuten stil.', 'De nationale herdenking is altijd op 4 mei.' Companion 'Bevrijdingsdag 5 mei': 'Bevrijdingsdag is de nationale feestdag waarop we de bevrijding van Nederland in 1945 vieren.' New distractor: 'Veelgestelde vragen over het Herdenkingsjaar Slavernijverleden': 'Op 1 juli 1863 werd de slavernij in de voormalige koloniën formeel afgeschaft. Het is ook de datum waarop de Nationale Herdenking Slavernijverleden plaatsvindt.' All verbatim on the pages.",
+      "evidence": "Key C 'De doden van de oorlog worden herdacht.' entailed by 'Nederland herdenkt dan de doden van de Tweede Wereldoorlog'. A (end of the war celebrated) is 5 mei; new B (end of slavery commemorated) is 1 juli, Keti Koti; both clearly false for 4 mei and both named in eindterm 2.1.5.",
+      "edited_fields": [
+        "questions[0].options.B",
+        "questions[0].explanation",
+        "sourceNote"
+      ],
+      "key": "C",
+      "evidence_quote": "Nederland herdenkt dan de doden van de Tweede Wereldoorlog"
+    },
+    {
+      "id": "A2:knm:batch018-koningsdag:1",
+      "theme": 2,
+      "eindterm": "2.1.5",
+      "verdict": "pass",
+      "level": "comparable (easy end)",
+      "level_reason": "15-word prompt; options 7-5-5 words after the edit, key 28 characters against 41 and 26; fact card 26 words, three sentences. 'Koningsdag' in the prompt narrows to the two 'Koning' options by the word, and the trouwdag distractor carries the test; the date no longer marks the key.",
+      "source_check": "koninklijkhuis.nl 'Koningsdag': 'Koningsdag is de nationale feestdag waarop de verjaardag van de Koning wordt gevierd. Als 27 april op een zondag valt, wordt Koningsdag de dag ervoor gevierd.' and 'Sinds 2014 wordt Koningsdag gevierd op 27 april, de verjaardag van Koning Willem-Alexander.'; rijksoverheid.nl 'Is Koningsdag (27 april) een vrije dag?': 'Koningsdag (27 april) is een officiële feestdag in Nederland, maar niet iedereen is dan vrij.' and 'Scholen zijn bijna altijd gesloten op Koningsdag.' All verbatim. Distractor A anchored in the vlaginstructie's 'Koninkrijksdag' (15 december) on the vlag page. Retire trigger: change of monarch.",
+      "evidence": "Key B 'De verjaardag van de Koning.' entailed by 'Koningsdag is een officiële feestdag op 27 april, de verjaardag van Koning Willem-Alexander'. A (the day the Netherlands became a kingdom) and C (the King's wedding day) are other royal dates, false by the same sentence.",
+      "edited_fields": [
+        "questions[0].options.B",
+        "questions[0].options.C",
+        "questions[0].explanation"
+      ],
+      "key": "B",
+      "evidence_quote": "Koningsdag is een officiële feestdag op 27 april, de verjaardag van Koning Willem-Alexander"
+    },
+    {
+      "id": "A2:knm:batch018-vrijwilligerswerk:1",
+      "theme": 2,
+      "eindterm": "2.2.1",
+      "verdict": "pass",
+      "level": "comparable (easy end)",
+      "level_reason": "15-word prompt, options 7-7-7 words, key 39 characters against 44 and 38; fact card 28 words, three sentences (longest 15). 'vrijwilliger' decodes the free-choice half of the key and eliminates B; whether a volunteer is paid (A against C) is the knowledge tested. 'werkt' and 'zonder' recur in A as well as the key.",
+      "source_check": "rijksoverheid.nl 'Wat valt er onder vrijwilligerswerk?': 'Vrijwilligerswerk is werk dat u onbetaald en onverplicht doet, voor anderen of voor de samenleving. Bijvoorbeeld voor iemand die beter Nederlands wil leren of eenzaam is. Of voor een sportclub of een dierenasiel.' and 'Het komt niet in de plaats van een betaalde baan.' Verbatim. Regeling 2.2.1 indicator: 'Weet dat vrijwilligerswerk en actieve betrokkenheid bij verenigingen en organisaties kunnen helpen om sociale netwerken op te bouwen.' Verbatim. The vergoeding page (rijksoverheid.nl/vraag-en-antwoord/vrijwilligerswerk/krijg-ik-een-vergoeding-voor-vrijwilligerswerk) returned 404, so the explanation's unsourced vergoeding aside was removed.",
+      "evidence": "Key C 'Zij werkt zonder loon, uit eigen keuze.' entailed by 'werk dat u onbetaald en vrijwillig doet'. A (paid, no contract) false by 'onbetaald'; B (must do it for her benefit) false by 'vrijwillig' / the page's 'onverplicht'.",
+      "edited_fields": [
+        "questions[0].explanation"
+      ],
+      "key": "C",
+      "evidence_quote": "werk dat u onbetaald en vrijwillig doet"
+    },
+    {
+      "id": "A2:knm:batch018-geslaagd:1",
+      "theme": 2,
+      "eindterm": "2.2.2",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "13-word prompt, options 5-5-5 words, key 23 characters against 28 and 30, key shares its frame with B; fact card 29 words in three sentences. A recall item: the three options are three real Dutch customs for three different family events.",
+      "source_check": "rijksoverheid.nl 'Wanneer kan ik de Nederlandse vlag uithangen?': 'U mag altijd de vlag uithangen. Bijvoorbeeld bij een feestelijke gebeurtenis als een huwelijk of het slagen voor een examen. Ook halfstok vlaggen bij een overlijden mag.' Verbatim. Schooltas: rijksoverheid.nl news 'Landelijk moment voor geslaagden' (8 April 2020), minister Slob: 'ik hoop dat er die dag veel vlaggen met schooltassen uit kunnen, zoals de jaarlijkse traditie.' Verbatim. Distractor C: immaterieelerfgoed.nl 'De cultuur van beschuit met muisjes': 'om te vieren dat er een baby is geboren, trakteert men beschuit met muisjes.' Verbatim. Eindterm 2.2.2 exact ('slagen voor examen').",
+      "evidence": "Key A 'Zij hangen de vlag uit.' entailed by 'Dan hangen veel mensen in Nederland de vlag uit'. B (halfstok) is the custom at a death; C (beschuit met muisjes) at a birth; both false for an exam.",
+      "edited_fields": [],
+      "key": "A",
+      "evidence_quote": "Dan hangen veel mensen in Nederland de vlag uit"
+    },
+    {
+      "id": "A2:knm:batch018-trakteren:1",
+      "theme": 2,
+      "eindterm": "2.2.2",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "12-word prompt, options 6-6-6 words, key 35 characters against 35 and 30; fact card 25 words in three sentences. After the edit all three options are about the same event with a different actor (classmates give, the child treats, the teacher treats), so the item tests who does what.",
+      "source_check": "voedingscentrum.nl 'Traktaties en kinderfeest': 'Is je kind binnenkort jarig en wil je trakteren of meer weten over verjaardagen vieren zonder traktaties?' and under 'Wie jarig is viert feest': 'Kinderen die jarig zijn trakteren niet maar ze worden in het zonnetje gezet en er wordt feest gevierd. Steeds meer scholen en BSO's stappen hiernaar over.' Professionals page 'Van trakteren naar feestbeleid op de basisschool': 'Wordt er bij jullie op school of de BSO nog getrakteerd?' and 'een mooie verjaardagsstoel met bijbehorende kroon'. All verbatim. A responsible public body (funded by VWS and LVVN); the custom is not time-sensitive and the card names the shift. Eindterm 2.2.2 exact ('verjaardag').",
+      "evidence": "Key B 'Amina deelt zelf een traktatie uit.' entailed by 'trakteert het jarige kind de klas. Het deelt zelf iets kleins uit'. A (the children give Amina a present) reverses the custom; new C (the teacher treats the class) contradicts 'Het deelt zelf'.",
+      "edited_fields": [
+        "questions[0].options.C",
+        "questions[0].explanation"
+      ],
+      "key": "B",
+      "evidence_quote": "trakteert het jarige kind de klas. Het deelt zelf iets kleins uit"
+    }
+  ],
+  "decisions_on_author_doubts": {
+    "1_eindterm_as_source_items_1_2_3": "Accepted: the Regeling is the normative statement of these customs, no rijksoverheid.nl page states them, batch 007 did the same for 7.2.3; quoted eindterm texts verified verbatim.",
+    "2_geen_teken_van_boosheid": "Kept and hedged: the key is entailed by the eindterm; the anger clause is the misreading the eindterm prevents but was stated flatly; now 'Het is meestal geen teken van boosheid.' as its own sentence.",
+    "3_op_tijd_common_sense": "Verdict easier (common-sense key), flag none: exam-shaped, the indicator's own fact, real distractors; place first in the drill.",
+    "4_wegblijftarief_mag": "Read as a rule question about the hospital's right; hospital setting correct because the page speaks only of hospitals.",
+    "5_koningsdag_date_in_key": "Not accepted: the date made the key the most specific option; removed, C shortened to the same frame.",
+    "6_topics_without_eindterm": "Agreed; nothing added.",
+    "7_voedingscentrum_source": "Accepted: responsible public body, custom not time-sensitive, both pages presuppose and describe the custom and its shift, the card says so; yearly re-check.",
+    "8_schooltas_clause": "Kept: untested, the recognisable form of the custom, and the minister's 'zoals de jaarlijkse traditie' on rijksoverheid.nl is a government statement of it (quote verified).",
+    "9_vriendin": "Kept; unambiguous after 'wil trouwen met'.",
+    "10_pictures": "All accepted; see media_notes."
+  },
+  "level_summary": {
+    "comparable": [
+      "directheid",
+      "wegblijftarief",
+      "gelijk-geslacht",
+      "burgerlijk-huwelijk",
+      "dodenherdenking",
+      "geslaagd",
+      "trakteren"
+    ],
+    "comparable_easy_end": [
+      "omgangsvormen",
+      "samenwonen",
+      "koningsdag",
+      "vrijwilligerswerk"
+    ],
+    "easier": [
+      "op-tijd"
+    ],
+    "harder": [],
+    "flags": [],
+    "yardstick": "The official KNM item as described in docs/research/exam-blueprints-2026-09-10.md section 3.1 (no exemplar in content/exemplars/); for KNM the level is mostly the grain of the fact against the eindterm (006-007 level check, method 2)."
+  },
+  "diversity_review": "The catalogue holds no theme 2 item and no slug, title or fact repeats; the nearest neighbours (zelfbeschikking, verwijsbrief, eigenrisico, bijstandsplicht, wetten, ouderbijdrage) test different facts. Within the batch twelve settings, eight cast members none more than twice, domains vrije-tijd-familie 9 / werk 2 / gezondheid 1 (inherent to the theme). No direct-fact question form; the next theme 2 batch could add one.",
+  "set_assembly": "Drill order, easy first, no key letter three times in a row: op-tijd (C), samenwonen (A), koningsdag (B), vrijwilligerswerk (C), omgangsvormen (A), directheid (B), geslaagd (A), trakteren (B), gelijk-geslacht (B), burgerlijk-huwelijk (C), dodenherdenking (C), wegblijftarief (A). A ten-item drill can drop op-tijd and wegblijftarief (both 2.1.3) and keeps 3/4/3. For the launch bank (every eindterm twice) the next theme 2 batch should add 5 mei, an official Christian holiday or Oud en Nieuw, Suikerfeest or Sinterklaas if a primary source exists, a second 2.1.2 angle, verenigingen/contributie, and geboorte, bruiloft or overlijden; the author's reserve list has verified sentences for Keti Koti, Bevrijdingsdag, officiële feestdagen and vrijwilligerswerk naast een uitkering.",
+  "media_notes": [
+    "Twelve single illustrations at 816x816 in the house style; cast traits verbatim in all briefs (Karim x2, Julio x2, Roos x2, Amina x2, Fatima, meneer De Vries, mevrouw Bakker, Sem).",
+    "Contact-sheet checks: geslaagd no flag; dodenherdenking no monument, flag or wreath; trakteren nothing handed out (decorated chair and paper crown are neutral and match the feestbeleid page); directheid \"both calm\" mildly weakens distractor C but a frowning colleague would contradict the key; koningsdag orange crowd cues the day named in the prompt, not the answer; gelijk-geslacht shows the couple the prompt names, not the law.",
+    "Question audio for all twelve prompts and options; the edited options (gelijk-geslacht, burgerlijk-huwelijk, dodenherdenking, koningsdag, trakteren) must be generated from the proposed text."
+  ],
+  "retire_triggers": {
+    "koningsdag": "change of monarch: rewrite",
+    "trakteren": "yearly: retire or rewrite if the feestbeleid becomes the norm",
+    "wegblijftarief": "yearly check of the Rijksoverheid page; amounts not tested",
+    "others": "constitutional, statutory (BW1 art. 30, art. 68) or stable customs; yearly KNM re-check as blueprint 4.5 requires"
+  },
+  "coordinator_notes": [
+    "Adopt with npm run batch:adopt 018; the review hash is that of content/batches/018-proposed.json.",
+    "Theme 2 now exists; with themes 1, 3, 4, 6, 7, 8 only theme 5 is missing for a full eight-block KNM form.",
+    "2.1.1, 2.1.2 and 2.2.1 are covered once; see set_assembly for the next theme 2 batch.",
+    "Media: illustrate:generate for twelve pictures; audio:generate for twelve questions."
+  ],
+  "limitations": [
+    "AI editorial review; no independent educator review, learner trial or psychometric calibration; A2 remains an authoring target and nothing here claims official equivalence.",
+    "Level judged against the description of the official item in the research document, not against a stored exemplar.",
+    "Pictures and audio do not exist yet; briefs judged as text.",
+    "Items 1-3 rest on the eindterm text alone, the only primary statement of those customs; no learner-facing government page for them was found on the review date."
+  ]
+}

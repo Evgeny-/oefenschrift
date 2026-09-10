@@ -1,0 +1,78 @@
+# Batch 023 editorial review (A2 Luisteren, nine fragments)
+
+**Verdict:** pass after edits. Nine items, 26 questions; four items pass as written, five pass after local repairs that are applied in `content/batches/023-proposed.json`. Nothing is rejected. The proposed file is the version to adopt (`npm run batch:adopt 023`).
+
+**Reviewed source:** `content/batches/023-original.json`, SHA-256 `6fdf276a93b5cbc151f80599e5ff3be1eacc23e6bf60273f7506ba1ef9f7a397` (matches the task and the author's notes).
+**Proposed file:** `content/batches/023-proposed.json`, SHA-256 `beed2ddcbdb483811a6a374b6db9d66bf2c9af5c2f6186cbdb2df0880b0e77d0` (recorded as `source_sha256` in `023-review.json`; `text` rebuilt mechanically from the scripts; `npm run batch:check` and `prettier --check` pass: 9 items, 26 questions, keys A 8 / B 8 / C 7 / D 3, options 3 × 18 / 4 × 8, no failures, no warnings).
+**Reviewed on:** 2026-09-10, fresh context, against `content/blueprint.md` §1, §3, §4.2, §5, §6, §7, §10, §12, the Luisteren A2 paragraph of `docs/research/exam-blueprints-2026-09-10.md`, `content/reviews/rubric.md`, `docs/briefs/author.md`, the A2 listening items of `content/catalogue.json`, batch 022, `config/voices.json` and `config/illustration.json`. The author's notes were read after the items had been judged; the doubts in their §9 are decided in section 5.
+
+## 1. Items
+
+| id | verdict | level | reason |
+| --- | --- | --- | --- |
+| `A2:listening:batch023-bloedonderzoek:1` | pass (edited) | comparable | Three keys proven, distractors refuted in the text; conversation cut from twelve to ten turns (blueprint §4.2). |
+| `A2:listening:batch023-studiedag:1` | pass | comparable | Dates and times each said once; the persona condition ("Werkt u op vrijdag?") is the text's own conditional. f-adult kept. |
+| `A2:listening:batch023-spoor:1` | pass | comparable | Richer than `batch002-trein` (delay, terminating train, transfer, second train); accepted as its replacement, not a re-skin. |
+| `A2:listening:batch023-cv-workshop:1` | pass (edited) | comparable | Workshop placed "volgende week" so the Friday deadline precedes it; q1 no longer shares the laptop distractor with q2. |
+| `A2:listening:batch023-bezorgservice:1` | pass | comparable | Distance rule applied to a persona; two questions, both proven. |
+| `A2:listening:batch023-verjaardagstaart:1` | pass (edited) | comparable, easier end | q2 re-targeted: "Zaterdag om twaalf uur" was also after eleven and so not clearly false; ten turns. |
+| `A2:listening:batch023-turnles:1` | pass | comparable | Same genre as `batch005-voetbal` but different facts tested (cancellation, other hall, contact rule); keep the two apart in sets. |
+| `A2:listening:batch023-hitte:1` | pass (edited) | comparable | q2 distractor "Op zaterdag" dropped: the text says Saturday is cooler, so it was defensible. |
+| `A2:listening:batch023-herhaalmedicijn:1` | pass (edited) | comparable, harder end | Ten turns, 166 words; "gisteren gebeld" removed (contradicted the two-working-day rule); ordering rule no longer depends on a colon. |
+
+Level per text (spoken words / average sentence length / longest sentence, proposed file): bloedonderzoek 147 / 5.7 / 10; studiedag 145 / 8.1 / 17; spoor 114 / 8.8 / 17; cv-workshop 153 / 7.0 / 15; bezorgservice 158 / 8.8 / 17; verjaardagstaart 130 / 5.4 / 11; turnles 141 / 7.8 / 16; hitte 150 / 7.9 / 15; herhaalmedicijn 166 / 6.1 / 13. All inside the §10 A2 heuristics (average under 12, nothing over 18; subordinate clauses only with omdat/als/dat/wanneer, coordinating want/dus/maar; present and perfect tense; every number, day, time and platform in words; no digits, no phone numbers, no fillers). No item is off-level; none is flagged. Fragments run roughly 46–75 seconds at the A2 pace of the chosen voices, inside the 30–90 second window.
+
+Per question the key was proven from the evidence quote and every distractor tested against the fragment; the quotes are in `023-review.json`. No key is the longest, most specific or odd-polarity option (turnles q1 keys the only negative option, "gaat niet door", which is the natural statement of a cancellation and mirrors the text; accepted). No prompt word recurs only in the key. Skills: time-place 9, rule-application 8, purpose 3, advice 3, detail 2, quantity 1; every item carries at least one persona prompt; three purpose questions for nine fragments.
+
+## 2. Edits applied in the proposed file
+
+| item | field | new text | why |
+| --- | --- | --- | --- |
+| bloedonderzoek | `script`, `text` | Twelve turns → ten: the "Duurt het gesprek lang? / Ongeveer tien minuten" exchange dropped; "Wilt u liever naar de praktijk komen? Dan kan dat pas volgende week woensdag." moved into the assistant's turn 7; "Houd donderdag wel uw telefoon bij de hand." closes her turn 9; De Vries ends with "Dat doe ik. Dank u wel." | Blueprint §4.2: conversations have four to ten turns; the tested facts are now said once (the dropped turn repeated "Donderdag tussen twee en drie"). All three evidence quotes unchanged. 161 → 147 spoken words. |
+| cv-workshop | `script[0].text` | "De workshop duurt twee ochtenden, volgende week dinsdag en donderdag, van negen tot twaalf uur." (was "…twee ochtenden: dinsdag en donderdag…") | The deadline "uiterlijk vrijdag" (q3 key) must fall before the workshop; without "volgende week" the deadline came after the two workshop days of the same week (rubric 4). |
+| cv-workshop | `questions[0].options.B`, `explanation` | B "Haar cv op papier meenemen."; explanation: "Wie nog geen cv heeft, maakt het in de workshop. Thuis een cv maken hoeft dus niet, en een cv op papier meenemen geldt alleen voor wie al een cv heeft. De afspraak met de adviseur komt pas na de workshop." | The laptop was the distractor in q1 and q2 of the same item, so after the first explanation the second was dead; the new distractor is the other branch of the condition in the same passage ("Hebt u al een cv? Neem het dan mee op papier"). |
+| verjaardagstaart | `script`, `text` | Thirteen turns → ten: "De grote graag, van chocolade. En kan er een tekst op?"; Roos asks "Kan ik de taart zaterdag ophalen? Het liefst zo vroeg mogelijk."; the seller closes with "…als u de taart ophaalt. Tot zaterdag." | Blueprint §4.2 turn count. Evidence for q1 and q3 unchanged. 136 → 130 spoken words. |
+| verjaardagstaart | `questions[1]` (prompt, options, answer, evidence, explanation) | "Roos wil de taart zaterdag ophalen. Hoe laat is de taart klaar?" A "Om acht uur." B "Om elf uur." C "Om twaalf uur."; key B; evidence "Maar de taart is pas om elf uur klaar."; explanation "De taart is zaterdag pas om elf uur klaar, dus Roos komt na elf uur. Om acht uur gaat de winkel pas open, en twaalf is het aantal personen, geen tijd." | The old distractor "Zaterdag om twaalf uur." satisfied the old key "Zaterdag na elf uur." (twelve is after eleven), so it was not clearly false (rubric 5, 7). The new question keeps the same fact, the opening-time distractor and the twelve-persons distractor. |
+| hitte | `questions[1]` (options, answer, explanation) | A "Tussen twaalf en vier uur." B "'s Avonds na negen uur." C "'s Ochtends vroeg."; key C; explanation "Zwaar werk doet u liever 's ochtends vroeg. Tussen twaalf en vier uur blijft u juist binnen of in de schaduw, en negen uur 's avonds is de sluitingstijd van het zwembad, geen advies over werk." | "Op zaterdag." was defensible: the fragment itself says "Zaterdag wordt het koeler" (rubric 7). Three parallel time-of-day options remain. |
+| herhaalmedicijn | `script`, `text`, `questions[1].evidence` | Twelve turns → ten: the "Voor hoe lang is dit doosje?" exchange folded into the assistant's second turn as "Dit doosje is voor drie maanden."; "Ik heb gebeld voor een herhaalrecept." (was "gisteren gebeld"); "Doe dat op tijd, dus als u nog tabletten voor een week hebt." (was "op tijd: als …"); q2 evidence now "U belt ons, of u bestelt op onze website. Doe dat op tijd, dus als u nog tabletten voor een week hebt." | Blueprint §4.2 turn count and the author's own contingency cut (179 → 166 words); "gisteren gebeld" and "Twee werkdagen later ligt het klaar" contradicted each other (rubric 9); the ordering rule's meaning depended on a colon (blueprint §4.2: no meaning that depends on punctuation). q1 and q3 evidence unchanged. |
+
+Everything else is byte-identical to the author's file (checked field by field): ids, metadata, situations, the other five scripts, all other questions, notes and image briefs.
+
+## 3. Rejected items
+
+None.
+
+## 4. Diversity and set assembly
+
+Within the batch: nine settings, six task types (gesprek 3, omroep 2, uitleg, reclame, voicemail, nieuws), seven of eight domains (gezondheid 3, winkels-diensten 2, opleiding, vervoer, werk, vrije-tijd-familie; no wonen-buurt, which §9 wants used sparingly, and no instanties, which batch 022 carries twice). No item is another with new names; a six-word phrase scan of the nine scripts against every catalogue text and prompt and against batch 022 found no overlap. Invented names re-checked on the web on 2026-09-10: "Meubelhuis Tulpenveld" and "turnvereniging Rietburg" return no business or club; Rietburg is the fictional municipality of batch 005, so the town is consistent; sporthal West, Beukenlaan and Industrieweg are generic.
+
+Near pairs across the bank, all accepted with a placement rule:
+
+- `spoor` and `batch002-trein` (both a platform change): the 42-word 002 item is slated for rewriting in the research document; retire it when the A2 listening bank is rebuilt and never put the two in one set. `batch022-loket` also tests a transfer rule (Zwolle); keep `spoor` and `loket` in different drills.
+- `turnles` and `batch005-voetbal` (trainer's voicemail to a parent): different facts tested (cancellation and replacement hall here; match day and kit there), but the same genre; not in one set. `batch022-kinderopvang` is a third voicemail to a parent; prefer `batch022-sluitingstijd` beside `turnles` in a voicemail/omroep drill.
+- `verjaardagstaart` and `batch002-bakker` (cake, chocolate, Saturday): the 002 item is a 40-word voicemail about a problem; keep apart.
+- `herhaalmedicijn` and `batch005-tabletten` (pharmacy counter, assistant hands over a box): different facts; not in one session. The reading letter `batch004-herhaalrecept` and the B1 listening item of batch 025 are other parts or levels and never share a set with this one.
+- `cv-workshop` and `batch005-computercursus` share two background facts (laptops provided, a group of ten); neither is tested here.
+
+Suggested drills (four fragments, one task type per set as in `a2-listening-03..05`): conversations `bloedonderzoek`, `verjaardagstaart`, `herhaalmedicijn` plus one 022 conversation (`garage` or `pakket`, not `loket` with `spoor` elsewhere); announcements and voicemails `studiedag`, `spoor`, `turnles` plus `batch022-sluitingstijd`; monologues `cv-workshop`, `bezorgservice`, `hitte` plus `batch022-koffiegeld` or `taalcafe`. In a mock form, keep the two gezondheid conversations non-adjacent.
+
+## 5. Decisions on the author's doubts (notes §9)
+
+1. **spoor vs `batch002-trein`:** accepted; this fragment carries a delay, a terminating train, a transfer rule and a second train, so it is the fuller item the research document asks for. Retire `batch002-trein` at the rebuild, not this one.
+2. **"Donderdagmiddag." (bloedonderzoek q1):** kept. "Tussen twee en drie uur" in a practice's phone call, right after "Vanmiddag lukt niet", is the afternoon; the small paraphrase between text and option is what the rubric asks for, and the explanation spells it out.
+3. **f-adult for the school announcement:** kept. A named person addresses a room; the narrator voice is the PA voice and also reads every question, so a different voice helps the learner separate fragment from question. `notes` already records the choice.
+4. **"de GGD" (hitte):** kept; a real body named generically, as blueprint §8 allows. The media stage must listen to how the voice reads "GGD" (see section 6).
+5. **Pharmacy neighbours (herhaalmedicijn):** accepted; see section 4 for the placement rule. The assistant stays f-young: f-adult already carries two fragments, and the two voices in the dialogue differ in gender.
+6. **verjaardagstaart q2 distractor "Zaterdag om twaalf uur.":** the doubt was justified for a different reason than the author gave: twelve o'clock is after eleven, so the distractor satisfied the key. Fixed by asking the time the cake is ready (section 2).
+7. **Length of item 9:** the author's contingency cut (the "Voor hoe lang" exchange) is applied now, together with the turn-count cuts in items 1 and 6; the longest fragment is 166 spoken words (about 66–75 seconds).
+8. **Real place names (Leiden, Den Haag, Amsterdam) and generic institutions:** fine under blueprint §8.
+
+## 6. Media notes
+
+- **Voices:** bloedonderzoek f-adult + m-older; verjaardagstaart f-young + m-shop; herhaalmedicijn m-young + f-young (two young voices, different genders, distinct); studiedag f-adult; spoor narrator (the same voice reads the questions, as `config/voices.json` prescribes for omroep; noted in the 005 review too); cv-workshop m-adult, matching the "male adviser of about forty" in the still; bezorgservice and hitte presenter; turnles m-young saying "u" to a parent, which fits a young volunteer trainer. Every conversation has two different roles; the three conversations carry the "audio met één still" note that §4.2 asks for.
+- **TTS risks to listen for at the round trip:** "cv" occurs six times in cv-workshop (spelled out as "cee-vee" in Dutch; if the voice reads it as a word, change script and questions to "CV" in a focused revision); "GGD" in hitte and in its q1 prompt; "één" and "'s ochtends/'s avonds" are standard; "Hartelijk gefeliciteerd, papa." is spoken by Roos as a quoted text and should not be read as a greeting to the listener.
+- **Stills (five briefs, cast traits verbatim from `config/illustration.json`, "No text", neutral Dutch alt):** bloedonderzoek (meneer De Vries at his kitchen table, no calendar or clock); cv-workshop (Sabrina opposite the adviser; the "blank sheet of paper" and folder invite the image model to draw text lines, so check the sheet is blank at review); bezorgservice (two delivery workers with a mustard-yellow sofa, no logo on the van); verjaardagstaart (Roos at the bakery counter, no price tags); herhaalmedicijn (Modibo receiving a box, no labels; it will resemble the `batch005-tabletten` still, which is acceptable). None shows a tested detail. The announcements, the voicemail and the radio news have no still, as in batches 005 and 022; a still for `hitte` is optional.
+
+## 7. Limitations
+
+This is an AI editorial review of scripts before audio exists. It does not replace review by a Dutch-language educator, learner trials or psychometric calibration, and it does not establish equivalence with the official DUO exam; every A2 label stays an unvalidated authoring target. `content/exemplars/` does not exist, so the level column compares each fragment with the blueprint's description of the official fragment types and with the integrated batch 005 and sibling batch 022 items rather than with two stored exemplars. Originality was judged by plausibility and by the phrase scan against this project's own content, not against official practice audio. The name checks were single web searches on 2026-09-10 and can miss businesses that are not indexed. The verdicts apply to the proposed bytes at `beed2ddcbdb483811a6a374b6db9d66bf2c9af5c2f6186cbdb2df0880b0e77d0`; the listening items remain blocked for publication until the generated audio passes the round-trip check and the stills pass the media review.

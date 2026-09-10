@@ -1,0 +1,694 @@
+[
+  {
+    "id": "A2:listening:batch022-garage:1",
+    "level": "A2",
+    "part": "listening",
+    "exam": "duo-a2",
+    "taskType": "gesprek",
+    "domain": "vervoer",
+    "title": "De auto bij de garage",
+    "situation": "Sabrina belt naar de garage. Ze praat met een medewerker.",
+    "script": [
+      {
+        "speaker": "Medewerker",
+        "role": "m-shop",
+        "text": "Goedemiddag, met Bart van de garage."
+      },
+      {
+        "speaker": "Sabrina",
+        "role": "f-adult",
+        "text": "Hallo, met Sabrina Jansen. Ik bel over mijn auto. Die staat sinds vanochtend bij u. Is hij al klaar?"
+      },
+      {
+        "speaker": "Medewerker",
+        "role": "m-shop",
+        "text": "Even kijken. Nee, de auto is nog niet klaar. De remmen zijn gemaakt. Maar we hebben nog een probleem gevonden. De accu is bijna kapot. U hebt echt een nieuwe accu nodig."
+      },
+      {
+        "speaker": "Sabrina",
+        "role": "f-adult",
+        "text": "En de banden? Die zijn ook al oud."
+      },
+      {
+        "speaker": "Medewerker",
+        "role": "m-shop",
+        "text": "De banden hebben we bekeken, die zijn nog goed. Een nieuwe accu kost honderdveertig euro, met het werk erbij. De remmen kosten tweehonderdtien euro."
+      },
+      {
+        "speaker": "Sabrina",
+        "role": "f-adult",
+        "text": "Dat is veel geld. Maar goed, doe de accu maar. Wanneer kan ik de auto ophalen?"
+      },
+      {
+        "speaker": "Medewerker",
+        "role": "m-shop",
+        "text": "Die accu hebben we niet in de garage. We moeten hem bestellen. Hij komt morgenochtend. Morgen om drie uur is de auto klaar."
+      },
+      {
+        "speaker": "Sabrina",
+        "role": "f-adult",
+        "text": "Morgen werk ik tot vijf uur. Kan ik de auto na mijn werk ophalen?"
+      },
+      {
+        "speaker": "Medewerker",
+        "role": "m-shop",
+        "text": "Ja, dat kan. Wij zijn open tot zes uur. Op zaterdag zijn we open tot één uur."
+      },
+      {
+        "speaker": "Sabrina",
+        "role": "f-adult",
+        "text": "Dan kom ik morgen om half zes. Tot morgen!"
+      }
+    ],
+    "text": "Medewerker: Goedemiddag, met Bart van de garage.\nSabrina: Hallo, met Sabrina Jansen. Ik bel over mijn auto. Die staat sinds vanochtend bij u. Is hij al klaar?\nMedewerker: Even kijken. Nee, de auto is nog niet klaar. De remmen zijn gemaakt. Maar we hebben nog een probleem gevonden. De accu is bijna kapot. U hebt echt een nieuwe accu nodig.\nSabrina: En de banden? Die zijn ook al oud.\nMedewerker: De banden hebben we bekeken, die zijn nog goed. Een nieuwe accu kost honderdveertig euro, met het werk erbij. De remmen kosten tweehonderdtien euro.\nSabrina: Dat is veel geld. Maar goed, doe de accu maar. Wanneer kan ik de auto ophalen?\nMedewerker: Die accu hebben we niet in de garage. We moeten hem bestellen. Hij komt morgenochtend. Morgen om drie uur is de auto klaar.\nSabrina: Morgen werk ik tot vijf uur. Kan ik de auto na mijn werk ophalen?\nMedewerker: Ja, dat kan. Wij zijn open tot zes uur. Op zaterdag zijn we open tot één uur.\nSabrina: Dan kom ik morgen om half zes. Tot morgen!",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "rule-application",
+        "prompt": "Sabrina werkt morgen tot vijf uur. Tot hoe laat kan ze de auto ophalen?",
+        "options": {
+          "A": "Tot drie uur.",
+          "B": "Tot vijf uur.",
+          "C": "Tot zes uur.",
+          "D": "Tot één uur."
+        },
+        "answer": "C",
+        "evidence": "Wij zijn open tot zes uur.",
+        "explanation": "De garage is open tot zes uur, dus Sabrina kan de auto na haar werk ophalen. Om drie uur is de auto klaar, tot vijf uur werkt Sabrina, en tot één uur is de garage alleen op zaterdag open."
+      },
+      {
+        "id": "q2",
+        "skill": "detail",
+        "prompt": "Welk probleem heeft de garage vandaag ook nog gevonden?",
+        "options": {
+          "A": "De remmen werken niet.",
+          "B": "De accu is bijna kapot.",
+          "C": "De banden zijn te oud."
+        },
+        "answer": "B",
+        "evidence": "De accu is bijna kapot.",
+        "explanation": "De garage heeft nog een probleem gevonden: de accu is bijna kapot. De remmen zijn al gemaakt, en de banden zijn nog goed."
+      },
+      {
+        "id": "q3",
+        "skill": "purpose",
+        "prompt": "Waarom belt Sabrina naar de garage?",
+        "options": {
+          "A": "Ze wil weten of haar auto klaar is.",
+          "B": "Ze wil een nieuwe accu bestellen.",
+          "C": "Ze wil een afspraak maken voor de remmen."
+        },
+        "answer": "A",
+        "evidence": "Ik bel over mijn auto. Die staat sinds vanochtend bij u. Is hij al klaar?",
+        "explanation": "Sabrina belt om te vragen of haar auto al klaar is. De nieuwe accu stelt de garage voor, en de remmen zijn al gemaakt."
+      }
+    ],
+    "notes": "In het officiële examen kan zo'n gesprek als video worden getoond; hier is het een telefoongesprek als audio met één still.",
+    "status": "draft",
+    "targetLevelValidated": false,
+    "imageBrief": "Sabrina sits at a kitchen table at home holding a phone to her ear, a car key lying on the table in front of her; no clock, no calendar, no text.",
+    "imageAlt": "Sabrina zit aan de keukentafel en belt met haar telefoon."
+  },
+  {
+    "id": "A2:listening:batch022-kinderopvang:1",
+    "level": "A2",
+    "part": "listening",
+    "exam": "duo-a2",
+    "taskType": "voicemail",
+    "domain": "vrije-tijd-familie",
+    "title": "Voicemail van het kinderdagverblijf",
+    "situation": "Karim luistert naar een bericht op zijn voicemail. Het is van het kinderdagverblijf van zijn dochter Lina.",
+    "script": [
+      {
+        "speaker": "Medewerker kinderdagverblijf",
+        "role": "f-young",
+        "text": "Hallo Karim, met Jolien van het kinderdagverblijf, van de groep van Lina. Ik bel omdat Lina ziek is. Ze heeft koorts, achtendertig en een half. Vanochtend heeft ze nog goed gegeten en gespeeld. Maar na het slapen was ze warm en huilde ze veel. Nu ligt ze rustig bij mij op schoot. Bij koorts moeten kinderen naar huis, dat is onze regel. Kunt u Lina zo snel mogelijk ophalen? Wij zijn open tot half zeven, maar zo lang kan Lina niet blijven. Wij kunnen haar ook niet thuisbrengen. Kunt u niet weg van uw werk? Dan mag oma haar ook halen. Oma staat op uw lijst, dus dat is goed. Lina mag pas weer komen als ze een hele dag geen koorts meer heeft. Morgen blijft ze dus thuis. Belt u mij even terug? Dan weet ik wie er komt. Dank u wel, en beterschap voor Lina."
+      }
+    ],
+    "text": "Medewerker kinderdagverblijf: Hallo Karim, met Jolien van het kinderdagverblijf, van de groep van Lina. Ik bel omdat Lina ziek is. Ze heeft koorts, achtendertig en een half. Vanochtend heeft ze nog goed gegeten en gespeeld. Maar na het slapen was ze warm en huilde ze veel. Nu ligt ze rustig bij mij op schoot. Bij koorts moeten kinderen naar huis, dat is onze regel. Kunt u Lina zo snel mogelijk ophalen? Wij zijn open tot half zeven, maar zo lang kan Lina niet blijven. Wij kunnen haar ook niet thuisbrengen. Kunt u niet weg van uw werk? Dan mag oma haar ook halen. Oma staat op uw lijst, dus dat is goed. Lina mag pas weer komen als ze een hele dag geen koorts meer heeft. Morgen blijft ze dus thuis. Belt u mij even terug? Dan weet ik wie er komt. Dank u wel, en beterschap voor Lina.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "purpose",
+        "prompt": "Waarom belt Jolien?",
+        "options": {
+          "A": "Lina heeft koorts en moet naar huis.",
+          "B": "Lina heeft niet goed gegeten.",
+          "C": "Karim moet de lijst met namen invullen."
+        },
+        "answer": "A",
+        "evidence": "Ik bel omdat Lina ziek is. Ze heeft koorts, achtendertig en een half.",
+        "explanation": "Jolien belt omdat Lina koorts heeft en bij koorts kinderen naar huis moeten. Vanochtend heeft Lina juist goed gegeten. De lijst met namen bestaat al: oma staat erop."
+      },
+      {
+        "id": "q2",
+        "skill": "rule-application",
+        "prompt": "Karim kan niet weg van zijn werk. Wat kan hij doen?",
+        "options": {
+          "A": "Jolien vragen om Lina thuis te brengen.",
+          "B": "Lina om half zeven ophalen.",
+          "C": "Oma vragen om Lina te halen.",
+          "D": "Jolien morgen terugbellen."
+        },
+        "answer": "C",
+        "evidence": "Kunt u niet weg van uw werk? Dan mag oma haar ook halen.",
+        "explanation": "Als Karim niet weg kan, mag oma Lina halen, want oma staat op de lijst. Het kinderdagverblijf brengt Lina niet thuis, tot half zeven wachten kan niet, en Jolien wil vandaag weten wie er komt."
+      },
+      {
+        "id": "q3",
+        "skill": "rule-application",
+        "prompt": "Wanneer mag Lina weer naar het kinderdagverblijf?",
+        "options": {
+          "A": "Morgen, na het slapen.",
+          "B": "Als ze een dag geen koorts heeft.",
+          "C": "Als ze weer goed eet en speelt."
+        },
+        "answer": "B",
+        "evidence": "Lina mag pas weer komen als ze een hele dag geen koorts meer heeft.",
+        "explanation": "Lina mag pas weer komen als ze een hele dag geen koorts meer heeft. Morgen blijft ze dus thuis. Eten en spelen zegt Jolien alleen over vanochtend."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "A2:listening:batch022-sluitingstijd:1",
+    "level": "A2",
+    "part": "listening",
+    "exam": "duo-a2",
+    "taskType": "omroep",
+    "domain": "winkels-diensten",
+    "title": "De supermarkt sluit eerder",
+    "situation": "Fatima doet boodschappen in de supermarkt. Ze hoort een omroepbericht.",
+    "script": [
+      {
+        "speaker": "Omroeper",
+        "role": "narrator",
+        "text": "Beste klanten, goedenavond. Let op: onze winkel sluit vandaag om acht uur. Normaal zijn wij open tot negen uur, maar vanavond sluiten wij een uur eerder. De kassa's krijgen vanavond namelijk een nieuwe vloer. Wilt u nog iets kopen? Ga dan nu naar de kassa. De kassa's sluiten om vijf voor acht. Daarna kunt u niet meer betalen. Hebt u boodschappen besteld voor thuis? Die bezorgen wij vanavond gewoon. Morgen zijn wij weer open vanaf acht uur 's ochtends, zoals altijd. En nog een tip: de bloemen bij de ingang zijn vanavond voor de halve prijs. Wij wensen u een fijne avond en tot morgen."
+      }
+    ],
+    "text": "Omroeper: Beste klanten, goedenavond. Let op: onze winkel sluit vandaag om acht uur. Normaal zijn wij open tot negen uur, maar vanavond sluiten wij een uur eerder. De kassa's krijgen vanavond namelijk een nieuwe vloer. Wilt u nog iets kopen? Ga dan nu naar de kassa. De kassa's sluiten om vijf voor acht. Daarna kunt u niet meer betalen. Hebt u boodschappen besteld voor thuis? Die bezorgen wij vanavond gewoon. Morgen zijn wij weer open vanaf acht uur 's ochtends, zoals altijd. En nog een tip: de bloemen bij de ingang zijn vanavond voor de halve prijs. Wij wensen u een fijne avond en tot morgen.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "time-place",
+        "prompt": "Hoe laat sluit de winkel vandaag?",
+        "options": {
+          "A": "Om vijf voor acht.",
+          "B": "Om acht uur.",
+          "C": "Om negen uur."
+        },
+        "answer": "B",
+        "evidence": "Let op: onze winkel sluit vandaag om acht uur.",
+        "explanation": "De winkel sluit vandaag om acht uur. Om vijf voor acht sluiten de kassa's, en tot negen uur is de winkel normaal open."
+      },
+      {
+        "id": "q2",
+        "skill": "detail",
+        "prompt": "Waarom sluit de winkel vandaag eerder?",
+        "options": {
+          "A": "Er komen nieuwe kassa's.",
+          "B": "De winkel bezorgt vanavond boodschappen.",
+          "C": "De kassa's krijgen een nieuwe vloer."
+        },
+        "answer": "C",
+        "evidence": "De kassa's krijgen vanavond namelijk een nieuwe vloer.",
+        "explanation": "De winkel sluit eerder omdat de kassa's vanavond een nieuwe vloer krijgen. De kassa's zelf blijven, en de bezorging gaat gewoon door."
+      },
+      {
+        "id": "q3",
+        "skill": "rule-application",
+        "prompt": "Fatima heeft boodschappen besteld voor thuis. Wat gebeurt er met die bestelling?",
+        "options": {
+          "A": "Die wordt vanavond bezorgd.",
+          "B": "Die wordt morgen bezorgd.",
+          "C": "Fatima moet die zelf ophalen."
+        },
+        "answer": "A",
+        "evidence": "Hebt u boodschappen besteld voor thuis? Die bezorgen wij vanavond gewoon.",
+        "explanation": "Bestelde boodschappen worden vanavond gewoon bezorgd. Morgen is de winkel weer open, maar dat gaat over de winkel, niet over de bezorging. Zelf ophalen zegt de omroeper niet."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "A2:listening:batch022-fietsbrug:1",
+    "level": "A2",
+    "part": "listening",
+    "exam": "duo-a2",
+    "taskType": "nieuws",
+    "domain": "vrije-tijd-familie",
+    "title": "Een nieuwe fietsbrug",
+    "situation": "Sem luistert naar het nieuws op de radio.",
+    "script": [
+      {
+        "speaker": "Nieuwslezer",
+        "role": "presenter",
+        "text": "Goedemorgen, hier is het nieuws uit de regio. De nieuwe fietsbrug over het kanaal is bijna klaar. De brug verbindt de wijk Kanaalzicht met de andere kant van het kanaal. Daar zijn het bos en de zwemplas. Bewoners van de wijk vragen al jaren om een brug. Nu fiets je nog vijfentwintig minuten naar de zwemplas, via de oude brug bij de fabriek. Straks is dat tien minuten. Gezinnen uit de wijk kunnen dus snel naar het bos en het water. De brug is alleen voor fietsers en voetgangers. Auto's en scooters mogen er niet op. Die blijven over de oude brug rijden. De opening is zaterdag om elf uur. De burgemeester opent de brug. Daarna is er een fietstocht voor kinderen, die begint om twaalf uur. Elk kind dat meefietst, krijgt een ijsje. Vanaf zondag kan iedereen de brug gebruiken. De brug kost drie miljoen euro. De gemeente betaalt twee miljoen, de provincie betaalt één miljoen."
+      }
+    ],
+    "text": "Nieuwslezer: Goedemorgen, hier is het nieuws uit de regio. De nieuwe fietsbrug over het kanaal is bijna klaar. De brug verbindt de wijk Kanaalzicht met de andere kant van het kanaal. Daar zijn het bos en de zwemplas. Bewoners van de wijk vragen al jaren om een brug. Nu fiets je nog vijfentwintig minuten naar de zwemplas, via de oude brug bij de fabriek. Straks is dat tien minuten. Gezinnen uit de wijk kunnen dus snel naar het bos en het water. De brug is alleen voor fietsers en voetgangers. Auto's en scooters mogen er niet op. Die blijven over de oude brug rijden. De opening is zaterdag om elf uur. De burgemeester opent de brug. Daarna is er een fietstocht voor kinderen, die begint om twaalf uur. Elk kind dat meefietst, krijgt een ijsje. Vanaf zondag kan iedereen de brug gebruiken. De brug kost drie miljoen euro. De gemeente betaalt twee miljoen, de provincie betaalt één miljoen.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "time-place",
+        "prompt": "Sem wil naar de opening van de brug. Wanneer moet hij er zijn?",
+        "options": {
+          "A": "Zaterdag om twaalf uur.",
+          "B": "Zaterdag om elf uur.",
+          "C": "Zondag om elf uur."
+        },
+        "answer": "B",
+        "evidence": "De opening is zaterdag om elf uur.",
+        "explanation": "De opening is zaterdag om elf uur. Om twaalf uur begint de fietstocht voor kinderen, en vanaf zondag kan iedereen de brug gebruiken."
+      },
+      {
+        "id": "q2",
+        "skill": "detail",
+        "prompt": "Wie mag over de nieuwe brug?",
+        "options": {
+          "A": "Fietsers en scooters.",
+          "B": "Iedereen, ook auto's.",
+          "C": "Alleen kinderen op de fiets.",
+          "D": "Fietsers en voetgangers."
+        },
+        "answer": "D",
+        "evidence": "De brug is alleen voor fietsers en voetgangers.",
+        "explanation": "De brug is alleen voor fietsers en voetgangers. Auto's en scooters mogen er niet op, die rijden over de oude brug. De fietstocht voor kinderen is alleen op de dag van de opening."
+      },
+      {
+        "id": "q3",
+        "skill": "person",
+        "prompt": "Wie betaalt het meeste voor de brug?",
+        "options": {
+          "A": "De gemeente.",
+          "B": "De provincie.",
+          "C": "De bewoners van de wijk."
+        },
+        "answer": "A",
+        "evidence": "De gemeente betaalt twee miljoen, de provincie betaalt één miljoen.",
+        "explanation": "De gemeente betaalt twee miljoen euro en de provincie één miljoen, dus de gemeente betaalt het meeste. De bewoners hebben om de brug gevraagd, maar ze betalen niet."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false,
+    "imageBrief": "A new bicycle bridge with a gentle arch over a canal, nobody on it yet, trees and a small lake on the far bank; no people, no vehicles, no sign, no banner, no text.",
+    "imageAlt": "Een nieuwe fietsbrug over een kanaal, met bomen en water aan de overkant."
+  },
+  {
+    "id": "A2:listening:batch022-koffiegeld:1",
+    "level": "A2",
+    "part": "listening",
+    "exam": "duo-a2",
+    "taskType": "uitleg",
+    "domain": "werk",
+    "title": "De pot voor het koffiegeld",
+    "situation": "Roos heeft een nieuwe baan op een kantoor. Haar collega Ruud legt uit hoe het werkt met de koffie.",
+    "script": [
+      {
+        "speaker": "Ruud",
+        "role": "m-adult",
+        "text": "Roos, kom je even? Ik leg je iets uit over de koffie. Kijk, hier in de keuken staat een pot voor het koffiegeld. Koffie en thee zijn hier niet gratis. Wij betalen dat samen. Iedereen die koffie of thee drinkt, betaalt vijf euro per maand. Vroeger was het drie euro, maar koffie is duurder geworden. Drink je alleen water? Dan betaal je niets. Het geld doe je in de pot, aan het begin van de maand. Op de eerste maandag van de maand tel ik het geld. Betaal dus liever niet aan het eind van de maand. Van het geld koop ik koffie, thee, melk en suiker. Op vrijdag koop ik ook koek, dat kost ongeveer tien euro. Nog één regel: schenk jij het laatste kopje uit de kan? Dan zet je nieuwe koffie. Dat vergeten mensen vaak. Klanten en bezoekers betalen niets, die krijgen gewoon koffie. Heb je vragen? Ik zit daar, bij het raam."
+      }
+    ],
+    "text": "Ruud: Roos, kom je even? Ik leg je iets uit over de koffie. Kijk, hier in de keuken staat een pot voor het koffiegeld. Koffie en thee zijn hier niet gratis. Wij betalen dat samen. Iedereen die koffie of thee drinkt, betaalt vijf euro per maand. Vroeger was het drie euro, maar koffie is duurder geworden. Drink je alleen water? Dan betaal je niets. Het geld doe je in de pot, aan het begin van de maand. Op de eerste maandag van de maand tel ik het geld. Betaal dus liever niet aan het eind van de maand. Van het geld koop ik koffie, thee, melk en suiker. Op vrijdag koop ik ook koek, dat kost ongeveer tien euro. Nog één regel: schenk jij het laatste kopje uit de kan? Dan zet je nieuwe koffie. Dat vergeten mensen vaak. Klanten en bezoekers betalen niets, die krijgen gewoon koffie. Heb je vragen? Ik zit daar, bij het raam.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "quantity",
+        "prompt": "Roos drinkt geen koffie, maar wel thee. Wat betaalt ze per maand?",
+        "options": {
+          "A": "Niets.",
+          "B": "Drie euro.",
+          "C": "Vijf euro.",
+          "D": "Tien euro."
+        },
+        "answer": "C",
+        "evidence": "Iedereen die koffie of thee drinkt, betaalt vijf euro per maand.",
+        "explanation": "Wie koffie of thee drinkt, betaalt vijf euro per maand, dus ook Roos met alleen thee. Niets betaal je alleen als je alleen water drinkt. Drie euro was de oude prijs, en tien euro kost de koek op vrijdag."
+      },
+      {
+        "id": "q2",
+        "skill": "time-place",
+        "prompt": "Wanneer moet Roos het geld in de pot doen?",
+        "options": {
+          "A": "Aan het begin van de maand.",
+          "B": "Aan het eind van de maand.",
+          "C": "Op vrijdag, als er koek is."
+        },
+        "answer": "A",
+        "evidence": "Het geld doe je in de pot, aan het begin van de maand.",
+        "explanation": "Het geld gaat aan het begin van de maand in de pot; op de eerste maandag telt Ruud het geld. Aan het eind van de maand betalen raadt hij af. Op vrijdag koopt hij alleen koek."
+      },
+      {
+        "id": "q3",
+        "skill": "rule-application",
+        "prompt": "Roos schenkt het laatste kopje uit de kan. Wat moet ze doen?",
+        "options": {
+          "A": "Het aan Ruud vertellen.",
+          "B": "Nieuwe koffie zetten.",
+          "C": "Geld in de pot doen."
+        },
+        "answer": "B",
+        "evidence": "Dan zet je nieuwe koffie.",
+        "explanation": "Wie het laatste kopje uit de kan schenkt, zet nieuwe koffie. Ruud hoeft dat niet te weten; naar hem ga je met vragen. Het geld gaat één keer per maand in de pot."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "A2:listening:batch022-taalcafe:1",
+    "level": "A2",
+    "part": "listening",
+    "exam": "duo-a2",
+    "taskType": "reclame",
+    "domain": "opleiding",
+    "title": "Reclame voor het Taalcafé",
+    "situation": "Hasan hoort een reclame op de radio.",
+    "script": [
+      {
+        "speaker": "Presentator",
+        "role": "presenter",
+        "text": "Wilt u Nederlands praten met andere mensen? Kom dan naar het Taalcafé in eetcafé De Bonte Ekster aan het Marktplein. Elke woensdagavond, van zeven tot negen uur, praat u daar in kleine groepjes met vrijwilligers. Over het weer, over uw werk, over uw kinderen, over alles. Er is geen les en er is geen toets, alleen gezellig praten. Het Taalcafé is gratis. Koffie en thee zijn ook gratis. Wilt u iets anders drinken? Dat betaalt u zelf. Aanmelden is niet nodig, u loopt gewoon binnen. Nieuw: op zaterdagochtend is er ook een Taalcafé voor ouders met kinderen, van tien tot twaalf uur. De kinderen spelen, de ouders praten. Ook dit is gratis. Nog een tip: elke eerste woensdag van de maand is er een spelletjesavond. Dan leert u Nederlands met een spel. Tot ziens in het Taalcafé!"
+      }
+    ],
+    "text": "Presentator: Wilt u Nederlands praten met andere mensen? Kom dan naar het Taalcafé in eetcafé De Bonte Ekster aan het Marktplein. Elke woensdagavond, van zeven tot negen uur, praat u daar in kleine groepjes met vrijwilligers. Over het weer, over uw werk, over uw kinderen, over alles. Er is geen les en er is geen toets, alleen gezellig praten. Het Taalcafé is gratis. Koffie en thee zijn ook gratis. Wilt u iets anders drinken? Dat betaalt u zelf. Aanmelden is niet nodig, u loopt gewoon binnen. Nieuw: op zaterdagochtend is er ook een Taalcafé voor ouders met kinderen, van tien tot twaalf uur. De kinderen spelen, de ouders praten. Ook dit is gratis. Nog een tip: elke eerste woensdag van de maand is er een spelletjesavond. Dan leert u Nederlands met een spel. Tot ziens in het Taalcafé!",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "advice",
+        "prompt": "Hasan wil op woensdag naar het Taalcafé. Wat moet hij doen?",
+        "options": {
+          "A": "Gewoon binnenlopen.",
+          "B": "Zich aanmelden bij het café.",
+          "C": "Eerst een toets doen."
+        },
+        "answer": "A",
+        "evidence": "Aanmelden is niet nodig, u loopt gewoon binnen.",
+        "explanation": "Aanmelden is niet nodig: Hasan loopt gewoon binnen. Er is ook geen toets en geen les."
+      },
+      {
+        "id": "q2",
+        "skill": "rule-application",
+        "prompt": "Hasan drinkt in het Taalcafé een cola. Wat betaalt hij?",
+        "options": {
+          "A": "De cola en de koffie.",
+          "B": "Alleen de cola.",
+          "C": "Helemaal niets."
+        },
+        "answer": "B",
+        "evidence": "Wilt u iets anders drinken? Dat betaalt u zelf.",
+        "explanation": "Het Taalcafé, de koffie en de thee zijn gratis, maar een ander drankje betaalt u zelf. Hasan betaalt dus alleen zijn cola."
+      },
+      {
+        "id": "q3",
+        "skill": "time-place",
+        "prompt": "Wanneer is het Taalcafé voor ouders met kinderen?",
+        "options": {
+          "A": "Woensdagavond, van zeven tot negen.",
+          "B": "Elke eerste woensdag van de maand.",
+          "C": "Zaterdagavond, van zeven tot negen.",
+          "D": "Zaterdagochtend, van tien tot twaalf."
+        },
+        "answer": "D",
+        "evidence": "Nieuw: op zaterdagochtend is er ook een Taalcafé voor ouders met kinderen, van tien tot twaalf uur.",
+        "explanation": "Het Taalcafé voor ouders met kinderen is op zaterdagochtend van tien tot twaalf uur. Woensdagavond van zeven tot negen is het gewone Taalcafé, en op de eerste woensdag van de maand is er een spelletjesavond."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false,
+    "imageBrief": "Inside a small café, six adults of different ages sit around two wooden tables talking, cups of coffee and tea in front of them; a few children play on a rug in a corner; no menu board, no signs, no text.",
+    "imageAlt": "Volwassenen zitten aan tafels in een café en praten met elkaar; in een hoek spelen kinderen."
+  },
+  {
+    "id": "A2:listening:batch022-loket:1",
+    "level": "A2",
+    "part": "listening",
+    "exam": "duo-a2",
+    "taskType": "gesprek",
+    "domain": "vervoer",
+    "title": "Een kaartje aan het loket",
+    "situation": "Meneer De Vries staat bij het loket op het station. Hij praat met de medewerker.",
+    "script": [
+      {
+        "speaker": "Meneer De Vries",
+        "role": "m-older",
+        "text": "Goedemorgen. Ik wil morgen naar Groningen. Hoe kom ik daar?"
+      },
+      {
+        "speaker": "Medewerker",
+        "role": "f-adult",
+        "text": "Goedemorgen. U neemt hier de trein naar Zwolle. In Zwolle stapt u over op de trein naar Groningen."
+      },
+      {
+        "speaker": "Meneer De Vries",
+        "role": "m-older",
+        "text": "Dus ik moet één keer overstappen. Moet ik in Amersfoort ook overstappen?"
+      },
+      {
+        "speaker": "Medewerker",
+        "role": "f-adult",
+        "text": "In Amersfoort stopt de trein wel, maar daar blijft u gewoon zitten. Alleen in Zwolle stapt u over."
+      },
+      {
+        "speaker": "Meneer De Vries",
+        "role": "m-older",
+        "text": "Goed. Wat kost een kaartje?"
+      },
+      {
+        "speaker": "Medewerker",
+        "role": "f-adult",
+        "text": "Dat hangt af van de tijd. Vertrekt u voor negen uur? Dan kost een enkele reis dertig euro. Vertrekt u na negen uur? Dan is het twintig euro."
+      },
+      {
+        "speaker": "Meneer De Vries",
+        "role": "m-older",
+        "text": "Dan ga ik na negen uur. Hoe laat gaat die trein?"
+      },
+      {
+        "speaker": "Medewerker",
+        "role": "f-adult",
+        "text": "Om tien over negen, van spoor drie. Zal ik de tijden voor u uitprinten?"
+      },
+      {
+        "speaker": "Meneer De Vries",
+        "role": "m-older",
+        "text": "Graag. Mijn kleinzoon van drie gaat ook mee. Wat kost een kaartje voor hem?"
+      },
+      {
+        "speaker": "Medewerker",
+        "role": "f-adult",
+        "text": "Kinderen tot vier jaar reizen gratis. Voor hem hoeft u niets te betalen."
+      }
+    ],
+    "text": "Meneer De Vries: Goedemorgen. Ik wil morgen naar Groningen. Hoe kom ik daar?\nMedewerker: Goedemorgen. U neemt hier de trein naar Zwolle. In Zwolle stapt u over op de trein naar Groningen.\nMeneer De Vries: Dus ik moet één keer overstappen. Moet ik in Amersfoort ook overstappen?\nMedewerker: In Amersfoort stopt de trein wel, maar daar blijft u gewoon zitten. Alleen in Zwolle stapt u over.\nMeneer De Vries: Goed. Wat kost een kaartje?\nMedewerker: Dat hangt af van de tijd. Vertrekt u voor negen uur? Dan kost een enkele reis dertig euro. Vertrekt u na negen uur? Dan is het twintig euro.\nMeneer De Vries: Dan ga ik na negen uur. Hoe laat gaat die trein?\nMedewerker: Om tien over negen, van spoor drie. Zal ik de tijden voor u uitprinten?\nMeneer De Vries: Graag. Mijn kleinzoon van drie gaat ook mee. Wat kost een kaartje voor hem?\nMedewerker: Kinderen tot vier jaar reizen gratis. Voor hem hoeft u niets te betalen.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "time-place",
+        "prompt": "Waar moet meneer De Vries overstappen?",
+        "options": {
+          "A": "In Amersfoort.",
+          "B": "In Zwolle.",
+          "C": "In Groningen.",
+          "D": "Nergens, hij blijft zitten."
+        },
+        "answer": "B",
+        "evidence": "In Zwolle stapt u over op de trein naar Groningen.",
+        "explanation": "Meneer De Vries stapt één keer over, in Zwolle. In Amersfoort stopt de trein wel, maar daar blijft hij zitten. Groningen is het einde van de reis."
+      },
+      {
+        "id": "q2",
+        "skill": "quantity",
+        "prompt": "Meneer De Vries neemt de trein van tien over negen. Hoeveel betaalt hij voor zichzelf?",
+        "options": {
+          "A": "Dertig euro.",
+          "B": "Niets.",
+          "C": "Twintig euro."
+        },
+        "answer": "C",
+        "evidence": "Vertrekt u na negen uur? Dan is het twintig euro.",
+        "explanation": "Tien over negen is na negen uur, dus het kaartje kost twintig euro. Dertig euro betaalt u voor negen uur. Alleen zijn kleinzoon reist gratis."
+      }
+    ],
+    "notes": "In het officiële examen kan zo'n gesprek als video worden getoond; hier is het audio met één still.",
+    "status": "draft",
+    "targetLevelValidated": false,
+    "imageBrief": "meneer De Vries stands at a ticket counter in a station hall, a female clerk behind the counter window; no departure board, no clock, no text.",
+    "imageAlt": "Meneer De Vries staat bij het loket op het station en praat met de medewerker."
+  },
+  {
+    "id": "A2:listening:batch022-paspoort-klaar:1",
+    "level": "A2",
+    "part": "listening",
+    "exam": "duo-a2",
+    "taskType": "voicemail",
+    "domain": "instanties",
+    "title": "Het paspoort ligt klaar",
+    "situation": "Modibo luistert naar een bericht op zijn voicemail.",
+    "script": [
+      {
+        "speaker": "Medewerker gemeente",
+        "role": "m-adult",
+        "text": "Goedemorgen, u spreekt met Wouter van de gemeente Rietburg, afdeling Burgerzaken. Ik bel over uw nieuwe paspoort. Twee weken geleden hebt u dat paspoort aangevraagd. Het is nu klaar. U kunt het ophalen bij de balie van Burgerzaken in het stadhuis. Daarvoor hebt u geen afspraak nodig. De balie is open van maandag tot en met vrijdag, van half negen tot vijf uur. Op dinsdag is de balie ook 's avonds open, tot acht uur. Op zaterdag is het stadhuis dicht. Let op: u moet het paspoort zelf ophalen. Iemand anders mag dat niet voor u doen. Neem uw oude paspoort mee, want dat nemen wij in. Een nieuwe pasfoto is niet nodig, die hebben wij al. Betalen hoeft u ook niet meer, dat hebt u bij de aanvraag gedaan. Haalt u het paspoort binnen drie maanden op? Anders moet u een nieuw paspoort aanvragen, en dan betaalt u opnieuw. Een fijne dag."
+      }
+    ],
+    "text": "Medewerker gemeente: Goedemorgen, u spreekt met Wouter van de gemeente Rietburg, afdeling Burgerzaken. Ik bel over uw nieuwe paspoort. Twee weken geleden hebt u dat paspoort aangevraagd. Het is nu klaar. U kunt het ophalen bij de balie van Burgerzaken in het stadhuis. Daarvoor hebt u geen afspraak nodig. De balie is open van maandag tot en met vrijdag, van half negen tot vijf uur. Op dinsdag is de balie ook 's avonds open, tot acht uur. Op zaterdag is het stadhuis dicht. Let op: u moet het paspoort zelf ophalen. Iemand anders mag dat niet voor u doen. Neem uw oude paspoort mee, want dat nemen wij in. Een nieuwe pasfoto is niet nodig, die hebben wij al. Betalen hoeft u ook niet meer, dat hebt u bij de aanvraag gedaan. Haalt u het paspoort binnen drie maanden op? Anders moet u een nieuw paspoort aanvragen, en dan betaalt u opnieuw. Een fijne dag.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "purpose",
+        "prompt": "Waarom belt de gemeente?",
+        "options": {
+          "A": "Modibo moet een afspraak maken.",
+          "B": "Modibo moet nog betalen.",
+          "C": "De gemeente heeft nog een pasfoto nodig.",
+          "D": "Het paspoort van Modibo is klaar."
+        },
+        "answer": "D",
+        "evidence": "Ik bel over uw nieuwe paspoort. Twee weken geleden hebt u dat paspoort aangevraagd. Het is nu klaar.",
+        "explanation": "De gemeente belt omdat het nieuwe paspoort klaar is. Een afspraak is niet nodig, betalen heeft Modibo bij de aanvraag al gedaan, en een nieuwe pasfoto heeft de gemeente niet nodig."
+      },
+      {
+        "id": "q2",
+        "skill": "advice",
+        "prompt": "Modibo gaat het paspoort halen. Wat moet hij meenemen?",
+        "options": {
+          "A": "Zijn oude paspoort.",
+          "B": "Een nieuwe pasfoto.",
+          "C": "Geld voor het paspoort."
+        },
+        "answer": "A",
+        "evidence": "Neem uw oude paspoort mee, want dat nemen wij in.",
+        "explanation": "Modibo neemt zijn oude paspoort mee, want de gemeente neemt dat in. Een nieuwe pasfoto is niet nodig, en betalen heeft hij bij de aanvraag al gedaan."
+      },
+      {
+        "id": "q3",
+        "skill": "rule-application",
+        "prompt": "Modibo haalt het paspoort pas na vier maanden op. Wat gebeurt er dan?",
+        "options": {
+          "A": "Hij maakt eerst een afspraak bij de balie.",
+          "B": "Iemand anders haalt het paspoort voor hem.",
+          "C": "Hij vraagt een nieuw paspoort aan."
+        },
+        "answer": "C",
+        "evidence": "Haalt u het paspoort binnen drie maanden op? Anders moet u een nieuw paspoort aanvragen, en dan betaalt u opnieuw.",
+        "explanation": "Na drie maanden moet Modibo een nieuw paspoort aanvragen en opnieuw betalen. Een afspraak is nooit nodig, en iemand anders mag het paspoort niet voor hem halen."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "A2:listening:batch022-pakket:1",
+    "level": "A2",
+    "part": "listening",
+    "exam": "duo-a2",
+    "taskType": "gesprek",
+    "domain": "wonen-buurt",
+    "title": "Een pakket aannemen",
+    "situation": "Julio belt aan bij zijn buurvrouw, mevrouw Bakker.",
+    "script": [
+      {
+        "speaker": "Julio",
+        "role": "m-young",
+        "text": "Goedemiddag, mevrouw Bakker. Mag ik u iets vragen? Volgende week ben ik een week weg voor mijn werk. Maar dinsdag komt er een pakket voor mij. Wilt u dat pakket aannemen?"
+      },
+      {
+        "speaker": "Mevrouw Bakker",
+        "role": "f-older",
+        "text": "Dat is goed, Julio. Wat zit erin? Is het groot?"
+      },
+      {
+        "speaker": "Julio",
+        "role": "m-young",
+        "text": "Het is een printer, voor mijn studie. De doos is groot en zwaar. Maar de bezorger draagt hem naar binnen. U hoeft alleen uw handtekening te zetten."
+      },
+      {
+        "speaker": "Mevrouw Bakker",
+        "role": "f-older",
+        "text": "Prima. Hoe laat komt de bezorger? Dinsdagochtend ga ik altijd naar de markt."
+      },
+      {
+        "speaker": "Julio",
+        "role": "m-young",
+        "text": "De bezorger komt dinsdag tussen twee en vijf uur. Dus 's middags."
+      },
+      {
+        "speaker": "Mevrouw Bakker",
+        "role": "f-older",
+        "text": "Dan ben ik thuis. En als ik toch niet thuis ben?"
+      },
+      {
+        "speaker": "Julio",
+        "role": "m-young",
+        "text": "Dan komt de bezorger niet terug. Hij brengt het pakket naar het pakketpunt in de supermarkt. Buiten zetten mag niet, want de printer is duur."
+      },
+      {
+        "speaker": "Mevrouw Bakker",
+        "role": "f-older",
+        "text": "Ik blijf dinsdagmiddag gewoon thuis. Wanneer haal je het pakket op?"
+      },
+      {
+        "speaker": "Julio",
+        "role": "m-young",
+        "text": "Ik ben zondag terug. Maandagavond kom ik het halen. Bedankt, mevrouw Bakker!"
+      },
+      {
+        "speaker": "Mevrouw Bakker",
+        "role": "f-older",
+        "text": "Graag gedaan. Goede reis, Julio."
+      }
+    ],
+    "text": "Julio: Goedemiddag, mevrouw Bakker. Mag ik u iets vragen? Volgende week ben ik een week weg voor mijn werk. Maar dinsdag komt er een pakket voor mij. Wilt u dat pakket aannemen?\nMevrouw Bakker: Dat is goed, Julio. Wat zit erin? Is het groot?\nJulio: Het is een printer, voor mijn studie. De doos is groot en zwaar. Maar de bezorger draagt hem naar binnen. U hoeft alleen uw handtekening te zetten.\nMevrouw Bakker: Prima. Hoe laat komt de bezorger? Dinsdagochtend ga ik altijd naar de markt.\nJulio: De bezorger komt dinsdag tussen twee en vijf uur. Dus 's middags.\nMevrouw Bakker: Dan ben ik thuis. En als ik toch niet thuis ben?\nJulio: Dan komt de bezorger niet terug. Hij brengt het pakket naar het pakketpunt in de supermarkt. Buiten zetten mag niet, want de printer is duur.\nMevrouw Bakker: Ik blijf dinsdagmiddag gewoon thuis. Wanneer haal je het pakket op?\nJulio: Ik ben zondag terug. Maandagavond kom ik het halen. Bedankt, mevrouw Bakker!\nMevrouw Bakker: Graag gedaan. Goede reis, Julio.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "purpose",
+        "prompt": "Waarom belt Julio aan bij mevrouw Bakker?",
+        "options": {
+          "A": "Hij wil een pakket bij haar ophalen.",
+          "B": "Hij wil met haar naar de markt.",
+          "C": "Hij wil dat zij een pakket aanneemt."
+        },
+        "answer": "C",
+        "evidence": "Maar dinsdag komt er een pakket voor mij. Wilt u dat pakket aannemen?",
+        "explanation": "Julio vraagt of mevrouw Bakker dinsdag zijn pakket wil aannemen, omdat hij dan weg is. Hij haalt het pakket pas maandagavond bij haar op. De markt noemt mevrouw Bakker zelf."
+      },
+      {
+        "id": "q2",
+        "skill": "time-place",
+        "prompt": "Wanneer komt de bezorger?",
+        "options": {
+          "A": "Dinsdagochtend.",
+          "B": "Maandagavond.",
+          "C": "Zondag.",
+          "D": "Dinsdagmiddag."
+        },
+        "answer": "D",
+        "evidence": "De bezorger komt dinsdag tussen twee en vijf uur. Dus 's middags.",
+        "explanation": "De bezorger komt dinsdag tussen twee en vijf uur, dus dinsdagmiddag. Dinsdagochtend gaat mevrouw Bakker naar de markt, zondag komt Julio terug, en maandagavond haalt hij het pakket op."
+      },
+      {
+        "id": "q3",
+        "skill": "rule-application",
+        "prompt": "Mevrouw Bakker is niet thuis als de bezorger komt. Wat gebeurt er dan?",
+        "options": {
+          "A": "De bezorger komt later nog een keer.",
+          "B": "Het pakket gaat naar de supermarkt.",
+          "C": "De bezorger zet het pakket buiten."
+        },
+        "answer": "B",
+        "evidence": "Hij brengt het pakket naar het pakketpunt in de supermarkt.",
+        "explanation": "Als niemand thuis is, brengt de bezorger het pakket naar het pakketpunt in de supermarkt. Hij komt niet terug, en buiten zetten mag niet omdat de printer duur is."
+      }
+    ],
+    "notes": "In het officiële examen kan zo'n gesprek als video worden getoond; hier is het audio met één still.",
+    "status": "draft",
+    "targetLevelValidated": false,
+    "imageBrief": "Julio stands at the open front door of a terraced house talking to mevrouw Bakker, who stands in the doorway; a small front garden, no house number, no parcel, no text.",
+    "imageAlt": "Julio staat bij de voordeur en praat met zijn buurvrouw, mevrouw Bakker."
+  }
+]
