@@ -2,6 +2,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { mkdirSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { createHash } from 'node:crypto';
+import type { Exercise, PracticeSet } from '../app/types';
 export class StoreError extends Error {
   constructor(
     message: string,
@@ -79,6 +80,11 @@ export function validateExercise(item) {
 export class ContentStore {
   db: DatabaseSync;
   prunedAt = 0;
+  private publishedCache: {
+    dataVersion: number;
+    catalogue: Exercise[];
+    sets: PracticeSet[];
+  } | null = null;
   constructor(path, catalogue = [], sets = []) {
     if (path !== ':memory:') mkdirSync(dirname(path), { recursive: true });
     this.db = new DatabaseSync(path);
@@ -182,18 +188,31 @@ export class ContentStore {
       }));
   }
   catalogue() {
-    return this.list()
-      .filter((row) => row.published && !row.archived)
-      .map((row) => row.published);
+    return this.publishedContent().catalogue;
   }
   sets() {
-    const ids = new Set(this.catalogue().map((i) => i.id));
-    return this.db
+    return this.publishedContent().sets;
+  }
+  private publishedContent() {
+    // data_version catches imports made through another SQLite connection. Writes
+    // through this store invalidate explicitly when they affect published content.
+    const dataVersion = Number(this.db.prepare('PRAGMA data_version').get().data_version);
+    if (this.publishedCache?.dataVersion === dataVersion) return this.publishedCache;
+    const catalogue: Exercise[] = this.db
+      .prepare(
+        'SELECT published FROM exercises WHERE published IS NOT NULL AND archived=0 ORDER BY rowid',
+      )
+      .all()
+      .map((row) => JSON.parse(String(row.published)));
+    const ids = new Set(catalogue.map((i) => i.id));
+    const sets: PracticeSet[] = this.db
       .prepare('SELECT payload FROM practice_sets ORDER BY rowid')
       .all()
       .map((row) => JSON.parse(String(row.payload)))
       .map((set) => ({ ...set, ids: set.ids.filter((id) => ids.has(id)) }))
       .filter((set) => set.ids.length);
+    this.publishedCache = { dataVersion, catalogue, sets };
+    return this.publishedCache;
   }
   get(id) {
     return this.list().find((row) => row.id === id) || null;
@@ -236,6 +255,7 @@ export class ContentStore {
         .prepare('UPDATE exercises SET archived=?,version=version+1,updated_at=? WHERE id=?')
         .run(archived ? 1 : 0, new Date().toISOString(), id);
       this.db.exec('COMMIT');
+      this.publishedCache = null;
       return this.get(id);
     } catch (e) {
       this.db.exec('ROLLBACK');

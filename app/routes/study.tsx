@@ -1,4 +1,11 @@
-import { data as respond, useLoaderData, redirect, type MetaArgs } from 'react-router';
+import {
+  data as respond,
+  useLoaderData,
+  useRouteLoaderData,
+  redirect,
+  type MetaArgs,
+} from 'react-router';
+import type { loader as studyLayoutLoader } from './study-layout';
 import App from '../App';
 import { getStore } from '../../server/store';
 import { readRoute, routePath, routeLevel, routeLang, levelPages } from '../domain/routes';
@@ -65,8 +72,6 @@ export function loader({ request, params }) {
   const pass = ensurePass(request, renderedAt);
   return respond(
     {
-      catalogue,
-      practiceSets,
       initialState,
       renderedAt,
       services: {
@@ -123,5 +128,6 @@ export function shouldRevalidate({ currentUrl, nextUrl, defaultShouldRevalidate 
 }
 export default function Study() {
   const data = useLoaderData<typeof loader>();
-  return <App {...data} />;
+  const content = useRouteLoaderData<typeof studyLayoutLoader>('routes/study-layout');
+  return <App {...content!} {...data} />;
 }

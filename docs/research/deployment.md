@@ -45,7 +45,7 @@ The operator account is `operator`; its generated password sits in the server's 
 
 The service uses `INBURGERING_ORIGIN=https://oefenschrift.nl`, an empty `INBURGERING_BASE_PATH` and `INBURGERING_TRUST_PROXY=1`. Canonical URLs and the sitemap use the primary origin. Both domain names have a Let's Encrypt certificate; the HTTP ACME challenge path is served from `/var/www/oefenschrift-acme`. `certbot.timer` renews the certificate and its deploy hook reloads nginx.
 
-nginx streams app responses with `proxy_buffering off`. Deployment checks fetch complete Dutch and English home pages, because a successful HEAD or API status response cannot detect truncated HTML. The production Firefox suite captures `securitypolicyviolation` events and checks the home pages' script nonces. When checking nginx configuration, use the installed configuration with `sudo nginx -t`: testing a reduced configuration that omits its `user www-data` directive can change the ownership of nginx's temporary directories and break active workers.
+nginx streams app responses with `proxy_buffering off` and enables gzip for text assets, JSON and React Router’s `text/x-script` responses. Deployment checks fetch complete Dutch and English home pages, because a successful HEAD or API status response cannot detect truncated HTML. The production Firefox suite captures `securitypolicyviolation` events and checks the home pages' script nonces. When checking nginx configuration, use the installed configuration with `sudo nginx -t`: testing a reduced configuration that omits its `user www-data` directive can change the ownership of nginx's temporary directories and break active workers.
 
 ## Backups and the database
 

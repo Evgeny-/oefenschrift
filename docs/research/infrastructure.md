@@ -12,6 +12,15 @@ Use Node 24, as recorded in `.node-version`, and install `ffprobe` for audio val
 
 For the compiled app, run `npm run build`, followed by `npm start`. Production code uses the compiled React Router server and fingerprinted client assets. Both modes send no-store cache headers; the production document has a nonce-based script policy. Vite's development file access excludes project secrets, private references, server files and databases. Type checking covers the migrated app, but `noImplicitAny` and `strictNullChecks` are not enabled yet. Tightening those is a remaining engineering task.
 
+
+## Navigation data and caching
+
+The shared study layout loads the reviewed catalogue and practice sets once per document. Subject, level, language and exercise navigation reuse that loader data; the child loader returns only the current route state, SEO and fresh service availability. Ordinary filter changes also keep the catalogue. Reloading the document, returning from administration, an action or an explicit same-page revalidation can refresh it. Administration has no study-layout payload.
+
+`ContentStore` caches the parsed published catalogue and filtered set membership. Archive and restore invalidate that snapshot immediately; SQLite's `data_version` catches changes through another connection. Drafts never enter this cache. Personalized HTML, route data, allowances and administrative responses retain `Cache-Control: no-store`.
+
+nginx compresses HTML, scripts, styles, JSON and React Router's `text/x-script` data responses with gzip and `Vary: Accept-Encoding`. The production Firefox journey checks that switching subjects requests fresh route data smaller than 16 kB and does not request the shared catalogue loader again. It also verifies SSR, CSP, reloads and administration at both the root and a shared base path.
+
 ## Server rendering and saved state
 
 The route loader resolves the exercise or set before rendering. Skill catalogues use level paths such as `/a2/reading`; that explicit level overrides cookies and restored local settings. Unqualified old links redirect to the saved level, defaulting to A2. See [SEO decisions](seo-2026-09-10.md) for canonical paths and launch work. The server sends the actual question, reading passage, audio controls or open-task brief with the navigation. Initial React state matches that response; browser storage is restored after hydration starts. A pre-paint script resolves the System theme, and CSS chooses the desktop or mobile navigation without a JavaScript layout switch.

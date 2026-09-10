@@ -108,6 +108,36 @@ test('archiving is reversible, filters set membership and preserves the report q
     store.close();
   }
 });
+test('published content is reused and observes changes from another database connection', () => {
+  const f = fixture();
+  const store = new ContentStore(f.db, catalogue, sets);
+  const external = new DatabaseSync(f.db);
+  try {
+    const first = store.catalogue(),
+      firstSets = store.sets(),
+      item = first[0];
+    assert.equal(store.catalogue(), first);
+    assert.equal(store.sets(), firstSets);
+    store.saveDraft({ ...item, title: 'Unpublished draft' }, 1);
+    assert.equal(store.catalogue(), first);
+    assert.equal(first[0].title, item.title);
+    external.prepare('UPDATE exercises SET archived=1 WHERE id=?').run(item.id);
+    assert.ok(!store.catalogue().some((entry) => entry.id === item.id));
+    assert.ok(!store.sets().some((set) => set.ids.includes(item.id)));
+    external
+      .prepare('UPDATE exercises SET archived=0,published=? WHERE id=?')
+      .run(JSON.stringify({ ...item, title: 'Updated published content' }), item.id);
+    assert.equal(
+      store.catalogue().find((entry) => entry.id === item.id).title,
+      'Updated published content',
+    );
+    assert.ok(store.sets().some((set) => set.ids.includes(item.id)));
+  } finally {
+    external.close();
+    store.close();
+    f.clean();
+  }
+});
 test('statistics aggregate counts and latency without response content', () => {
   const store = new ContentStore(':memory:');
   try {

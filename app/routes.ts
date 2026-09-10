@@ -1,4 +1,4 @@
-import { index, route } from '@react-router/dev/routes';
+import { index, layout, route } from '@react-router/dev/routes';
 export default [
   route('sitemap.xml', 'routes/sitemap.ts'),
   route('robots.txt', 'routes/robots.ts'),
@@ -14,6 +14,8 @@ export default [
     route('services', 'routes/admin-services.tsx'),
   ]),
   // The start page needs an index route: a splat alone does not match "/".
-  index('routes/study.tsx', { id: 'home' }),
-  route('*', 'routes/study.tsx'),
+  layout('routes/study-layout.tsx', [
+    index('routes/study.tsx', { id: 'home' }),
+    route('*', 'routes/study.tsx'),
+  ]),
 ];

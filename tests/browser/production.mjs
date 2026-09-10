@@ -273,6 +273,17 @@ try {
   checks.push('Compiled app hydrates under the production CSP');
   await evaluate(`document.querySelector('[data-page="listening"]').click();true;`);
   await ready('[data-set="a2-listening-01"]');
+  const navigationData = JSON.parse(
+    await evaluate(
+      `JSON.stringify(performance.getEntriesByType('resource').filter(entry=>new URL(entry.name).pathname.endsWith('.data')).map(entry=>({url:entry.name,bytes:entry.decodedBodySize})))`,
+    ),
+  );
+  assert.ok(navigationData.length, 'Subject navigation requests fresh route data');
+  for (const entry of navigationData) {
+    assert.ok(entry.bytes > 0 && entry.bytes < 16000, `Navigation payload is ${entry.bytes} bytes`);
+    assert.ok(!new URL(entry.url).searchParams.get('_routes')?.includes('study-layout'));
+  }
+  checks.push('Subject navigation reuses the catalogue and downloads under 16 kB of route data');
   checks.push('Client navigation loads the next subject');
   await evaluate(`document.querySelector('[data-set="a2-listening-01"]').click();true;`);
   await ready('.audio-player');
