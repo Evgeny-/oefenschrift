@@ -11,14 +11,19 @@ SSH_USER="${SSH_USER:-ubuntu}"
 SSH_KEY="${SSH_KEY:-$HOME/Downloads/ssh 2/id_rsa}"
 REMOTE_DIR="${REMOTE_DIR:-/home/ubuntu/oefenschrift}"
 SERVICE="${SERVICE:-oefenschrift}"
-# An unset variable means the shared path; an empty one means the root of an own domain.
-export INBURGERING_BASE_PATH="${INBURGERING_BASE_PATH-/projects/oefenschrift}"
-PUBLIC_URL="${PUBLIC_URL:-https://cool-projects.duckdns.org${INBURGERING_BASE_PATH}/}"
-
 [[ -f "$SSH_KEY" ]] || { echo "SSH key not found: $SSH_KEY" >&2; exit 1; }
 ssh_opts=(-i "$SSH_KEY" -o IdentitiesOnly=yes -o BatchMode=yes)
 target="${SSH_USER}@${SSH_HOST}"
 remote() { ssh "${ssh_opts[@]}" "$target" "$@"; }
+
+# Follow the server's active address so a domain move also applies to future CI deploys.
+# Read only these public settings; provider keys and operator credentials stay on the server.
+location_json=$(remote "cd '$REMOTE_DIR' && node --env-file=.env -e 'console.log(JSON.stringify({origin:process.env.INBURGERING_ORIGIN,base:process.env.INBURGERING_BASE_PATH||\"\"}))'")
+configured_base=$(node -p 'JSON.parse(require("fs").readFileSync(0,"utf8")).base' <<< "$location_json")
+configured_origin=$(node -p 'JSON.parse(require("fs").readFileSync(0,"utf8")).origin' <<< "$location_json")
+[[ "$configured_origin" == https://* ]] || { echo "The server needs an HTTPS INBURGERING_ORIGIN" >&2; exit 1; }
+export INBURGERING_BASE_PATH="${INBURGERING_BASE_PATH-$configured_base}"
+PUBLIC_URL="${PUBLIC_URL:-${configured_origin}${INBURGERING_BASE_PATH}/}"
 
 echo "Checking types and building for ${INBURGERING_BASE_PATH}..."
 npm run typecheck

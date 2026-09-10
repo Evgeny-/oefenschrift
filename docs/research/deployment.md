@@ -1,6 +1,6 @@
 # Deployment
 
-Set up on 10 September 2026. The site runs at <https://cool-projects.duckdns.org/projects/oefenschrift/> on the same Oracle free-tier VM that hosts the static projects, as a Node service behind the existing nginx. No Docker: the box has 1 GB of memory, and the app needs about 140 MB idle and 210 MB under load as a plain-node process. A real domain comes later; moving is a config change (see the last section).
+Set up on 10 September 2026. The site runs at <https://cool-projects.duckdns.org/projects/oefenschrift/> on the same Oracle free-tier VM that hosts the static projects, as a Node service behind the existing nginx. No Docker: the box has 1 GB of memory, and the app needs about 140 MB idle and 210 MB under load as a plain-node process. The new primary domain will be `oefenschrift.nl`. Its GoDaddy zone points at this VM, but the `.nl` registry had not published the delegation when checked on 10 September 2026; the shared URL remains active until DNS and HTTPS are ready (see the last section).
 
 ## The box
 
@@ -26,7 +26,7 @@ The base path is baked into the bundles at build time (`INBURGERING_BASE_PATH` â
 npm run deploy
 ```
 
-`scripts/deploy.sh` type-checks, builds for `/projects/oefenschrift`, installs production dependencies into `tmp/deploy/`, syncs `build/`, `content/`, `config/`, `node_modules/` and the package files with `rsync --delete`, restarts the service and waits for `/api/status` on the public address. Override `SSH_HOST`, `SSH_USER`, `SSH_KEY`, `REMOTE_DIR`, `INBURGERING_BASE_PATH` or `PUBLIC_URL` for a one-off. Nothing is built or installed on the server: a Vite build needs more memory than the box has.
+`scripts/deploy.sh` reads only `INBURGERING_ORIGIN` and `INBURGERING_BASE_PATH` from the serverâ€™s `.env`, type-checks, builds for that active path, installs production dependencies into `tmp/deploy/`, syncs `build/`, `content/`, `config/`, `node_modules/` and the package files with `rsync --delete`, restarts the service and waits for `/api/status` on the public address. Override `SSH_HOST`, `SSH_USER`, `SSH_KEY`, `REMOTE_DIR`, `INBURGERING_BASE_PATH` or `PUBLIC_URL` for a one-off. Nothing is built or installed on the server: a Vite build needs more memory than the box has.
 
 The usual way is a push to `main` of [github.com/Evgeny-/oefenschrift](https://github.com/Evgeny-/oefenschrift): the `deploy` job in `.github/workflows/check.yml` runs the same script after the `check` and `browser` jobs pass (typecheck, unit tests, build, the Firefox journeys at the root and under the base path). It signs in with a dedicated ed25519 key that exists only as the repository secret `SSH_PRIVATE_KEY` (with `SSH_HOST` and `SSH_USER`); its public half is the `oefenschrift-deploy` line in `~/.ssh/authorized_keys` on the server, so revoking it is deleting that line. Deploys never overlap (`concurrency: deploy`), and a failed job leaves the previous version running.
 
@@ -48,9 +48,18 @@ Everything under `cool-projects.duckdns.org` is one origin, so the site shares c
 
 `var/reports.sqlite3` holds reports, service counters and the anonymous events; `var/admin-secret` keys the visitor hashes. There is no `sqlite3` CLI on the box and `npm run db:backup` needs `tsx`, which is not installed there, so until a scheduled backup exists copy the directory from here: `rsync -az -e 'ssh -i "$HOME/Downloads/ssh 2/id_rsa"' ubuntu@130.61.248.252:oefenschrift/var/ var-backup/` (the database is in WAL mode: copy the `-wal` and `-shm` files with it, or stop the service first for a clean copy). A nightly backup off the box is still to do.
 
-## Moving to a real domain later
+## Activating oefenschrift.nl
 
-1. Point the domain at `130.61.248.252`, add an nginx `server` block for it with `proxy_pass http://127.0.0.1:8766` at `location /` and get a certificate (`sudo certbot --nginx -d example.nl`).
-2. In the server's `.env`: `INBURGERING_ORIGIN=https://example.nl` and `INBURGERING_BASE_PATH=` (empty).
-3. Deploy with `INBURGERING_BASE_PATH= npm run deploy` (the script's default is the shared path).
-4. Keep the old location block for a while as `return 301 https://example.nl$request_uri` after stripping the prefix, so shared links and search results keep working.
+The GoDaddy zone has `A @ 130.61.248.252` and `CNAME www oefenschrift.nl`. The HTTP vhost `/etc/nginx/sites-available/oefenschrift` is enabled and serves `/.well-known/acme-challenge/` from `/var/www/oefenschrift-acme`; other requests receive 503 until activation. The existing service and shared-host vhost keep running.
+
+After both names resolve publicly to the VM, with no GitHub workflow running:
+
+```sh
+bash scripts/activate-domain.sh
+```
+
+The script checks DNS before changing anything, obtains a Let's Encrypt certificate for both names through the prepared HTTP vhost, and runs the production Firefox tests at the root. It stages that build beside the active build, backs up `.env` and both nginx vhosts into `var/domain-backup-<date>/`, and moves the app to `INBURGERING_ORIGIN=https://oefenschrift.nl` with an empty base path. It installs `config/nginx/oefenschrift.conf` and redirects the old Oefenschrift path to the new origin, preserving the remaining path and query. The other shared-host projects keep their locations. A failed nginx check, startup or HTTPS health check restores the previous build and settings.
+
+Future pushes automatically use the active origin and base path read from the server, so CI needs no secret changes. Certbot saves a deploy hook to reload nginx after certificate renewal. Once activation passes, change the live link in README and the opening paragraph here to the new address, then verify the public homepage, canonical links, sitemap, API, media and both redirects.
+
+The domain move does not copy browser-local progress across origins; progress saved at the shared address remains in that origin's storage. The server database and operator account stay in place.
