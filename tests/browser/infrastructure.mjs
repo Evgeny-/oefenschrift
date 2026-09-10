@@ -420,7 +420,7 @@ try {
   await navigate('/sets/a2-listening-01');
   await wait(`!!document.querySelector('.question')`);
   await evaluate(`document.querySelector('.wordmark').click();true;`);
-  await wait(`location.pathname==='/en'`);
+  await wait(`location.pathname==='/en'&&!!document.querySelector('.home-hero .primary')`);
   await check(
     `document.querySelector('.home-hero .primary').textContent.startsWith('Start with')&&!document.querySelector('.home [data-set="a2-listening-01"]')`,
     'The wordmark leads home and a set only opened, never answered, is not offered to continue',
