@@ -1,6 +1,6 @@
 # Deployment
 
-Set up on 10 September 2026. The site runs at <https://cool-projects.duckdns.org/projects/oefenschrift/> on the same Oracle free-tier VM that hosts the static projects, as a Node service behind the existing nginx. No Docker: the box has 1 GB of memory, and the app needs about 140 MB idle and 210 MB under load as a plain-node process. The new primary domain will be `oefenschrift.nl`. Its GoDaddy zone points at this VM, but the `.nl` registry had not published the delegation when checked on 10 September 2026; the shared URL remains active until DNS and HTTPS are ready (see the last section).
+The site runs at <https://oefenschrift.nl/> on the Oracle free-tier VM, as a Node service behind nginx. The domain was activated on 10 September 2026. `www.oefenschrift.nl` and the former `cool-projects.duckdns.org/projects/oefenschrift/` address redirect to the primary domain, preserving the path and query. No Docker: the box has 1 GB of memory, and the app needs about 140 MB idle and 210 MB under load as a plain-node process.
 
 ## The box
 
@@ -10,13 +10,14 @@ Set up on 10 September 2026. The site runs at <https://cool-projects.duckdns.org
 
 | Path | Contents |
 | --- | --- |
-| `/home/ubuntu/oefenschrift/build/` | Client assets, the server bundle and `entry.mjs`, built locally for the base path |
+| `/home/ubuntu/oefenschrift/build/` | Client assets, the server bundle and `entry.mjs`, built locally for the domain root |
 | `/home/ubuntu/oefenschrift/content/`, `config/` | Reviewed catalogue, sets, hints; feedback model and voices, read at runtime |
 | `/home/ubuntu/oefenschrift/node_modules/` | Production dependencies only, installed locally and synced (pure JavaScript, so the platform does not matter) |
 | `/home/ubuntu/oefenschrift/.env` | Mode 600: `PORT`, `INBURGERING_ORIGIN`, `INBURGERING_BASE_PATH`, `INBURGERING_TRUST_PROXY=1`, the operator account, provider keys. Never synced |
 | `/home/ubuntu/oefenschrift/var/` | SQLite database, the admin secret, backups. Never synced |
 | `/etc/systemd/system/oefenschrift.service` | `node --max-old-space-size=192 build/entry.mjs` as `ubuntu`, `Restart=always`, `MemoryMax=400M`, private tmp, read-only system, writable `var/` only |
-| `/etc/nginx/sites-available/driving-theory` | The shared vhost; `location /projects/oefenschrift/` proxies to `127.0.0.1:8766` with the real client address and scheme, a 10 MB body limit and a 90 s read timeout for feedback; a copy of the file before the change sits next to it as `.bak-<date>` |
+| `/etc/nginx/sites-available/oefenschrift` | Primary-domain proxy to `127.0.0.1:8766`, HTTPS and www redirect; a 10 MB body limit, 90 s read timeout and response buffering disabled for streamed HTML. Source: `config/nginx/oefenschrift.conf` |
+| `/etc/nginx/sites-available/driving-theory` | The other projects keep their existing locations; the former Oefenschrift path redirects to the primary domain |
 
 The base path is baked into the bundles at build time (`INBURGERING_BASE_PATH` → React Router `basename` and Vite `base`), and the server refuses to start when its own `INBURGERING_BASE_PATH` differs from the build's. Everything the app writes by hand (API calls, media, icons, cookie paths, canonical URLs, the sitemap) goes through `app/domain/base.ts` or `basePath()` in `server/security.ts`; the production Firefox journey run with the variable set asserts that no server-rendered URL points at the host root.
 
@@ -40,9 +41,11 @@ ssh -i "$HOME/Downloads/ssh 2/id_rsa" ubuntu@130.61.248.252 'free -m'
 
 The operator account is `operator`; its generated password sits in the server's `.env` (`grep ADMIN_PASSWORD ~/oefenschrift/.env` over SSH). To replace it with a stored scrypt hash, run `npm run admin:password -- <user>` locally and copy `var/admin-credentials.json` to the server's `var/`, then remove the two `INBURGERING_ADMIN_*` lines from `.env`.
 
-## What the shared host means
+## Domain, streaming and certificates
 
-Everything under `cool-projects.duckdns.org` is one origin, so the site shares cookies, browser storage and the microphone permission with the other projects there. Cookies are limited by `Path=/projects/oefenschrift` and the storage keys carry the `inburgering.` prefix, which keeps the projects from reading each other's state by accident, not by design. `robots.txt` only counts at the host root, which answers nothing (`return 444`), so `/projects/oefenschrift/robots.txt` documents intent and the sitemap is what to hand to a search console. HSTS is sent by the app for its own path; the certificate is the host's Let's Encrypt one, renewed by `certbot.timer`.
+The service uses `INBURGERING_ORIGIN=https://oefenschrift.nl`, an empty `INBURGERING_BASE_PATH` and `INBURGERING_TRUST_PROXY=1`. Canonical URLs and the sitemap use the primary origin. Both domain names have a Let's Encrypt certificate; the HTTP ACME challenge path is served from `/var/www/oefenschrift-acme`. `certbot.timer` renews the certificate and its deploy hook reloads nginx.
+
+nginx streams app responses with `proxy_buffering off`. Deployment checks fetch complete Dutch and English home pages, because a successful HEAD or API status response cannot detect truncated HTML. The production Firefox suite captures `securitypolicyviolation` events and checks the home pages' script nonces. When checking nginx configuration, use the installed configuration with `sudo nginx -t`: testing a reduced configuration that omits its `user www-data` directive can change the ownership of nginx's temporary directories and break active workers.
 
 ## Backups and the database
 
@@ -50,7 +53,7 @@ Everything under `cool-projects.duckdns.org` is one origin, so the site shares c
 
 ## Activating oefenschrift.nl
 
-The GoDaddy zone has `A @ 130.61.248.252` and `CNAME www oefenschrift.nl`. The HTTP vhost `/etc/nginx/sites-available/oefenschrift` is enabled and serves `/.well-known/acme-challenge/` from `/var/www/oefenschrift-acme`; other requests receive 503 until activation. The existing service and shared-host vhost keep running.
+Activation completed on 10 September 2026. The GoDaddy zone has `A @ 130.61.248.252` and `CNAME www oefenschrift.nl`. The pre-activation build and configuration are retained in `var/domain-backup-20260910T180428Z/` on the server. The procedure below documents the completed move; it does not need to run during normal deployment.
 
 After both names resolve publicly to the VM, with no GitHub workflow running:
 
@@ -60,6 +63,6 @@ bash scripts/activate-domain.sh
 
 The script checks DNS before changing anything, obtains a Let's Encrypt certificate for both names through the prepared HTTP vhost, and runs the production Firefox tests at the root. It stages that build beside the active build, backs up `.env` and both nginx vhosts into `var/domain-backup-<date>/`, and moves the app to `INBURGERING_ORIGIN=https://oefenschrift.nl` with an empty base path. It installs `config/nginx/oefenschrift.conf` and redirects the old Oefenschrift path to the new origin, preserving the remaining path and query. The other shared-host projects keep their locations. A failed nginx check, startup or HTTPS health check restores the previous build and settings.
 
-Future pushes automatically use the active origin and base path read from the server, so CI needs no secret changes. Certbot saves a deploy hook to reload nginx after certificate renewal. Once activation passes, change the live link in README and the opening paragraph here to the new address, then verify the public homepage, canonical links, sitemap, API, media and both redirects.
+Future pushes automatically use the active origin and base path read from the server, so CI needs no secret changes. Certbot saves a deploy hook to reload nginx after certificate renewal. The live link and deployment documentation now use the primary address.
 
 The domain move does not copy browser-local progress across origins; progress saved at the shared address remains in that origin's storage. The server database and operator account stay in place.

@@ -13,6 +13,8 @@ const bank = JSON.parse(await fs.readFile('content/catalogue.json', 'utf8'));
 const exercisePath =
   '/exercise/' + encodeURIComponent(bank.find((item) => item.part === 'speaking').id);
 for (const [path, expected] of [
+  ['/', 200],
+  ['/en', 200],
   ['/reading', 200],
   ['/sets/a2-listening-01', 200],
   [exercisePath, 200],
@@ -25,7 +27,7 @@ for (const [path, expected] of [
   const response = await fetch(site + path);
   assert.equal(response.status, expected, path);
   assert.ok(response.headers.get('cache-control')?.includes('no-store'));
-  if (path === '/reading') {
+  if (['/', '/en', '/reading'].includes(path)) {
     const html = await response.text(),
       csp = response.headers.get('content-security-policy');
     // Under a base path nothing may point at the host root: every href, src and url()
@@ -43,7 +45,7 @@ for (const [path, expected] of [
         );
     }
     assert.ok(!html.includes('/@vite/client'));
-    checks.push('Production streaming scripts all carry their CSP nonce');
+    checks.push(`${path}: production streaming scripts all carry their CSP nonce`);
   }
   checks.push(`${path}: ${expected} with cache prevention`);
 }
@@ -207,6 +209,11 @@ await send('session.new', { capabilities: {} });
 try {
   ({ context } = await send('browsingContext.create', { type: 'tab' }));
   await send('session.subscribe', { events: ['log.entryAdded', 'network.beforeRequestSent'] });
+  // Firefox may log CSP violations as warnings. Capture the browser event on every
+  // document so a blocked inline script fails the journey even if the app hydrates.
+  await send('script.addPreloadScript', {
+    functionDeclaration: `()=>{document.addEventListener('securitypolicyviolation',event=>console.error('CSP violation: '+event.effectiveDirective+' '+event.blockedURI));}`,
+  });
   const evaluate = async (expression) => {
     const result = await send('script.evaluate', {
       expression,
@@ -258,6 +265,9 @@ try {
         `${before[i].selector} ${key} shifted during hydration`,
       );
   checks.push('Exercise and sidebar geometry stay unchanged through hydration');
+  await send('browsingContext.navigate', { context, url: site + '/en', wait: 'complete' });
+  await ready('.app-shell[data-hydrated]');
+  checks.push('English home page hydrates without a CSP violation');
   await send('browsingContext.navigate', { context, url: site + '/reading', wait: 'complete' });
   await ready('.app-shell[data-hydrated]');
   checks.push('Compiled app hydrates under the production CSP');

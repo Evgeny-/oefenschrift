@@ -2,7 +2,7 @@
 
 Free, independent practice for the Dutch **inburgering** exams: reading, listening, writing and speaking at A2 and B1, plus KNM (knowledge of Dutch society). No account, no paywall; your progress stays in your browser.
 
-**Live:** [cool-projects.duckdns.org/projects/oefenschrift](https://cool-projects.duckdns.org/projects/oefenschrift/)
+**Live:** [oefenschrift.nl](https://oefenschrift.nl/)
 
 ![The start page: level, subjects with their practice sets, a level check and a sample question](docs/screenshots/home.png)
 

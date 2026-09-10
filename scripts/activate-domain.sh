@@ -66,7 +66,7 @@ rollback() {
     set +e
     cp -p "$backup/env" .env
     if [[ -d "$backup/build" ]]; then
-        mv build build-domain-failed
+        mv build "$backup/build-failed"
         mv "$backup/build" build
     fi
     cp -p "$backup/nginx-domain" /etc/nginx/sites-available/oefenschrift
@@ -86,15 +86,23 @@ nginx -t
 systemctl restart oefenschrift
 ready=0
 for attempt in $(seq 1 30); do
-    if curl -fsS --max-time 5 -H 'Host: oefenschrift.nl' http://127.0.0.1:8766/api/status >/dev/null; then ready=1; break; fi
+    if curl -fsS --max-time 5 -H 'Host: oefenschrift.nl' -H 'X-Forwarded-Proto: https' http://127.0.0.1:8766/api/status >/dev/null 2>&1; then ready=1; break; fi
     sleep 1
  done
 [[ "$ready" == 1 ]]
 systemctl reload nginx
-curl -fsS --max-time 20 --resolve oefenschrift.nl:443:127.0.0.1 https://oefenschrift.nl/api/status >/dev/null
+# Reload signals nginx asynchronously; wait for workers using the new certificate.
+ready=0
+for attempt in $(seq 1 30); do
+    if curl -fsS --max-time 5 --resolve oefenschrift.nl:443:127.0.0.1 https://oefenschrift.nl/api/status >/dev/null 2>&1; then ready=1; break; fi
+    sleep 1
+done
+[[ "$ready" == 1 ]]
+curl -fsS --max-time 20 --resolve oefenschrift.nl:443:127.0.0.1 https://oefenschrift.nl/en >/dev/null
 trap - ERR
 printf 'Domain active. Previous build and configuration: %s\n' "$backup"
 REMOTE
-curl -fsSI --max-time 20 https://oefenschrift.nl/ | head -n 1
-curl -fsS --max-time 20 https://oefenschrift.nl/api/status
+# DNS was verified above; bypass a stale OS resolver cache for these final probes.
+curl -fsS --max-time 20 --resolve oefenschrift.nl:443:130.61.248.252 https://oefenschrift.nl/ >/dev/null
+curl -fsS --max-time 20 --resolve oefenschrift.nl:443:130.61.248.252 https://oefenschrift.nl/api/status
 printf '\nActivated https://oefenschrift.nl. Future deploys read this address from the server.\n'

@@ -236,6 +236,7 @@ try {
     'A completed set reloads its result',
   );
   await click('[data-page="writing"]');
+  await wait(`!!document.querySelector('[data-set="${writing.id}"] .ring-done')`);
   await check(
     `document.querySelector('[data-set="${writing.id}"] .ring-done')&&document.querySelector('[data-set="${writing.id}"] .exercise-status').textContent===''`,
     'A completed open set shows a full ink ring and no status words',

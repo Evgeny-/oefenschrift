@@ -55,6 +55,10 @@ for attempt in $(seq 1 30); do
   [[ $attempt -eq 30 ]] && { echo "The site did not answer within 30 s; see: ssh ... 'journalctl -u $SERVICE -n 50'" >&2; exit 1; }
   sleep 1
 done
+# Fetch complete bodies: a successful HEAD cannot detect a truncated streamed page
+# (for example when nginx cannot write an upstream response to its temporary directory).
+curl -fsSL --max-time 30 "$PUBLIC_URL" >/dev/null
+curl -fsSL --max-time 30 "${PUBLIC_URL}en" >/dev/null
 curl -fsSIL --max-time 30 "$PUBLIC_URL" | head -1
 curl -fsS --max-time 30 "${PUBLIC_URL}api/status"
 echo
