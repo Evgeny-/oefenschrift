@@ -19,7 +19,12 @@ jobs:
         with:
           node-version-file: .node-version
           cache: npm
-      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg pulseaudio pulseaudio-utils
+      - name: Start a virtual audio output for Firefox
+        run: |
+          pulseaudio --start --exit-idle-time=-1
+          pactl load-module module-null-sink sink_name=oefenschrift_ci
+          pactl set-default-sink oefenschrift_ci
       - run: npm ci
       - run: npm run test:browser
       - run: npm run test:production
