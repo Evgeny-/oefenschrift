@@ -85,7 +85,7 @@ Task types, in the official proportions (one form = 4 + 4 + 4 + 4):
 
 | `taskType` | Stimulus | Instruction pattern | Learner produces |
 | --- | --- | --- | --- |
-| `video-answer` | a person asks one question (audio of the question, `cueAudio`, plus one still of the speaker or scene) | "U hoort een vraag. Geef antwoord." | one or two sentences |
+| `video-answer` | a person asks one question (audio of the question, `cueAudio`, plus one still of the speaker or scene) | "… Hij/Zij stelt u een vraag. U hoort de vraag. Geef antwoord." (the situation names the speaker first) | one or two sentences |
 | `picture-describe` | one picture | "X luncht op school. Vertel wat X kan eten. Vertel ook wat u van dit eten vindt. Gebruik het plaatje." | description + opinion |
 | `picture-choose` | two pictures | "U zoekt werk in een winkel. In welke winkel werkt u liever? Vertel ook waarom. Kies een van de plaatjes." | choice + reason |
 | `picture-sequence` | three pictures | "X werkt als kapper. Kijk naar de plaatjes. Vertel wat X doet. Vertel iets over alle plaatjes." | narration covering all three |
@@ -130,7 +130,7 @@ Requirements: `rubric: a2-schrijven`; a `model` answer; `sample` and `quotes` as
 
 | `taskType` | Fields | Scoring |
 | --- | --- | --- |
-| `zinstaak` | `scaffold: {to, from, subject, salutation, body, closing}` where `body` is a short e-mail with exactly one gap marked `___`; `grammarTarget`: `hoofdzin`, `bijzin`, `inversie`, `te-infinitief` or `vrij`; `adequacyNote` (what the sentence must do: give a reason, propose a solution, ask a question); exactly two `criteria` (adequacy, grammar); `model` one sentence of 5–25 words | adequaatheid 0–1, grammatica 0–1 |
+| `zinstaak` | `scaffold: {to, from, subject, salutation, body, closing}` where `body` is a short e-mail with exactly one gap marked `___`, either an open gap (prompt "Schrijf één zin op de open plek.") or a gap after a printed lead-in that fixes the structure — "omdat ___", "Daarom ___.", "Misschien ___?", "om ___.", "…, maar ___.", a fronted phrase such as "Volgens het huurcontract ___." — (prompt "Maak de zin op de open plek af."; the learner types what follows the lead-in); `grammarTarget`: `hoofdzin`, `bijzin`, `inversie`, `te-infinitief` or `vrij`; `adequacyNote` (what the sentence must do: give a reason, propose a solution, ask a question); exactly two `criteria` (adequacy, grammar); `model` one sentence of 5–25 words | adequaatheid 0–1, grammatica 0–1 |
 | `deelschrijftaak` | either `formFields` (four or more, at least two `kind: open`, e.g. "Geef minimaal twee redenen") or `scaffold` plus `images` the completion must use; 3–6 `criteria`; `model` 50–150 words | adequaatheid 0–3, grammatica 0–2, spelling, samenhang, woordgebruik 0–1 |
 | `korte-schrijftaak` | `scaffold` as for an e-mail, five or six `criteria`, a `table: {caption, columns, rows}` or `images`, `goal`: `informeren`, `overtuigen`, `klagen` or `voorstellen`; the prompt says that the table or pictures are not part of the e-mail; `model` 120–180 words | as deelschrijftaak |
 

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oefenschrift · Design directions</title>
+    <link rel="stylesheet" href="gallery.css" />
+    <link rel="stylesheet" href="components.css" />
+    <script src="concepts.js" defer></script>
+    <script src="exercise-data.js" defer></script>
+    <script src="gallery.js" defer></script>
+    <script src="components.js" defer></script>
+  </head>
+  <body>
+    <header class="gallery-header">
+      <a class="gallery-brand" href="#">Oefenschrift <span>Design exploration</span></a>
+      <nav aria-label="Exploration">
+        <a href="#directions">Home pages</a><a href="#components">Try components</a
+        ><a href="#notes">Design notes</a>
+      </nav>
+    </header>
+    <main>
+      <section class="intro" id="directions">
+        <p class="eyebrow">September 2026 · Local concepts</p>
+        <h1>Find the feel you like.</h1>
+        <p>
+          Eight home-page directions for the app, with an interactive exercise workspace to explore
+          the components.
+        </p>
+        <div class="compare-tools">
+          <button id="compare" disabled>Compare two directions</button
+          ><span id="selection-status" role="status">Select two below.</span>
+        </div>
+      </section>
+      <div id="concept-grid" class="concept-grid"></div>
+      <details class="current">
+        <summary>Compare with the current home page</summary>
+        <div class="current-images">
+          <img src="media/current-home.png" alt="Current Oefenschrift home page on desktop" /><img
+            src="media/current-mobile.png"
+            alt="Current Oefenschrift home page on a phone"
+          />
+        </div>
+      </details>
+      <section id="components" class="component-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Interactive mockups</p>
+            <h2>See how the exercises could feel.</h2>
+          </div>
+          <label class="palette-label"
+            >Colour direction<select id="palette" aria-label="Component colour direction"></select
+          ></label>
+        </div>
+        <p class="component-note">
+          Uses existing exercises. Recording and feedback are simulated; audio playback is real.
+          Answers stay in this preview.
+        </p>
+        <div id="demo" data-theme="paper" lang="nl">
+          <header class="demo-bar">
+            <a href="#components" class="demo-brand"
+              >Oefenschrift<span aria-hidden="true">.</span></a
+            ><span class="demo-part">Oefenruimte</span
+            ><button id="demo-reset" class="demo-quiet">Opnieuw beginnen</button>
+          </header>
+          <nav
+            id="exercise-tabs"
+            class="exercise-tabs"
+            aria-label="Voorbeeld van een oefening"
+          ></nav>
+          <div id="exercise-surface"></div>
+        </div>
+      </section>
+      <section id="notes" class="design-notes">
+        <p class="eyebrow">What I would change</p>
+        <h2>A clearer invitation to practise.</h2>
+        <div class="notes-grid">
+          <article>
+            <h3>Give the home page a focal point</h3>
+            <p>
+              The current cards have similar weight and a lot of descriptive text. Pair the first
+              action with a real sample, then give each subject a shorter, more distinct entry.
+            </p>
+          </article>
+          <article>
+            <h3>Keep returning learners close to their work</h3>
+            <p>
+              The app already remembers unfinished sets. Quiet green gives that continuation more
+              presence. Show progress only when the learner has made some.
+            </p>
+          </article>
+          <article>
+            <h3>Match the answer area to the task</h3>
+            <p>
+              Let learners fill a sentence gap in context. Give form tasks separate fields. A
+              writing task can still use a generous single answer area.
+            </p>
+          </article>
+          <article>
+            <h3>Keep the useful feedback behaviour</h3>
+            <p>
+              Reading evidence stays beside the question. Listening transcripts open after the
+              questions for that clip. Speaking keeps one editable transcript. Missing details get a
+              concrete next action.
+            </p>
+          </article>
+        </div>
+        <p class="limitations">
+          The images explore appearance and may contain small generated-text errors. The component
+          preview uses exact catalogue text. These are local proposals; the application and reviewed
+          exercise catalogue have not been changed. Palette changes do not reproduce every layout
+          detail in the images.
+        </p>
+        <p class="notes-links">
+          <a href="review.md">Read the exercise review</a
+          ><a href="prompts.json">Generation prompts</a>
+        </p>
+      </section>
+    </main>
+    <dialog id="lightbox" aria-labelledby="lightbox-title">
+      <header>
+        <h2 id="lightbox-title"></h2>
+        <button id="close-lightbox" aria-label="Close enlarged mockup">Close ×</button>
+      </header>
+      <div id="lightbox-content"></div>
+    </dialog>
+    <footer class="gallery-footer">
+      Oefenschrift · Eight proposals for the next design conversation
+    </footer>
+  </body>
+</html>

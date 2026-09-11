@@ -1,0 +1,376 @@
+{
+  "review_id": "batch026-editorial-review",
+  "source": "content/batches/026-original.json",
+  "original_sha256": "afbeda58e61ee4c3b468b99de7c39ed4fdf80d8a22bc2a9086a2ae551cfafba6",
+  "proposed": "content/batches/026-proposed.json",
+  "source_sha256": "2817bb36edf17aec4a7d514ef6fff04cee1b89459b8aa453aa93bd2495c3145b",
+  "source_note": "source_sha256 is the SHA-256 of the proposed file, the bytes npm run batch:adopt 026 moves over the original; original_sha256 is the author’s file as reviewed.",
+  "starters_source": "content/batches/026-starters.json",
+  "starters_sha256": "4967159fd10a8450402f74572c5267c3a91bc1fb55e82d7e0bf893733df779c6",
+  "starters_verdict": "pass",
+  "starters_note": "No criterion changed, so the author’s starters file stands unchanged and no 026-proposed-starters.json was written.",
+  "review_type": "AI editorial review of A2 speaking tasks in the four official DUO types (video-answer, picture-describe, picture-choose, picture-sequence) and their sentence starters: official instruction wording, cues and voice roles, image briefs against the house style and cast, criteria that mirror the type, sample quotes with learner errors, model coverage and level, originality against the catalogue and batch 027; repairs applied in the proposed file",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_counts": {
+    "pass": 12,
+    "edited": 2,
+    "rejected": 0
+  },
+  "summary": "All twelve tasks pass in the proposed file. Three recommended edits: bibliotheekboek relabelled winkels-diensten, fiets-lopen relabelled vervoer, the papers in bibliotheekboek panel 1 declared blank. No wording, criterion, sample, model or starter changed; no task rejected. Learner errors in the samples kept as the author brief asks; the no-fine library ending kept. Every task comparable to the official task of its type; no level flag. Checker on the proposed file: no failures, no warnings.",
+  "edits": [
+    {
+      "id": "E1",
+      "item": "A2:speaking:batch026-bibliotheekboek:1",
+      "field": "domain",
+      "kind": "recommended",
+      "old": "instanties",
+      "new": "winkels-diensten",
+      "why": "A public library is a service counter, not an instantie in the inburgering sense (gemeente, UWV, DUO, belastingdienst, politie; blueprint §9 lists gemeente letters, toeslagen, DigiD and a police report as the instanties needs). The catalogue’s opleiding label for library items covered a course and opening hours, not a loan. Instanties is already the largest A2 domain in the catalogue (31), winkels-diensten has 15. Decision on doubt 6."
+    },
+    {
+      "id": "E2",
+      "item": "A2:speaking:batch026-fiets-lopen:1",
+      "field": "domain",
+      "kind": "recommended",
+      "old": "werk",
+      "new": "vervoer",
+      "why": "Same choose template as 009 trein-auto and 027 bus-fiets, both labelled vervoer; the content is the mode of transport, the workplace only the destination; vervoer is the least represented A2 domain (11). Decision on doubt 10."
+    },
+    {
+      "id": "E3",
+      "item": "A2:speaking:batch026-bibliotheekboek:1",
+      "field": "images[0].brief",
+      "kind": "recommended",
+      "old": "At home, Modibo (young man, short black hair, light shirt) finds a thick book under a pile of papers on his desk and looks at it with a worried face, one hand on his head. No text, blank book cover.",
+      "new": "At home, Modibo (young man, short black hair, light shirt) finds a thick book under a pile of blank sheets of paper on his desk and looks at it with a worried face, one hand on his head. No text, blank book cover.",
+      "why": "The only paper object in the batch not declared blank (the 009 ochtenddienst finding: a text-bearing object contradicts No text and loops the generation). Alt, sample and model stay true."
+    }
+  ],
+  "rejected": [],
+  "decisions_on_author_doubts": {
+    "1_video_answer_prompt_sentence": "Keep ‘U hoort de vraag.’: matches the six integrated 009 tasks and 027; blueprint §4.3 should record the composite pattern (coordinator).",
+    "2_woorden_leren_vs_thuis_oefenen": "Keep as written: different act (memory method plus a concrete word vs habits and frequency), speaker and register; alternative cue not needed; not in one video drill with thuis-oefenen or 027 taalcafe-oefenen.",
+    "3_regen_vs_bushalte": "Keep the bus: different type and act; the platform variant would collide with treinkaartje panel 2; not both bus stops in one form.",
+    "4_schoolplein_vs_gymles": "Keep the ball: another scene and act; a ball is a shared motif and the most nameable A2 action; scooter variant not applied; not in one describe drill with gymles.",
+    "5_treinkaartje_vs_tramkaart": "Keep; the pre-blueprint items are another format; different sets.",
+    "6_domain_bibliotheekboek": "Relabelled winkels-diensten (E1).",
+    "7_no_fine_panel": "Keep the new book: fines vary by library, a payment panel would be wrong for part of the country and adds a text-prone object; the lateness sits in the prompt and panel 1.",
+    "8_learner_errors_in_samples": "Keep: the author brief asks for them; sample and quotes are feedback fixtures not shown in the app; quotes verbatim with the errors; errors typical. ‘op de bank’ is acceptable Dutch for a bench, harmless.",
+    "9_geslaagd_premise": "Keep; role-play, no claim about the learner.",
+    "10_fiets_lopen_domain": "Relabelled vervoer (E2).",
+    "11_fatima_coat_in_kitchen": "Keep (cast rule; 027 keuken does the same).",
+    "12_reason_for_visit": "Keep; mild complaints, and the desk question is what the assistant asks.",
+    "13_pairs_with_different_rooms": "Accepted as 009 gemeente-bellen: the place is the thing chosen; person, clothes, shirt and companions constant.",
+    "14_modibo_twice": "Accepted (different onderdelen); keep his four tasks (woorden-leren, bibliotheekboek, 009 rijbewijs, 027 verhuizen) apart in sets.",
+    "15_neighbours_in_027": "Recorded in set_assembly; two more found (lunchpauze/027 ziekmelden, marktkraam/027 kassa)."
+  },
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 12,
+    "task_types": {
+      "video-answer": 3,
+      "picture-describe": 3,
+      "picture-choose": 3,
+      "picture-sequence": 3
+    },
+    "domains_proposed": {
+      "werk": 1,
+      "opleiding": 1,
+      "gezondheid": 1,
+      "winkels-diensten": 3,
+      "vervoer": 3,
+      "vrije-tijd-familie": 2,
+      "wonen-buurt": 1,
+      "instanties": 0
+    },
+    "domains_original": {
+      "werk": 2,
+      "opleiding": 1,
+      "gezondheid": 1,
+      "winkels-diensten": 2,
+      "vervoer": 2,
+      "vrije-tijd-familie": 2,
+      "instanties": 1,
+      "wonen-buurt": 1
+    },
+    "exam_rubric_timing": "exam duo-a2, rubric a2-spreken, speakingSeconds 40, prepSeconds 10, status draft, targetLevelValidated false on all twelve",
+    "prompt_words_range": [
+      20,
+      29
+    ],
+    "prompt_longest_sentence": 11,
+    "prompts_follow_official_pattern": "12 of 12",
+    "cue_words": {
+      "lunchpauze": 18,
+      "woorden-leren": 19,
+      "huisarts-afspraak": 20
+    },
+    "cue_roles": {
+      "lunchpauze": "f-young",
+      "woorden-leren": "m-young",
+      "huisarts-afspraak": "f-adult"
+    },
+    "cue_roles_in_voices_json": true,
+    "cues_one_two_part_question": "3 of 3",
+    "cues_ask_identifying_data": false,
+    "cue_numbers_in_words": true,
+    "criteria_per_task": 3,
+    "criteria_mirror_type": "video: part one, part two, one more detail; describe: scene, at least two, opinion; choose: choice, reason, other picture; sequence: one per picture",
+    "sample_words_range": [
+      20,
+      28
+    ],
+    "quotes_verbatim": "12 of 12",
+    "one_null_per_task": true,
+    "null_positions": {
+      "1": 3,
+      "2": 5,
+      "3": 4
+    },
+    "null_marks_a_really_missed_criterion": "12 of 12",
+    "samples_carry_learner_errors": "12 of 12 (one or two each, typical)",
+    "model_words_range": [
+      39,
+      44
+    ],
+    "model_sentences_range": [
+      5,
+      7
+    ],
+    "model_avg_sentence_range": [
+      6.3,
+      8.6
+    ],
+    "model_longest_sentence": 13,
+    "model_subordinate_clauses": "one dat-clause (online-winkel); zoals as a phrase; want/maar/en coordination",
+    "model_meets_all_criteria": "12 of 12",
+    "prompt_sentence_copied_into_sample_or_model": 0,
+    "images": {
+      "still": 3,
+      "single": 3,
+      "pair": 6,
+      "sequence": 9,
+      "total": 21
+    },
+    "image_counts_per_type_correct": true,
+    "cast_traits_verbatim": "every cast name in every brief",
+    "no_text_clause": "21 of 21",
+    "alt_present_dutch": "21 of 21",
+    "text_bearing_objects_declared_blank": "all after E3",
+    "pairs_differ_only_in_the_thing_chosen": "3 of 3 (place is the thing chosen in online-winkel and feest-thuis)",
+    "sequences_consistent": "3 of 3 (traits, backpack, book, pot, librarian repeated verbatim)",
+    "starters_per_task": 3,
+    "starters_in_criteria_order": true,
+    "starters_contain_ellipsis": "36 of 36",
+    "starters_neutral_and_factless": true,
+    "starters_aligned_with_criteria": "12 of 12",
+    "slugs_unused_in_catalogue_speaking_and_027": true,
+    "invented_organisations": 0,
+    "level_heuristics_blueprint_10": "pass on every prompt, cue, sample, model",
+    "batch_check_original": "Checked 12 items, 0 questions. No failures, no warnings.",
+    "batch_check_proposed": "Checked 12 items, 0 questions. No failures, no warnings.",
+    "proposed_diff_paths": [
+      "[7].domain",
+      "[10].domain",
+      "[10].images[0].brief"
+    ],
+    "original_reserialises_identically": true
+  },
+  "items": {
+    "A2:speaking:batch026-lunchpauze:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "type": "video-answer",
+      "domain": "werk",
+      "evidence": "Prompt in the composite video-answer pattern; cue Roos (f-young), 18 words, one two-part question (wat / waar); still: Roos with traits verbatim at a desk with a blank laptop and a closed lunch box, No text. Criteria: what, where, one more detail. Sample 28 words with two typical errors (missing article, de weekend); quotes verbatim; null 2 right (mee van thuis is not where). Model 39 words, 5 main clauses, longest 10: broodje met kaas en een appel (1), in de kantine aan een grote tafel (2), twee collega’s, half uur, naar buiten (3). Starters aligned."
+    },
+    "A2:speaking:batch026-woorden-leren:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "type": "video-answer",
+      "domain": "opleiding",
+      "evidence": "Cue Modibo (m-young), 19 words, two questions in two sentences (hoe onthoud jij / welk woord), je from a classmate; still: Modibo traits verbatim, closed notebook, pen, No text. Sample 25 words (no inversion after Elke avond, help for helpt); quotes verbatim; null 2 right (no word named). Model 43 words, 6 clauses, longest 9: kaartjes and briefjes (1), het woord gordijn (2), meaning and tip (3). Near 009 thuis-oefenen and 027 taalcafe-oefenen in topic, different act; keep apart in a drill."
+    },
+    "A2:speaking:batch026-huisarts-afspraak:1": {
+      "verdict": "pass",
+      "level": "comparable, the most demanding of the three video answers",
+      "type": "video-answer",
+      "domain": "gezondheid",
+      "evidence": "Cue de assistente (f-adult, the config’s huisarts assistant), 20 words, u, ochtend of middag + waarvoor u komt: the real desk question; still: non-cast assistant with three fixed traits, desk, telephone, No text. Sample 23 words (als ik zit lang; Dan ik ben vrij); quotes verbatim; null 1 right (never morning or afternoon). Model 39 words, longest 13 (one want-clause): middag with a reason (1), keel/hoesten (2), morgen om drie uur, woensdag (3). Nothing graphic; label lower case with article as 009 asked."
+    },
+    "A2:speaking:batch026-marktkraam:1": {
+      "verdict": "pass",
+      "level": "comparable, easy end",
+      "type": "picture-describe",
+      "domain": "winkels-diensten",
+      "evidence": "Prompt in the official describe pattern. Brief: Hasan traits verbatim, stall with striped awning, apples, tomatoes, carrots, stallholder with a paper bag, No text, no price tags (7 shapes). Sample 20 words (kan kopen appels; geef); quotes verbatim; null 3 right (no opinion). Model 40 words, longest 12: scene (1), appels, tomaten, wortels (2), gezellig, vers, goedkoper (3). Near 027 kassa (what Karim buys); different setting and opinion."
+    },
+    "A2:speaking:batch026-regen:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "type": "picture-describe",
+      "domain": "vervoer",
+      "evidence": "Brief: shelter, Sabrina traits verbatim under a yellow umbrella, older woman on the bench, bus approaching, rain lines, No text, no sign, no number (7 shapes); three nameable actions. Sample 24 words (regent veel; op de bank, which is acceptable Dutch for a bench); quotes verbatim; null 3 right. Model 44 words, 6 clauses, longest 11: scene (1), staat/wacht, zit, de bus komt eraan (2), prima, goedkoop maar soms te laat (3). Bus stop shared with 009 bushalte (video) as a setting only."
+    },
+    "A2:speaking:batch026-schoolplein:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "type": "picture-describe",
+      "domain": "vrije-tijd-familie",
+      "evidence": "Brief: fence and open gate, Amina traits verbatim skipping, two children with a ball, a mother with a bicycle, No text (9 simple shapes, at the level of the revised 009 gymles). Sample 23 words (kinders; ze beweegt); quotes verbatim; null 2 right (one action). Model 44 words, 7 clauses, longest 9: scene (1), touwtje springen, bal, moeder bij het hek (2), goed, bewegen, frisse lucht, scherm (3). Shares a rope and a ball with gymles as motifs; kept (doubt 4)."
+    },
+    "A2:speaking:batch026-online-winkel:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "type": "picture-choose",
+      "domain": "winkels-diensten",
+      "evidence": "Prompt in the official choose pattern. Pair: meneer De Vries traits verbatim in both, the same blue shirt (in a parcel by a blank laptop / on a hanger at a rack with an assistant), No text, no price tags; the place is the thing chosen (as 009 gemeente-bellen). Sample 23 words (no inversion; belangrijke); quotes verbatim; null 1 right (reasons for both, no choice, the 009 flat-dorp failure). Model 41 words, one dat-clause, longest 9: the shop (1), passen and maat (2), online makkelijk but terugsturen (3)."
+    },
+    "A2:speaking:batch026-fiets-lopen:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "type": "picture-choose",
+      "domain": "vervoer",
+      "evidence": "Pair differs only in bicycle versus walking: same Julio (traits verbatim), same street with trees, same bag, No text. Sample 22 words (Met de fiets ik ben); quotes verbatim; null 3 right. Model 40 words, longest 13: walking (1), tien minuten, frisse lucht (2), Julio fietst, sneller maar vaak kapot (3). Relabelled vervoer (E2). Near 027 bus-fiets and 009 trein-auto; keep apart."
+    },
+    "A2:speaking:batch026-feest-thuis:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "type": "picture-choose",
+      "domain": "vrije-tijd-familie",
+      "evidence": "Pair: Karim traits verbatim with the same two friends (short red hair, yellow top / glasses, blue shirt) at his table with dishes / at a restaurant table with a waiter, No text, no menu. Sample 23 words (meer leuk; no inversion); quotes verbatim; null 2 right (a judgement, not a reason, as 009 klas-thuis). Model 39 words, longest 12: thuis (1), rustig, lang blijven, zelf koken (2), restaurant duur en druk (3). Premise geslaagd kept (doubt 9)."
+    },
+    "A2:speaking:batch026-treinkaartje:1": {
+      "verdict": "pass",
+      "level": "comparable, easy end",
+      "type": "picture-sequence",
+      "domain": "vervoer",
+      "evidence": "Prompt in the official sequence pattern. Panels: ticket machine (yellow box, blank screen, blank card) / platform, yellow train arriving, no number / by the window with the backpack; Sem traits verbatim and the small backpack in all three; three distinct actions. Sample 22 words (de perron; Dan hij zit); quotes verbatim; null 1 right. Model 41 words, longest 12: kaartje bij de automaat, pinpas (1), perron, de trein komt eraan (2), bij het raam (3). NS yellow is right; the oma stays in the prompt."
+    },
+    "A2:speaking:batch026-bibliotheekboek:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "type": "picture-sequence",
+      "domain": "winkels-diensten",
+      "evidence": "Panels: finds the thick book under blank papers (E3) with a worried face / hands it to the librarian (grey hair in a bun, glasses, green cardigan) at the counter / takes another book from a shelf while the same librarian watches; Modibo traits verbatim in all three, book covers blank. Sample 22 words (Daarna hij pakt; een nieuwe boek); quotes verbatim; null 2 right. Model 43 words, longest 12: vindt, te laat (1), geeft terug, zegt sorry (2), pakt een nieuw boek (3). Relabelled winkels-diensten (E1); no-fine ending kept (doubt 7)."
+    },
+    "A2:speaking:batch026-koken-buurvrouw:1": {
+      "verdict": "pass",
+      "level": "comparable, easy end",
+      "type": "picture-sequence",
+      "domain": "wonen-buurt",
+      "evidence": "Panels: Fatima (traits verbatim) stirs a pot / holds the lidded pot at the neighbour’s door which mevrouw Bakker (traits verbatim) opens, no house number / both eat at the table with the pot; the same pot throughout; three distinct actions. Sample 20 words (het keuken; Dan zij brengt); quotes verbatim; null 3 right. Model 43 words, 6 clauses, longest 11: kookt, roert (1), brengt de pan, deur open (2), eten samen, praten (3). Coat at the stove kept by the cast rule (doubt 11); panel 1 shares Fatima at her stove with 027 keuken."
+    }
+  },
+  "diversity_review": {
+    "within_batch": "Twelve distinct settings and acts; no slug or §9 setting reused; only the fixed instruction sentences mirror the official format; no official scenario reused. Needed-list coverage: lunch at work, learning words, huisarts, a market, the train, delivery and returns, the school of the children, a celebration. Wonen-buurt kept to one task.",
+    "near_neighbours": [
+      "lunchpauze / 027 ziekmelden: Roos (f-young) as a colleague, ‘Hé’, werk video answers",
+      "woorden-leren / 009 thuis-oefenen / 027 taalcafe-oefenen: learning Dutch",
+      "huisarts-afspraak / 009 slaap / 027 wachtkamer: the practice",
+      "marktkraam / 027 kassa: what X can or will buy",
+      "regen / 009 bushalte / 027 bus-fiets: a bus stop or a bus",
+      "schoolplein / 009 gymles: a rope and a ball",
+      "online-winkel / 027 contant-pinnen: shopping choices",
+      "fiets-lopen / 027 bus-fiets / 009 trein-auto: transport-mode choices, two with a bicycle",
+      "treinkaartje / 009 trein-auto / 003 tramkaart: the train",
+      "bibliotheekboek / 027 taalcafe-oefenen: the library",
+      "koken-buurvrouw panel 1 / 027 keuken: Fatima at her stove"
+    ],
+    "cast_recurrence": "Modibo twice in this batch (video still, library sequence) and in 009 rijbewijs and 027 verhuizen; every other cast name once here."
+  },
+  "set_assembly": {
+    "bank": "009 (24) + 026 (12) + 027 (12) = 48 tasks, 12 per type: the launch-bank figure of the research note; two mock forms without shared tasks plus one spare drill per type.",
+    "suggested_drills": {
+      "video-answer": [
+        "lunchpauze",
+        "woorden-leren",
+        "huisarts-afspraak",
+        "009 abonnement"
+      ],
+      "picture-describe": [
+        "marktkraam",
+        "regen",
+        "schoolplein",
+        "009 schoonmaak"
+      ],
+      "picture-choose": [
+        "online-winkel",
+        "fiets-lopen",
+        "feest-thuis",
+        "009 flat-dorp"
+      ],
+      "picture-sequence": [
+        "treinkaartje",
+        "bibliotheekboek",
+        "koken-buurvrouw",
+        "009 brief-gemeente"
+      ]
+    },
+    "order_easiest_first": {
+      "video-answer": [
+        "lunchpauze",
+        "woorden-leren",
+        "huisarts-afspraak"
+      ],
+      "picture-describe": [
+        "marktkraam",
+        "regen",
+        "schoolplein"
+      ],
+      "picture-choose": [
+        "fiets-lopen",
+        "feest-thuis",
+        "online-winkel"
+      ],
+      "picture-sequence": [
+        "koken-buurvrouw",
+        "treinkaartje",
+        "bibliotheekboek"
+      ]
+    },
+    "keep_apart": "Each near-neighbour pair out of one drill of four and, where both are the same type, out of one mock form; Modibo’s tasks not adjacent."
+  },
+  "media_notes": {
+    "audio": {
+      "clips": "12 instruction clips (narrator) and 3 cue clips, about 1,840 characters",
+      "voices": {
+        "Roos": "f-young (quiet; loudness normalisation)",
+        "Modibo": "m-young",
+        "de assistente": "f-adult (config: huisarts assistant)"
+      },
+      "round_trip": "‘Hé’ may transcribe as ‘Hee’ (one character); numbers in words",
+      "captions": "U hoort: Roos / Modibo / de assistente"
+    },
+    "images": {
+      "count": 21,
+      "sizes": "3 still 1024x640, 3 single 816x816, 6 pair 1024x640, 9 sequence 1024x640",
+      "risks": [
+        "treinkaartje 1: the ticket machine must read as one without text (yellow box, blank screen, card in hand)",
+        "regen: no number on the bus, no sign on the stop; rain lines and the umbrella may artefact",
+        "marktkraam, online-winkel 2: no price tags or labels",
+        "lunchpauze, online-winkel 1: blank laptop screens",
+        "bibliotheekboek 2-3: blank book spines; librarian identical in both",
+        "koken 2: no house number; the landing reads as an apartment building",
+        "schoolplein: thin jump rope; nine shapes",
+        "online-winkel: blue shirt against De Vries’s dark blue jacket (a green shirt would separate them at a redraw)",
+        "feest-thuis: the two friends have two fixed traits each; a third would guard a redraw",
+        "bibliotheekboek 1: a worried face in the flat style may not read; the prompt carries te laat",
+        "cast: Fatima’s coat at the stove, mevrouw Bakker’s cardigan, Sem’s sweater and backpack in all three panels"
+      ]
+    },
+    "alt_texts": "neutral Dutch; describe alts name the pictured things, as the 009 review accepted for open tasks"
+  },
+  "coordinator_notes": [
+    "npm run batch:adopt 026, then npm run content:integrate (merges the starters; the review carries starters_source, starters_sha256 and starters_verdict pass); audio and illustrations after the hash gate.",
+    "Blueprint §4.3 still prints ‘U hoort een vraag’; three batches use the composite ‘… stelt u een vraag. U hoort de vraag. Geef antwoord.’ Record it.",
+    "OpenExercise.tsx hides the requirements for cued tasks before speaking (the 009 level-check flag is resolved), but the collapsed Beginzinnen are still offered for cued tasks and paraphrase the cue; extending the hide rule to item.cue in drill mode would close the last listening leak. App matter.",
+    "The relabels leave this batch with no instanties task; a gemeente or UWV speaking task in a later batch is the honest way to a spread over eight domains.",
+    "No separate level check is needed: second batch in the 009 shape (blueprint §12, step 5)."
+  ],
+  "limitations": "AI editorial review; no educator review, learner trial or psychometric calibration; targetLevelValidated stays false. Level judged against the official task descriptions and the integrated 009 tasks, not stored exemplars (content/exemplars/ does not exist). Text fields, cues, criteria, samples, models, starters and image briefs only; generated pictures and clips need the media review after production. The reviewer’s edits are two labels and one brief, so no new Dutch wording entered the batch."
+}

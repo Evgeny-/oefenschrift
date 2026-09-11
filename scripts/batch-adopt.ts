@@ -3,7 +3,7 @@
 //
 //   tsx scripts/batch-adopt.ts 018
 import { createHash } from 'node:crypto';
-import { existsSync, readFileSync, renameSync } from 'node:fs';
+import { existsSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 
 const batch = process.argv[2];
@@ -42,5 +42,16 @@ if (
 }
 renameSync(proposed, original);
 if (existsSync(proposedStarters)) renameSync(proposedStarters, starters);
+// The review may name the proposed files; after adoption the record points at the adopted ones.
+const normalised = JSON.stringify(
+  {
+    ...review,
+    source: original,
+    ...(review.starters_source ? { starters_source: starters } : {}),
+  },
+  null,
+  2,
+);
+if (normalised !== JSON.stringify(review, null, 2)) writeFileSync(reviewPath, normalised + '\n');
 console.log(`Adopted ${proposed} as ${original} (${review.source_sha256.slice(0, 12)}…).`);
 execFileSync('npx', ['tsx', 'scripts/batch-check.ts', original], { stdio: 'inherit' });

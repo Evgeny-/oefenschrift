@@ -1,0 +1,339 @@
+{
+  "review_id": "029-review",
+  "source": "content/batches/029-original.json",
+  "source_original_sha256": "f1aaa15bb7fed220bd5592b120f775f98b366bd2d9dbc9d5440edc5fdebc90b9",
+  "proposed": "content/batches/029-proposed.json",
+  "source_sha256": "bdf3f7107b119a8df110a5dbe2fddc1f91234263aa20f388a5df125a10a8ba10",
+  "source_note": "source_sha256 is the SHA-256 of the PROPOSED batch file (the bytes to adopt with npm run batch:adopt 029); source_original_sha256 is the hash of the author's file that was reviewed.",
+  "starters_source": "content/batches/029-starters.json",
+  "starters_sha256": "c6384906a1a7117d6a63278d5d644f8182cef279b57d4f437771beceb4113ac9",
+  "starters_note": "Byte-identical to content/batches/029-starters.json (same hash): criterion 1 of magnetron changed (E4), the eighteen starters were re-read against the proposed criteria and stand unchanged.",
+  "starters_verdict": "pass",
+  "review_type": "ai-editorial-review",
+  "rubric": "content/reviews/rubric.md",
+  "rubric_context": [
+    "content/blueprint.md §1, §3, §4.8, §5, §8, §9, §10, §12, §13",
+    "docs/research/exam-blueprints-2026-09-10.md, Schrijven I paragraph",
+    "docs/briefs/author.md",
+    "content/reviews/015-review.md findings applied: organisation names web-checked, picture prompt asks for every scored element, criteria as wide as the prompt, form labels as wide as their criteria, table figures checked against the models, model lengths"
+  ],
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_summary": "All four tasks pass in the proposed file; five edits applied (E1, E2 required-minor; E3, E4, E5 recommended); no task rejected; starters pass unchanged; no level flag.",
+  "edits": [
+    {
+      "id": "E1",
+      "item": "B1:writing:batch029-groepsresultaten:1",
+      "field": "prompt",
+      "kind": "required-minor",
+      "old_fragment": "hoe de aanwezigheid bij de lessen was en wat u voorstelt voor de laatste weken van de cursus.",
+      "new_fragment": "hoe de aanwezigheid bij de lessen was en wat u daarbij opvalt, en wat u voorstelt voor de laatste weken van de cursus.",
+      "why": "Criterion 4 scores \"wat u daarbij opvalt\" but the prompt asked only how attendance was; a learner who did what the prompt said could miss the criterion (rubric 4, 6; the 015 lesson). Criterion, sample, model and starter already work with the addition."
+    },
+    {
+      "id": "E2",
+      "item": "B1:writing:batch029-groepsresultaten:1",
+      "field": "model",
+      "kind": "required-minor",
+      "old_fragment": "Op maandag is gemiddeld ruim negentig procent van de groep aanwezig,",
+      "new_fragment": "Op maandag is gemiddeld negentig procent of meer van de groep aanwezig,",
+      "why": "The table gives 92 % and 90 % for the Monday lessons; 90 % is not \"ruim negentig procent\". Every figure the model uses must match the table. +1 word."
+    },
+    {
+      "id": "E3",
+      "item": "B1:writing:batch029-groepsresultaten:1",
+      "field": "model",
+      "kind": "recommended",
+      "old_fragment": "Het valt mij op dat veel cursisten na de spreekles naar huis gaan, omdat de laatste bus vroeg vertrekt.",
+      "new_fragment": "Het valt mij op dat op woensdag veel cursisten na de spreekles naar huis gaan, terwijl op maandag bijna iedereen beide lessen volgt.",
+      "why": "The bus explanation is contradicted by the table: the equally late Monday lesson (20.30–21.45) has 90 % attendance. The observation now states the contrast the table shows, with the signal word terwijl; the proposal that follows still follows from it. +4 words; model 178."
+    },
+    {
+      "id": "E4",
+      "item": "B1:writing:batch029-magnetron:1",
+      "field": "criteria[0]",
+      "kind": "recommended",
+      "old": [
+        "Beschrijf het probleem: wat er nu in de kantine staat en voor hoeveel collega's per dienst dat is.",
+        "Describe the problem: what the canteen has now and how many colleagues per shift have to share it."
+      ],
+      "new": [
+        "Beschrijf het probleem: wat er nu in de kantine staat en voor hoeveel collega's dat is, bijvoorbeeld in de drukste dienst.",
+        "Describe the problem: what the canteen has now and how many colleagues have to share it, for example in the busiest shift."
+      ],
+      "why": "Decides the author's doubt 5: \"per dienst\" could be read as requiring all three shifts, while the sample gives only the afternoon shift and is rightly counted as met; the judge sees the criterion text only. One shift is now explicitly enough. Starter 1 (\"… terwijl er in de middagdienst …\") fits; starters unchanged."
+    },
+    {
+      "id": "E5",
+      "item": "B1:writing:batch029-magnetron:1",
+      "field": "model",
+      "kind": "recommended",
+      "old_fragment": "Ten tweede passen er hooguit twaalf lunchtrommels in de koelkast,",
+      "new_fragment": "Ten tweede passen er ongeveer twaalf lunchtrommels in de koelkast,",
+      "why": "The table says \"plaats voor ongeveer 12 lunchtrommels\"; \"hooguit\" sharpened it into a maximum. Word count unchanged."
+    }
+  ],
+  "rejected": [],
+  "proposed_diff": {
+    "changed_leaves": [
+      "[2].prompt",
+      "[2].model",
+      "[3].criteria[0][0]",
+      "[3].criteria[0][1]",
+      "[3].model"
+    ],
+    "changed_leaf_count": 5,
+    "key_order_identical": true,
+    "note": "Field-level diff of the proposed file against the original; everything else byte-identical."
+  },
+  "author_doubts_decisions": {
+    "1_register_split": "accepted; with batch 028 the twelve-task form is 7 formal / 5 informal",
+    "2_teacher_persona": "accepted, no change; a docent Engels reporting to a coordinator is a plausible NT2 candidate and the only persona holding the figures",
+    "3_unnamed_pictured_writer": "accepted; official picture e-mails show \"ik\" unnamed; do not add \"U bent Roos\"",
+    "4_picture2_vs_026_regen": "accepted; different level, part and act; media note that the compositions must differ (dyke, bicycle, no bus)",
+    "5_magnetron_criterion1_per_dienst": "reworded (E4): one shift's figure explicitly meets it",
+    "6_magnetron_sample_reasons": "two reasons (wait with cold-meal consequence; lunch boxes); three would not change the verdict",
+    "7_kustweekend_geschuild": "agreed; also accept \"friet\"/\"frietjes\" for patat and \"de zon scheen\" without \"weer\"",
+    "8_table_width": "keep the Les column (the inference depends on it); app note: .task-table has no overflow wrapper",
+    "9_prices_and_dates": "accepted; realistic 2026 prices, Fridays verified, November setting as arbitrary as an exam date",
+    "10_beschikbaar_vanaf": "accepted; line field, not scored",
+    "11_sample_error_types": "accepted; each sample carries exactly two typical errors, \"geëten\" counts as a form error"
+  },
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 4,
+    "ids": [
+      "B1:writing:batch029-uitzendwerk:1",
+      "B1:writing:batch029-kustweekend:1",
+      "B1:writing:batch029-groepsresultaten:1",
+      "B1:writing:batch029-magnetron:1"
+    ],
+    "slugs_new_to_catalogue": true,
+    "exam_field": "nt2-i on all four",
+    "rubric_field": "b1-schrijven on all four",
+    "task_types": {
+      "deelschrijftaak": 2,
+      "korte-schrijftaak": 2
+    },
+    "deelschrijftaak_forms": {
+      "form": 1,
+      "pictures": 1
+    },
+    "korte_schrijftaak_goals": {
+      "informeren": 1,
+      "overtuigen": 1
+    },
+    "domains": {
+      "werk": 2,
+      "educatie": 1,
+      "overig": 1
+    },
+    "registers": {
+      "formal": 3,
+      "informal": 1
+    },
+    "criteria_counts": {
+      "uitzendwerk": 3,
+      "kustweekend": 4,
+      "groepsresultaten": 5,
+      "magnetron": 6
+    },
+    "criteria_bilingual_pairs_agree": true,
+    "prompt_instruction_form_official": true,
+    "prompts_ask_everything_the_criteria_score": "true after E1 (groepsresultaten); uitzendwerk via form labels, kustweekend via \"Gebruik alle plaatjes\" plus the closing-question sentence, magnetron via goal sentence and printed bullets",
+    "form_labels_match_criteria": true,
+    "form_line_fields_ask_no_organisation": true,
+    "form_fields": {
+      "total": 6,
+      "text": 3,
+      "open": 3
+    },
+    "table_declared_outside_email": true,
+    "table_figures_match_models": "true after E2, E3, E5",
+    "arithmetic": {
+      "magnetron 95+429": 524,
+      "groepsresultaten 12-4 failed writing": 8
+    },
+    "weekdays_2026_verified": {
+      "2026-11-13": "vrijdag",
+      "2026-12-11": "vrijdag",
+      "2026-09-25": "vrijdag"
+    },
+    "model_words": {
+      "uitzendwerk": 135,
+      "kustweekend": 134,
+      "groepsresultaten": 178,
+      "magnetron": 178
+    },
+    "model_word_ranges": "deelschrijftaak 50–150 and korte schrijftaak 120–180 met",
+    "model_sentence_average": {
+      "uitzendwerk": 15,
+      "kustweekend": 12.2,
+      "groepsresultaten": 16.2,
+      "magnetron": 16.2
+    },
+    "model_longest_sentence": {
+      "uitzendwerk": 21,
+      "kustweekend": 22,
+      "groepsresultaten": 27,
+      "magnetron": 27
+    },
+    "sample_words": {
+      "uitzendwerk": 76,
+      "kustweekend": 82,
+      "groepsresultaten": 111,
+      "magnetron": 138
+    },
+    "quotes_verbatim_in_sample": true,
+    "one_null_quote_per_sample": true,
+    "null_quote_positions": {
+      "uitzendwerk": 2,
+      "kustweekend": 1,
+      "groepsresultaten": 3,
+      "magnetron": 3
+    },
+    "sample_errors": {
+      "uitzendwerk": [
+        "omdat ik ben kok van beroep (verb not final in omdat-clause)",
+        "in keuken van een hotel (missing article)"
+      ],
+      "kustweekend": [
+        "patat geëten (participle form)",
+        "omdat de dag was toch nog gezellig (verb not final in omdat-clause)"
+      ],
+      "groepsresultaten": [
+        "negen cursisten heeft (congruence)",
+        "omdat veel cursisten schrijven nog te weinig zinnen (verb not final in omdat-clause)"
+      ],
+      "magnetron": [
+        "Ook past niet alle lunchtrommels (congruence)",
+        "dat het bedrijf koopt een tweede magnetron (verb not final in dat-clause)"
+      ]
+    },
+    "prompt_sentence_copied_into_sample_or_model": false,
+    "models_meet_every_criterion": true,
+    "models_understandable_without_table": true,
+    "picture_briefs": 3,
+    "cast_traits_verbatim": "Roos \"young woman, dark hair in a bun, yellow scarf\" in all three briefs",
+    "briefs_end_with_no_text_clause": true,
+    "one_clear_event_per_picture": true,
+    "sequence_consistent": "same dyke and coast, bicycle in all three, weather grey → rain → sun",
+    "alts_dutch": true,
+    "organisation_names_checked": {
+      "Uitzendbureau Kortemeer": "no business (web ×2, DNS none)",
+      "Taalcentrum Westerbrug": "no institution (web ×2, DNS none)",
+      "Drukkerij Bladwijzer": "no printing company (web ×2; registry hits \"De Bladwijzer\" Naaldwijk = dissolved toy/party retail sole trader, \"Stichting Bladwijzer\" Tilburg = foundation; DNS none)"
+    },
+    "names_not_shared_with_batch_028": true,
+    "starters_one_per_criterion_in_order": true,
+    "starters_all_have_ellipsis": true,
+    "starters_keys_equal_batch_ids_in_order": true,
+    "picture_task_hides_criteria_and_starters_while_writing": "app/components/OpenExercise.tsx: deelschrijftaak with images",
+    "judge_input": "server/services.ts sends prompt, criteria, table and form labels; not the pictures",
+    "batch_check_original": "Checked 4 items, 0 questions. Keys: {}. Options: {}. No failures, no warnings.",
+    "batch_check_proposed": "Checked 4 items, 0 questions. Keys: {}. Options: {}. No failures, no warnings.",
+    "level_flags": []
+  },
+  "items": {
+    "B1:writing:batch029-uitzendwerk:1": {
+      "verdict": "pass",
+      "level": "comparable, lighter end",
+      "level_reason": "Three scored open answers where the official form has six, each answerable in one or two B1 sentences with invented content; model sentences average 15.0 words, longest 21, with omdat/voordat/waar clauses and ten eerste/ten tweede; same weight as 015-avondcursus; not off-level.",
+      "evidence": {
+        "shape": "formFields 6 (3 text: name, phone, date available; 3 open incl. \"Geef minimaal twee redenen\"); prompt in the official instruction form; no scaffold needed",
+        "labels_vs_criteria": "field 4 ↔ criterion 1, field 5 ↔ criterion 2, field 6 \"Wanneer kunt u niet werken? Geef een reden.\" ↔ criterion 3 (same width)",
+        "sample": "76 words; proves 1 (two reasons: kok van beroep; graag voor veel mensen koken) and 2 (six years restaurant, one year hotel kitchen); names days without a reason (3 null); two errors",
+        "model": "135 words, open fields only in field order; 1 restaurant or care-home kitchen with two marked reasons; 2 six years cook (two as chef-kok), one year hotel breakfasts, contract ended in August; 3 Tuesday/Thursday mornings (Dutch lessons), Sunday preferably free (children), all other days available",
+        "names": "Uitzendbureau Kortemeer: no business"
+      },
+      "edits": []
+    },
+    "B1:writing:batch029-kustweekend:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three pictures with \"Gebruik alle plaatjes\" and a closing question, informal addressee, as the official picture e-mail; model 134 words, average 12.2, longest 22, terwijl/zodat/toen/dus clauses; same weight as 015-gemiste-werkdag.",
+      "evidence": {
+        "shape": "scaffold to/from/subject/salutation/closing; three images (brief, alt, kind drawing, size sequence); four criteria; prompt asks for the pictures and the closing question",
+        "pictures": "Roos traits verbatim ×3; flat rear tyre on the dyke; bus shelter in slanted rain with the bicycle, no timetable or signs; harbour bench, fries from a paper cone, sun; no text",
+        "criteria": "1–3 mirror the pictures in order, 4 the closing question the prompt asks for; English pairs agree",
+        "sample": "82 words; proves 1, 3, 4; never mentions rain or the shelter (2 null); errors geëten, omdat-clause word order",
+        "model": "134 words, \"je\"; lekke band on the dyke, pushed the bike, rain and bus shelter, sun in the harbour with fries, tyre patched in the village, two closing questions"
+      },
+      "edits": []
+    },
+    "B1:writing:batch029-groepsresultaten:1": {
+      "verdict": "pass",
+      "level": "comparable, fuller end",
+      "level_reason": "Five content bullets on a five-column table with one inference (attendance collapses at the late Wednesday writing lesson) and an invented proposal; model 178 words after edits, average 16.2, longest 27, want/echter/terwijl/daarom/bovendien; matches the official korte schrijftaak with a table.",
+      "evidence": {
+        "shape": "goal informeren; scaffold complete; table caption + 5 columns × 4 rows; five criteria; prompt declares the table outside the e-mail",
+        "table_vs_model": "11/12 with 7,6; 10 with 7,3; 9 passed; 8 failed with 5,1; Monday 92/90 → \"negentig procent of meer\" (E2); Wednesday 20.30 → \"half negen\", 55 %; observation now the Monday/Wednesday contrast (E3)",
+        "sample": "111 words; proves 1, 2, 3, 5; says nothing about attendance (4 null); errors congruence, omdat-clause word order",
+        "model": "every criterion, understandable without the table; proposal swaps the Wednesday order and adds writing homework for those who failed",
+        "names": "Taalcentrum Westerbrug: no institution; p.verhoeven@taalcentrumwesterbrug.nl no DNS"
+      },
+      "edits": [
+        "E1",
+        "E2",
+        "E3"
+      ]
+    },
+    "B1:writing:batch029-magnetron:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Six content bullets on an eight-row key–value table with one sum and a reply deadline; model 178 words, average 16.2, longest 27, ten eerste/ten tweede/terwijl/zodat/daarom/omdat; matches the official korte schrijftaak with a stated persuasive goal; comparable to 015-pauzerooster without its rota-design step.",
+      "evidence": {
+        "shape": "goal overtuigen; scaffold complete; table caption + 2 columns × 8 rows; six criteria, none a closing formula; prompt declares the table outside the e-mail",
+        "table_vs_model": "shifts 8/16/21; one old (2014) microwave; 90 l fridge; 30-minute break for all at once; about twelve lunch boxes (E5); 1000 W and 250 l; € 95 + € 429 = € 524; Friday 25 September 2026",
+        "sample": "138 words; proves 1 (afternoon shift 21, one microwave, small fridge), 2 (wait/cold meals; lunch boxes), 3, 5, 6; never says what it costs (4 null); errors congruence, dat-clause word order",
+        "model": "every criterion; two problems marked, concrete proposal, cost with sum, one company advantage, dated reply request",
+        "names": "Drukkerij Bladwijzer: no printing company; s.aydin@drukkerijbladwijzer.nl no DNS"
+      },
+      "edits": [
+        "E4",
+        "E5"
+      ]
+    }
+  },
+  "diversity_review": {
+    "within_batch": "four acts (register through a form, narrate a weekend to a friend, report figures to a coordinator, persuade a manager to buy), four settings, domains werk 2 / educatie 1 / overig 1, goals informeren and overtuigen new to the bank (all four goals now covered with 015), 3 formal / 1 informal; no shared names with batch 028; no slug reuse",
+    "against_catalogue": "uitzendwerk first B1 work-registration task (014-vacature one sentence, 019-uitzendbureau receptive KNM, 015-avondcursus a course form); kustweekend second picture e-mail in another domain and act than 015-gemiste-werkdag; groepsresultaten first informeren task and first institutional-role writer; magnetron shares the canteen-at-break setting and the two-reasons/one-advantage bullet pattern with 015-pauzerooster but not the information structure (equipment, capacities, prices, sum, deadline vs rota design) or goal — accepted with a set constraint",
+    "echoes_accepted": [
+      "014-examendatum: also an English-course exam in November (other form, student side)",
+      "014-afscheid: second printing company in the part (drukkerijvanwest.nl)",
+      "026-regen (A2 speaking): second bus-shelter-in-the-rain picture; compositions must differ"
+    ]
+  },
+  "set_assembly": {
+    "drills": "each task its own drill",
+    "form_8_2_2_with_batch_028": "tasks 9–10 kustweekend, uitzendwerk; 11–12 groepsresultaten, magnetron (domains overig / werk / educatie / werk; registers informal / formal / formal / formal; werk tasks non-adjacent; table tasks with different goals)",
+    "constraints": [
+      "not magnetron with 015-pauzerooster in one session",
+      "not uitzendwerk next to 014-vacature",
+      "half forms: kustweekend + magnetron or uitzendwerk + groepsresultaten"
+    ]
+  },
+  "media_notes": {
+    "images": "kustweekend: three separate 1024×640 generations; review the flat tyre at display size, no timetable/poster/lettering in the shelter or on the boats, rain as slanted lines and puddles, bun and yellow scarf consistent across panels (single mustard accent), bicycle in all three, composition distinct from 026-regen (dyke, bicycle, no bus, nobody else)",
+    "audio": "none"
+  },
+  "feedback_tolerances": {
+    "uitzendwerk_3": "any day or period with a reason",
+    "kustweekend_2": "\"geschuild\" or waiting for the bus meets it",
+    "kustweekend_3": "\"friet\"/\"frietjes\" for patat; \"de zon scheen\" without \"weer\"",
+    "groepsresultaten_2": "numbers or marks for one or more parts",
+    "groepsresultaten_4": "the 55 % observation in any wording",
+    "magnetron_1": "one shift's figure",
+    "magnetron_5": "one advantage",
+    "magnetron_6": "a date alone"
+  },
+  "coordinator_notes": [
+    "Adopt with npm run batch:adopt 029 (proposed batch bdf3f710…, proposed starters c6384906… identical to the author's file).",
+    "App: .task-table has no overflow-x wrapper; the five-column groepsresultaten table wraps on narrow screens. A wrapper with overflow-x: auto would help every table task.",
+    "Carry the feedback tolerances above into the judge instructions.",
+    "Media: generate the three kustweekend panels after adoption and review them against the media notes."
+  ],
+  "limitations": "AI editorial review; no educator review, learner trials or level validation; no claim of equivalence with the official exam; B1 labels remain unvalidated authoring targets. Level judged against the research description of the official Schrijven I tasks and the integrated 015 tasks, not against stored exemplars (content/exemplars/ does not exist). Organisation-name checks were two web searches per name plus DNS on 11 September 2026 and can miss unindexed businesses; no SIDN whois was run by the reviewer. The pictures do not exist yet; the judge prompt was not exercised. The reviewer's own wording in E1–E5 has had no independent second reading."
+}

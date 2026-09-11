@@ -1,0 +1,245 @@
+{
+  "review_id": "batch028-editorial-review",
+  "source": "content/batches/028-original.json",
+  "source_original_sha256": "db72de8ea79048abc0e5d15795cadc19b9f44d47bc1283b6e8acb6130f2cc78e",
+  "proposed": "content/batches/028-proposed.json",
+  "source_sha256": "6dd4a9cd2f0c00ce39e61aa44691e8d2c73d2ad1495f513535b5083d8192b871",
+  "source_note": "source_sha256 is the SHA-256 of the proposed file, the bytes npm run batch:adopt 028 will adopt; source_original_sha256 is the author's file as reviewed.",
+  "starters_source": "content/batches/028-starters.json",
+  "starters_sha256": "3d3dd85e8ba58d3fc073ea9a47d2b320c3bb7abad3c501973212b2205eacec94",
+  "starters_verdict": "pass",
+  "starters_note": "No 028-proposed-starters.json: the starters were re-read against the two widened criteria (E2, E3) and need no change, so the author's file and hash stand.",
+  "review_type": "AI editorial review of B1 writing zinstaken (Staatsexamen NT2 Programma I Schrijven, tasks 1-8) and their sentence starters: prompt form and gap type, scaffold register, whether the lead-in forces exactly the grammar target and the context one function, criteria naming the structure, sample quotes and learner errors, model structure, an alternative correct sentence per task, level, originality and name checks; repairs applied in the proposed file",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_summary": "8 pass in the proposed file (5 unchanged, 3 after a recommended edit), 0 rejected. Edits: ophalen retagged overig (the child's school is daily life, as 016-medicijn-school and 017-eerste-schooldag); werkschoenen adequacy criterion and note widened so that 'de schoenen zijn te klein' counts; afvalpas adequacy criterion and note widened so that 'ik heb een afvalpas nodig' counts. The new trigger types ('Volgens het huurcontract ___.' for inversie, ', maar ___.' for hoofdzin) are accepted; the circular als-clause sample is kept as the copied-prompt failure; body length kept; Wilgendam accepted (no municipality exists). Starters pass unchanged. Level: all eight comparable with the official zinstaak; none off-level.",
+  "edits": [
+    {
+      "id": "E1",
+      "item": "B1:writing:batch028-ophalen:1",
+      "field": "domain",
+      "kind": "recommended",
+      "old": "educatie",
+      "new": "overig",
+      "why": "Decision on the author's doubt 1. The official educatie domain is the candidate's own study; a parent writing to the child's teacher is daily life, and the integrated B1 items about a child's school (016-medicijn-school, 017-eerste-schooldag) are tagged overig. Consistent tags matter more for coverage than the requested count; the batch is now werk 3 / educatie 1 / overig 4."
+    },
+    {
+      "id": "E2",
+      "item": "B1:writing:batch028-werkschoenen:1",
+      "field": "criteria[0], adequacyNote",
+      "kind": "recommended",
+      "old": [
+        "De zin zegt wat er mis is met de bestelling: de bezorgde schoenen hebben een andere maat dan de bestelde maat 43.",
+        "The sentence says what is wrong with the order: the delivered shoes are a different size from the ordered size 43.",
+        "Zeggen wat er mis is: de bezorgde schoenen hebben een andere maat dan de bestelde maat 43."
+      ],
+      "new": [
+        "De zin zegt wat er mis is met de bestelling: de bezorgde schoenen hebben niet de goede maat, bijvoorbeeld een andere maat dan de bestelde maat 43, of ze zijn te klein of te groot.",
+        "The sentence says what is wrong with the order: the delivered shoes are not the right size, for example a different size from the ordered size 43, or they are too small or too big.",
+        "Zeggen wat er mis is: de bezorgde schoenen hebben niet de goede maat (een andere maat dan de bestelde maat 43, of te klein of te groot)."
+      ],
+      "why": "'maar de schoenen zijn helaas te klein' is the most natural learner sentence and makes the whole e-mail work (subject 'Verkeerde maat', 'ruilen voor de juiste maat'), but the old wording demanded a size other than 43 and would have failed it in the self-check and for the judge (rubric 4, 5). The sample still fails criterion 1 (it says nothing about size); the model still meets it; both starters fit."
+    },
+    {
+      "id": "E3",
+      "item": "B1:writing:batch028-afvalpas:1",
+      "field": "criteria[0], adequacyNote",
+      "kind": "recommended",
+      "old": [
+        "De zin zegt dat de schrijver geen afvalpas voor het nieuwe adres heeft, bijvoorbeeld omdat er geen pas is achtergelaten, de pas niet is ontvangen of de oude pas niet werkt.",
+        "The sentence says that the writer has no waste pass for the new address, for example because no pass was left behind, no pass was received or the old pass does not work.",
+        "Zeggen dat de schrijver geen (werkende) afvalpas voor het nieuwe adres heeft: niet gekregen, niet gevonden of de pas werkt niet."
+      ],
+      "new": [
+        "De zin zegt dat de schrijver geen (werkende) afvalpas voor het nieuwe adres heeft of er een nodig heeft, bijvoorbeeld omdat er geen pas is achtergelaten, de pas niet is ontvangen of de oude pas niet werkt.",
+        "The sentence says that the writer has no (working) waste pass for the new address or needs one, for example because no pass was left behind, no pass was received or the old pass does not work.",
+        "Zeggen dat de schrijver geen (werkende) afvalpas voor het nieuwe adres heeft of er een nodig heeft: niet gekregen, niet gevonden of de pas werkt niet."
+      ],
+      "why": "'Ik heb voor dit adres een afvalpas nodig.' and 'Ik wil graag een afvalpas aanvragen.' introduce the pass so that 'Zonder de pas' and the closing question cohere; they fulfil the function without saying 'geen pas' and must count. '(werkende)' now matches the note. The sample (registration at the gemeente) still fails; the model still meets; both starters fit."
+    }
+  ],
+  "rejected": [],
+  "decisions_on_author_doubts": {
+    "1_domain_tags": "ophalen -> overig (E1); werkschoenen stays werk (safety shoes for a warehouse job, work vocabulary; a boundary case). Counts werk 3 / educatie 1 / overig 4; with batch 014: werk 6, educatie 4, overig 6.",
+    "2_dienstruil_sample": "Keep. 'als jij wilt dat ik jouw avonddienst overneem' is a correct als-clause that paraphrases the body's first sentence and names no condition of the writer's own: the copied-prompt failure, 0 for adequacy; it also leaves 'Dan geef ik de ruil meteen door' without a ruil. Feedback should name it as a repetition of the request.",
+    "3_werkschoenen_vs_015_kledingkast": "Distinct: one sentence naming a wrong size versus a korte schrijftaak about damage and late delivery; keep apart only if a mixed set is ever built.",
+    "4_maar_as_hoofdzin_trigger": "Accepted. 'maar' coordinates like 'want'; the criterion states the second-position rule, so inversion after a fronted element inside the maar-clause earns the point and verb-third or verb-final order fails. A verbless continuation ('maar helaas in de verkeerde maat') is natural and adequate but shows no hoofdzin: no grammar point, to be explained as a missing clause.",
+    "5_volgens_het_huurcontract_as_inversion_trigger": "Accepted. A fronted prepositional phrase forces the finite verb into second position exactly as 'Daarom' does; no correct completion begins with the subject; it is the phrase learners write in such e-mails; the sample shows the error the task exists for.",
+    "6_als_read_as_when": "Either reading is verb-final; 'Dat wil ik wel doen, als' makes the condition reading natural and criterion 1 asks for a condition. Keep.",
+    "7_body_length": "Keep. 38-54 words in four or five sentences is a short e-mail; the 22-word sentence (ophalen) is two coordinated main clauses, none over 30 (blueprint 10); trimming a fact would weaken the time chain that forces the request.",
+    "8_afvalpas_sample": "Keep: the off-topic failure is a real learner move and leaves 'Zonder de pas' without a referent.",
+    "9_two_moves": "Accepted (both settings fixed by the coordinator); moving out versus moving in; placed in different drills.",
+    "10_manager_closing_groet": "Keep 'Groet,': realistic to a manager on first-name terms, one more closing form in the bank.",
+    "11_no_second_person_in_ophalen_body": "Fine; salutation, closing and the model's 'bij u' fix the register (as 014-sportschool).",
+    "12_deposit_term": "The model's two weeks is the statutory term (Wet goed verhuurderschap: 14 days, 30 with deductions; Rijksoverheid page re-checked 2026-09-11); the criterion does not require the term. The e-mail is undated, so 'nog niet teruggekregen' holds either way.",
+    "13_slugs_and_concurrent_batches": "Confirmed: no slug exists in any part of the catalogue or in batches 026-031; no checker warning. Cross-part echoes recorded in diversity_review.",
+    "14_wilgendam": "Accepted under the coordinator's rule: no municipality exists (web search 2026-09-11: a street in Noordwijk, a farm in Belgium); the name occurs only in the to-address."
+  },
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 8,
+    "distribution": {
+      "B1_writing": 8
+    },
+    "task_types": {
+      "zinstaak": 8
+    },
+    "grammar_targets": {
+      "hoofdzin": 2,
+      "bijzin": 2,
+      "inversie": 2,
+      "te-infinitief": 1,
+      "vrij": 1
+    },
+    "lead_ins": {
+      "Volgens het huurcontract": "borg",
+      "dat": "ophalen",
+      "als": "dienstruil",
+      "maar": "werkschoenen",
+      "open": "afvalpas, bedankje",
+      "Helaas": "aantekeningen",
+      "om": "vrije-dag"
+    },
+    "registers": {
+      "formal": 4,
+      "informal": 4
+    },
+    "domains_proposed": {
+      "werk": 3,
+      "educatie": 1,
+      "overig": 4
+    },
+    "domains_original": {
+      "werk": 3,
+      "educatie": 2,
+      "overig": 3
+    },
+    "batch_check_original": "npm run batch:check content/batches/028-original.json: Checked 8 items, 0 questions. No failures, no warnings.",
+    "batch_check_proposed": "npm run batch:check content/batches/028-proposed.json: Checked 8 items, 0 questions. No failures, no warnings.",
+    "diff_original_to_proposed_verified_field_by_field": "ophalen.domain; werkschoenen.criteria[0], .adequacyNote; afvalpas.criteria[0], .adequacyNote; reverting the five values reproduces db72de8e exactly",
+    "prompts_carry_official_instruction": true,
+    "prompt_wording_matches_gap_type": "'Maak de e-mail af. Maak de zin op de open plek af.' for the six lead-in gaps, 'Maak de e-mail af. Schrijf één zin op de open plek.' for the two open gaps (014 decision 2)",
+    "lead_in_forces_exactly_the_target": true,
+    "context_forces_one_function": true,
+    "scaffolds_complete_and_register_consistent": true,
+    "criteria_two_per_task_adequacy_then_grammar": true,
+    "grammar_criterion_names_the_structure": "verb second (hoofdzin: werkschoenen, afvalpas), verb final (bijzin: ophalen, dienstruil), verb before subject (inversie: borg, aantekeningen), te before the infinitive with the separable case (vrije-dag), any correct structure (vrij: bedankje)",
+    "bilingual_criteria_agree": true,
+    "open_sample_quotes_are_verbatim": true,
+    "one_null_quote_per_item": true,
+    "null_positions": "adequacy missed in dienstruil, werkschoenen, afvalpas, bedankje; grammar missed in borg, ophalen, aantekeningen, vrije-dag",
+    "learner_errors_per_sample": "1-2; where grammar is missed the error is the one that costs the point (no inversion after a fronted phrase or adverb, main-clause order in a dat-clause, missing 'te'); where adequacy is missed the only error is a tolerated ending or spelling slip (jou, die moment, het gemeente, fijn vakantie)",
+    "no_prompt_sentence_copied_into_sample_or_model": "true; the dienstruil sample paraphrases the body's first sentence on purpose (its adequacy failure)",
+    "models_meet_every_criterion": true,
+    "models_show_target_structure": true,
+    "alternative_correct_sentence_per_task": true,
+    "model_word_range": "9-14 typed words; 9-22 as full sentences with the lead-in",
+    "sample_word_range": "7-10 words",
+    "body_shape": "4-5 sentences including the gap sentence, 38-54 words, sentence averages 7.6-13.5, longest sentence 22 (ophalen)",
+    "weekday_dates_verified_for_2026": "maandag 31 augustus, dinsdag 1 september, donderdag 17 september, zaterdag 19 september, zondag 27 september, vrijdag 23 oktober (and 'die zaterdag' 24 oktober); 4 september is a Friday",
+    "facts": "deposit: 14 days after the end of the tenancy, 30 with deductions (Wet goed verhuurderschap, Rijksoverheid, 2026-09-11); afvalpas is the generic name for the pass that opens underground containers, no fee or procedure claimed",
+    "invented_organisation_names_checked_on_web_2026_09_11": "Werkkleding Zuidwal, Basisschool De Sterrenbrug, Tuincentrum De Groene Mispel, gemeente Wilgendam: none is a real business, school or municipality (Sterrenboog/Sterrenborgh/Steenen Brug are different names; Wilgendam is a street in Noordwijk and a farm in Belgium)",
+    "cast_names": "Jari, Modibo, Fatima, Thérèse, Sabrina from the blueprint list; mevrouw Kuipers and meneer Van Leeuwen invented; no name twice in the batch; Jari is an adult in 010, 025 and pending 030 and a child here (the list is a pool of names, no illustration traits involved)",
+    "no_real_addresses": "Esdoornstraat 8 and Populierenlaan 14 without a town; Esdoornstraat is also the street of A2 reading 021-trappenhuis (numbers 20-30), no contradiction",
+    "avoid_list_respected": true,
+    "slug_unique_within_part": true,
+    "slug_shared_with_another_part": null,
+    "six_word_phrase_overlap_with_catalogue": "only the fixed instruction sentences shared with batch 014 (required by the format); within the batch also the formula 'Kunt u mij laten weten hoe ik' (werkschoenen, afvalpas)",
+    "exemplars_available": false,
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false
+  },
+  "starters_checks": {
+    "item_ids_match_batch": true,
+    "one_starter_per_criterion_in_order": true,
+    "every_starter_has_ellipsis": true,
+    "partial_not_complete_answers": true,
+    "fit_the_gap_after_the_lead_in": true,
+    "grammatical_when_completed_naturally": true,
+    "register_matches_scaffold": true,
+    "no_invented_task_facts": true,
+    "aligned_with_proposed_criteria": "werkschoenen and afvalpas starters re-read against E2 and E3: both pairs still lead to sentences that meet the widened criterion 1",
+    "notes": "For a zinstaak both starters are fragments that fit the printed gap, so each shows the target structure and leaves the content to the learner. The first starter of borg, ophalen, dienstruil and werkschoenen is the model's frame with the facts blanked, as accepted in 014."
+  },
+  "items": [
+    {
+      "id": "B1:writing:batch028-borg:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Formal e-mail to private landlord mevrouw Kuipers (subject 'Borg Esdoornstraat 8', u-forms); lead-in 'Volgens het huurcontract ___.' is a fronted prepositional phrase that forces the finite verb next, and 'nog niet teruggekregen' plus 'wanneer u het bedrag overmaakt' leave only what the contract says about repaying the deposit. Sample 'u moet de borg binnen twee weken terug betalen' is quoted whole for adequacy; no inversion after the phrase, so criterion 2 is null; second error 'terug betalen' (spelling, tolerated). Model 'moet u de borg binnen twee weken na het einde van de huur terugbetalen', 14 typed words, 'moet u' directly after the phrase, the statutory 14 days. Maandag 31 augustus 2026 verified. No deposit item exists in any part.",
+      "alternative_sentence": "Volgens het huurcontract moet de borg binnen een maand na het inleveren van de sleutels op mijn rekening staan.",
+      "level_check": "comparable: inversion after a fronted phrase, the everyday formula of such e-mails; like the official inversion tasks."
+    },
+    {
+      "id": "B1:writing:batch028-ophalen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Formal e-mail to teacher meneer Van Leeuwen at Basisschool De Sterrenbrug ('Beste meneer Van Leeuwen,' / 'Met vriendelijke groet,'); lead-in 'Zou het mogelijk zijn dat ___?' forces a verb-final dat-clause; school out at 14:15, meeting until 14:30, arrival 14:45 and 'niemand anders gevonden die hem kan ophalen' leave only the request that Jari waits at school. Sample 'Jari mag in het klas wachten tot ik er ben' asks the right thing (quoted whole); main-clause order inside the dat-clause, so criterion 2 is null; second error 'het klas'. Model 'Jari tot kwart voor drie bij u in de klas mag wachten', 12 typed words, 'mag wachten' last. Donderdag 17 september 2026 verified. Domain retagged overig (E1): the child's school is the parent's daily life, as in 016 and 017. A late pick-up exists nowhere in the bank.",
+      "alternative_sentence": "Zou het mogelijk zijn dat Jari na schooltijd nog even bij u in het lokaal blijft?",
+      "level_check": "comparable: a dat-clause inside a fixed request formula; the 22-word sentence is two coordinated main clauses at B1."
+    },
+    {
+      "id": "B1:writing:batch028-dienstruil:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Informal reply to colleague Modibo ('Hoi Modibo,' / 'Groetjes,', je/jouw/jij); lead-in 'Dat wil ik wel doen, als ___.' forces a verb-final als-clause and, with 'de ruil' in the last sentence, a condition. Sample 'jij wilt dat ik jou avonddienst overneem' is a correct als-clause (quoted whole) that only repeats Modibo's request, the copied-prompt failure, so criterion 1 is null; 'jou' for 'jouw' is a spelling slip outside the zinstaak scale. Model 'jij dan mijn ochtenddienst van zondag 27 september overneemt', 9 typed words, 'overneemt' last. Zaterdag 19 and zondag 27 september 2026 verified. The shift items elsewhere are receptive or a preference; answering a swap request in writing is new.",
+      "alternative_sentence": "Dat wil ik wel doen, als de teamleider het goedvindt.",
+      "level_check": "comparable: a conditional clause after als, a standard B1 bijzin test."
+    },
+    {
+      "id": "B1:writing:batch028-werkschoenen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Formal complaint to web shop Werkkleding Zuidwal ('Geachte heer, mevrouw,', uw/u); lead-in 'Gisteren is het pakket bezorgd, maar ___.' coordinates, so main-clause order with the verb second, and the subject 'Verkeerde maat, bestelnummer 20517', 'besteld in maat 43' and 'ruilen voor de juiste maat' leave only a size problem. Sample 'ik was op die moment helaas niet thuis' is a correct main clause (quoted whole) that says nothing about the size, so criterion 1 is null; 'die moment' is a tolerated gender error. Model 'de schoenen in de doos hebben maat 41 in plaats van maat 43', 13 typed words, 'hebben' second. 4 September 2026 is a Friday. Criterion 1 and adequacyNote widened (E2) so that 'de schoenen zijn te klein' counts. Domain werk kept: safety shoes for a new warehouse job (boundary case). A2 schoenen and 015-kledingkast are other levels, task types and problems.",
+      "alternative_sentence": "Gisteren is het pakket bezorgd, maar helaas zit er maat 41 in de doos.",
+      "level_check": "comparable: the want/maar-type main-clause test; a verbless natural continuation is the trap to explain in feedback."
+    },
+    {
+      "id": "B1:writing:batch028-afvalpas:1",
+      "verdict": "pass",
+      "level": "comparable, harder end",
+      "evidence": "Formal e-mail to gemeente Wilgendam (afval@gemeentewilgendam.nl, 'Geachte heer, mevrouw,', u) with an open gap and the prompt 'Schrijf één zin op de open plek.'; the subject 'Afvalpas voor Populierenlaan 14', 'Zonder de pas' and 'hoe ik een pas kan aanvragen' force a sentence that introduces the missing pass; a statement is a main clause with the verb second, which criterion 2 states with fronted elements included. Sample 'Ik heb mij vorige week bij het gemeente ingeschreven.' is a correct main clause (quoted whole) that names no pass, so criterion 1 is null; 'het gemeente' tolerated. Model 'Ik heb nog geen afvalpas voor dit adres gekregen.', 9 words, 'heb' second. Dinsdag 1 september 2026 verified. Criterion 1 and adequacyNote widened (E3) so that 'ik heb een afvalpas nodig' counts. Wilgendam is no municipality (accepted). A missing pass after a move is new; A2 container and speaking afval are other acts.",
+      "alternative_sentence": "De afvalpas van de vorige bewoner werkt helaas niet meer.",
+      "level_check": "comparable, harder end: an open gap without a structural cue, like 014-afscheid; suited to a late position in a form."
+    },
+    {
+      "id": "B1:writing:batch028-bedankje:1",
+      "verdict": "pass",
+      "level": "comparable, slightly easier",
+      "evidence": "Informal thank-you to neighbour Fatima ('Hoi Fatima,' / 'Groetjes,', je) with an open gap; after the thanks for two weeks of watering, 'Zeg maar welke avond je uitkomt' only follows an invitation for an evening, and a question or a statement both do it, which justifies grammarTarget vrij (criterion 2: correct word order and finite verb). Sample 'We hebben een heel fijn vakantie gehad in Spanje.' is a correct main clause (quoted whole) that invites nobody, so criterion 1 is null; 'fijn vakantie' is a tolerated ending. Model 'Heb je zin om binnenkort een avond bij ons te komen eten?', 12 words. The mirror image of A2 plant (asking for the favour); the thanks and invitation are new. Neighbourhood appears once, fixed by the coordinator.",
+      "alternative_sentence": "Kom je binnenkort een avond bij ons eten?",
+      "level_check": "comparable, slightly easier: any correct sentence earns the grammar point; one vrij task in eight, like 014-studieadviseur."
+    },
+    {
+      "id": "B1:writing:batch028-aantekeningen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Informal e-mail to course mate Thérèse ('Hoi Thérèse,' / 'Groetjes,', jij/jouw); lead-in 'Helaas ___.' forces inversion, and between 'hoofdstuk 5 heeft uitgelegd' and 'een foto van jouw aantekeningen' only the consequence for the writer fits. Sample 'ik heb nu helemaal geen aantekeningen van dat les' states the consequence (quoted whole); no inversion after 'Helaas', so criterion 2 is null; second error 'dat les'. Model 'heb ik van die les nu helemaal geen aantekeningen', 9 typed words, 'heb ik' after 'Helaas'. B1 speaking 002-cursusgemist asks for help by phone after a missed evening (another part); a written request with a consequence sentence is new in the writing part.",
+      "alternative_sentence": "Helaas heb ik de uitleg van dat hoofdstuk nu helemaal gemist.",
+      "level_check": "comparable: a consequence after a sentence-initial adverb, like 014-ziekmelding and the official inversion tasks."
+    },
+    {
+      "id": "B1:writing:batch028-vrije-dag:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Informal request to manager Sabrina at Tuincentrum De Groene Mispel ('Hoi Sabrina,' / 'Groet,', je); lead-in 'een dag vrij nemen om ___.' takes te + infinitive and nothing else, and the purpose is what the manager needs before 'Zou dat kunnen?'. Sample 'naar de diploma uitreiking van mijn dochter gaan' states the purpose (quoted whole); 'te' missing before 'gaan', so criterion 2 is null; second error 'diploma uitreiking' (spelling). Model 'mijn ouders 's ochtends van het vliegveld op te halen', 10 typed words, 'te' inside the separable verb, the case the criterion names. Vrijdag 23 oktober 2026 and 'die zaterdag' 24 oktober verified. B1 writing rooster and opleiding ask for schedule changes; a single day off with a purpose clause is new.",
+      "alternative_sentence": "Op vrijdag 23 oktober wil ik graag een dag vrij nemen om bij de diploma-uitreiking van mijn dochter te zijn.",
+      "level_check": "comparable: the official te-infinitief task with the separable-verb case in the model and the missing-te trap in the sample."
+    }
+  ],
+  "diversity_review": "Eight settings, eight addressees, no cast name twice; six lead-in/structure combinations plus two open gaps; speech acts a rule statement, a request, a conditional agreement, two problem statements, an invitation, a consequence, a purpose; registers 4 + 4. Against the B1 writing catalogue and batch 029: no setting, addressee, organisation or lead-in recurs; with 014 there are twelve different frames for drills. Cross-part echoes (other parts, allowed): B1 speaking 002-cursusgemist (missed course evening) next to aantekeningen; 030-kat-voeren and 026-koken-buurvrouw (neighbour favours, Fatima) next to bedankje; 027-verhuizen and 031-afvalcontainers next to afvalpas; 031-verwarming-verhuurder and 016-slaapkamerraam (a landlord) next to borg; 029-kustweekend also opens on a holiday; Esdoornstraat also in A2 reading 021-trappenhuis. Only the fixed instruction sentences and the formula 'Kunt u mij laten weten …?' recur as phrases.",
+  "set_assembly": "Drills of four (blueprint 11), two registers, three domains, four structures each, the two moves apart: drill 1 borg (inversie, F, overig), dienstruil (bijzin als, I, werk), werkschoenen (hoofdzin maar, F, werk), bedankje (vrij, I, overig); drill 2 ophalen (bijzin dat, F, overig), afvalpas (hoofdzin open, F, overig), aantekeningen (inversie, I, educatie), vrije-dag (te-infinitief, I, werk). Form: these eight plus 029's two deelschrijftaken and two korte schrijftaken make a second Schrijven I form (8 + 2 + 2); 029's own review (same day, another session) reports pass, so the form is complete once both batches are adopted; suggested order 1 borg, 2 dienstruil, 3 ophalen, 4 aantekeningen, 5 werkschoenen, 6 vrije-dag, 7 afvalpas, 8 bedankje (registers alternate, open gaps last, moves apart). content/blueprints/ does not exist; the form definition is a coordinator step.",
+  "media_notes": "None: zinstaken carry no images or audio.",
+  "coordinator_notes": [
+    "Adopt with npm run batch:adopt 028; no proposed starters file, the script verifies the author's starters hash 3d3dd85e. Copying 028-starters.json to 028-proposed-starters.json would change nothing (same bytes).",
+    "Domain counts are werk 3 / educatie 1 / overig 4 instead of the requested 3 / 2 / 3 (E1); if the count is the requirement, override the tag, but then 016-medicijn-school and 017-eerste-schooldag should move with it.",
+    "Feedback instructions for zinstaken (the 014 list still stands): a verbless completion after 'maar' or 'Volgens het huurcontract' shows no hoofdzin or inversion and earns no grammar point, to be described as a missing clause; 'Helaas, ik heb …' with a comma is an interjection without inversion and not the target (like 'Misschien dat …'); the dienstruil sample is the copied-prompt failure; a finite verb followed by an extraposed prepositional phrase or om-te clause after dat/als is correct verb-final order.",
+    "Blueprint 4.8 and the author brief still describe only 'Schrijf één zin op de open plek.'; the lead-in convention of the 014 review is now used by two batches with two more trigger types (a fronted prepositional phrase, 'maar'); write it down.",
+    "content/blueprint.md changed on disk during this review (section 4.5, A2 video-answer instruction pattern); section 4.8 is unchanged and nothing here depends on the change.",
+    "content/exemplars/ still does not exist; level was judged against the official zinstaak description and batch 014."
+  ],
+  "limitations": "AI editorial review; no human difficulty validation, no claim of equivalence with the official exam; level judged against the official task description and batch 014, not stored exemplars or learner data; the feedback judge's handling of this batch's wordings (inversion after a fronted phrase, main-clause order after 'maar', the widened adequacy criteria, the circular als-clause) needs its own evaluation with learner answers; the reviewer's three new wordings have had no independent second reading beyond the coordinator's diff."
+}

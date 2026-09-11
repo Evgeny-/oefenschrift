@@ -1,0 +1,263 @@
+{
+  "review_id": "batch030-editorial-review",
+  "source": "content/batches/030-original.json",
+  "original_sha256": "2220555455c141dde1d5314ebb721daadf8ca797c8fe904ebd40a0503123ad0c",
+  "proposed": "content/batches/030-proposed.json",
+  "source_sha256": "5202a8f4e55293f20dfec1b030977e2da11ce82a9b7a3fdb783e4a48d888e764",
+  "source_note": "source_sha256 is the SHA-256 of content/batches/030-proposed.json, the bytes npm run batch:adopt 030 moves over the original; original_sha256 is the author's file as reviewed. The two files differ only in the two fields under edits.",
+  "starters_source": "content/batches/030-starters.json",
+  "starters_sha256": "0d35ea81a3b1e8fdd2200ffed7fad23ff8c0e0dc101d24320b40138195e113b1",
+  "starters_note": "The author's starters file, unchanged: no criterion changed, so no 030-proposed-starters.json exists.",
+  "starters_verdict": "pass",
+  "review_type": "Independent AI editorial review of eight original B1 speaking korte taken (Staatsexamen NT2 Programma I, Spreken I Deel 1: 20 seconds after a spoken cue; ask two questions x2, describe a picture, preference with a reason, two instructions x2, react to news, decline an invitation) and their sentence starters, against content/reviews/rubric.md, content/blueprint.md sections 1, 3, 4.9, 5, 6, 7, 8, 9, 10, 12 and 13, the Spreken I paragraph of docs/research/exam-blueprints-2026-09-10.md, docs/briefs/author.md and the batch 016 review policy (every criterion asked for by the prompt, one reliable null quote per sample, criterion 3 observable or asked, models fitting 20 seconds); repairs applied in the proposed file per docs/briefs/review.md; the author's notes and sixteen doubts were read after the tasks had been judged.",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_counts": {
+    "pass": 6,
+    "pass_after_edit": 2,
+    "rejected": 0,
+    "items": 8
+  },
+  "edits": [
+    {
+      "id": "B1:speaking:batch030-rijexamen:1",
+      "field": "domain",
+      "from": "educatie",
+      "to": "overig",
+      "kind": "required",
+      "why": "The course frame is inert (strip it and the act, cue, criteria, sample and model stay identical), the tested act is social and the driving lessons are the friend's, not the candidate's; the author's note says the frame was chosen to reach the count. Under the 016 rule (educatie = the candidate's own opleiding, applied by the situation the task needs) the educatie reading is forced. Spread becomes werk 4 / educatie 1 / overig 3, accepted in advance by the coordinator."
+    },
+    {
+      "id": "B1:speaking:batch030-afsluiten:1",
+      "field": "prompt",
+      "from": "U werkt in een kledingwinkel. Vanavond sluit uw nieuwe collega Jari voor het eerst alleen de winkel. U hoort eerst uw collega. Geef twee instructies: wat hij eerst moet doen en wat daarna. Zeg ook wie hij kan bellen als er iets niet lukt.",
+      "to": "U werkt in een kledingwinkel. Vanavond sluit uw nieuwe collega Jari voor het eerst alleen de winkel af. U hoort eerst uw collega. Geef twee instructies: wat hij eerst moet doen en wat daarna. Zeg ook wie hij kan bellen als er iets niet lukt.",
+      "kind": "recommended",
+      "why": "The title, the cue, the sample and the model all use 'afsluiten' for the closing routine; the narrated prompt now uses the same verb instead of the looser 'de winkel sluiten'. Prompt 45 words; nothing else in the task changes."
+    }
+  ],
+  "rejected": [],
+  "decisions_on_author_doubts": {
+    "1_rijexamen_domain": "overig (edit 1).",
+    "2_teamwerk_vs_a2_alleen_samen": "Accepted as different items: different part and exam (never one set), a spoken cue about one concrete project instead of two pictures, a concession instead of 'iets over het andere plaatje'; same reasoning as the 016 review for klas-thuis versus toets-computer. The author's alternative third element is vaguer and not taken.",
+    "3_two_proposals_as_criterion_3": "Kept: different acts (react, decline); a proposal is the productive route of a polite refusal and the prompt asks for it. The thank-you alternative is not taken.",
+    "4_register_mix": "Kept: u from the garage and the docent (016 decision), je from friends and colleagues, je from the manager to an employee (as 017 cursusverzoek), 'jullie' only from mevrouw Bakker answered with u (as 009); no sample or model clashes with its cue. The u rewrite of the manager's cue is not taken.",
+    "5_garage_recognises_the_caller": "Kept: the prompt motivates it ('noemt uw naam'), 016 slaapkamerraam was accepted on the same basis, and the sample's and model's openings depend on it.",
+    "6_uitlaat_vs_a2_listening_garage": "Accepted (receptive A2 fragment versus productive B1 call); the nearer neighbour is 016 slaapkamerraam, noted under diversity with a keep-apart rule.",
+    "7_kantoortuin_without_people": "Right; the alt describes the room as 016 roosterbord's did.",
+    "8_error_types": "Kept: the dropped 'het' and the gender error are typical B1 learner errors graded differently by the official scale; 016 accepted a congruence error on the same reasoning.",
+    "9_speaker_labels": "Kept ('Garagemedewerker', 'Docent', 'Leidinggevende'): the convention of the integrated 016 and 017 items.",
+    "10_same_topic_in_sample_and_model": "Kept; no rule asks for different content.",
+    "11_kat_voeren_criterion_2_and_picture": "Fine; an amount without the scoop meets it; 'hoe vaak (of hoe laat)' rightly accepts times of day.",
+    "12_model_lengths_43_45": "Keep (016 decision: 18-20 seconds at a natural pace).",
+    "13_afsluiten_three_steps": "Fine; extra steps fail no criterion; the female bedrijfsleider is fine.",
+    "14_audio": "Round-trip points recorded under media_notes.",
+    "15_starters_stay_in_batch_file": "Right; content:integrate merges them on starters_verdict pass.",
+    "16_name_jari": "Kept. Section 8 names carry no fixed identity in the bank (Farah has four identities across 010, 012, 014 and 023; Jari is already an adult docent in the integrated 025 and a schoolchild in the draft 028), so a rename here would not give one identity per name; only the illustration cast has fixed traits and Jari is not in it. If a one-identity rule is adopted later, 'Yusuf' replaces Jari in the prompt, cue speaker and criterion 1 in a focused revision."
+  },
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 8,
+    "distribution": {
+      "B1_speaking": 8
+    },
+    "task_types": {
+      "kort": 8
+    },
+    "domains_proposed": {
+      "werk": 4,
+      "educatie": 1,
+      "overig": 3
+    },
+    "domains_original": {
+      "werk": 4,
+      "educatie": 2,
+      "overig": 2
+    },
+    "speech_acts": {
+      "ask-two-questions": 2,
+      "describe-picture": 1,
+      "preference-with-reason": 1,
+      "two-instructions": 2,
+      "react-to-news": 1,
+      "decline-invitation": 1
+    },
+    "original_sha256_matches_expected": true,
+    "starters_sha256_matches_expected": true,
+    "batch_check": "npm run batch:check content/batches/030-proposed.json: Checked 8 items, 0 questions. Keys: {}. Options: {}. No failures, no warnings. (same output on the original)",
+    "exam_nt2_i_rubric_b1_spreken_all_items": true,
+    "speaking_seconds_20_no_prep_all_items": true,
+    "prompts_carry_official_instruction_and_u_hoort_eerst": true,
+    "every_criterion_asked_for_by_prompt_or_anchored_in_picture": true,
+    "criterion_3_observable_or_asked": true,
+    "one_null_quote_per_sample": true,
+    "null_marks_a_really_missed_criterion": "8 of 8 (positions uitlaat 0, eindpresentatie 1, kantoortuin 2, teamwerk 2, kat-voeren 0, afsluiten 2, rijexamen 1, voetbalavond 1)",
+    "quotes_verbatim_in_sample": true,
+    "two_typical_learner_errors_per_sample_no_unintended_third": "verb second x5, missing article x4, wrong perfect auxiliary x3, dropped het x2, article gender x1, subordinate order x1",
+    "model_meets_every_criterion": true,
+    "model_words": {
+      "uitlaat": 44,
+      "eindpresentatie": 45,
+      "kantoortuin": 44,
+      "teamwerk": 43,
+      "kat-voeren": 45,
+      "afsluiten": 44,
+      "rijexamen": 44,
+      "voetbalavond": 44
+    },
+    "model_sentence_average_words": {
+      "uitlaat": 11.0,
+      "eindpresentatie": 15.0,
+      "kantoortuin": 14.7,
+      "teamwerk": 14.3,
+      "kat-voeren": 15.0,
+      "afsluiten": 14.7,
+      "rijexamen": 8.8,
+      "voetbalavond": 11.0
+    },
+    "model_longest_sentence_words": 22,
+    "models_fit_20_seconds": "43-45 words = 18-20 s at 2.3-2.5 words per second; samples 31-37 words show the learner's length at 2 words per second",
+    "no_prompt_or_cue_sentence_copied_into_sample_or_model": "longest shared run three words (in een team, in één keer, een andere keer, wat de reparatie, moet duren en)",
+    "cue_words": {
+      "uitlaat": 27,
+      "eindpresentatie": 26,
+      "kantoortuin": 26,
+      "teamwerk": 27,
+      "kat-voeren": 25,
+      "afsluiten": 25,
+      "rijexamen": 20,
+      "voetbalavond": 27
+    },
+    "cues_natural_open_floor_no_answer_given": true,
+    "cue_roles_exist_in_voices_json_and_fit_speaker": {
+      "m-shop": 1,
+      "f-adult": 2,
+      "m-young": 2,
+      "f-older": 1,
+      "f-young": 1,
+      "m-adult": 1
+    },
+    "register_consistent_within_each_task": true,
+    "prompt_words": {
+      "uitlaat": 48,
+      "eindpresentatie": 50,
+      "kantoortuin": 56,
+      "teamwerk": 53,
+      "kat-voeren": 51,
+      "afsluiten": 45,
+      "rijexamen": 53,
+      "voetbalavond": 36
+    },
+    "tts_safe": "no digits in prompts or cues; numbers in words; colons as pauses; round-trip points listed in media_notes",
+    "pictures": "2 of 8 (kantoortuin still 1024x640, kat-voeren single 816x816), objects only, no cast member, brief ends with a No text clause, Dutch alt, kind drawing",
+    "invented_names_web_checked": "none to check: no organisation, shop, street or product name in the batch",
+    "names_follow_section_8": true,
+    "avoid_list_clear": true,
+    "slugs_new_to_catalogue_and_drafts_026_029": true,
+    "starters_one_per_criterion_in_order_with_ellipsis": true,
+    "starters_not_contained_in_model": true,
+    "starters_keys_in_batch_order": true,
+    "starters_follow_criteria": true,
+    "level_exemplars_available": false,
+    "batch_031_read_for_diversity": "content/batches/031-original.json, SHA-256 093d4f9a7aaf9f21fcd6f57d9b68424d433499a96ffbfecd2d8912cc4a962016, appeared during the review; no overlap with 030"
+  },
+  "level_summary": "All eight comparable to the official Deel-1 task of their act; teamwerk (a concession) and rijexamen (three moves in twenty seconds) at the fuller end, as 016 toets-computer and pensioen; none off-level, no flags. Compared with the official description in docs/research/exam-blueprints-2026-09-10.md and with batch 016, not with content/exemplars/ (absent).",
+  "items": [
+    {
+      "id": "B1:speaking:batch030-uitlaat:1",
+      "act": "ask two questions",
+      "domain": "overig",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Prompt: situation, 'U hoort eerst de medewerker.', 'Stel twee vragen: wat de reparatie kost en wanneer de auto klaar is. Zeg ook waarom u de auto snel nodig hebt.' Cue m-shop 27 words, u, gives neither price nor time. Null at 1 (sample asks no price); quote 2 'Weet u al wanneer hij klaar is?', quote 3 'Vrijdag ik moet naar mijn werk in andere stad en daar gaat geen bus, dus ik heb de auto echt nodig.' Errors: verb second, missing article. Model 44 words: 'Kunt u me zeggen wat de reparatie ongeveer gaat kosten?' (1), 'weet u al wanneer ik hem kan ophalen?' (2), 'Ik heb de auto vrijdag namelijk hard nodig, omdat …' (3). Near pair with 016 slaapkamerraam (keep apart in drills)."
+    },
+    {
+      "id": "B1:speaking:batch030-eindpresentatie:1",
+      "act": "ask two questions",
+      "domain": "educatie",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Prompt asks duration, notes and the chosen topic. Cue f-adult 26 words, u, answers nothing. Null at 2 (nothing about notes); quote 1 'Hoe lang moet de presentatie duren, vijf minuten of langer?', quote 3 'Ik wil mijn presentatie geven over gezond eten, want dat vind ik interessant onderwerp.' Errors: missing article, wrong auxiliary. Model 45 words: topic with omdat (3), 'hoeveel minuten de presentatie ongeveer moet duren' (1), 'mag ik tijdens het praten aantekeningen gebruiken' (2)."
+    },
+    {
+      "id": "B1:speaking:batch030-kantoortuin:1",
+      "act": "describe a picture",
+      "domain": "werk",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Prompt asks the kind of room, the things in it and an opinion; 'Gebruik het plaatje.' Cue m-young 26 words, je, 'Zit je in een eigen kamer, of hoe ziet het eruit daar?' Picture: empty open-plan office, plants, blank screens, no text (still). Criteria 1-2 observable, 3 asked. Null at 3 ('Nu is het stil, omdat iedereen zit in de kantine' is a fact); quotes 1 and 2 verbatim. Errors: article gender, subordinate order. Model 44 words meets all three ('één grote, open ruimte waar …', 'rijen bureaus met schermen … hoge planten', 'Ik vind het er prettig werken, omdat …')."
+    },
+    {
+      "id": "B1:speaking:batch030-teamwerk:1",
+      "act": "preference with a reason",
+      "domain": "werk",
+      "verdict": "pass",
+      "level": "comparable, fuller end",
+      "evidence": "Prompt: 'Zeg wat u liever doet en waarom. Noem ook één voordeel van de manier die u niet kiest.' Cue f-adult 27 words, je, names the two options only. Null at 3 (sample gives two reasons for the team, nothing for alone); quotes 1 and 2 verbatim. Errors: missing article, dropped het. Model 43 words: preference with omdat (1, 2), 'Alleen werken heeft wel een voordeel: je bepaalt je eigen tempo.' (3). A2 009 alleen-samen is a different part and act (decision 2)."
+    },
+    {
+      "id": "B1:speaking:batch030-kat-voeren:1",
+      "act": "two instructions",
+      "domain": "overig",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Prompt: 'Geef twee instructies: hoe vaak en hoeveel eten de kat krijgt. Zeg ook waar het eten staat. Gebruik het plaatje.' Cue f-older 25 words, 'jullie' only. Picture anchors the scoop and the kitchen (single). Null at 1 ('elke keer' states no frequency); quote 2 'Geef haar elke keer één schepje brokjes, want ze is al een beetje dik.', quote 3 'De zak met brokjes staat in de keuken naast bak.' Errors: missing article, verb second. Model 45 words with 'Geeft u haar twee keer per dag te eten' (1), 'Elke keer één schepje brokjes is genoeg' (2), 'De zak staat in de keuken naast haar bak' (3). Near pair with 016 medicijn-school in structure (keep apart)."
+    },
+    {
+      "id": "B1:speaking:batch030-afsluiten:1",
+      "act": "two instructions",
+      "domain": "werk",
+      "verdict": "pass (prompt edited)",
+      "level": "comparable",
+      "evidence": "Prompt (edited: 'de winkel af'): first step, next step, whom to call. Cue m-young 25 words, je. Null at 3 (two steps and a reassurance, no one to call); quotes 1 and 2 verbatim. Errors: verb second, wrong auxiliary. Model 44 words: 'Sluit eerst de kassa af en leg het geld in de kluis.' (1), 'Daarna doe je alle lichten uit, zet je het alarm aan en doe je de deur op slot.' (2), 'Gaat er iets mis, bel dan de bedrijfsleider; haar nummer hangt naast de kassa.' (3). Jari kept (decision 16)."
+    },
+    {
+      "id": "B1:speaking:batch030-rijexamen:1",
+      "act": "react to news",
+      "domain": "overig",
+      "verdict": "pass (domain edited)",
+      "level": "comparable, fuller end",
+      "evidence": "Prompt: 'Reageer op het nieuws. Stel ook een vraag over het examen en stel voor om het samen te vieren.' Cue f-young 20 words carries the news alone. Null at 2 (no question); quote 1 'Wauw, gefeliciteerd! Wat knap dat je in één keer geslaagd bent.', quote 3 'Na de les we moeten dit vieren, ik trakteer op koffie met taart!' Errors: wrong auxiliary, verb second. Model 44 words, five spoken sentences: congratulation with a reason (1), 'Hoe ging het, moest je iets moeilijks doen, zoals inparkeren?' (2), 'zullen we na de les samen ergens iets gaan drinken? Ik trakteer.' (3). Domain overig: the course frame is inert (edit 1)."
+    },
+    {
+      "id": "B1:speaking:batch030-voetbalavond:1",
+      "act": "decline an invitation",
+      "domain": "werk",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Prompt: 'Sla de uitnodiging af en zeg waarom. Stel ook voor om een andere keer iets samen te doen.' Cue m-adult 27 words carries the invitation alone (Friday, football on television, pizza, eight o'clock). Null at 2 (regret and 'ik hou erg van voetbal' are no reason); quote 1 'Leuk dat je het vraagt, maar vrijdag ik kan echt niet, sorry.', quote 3 'Misschien kunnen we een andere keer samen naar een wedstrijd kijken, in het café bij het station?' Errors: verb second, dropped het. Model 44 words: decline (1), 'Mijn schoonouders komen dan eten en dat is al weken geleden afgesproken.' (2), 'Zullen we anders volgende week een keer samen lunchen …?' (3)."
+    }
+  ],
+  "starters_checks": {
+    "keys_match_batch_ids_in_order": true,
+    "one_starter_per_criterion_in_order": true,
+    "every_starter_has_ellipsis": true,
+    "none_contained_in_model": true,
+    "no_fact_beyond_prompt_or_cue": true,
+    "register_follows_cue": true,
+    "completion_test": "each starter completed naturally and aligned with its criterion; all 24 pass (030-review.md, Sentence starters)",
+    "observation_not_blocking": "afsluiten starter 3 'Als iets niet lukt, kun je … bellen.' is grammatical; 'Als er iets niet lukt' would be a touch more idiomatic; left unchanged because no criterion moved."
+  },
+  "diversity_review": "Eight settings, six acts in the requested counts, eight counterparts, six voice roles none more than twice, two pictures in different acts, u cues 2 / je cues 5 / one neutral; no slug or subject repeats the catalogue or drafts 026-029. Against 016 the acts repeat by design (second Deel 1); closest pairs, to keep apart in mixed drills: uitlaat / 016 slaapkamerraam (repair calls asking when and about money) and kat-voeren / 016 medicijn-school (frequency plus amount to a caretaker); less close: afsluiten / 016 koffiemachine, teamwerk / 016 toets-computer. Cross-level echoes never in one set: teamwerk / A2 009 alleen-samen, rijexamen / A2 009 rijbewijs, voetbalavond / A2 listening 005 voetbal. Domains after the relabel werk 4 / educatie 1 / overig 3; with 016 the sixteen korte taken are werk 7 / educatie 4 / overig 5. Against batch 031 (middellang, read during the review at 093d4f9a…): no shared subject, counterpart or name; nearest pairs brandalarm / afsluiten (instruct a new colleague), verwarming-verhuurder / uitlaat (phone call about a repair), taalcafe-avond / rijexamen (taalcursus frame); 031 avoids 030's cue names, so a 030 + 031 form puts no name in two roles.",
+  "set_assembly": "Drills of four korte, one ask and one instruct each, no act twice: A = uitlaat, kantoortuin, kat-voeren, voetbalavond; B = eindpresentatie, teamwerk, afsluiten, rijexamen. Form: 030 is Deel 1 of the second Spreken I mock (016 the first); suggested order uitlaat, kantoortuin, eindpresentatie, teamwerk, kat-voeren, rijexamen, afsluiten, voetbalavond. Deel 2 is batch 031 once it passes review (no item, subject or name shared with 030); in the form keep brandalarm off the slot right after afsluiten and verwarming-verhuurder off the slot right after uitlaat.",
+  "media_notes": [
+    "Audio: Garagemedewerker -> m-shop (Jerry), Docent and Leidinggevende -> f-adult (Esmee, different items), Julio and Jari -> m-young (Nick), Mevrouw Bakker -> f-older (Hanneke), Farah -> f-young (Roos), Ricardo -> m-adult (Robert); narrator reads the eight prompts (promptAudio). Round-trip points: 'Ah ja' (uitlaat), 'Hé' (kantoortuin, afsluiten, voetbalavond), \"collega's\" and \"pizza's\" (voetbalavond), 'in één keer!' (rijexamen); numbers only in words; no digits or 's in prompts or cues.",
+    "kantoortuin (still 1024x640): one open room without cubicle walls, plants visible along the windows, blank screens, nothing readable on the cabinet or walls; the row count is not scored.",
+    "kat-voeren (single 816x816): the scoop visible beside the bag, no label or lettering on the bag, the setting readable as a kitchen; no cast traits to match."
+  ],
+  "coordinator_notes": [
+    "npm run batch:adopt 030 verifies source_sha256 against the proposed bytes and starters_sha256 against the author's starters file (no proposed starters file).",
+    "Educatie is at one in this batch after the relabel; steer a later korte batch towards educatie.",
+    "The author's notes still record educatie for rijexamen and the original afsluiten prompt; they were not edited.",
+    "Batch 028 (draft, unreviewed) uses Jari for a schoolchild; no action here (decision 16)."
+  ],
+  "limitations": [
+    "AI editorial review without educator review, learner trials or level validation; the B1 label remains an unvalidated authoring target and no official equivalence is claimed.",
+    "Level verdicts compare the tasks with the official Deel-1 description and with batch 016; content/exemplars/ does not exist.",
+    "The 20-second fit is a words-per-second estimate, not a recording; cue audio, prompt audio and illustrations need their own review after production.",
+    "The pass applies to the exact hashes recorded here."
+  ]
+}

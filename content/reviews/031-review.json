@@ -1,0 +1,399 @@
+{
+  "review_id": "batch031-editorial-review",
+  "source": "content/batches/031-original.json",
+  "source_original_sha256": "093d4f9a7aaf9f21fcd6f57d9b68424d433499a96ffbfecd2d8912cc4a962016",
+  "source_sha256": "4a44f278d95dcfcc7f30c90cf959af01e0c85ea1b9f64a875af9c3295a0a3ee0",
+  "proposed": "content/batches/031-proposed.json",
+  "starters_original_source": "content/batches/031-starters.json",
+  "starters_original_sha256": "5b4afcc74e154d30355d2762a5493e6014728dfe3a444beddb6eb3a4718b530b",
+  "starters_source": "content/batches/031-starters.json",
+  "starters_sha256": "17d66a771ec2b55abeb06d9779ad47ae56b05f505c47df3032211d0dc6249d7e",
+  "starters_verdict": "pass",
+  "review_type": "AI editorial review of eight B1 Spreken middellange taken (narrate three pictures ×2, convince after a cue, advise from a table, instruct from two pictures, compare-and-choose from a table, advise after a cue, instruct from one picture) and their sentence starters: prompt shape and speech act, cues, image briefs and tables, criteria against the prompt, sample quotes and learner errors, model coverage, length and level, originality; the 017 review's findings applied as checks; repairs applied in the proposed files",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_summary": "All eight tasks pass in the proposed file; none rejected. Eighteen edits: fifteen in the batch, four required in afvalcontainers (criteria 1–2 narrowed to what the prompt asks, quote 1, the model) and eleven recommended (three prompts trimmed to 63/61/59 words with the werktelefoon budget moved into the table caption, two cues trimmed to 29 words, five image-brief consistency edits), and three in the starters (two required in step with the afvalcontainers criteria, one that served one course only). Domains kept as labelled (werk 3 / educatie 2 / overig 3). Level: all comparable with the official Deel 2 task descriptions; cursus-engels, afvalcontainers and werktelefoon at the fuller end, brandalarm at the lighter end; no off-level flag. The checker reports no failures and no warnings on the proposed bytes.",
+  "edits": [
+    {
+      "id": "E1",
+      "item": "B1:speaking:batch031-portemonnee-tram:1",
+      "field": "images[0].brief",
+      "kind": "recommended",
+      "old": "Inside a city tram, Roos (young woman, dark hair in a bun, yellow scarf) has just stood up from a seat and walks towards the open tram door with a shoulder bag on her arm; on the seat she has left lies a small brown wallet. Two other passengers sit further away. No text, no route numbers, no signs.",
+      "new": "Inside a city tram, Roos (young woman, dark hair in a bun, yellow scarf) has just stood up from a seat and walks towards the open tram door with a shoulder bag on her arm; on the seat she has left lies a brown wallet, clearly visible. Two other passengers sit further away. No text, no route numbers, no signs.",
+      "why": "\"a small brown wallet\" invites a wallet too tiny to see at 1024×640 in the low-detail house style; the wallet on the seat is the answer-relevant detail of panel 1."
+    },
+    {
+      "id": "E2",
+      "item": "B1:speaking:batch031-portemonnee-tram:1",
+      "field": "images[2].brief",
+      "kind": "recommended",
+      "old": "At the counter of a lost-property office, a plain room with a shelf of umbrellas and bags behind the counter, an employee (woman of about 50, short grey hair, dark green vest) hands the small brown wallet across the counter to Roos (young woman, dark hair in a bun, yellow scarf), who smiles with relief. No text, no signs, no logos.",
+      "new": "At the counter of a lost-property office, a plain room with a shelf of umbrellas and bags behind the counter, an employee (woman of about 50, short grey hair, dark green vest) hands the brown wallet across the counter to Roos (young woman, dark hair in a bun, yellow scarf), who has her shoulder bag on her arm and smiles with relief. No text, no signs, no logos.",
+      "why": "Same wallet as panel 1 without \"small\"; the shoulder bag is the continuity object of panels 1 and 2 and was missing from panel 3 (017 review: the jammed box stays in both machinestoring pictures)."
+    },
+    {
+      "id": "E3",
+      "item": "B1:speaking:batch031-taalcafe-avond:1",
+      "field": "images[0].brief",
+      "kind": "recommended",
+      "old": "At the open door of a bright classroom of a language school, set out with a few round tables where people sit talking, Karim (man in his thirties, short black hair and beard, grey jacket) stands hesitantly in the doorway with one hand on the door frame; a volunteer (woman of about 60, grey curly hair, mustard cardigan) at the nearest table waves him in. No text, no signs, no logos.",
+      "new": "At the open door of a bright classroom of a language school, set out with two round tables, Karim (man in his thirties, short black hair and beard, grey jacket) stands hesitantly in the doorway with one hand on the door frame; a volunteer (woman of about 60, grey curly hair, mustard cardigan) at the nearest table waves him in, and three people sit talking at the far table. No text, no signs, no logos.",
+      "why": "\"a few round tables where people sit talking\" is an open figure count; the 017 review capped a classroom panel at three children because crowds bring artefacts in the house style (blueprint §7). Five figures now."
+    },
+    {
+      "id": "E4",
+      "item": "B1:speaking:batch031-taalcafe-avond:1",
+      "field": "images[2].brief",
+      "kind": "recommended",
+      "old": "In the same classroom, next to a row of coats on hooks by the door, Karim (man in his thirties, short black hair and beard, grey jacket) and the man with round glasses and a green sweater stand facing each other, each holding up a phone towards the other, both smiling. No text on the screens, no logos.",
+      "new": "In the same classroom, next to a row of coats on hooks by the door, Karim (man in his thirties, short black hair and beard, grey jacket) and the man with round glasses and a green sweater, who now has his coat over one arm, stand facing each other, each holding up a phone towards the other, both smiling. No text on the screens, no logos.",
+      "why": "Criterion 3 asks for \"het eind van de avond\"; coats on hooks alone do not fix the moment, a coat over the arm does, so the sequence order stays unambiguous (017 review: sequences need an unambiguous time order)."
+    },
+    {
+      "id": "E5",
+      "item": "B1:speaking:batch031-verwarming-verhuurder:1",
+      "field": "cue.text",
+      "kind": "recommended",
+      "old": "Ja, ik weet dat de verwarming niet werkt. Maar mijn monteur heeft het druk, die kan pas over drie weken komen. Kunt u niet zolang een elektrisch kacheltje gebruiken? Dat is toch geen probleem?",
+      "new": "Ja, ik weet dat de verwarming niet werkt. Maar mijn monteur heeft het druk, die kan pas over drie weken komen. Kunt u niet zolang een elektrisch kacheltje gebruiken?",
+      "why": "Cue was 34 words against the brief's 12–30; \"Dat is toch geen probleem?\" repeats the proposal and carries nothing the criteria need. The three weeks and the heater proposal (criterion 3 material) stay; 29 words, numbers in words."
+    },
+    {
+      "id": "E6",
+      "item": "B1:speaking:batch031-cursus-engels:1",
+      "field": "prompt",
+      "kind": "recommended",
+      "old": "U volgt een cursus bij een avondschool. Uw collega Sabrina wil bij dezelfde school een cursus Engels gaan doen, omdat ze volgend jaar een andere baan wil zoeken. Ze heeft niet veel geld en twee jonge kinderen, maar ze wil graag een officieel certificaat. Ze twijfelt tussen twee cursussen. Bekijk de tabel. Adviseer Sabrina welke cursus ze het beste kan kiezen en waarom. Noem minstens twee punten uit de tabel.",
+      "new": "U volgt een cursus bij een avondschool. Uw collega Sabrina wil bij dezelfde school een cursus Engels gaan doen, omdat ze volgend jaar een andere baan wil zoeken. Ze heeft niet veel geld en twee jonge kinderen. Ze twijfelt tussen twee cursussen. Bekijk de tabel. Adviseer Sabrina welke cursus ze het beste kan kiezen en waarom. Noem minstens twee punten uit de tabel.",
+      "why": "Prompt was 70 words. \"maar ze wil graag een officieel certificaat\" duplicates the table's Certificaat row and is not a scored element (criterion 3 names her money, her children or the new job); without it both courses are arguable with two table points, which is the point of the task. 63 words."
+    },
+    {
+      "id": "E7",
+      "item": "B1:speaking:batch031-afvalcontainers:1",
+      "field": "prompt",
+      "kind": "recommended",
+      "old": "U woont in een klein flatgebouw. De bewoners delen drie afvalcontainers achter het gebouw. De grijze container wordt elke maandagochtend geleegd; de bewoners zetten hem om de beurt aan de straat. Uw nieuwe buurvrouw Fatima staat met een zak restafval bij de containers en vraagt hoe het werkt. Kijk naar de plaatjes. Leg haar uit welke container ze moet gebruiken en wanneer ze de container aan de straat zet. Noem minstens twee punten.",
+      "new": "U woont in een klein flatgebouw. De bewoners delen drie afvalcontainers achter het gebouw; de grijze wordt elke maandagochtend geleegd. Uw nieuwe buurvrouw Fatima staat met een zak restafval bij de containers en vraagt hoe het werkt. Kijk naar de plaatjes. Leg haar uit welke container ze moet gebruiken en wanneer ze die aan de straat zet. Noem minstens twee punten.",
+      "why": "Prompt was 73 words. The turn-taking (\"de bewoners zetten hem om de beurt aan de straat\") is scored by no criterion and shown by neither picture; the Monday emptying stays because criterion 2 rests on it. 61 words; the instruction sentence keeps the exam form."
+    },
+    {
+      "id": "E8",
+      "item": "B1:speaking:batch031-afvalcontainers:1",
+      "field": "criteria[0]",
+      "kind": "required",
+      "old": [
+        "Zeg welke container voor het restafval is en wat er in de groene of de blauwe container mag (eerste plaatje).",
+        "Say which container is for the residual waste and what goes in the green or the blue container (first picture)."
+      ],
+      "new": [
+        "Zeg welke container ze voor haar restafval moet gebruiken: de grijze (eerste plaatje).",
+        "Say which container she must use for her residual waste: the grey one (first picture)."
+      ],
+      "why": "The prompt asks which container she must use; the old criterion also demanded what goes in the green or the blue container, which the prompt never asks and no picture states (it tests knowledge of a colour convention). A learner who does what the prompt says must meet every criterion."
+    },
+    {
+      "id": "E9",
+      "item": "B1:speaking:batch031-afvalcontainers:1",
+      "field": "criteria[1]",
+      "kind": "required",
+      "old": [
+        "Zeg wanneer ze de grijze container aan de straat zet en wanneer hij weer terug moet (tweede plaatje).",
+        "Say when she puts the grey container out on the street and when it must go back (second picture)."
+      ],
+      "new": [
+        "Zeg wanneer ze de grijze container aan de straat zet: de avond vóór het legen, dus zondagavond (tweede plaatje).",
+        "Say when she puts the grey container out on the street: the evening before it is emptied, so Sunday evening (second picture)."
+      ],
+      "why": "The prompt asks when she puts the container out, not when it must go back; the return was an unasked element. Naming the evening makes the sample's \"op tijd\" an unambiguous miss (one null quote must be beyond doubt)."
+    },
+    {
+      "id": "E10",
+      "item": "B1:speaking:batch031-afvalcontainers:1",
+      "field": "quotes[0]",
+      "kind": "required",
+      "old": "Uw zak restafval doet u in de grijze container. Groente en fruit gaan in de groene container en papier gaat in blauwe container.",
+      "new": "Uw zak restafval doet u in de grijze container.",
+      "why": "Quote trimmed to the sentence that evidences the narrowed criterion 1; still verbatim."
+    },
+    {
+      "id": "E11",
+      "item": "B1:speaking:batch031-afvalcontainers:1",
+      "field": "model",
+      "kind": "required",
+      "old": "Uw restafval gaat in de grijze container. De groene is voor groente- en fruitafval en de blauwe voor papier. Omdat de grijze container maandagochtend wordt geleegd, zet u hem zondagavond aan de straat als u aan de beurt bent. Haal hem maandag na het legen weer naar achteren, anders staat hij in de weg. Zet geen zakken naast de container, want dat trekt ratten aan.",
+      "new": "Uw restafval gaat in de grijze container. De groene is voor groente- en fruitafval en de blauwe voor papier. Omdat de grijze container maandagochtend wordt geleegd, zet u hem zondagavond aan de straat. Haal hem maandag na het legen weer naar achteren, anders staat hij in de weg. Zet geen zakken naast de container, want dat trekt ratten aan.",
+      "why": "\"als u aan de beurt bent\" referred to the turn-taking that left the prompt; 59 words, every criterion still met (grey; Sunday evening because Monday morning; instruction form; two warnings)."
+    },
+    {
+      "id": "E12",
+      "item": "B1:speaking:batch031-werktelefoon:1",
+      "field": "prompt",
+      "kind": "recommended",
+      "old": "U werkt in de thuiszorg en rijdt elke dag naar cliënten. U krijgt een nieuwe werktelefoon en mag zelf een abonnement kiezen. Het bedrijf betaalt maximaal twintig euro per maand; de rest betaalt u zelf. U belt veel voor uw werk en gebruikt onderweg de navigatie op uw telefoon. Uw leidinggevende vraagt welk abonnement u kiest. Bekijk de tabel. Vergelijk de twee abonnementen en zeg welk abonnement u kiest. Noem twee redenen.",
+      "new": "U werkt in de thuiszorg en rijdt elke dag naar cliënten. U krijgt een nieuwe werktelefoon en mag zelf een abonnement kiezen. U belt veel voor uw werk en gebruikt onderweg de navigatie op uw telefoon. Uw leidinggevende vraagt welk abonnement u kiest. Bekijk de tabel. Vergelijk de twee abonnementen en zeg welk abonnement u kiest. Noem twee redenen.",
+      "why": "Prompt was 72 words; the company budget is a fact about the prices and belongs with them. In the table caption it stays on screen while the learner speaks (the app keeps the table visible), which helps the seven-euro comparison of criterion 4. Calls and navigation stay in the prompt (criterion 3). 59 words."
+    },
+    {
+      "id": "E13",
+      "item": "B1:speaking:batch031-werktelefoon:1",
+      "field": "table.caption",
+      "kind": "recommended",
+      "old": "Twee abonnementen voor de werktelefoon",
+      "new": "Twee abonnementen voor de werktelefoon. Het bedrijf betaalt maximaal € 20 per maand; de rest betaalt u zelf.",
+      "why": "Carries the budget sentence that left the prompt, word for word in substance; the table stays four rows (43 words with the caption)."
+    },
+    {
+      "id": "E14",
+      "item": "B1:speaking:batch031-sollicitatietips:1",
+      "field": "cue.text",
+      "kind": "recommended",
+      "old": "Dinsdag heb ik een sollicitatiegesprek bij een kinderdagverblijf, mijn allereerste. Ik slaap er slecht van, want ik weet niet wat ze gaan vragen. Wat moet ik doen om goed voorbereid te zijn?",
+      "new": "Dinsdag heb ik een sollicitatiegesprek, mijn allereerste. Ik slaap er slecht van, want ik weet niet wat ze gaan vragen. Wat moet ik doen om goed voorbereid te zijn?",
+      "why": "Cue was 32 words against the brief's 12–30; \"bij een kinderdagverblijf\" is already in the prompt, and the sample and model take the kinderdagverblijf from there. Her nerves and the first-interview fact (criterion 4 material) stay; 29 words."
+    },
+    {
+      "id": "E15",
+      "item": "B1:speaking:batch031-brandalarm:1",
+      "field": "images[0].brief",
+      "kind": "recommended",
+      "old": "A simple evacuation plan seen straight on, as a poster on a wall: one floor of an office building drawn as a large rectangle, divided by thin charcoal lines into four rooms along a long central corridor. At each end of the corridor a staircase, drawn as a few steps, leads to an exit door drawn in sage green. A soft terracotta dot in the middle of the corridor marks the viewer's position, and mustard yellow arrows run from the dot along the corridor to both staircases. Halfway along the corridor a lift, drawn as a small box with two doors, has a thin terracotta cross over it. Outside the rectangle a small sage green circle with a simple tree marks the assembly point, with a mustard arrow from the nearest exit door to it. No text, no letters, no numbers, no logos.",
+      "new": "A simple evacuation plan seen straight on, as a poster on a wall: one floor of an office building drawn as a large rectangle, divided by thin charcoal lines into four rooms along a long central corridor. At each end of the corridor a staircase, drawn as a few steps, leads to an exit door drawn in sage green. A soft terracotta dot in the middle of the corridor marks the viewer's position, and mustard yellow arrows run from the dot along the corridor to both staircases. Halfway along the corridor a lift, drawn as a small box with two doors, has a thin terracotta cross over it. Outside the rectangle a small sage green circle with a simple tree marks the assembly point, with a mustard arrow from the nearest exit door to it. No people. No text, no letters, no numbers, no logos.",
+      "why": "The style prefix says \"everyday Netherlands\" and the generator tends to add a figure; a person on a pictogram plan would confuse the \"you are here\" dot."
+    },
+    {
+      "id": "S1",
+      "item": "B1:speaking:batch031-cursus-engels:1",
+      "field": "starters[1]",
+      "kind": "recommended",
+      "file": "content/batches/031-proposed-starters.json",
+      "old": "Die cursus kost … en …",
+      "new": "Die cursus is …, en bovendien …",
+      "why": "\"Die cursus kost … en …\" only completes for course 1 (the cheaper one); a learner arguing course 2 pays more. The neutral frame completes for either course with two table points, which criterion 2 asks."
+    },
+    {
+      "id": "S2",
+      "item": "B1:speaking:batch031-afvalcontainers:1",
+      "field": "starters[0]",
+      "kind": "required",
+      "file": "content/batches/031-proposed-starters.json",
+      "old": "Restafval doet u in …, en … gaat in …",
+      "new": "Uw restafval doet u in …, niet in …",
+      "why": "Follows the narrowed criterion 1 (the grey container); the old second blank (\"… gaat in …\") asked for what the other containers take, which is no longer a criterion."
+    },
+    {
+      "id": "S3",
+      "item": "B1:speaking:batch031-afvalcontainers:1",
+      "field": "starters[1]",
+      "kind": "required",
+      "file": "content/batches/031-proposed-starters.json",
+      "old": "Zet de grijze container … aan de straat en haal hem … weer terug.",
+      "new": "De grijze container zet u … aan de straat, omdat hij … wordt geleegd.",
+      "why": "Follows the narrowed criterion 2 (the evening before the Monday emptying); the old frame asked when to bring the container back, which the prompt never asks."
+    }
+  ],
+  "rejected": [],
+  "author_doubts_decisions": {
+    "1_domains_cursus_engels_werktelefoon": "Both labels stand: domain follows the situation and the candidate's role (017 decision 1); cursus-engels is a learner at the avondschool advising on a course choice at that school (educatie), werktelefoon is a work phone, a company budget, a manager and two work reasons (werk). Counts stay 3/2/3; no relabel, no \"medecursist\" rewrite.",
+    "2_taalcafe_educatie": "Educatie: the candidate is a cursist of the taalschool whose taalcafé this is; the 017 eerste-schooldag rule (an adult narrating a child's day) does not apply.",
+    "3_two_narration_tenses": "Accepted as in 017; tense consistency belongs to the b1-spreken feedback, not to a criterion.",
+    "4_prompt_length": "Trimmed where a fact could leave without a scored element: cursus-engels 63 words (certificate wish is in the table), afvalcontainers 61 (turn-taking unscored), werktelefoon 59 (budget moved into the table caption). No cue added; stimulus counts unchanged.",
+    "5_sample_lengths": "Accepted (46–58 words; each shorter than its model).",
+    "6_cue_lengths": "Trimmed to 29 and 29 words; the three weeks, the heater proposal, the first-interview fact and the nerves stay.",
+    "7_colour_scheme_and_pair": "The colour convention is no longer scored (criterion 1 narrowed to the grey container the prompt fixes); the sample and model may still name it as a plausible addition. Pair accepted: same person, container and building; the change of place and the evening are the step asked.",
+    "8_sample_and_model_disagree": "Accepted for cursus-engels and werktelefoon: the criteria score the argumentation, not the choice; feedback must accept either option; starters neutral (S1 makes cursus-engels starter 2 two-sided).",
+    "9_brandalarm_diagram": "Accepted as a text-free drawn illustration (blueprint §7 keeps maps as real text because generated text is unreliable; this plan has none). Media risk noted; fallback is an SVG plan in the app, not a corridor scene.",
+    "10_names_across_batches": "No conflict with 026–030; a 030 + 031 mock form puts no name in two roles.",
+    "11_invented_details_in_models": "Accepted; the feedback must not require them.",
+    "12_near_neighbours_drills": "The author's three drills are adopted; afvalcontainers and 017 glasbak never in one drill or adjacent in a form."
+  },
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 8,
+    "distribution": {
+      "B1_speaking": 8
+    },
+    "task_types": {
+      "middellang": 8
+    },
+    "speech_acts": {
+      "narrate_three_pictures": 2,
+      "convince_two_reasons": 1,
+      "advise_from_table": 1,
+      "advise_after_cue": 1,
+      "instruct_from_two_pictures": 1,
+      "instruct_from_one_picture": 1,
+      "compare_and_choose_from_table": 1
+    },
+    "stimuli": {
+      "three_pictures": 2,
+      "two_pictures": 1,
+      "one_picture": 1,
+      "table": 2,
+      "cue_only": 2
+    },
+    "cue_roles": {
+      "m-older": 1,
+      "f-young": 1
+    },
+    "cue_words": {
+      "verwarming-verhuurder": 29,
+      "sollicitatietips": 29
+    },
+    "registers": {
+      "u": 3,
+      "je": 3,
+      "third_person_narration": 2
+    },
+    "domains": {
+      "werk": 3,
+      "educatie": 2,
+      "overig": 3
+    },
+    "timing": "prepSeconds 15 and speakingSeconds 30 on all eight",
+    "prompt_words": {
+      "portemonnee-tram": 47,
+      "taalcafe-avond": 49,
+      "verwarming-verhuurder": 52,
+      "cursus-engels": 63,
+      "afvalcontainers": 61,
+      "werktelefoon": 59,
+      "sollicitatietips": 50,
+      "brandalarm": 46
+    },
+    "prompt_longest_sentence": 21,
+    "prompt_clause_in_sample_or_model": "none (no shared six-gram; five-grams only the required demand and the child in verwarming-verhuurder)",
+    "null_quote_indexes": [
+      3,
+      1,
+      2,
+      3,
+      1,
+      1,
+      2,
+      2
+    ],
+    "quotes_verbatim": true,
+    "learner_errors_per_sample": 2,
+    "model_words": {
+      "portemonnee-tram": 63,
+      "taalcafe-avond": 64,
+      "verwarming-verhuurder": 63,
+      "cursus-engels": 63,
+      "afvalcontainers": 59,
+      "werktelefoon": 63,
+      "sollicitatietips": 62,
+      "brandalarm": 58
+    },
+    "model_longest_sentence": 22,
+    "model_syllables_range": "81–102 (23–34 s at 3.5–3.0 syllables per second)",
+    "tables": {
+      "cursus-engels": "4 rows, 34 words",
+      "werktelefoon": "4 rows, 44 words with the budget caption"
+    },
+    "image_briefs": 9,
+    "cast_traits_verbatim": "Roos ×3, Karim ×3, Fatima ×2",
+    "no_text_clause_in_every_brief": true,
+    "sequences_consistent": true,
+    "pair_differs_in_step_only": true,
+    "slugs_new_to_catalogue_and_batches_026_030": true,
+    "invented_names_to_web_check": "none (no organisation, shop or company named)",
+    "avoid_list": "nothing on the §9 list",
+    "starters": "keys in batch order, one per criterion with an ellipsis (4 × 8), neutral on the choice",
+    "batch_check_on_proposed": "Checked 8 items, 0 questions. Keys: {}. Options: {}. No failures, no warnings.",
+    "serializer_reproduces_original_bytes": true,
+    "exemplars_dir_exists": false
+  },
+  "items": {
+    "B1:speaking:batch031-portemonnee-tram:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration in the past tense with a causal chain (wallet left on the seat, missed at the bakery, collected at the lost-property desk) plus the feelings, like the official Deel 2 narration and 017 trein-gemist; model 63 words, toen/pas/gelukkig, a pluperfect, longest sentence 15.",
+      "evidence": "Prompt: situation, then \"Kijk naar de plaatjes. Vertel wat er gebeurde, hoe Roos zich voelde en hoe ze haar portemonnee terugkreeg. Gebruik alle drie de plaatjes.\" (47 words). Roos (young woman, dark hair in a bun, yellow scarf) verbatim in all three briefs; order tram → bakery counter → lost-property counter unambiguous; the wallet is the continuity object (now \"clearly visible\") and the shoulder bag runs through all three panels after edit E2. Criteria: one per picture (what happened; how she noticed; how she got it back) and the feelings, exactly what the prompt asks. Sample 58 words opens with its own sentence (\"Roos ging vorige week met de tram naar haar werk.\"), quotes 1–3 verbatim, never says how she felt so quote 4 is null; errors \"In de tram zij legde\" (no inversion) and \"Zo is ze haar portemonnee verloren\" (wrong auxiliary), no third. Model 63 words, all past, meets 1–4 (\"legde haar portemonnee naast zich op de stoel … vergat ze hem\", \"Pas bij de bakker merkte ze dat haar portemonnee weg was\", \"kon ze hem ophalen bij het bureau voor gevonden voorwerpen\", \"ze schrok enorm\"); no prompt clause. Domain overig (transport, personal story).",
+      "edits": [
+        "E1",
+        "E2"
+      ]
+    },
+    "B1:speaking:batch031-taalcafe-avond:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Present narration with feelings and a reason, the 017 eerste-schooldag pattern; model 64 words with omdat/dat/na een kwartier, longest sentence 19.",
+      "evidence": "Prompt: \"U volgt een cursus Nederlands bij een taalschool. … Vanavond komt uw medecursist Karim daar voor het eerst. Kijk naar de plaatjes. Vertel wat er gebeurt en hoe Karim zich voelt. Gebruik alle drie de plaatjes.\" (49 words). Karim (man in his thirties, short black hair and beard, grey jacket) verbatim in every panel, \"the same classroom\" in panels 2–3, the man with round glasses and a green sweater identical in 2–3; order doorway → table → coats by the door, fixed as the end of the evening by E4. Criteria: three pictures plus feelings-with-reason (the 017 eerste-schooldag form). Sample 53 words, own opening, quotes 1, 3, 4 verbatim, nothing about the table so quote 2 is null; errors \"Bij de deur hij voelt zich\" and \"nieuwe vriend gemaakt\", no third. Model 64 words, all present, meets 1–4 (\"aarzelend in de deuropening, omdat hij bang is …\", \"praat hij aan een tafel met twee mensen\", \"wisselt hij telefoonnummers uit\", \"voelt hij zich op zijn gemak\"). Domain educatie: the candidate is a cursist at the taalschool, the setting its taalcafé.",
+      "edits": [
+        "E3",
+        "E4"
+      ]
+    },
+    "B1:speaking:batch031-verwarming-verhuurder:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Convince with two reasons against a counter-proposal, the 017 cursusverzoek shape; model 63 words in u, ten eerste/ten tweede, dus, a rebuttal and a closing question, longest sentence 18.",
+      "evidence": "Prompt: situation (four days without heating or hot water, November, a two-year-old), \"U hoort eerst uw verhuurder. Overtuig hem dat de verwarming deze week gerepareerd moet worden. Noem twee redenen.\" (52 words). Cue m-older, 29 words after E5, u to the tenant, states the three weeks and proposes an electric heater; numbers in words. Criteria: the demand, two reasons, a response to the heater, a closing question or proposal, as accepted for cursusverzoek in 017. Sample 56 words opens \"Drie weken is echt te lang, meneer.\", quotes 1, 2, 4 verbatim, never answers the heater so quote 3 is null; errors \"Daarom ik wil\" and \"omdat het is heel koud in huis\", no third. Model 63 words meets 1–4 (\"De verwarming moet deze week gemaakt worden\", the child and the cold, no hot water, \"Een elektrisch kacheltje verwarmt maar één kamer en kost veel stroom\", \"Kunt u misschien een ander bedrijf bellen?\") and paraphrases the cue. Domain overig (housing).",
+      "edits": [
+        "E5"
+      ]
+    },
+    "B1:speaking:batch031-cursus-engels:1": {
+      "verdict": "pass",
+      "level": "comparable, fuller end",
+      "level_reason": "Advice from a four-row table tied to three situation facts plus a drawback, the 017 fietskeuze shape; model 63 words with zodat, bovendien, a spelled-out price, longest sentence 20; four elements in 30 seconds is the fuller end of the official advise task.",
+      "evidence": "Prompt after E6 (63 words): situation (colleague Sabrina, an English course at the same avondschool, a new job next year, little money, two young children), \"Bekijk de tabel. Adviseer Sabrina welke cursus ze het beste kan kiezen en waarom. Noem minstens twee punten uit de tabel.\" Table 4 × 3, 34 words: price € 275 / € 495, one evening / two evenings, 20 / 10 weeks, bewijs van deelname / officieel certificaat met examen; course 1 wins on price and evenings (money, children), course 2 on certificate and duration (the job), so either side carries two table points. Criteria: recommendation, two table points, the link to her situation, a drawback or the other course's advantage. Sample 46 words recommends course 2 with duration and certificate linked to the job search, no drawback so quote 4 is null; quotes 1–3 verbatim; errors \"dan je bent snel klaar\" and \"officieel certificaat\", no third. Model 63 words recommends course 1 and meets 1–4 (\"Ik zou cursus één nemen\", price and one evening, \"als je weinig geld hebt\", \"oppas voor de kinderen\", \"Het nadeel is dat je alleen een bewijs van deelname krijgt\"). Register je. Domain educatie (learner role, school setting, course choice).",
+      "edits": [
+        "E6",
+        "S1"
+      ]
+    },
+    "B1:speaking:batch031-afvalcontainers:1": {
+      "verdict": "pass",
+      "level": "comparable, fuller end",
+      "level_reason": "Step-by-step instruction from two pictures with a reason, the 017 machinestoring shape; model 59 words in instruction form with an omdat-clause and two warnings, longest sentence 15.",
+      "evidence": "Prompt after E7 (61 words): three shared containers behind a small flat building, the grey one emptied every Monday morning, new neighbour Fatima with a bag of restafval asks how it works, \"Kijk naar de plaatjes. Leg haar uit welke container ze moet gebruiken en wanneer ze die aan de straat zet. Noem minstens twee punten.\" Pair: Fatima (woman in her forties, headscarf, blue coat) verbatim in both, the same building and the same dark grey container; picture 1 the bag into the grey container beside the green and blue ones, picture 2 the container at the kerb at dusk; the change of place and the evening are the step asked. Criteria after E8–E9: the grey container for her restafval; out the evening before the Monday emptying, so Sunday evening; instructions rather than description (the 017 machinestoring criterion 3); a reason or warning. Sample 57 words opens \"Uw zak restafval doet u in de grijze container.\", quotes 1 (E10), 3, 4 verbatim, names no day (\"op tijd\") so quote 2 is null; errors \"in blauwe container\" and \"In de grijze container u mag\", no third. Model after E11, 59 words, meets 1–4 (\"Uw restafval gaat in de grijze container\", \"zet u hem zondagavond aan de straat\" because \"maandagochtend wordt geleegd\", imperatives throughout, \"anders staat hij in de weg\", \"dat trekt ratten aan\"). Register u. Domain overig.",
+      "edits": [
+        "E7",
+        "E8",
+        "E9",
+        "E10",
+        "E11",
+        "S2",
+        "S3"
+      ]
+    },
+    "B1:speaking:batch031-werktelefoon:1": {
+      "verdict": "pass",
+      "level": "comparable, fuller end",
+      "level_reason": "Compare two options from a table and choose with two reasons plus a comparison, the 017 sportabonnement shape with a fourth (work-link) criterion; model 63 words, ten eerste/ten tweede, a semicolon-joined sentence of 22 words, the seven-euro arithmetic.",
+      "evidence": "Prompt after E12 (59 words): thuiszorg, daily drives to clients, a new work phone with a subscription of the candidate's choice, many calls and navigation on the road, the manager asks, \"Bekijk de tabel. Vergelijk de twee abonnementen en zeg welk abonnement u kiest. Noem twee redenen.\" Table after E13: caption carries the budget (\"Het bedrijf betaalt maximaal € 20 per maand; de rest betaalt u zelf.\"), 4 × 3 rows (€ 15 / € 27, 200 minuten / onbeperkt, 5 GB / 25 GB, 1 jaar / 2 jaar), 44 words; subscription 1 free within the budget with the shorter contract, subscription 2 unlimited calls and five times the data, both arguable. Criteria: the choice, two table reasons, a link to the work (calls, navigation or the twenty euros), a drawback or the other's advantage. Sample 53 words, own opening, quotes 1, 3, 4 verbatim, one table reason only (unlimited calls, restated) so quote 2 is null; errors \"omdat ik bel elke dag\" and \"want bedrijf betaalt\", no third. Model 63 words meets 1–4 (\"Ik kies abonnement twee\", calls and data, \"bel ik de hele dag met cliënten\", \"Abonnement één is wel goedkoper … maar die zeven euro per maand betaal ik graag zelf\"). Domain werk.",
+      "edits": [
+        "E12",
+        "E13"
+      ]
+    },
+    "B1:speaking:batch031-sollicitatietips:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Advice with at least two tips and a reason after a spoken cue, the 017 examentips shape on a new subject; model 62 words with zodat/want, imperatives and modal advice forms, an offer to practise, longest sentence 19.",
+      "evidence": "Prompt: friend Mila's first job interview next week at a kinderdagverblijf, she is nervous, the candidate found a job last year, \"U hoort eerst Mila. Geef haar advies over de voorbereiding. Noem minstens twee tips en leg uit waarom die helpen.\" (50 words). Cue f-young, 29 words after E14, je, states the Tuesday interview, the bad sleep and the question; no digits. Criteria: advice forms, at least two tips, a reason for at least one, reassurance or an offer of help (the 017 examentips form). Sample 54 words opens \"Maak je niet te druk, Mila\", quotes 1, 2, 4 verbatim, three tips but no reason so quote 3 is null; errors \"Voor het gesprek je moet\" and \"Vorig jaar ben ik dat allemaal gedaan\", no third. Model 62 words meets 1–4 (\"Probeer eerst …\", \"Bedenk ook …\", website and own questions and neat clothes, \"zodat je weet hoe ze werken\", \"want dan zien ze dat je echt geïnteresseerd bent\", \"Rustig maar …\", \"Zullen we het gesprek dit weekend samen oefenen?\"). Domain werk.",
+      "edits": [
+        "E14"
+      ]
+    },
+    "B1:speaking:batch031-brandalarm:1": {
+      "verdict": "pass",
+      "level": "comparable, lighter end",
+      "level_reason": "Instruct from one picture with four elements (leave, route, assembly point, reason) in the official instruct form; model 58 words, mostly main-clause imperatives with one omdat and one tot-clause, longest sentence 15, 81 syllables (23–27 s): the lightest of the batch but still a full Deel 2 answer.",
+      "evidence": "Prompt: an office on the second floor, a new colleague asks what to do when the fire alarm sounds, a vluchtplan in the corridor, \"Kijk naar het plaatje. Leg hem uit wat hij moet doen als het alarm gaat. Noem minstens twee punten.\" (46 words). Single brief: a text-free plan with four rooms on a corridor, staircases and exit doors at both ends, a \"you are here\" dot, arrows to both staircases, a crossed lift, an assembly point with a tree outside the outline; \"No people\" added by E15. Criteria: stop and leave at once, the route by the corridor and the nearest stairs and not the lift, the assembly point and waiting there, a reason or warning. Sample 56 words opens with its own conditional (\"Als je het alarm hoort, je moet meteen stoppen met werken.\"), quotes 1, 2, 4 verbatim, ends at \"Loop dan naar buiten\" so quote 3 is null; errors \"je moet\" after the fronted clause and \"nooit lift\", no third. Model 58 words in instruction form meets 1–4 (\"stop je meteen met werken en laat je je spullen liggen\", \"volg de pijlen naar de dichtstbijzijnde trap. Gebruik nooit de lift, omdat die bij brand kan uitvallen\", \"naar de verzamelplaats bij de boom. Daar wacht je tot iemand zegt dat het veilig is\"). Domain werk. The diagram stimulus is accepted with a media fallback (author doubt 9).",
+      "edits": [
+        "E15"
+      ]
+    }
+  },
+  "diversity_review": "Eight settings, six act shapes, three stimulus kinds, both registers; no setting repeated with new names against the catalogue or batches 026–030. Nearest neighbours, all different in act or level: portemonnee-tram vs A2 portemonnee and 026 treinkaartje; taalcafe-avond vs 022 taalcafe (radio ad) and 027 taalcafe-oefenen (A2 video answer); afvalcontainers vs 017 glasbak (both waste rules told to a neighbour in u: never in one drill); cursus-engels vs 017 fietskeuze and 027 cursuskeuze; werktelefoon vs 017 sportabonnement and A2 abonnement; sollicitatietips vs 017 examentips and 027 sollicitatiegesprek; verwarming-verhuurder vs 016 slaapkamerraam; brandalarm vs 017 machinestoring, 016 koffiemachine, 030 afsluiten (the official instruct-a-colleague type on four subjects). Cast reuse is the pool by design; the 11 September family-link note in config/illustration.json is not contradicted.",
+  "set_assembly": "Drills: A = portemonnee-tram, verwarming-verhuurder, afvalcontainers; B = taalcafe-avond, cursus-engels, sollicitatietips; C = werktelefoon, brandalarm + 017 glasbak or a later convince task (no drill with both tables). Mock forms 016 + 017 and 030 + 031 each give 8 kort + 8 middellang with no shared items and no name in two roles. B1 middellang after this batch: werk 6, educatie 4, overig 6.",
+  "media_notes": "Nine images (six sequence panels and two pair pictures at 1024×640, one single at 816×816). Contact-sheet checks: wallet visible on the seat and in the employee's hand, bag and scarf in all three tram panels; hesitation pose, at most five figures, same man with glasses and green sweater, blank phone screens in the taalcafé; three container colours unambiguous, grey container at the kerb at dusk; evacuation plan with arrows to both staircases, a readable cross on the lift, the assembly point outside the outline, no letters or figures; the plan is the riskiest generation, redo or fall back to an SVG plan rather than accept a garbled one. Audio: Verhuurder → m-older (Arjen), Mila → f-young (the Roos voice; the shown label is the speaker field), eight narrator prompt clips; numbers in words in cues and prompts, the € 20 sits in the caption that is not read aloud.",
+  "coordinator_notes": "Adopt with npm run batch:adopt 031 (verifies source_sha256 against the proposed batch and starters_sha256 against the proposed starters). The b1-spreken feedback must accept either course in cursus-engels and either subscription in werktelefoon, any wording for the assembly point and the lost-property desk, an answer in je to the landlord's u, and must not require the models' invented details or the green/blue container contents. The author's notes are stale for the three prompts, two cues, the afvalcontainers criteria and the language-control table. Tables as a Spreken I stimulus remain a §4.9 allowance the research paragraph does not record for the official Deel 2.",
+  "limitations": "AI editorial review; no educator review, learner trial or psychometric calibration, no claim of equivalence with Staatsexamen NT2 Programma I; level labels remain unvalidated authoring targets judged against the official description and the integrated 017 tasks, not exemplars (content/exemplars/ does not exist); speaking times are syllable estimates; pictures, audio and feedback prompts need their own review after media production; the reviewer's own wordings have had no independent second reading."
+}

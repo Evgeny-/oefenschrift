@@ -82,29 +82,31 @@ function TaskStimulus({ item, t }) {
       )}
       {item.table && Array.isArray(item.table.rows) && (
         // A B1 korte schrijftaak gives its facts in a small table that is not part of the e-mail.
-        <table className="task-table" lang="nl">
-          {item.table.caption && <caption>{item.table.caption}</caption>}
-          {Array.isArray(item.table.columns) && (
-            <thead>
-              <tr>
-                {item.table.columns.map((c) => (
-                  <th key={c} scope="col">
-                    {c}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-          )}
-          <tbody>
-            {item.table.rows.map((row, r) => (
-              <tr key={r}>
-                {row.map((cell, c) => (
-                  <td key={c}>{cell}</td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="task-table-scroll">
+          <table className="task-table" lang="nl">
+            {item.table.caption && <caption>{item.table.caption}</caption>}
+            {Array.isArray(item.table.columns) && (
+              <thead>
+                <tr>
+                  {item.table.columns.map((c) => (
+                    <th key={c} scope="col">
+                      {c}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+            )}
+            <tbody>
+              {item.table.rows.map((row, r) => (
+                <tr key={r}>
+                  {row.map((cell, c) => (
+                    <td key={c}>{cell}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
       {item.taskType === 'zinstaak' && scaffold.body && (
         // A zinstaak shows a short e-mail with one gap; the learner writes the missing sentence.
@@ -303,6 +305,7 @@ export function OpenExercise({ item }) {
           {starters[item.id] &&
             !(
               (item.taskType === 'picture-note' ||
+                item.cue ||
                 (item.taskType === 'deelschrijftaak' && item.images?.length)) &&
               !reviewing
             ) && (

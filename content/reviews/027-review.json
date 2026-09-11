@@ -1,0 +1,253 @@
+{
+  "review_id": "batch027-editorial-review",
+  "source": "content/batches/027-original.json",
+  "source_original_sha256": "e011118bc144500b728ab50a221f3d4c7e249a16b6bbb3ece9520dd51c91ff27",
+  "source_sha256": "d1be1382330e564d919a1b7d9d2776ba38ca0e57d169e39b0ef60b86e346b507",
+  "proposed": "content/batches/027-proposed.json",
+  "starters_source": "content/batches/027-starters.json",
+  "starters_sha256": "51ac7cf3ae4a69622757cce5bbdded4fbdfb451df5b291576c0bae70e427bf41",
+  "starters_verdict": "pass",
+  "proposed_starters": null,
+  "review_type": "AI editorial review of twelve A2 Spreken tasks (three video-answer, three picture-describe, three picture-choose, three picture-sequence) and their sentence starters: prompt shape per official type, cue naturalness and register, image briefs against the house style and the pair and sequence rules, cast traits verbatim, criteria that mirror the type, sample quotes and learner errors, model coverage and A2 level, level verdict per task, diversity against the catalogue and batch 026, media notes; repairs applied in the proposed file",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "reviewer_context": "fresh; the author's notes and doubts were read after every task had been judged",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_summary": "All twelve tasks pass in the proposed file after two required picture-brief repairs: the bakkerij pair now shows Julio at the oven in both pictures and differs only in the time of day (pair rule), and sollicitatiegesprek panel 1 replaces a handwritten letter (a text object) with a laptop with a blank screen. Six changed lines in total; criteria, samples, quotes, models and starters are byte-identical to the author's files, so the author's starters file stands at its hash. No item rejected. Checker on the proposed file: no failures, no warnings.",
+  "edits": [
+    {
+      "id": "E1",
+      "kind": "required",
+      "item": "A2:speaking:batch027-bakkerij:1",
+      "field": "images[0].brief",
+      "new": "In a bakery early in the morning, Julio (young man, curly hair, striped shirt) wears an apron and slides a tray of bread rolls into a large oven; through the window the sky is pale pink and orange with the sun rising. No text.",
+      "why": "The pair must differ only in the thing the task asks about (early morning or evening); the dawn sky is the morning cue and contrasts with the night sky of picture 2."
+    },
+    {
+      "id": "E1",
+      "kind": "required",
+      "item": "A2:speaking:batch027-bakkerij:1",
+      "field": "images[0].alt",
+      "new": "Een jonge man schuift 's ochtends vroeg een bakplaat met broodjes in de oven van een bakkerij; door het raam komt de zon op.",
+      "why": "Describes the picture with its time cue; 'bakplaat met broodjes' replaces 'plaat brood'."
+    },
+    {
+      "id": "E1",
+      "kind": "required",
+      "item": "A2:speaking:batch027-bakkerij:1",
+      "field": "images[1].brief",
+      "new": "In the same bakery in the evening, Julio (young man, curly hair, striped shirt) wears the same apron and slides a tray of bread rolls into the same large oven; through the window the sky is dark blue with a crescent moon and a few stars. No text.",
+      "why": "config/illustration.json pairRule: the options differ in the one thing asked and match in everything else; the author's evening picture (sweeping beside an empty counter) differed in the job as well as the time."
+    },
+    {
+      "id": "E1",
+      "kind": "required",
+      "item": "A2:speaking:batch027-bakkerij:1",
+      "field": "images[1].alt",
+      "new": "Een jonge man schuift 's avonds een bakplaat met broodjes in de oven van een bakkerij; door het raam is de maan te zien.",
+      "why": "Matches the new picture; neutral between the options."
+    },
+    {
+      "id": "E2",
+      "kind": "required",
+      "item": "A2:speaking:batch027-sollicitatiegesprek:1",
+      "field": "images[0].brief",
+      "new": "At a kitchen table at home, Sabrina (woman in her thirties, long dark hair, green jumper) sits at a laptop and types, looking at the screen. No text, blank laptop screen.",
+      "why": "A handwritten letter is lines of text, which the 'No text' checklist cannot honour (the 009 ochtenddienst calendar decision); a blank laptop screen is the bank's convention (009 ochtenddienst, 026 lunchpauze, 026 online-winkel) and matches how applications are sent. Model ('schrijft ... een sollicitatiebrief') and starter unchanged."
+    },
+    {
+      "id": "E2",
+      "kind": "required",
+      "item": "A2:speaking:batch027-sollicitatiegesprek:1",
+      "field": "images[0].alt",
+      "new": "Een vrouw zit thuis aan tafel en typt op een laptop.",
+      "why": "Describes the new panel without revealing a key."
+    }
+  ],
+  "rejected": [],
+  "author_doubts_decisions": {
+    "1_no_instanties": "accepted; no relabelling (a gemeente desk is a less natural place to pay than a shop). Premise corrected: the adopted 026 review relabelled bibliotheekboek to winkels-diensten, so only 009's three tasks (gemeente-bellen, paspoort, brief-gemeente) cover instanties; a form is defined by type counts, nothing blocks; the next A2 speaking batch should carry one or two instanties tasks",
+    "2_two_errors_per_sample": "accepted (author brief: one or two; 026 does the same); note for the feedback evaluation: 'de cursus computer' mirrors the cue's own list form and is a weak error",
+    "3_ziekmelden_invents_a_rule": "accepted (009 bushalte precedent); the criterion names three channels",
+    "4a_fatima_coat": "kept: expandCast appends the cast trait string whenever a brief names Fatima, so a brief cannot drop the coat; precedent 009 (Sem's sweater, Karim's jacket) and 026 koken-buurvrouw; media check on the generated picture; a lasting change is a config edit for the coordinator",
+    "4b_sem_as_fatimas_son": "kept: the catalogue already implies one household (Amina is Fatima's daughter in 005/017/021/023; 004 picknick puts Amina in Sem's household with Roos and papa; 023 turnles makes Hasan Sem's father; 023 bakker gives Roos a father turning sixty); 'her son Sem' contradicts nothing; no cast swap to Sabrina, keuken and 026 koken-buurvrouw stay out of one set",
+    "5_bakery_pair": "fixed (E1): both pictures at the oven, only the window differs",
+    "6_handwritten_letter": "fixed (E2): laptop with a blank screen; alt, criteria, sample, model, starters otherwise unchanged",
+    "7_contant_pinnen_no_choice": "accepted (009 flat-dorp, 026 online-winkel); within this batch the choose samples omit criteria 3, 1 and 3",
+    "8_kiespijn": "accepted; everyday word, nothing graphic",
+    "9_cue_voices": "accepted; meneer De Vries keeps m-older (Arjen) as in 009 bushalte; Robert and Roos new to A2 cues",
+    "10_taalcafe_wording": "keep 'taalcafé'; not in one mixed-part set with 022 taalcafé",
+    "11_alt_texts_name_actions": "accepted (009 reading for open tasks)",
+    "12_domain_labels": "accepted as labelled",
+    "13_set_assembly": "one mock form from 026 + 027 proposed in the review, separating every near pair"
+  },
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 12,
+    "slugs_unique_and_new_to_a2_speaking_catalogue": true,
+    "task_types": {
+      "video-answer": 3,
+      "picture-describe": 3,
+      "picture-choose": 3,
+      "picture-sequence": 3
+    },
+    "domains": {
+      "werk": 3,
+      "opleiding": 2,
+      "gezondheid": 2,
+      "winkels-diensten": 2,
+      "vervoer": 1,
+      "wonen-buurt": 1,
+      "vrije-tijd-familie": 1,
+      "instanties": 0
+    },
+    "common_fields": "exam duo-a2, rubric a2-spreken, speakingSeconds 40, prepSeconds 10, status draft, targetLevelValidated false on all twelve",
+    "image_counts": "1/1/2/3 per type; sizes still 3, single (default) 3, pair 6, sequence 9; every brief ends in a 'No text' clause and has a Dutch alt; kind drawing",
+    "cast_traits_verbatim": "every cast name in a brief is followed by the exact trait string of config/illustration.json (same includes test as expandCast); sequences repeat the traits in all three panels; recurring non-cast figures (interviewer, dentist, shopkeeper) carry the same three traits wherever they appear",
+    "pairs_differ_only_in_the_thing_asked": "true after E1 (bakkerij); contant-pinnen and bus-fiets as authored",
+    "cues": {
+      "count": 3,
+      "words": "20-21",
+      "two_part_question": true,
+      "roles_in_voices_json": true,
+      "digits": 0,
+      "identifying_data_requested": false
+    },
+    "prompts": {
+      "words": "18-29",
+      "sentences": "4-5",
+      "longest_sentence": 13,
+      "subordinate_clauses": 0,
+      "official_pattern_per_type": true,
+      "digits": 0
+    },
+    "criteria": "three bilingual pairs per task in the 009 scheme; English accurate; a learner who does what the prompt says meets every criterion",
+    "quotes_verbatim_in_sample": true,
+    "one_null_per_task": true,
+    "null_positions": {
+      "0": 3,
+      "1": 4,
+      "2": 5
+    },
+    "null_marks_a_really_missed_criterion": true,
+    "sample_words": "19-29, two typical A2 learner errors each",
+    "prompt_sentence_copied_into_sample_or_model": false,
+    "model_words": {
+      "ziekmelden": 40,
+      "taalcafe-oefenen": 39,
+      "cursuskeuze": 40,
+      "wachtkamer": 44,
+      "keuken": 42,
+      "kassa": 40,
+      "bakkerij": 43,
+      "contant-pinnen": 43,
+      "bus-fiets": 43,
+      "sollicitatiegesprek": 44,
+      "verhuizen": 43,
+      "tandartsbezoek": 44
+    },
+    "model_range": "39-44 words, 5-7 sentences, average 5.7-8.8, longest sentence 14; subordinators only dat, als and one indirect question; present tense; every model meets all three criteria, also after E1 and E2",
+    "level_heuristics_a2": "prompts, cues, samples and models all inside blueprint §10 limits",
+    "invented_names_checked": "none used (no organisation, shop or firm named); Ellen is a first name",
+    "avoid_list": "no politics, religion, graphic illness, crime, brands, real addresses; roles unstereotyped (female dentist and interviewer, male adviser and cashier)",
+    "starters": "keys match the twelve ids in batch order; three per task in criteria order; each contains …; none states a task fact; choice starters neutral; fronted adverbials carry their verb",
+    "checker_original": "Checked 12 items, 0 questions. No failures, no warnings.",
+    "checker_proposed": "Checked 12 items, 0 questions. No failures, no warnings.",
+    "diff_original_to_proposed": "six lines: bakkerij images[0].brief, images[0].alt, images[1].brief, images[1].alt; sollicitatiegesprek images[0].brief, images[0].alt"
+  },
+  "items": {
+    "A2:speaking:batch027-ziekmelden:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Cue Roos (f-young), 20 words, two parts (hoe, aan wie), informal je from a colleague; still with traits verbatim; sample omits the channel (null 1), quotes exact, errors 'in kantoor', 'anders het is'; model 40 words in seven sentences (bellen voor acht uur; de teamleider Ellen; appje niet genoeg; beter melden), one dat and one als clause. The learner invents the routine as in 009 bushalte. Display note of the 009 level check applies (app).",
+      "edits": []
+    },
+    "A2:speaking:batch027-taalcafe-oefenen:1": {
+      "verdict": "pass",
+      "level": "comparable (easy end)",
+      "evidence": "Cue meneer De Vries (m-older, the 009 bushalte voice), 21 words, lists praten/lezen/schrijven and asks a day; null 2 (no day); model 39 words: praten, dinsdag, 's avonds na zeven uur, maandag en woensdag werk. Library room without a named organisation.",
+      "edits": []
+    },
+    "A2:speaking:batch027-cursuskeuze:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Cue the adviser (m-adult), 20 words, three courses named, which and why; non-cast still with three traits and a closed plain folder; null 2 (no reason); model 40 words: computercursus, reasons from work and e-mail, maandag en donderdag, a question back.",
+      "edits": []
+    },
+    "A2:speaking:batch027-wachtkamer:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Official describe pattern; three nameable actions (op zijn telefoon kijken, met blokken spelen, water drinken) and a plant for the opinion; null 3 (no opinion), errors 'in wachtkamer', 'drink'; model 44 words meets scene, two actions, opinion. Four figures: the busiest brief, within the style if kept simple (media note).",
+      "edits": []
+    },
+    "A2:speaking:batch027-keuken:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Three actions (roeren, groente snijden, borden op tafel zetten); null 3; model 42 words. Cast traits verbatim for Fatima, Sem, Amina; coat and the mother-son link accepted (doubt 4, catalogue evidence in the review). Not in one set with 026 koken-buurvrouw.",
+      "edits": []
+    },
+    "A2:speaking:batch027-kassa:1": {
+      "verdict": "pass",
+      "level": "comparable (easy end)",
+      "evidence": "Three objects (brood, melk, bananen); the sample names one, null 2 right; errors 'in rij', missing te; model 40 words with the opinion about wachten in de rij. Milk carton recognisability is a media check.",
+      "edits": []
+    },
+    "A2:speaking:batch027-bakkerij:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Official choose pattern; after E1 the pair shows Julio at the oven in both pictures and differs only in the window (sunrise vs crescent moon). Sample chooses the morning with a reason and ignores the other picture, null 3; model 43 words chooses the evening, gives reasons, mentions the first picture; both remain true of the new pictures. Near pair with 009 ochtenddienst: not in one form.",
+      "edits": [
+        "E1"
+      ]
+    },
+    "A2:speaking:batch027-contant-pinnen:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Same counter, shopkeeper (three traits) and bag; only the payment differs; blank banknote and terminal. Sample argues both ways without a choice, null 1 (accepted pattern); model 43 words chooses cash, two reasons, says the card is easy but the terminal sometimes fails; one indirect question.",
+      "edits": []
+    },
+    "A2:speaking:batch027-bus-fiets:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Same person and bag, bus by the window vs cycling along a canal; null 3; model 43 words chooses the bus (evening, dark; learning words), calls cycling healthy and cheap, mentions rain.",
+      "edits": []
+    },
+    "A2:speaking:batch027-sollicitatiegesprek:1": {
+      "verdict": "pass",
+      "level": "comparable (upper end)",
+      "evidence": "After E2 panel 1 is Sabrina typing at a laptop with a blank screen; panels 2 and 3 with the interviewer's three traits repeated; null 1 (starts at the interview), errors 'de werk', 'heeft goed gegaan'; model 44 words, longest sentence 14, covers letter, interview, handshake. Panels 1 and 3 need a small inference the prompt supports.",
+      "edits": [
+        "E2"
+      ]
+    },
+    "A2:speaking:batch027-verhuizen:1": {
+      "verdict": "pass",
+      "level": "comparable (easy end)",
+      "evidence": "Packing a box, carrying a box into a white van with a friend of fixed traits, eating between boxes in the evening; null 2; model 43 words with A1 verbs.",
+      "edits": []
+    },
+    "A2:speaking:batch027-tandartsbezoek:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Phone with a hand on the cheek, the chair with a mirror, a blank card at the door; dentist's traits repeated in panels 2 and 3; nothing graphic; null 3; errors 'bel', 'op de stoel'; model 44 words ends with the new appointment.",
+      "edits": []
+    }
+  },
+  "level_flags": "none off-level or off-format; the 009 level check's display note (criteria printed before speaking) applies to the three video tasks and is an app rule",
+  "starters_checks": {
+    "keys_in_batch_order": true,
+    "three_per_task": true,
+    "ellipsis_in_every_starter": true,
+    "aligned_with_criteria": true,
+    "neutral_choice_starters": true,
+    "completion_test": "every fragment completes naturally (table in 027-review.md)",
+    "verdict": "pass at the author's hash; no criterion changed"
+  },
+  "diversity_review": "Twelve distinct settings and acts; Fatima and Karim twice, others once; the two health tasks and the two shop tasks are of different types; new cells against 009: choose × winkels-diensten, sequence × werk / wonen-buurt / gezondheid; needed-list coverage: sick leave, a course choice, huisarts, tandarts, OV, paying and the checkout, a job application. Near pairs and decisions: bakkerij vs 009 ochtenddienst (same preference, not in one form); keuken vs 026 koken-buurvrouw (Fatima at a stove, different type and act, not in one set); ziekmelden vs 026 lunchpauze (Roos as colleague with 'Hé' in both stills, different acts, not in one video drill; Sabrina f-adult is a drop-in if distinct speakers are wanted); bus-fiets vs 009 trein-auto and 026 fiets-lopen (three mode pairs; bus-fiets and fiets-lopen not in one form); taalcafe-oefenen vs 022 taalcafé (listening) and 026 woorden-leren (different parts and acts); wachtkamer and tandartsbezoek vs receptive huisarts and tandarts items; sollicitatiegesprek vs B1 017 trein-gemist; verhuizen vs KNM verhuizing and 009 nieuwe-buurvrouw. The adopted 026 review lists five more cross-batch neighbours of different types (huisarts-afspraak / wachtkamer, marktkraam / kassa, regen / bus-fiets, online-winkel / contant-pinnen, bibliotheekboek / taalcafe-oefenen): out of one drill of four, and out of one mock form when the same type.",
+  "set_assembly": "026 (adopted; fiets-lopen relabelled vervoer, bibliotheekboek winkels-diensten) + 027 give six per type: one mock form with no item shared with the 009 form plus a half form. Proposed form (four cue voices, no cast name in consecutive tasks, every same-type neighbour pair of this review and of the 026 review kept apart): video ziekmelden, woorden-leren, huisarts-afspraak, cursuskeuze; describe wachtkamer, regen, keuken, kassa; choose bakkerij, online-winkel, bus-fiets, feest-thuis; sequence sollicitatiegesprek, bibliotheekboek, tandartsbezoek, treinkaartje. Half form: lunchpauze, taalcafe-oefenen / marktkraam, schoolplein / fiets-lopen, contant-pinnen / koken-buurvrouw, verhuizen. Karim appears three times in the mock, never consecutively. Neither batch has an instanties task; the 026 review's drill plan adds 009 brief-gemeente to a sequence drill, and the two plans are compatible. Drill order within 027, easiest first: video taalcafe-oefenen, cursuskeuze, ziekmelden; describe kassa, keuken, wachtkamer; choose bus-fiets, bakkerij, contant-pinnen; sequence verhuizen, tandartsbezoek, sollicitatiegesprek.",
+  "media_notes": "Audio: 12 prompt clips (narrator, Serge de Beer) and 3 cue clips, about 1,850 characters; cue voices ziekmelden Roos→f-young (Roos; 'Hé' may transcribe as 'Hee'; quiet voice, normalisation applies), taalcafe-oefenen Meneer De Vries→m-older (Arjen, as in 009 bushalte; colon reads as a pause), cursuskeuze de adviseur→m-adult (Robert, first A2 cue). No digits. Illustrations: 21 images (3 stills, 3 singles 816×816, 6 pair, 9 panels at 1024×640). Risks: banknote, coins and terminal (contant-pinnen); milk carton recognisability (kassa); book spines (verhuizen panel 1, taalcafe library); blank laptop screen (sollicitatiegesprek panel 1); blank card (tandartsbezoek panel 3); van without logos; bus without a sign; phone screens; the bakkerij time cue (sunrise vs crescent moon) must read at display size; small details (coins, mirror and gloves, blocks and cup, stars); consistency of the interviewer, the dentist, the shopkeeper, the bag, the apron; Fatima's coat and Hasan's cap indoors are cast traits, check they read as garments; wachtkamer has four figures, redo without the mother if it artefacts. Alt texts ready.",
+  "coordinator_notes": "Adopt with npm run batch:adopt 027 (source_sha256 = proposed bytes; starters hash = the author's file, no proposed starters). Then media, then npm run content:integrate (starters merge with the review). The author's notes §4 and doubts 5–6 describe the superseded bakkerij and letter pictures. Config suggestions outside this review: record the implied family links (Hasan and Fatima; Roos, Sem, Amina) in the cast note, and consider a Fatima garment that works indoors. The 009 level-check recommendation to hide criteria before speaking for video-answer stands.",
+  "limitations": "AI editorial review; no educator review, learner trial, blueprint validation or psychometric calibration; no official equivalence. Level judged against the official task descriptions and the calibrated 009 tasks, not stored exemplars (content/exemplars/ does not exist) or learner data; targetLevelValidated stays false. Text fields, cues and briefs only; generated pictures, clips and feedback prompts need their own review after media production. The two edited briefs are the reviewer's wording without a second reading beyond the coordinator's diff."
+}
