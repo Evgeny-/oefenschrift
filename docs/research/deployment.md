@@ -13,13 +13,13 @@ The site runs at <https://oefenschrift.nl/> on the Oracle free-tier VM, as a Nod
 | `/home/ubuntu/oefenschrift/build/` | Client assets, the server bundle and `entry.mjs`, built locally for the domain root |
 | `/home/ubuntu/oefenschrift/content/`, `config/` | Reviewed catalogue, sets, hints; feedback model and voices, read at runtime |
 | `/home/ubuntu/oefenschrift/node_modules/` | Production dependencies only, installed locally and synced (pure JavaScript, so the platform does not matter) |
-| `/home/ubuntu/oefenschrift/.env` | Mode 600: `PORT`, `INBURGERING_ORIGIN`, `INBURGERING_BASE_PATH`, `INBURGERING_TRUST_PROXY=1`, the operator account, provider keys. Never synced |
+| `/home/ubuntu/oefenschrift/.env` | Mode 600: `PORT`, `OEFENSCHRIFT_ORIGIN`, `OEFENSCHRIFT_BASE_PATH`, `OEFENSCHRIFT_TRUST_PROXY=1`, the operator account, provider keys. Never synced |
 | `/home/ubuntu/oefenschrift/var/` | SQLite database, the admin secret, backups. Never synced |
 | `/etc/systemd/system/oefenschrift.service` | `node --max-old-space-size=192 build/entry.mjs` as `ubuntu`, `Restart=always`, `MemoryMax=400M`, private tmp, read-only system, writable `var/` only |
 | `/etc/nginx/sites-available/oefenschrift` | Primary-domain proxy to `127.0.0.1:8766`, HTTPS and www redirect; a 10 MB body limit, 90 s read timeout and response buffering disabled for streamed HTML. Source: `config/nginx/oefenschrift.conf` |
 | `/etc/nginx/sites-available/driving-theory` | The other projects keep their existing locations; the former Oefenschrift path redirects to the primary domain |
 
-The base path is baked into the bundles at build time (`INBURGERING_BASE_PATH` → React Router `basename` and Vite `base`), and the server refuses to start when its own `INBURGERING_BASE_PATH` differs from the build's. Everything the app writes by hand (API calls, media, icons, cookie paths, canonical URLs, the sitemap) goes through `app/domain/base.ts` or `basePath()` in `server/security.ts`; the production Firefox journey run with the variable set asserts that no server-rendered URL points at the host root.
+The base path is baked into the bundles at build time (`OEFENSCHRIFT_BASE_PATH` → React Router `basename` and Vite `base`), and the server refuses to start when its own `OEFENSCHRIFT_BASE_PATH` differs from the build's. Everything the app writes by hand (API calls, media, icons, cookie paths, canonical URLs, the sitemap) goes through `app/domain/base.ts` or `basePath()` in `server/security.ts`; the production Firefox journey run with the variable set asserts that no server-rendered URL points at the host root.
 
 ## Deploying
 
@@ -27,7 +27,7 @@ The base path is baked into the bundles at build time (`INBURGERING_BASE_PATH` �
 npm run deploy
 ```
 
-`scripts/deploy.sh` reads only `INBURGERING_ORIGIN` and `INBURGERING_BASE_PATH` from the server’s `.env`, type-checks, builds for that active path, installs production dependencies into `tmp/deploy/`, syncs `build/`, `content/`, `config/`, `node_modules/` and the package files with `rsync --delete`, restarts the service and waits for `/api/status` on the public address. Override `SSH_HOST`, `SSH_USER`, `SSH_KEY`, `REMOTE_DIR`, `INBURGERING_BASE_PATH` or `PUBLIC_URL` for a one-off. Nothing is built or installed on the server: a Vite build needs more memory than the box has.
+`scripts/deploy.sh` reads only `OEFENSCHRIFT_ORIGIN` and `OEFENSCHRIFT_BASE_PATH` from the server’s `.env`, type-checks, builds for that active path, installs production dependencies into `tmp/deploy/`, syncs `build/`, `content/`, `config/`, `node_modules/` and the package files with `rsync --delete`, restarts the service and waits for `/api/status` on the public address. Override `SSH_HOST`, `SSH_USER`, `SSH_KEY`, `REMOTE_DIR`, `OEFENSCHRIFT_BASE_PATH` or `PUBLIC_URL` for a one-off. Nothing is built or installed on the server: a Vite build needs more memory than the box has.
 
 The usual way is a push to `main` of [github.com/Evgeny-/oefenschrift](https://github.com/Evgeny-/oefenschrift): the `deploy` job in `.github/workflows/check.yml` runs the same script after the `check` and `browser` jobs pass (typecheck, unit tests, build, the Firefox journeys at the root and under the base path). It signs in with a dedicated ed25519 key that exists only as the repository secret `SSH_PRIVATE_KEY` (with `SSH_HOST` and `SSH_USER`); its public half is the `oefenschrift-deploy` line in `~/.ssh/authorized_keys` on the server, so revoking it is deleting that line. Deploys never overlap (`concurrency: deploy`), and a failed job leaves the previous version running.
 
@@ -39,11 +39,11 @@ ssh -i "$HOME/Downloads/ssh 2/id_rsa" ubuntu@130.61.248.252 'journalctl -u oefen
 ssh -i "$HOME/Downloads/ssh 2/id_rsa" ubuntu@130.61.248.252 'free -m'
 ```
 
-The operator account is `operator`; its generated password sits in the server's `.env` (`grep ADMIN_PASSWORD ~/oefenschrift/.env` over SSH). To replace it with a stored scrypt hash, run `npm run admin:password -- <user>` locally and copy `var/admin-credentials.json` to the server's `var/`, then remove the two `INBURGERING_ADMIN_*` lines from `.env`.
+The operator account is `operator`; its generated password sits in the server's `.env` (`grep ADMIN_PASSWORD ~/oefenschrift/.env` over SSH). To replace it with a stored scrypt hash, run `npm run admin:password -- <user>` locally and copy `var/admin-credentials.json` to the server's `var/`, then remove the two `OEFENSCHRIFT_ADMIN_*` lines from `.env`.
 
 ## Domain, streaming and certificates
 
-The service uses `INBURGERING_ORIGIN=https://oefenschrift.nl`, an empty `INBURGERING_BASE_PATH` and `INBURGERING_TRUST_PROXY=1`. Canonical URLs and the sitemap use the primary origin. Both domain names have a Let's Encrypt certificate; the HTTP ACME challenge path is served from `/var/www/oefenschrift-acme`. `certbot.timer` renews the certificate and its deploy hook reloads nginx.
+The service uses `OEFENSCHRIFT_ORIGIN=https://oefenschrift.nl`, an empty `OEFENSCHRIFT_BASE_PATH` and `OEFENSCHRIFT_TRUST_PROXY=1`. Canonical URLs and the sitemap use the primary origin. Both domain names have a Let's Encrypt certificate; the HTTP ACME challenge path is served from `/var/www/oefenschrift-acme`. `certbot.timer` renews the certificate and its deploy hook reloads nginx.
 
 nginx streams app responses with `proxy_buffering off` and enables gzip for text assets, JSON and React Router’s `text/x-script` responses. Deployment checks fetch complete Dutch and English home pages, because a successful HEAD or API status response cannot detect truncated HTML. The production Firefox suite captures `securitypolicyviolation` events and checks the home pages' script nonces. When checking nginx configuration, use the installed configuration with `sudo nginx -t`: testing a reduced configuration that omits its `user www-data` directive can change the ownership of nginx's temporary directories and break active workers.
 
@@ -61,7 +61,7 @@ After both names resolve publicly to the VM, with no GitHub workflow running:
 bash scripts/activate-domain.sh
 ```
 
-The script checks DNS before changing anything, obtains a Let's Encrypt certificate for both names through the prepared HTTP vhost, and runs the production Firefox tests at the root. It stages that build beside the active build, backs up `.env` and both nginx vhosts into `var/domain-backup-<date>/`, and moves the app to `INBURGERING_ORIGIN=https://oefenschrift.nl` with an empty base path. It installs `config/nginx/oefenschrift.conf` and redirects the old Oefenschrift path to the new origin, preserving the remaining path and query. The other shared-host projects keep their locations. A failed nginx check, startup or HTTPS health check restores the previous build and settings.
+The script checks DNS before changing anything, obtains a Let's Encrypt certificate for both names through the prepared HTTP vhost, and runs the production Firefox tests at the root. It stages that build beside the active build, backs up `.env` and both nginx vhosts into `var/domain-backup-<date>/`, and moves the app to `OEFENSCHRIFT_ORIGIN=https://oefenschrift.nl` with an empty base path. It installs `config/nginx/oefenschrift.conf` and redirects the old Oefenschrift path to the new origin, preserving the remaining path and query. The other shared-host projects keep their locations. A failed nginx check, startup or HTTPS health check restores the previous build and settings.
 
 Future pushes automatically use the active origin and base path read from the server, so CI needs no secret changes. Certbot saves a deploy hook to reload nginx after certificate renewal. The live link and deployment documentation now use the primary address.
 

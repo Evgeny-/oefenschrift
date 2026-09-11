@@ -27,7 +27,7 @@ fi
 
 remote "sudo certbot certonly --webroot -w /var/www/oefenschrift-acme --cert-name oefenschrift.nl -d oefenschrift.nl -d www.oefenschrift.nl --non-interactive --agree-tos --deploy-hook 'systemctl reload nginx'"
 npm run typecheck
-INBURGERING_BASE_PATH= npm run test:production
+OEFENSCHRIFT_BASE_PATH= npm run test:production
 rsync -az --delete -e "ssh -i \"$SSH_KEY\" -o IdentitiesOnly=yes -o BatchMode=yes" build/ "$target:/home/ubuntu/oefenschrift/build-domain-next/"
 scp "${ssh_opts[@]}" config/nginx/oefenschrift.conf "$target:/tmp/oefenschrift-domain.conf"
 ssh "${ssh_opts[@]}" "$target" 'sudo bash -s' <<'REMOTE'
@@ -46,7 +46,7 @@ python3 - <<'PY'
 from pathlib import Path
 import re
 source = Path('.env').read_text()
-for key, value in {'INBURGERING_ORIGIN':'https://oefenschrift.nl', 'INBURGERING_BASE_PATH':''}.items():
+for key, value in {'OEFENSCHRIFT_ORIGIN':'https://oefenschrift.nl', 'OEFENSCHRIFT_BASE_PATH':''}.items():
     source, count = re.subn(r'^' + key + r'=.*$', key + '=' + value, source, flags=re.M)
     if count == 0:
         source += '\n' + key + '=' + value + '\n'

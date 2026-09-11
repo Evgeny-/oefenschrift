@@ -1,0 +1,414 @@
+{
+  "review_id": "batch041-independent-editorial-review",
+  "source": "content/batches/041-original.json",
+  "source_sha256": "e135ff6b8db8d3da48620a8da86a4883035b9d76e86b7744c6d93ab854deb9a2",
+  "proposed": "content/batches/041-proposed.json",
+  "original_sha256": "4c41cf3e1b8d1c97a4fddc5cc20f5692e14656a9284e9b838098bf094e40e55b",
+  "review_type": "Independent full-source AI editorial review with current primary-source KNM verification and local repairs",
+  "reviewer": "GPT-6 Astra, independent reviewer context",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:knm:batch003-inschrijven:1",
+    "A2:knm:batch003-verhuizing:1",
+    "A2:knm:batch003-digid:1",
+    "A2:knm:batch003-zorgverzekering:1",
+    "A2:knm:batch003-noodnummer:1",
+    "A2:knm:batch003-leerplicht:1",
+    "A2:knm:batch003-stemmen:1",
+    "A2:knm:batch003-discriminatie:1"
+  ],
+  "item_count": 8,
+  "question_count": 8,
+  "verdict_counts": {
+    "pass": 8,
+    "pass_unchanged": 6,
+    "pass_edited": 2,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "item": "A2:knm:batch003-verhuizing:1",
+      "field": "questions[0].prompt",
+      "before": "Roos verhuist binnenkort. Hoe lang vóór haar verhuizing mag zij haar nieuwe adres al doorgeven aan de gemeente?",
+      "after": "Roos verhuist binnenkort. Vanaf wanneer mag zij haar nieuwe adres op zijn vroegst doorgeven aan de gemeente?",
+      "why": "Ask explicitly for the earliest date, excluding a later permitted date."
+    },
+    {
+      "item": "A2:knm:batch003-discriminatie:1",
+      "field": "imageBrief",
+      "before": "Minimal flat illustration made of a few simple shapes: no outlines, no texture, no background objects. Palette: warm off-white paper, charcoal grey, mustard yellow, plus one or two muted colours used sparingly (dusty blue, sage green, soft terracotta). Large empty space, deliberately low detail, friendly and calm, everyday Netherlands. No text, no captions, no logos. Modibo (young man, short black hair, light shirt) talking calmly across a small desk with an unnamed adviser; no legal symbols, text or logos.",
+      "after": "Minimal flat illustration made of a few simple shapes: no outlines, no texture, no background objects. Palette: warm off-white paper, charcoal grey, mustard yellow, plus one or two muted colours used sparingly (dusty blue, sage green, soft terracotta). Large empty space, deliberately low detail, friendly and calm, everyday Netherlands. No text, no captions, no logos. Modibo (young man, short black hair, light shirt) sitting at a small table and looking at a mobile phone whose screen faces away from the viewer; no adviser, legal symbols, text or logos.",
+      "why": "Replace the adviser scene with neutral information-seeking so the picture cannot favour advice over the legal distractors."
+    },
+    {
+      "item": "A2:knm:batch003-discriminatie:1",
+      "field": "imageAlt",
+      "before": "Modibo praat met een medewerker aan een bureau.",
+      "after": "Modibo zit aan tafel en kijkt op zijn telefoon.",
+      "why": "Replace the adviser scene with neutral information-seeking so the picture cannot favour advice over the legal distractors."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "full_final_source_read": true,
+    "source_ids_preserved": true,
+    "schema": "npm run batch:check -- content/batches/041-proposed.json: 8 items, 8 questions; no failures, no warnings.",
+    "key_distribution": {
+      "A": 3,
+      "B": 3,
+      "C": 2
+    },
+    "three_options_per_question": true,
+    "fact_cap_30_and_question_cap_20": true,
+    "evidence_and_all_distractors": "Every stored quote occurs verbatim; every key and wrong option was tested against the current full source.",
+    "originality": "Original short Dutch factual summaries and fictional cast contexts; no official question copied. No invented organisation requiring name-search.",
+    "eindtermen": {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-15802.html",
+      "accessed_at": "2026-09-11",
+      "method": "Full HTML retrieved independently with Python urllib after web.run timed out; inspected each numbered objective and indicators.",
+      "mapping": "6.2.1: migration and moving; 6.1.1: digital contact/DigiD; 4.4.1: voluntary supplementary cover; 4.3.2: 112; 8.1.3: compulsory education; 7.1.4: voting; 7.2.4: discrimination reporting. Voting documents support exercising the broader voting objective."
+    },
+    "open_task_checks": "Not applicable: closed KNM only.",
+    "media": "No generation performed; image briefs and alt pass editorial review. Audio and rendered-image review pending."
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch003-inschrijven:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "comparable",
+      "level_evidence": "Editorial comparison with the documented KNM direct-fact format: common A2 phrasing and one knowledge operation; no reading-passage inference. No validated CEFR or exam-equivalence claim.",
+      "evidence": "Dan schrijft u zich als inwoner in bij de gemeente.",
+      "key": "A",
+      "key_proof": "The opening and registration sections require stays longer than four months to be registered with the municipality at the home or correspondence address. Legal residence and identity checks can delay registration; the question only asks which institution handles it.",
+      "distractors": {
+        "B": "Provincie confuses regional government with the municipality that keeps resident records.",
+        "C": "Rechtbank confuses adjudication with municipal resident registration."
+      },
+      "source_verification": {
+        "url": "https://www.government.nl/faq/when-should-i-register-with-the-personal-records-database-as-a-resident",
+        "title": "When should I register with the Personal Records Database as a resident?",
+        "accessed_at": "2026-09-11",
+        "method": "Independently opened with web.run and read the full substantive page, including exceptions; not search snippets.",
+        "supporting_quote": "You must register with the municipality",
+        "claim_verified": "The opening and registration sections require stays longer than four months to be registered with the municipality at the home or correspondence address. Legal residence and identity checks can delay registration; the question only asks which institution handles it.",
+        "time_sensitive": true
+      },
+      "language_check": {
+        "fact_words": 19,
+        "question_words": 16,
+        "longest_fact_sentence": 10,
+        "average_fact_sentence": 9.5,
+        "options_words": {
+          "A": 6,
+          "B": 6,
+          "C": 6
+        },
+        "verbatim_evidence": true,
+        "natural_dutch": "pass",
+        "level_flag": null
+      },
+      "answer_signal_check": "Parallel short options; no unique prompt-content-word echo, uniquely longest key or grammatical polarity cue. Images and Dutch alt give no keyed fact.",
+      "image_review": "House prefix exact; named cast traits exact where present; one simple scene. Textual brief reviewed only. No answer-revealing document, age marker, institution or number.",
+      "diversity": "Distinct from batch019-geboorteaangifte and batch033-paspoort-aanvragen: same municipal institution, different resident-registration function. Space these out in a drill."
+    },
+    {
+      "id": "A2:knm:batch003-verhuizing:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "comparable",
+      "level_evidence": "Editorial comparison with the documented KNM direct-fact format: common A2 phrasing and one knowledge operation; no reading-passage inference. No validated CEFR or exam-equivalence claim.",
+      "evidence": "mag vanaf vier weken vóór de verhuizing",
+      "key": "B",
+      "key_proof": "The deadline section permits reporting from four weeks before to five days after moving. The repaired prompt explicitly asks for the earliest point, so a permitted later date cannot compete.",
+      "distractors": {
+        "A": "Four days beforehand falls inside the window but is not its earliest start. The repaired op zijn vroegst resolves this competing reading.",
+        "C": "Four months beforehand precedes the allowed four-week window."
+      },
+      "source_verification": {
+        "url": "https://www.government.nl/faq/how-do-i-inform-the-municipality-of-a-change-of-address",
+        "title": "How do I inform the municipality of a change of address?",
+        "accessed_at": "2026-09-11",
+        "method": "Independently opened with web.run and read the full substantive page, including exceptions; not search snippets.",
+        "supporting_quote": "between 4 weeks prior to moving and 5 days after moving",
+        "claim_verified": "The deadline section permits reporting from four weeks before to five days after moving. The repaired prompt explicitly asks for the earliest point, so a permitted later date cannot compete.",
+        "time_sensitive": true
+      },
+      "language_check": {
+        "fact_words": 23,
+        "question_words": 17,
+        "longest_fact_sentence": 13,
+        "average_fact_sentence": 11.5,
+        "options_words": {
+          "A": 4,
+          "B": 4,
+          "C": 4
+        },
+        "verbatim_evidence": true,
+        "natural_dutch": "pass",
+        "level_flag": null
+      },
+      "answer_signal_check": "Parallel short options; no unique prompt-content-word echo, uniquely longest key or grammatical polarity cue. Images and Dutch alt give no keyed fact.",
+      "image_review": "House prefix exact; named cast traits exact where present; one simple scene. Textual brief reviewed only. No answer-revealing document, age marker, institution or number.",
+      "diversity": "Distinct from resident registration: earliest reporting date rather than institution. Complements other BRP changes."
+    },
+    {
+      "id": "A2:knm:batch003-digid:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "comparable",
+      "level_evidence": "Editorial comparison with the documented KNM direct-fact format: common A2 phrasing and one knowledge operation; no reading-passage inference. No validated CEFR or exam-equivalence claim.",
+      "evidence": "Met DigiD kunt u online inloggen bij de overheid.",
+      "key": "C",
+      "key_proof": "The introductory section explains identity authentication and safe login. The eligible-organisations section limits DigiD to bodies legally allowed to use BSNs, including government and public-function organisations. Payment and booking services are outside that purpose.",
+      "distractors": {
+        "A": "Commercial payment is confused with identity authentication. The responsible service describes login, not payment processing.",
+        "B": "A commercial travel-booking function is confused with online public-service identification."
+      },
+      "source_verification": {
+        "url": "https://www.digid.nl/over-digid/wat-digid",
+        "title": "Wat is DigiD?",
+        "accessed_at": "2026-09-11",
+        "method": "Independently opened with web.run and read the full substantive page, including exceptions; not search snippets.",
+        "supporting_quote": "Met uw DigiD laat u zien wie u bent",
+        "claim_verified": "The introductory section explains identity authentication and safe login. The eligible-organisations section limits DigiD to bodies legally allowed to use BSNs, including government and public-function organisations. Payment and booking services are outside that purpose.",
+        "time_sensitive": true
+      },
+      "language_check": {
+        "fact_words": 17,
+        "question_words": 4,
+        "longest_fact_sentence": 9,
+        "average_fact_sentence": 8.5,
+        "options_words": {
+          "A": 7,
+          "B": 8,
+          "C": 8
+        },
+        "verbatim_evidence": true,
+        "natural_dutch": "pass",
+        "level_flag": null
+      },
+      "answer_signal_check": "Parallel short options; no unique prompt-content-word echo, uniquely longest key or grammatical polarity cue. Images and Dutch alt give no keyed fact.",
+      "image_review": "House prefix exact; named cast traits exact where present; one simple scene. Textual brief reviewed only. No answer-revealing document, age marker, institution or number.",
+      "diversity": "Distinct from batch019-informatiepunt, which tests where to get help, and zorgtoeslag, which applies DigiD to one benefit."
+    },
+    {
+      "id": "A2:knm:batch003-zorgverzekering:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "comparable",
+      "level_evidence": "Editorial comparison with the documented KNM direct-fact format: common A2 phrasing and one knowledge operation; no reading-passage inference. No validated CEFR or exam-equivalence claim.",
+      "evidence": "Een aanvullende zorgverzekering is vrijwillig.",
+      "key": "A",
+      "key_proof": "The additional-insurance section states that supplementary cover is optional and covers care beyond the standard package; providers can refuse applications. A is about choosing whether to seek cover, not a guarantee of acceptance. Employer ZVW contributions mentioned elsewhere do not impose supplementary-insurance enrolment.",
+      "distractors": {
+        "B": "Treats voluntary supplementary cover as a mandatory part of basic cover, contrary to the additional-insurance section.",
+        "C": "Confuses an employer contribution to standard healthcare funding with a duty to enrol an employee in optional cover."
+      },
+      "source_verification": {
+        "url": "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance",
+        "title": "Standard health insurance",
+        "accessed_at": "2026-09-11",
+        "method": "Independently opened with web.run and read the full substantive page, including exceptions; not search snippets.",
+        "supporting_quote": "Additional insurance is not obligatory",
+        "claim_verified": "The additional-insurance section states that supplementary cover is optional and covers care beyond the standard package; providers can refuse applications. A is about choosing whether to seek cover, not a guarantee of acceptance. Employer ZVW contributions mentioned elsewhere do not impose supplementary-insurance enrolment.",
+        "time_sensitive": true
+      },
+      "language_check": {
+        "fact_words": 17,
+        "question_words": 9,
+        "longest_fact_sentence": 12,
+        "average_fact_sentence": 8.5,
+        "options_words": {
+          "A": 7,
+          "B": 6,
+          "C": 7
+        },
+        "verbatim_evidence": true,
+        "natural_dutch": "pass",
+        "level_flag": null
+      },
+      "answer_signal_check": "Parallel short options; no unique prompt-content-word echo, uniquely longest key or grammatical polarity cue. Images and Dutch alt give no keyed fact.",
+      "image_review": "House prefix exact; named cast traits exact where present; one simple scene. Textual brief reviewed only. No answer-revealing document, age marker, institution or number.",
+      "diversity": "Distinct from eigenrisico and tandarts-kind: voluntary supplementary cover rather than reimbursement."
+    },
+    {
+      "id": "A2:knm:batch003-noodnummer:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "comparable",
+      "level_evidence": "Editorial comparison with the documented KNM direct-fact format: common A2 phrasing and one knowledge operation; no reading-passage inference. No validated CEFR or exam-equivalence claim.",
+      "evidence": "112 is voor dringende hulp bij direct levensgevaar.",
+      "key": "B",
+      "key_proof": "The opening covers urgent help including direct danger to life. Non-urgent examples explicitly include only a dent and a street-wide blackout. The card does not say that direct danger to life is the only reason to call 112.",
+      "distractors": {
+        "A": "The official page explicitly classifies a street-wide power outage as non-urgent and directs it to the electricity company.",
+        "C": "Only a dent after parking matches the non-urgent damage example; no injury or ongoing hazard is given."
+      },
+      "source_verification": {
+        "url": "https://www.government.nl/faq/emergency-number-112/when-can-i-call-112",
+        "title": "When can I call 112?",
+        "accessed_at": "2026-09-11",
+        "method": "Independently opened with web.run and read the full substantive page, including exceptions; not search snippets.",
+        "supporting_quote": "your life is in immediate danger",
+        "claim_verified": "The opening covers urgent help including direct danger to life. Non-urgent examples explicitly include only a dent and a street-wide blackout. The card does not say that direct danger to life is the only reason to call 112.",
+        "time_sensitive": true
+      },
+      "language_check": {
+        "fact_words": 22,
+        "question_words": 8,
+        "longest_fact_sentence": 14,
+        "average_fact_sentence": 11.0,
+        "options_words": {
+          "A": 6,
+          "B": 5,
+          "C": 8
+        },
+        "verbatim_evidence": true,
+        "natural_dutch": "pass",
+        "level_flag": null
+      },
+      "answer_signal_check": "Parallel short options; no unique prompt-content-word echo, uniquely longest key or grammatical polarity cue. Images and Dutch alt give no keyed fact.",
+      "image_review": "House prefix exact; named cast traits exact where present; one simple scene. Textual brief reviewed only. No answer-revealing document, age marker, institution or number.",
+      "diversity": "Distinct from batch019-alarmnummer: urgency rather than ability to call without credit. Related stroomstoring item tests the utility provider."
+    },
+    {
+      "id": "A2:knm:batch003-leerplicht:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "comparable",
+      "level_evidence": "Editorial comparison with the documented KNM direct-fact format: common A2 phrasing and one knowledge operation; no reading-passage inference. No validated CEFR or exam-equivalence claim.",
+      "evidence": "De leerplicht begint bij vijf jaar.",
+      "key": "C",
+      "key_proof": "The opening states the age-five threshold and identifies exemptions; the rest describes exemption types and permissible absence. The question asks an age, not the exact school-day deadline after a birthday. Later qualification duty is outside the question.",
+      "distractors": {
+        "A": "Confuses entering primary school at four with compulsory attendance at five. The cited threshold excludes four.",
+        "B": "Moves the compulsory threshold one year later than the stated five."
+      },
+      "source_verification": {
+        "url": "https://www.government.nl/themes/education/compulsory-school-attendance/exemptions-from-compulsory-school-attendance",
+        "title": "Exemptions from compulsory school attendance",
+        "accessed_at": "2026-09-11",
+        "method": "Independently opened with web.run and read the full substantive page, including exceptions; not search snippets.",
+        "supporting_quote": "Children aged 5 to 16 are obliged to attend full-time education.",
+        "claim_verified": "The opening states the age-five threshold and identifies exemptions; the rest describes exemption types and permissible absence. The question asks an age, not the exact school-day deadline after a birthday. Later qualification duty is outside the question.",
+        "time_sensitive": true
+      },
+      "language_check": {
+        "fact_words": 17,
+        "question_words": 8,
+        "longest_fact_sentence": 6,
+        "average_fact_sentence": 5.666666666666667,
+        "options_words": {
+          "A": 3,
+          "B": 3,
+          "C": 3
+        },
+        "verbatim_evidence": true,
+        "natural_dutch": "pass",
+        "level_flag": null
+      },
+      "answer_signal_check": "Parallel short options; no unique prompt-content-word echo, uniquely longest key or grammatical polarity cue. Images and Dutch alt give no keyed fact.",
+      "image_review": "House prefix exact; named cast traits exact where present; one simple scene. Textual brief reviewed only. No answer-revealing document, age marker, institution or number.",
+      "diversity": "Distinct from kwalificatieplicht and schoolvakantie: start of compulsory attendance."
+    },
+    {
+      "id": "A2:knm:batch003-stemmen:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "comparable",
+      "level_evidence": "Editorial comparison with the documented KNM direct-fact format: common A2 phrasing and one knowledge operation; no reading-passage inference. No validated CEFR or exam-equivalence claim.",
+      "evidence": "heeft een stempas en identiteitsbewijs nodig",
+      "key": "A",
+      "key_proof": "The polling-station section requires a voting pass plus an accepted identity document and permits expiry up to five years. Accepted documents include residence permits and specified foreign documents; the item uses the broad Dutch term identiteitsbewijs. The person votes in person, so proxy procedures do not compete.",
+      "distractors": {
+        "B": "A housing contract cannot replace the voting pass. Both required documents are explicitly listed.",
+        "C": "An insurance policy cannot replace an accepted identity document."
+      },
+      "source_verification": {
+        "url": "https://www.government.nl/faq/elections/what-do-i-need-to-vote-in-the-municipal-elections",
+        "title": "What do I need to vote in the municipal elections?",
+        "accessed_at": "2026-09-11",
+        "method": "Independently opened with web.run and read the full substantive page, including exceptions; not search snippets.",
+        "supporting_quote": "your voting pass (stempas)",
+        "claim_verified": "The polling-station section requires a voting pass plus an accepted identity document and permits expiry up to five years. Accepted documents include residence permits and specified foreign documents; the item uses the broad Dutch term identiteitsbewijs. The person votes in person, so proxy procedures do not compete.",
+        "time_sensitive": true
+      },
+      "language_check": {
+        "fact_words": 20,
+        "question_words": 14,
+        "longest_fact_sentence": 12,
+        "average_fact_sentence": 10.0,
+        "options_words": {
+          "A": 4,
+          "B": 4,
+          "C": 4
+        },
+        "verbatim_evidence": true,
+        "natural_dutch": "pass",
+        "level_flag": null
+      },
+      "answer_signal_check": "Parallel short options; no unique prompt-content-word echo, uniquely longest key or grammatical polarity cue. Images and Dutch alt give no keyed fact.",
+      "image_review": "House prefix exact; named cast traits exact where present; one simple scene. Textual brief reviewed only. No answer-revealing document, age marker, institution or number.",
+      "diversity": "Distinct from kiesrecht and passief-kiesrecht: voting documents rather than eligibility or candidacy."
+    },
+    {
+      "id": "A2:knm:batch003-discriminatie:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "comparable",
+      "level_evidence": "Editorial comparison with the documented KNM direct-fact format: common A2 phrasing and one knowledge operation; no reading-passage inference. No validated CEFR or exam-equivalence claim.",
+      "evidence": "Een meldpunt voor discriminatie geeft advies en hulp bij klachten.",
+      "key": "B",
+      "key_proof": "The local-service section states the advisory, assistance and registration functions. Courts and police appear as separate routes. The answer concerns what the reporting service itself provides; a court judgment or a punitive fine is not its service.",
+      "distractors": {
+        "A": "Confuses advice and complaint registration with imposing a penalty; the local service is not the enforcing body.",
+        "C": "Confuses assistance with adjudication by the separately listed court."
+      },
+      "source_verification": {
+        "url": "https://www.government.nl/themes/migration-and-travel/discrimination/reporting-discrimination",
+        "title": "Reporting discrimination",
+        "accessed_at": "2026-09-11",
+        "method": "Independently opened with web.run and read the full substantive page, including exceptions; not search snippets.",
+        "supporting_quote": "The antidiscrimination service provides assistance and advice and registers the complaint.",
+        "claim_verified": "The local-service section states the advisory, assistance and registration functions. Courts and police appear as separate routes. The answer concerns what the reporting service itself provides; a court judgment or a punitive fine is not its service.",
+        "time_sensitive": true
+      },
+      "language_check": {
+        "fact_words": 15,
+        "question_words": 11,
+        "longest_fact_sentence": 10,
+        "average_fact_sentence": 7.5,
+        "options_words": {
+          "A": 6,
+          "B": 6,
+          "C": 8
+        },
+        "verbatim_evidence": true,
+        "natural_dutch": "pass",
+        "level_flag": null
+      },
+      "answer_signal_check": "Parallel short options; no unique prompt-content-word echo, uniquely longest key or grammatical polarity cue. Images and Dutch alt give no keyed fact.",
+      "image_review": "House prefix exact; named cast traits exact where present; one simple scene. Textual brief reviewed only. Adviser replaced with a phone scene to avoid an advice cue.",
+      "diversity": "Distinct from grondwet and sollicitatie: reporting-service remit rather than discrimination prohibition."
+    }
+  ],
+  "decisions_on_author_doubts": {
+    "relocation": "Repaired to op zijn vroegst. Four days is allowed but cannot answer the earliest-date question.",
+    "school": "Age-five question accepted. Exact birthday-dependent school-day calculation is not asked; cited source and eindterm both use the age-five threshold.",
+    "registration": "Institution question accepted after checking legal-residence and identity exceptions.",
+    "voting": "Documents question accepted. No 2026 election date or citizenship eligibility simplification appears in learner text."
+  },
+  "diversity_review": "Eight original migration concepts retained, one question each. Theme counts: 6=3, 4=2, 7=2, 8=1. Existing topics complement these specific facts; same-institution questions should be separated during assembly.",
+  "set_assembly": "Preserve existing IDs and set membership; assemble theme-based facts with the broader bank and verify keys per final form. This eight-item migration is not a complete mock.",
+  "media_notes": "Generate one house-style drawing and narrator question/options audio per adopted item after the hash gate. Inspect every resulting image and run audio round trips. Use the repaired discrimination brief. No two-speaker conversation is involved.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "No content/exemplars directory exists; level comparison used the official-format description in docs/research/exam-blueprints-2026-09-10.md and existing KNM facts.",
+    "All primary pages were accessible on 2026-09-11; revisit yearly and immediately after relevant rule changes.",
+    "Actual pictures and audio remain pending; this pass covers content and media briefs."
+  ]
+}

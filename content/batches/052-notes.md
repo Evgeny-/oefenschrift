@@ -1,0 +1,3 @@
+# Focused visual correction after batch 045
+
+The independent image reviewer found inconsistent doors and the wrong house ownership in the parcel sequence, and a blank employee face and tram colour drift in the tram choice pair. This source changes only the three failed image briefs, specifying the accepted companion panel details. All task text, criteria, models, samples, timings and starters stay byte-equivalent as field values. Preserve both IDs and set membership. The reviewer should inspect the full final tasks and the approved companion images before passing these scene clarifications. Generate the three changed illustrations after adoption, then inspect them again. Author: coordinator, GPT-6 Astra.

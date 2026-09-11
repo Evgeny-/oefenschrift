@@ -4,9 +4,13 @@ import { UNSAFE_decodeViaTurboStream as decodeRouteData } from 'react-router';
 
 const origin = process.env.TEST_ORIGIN;
 assert.ok(origin, 'Use npm run test:production to start an isolated server.');
-// With INBURGERING_BASE_PATH the build and the server put the site under that path, as on
+// With OEFENSCHRIFT_BASE_PATH the build and the server put the site under that path, as on
 // the shared host; every app URL below is relative to it.
-const base = (process.env.INBURGERING_BASE_PATH || '').replace(/\/+$/, ''),
+const base = (
+    process.env.OEFENSCHRIFT_BASE_PATH ??
+    process.env.INBURGERING_BASE_PATH ??
+    ''
+  ).replace(/\/+$/, ''),
   site = origin + base;
 const checks = [],
   errors = [];
@@ -78,7 +82,7 @@ const preferences = encodeURIComponent(
 );
 const personalized = plainHTML(
   await fetch(site + '/reading', {
-    headers: { Cookie: 'inburgering_preferences=' + preferences },
+    headers: { Cookie: 'oefenschrift_preferences=' + preferences },
   }).then((r) => r.text()),
 );
 assert.ok(
@@ -88,7 +92,7 @@ checks.push('Server HTML respects saved language, level and explicit theme');
 // A shared level address keeps its level; the language follows the browser to /en.
 const shared = plainHTML(
   await fetch(site + '/a2/reading', {
-    headers: { Cookie: 'inburgering_preferences=' + preferences },
+    headers: { Cookie: 'oefenschrift_preferences=' + preferences },
   }).then((r) => r.text()),
 );
 assert.ok(shared.includes('A2 · ') && !shared.includes('B1 · '));
@@ -118,7 +122,7 @@ const english = lowered(
   await fetch(site + '/en/a2/reading', {
     headers: {
       Cookie:
-        'inburgering_preferences=' +
+        'oefenschrift_preferences=' +
         encodeURIComponent(JSON.stringify({ level: 'A2', lang: 'nl', theme: 'light' })),
     },
   }).then((r) => r.text()),
@@ -155,7 +159,7 @@ for (const [path, status, target] of [
 ]) {
   const response = await fetch(site + path, {
     redirect: 'manual',
-    headers: { Cookie: 'inburgering_preferences=' + preferences },
+    headers: { Cookie: 'oefenschrift_preferences=' + preferences },
   });
   assert.equal(response.status, status, path);
   if (target) assert.equal(response.headers.get('location'), base + target);

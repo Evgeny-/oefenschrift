@@ -1,3 +1,4 @@
+import { setting as environmentSetting } from '../environment';
 import { readFileSync, existsSync } from 'node:fs';
 import { mkdtemp, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -26,7 +27,7 @@ export function configuration() {
 }
 export function keys() {
   const found: Record<string, string> = {},
-    path = process.env.INBURGERING_CREDENTIALS_FILE || configuration().credentials_file;
+    path = environmentSetting('CREDENTIALS_FILE') || configuration().credentials_file;
   if (existsSync(path))
     for (const line of readFileSync(path, 'utf8').split('\n')) {
       const m = line.match(/^\s*(?:export\s+)?(OPENAI_API_KEY|ELEVENLABS_API_KEY)\s*=\s*(.*?)\s*$/);
@@ -484,7 +485,7 @@ export function sharedFeedback(
 export async function elevenLabsSubscription(fetcher: typeof fetch = fetch) {
   const key = keys().ELEVENLABS_API_KEY;
   if (!key) return { configured: false };
-  if (process.env.INBURGERING_OFFLINE)
+  if (environmentSetting('OFFLINE'))
     return { configured: true, error: 'Not checked in offline mode.' };
   try {
     const response = await fetcher('https://api.elevenlabs.io/v1/user/subscription', {
@@ -513,7 +514,7 @@ export async function elevenLabsSubscription(fetcher: typeof fetch = fetch) {
 export async function openAiCosts(fetcher: typeof fetch = fetch, now = Date.now(), period = 30) {
   const key = process.env.OPENAI_ADMIN_KEY;
   if (!key) return { configured: false };
-  if (process.env.INBURGERING_OFFLINE)
+  if (environmentSetting('OFFLINE'))
     return { configured: true, error: 'Not checked in offline mode.' };
   try {
     const start = Math.floor(now / 1000) - period * 86400;
@@ -575,7 +576,7 @@ export async function validateAudio(audio: Buffer, mime: string) {
     )
   )
     throw new ServiceError('Audio format not recognized.', 422);
-  const directory = await mkdtemp(join(tmpdir(), 'inburgering-')),
+  const directory = await mkdtemp(join(tmpdir(), 'oefenschrift-')),
     file = join(directory, 'recording.' + mimes[mime]);
   try {
     await writeFile(file, audio, { mode: 0o600 });

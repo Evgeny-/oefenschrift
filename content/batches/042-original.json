@@ -1,0 +1,386 @@
+[
+  {
+    "id": "A2:listening:tandarts:1",
+    "level": "A2",
+    "part": "listening",
+    "title": "Een bericht van de tandarts",
+    "exam": "duo-a2",
+    "taskType": "voicemail",
+    "domain": "gezondheid",
+    "situation": "Sabrina luistert naar een bericht van haar tandarts.",
+    "status": "draft",
+    "targetLevelValidated": false,
+    "script": [
+      {
+        "speaker": "Assistent",
+        "role": "f-adult",
+        "text": "Goedemorgen Sabrina, u spreekt met de assistent van uw tandarts. Ik bel over uw afspraak op donderdag. De tandarts verwacht u om elf uur. Wilt u om tien voor elf bij de balie zijn? We willen uw adres nog controleren. De praktijk gaat om half negen open. Neem uw identiteitsbewijs mee naar deze afspraak. Het oude formulier hoeft u niet mee te nemen. Dat staat al in onze computer. U kunt daarna in de wachtkamer gaan zitten. De tandarts haalt u daar op. Bel ons vandaag terug als u donderdag niet kunt komen."
+      }
+    ],
+    "text": "Assistent: Goedemorgen Sabrina, u spreekt met de assistent van uw tandarts. Ik bel over uw afspraak op donderdag. De tandarts verwacht u om elf uur. Wilt u om tien voor elf bij de balie zijn? We willen uw adres nog controleren. De praktijk gaat om half negen open. Neem uw identiteitsbewijs mee naar deze afspraak. Het oude formulier hoeft u niet mee te nemen. Dat staat al in onze computer. U kunt daarna in de wachtkamer gaan zitten. De tandarts haalt u daar op. Bel ons vandaag terug als u donderdag niet kunt komen.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "time-place",
+        "prompt": "Hoe laat moet Sabrina bij de balie zijn?",
+        "options": {
+          "A": "Tien voor elf.",
+          "B": "Elf uur 's ochtends.",
+          "C": "Half negen 's ochtends."
+        },
+        "answer": "A",
+        "evidence": "Wilt u om tien voor elf bij de balie zijn?",
+        "explanation": "Sabrina moet om tien voor elf bij de balie zijn. Elf uur is de afspraaktijd; half negen is de openingstijd."
+      },
+      {
+        "id": "q2",
+        "skill": "detail",
+        "prompt": "Wat moet Sabrina meenemen?",
+        "options": {
+          "A": "Het oude formulier.",
+          "B": "Haar identiteitsbewijs.",
+          "C": "Een brief met haar adres."
+        },
+        "answer": "B",
+        "evidence": "Neem uw identiteitsbewijs mee naar deze afspraak.",
+        "explanation": "Sabrina moet haar identiteitsbewijs meenemen. Het formulier staat al in de computer. Haar adres wordt gecontroleerd, maar een adresbrief wordt niet gevraagd."
+      }
+    ]
+  },
+  {
+    "id": "A2:listening:buurthuis:1",
+    "level": "A2",
+    "part": "listening",
+    "title": "Taalles in het buurthuis",
+    "exam": "duo-a2",
+    "taskType": "gesprek",
+    "domain": "opleiding",
+    "situation": "Roos praat met haar docent over de taalles in het buurthuis.",
+    "status": "draft",
+    "targetLevelValidated": false,
+    "script": [
+      {
+        "speaker": "Roos",
+        "role": "f-young",
+        "text": "Ik kom morgen naar de taalles. Is de les weer beneden?"
+      },
+      {
+        "speaker": "Docent",
+        "role": "m-adult",
+        "text": "Deze week zitten we in lokaal drie, op de eerste verdieping. Beneden schilderen ze de muren."
+      },
+      {
+        "speaker": "Roos",
+        "role": "f-young",
+        "text": "Ik ben er om negen uur. Kan ik dan al naar binnen?"
+      },
+      {
+        "speaker": "Docent",
+        "role": "m-adult",
+        "text": "Ja, de deur is dan open. De les begint om half tien. Je kunt eerst beneden koffie drinken."
+      },
+      {
+        "speaker": "Roos",
+        "role": "f-young",
+        "text": "Moet ik het boek meenemen? Mijn zus heeft het nog thuis."
+      },
+      {
+        "speaker": "Docent",
+        "role": "m-adult",
+        "text": "Dat boek gebruiken we pas volgende week. Neem morgen je schrift mee. Je krijgt een pen van mij."
+      },
+      {
+        "speaker": "Roos",
+        "role": "f-young",
+        "text": "Goed, dan kan mijn zus vandaag nog in het boek werken."
+      },
+      {
+        "speaker": "Docent",
+        "role": "m-adult",
+        "text": "Dat is prima. We gaan morgen oefenen met korte gesprekken."
+      }
+    ],
+    "text": "Roos: Ik kom morgen naar de taalles. Is de les weer beneden?\nDocent: Deze week zitten we in lokaal drie, op de eerste verdieping. Beneden schilderen ze de muren.\nRoos: Ik ben er om negen uur. Kan ik dan al naar binnen?\nDocent: Ja, de deur is dan open. De les begint om half tien. Je kunt eerst beneden koffie drinken.\nRoos: Moet ik het boek meenemen? Mijn zus heeft het nog thuis.\nDocent: Dat boek gebruiken we pas volgende week. Neem morgen je schrift mee. Je krijgt een pen van mij.\nRoos: Goed, dan kan mijn zus vandaag nog in het boek werken.\nDocent: Dat is prima. We gaan morgen oefenen met korte gesprekken.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "time-place",
+        "prompt": "Waar is de taalles deze week?",
+        "options": {
+          "A": "In de kamer beneden.",
+          "B": "Bij de koffie beneden.",
+          "C": "In lokaal drie boven."
+        },
+        "answer": "C",
+        "evidence": "Deze week zitten we in lokaal drie, op de eerste verdieping.",
+        "explanation": "Lokaal drie ligt op de eerste verdieping. Beneden worden de muren geschilderd. Koffie drinken hoort bij het wachten vóór de les."
+      },
+      {
+        "id": "q2",
+        "skill": "detail",
+        "prompt": "Wat moet Roos morgen meenemen?",
+        "options": {
+          "A": "Haar eigen lesboek.",
+          "B": "Een pen van thuis.",
+          "C": "Een kopje koffie.",
+          "D": "Haar eigen schrift."
+        },
+        "answer": "D",
+        "evidence": "Neem morgen je schrift mee.",
+        "explanation": "Roos moet haar schrift meenemen. Het boek is pas volgende week nodig; de docent geeft haar een pen. Koffie kan ze vóór de les drinken."
+      }
+    ],
+    "images": [
+      {
+        "kind": "drawing",
+        "brief": "Roos, young woman, dark hair in a bun, yellow scarf, talking with a male teacher in a simple community classroom. Show only the two people and a plain desk. No books, stationery, cups, stairs or clocks. No text, no logos.",
+        "alt": "Roos praat met een docent in het buurthuis."
+      }
+    ],
+    "notes": "Dit audiogesprek krijgt één stilstaande illustratie in de huisstijl in plaats van video."
+  },
+  {
+    "id": "A2:listening:batch001-markt:1",
+    "level": "A2",
+    "part": "listening",
+    "title": "Een bericht op de markt",
+    "exam": "duo-a2",
+    "taskType": "omroep",
+    "domain": "winkels-diensten",
+    "situation": "U bent op de markt en hoort een bericht.",
+    "status": "draft",
+    "targetLevelValidated": false,
+    "script": [
+      {
+        "speaker": "Omroeper",
+        "role": "narrator",
+        "text": "Beste bezoekers, luister even naar dit bericht over de markt. Het waait hard en de kramen moeten veilig worden opgeruimd. Daarom sluit de markt vandaag al om drie uur. Gewoonlijk kunt u hier tot vier uur terecht. U kunt uw boodschappen nog rustig afmaken. De bus naar het centrum vertrekt om kwart over vier. De halte is vandaag bij de zijingang. Bij de hoofdingang staan vrachtwagens voor de spullen van de markt. De bloemenkraam staat midden op de markt. Daar kunt u onder een dak zitten. Loop daarna naar de halte om in te stappen."
+      }
+    ],
+    "text": "Omroeper: Beste bezoekers, luister even naar dit bericht over de markt. Het waait hard en de kramen moeten veilig worden opgeruimd. Daarom sluit de markt vandaag al om drie uur. Gewoonlijk kunt u hier tot vier uur terecht. U kunt uw boodschappen nog rustig afmaken. De bus naar het centrum vertrekt om kwart over vier. De halte is vandaag bij de zijingang. Bij de hoofdingang staan vrachtwagens voor de spullen van de markt. De bloemenkraam staat midden op de markt. Daar kunt u onder een dak zitten. Loop daarna naar de halte om in te stappen.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "time-place",
+        "prompt": "Hoe laat sluit de markt vandaag?",
+        "options": {
+          "A": "Om vier uur.",
+          "B": "Om drie uur.",
+          "C": "Om kwart over vier."
+        },
+        "answer": "B",
+        "evidence": "Daarom sluit de markt vandaag al om drie uur.",
+        "explanation": "Drie uur is de sluitingstijd van vandaag. Vier uur is de gewone sluitingstijd; kwart over vier is de vertrektijd van de bus."
+      },
+      {
+        "id": "q2",
+        "skill": "time-place",
+        "prompt": "Waar kunt u vandaag in de bus stappen?",
+        "options": {
+          "A": "Bij de zijingang.",
+          "B": "Bij de hoofdingang.",
+          "C": "Bij de bloemenkraam."
+        },
+        "answer": "A",
+        "evidence": "De halte is vandaag bij de zijingang.",
+        "explanation": "De bus stopt bij de zijingang. Bij de hoofdingang staan vrachtwagens. De bloemenkraam staat midden op de markt; na het zitten loopt u naar de halte."
+      }
+    ]
+  },
+  {
+    "id": "A2:listening:batch001-schoolreis:1",
+    "level": "A2",
+    "part": "listening",
+    "title": "Voicemail van school",
+    "exam": "duo-a2",
+    "taskType": "voicemail",
+    "domain": "opleiding",
+    "situation": "Fatima luistert naar een voicemail van de school van haar kind.",
+    "status": "draft",
+    "targetLevelValidated": false,
+    "script": [
+      {
+        "speaker": "Leerkracht",
+        "role": "f-adult",
+        "text": "Hallo Fatima, ik ben de leerkracht van uw kind. Morgen gaat groep zes naar het museum. De kinderen moeten om acht uur op school zijn. We tellen dan alle kinderen. De bus vertrekt om kwart over acht. Om half negen komt de andere groep naar school. Geef uw kind brood en drinken mee. De school betaalt de bus en het museum. Geld is dus niet nodig. De kinderen blijven binnen en kunnen hun regenjas thuislaten. Om drie uur zijn we terug. U kunt uw kind dan bij het schoolplein ophalen."
+      }
+    ],
+    "text": "Leerkracht: Hallo Fatima, ik ben de leerkracht van uw kind. Morgen gaat groep zes naar het museum. De kinderen moeten om acht uur op school zijn. We tellen dan alle kinderen. De bus vertrekt om kwart over acht. Om half negen komt de andere groep naar school. Geef uw kind brood en drinken mee. De school betaalt de bus en het museum. Geld is dus niet nodig. De kinderen blijven binnen en kunnen hun regenjas thuislaten. Om drie uur zijn we terug. U kunt uw kind dan bij het schoolplein ophalen.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "time-place",
+        "prompt": "Hoe laat moet het kind van Fatima op school zijn?",
+        "options": {
+          "A": "Om kwart over acht.",
+          "B": "Om half negen.",
+          "C": "Om drie uur.",
+          "D": "Om acht uur."
+        },
+        "answer": "D",
+        "evidence": "De kinderen moeten om acht uur op school zijn.",
+        "explanation": "Acht uur is de verzameltijd. De bus vertrekt later; half negen geldt voor de andere groep. Om drie uur komt groep zes terug."
+      },
+      {
+        "id": "q2",
+        "skill": "detail",
+        "prompt": "Wat moet Fatima haar kind meegeven?",
+        "options": {
+          "A": "Geld voor de bus.",
+          "B": "Een goede regenjas.",
+          "C": "Brood en drinken."
+        },
+        "answer": "C",
+        "evidence": "Geef uw kind brood en drinken mee.",
+        "explanation": "Brood en drinken moeten mee. De school betaalt de bus. De regenjas kan thuisblijven."
+      }
+    ]
+  },
+  {
+    "id": "A2:listening:batch002-trein:1",
+    "level": "A2",
+    "part": "listening",
+    "title": "Omroepbericht op het station",
+    "exam": "duo-a2",
+    "taskType": "omroep",
+    "domain": "vervoer",
+    "situation": "U staat op het station en hoort een bericht over uw trein.",
+    "status": "draft",
+    "targetLevelValidated": false,
+    "script": [
+      {
+        "speaker": "Omroeper",
+        "role": "narrator",
+        "text": "Beste reizigers, dit is een bericht voor reizigers naar Zwolle. Uw trein vertrekt vandaag van spoor zeven. Op spoor vier staat een kapotte trein. De vertrektijd blijft tien over twee. Reizigers naar Amersfoort kunnen ook met deze trein mee. U bereikt het juiste spoor via de tunnel. De lift vindt u naast de boekwinkel. De trap is tegenover de bakker. Heeft u hulp nodig met uw bagage? Er staat een medewerker bij de koffiebar. U herkent haar aan haar rode jas. Zij kan met u meelopen naar het perron."
+      }
+    ],
+    "text": "Omroeper: Beste reizigers, dit is een bericht voor reizigers naar Zwolle. Uw trein vertrekt vandaag van spoor zeven. Op spoor vier staat een kapotte trein. De vertrektijd blijft tien over twee. Reizigers naar Amersfoort kunnen ook met deze trein mee. U bereikt het juiste spoor via de tunnel. De lift vindt u naast de boekwinkel. De trap is tegenover de bakker. Heeft u hulp nodig met uw bagage? Er staat een medewerker bij de koffiebar. U herkent haar aan haar rode jas. Zij kan met u meelopen naar het perron.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "time-place",
+        "prompt": "Van welk spoor vertrekt de trein naar Zwolle?",
+        "options": {
+          "A": "Van spoor zeven.",
+          "B": "Van spoor vier.",
+          "C": "Van spoor twee."
+        },
+        "answer": "A",
+        "evidence": "Uw trein vertrekt vandaag van spoor zeven.",
+        "explanation": "De trein vertrekt van spoor zeven. Op spoor vier staat een kapotte trein. Twee hoort bij de vertrektijd."
+      },
+      {
+        "id": "q2",
+        "skill": "time-place",
+        "prompt": "Waar vindt u de lift?",
+        "options": {
+          "A": "Tegenover de bakker.",
+          "B": "Bij de koffiebar.",
+          "C": "Bij spoor vier.",
+          "D": "Naast de boekwinkel."
+        },
+        "answer": "D",
+        "evidence": "De lift vindt u naast de boekwinkel.",
+        "explanation": "De lift is naast de boekwinkel. Tegenover de bakker is de trap; bij de koffiebar staat een medewerker. Bij spoor vier staat de kapotte trein."
+      }
+    ]
+  },
+  {
+    "id": "A2:listening:batch002-bakker:1",
+    "level": "A2",
+    "part": "listening",
+    "title": "Telefoon van de bakker",
+    "exam": "duo-a2",
+    "taskType": "voicemail",
+    "domain": "winkels-diensten",
+    "situation": "Karim luistert naar een bericht van de bakker over zijn taart.",
+    "status": "draft",
+    "targetLevelValidated": false,
+    "script": [
+      {
+        "speaker": "Bakker",
+        "role": "m-shop",
+        "text": "Goedemiddag Karim, u spreekt met de bakker. U heeft voor vrijdag een aardbeientaart besteld. De aardbeien zijn vandaag niet gekomen. Ik kan voor dezelfde prijs een chocoladetaart maken. Wilt u toch aardbeien? Dan kan ik uw taart zaterdag maken. De taartdoos staat al klaar, dus u hoeft geen doos mee te brengen. Wilt u vóór vijf uur terugbellen? Dan hoor ik graag welke taart u wilt. We sluiten daarna de winkel. Bij het ophalen kunt u aan de kassa betalen. U krijgt dan ook een briefje met tips om de taart thuis te bewaren."
+      }
+    ],
+    "text": "Bakker: Goedemiddag Karim, u spreekt met de bakker. U heeft voor vrijdag een aardbeientaart besteld. De aardbeien zijn vandaag niet gekomen. Ik kan voor dezelfde prijs een chocoladetaart maken. Wilt u toch aardbeien? Dan kan ik uw taart zaterdag maken. De taartdoos staat al klaar, dus u hoeft geen doos mee te brengen. Wilt u vóór vijf uur terugbellen? Dan hoor ik graag welke taart u wilt. We sluiten daarna de winkel. Bij het ophalen kunt u aan de kassa betalen. U krijgt dan ook een briefje met tips om de taart thuis te bewaren.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "detail",
+        "prompt": "Wat is vandaag niet gekomen?",
+        "options": {
+          "A": "De taartdoos.",
+          "B": "De aardbeien.",
+          "C": "De chocolade.",
+          "D": "Het briefje met tips."
+        },
+        "answer": "B",
+        "evidence": "De aardbeien zijn vandaag niet gekomen.",
+        "explanation": "De aardbeien ontbreken. De doos staat klaar, chocolade is een alternatief en het briefje krijgt Karim bij het ophalen."
+      },
+      {
+        "id": "q2",
+        "skill": "sequence",
+        "prompt": "Wat moet Karim vóór vijf uur doen?",
+        "options": {
+          "A": "De taart ophalen.",
+          "B": "Aan de kassa betalen.",
+          "C": "De bakker terugbellen."
+        },
+        "answer": "C",
+        "evidence": "Wilt u vóór vijf uur terugbellen?",
+        "explanation": "Karim moet vóór vijf uur bellen om zijn keuze door te geven. Ophalen en betalen gebeuren later."
+      }
+    ]
+  },
+  {
+    "id": "A2:listening:batch002-zwembad:1",
+    "level": "A2",
+    "part": "listening",
+    "title": "Uitleg in het zwembad",
+    "exam": "duo-a2",
+    "taskType": "uitleg",
+    "domain": "vrije-tijd-familie",
+    "situation": "Een medewerker geeft u uitleg bij de ingang van het zwembad.",
+    "status": "draft",
+    "targetLevelValidated": false,
+    "script": [
+      {
+        "speaker": "Medewerker",
+        "role": "presenter",
+        "text": "Welkom, ik leg even uit hoe het hier werkt. U kunt uw kaartje aan de balie kopen. Daar kunt u met uw bankpas betalen. Loop daarna naar de kleedkamers aan het einde van de gang. Uw jas en tas passen in een kastje. Voor dat kastje heeft u een munt van één euro nodig. Na het zwemmen krijgt u die terug. De douches zijn links van de kleedkamers. Het warme bad is vandaag dicht voor onderhoud. Het grote bad en het kinderbad zijn wel open. U kunt onze medewerkers aanspreken als u vragen heeft."
+      }
+    ],
+    "text": "Medewerker: Welkom, ik leg even uit hoe het hier werkt. U kunt uw kaartje aan de balie kopen. Daar kunt u met uw bankpas betalen. Loop daarna naar de kleedkamers aan het einde van de gang. Uw jas en tas passen in een kastje. Voor dat kastje heeft u een munt van één euro nodig. Na het zwemmen krijgt u die terug. De douches zijn links van de kleedkamers. Het warme bad is vandaag dicht voor onderhoud. Het grote bad en het kinderbad zijn wel open. U kunt onze medewerkers aanspreken als u vragen heeft.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "detail",
+        "prompt": "Wat heeft u nodig om het kastje te sluiten?",
+        "options": {
+          "A": "Een munt.",
+          "B": "Een bankpas.",
+          "C": "Een kaartje."
+        },
+        "answer": "A",
+        "evidence": "Voor dat kastje heeft u een munt van één euro nodig.",
+        "explanation": "Voor het kastje is een munt nodig. De bankpas is voor betalen aan de balie; het kaartje geeft toegang tot het zwembad."
+      },
+      {
+        "id": "q2",
+        "skill": "detail",
+        "prompt": "Welk deel van het zwembad is vandaag dicht?",
+        "options": {
+          "A": "Het grote bad.",
+          "B": "Het warme bad.",
+          "C": "Het kinderbad.",
+          "D": "De kleedkamers."
+        },
+        "answer": "B",
+        "evidence": "Het warme bad is vandaag dicht voor onderhoud.",
+        "explanation": "Het warme bad is dicht. De andere baden zijn open en bezoekers kunnen de kleedkamers gebruiken."
+      }
+    ]
+  }
+]

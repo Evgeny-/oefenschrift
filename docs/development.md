@@ -22,7 +22,7 @@ npm run dev
 
 Open <http://127.0.0.1:8766/>. The start page says what the site is and offers one action — continue the set you started or begin the first subject — plus the level check (ten questions across reading and listening that end in a per-subject picture and one recommended set, never an exam prediction), followed by three short reasons; the maker line and GitHub link come from `content/site.json`. Practice works without any keys; writing and speaking then offer self-review instead of AI feedback.
 
-The operations pages at <http://127.0.0.1:8766/ops> need an account: `npm run admin:password -- <user>` writes a scrypt hash to `var/admin-credentials.json` (for local development, `INBURGERING_ADMIN_USER` and `INBURGERING_ADMIN_PASSWORD` in `.env` also work). The server binds to the local computer only.
+The operations pages at <http://127.0.0.1:8766/ops> need an account: `npm run admin:password -- <user>` writes a scrypt hash to `var/admin-credentials.json` (for local development, `OEFENSCHRIFT_ADMIN_USER` and `OEFENSCHRIFT_ADMIN_PASSWORD` in `.env` also work). The server binds to the local computer only.
 
 ## Configuration
 
@@ -33,13 +33,13 @@ Everything comes from environment variables, which the server also reads from a 
 | `OPENAI_API_KEY` | Writing and speaking feedback (model in `config/services.json`, currently GPT-5.4 nano) |
 | `ELEVENLABS_API_KEY` | Speech recognition for speaking tasks; audio generation with `npm run audio:generate` |
 | `OPENAI_ADMIN_KEY` | Optional: organisation cost of the last 30 days on the operations services page |
-| `INBURGERING_ADMIN_USER`, `INBURGERING_ADMIN_PASSWORD` | Operations account without a stored credentials file |
-| `INBURGERING_ORIGIN`, `INBURGERING_TRUST_PROXY` | Public deployment: the bare origin the site is served on, and the number of reverse-proxy hops to trust (required behind a proxy) |
-| `INBURGERING_BASE_PATH` | The path the site lives under on a shared host (`/projects/oefenschrift`); a build-time choice that the server checks at start |
-| `INBURGERING_FEEDBACK_DAILY_CAP`, `INBURGERING_SPEECH_DAILY_CAP` | Default daily caps on paid requests (2,000 and 600); changeable on the operations services page |
-| `PORT`, `INBURGERING_DB`, `INBURGERING_ADMIN_SECRET`, `INBURGERING_ADMIN_CREDENTIALS`, `INBURGERING_CREDENTIALS_FILE`, `INBURGERING_OFFLINE` | Optional overrides, documented in `.env.example` |
+| `OEFENSCHRIFT_ADMIN_USER`, `OEFENSCHRIFT_ADMIN_PASSWORD` | Operations account without a stored credentials file |
+| `OEFENSCHRIFT_ORIGIN`, `OEFENSCHRIFT_TRUST_PROXY` | Public deployment: the bare origin the site is served on, and the number of reverse-proxy hops to trust (required behind a proxy) |
+| `OEFENSCHRIFT_BASE_PATH` | The path the site lives under on a shared host (`/projects/oefenschrift`); a build-time choice that the server checks at start |
+| `OEFENSCHRIFT_FEEDBACK_DAILY_CAP`, `OEFENSCHRIFT_SPEECH_DAILY_CAP` | Default daily caps on paid requests (2,000 and 600); changeable on the operations services page |
+| `PORT`, `OEFENSCHRIFT_DB`, `OEFENSCHRIFT_ADMIN_SECRET`, `OEFENSCHRIFT_ADMIN_CREDENTIALS`, `OEFENSCHRIFT_CREDENTIALS_FILE`, `OEFENSCHRIFT_OFFLINE` | Optional overrides, documented in `.env.example` |
 
-Keys stay on the server; the browser only learns whether a service is configured. Internal names (environment variables, cookies, browser storage, the database) keep their `inburgering` prefix; the product name is Oefenschrift.
+Keys stay on the server; the browser only learns whether a service is configured. Cookies and browser storage use the `oefenschrift` prefix. Existing browser data migrates on the next visit; old names remain only as compatibility aliases. Environment variables use `OEFENSCHRIFT_`, with `INBURGERING_` accepted when the new name is unset. Database and credential file paths stay the same.
 
 ## Commands
 

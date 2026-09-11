@@ -1,0 +1,332 @@
+{
+  "review_id": "045-independent-editorial-review",
+  "source": "content/batches/045-original.json",
+  "source_original_sha256": "ba349a6dc0ca45bdbd6116c51bc173cc8e07a44139f880acd7046f67272e974c",
+  "source_sha256": "e0b865c5adca723acc9f1e0485c73955794fd85d2d728ad316c920fa178caaba",
+  "proposed": "content/batches/045-proposed.json",
+  "starters_source": "content/batches/045-starters.json",
+  "starters_sha256": "3547b46ac8f12adab5490d11726ad4467268d71d3882f0be16f3152d31970605",
+  "starters_verdict": "pass",
+  "review_type": "independent AI editorial review of the full replacement batch and sentence starters with local repair",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "reviewer": "GPT-6 Astra; separate reviewer context under explicit user model override",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:speaking:batch002-burenpakket:1",
+    "A2:speaking:batch003-tramkaart:1",
+    "A2:speaking:batch003-jas:1",
+    "A2:speaking:batch003-monteur:1",
+    "A2:speaking:batch003-speeltuin:1"
+  ],
+  "edits": [
+    {
+      "id": "A2:speaking:batch003-monteur:1",
+      "field": "model",
+      "before": "Ik heb een afspraak tussen negen en elf uur. De monteur is nog steeds niet hier. Het is nu half twaalf. Ik zit al de hele ochtend thuis te wachten.",
+      "after": "Ik heb een afspraak tussen negen en elf uur. De monteur is nog steeds niet hier. Nu is het half twaalf. Ik zit al de hele ochtend thuis te wachten.",
+      "reason": "Avoid copying the complete current-time sentence from the prompt, while preserving all model goals."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "full_source_review": "Read all five full original and historical source records, notes, all 15 starters and the full final proposal. Checked Dutch, English criterion translations, prompts, models, sample omissions/errors, quotes, image briefs/alt text and cue.",
+    "batch_check": "npm run batch:check -- content/batches/045-proposed.json: Checked 5 items, 0 questions. No failures, no warnings. Five existing IDs are intentional replacements.",
+    "count_and_ids": "All five supplied IDs retained in the same order. One picture-sequence, one picture-choose, two picture-describe, one video-answer.",
+    "metadata": "All duo-a2 / a2-spreken, 40 seconds speaking and 10 seconds preparation; domains fit; targetLevelValidated false; no retired type or generated media.",
+    "sample_quotes": "Ten non-null quotes are verbatim; every sample omits precisely criterion three. Deliberate learner agreement/adjective errors remain comprehensible.",
+    "starters": "All 15 frames contain ellipses, allow grammatical completion and match the criteria in order; completion tests recorded per item. Original starters unchanged.",
+    "visuals": "Eight image briefs have exact configured cast traits and Dutch scene alt text. Parcel sequence preserves Karim, parcel and doorway; the ticket pair changes the purchase method in a shared setting. Broken fence and slide supply the playground details.",
+    "cue_audio": "Sabrina uses configured f-adult. The two-part cue requests appointment time and arrival status; the narrator prompt requests current time separately. Digits absent. Still/audio substitute is disclosed.",
+    "sources": "No KNM claims, named organisations, addresses or websites. No external fact checks needed for these fictional daily scenes.",
+    "level": "Models have 29–31 words and maximum sentences of 8–11 words, within the editorial target. No CEFR validation claim.",
+    "references": "Read AGENTS.md, blueprint, review and author briefs, rubric, content workflow, relevant research passage, illustration/voice configurations and catalogue titles. Used two batch027 comparisons per type because content/exemplars does not exist."
+  },
+  "items": [
+    {
+      "id": "A2:speaking:batch002-burenpakket:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Common everyday nouns and short main clauses; all model sentences fit the A2 authoring limits. Comparable task operations to batch027-sollicitatiegesprek and batch027-verhuizen in batch 027, with shorter models and explicit requested details. These project comparisons do not establish calibrated difficulty.",
+        "flags": []
+      },
+      "taskType": "picture-sequence",
+      "domain": "wonen-buurt",
+      "measured": {
+        "model_words": 29,
+        "mean_model_sentence_words": 9.7,
+        "maximum_model_sentence_words": 11
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Vertel wat Karim op het eerste plaatje doet.",
+          "verdict": "pass",
+          "prompt_coverage": "The instruction asks for all pictures, and image one shows Karim accepting the parcel.",
+          "sample_quote": "Karim neem het pakket van de bezorger aan.",
+          "model_coverage": "Accepting the parcel from the delivery worker covers panel one."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Vertel wat Karim op het tweede plaatje doet.",
+          "verdict": "pass",
+          "prompt_coverage": "All pictures are requested; image two shows Karim placing the parcel on the table.",
+          "sample_quote": "Daarna zet hij het binnen op een tafel.",
+          "model_coverage": "Putting the box on the inside table covers panel two."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Vertel wat Karim op het derde plaatje doet.",
+          "verdict": "pass",
+          "prompt_coverage": "All pictures are requested; image three shows Karim handing the parcel to Sabrina.",
+          "sample_quote": null,
+          "model_coverage": "Giving the same parcel to his neighbour covers panel three."
+        }
+      ],
+      "missing_sample_criterion": "No handover to the neighbour appears.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Eerst neemt Karim een pakket aan.",
+          "Daarna zet hij de doos op tafel.",
+          "Op het laatste plaatje geeft hij de doos aan Sabrina."
+        ]
+      }
+    },
+    {
+      "id": "A2:speaking:batch003-tramkaart:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Common everyday nouns and short main clauses; all model sentences fit the A2 authoring limits. Comparable task operations to batch027-bakkerij and batch027-contant-pinnen in batch 027, with shorter models and explicit requested details. These project comparisons do not establish calibrated difficulty.",
+        "flags": []
+      },
+      "taskType": "picture-choose",
+      "domain": "vervoer",
+      "measured": {
+        "model_words": 30,
+        "mean_model_sentence_words": 7.5,
+        "maximum_model_sentence_words": 10
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Zeg op welke manier u liever een kaartje koopt.",
+          "verdict": "pass",
+          "prompt_coverage": "The prompt explicitly asks whether the learner prefers the machine or employee.",
+          "sample_quote": "Ik koopt liever een kaartje bij de medewerker.",
+          "model_coverage": "The employee is the preferred purchase method; either method is acceptable."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Geef een reden voor uw keuze.",
+          "verdict": "pass",
+          "prompt_coverage": "“Vertel waarom.” explicitly requests the reason.",
+          "sample_quote": "Dan kan ik om hulp vragen.",
+          "model_coverage": "Being able to ask for help explains the preference."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Vertel ook iets over de andere manier op het andere plaatje.",
+          "verdict": "pass",
+          "prompt_coverage": "“Vertel ook iets over het andere plaatje.” requests the other picture.",
+          "sample_quote": null,
+          "model_coverage": "Choosing a button independently describes the other method."
+        }
+      ],
+      "missing_sample_criterion": "No statement describes buying at the machine; asking for help explains only the chosen employee option.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Ik koop liever een kaartje bij de automaat.",
+          "Dat vind ik fijn, omdat het snel gaat.",
+          "Op het andere plaatje helpt een medewerker."
+        ]
+      }
+    },
+    {
+      "id": "A2:speaking:batch003-jas:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Common everyday nouns and short main clauses; all model sentences fit the A2 authoring limits. Comparable task operations to batch027-wachtkamer and batch027-keuken in batch 027, with shorter models and explicit requested details. These project comparisons do not establish calibrated difficulty.",
+        "flags": []
+      },
+      "taskType": "picture-describe",
+      "domain": "vrije-tijd-familie",
+      "measured": {
+        "model_words": 30,
+        "mean_model_sentence_words": 6.0,
+        "maximum_model_sentence_words": 8
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Zeg waar Roos is.",
+          "verdict": "pass",
+          "prompt_coverage": "“Vertel waar Roos is.” requests location.",
+          "sample_quote": "Roos is thuis.",
+          "model_coverage": "Standing at the table at home locates Roos."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Noem twee dingen die u op het plaatje ziet.",
+          "verdict": "pass",
+          "prompt_coverage": "“Noem twee dingen die u op het plaatje ziet.” requests two objects.",
+          "sample_quote": "Ze heeft een blauw jas vast en er ligt een telefoon op tafel.",
+          "model_coverage": "The blue coat and telephone are the two visible objects."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Vertel wat u van deze situatie vindt.",
+          "verdict": "pass",
+          "prompt_coverage": "“Wat vindt u van deze situatie?” requests the opinion.",
+          "sample_quote": null,
+          "model_coverage": "Finding the situation unpleasant expresses an opinion; searching for her own coat adds a reason."
+        }
+      ],
+      "missing_sample_criterion": "No opinion about the situation appears.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Roos is thuis bij de tafel.",
+          "Ik zie een jas en een telefoon.",
+          "Ik vind deze situatie vervelend."
+        ]
+      }
+    },
+    {
+      "id": "A2:speaking:batch003-monteur:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Common everyday nouns and short main clauses; all model sentences fit the A2 authoring limits. Comparable task operations to batch027-ziekmelden and batch027-taalcafe-oefenen in batch 027, with shorter models and explicit requested details. These project comparisons do not establish calibrated difficulty.",
+        "flags": []
+      },
+      "taskType": "video-answer",
+      "domain": "winkels-diensten",
+      "measured": {
+        "model_words": 30,
+        "mean_model_sentence_words": 7.5,
+        "maximum_model_sentence_words": 9
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Zeg wanneer de monteur zou komen.",
+          "verdict": "pass",
+          "prompt_coverage": "The cue asks “Voor welke tijd had u een afspraak”.",
+          "sample_quote": "De afspraak is tussen negen en elf uur.",
+          "model_coverage": "The appointment window is nine to eleven."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Zeg dat de monteur er nog niet is.",
+          "verdict": "pass",
+          "prompt_coverage": "The second cue part asks “is de monteur al bij u”. The scene establishes that the learner is waiting.",
+          "sample_quote": "De monteur zijn er nog niet.",
+          "model_coverage": "The technician has still not arrived."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Zeg hoe laat het nu is.",
+          "verdict": "pass",
+          "prompt_coverage": "The prompt explicitly says “Zeg ook hoe laat het nu is.”",
+          "sample_quote": null,
+          "model_coverage": "Half past eleven states the current time."
+        }
+      ],
+      "missing_sample_criterion": "No current time appears; the appointment window is distinct from the current time.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "De afspraak was tussen negen en elf uur.",
+          "De monteur is er nog niet.",
+          "Het is nu half twaalf."
+        ]
+      }
+    },
+    {
+      "id": "A2:speaking:batch003-speeltuin:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Common everyday nouns and short main clauses; all model sentences fit the A2 authoring limits. Comparable task operations to batch027-wachtkamer and batch027-keuken in batch 027, with shorter models and explicit requested details. These project comparisons do not establish calibrated difficulty.",
+        "flags": []
+      },
+      "taskType": "picture-describe",
+      "domain": "wonen-buurt",
+      "measured": {
+        "model_words": 31,
+        "mean_model_sentence_words": 7.8,
+        "maximum_model_sentence_words": 10
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Zeg waar Fatima is.",
+          "verdict": "pass",
+          "prompt_coverage": "“Vertel waar Fatima is.” requests location.",
+          "sample_quote": "Fatima staat naast de speeltuin.",
+          "model_coverage": "The playground entrance locates Fatima."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Noem twee dingen die u op het plaatje ziet.",
+          "verdict": "pass",
+          "prompt_coverage": "“Noem twee dingen die u op het plaatje ziet.” requests two objects.",
+          "sample_quote": "Het hek is kapot en ik zie een klein glijbaan.",
+          "model_coverage": "The broken fence and small slide are two visible objects."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Vertel wat u van deze situatie vindt.",
+          "verdict": "pass",
+          "prompt_coverage": "“Wat vindt u van deze situatie?” requests the opinion.",
+          "sample_quote": null,
+          "model_coverage": "Calling the scene dangerous is an opinion; the gap and street side support the illustrative reason."
+        }
+      ],
+      "missing_sample_criterion": "No opinion appears; calling the fence broken states an observable condition.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Fatima staat bij een speeltuin.",
+          "Ik zie een hek en een glijbaan.",
+          "Ik vind deze situatie gevaarlijk."
+        ]
+      }
+    }
+  ],
+  "diversity": "All five historical broad subjects remain. Parcel handling is a sequence, tram ticket purchase is a preference, the coat and playground scenes ask for descriptions with opinions, and waiting for a technician uses a spoken service question. Two neighbourhood settings are inherited replacements. This batch is not a complete exam form.",
+  "author_doubts_decisions": [
+    "Asking the employee for help is a defensible reason for the preference and does not describe the machine.",
+    "The coat ownership mistake is supplied by the prompt; the image need only establish the objects and current scene.",
+    "A damaged fence is observable rather than an opinion, so the playground sample truly omits the opinion goal.",
+    "The playground model gives one possible opinion; learners need not call it dangerous.",
+    "No named businesses require web searches."
+  ],
+  "media_notes": "No media generated or reviewed. After adoption and the hash gate, generate five narrator prompts, one Sabrina cue and eight illustrations. Inspect parcel direction and continuity, the two purchase methods with identical setting/viewpoint, a visible blue coat and phone, and the fence gap beside the slide with the street side clear. Confirm house cast traits in actual output.",
+  "limitations": [
+    "AI editorial review only; A2 remains an unvalidated authoring target.",
+    "No calibrated exemplar directory exists; batch027 comparisons are project references.",
+    "Actual illustrations and audio still require generation and separate media review."
+  ]
+}

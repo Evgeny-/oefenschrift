@@ -23,7 +23,7 @@ jobs:
       - run: npm ci
       - run: npm run test:browser
       - run: npm run test:production
-      - run: INBURGERING_BASE_PATH=/projects/oefenschrift npm run test:production
+      - run: OEFENSCHRIFT_BASE_PATH=/projects/oefenschrift npm run test:production
       - uses: actions/upload-artifact@v6
         if: failure()
         with:

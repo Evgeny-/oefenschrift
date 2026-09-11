@@ -1,0 +1,88 @@
+{
+  "review_id": "052-review",
+  "source": "content/batches/052-original.json",
+  "source_sha256": "d631bf08ecae5fa0b247c539611f276a0ffdb68e7bfa4b4bc5310a66cd4f7a4b",
+  "starters_source": "content/batches/052-starters.json",
+  "starters_sha256": "f27452cb35181f11abcf608488952c8e2cf65f207feb87be144db9e1df6e3172",
+  "starters_verdict": "pass",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "reviewer": "Independent GPT-6 Astra reviewer; user-authorized model substitution; no Smithers",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:speaking:batch002-burenpakket:1",
+    "A2:speaking:batch003-tramkaart:1"
+  ],
+  "item_count": 2,
+  "edits": [
+    {
+      "id": "A2:speaking:batch002-burenpakket:1",
+      "field": "images[0].brief",
+      "before": "Karim (man in his thirties, short black hair and beard, grey jacket) at his home doorway accepts a plain cardboard parcel from a delivery worker (young woman, short brown hair, mustard jacket). Show the parcel passing into Karim's hands. Only the doorway and essential figures. No text, captions or logos. The open front door is mustard yellow. Karim stands just inside his own doorway, and the delivery worker stands outside. The door and viewpoint match the later panels.",
+      "after": "Karim (man in his thirties, short black hair and beard, grey jacket) at his home doorway accepts a plain cardboard parcel from a delivery worker (young woman, short brown hair, mustard jacket). Show the parcel passing into Karim's hands. Only the doorway and essential figures. No text, captions or logos. The open front door is mustard yellow with one narrow vertical window and sits on the right of the frame, as in the companion picture. View the doorway from inside the house. Karim stands just inside his own doorway, and the delivery worker stands outside. The door and viewpoint match the later panels.",
+      "reason": "Match the accepted mustard door, narrow window, frame side and interior viewpoint."
+    },
+    {
+      "id": "A2:speaking:batch002-burenpakket:1",
+      "field": "images[2].brief",
+      "before": "Karim (man in his thirties, short black hair and beard, grey jacket) at the same home doorway passes the same plain cardboard parcel to his neighbour Sabrina (woman in her thirties, long dark hair, green jumper). Only the doorway and essential figures. No text, captions or logos. The open front door is mustard yellow. Karim stands just inside his own doorway and extends the parcel outward. Sabrina stands outside and receives it. Do not place Sabrina inside the house.",
+      "after": "Karim (man in his thirties, short black hair and beard, grey jacket) at the same home doorway passes the same plain cardboard parcel to his neighbour Sabrina (woman in her thirties, long dark hair, green jumper). Only the doorway and essential figures. No text, captions or logos. The open front door is mustard yellow with one narrow vertical window and sits on the right of the frame, as in the companion picture. View the doorway from inside the house. Karim stands just inside his own doorway and extends the parcel outward. Sabrina stands outside and receives it. Do not place Sabrina inside the house.",
+      "reason": "Match the accepted mustard door, narrow window, frame side and interior viewpoint."
+    },
+    {
+      "id": "A2:speaking:batch003-tramkaart:1",
+      "field": "images[1].brief",
+      "before": "Roos (young woman, dark hair in a bun, yellow scarf) buys a tram ticket from a station employee (man in his forties, short brown hair, dusty blue shirt) across a small counter in a tram station. The employee hands her a plain ticket. Use the same viewpoint, station setting and Roos as the companion image; only the purchase method differs. No text, captions or logos. A small dusty-blue tram is visible behind them, matching the companion picture. Show the employee with a simple visible eye and nose, not a blank featureless face. Keep Roos on the left and the employee across the counter on the right.",
+      "after": "Roos (young woman, dark hair in a bun, yellow scarf) buys a tram ticket from a station employee (man in his forties, short brown hair, dusty blue shirt) across a small counter in a tram station. The employee hands her a plain ticket. Use the same viewpoint, station setting and Roos as the companion image; only the purchase method differs. No text, captions or logos. A small cream tram with dusty-blue horizontal bands and mustard-yellow doors is visible in the left background, matching the companion picture. Show the employee with a simple visible eye and nose, not a blank featureless face. Keep Roos on the left and the employee across the counter on the right.",
+      "reason": "Match the actual cream tram with blue bands and mustard doors."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "full_final_source_read": true,
+    "starters_read_in_task_context": true,
+    "comparison_with_045": "Exactly three image briefs differ; all other field values and both starters match batch 045.",
+    "batch_check": "2 items, 0 questions; no failures, no warnings.",
+    "accepted_companions_inspected": [
+      {
+        "key": "A2:speaking:batch002-burenpakket:1#image1",
+        "file": "assets/images/f2a5e6b978ef2d97.webp",
+        "finding": "Karim places parcel on table inside; mustard door on right has narrow vertical window; camera inside faces the open door."
+      },
+      {
+        "key": "A2:speaking:batch003-tramkaart:1#image0",
+        "file": "assets/images/7c15977e3b55bdc8.webp",
+        "finding": "Roos on left facing purchase point on right; cream tram with blue bands and mustard doors in left background."
+      }
+    ],
+    "no_media_changes": true
+  },
+  "items": [
+    {
+      "id": "A2:speaking:batch002-burenpakket:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three concrete actions using common A2 present-tense clauses, comparable authoring demand to batch027-verhuizen and batch027-tandartsbezoek.",
+      "evidence": "Prompt requests all three pictures; criteria map one per action. Model covers receiving, storing and handing over. Both non-null sample quotes are exact; missing final action is null. First/next/last starters accept natural descriptions. Clarified doorway keeps Karim inside his own house and Sabrina outside.",
+      "model_words": 29,
+      "starters_verdict": "pass"
+    },
+    {
+      "id": "A2:speaking:batch003-tramkaart:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Preference, reason and alternative using common A2 clauses, comparable authoring demand to batch027-contant-pinnen and batch027-bus-fiets.",
+      "evidence": "Prompt explicitly requests choice, reason and alternative; criteria match. Model supplies all three, sample deliberately omits alternative with null quote. Each starter is partial and maps to its criterion. Employee hands a ticket across counter; tram details match the accepted companion.",
+      "model_words": 30,
+      "starters_verdict": "pass"
+    }
+  ],
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "This pass approves scene briefs and task coherence. Regenerated images require separate visual inspection before media approval.",
+    "Companion manifest reviewed flags are currently false; their visual contents were inspected directly here, without changing media approval state.",
+    "No designated exemplar directory was used; existing catalogue tasks provided editorial comparisons."
+  ]
+}

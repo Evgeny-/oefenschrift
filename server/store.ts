@@ -1,8 +1,10 @@
+import { setting as environmentSetting } from '../environment';
 import { DatabaseSync } from 'node:sqlite';
 import { mkdirSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import type { Exercise, PracticeSet } from '../app/types';
+import { exerciseMetadataErrors } from '../app/domain/exercise-schema';
 export class StoreError extends Error {
   constructor(
     message: string,
@@ -32,6 +34,8 @@ export function validateExercise(item) {
     item.title.length > 240
   )
     throw new StoreError('Include a stable ID, title, subject and level.');
+  const metadataErrors = exerciseMetadataErrors(item);
+  if (metadataErrors.length) throw new StoreError(metadataErrors.join('\n'));
   if (JSON.stringify(item).length > 40000)
     throw new StoreError('An exercise must be smaller than 40 KB.');
   if (['writing', 'speaking'].includes(item.part)) {
@@ -128,6 +132,7 @@ export class ContentStore {
     this.db.exec('BEGIN IMMEDIATE');
     try {
       for (const item of catalogue) {
+        validateExercise(item);
         const old = this.db.prepare('SELECT * FROM exercises WHERE id=?').get(item.id),
           hash = fingerprint(item),
           now = new Date().toISOString();
@@ -584,9 +589,9 @@ export class ContentStore {
     this.db.close();
   }
 }
-const stores = (globalThis.__inburgeringStores ??= new Map());
+const stores = (globalThis.__oefenschriftStores ??= new Map());
 export function getStore() {
-  const path = resolve(process.env.INBURGERING_DB || 'var/reports.sqlite3');
+  const path = resolve(environmentSetting('DB') || 'var/reports.sqlite3');
   if (!stores.has(path))
     stores.set(
       path,

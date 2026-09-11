@@ -1,10 +1,9 @@
 import { readPreferences } from './domain/render-state';
 import { resolveTheme } from './domain/theme';
+import { readStudy } from './domain/persistence';
 let preference = readPreferences(document.cookie).theme;
 try {
-  const s = JSON.parse(
-    localStorage.getItem('inburgering.study.v2') ?? localStorage.getItem('samen.study.v1'),
-  );
+  const s = readStudy(localStorage);
   if (s?.settings?.theme) preference = s.settings.theme;
 } catch {}
 document.documentElement.dataset.theme = resolveTheme(

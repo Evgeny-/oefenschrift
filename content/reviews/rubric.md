@@ -19,6 +19,8 @@ This rubric supports an AI editorial review. It does not provide independent hum
 13. **Current KNM facts:** Every time-sensitive KNM claim is checked against a current primary Dutch government or responsible public-body source. The item records the supporting URL and access date. Law, benefits, agencies, procedures, duties, eligibility, and official terminology receive special attention.
 14. **Copyright and provenance:** Wording, scenarios, questions, options, samples, and models are newly written. Factual research may guide content, but official practice questions, commercial exercises, and distinctive source phrasing are not copied or closely paraphrased.
 
+15. **Record contract:** `taskType` is recognised for the part and level and describes the actual exercise. Required metadata and per-part structures pass the shared batch validator. B1 `textType` describes the communicative category. No retired `type` field or generated media appears in a new authored record.
+
 ## Verdicts
 
 - **Pass:** All applicable checks pass. Small style preferences do not affect use.

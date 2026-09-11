@@ -1,0 +1,453 @@
+{
+  "review_id": "046-independent-editorial-review",
+  "source": "content/batches/046-original.json",
+  "source_original_sha256": "aacba484c2da2c09d92bf48b9f63b0d67bbdf99e54cd473feca547b14545f8df",
+  "source_sha256": "dcdd01f4056d51a4d41a228ce3cec41b8520628af738d1e993f1f451eedffaca",
+  "proposed": "content/batches/046-proposed.json",
+  "starters_source": "content/batches/046-starters.json",
+  "starters_sha256": "88b2605d1da799e25e45ce842963ba87fde4b1be2fa2de1c0fcc790645b9710c",
+  "starters_verdict": "pass",
+  "proposed_starters": "content/batches/046-proposed-starters.json",
+  "review_type": "independent AI editorial review of the full replacement batch and sentence starters with local repairs",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "reviewer": "GPT-6 Astra; separate reviewer context under explicit user model override",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "B1:speaking:batch002-fietsroute:1",
+    "B1:speaking:batch002-cursusgemist:1",
+    "B1:speaking:batch002-teamtaak:1",
+    "B1:speaking:batch003-werkdruk:1",
+    "B1:speaking:batch003-buurtvergadering:1",
+    "B1:speaking:batch003-inwerken:1",
+    "B1:speaking:batch003-cursuslocatie:1"
+  ],
+  "edits": [
+    {
+      "id": "B1:speaking:batch002-cursusgemist:1",
+      "field": "prompt",
+      "before": "U hebt gisteren door ziekte een cursusavond gemist; u hoort eerst uw medecursist. Leg uit waarom u afwezig was, vraag naar de lesstof en stel een moment voor om samen de aantekeningen te bekijken.",
+      "after": "U hebt gisteren door ziekte een cursusavond gemist; u hoort eerst uw medecursist. Leg uit waarom u afwezig was, vraag naar de lesstof en stel een dag en tijd voor om samen de aantekeningen te bekijken.",
+      "reason": "Request a day and time explicitly, matching criterion 3."
+    },
+    {
+      "id": "B1:speaking:batch002-cursusgemist:1",
+      "field": "starters[2]",
+      "before": "Zullen we op … om …?",
+      "after": "Zullen we op … om … samen de aantekeningen bekijken?",
+      "reason": "Complete the requested speech act while leaving the learner’s day/time or task reference open."
+    },
+    {
+      "id": "B1:speaking:batch003-werkdruk:1",
+      "field": "starters[2]",
+      "before": "Welke taak moet ik …?",
+      "after": "Welke van … moet ik eerst doen?",
+      "reason": "Complete the requested speech act while leaving the learner’s day/time or task reference open."
+    },
+    {
+      "id": "B1:speaking:batch003-inwerken:1",
+      "field": "prompt",
+      "before": "Een nieuwe collega maakt fouten doordat iedereen andere uitleg geeft; de tabel beschrijft wat er nu gebeurt. Geef het team twee concrete adviezen voor duidelijkere begeleiding en leg uit hoe u later controleert of die adviezen helpen.",
+      "after": "Een nieuwe collega maakt fouten doordat iedereen andere uitleg geeft; bekijk de tabel. Geef één advies over de begeleider en één over het vastleggen van de werkwijze, en beschrijf hoe u later controleert of dit helpt.",
+      "reason": "Name both advice subjects so two otherwise valid advice points cannot fail hidden criteria."
+    },
+    {
+      "id": "B1:speaking:batch003-cursuslocatie:1",
+      "field": "prompt",
+      "before": "Uw avondcursus is verhuisd en de terugreis met de bus duurt nu erg lang; bekijk de tabel. Overtuig uw docent om lokaal B te gebruiken: stel de verhuizing voor en geef twee redenen, één over de terugreis en één over de ruimte voor de groep.",
+      "after": "Uw avondcursus is verhuisd en u moet na de les lang op de bus wachten; bekijk de tabel. Overtuig uw docent om lokaal B te gebruiken: stel de verhuizing voor en geef twee redenen, één over de terugreis en één over de ruimte voor de groep.",
+      "reason": "The table proves waiting time, so describe waiting rather than an unsupported longer bus journey."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "full_source_review": "Read all seven complete original items, author notes, 21 original starters and seven historical source items. Read the full final proposal and final starters, including the final shorter inwerken prompt. Checked all criterion translations, models, samples and quotes.",
+    "count_and_ids": "Exact seven historical IDs retained in order; three kort, four middellang; werk 4, educatie 2, overig 1.",
+    "batch_check": "npm run batch:check -- content/batches/046-proposed.json: Checked 7 items, 0 questions. No failures, no warnings. All seven existing catalogue IDs are intentional replacements.",
+    "metadata": "nt2-i, b1-spreken, draft, targetLevelValidated false; no retired type, revision or generated media. No B1 textType required for speaking.",
+    "prompt_criteria": "All requested counts and speech acts match. Cursusgemist now explicitly requests a day and time; inwerken now names both advice subjects. The brief reports in short tasks supply context for linked requests, within 20 seconds.",
+    "sample_quotes": "Fourteen non-null quotes match exact sample substrings. Each sample omits exactly one goal. One deliberate typical learner error per sample retained. All 21 model evidence quotes verified exactly.",
+    "tables": "Route: 25 minus 15 equals 10 minutes; no cars and one quiet crossing are separate reasons. Plan B retains four of eight parking places and adds three trees. Inwerken table gives distinct inconsistent-guidance and undocumented-procedure problems. Cursuslocatie: lesson ends 21:00; waits are 60 and 15 minutes; 20 seats fit 16 cursists and room B is available. No inferred bus journey duration is needed.",
+    "cue_audio": "Three natural single-interlocutor cues; m-young for medecursist, f-adult for colleague and manager, all approved Netherlands Dutch roles distinct from narrator. No digit readings or punctuation-dependent meaning. No multi-character conversation requiring a second character voice.",
+    "media": "Four native text tables supply the relevant stimuli; no picture generation needed. Generate seven narrator prompts and three cues after adoption. Audio and playback have not been reviewed.",
+    "level_timing": "Short models 32–34 words in 20 seconds; middellange 47–52 words in 30 seconds with 15 seconds preparation. Counts allow pauses at about 96–104 words per minute. All model sentences under 20 words. Means below the general 12–18 stimulus guide suit these short spoken responses; linked reasons, conditional language and interpretation preserve the B1 authoring demand.",
+    "starters": "All 21 partial frames tested with grammatical completions in criterion order. Facts remain blank. Repaired missing action in cursusgemist and weak priority framing in werkdruk. The proposed starters hash identifies the exact bytes to adopt.",
+    "sources": "No named organisation, invented business, address, KNM or high-stakes factual claim. All times and capacities are scenario data. No external source lookup required for these fictional exercises.",
+    "references": "Read AGENTS.md, blueprint sections, review and author briefs, rubric, workflow, Spreken I research paragraph, voices/illustration config, batch 044 review schema and B1 speaking catalogue titles. content/exemplars does not exist; project tasks listed per item are uncalibrated editorial comparisons."
+  },
+  "items": [
+    {
+      "id": "B1:speaking:batch002-fietsroute:1",
+      "verdict": "pass",
+      "taskType": "middellang",
+      "domain": "werk",
+      "level": {
+        "target": "B1",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Compared with project tasks batch017-fietskeuze and batch017-sportabonnement: two supported points and a connected practical conclusion; this task has fewer stimulus details. Route advice integrates two safety features and a ten-minute calculation.",
+        "flags": []
+      },
+      "measured": {
+        "model_words": 47,
+        "mean_model_sentence_words": 11.8,
+        "maximum_model_sentence_words": 15
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Raad de route door het park aan.",
+          "verdict": "pass",
+          "sample_quote": "Ik zou door het park fietsen.",
+          "model_quote": "Ik raad je aan om door het park te fietsen."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Geef twee redenen voor uw advies met informatie uit de tabel.",
+          "verdict": "pass",
+          "sample_quote": "Daar rijden geen auto en je hoeft alleen bij één rustige straat over te steken.",
+          "model_quote": "Je deelt dat pad niet met auto’s, waardoor je rustig kunt rijden. Bovendien hoef je maar één rustige straat over te steken."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Vertel hoeveel minuten langer de route door het park duurt.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_quote": "Je bent wel tien minuten langer onderweg dan via de hoofdweg, dus vertrek iets eerder."
+        }
+      ],
+      "missing_sample_criterion": "Extra reistijd ontbreekt.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Ik raad je aan om door het park te fietsen.",
+          "Daar rijden geen auto’s, en bovendien steek je maar één rustige straat over.",
+          "Die route duurt tien minuten langer."
+        ]
+      }
+    },
+    {
+      "id": "B1:speaking:batch002-cursusgemist:1",
+      "verdict": "pass",
+      "taskType": "kort",
+      "domain": "educatie",
+      "level": {
+        "target": "B1",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Compared with project tasks batch016-examendatum and batch030-eindpresentatie: brief context plus linked questions or requests, with fewer model words. Absence explanation supports a two-part request to catch up.",
+        "flags": []
+      },
+      "measured": {
+        "model_words": 34,
+        "mean_model_sentence_words": 8.5,
+        "maximum_model_sentence_words": 10
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Leg uit waarom u de cursusavond hebt gemist.",
+          "verdict": "pass",
+          "sample_quote": "Ik kon gisteren niet komen omdat ik was ziek.",
+          "model_quote": "Ik moest gisteren thuisblijven, omdat ik ziek was."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Vraag welke lesstof is behandeld.",
+          "verdict": "pass",
+          "sample_quote": "Wat hebben jullie tijdens de les geoefend?",
+          "model_quote": "Kun je vertellen welke onderwerpen jullie hebben besproken?"
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Stel een dag en tijd voor om samen de aantekeningen te bekijken.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_quote": "Zullen we morgen om zeven uur samen je aantekeningen doornemen?"
+        }
+      ],
+      "missing_sample_criterion": "Een dag en tijd om de aantekeningen te bekijken ontbreken.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Ik kon niet komen, omdat ik ziek was.",
+          "Kun je vertellen wat jullie hebben geoefend?",
+          "Zullen we op donderdag om zeven uur samen de aantekeningen bekijken?"
+        ]
+      }
+    },
+    {
+      "id": "B1:speaking:batch002-teamtaak:1",
+      "verdict": "pass",
+      "taskType": "kort",
+      "domain": "werk",
+      "level": {
+        "target": "B1",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Compared with project tasks batch016-examendatum and batch030-eindpresentatie: brief context plus linked questions or requests, with fewer model words. A brief status report supports a request for a task and a follow-up day.",
+        "flags": []
+      },
+      "measured": {
+        "model_words": 32,
+        "mean_model_sentence_words": 8.0,
+        "maximum_model_sentence_words": 10
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Noem de twee taken die u al hebt afgerond.",
+          "verdict": "pass",
+          "sample_quote": "De zaal is geboekt en de uitnodigingen zijn verstuurd.",
+          "model_quote": "Ik heb een zaal gereserveerd en iedereen een uitnodiging gestuurd."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Vraag uw collega één concrete andere taak over te nemen; bedenk die zelf.",
+          "verdict": "pass",
+          "sample_quote": "Kun jij de presentatie maken?",
+          "model_quote": "Zou jij de presentatie willen maken?"
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Stel een dag voor om de voortgang te bespreken.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_quote": "Laten we donderdag bespreken hoe ver we zijn."
+        }
+      ],
+      "missing_sample_criterion": "Een dag voor het voortgangsgesprek ontbreekt.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Ik heb de zaal geboekt en de uitnodigingen verstuurd.",
+          "Zou jij de presentatie willen overnemen?",
+          "Laten we op donderdag bespreken hoe ver we zijn."
+        ]
+      }
+    },
+    {
+      "id": "B1:speaking:batch003-werkdruk:1",
+      "verdict": "pass",
+      "taskType": "kort",
+      "domain": "werk",
+      "level": {
+        "target": "B1",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Compared with project tasks batch016-examendatum and batch030-eindpresentatie: brief context plus linked questions or requests, with fewer model words. Two deadlines connect to a work risk and a priority question.",
+        "flags": []
+      },
+      "measured": {
+        "model_words": 34,
+        "mean_model_sentence_words": 11.3,
+        "maximum_model_sentence_words": 13
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Noem beide taken die vrijdag klaar moeten zijn.",
+          "verdict": "pass",
+          "sample_quote": "Het rapport en de planning moet vrijdag af zijn.",
+          "model_quote": "Voor vrijdag staan het rapport en de planning op mijn lijst."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Beschrijf één mogelijk gevolg van de tijdsdruk voor uw werk; bedenk dit zelf.",
+          "verdict": "pass",
+          "sample_quote": "Als ik alles snel doe, maak ik misschien fouten.",
+          "model_quote": "Als ik beide snel probeer af te maken, kan ik belangrijke fouten missen."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Vraag welke taak u eerst moet doen.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_quote": "Welke van deze taken wilt u dat ik eerst afrond?"
+        }
+      ],
+      "missing_sample_criterion": "Een vraag over de prioriteit ontbreekt.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Vrijdag moeten het rapport en de planning klaar zijn.",
+          "Als ik te snel werk, maak ik fouten.",
+          "Welke van deze taken moet ik eerst doen?"
+        ]
+      }
+    },
+    {
+      "id": "B1:speaking:batch003-buurtvergadering:1",
+      "verdict": "pass",
+      "taskType": "middellang",
+      "domain": "overig",
+      "level": {
+        "target": "B1",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Compared with project tasks batch017-fietskeuze and batch017-sportabonnement: two supported points and a connected practical conclusion; this task has fewer stimulus details. Proposal persuades with a greenery benefit and retained parking.",
+        "flags": []
+      },
+      "measured": {
+        "model_words": 47,
+        "mean_model_sentence_words": 9.4,
+        "maximum_model_sentence_words": 15
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Stel plan B voor aan de bewoners.",
+          "verdict": "pass",
+          "sample_quote": "Volgens mij kunnen we beste plan B kiezen.",
+          "model_quote": "Ik stel voor dat we plan B kiezen."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Geef één reden voor plan B die verband houdt met de bomen.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_quote": "Met de nieuwe bomen krijgen we schaduw, waardoor de straat in de zomer prettiger wordt."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Geef één reden voor plan B die verband houdt met parkeren.",
+          "verdict": "pass",
+          "sample_quote": "We houden dan vier parkeerplaatsen, zodat bewoners hun auto nog vlak bij huis kwijt kunnen.",
+          "model_quote": "Tegelijk blijven er vier parkeerplaatsen beschikbaar. Dat is handig voor bewoners die moeilijk ver kunnen lopen."
+        }
+      ],
+      "missing_sample_criterion": "Een reden over de bomen ontbreekt.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Ik stel voor om plan B te kiezen.",
+          "De bomen zorgen voor schaduw, waardoor de straat koeler wordt.",
+          "De parkeerplaatsen zijn handig voor bewoners die moeilijk lopen."
+        ]
+      }
+    },
+    {
+      "id": "B1:speaking:batch003-inwerken:1",
+      "verdict": "pass",
+      "taskType": "middellang",
+      "domain": "werk",
+      "level": {
+        "target": "B1",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Compared with project tasks batch017-fietskeuze and batch017-sportabonnement: two supported points and a connected practical conclusion; this task has fewer stimulus details. Two advice points target inconsistent guidance; a later task checks their effect.",
+        "flags": []
+      },
+      "measured": {
+        "model_words": 51,
+        "mean_model_sentence_words": 12.8,
+        "maximum_model_sentence_words": 15
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Geef één concreet advies over wie de nieuwe collega begeleidt.",
+          "verdict": "pass",
+          "sample_quote": "Laat één ervaren collega de uitleg geven.",
+          "model_quote": "Laat één ervaren medewerker de nieuwe collega begeleiden, zodat hij niet steeds verschillende uitleg krijgt."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Geef één concreet advies over hoe de werkwijze wordt vastgelegd.",
+          "verdict": "pass",
+          "sample_quote": "Zet de stappen op papier, zodat iedereen dezelfde uitleg gebruiken.",
+          "model_quote": "Schrijf daarnaast samen de stappen op en gebruik die lijst bij het oefenen."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Beschrijf hoe u later controleert of de begeleiding helpt.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_quote": "Na een week kunnen we een taak opnieuw laten uitvoeren. Dan zien we welke stappen goed gaan en waar extra uitleg nodig is."
+        }
+      ],
+      "missing_sample_criterion": "Een controle achteraf ontbreekt.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Laat één ervaren medewerker de begeleiding doen, zodat de uitleg duidelijk blijft.",
+          "Leg de werkwijze vast door de stappen op te schrijven.",
+          "Na een week controleren we dit door de collega een taak te laten uitvoeren."
+        ]
+      }
+    },
+    {
+      "id": "B1:speaking:batch003-cursuslocatie:1",
+      "verdict": "pass",
+      "taskType": "middellang",
+      "domain": "educatie",
+      "level": {
+        "target": "B1",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Compared with project tasks batch017-fietskeuze and batch017-sportabonnement: two supported points and a connected practical conclusion; this task has fewer stimulus details. Proposal combines a shorter wait and enough seats for sixteen learners.",
+        "flags": []
+      },
+      "measured": {
+        "model_words": 52,
+        "mean_model_sentence_words": 13.0,
+        "maximum_model_sentence_words": 19
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Stel voor om de cursus naar lokaal B te verplaatsen.",
+          "verdict": "pass",
+          "sample_quote": "Kunnen we volgende keer lokaal B gebruiken?",
+          "model_quote": "Zouden we de cursus naar lokaal B kunnen verplaatsen?"
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Geef één reden voor lokaal B op basis van de terugreis per bus.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_quote": "Daar vertrekt de bus een kwartier na de les, dus cursisten zonder auto hoeven veel minder lang te wachten."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Geef één reden voor lokaal B op basis van de groepsgrootte en het aantal zitplaatsen.",
+          "verdict": "pass",
+          "sample_quote": "Er zijn genoeg stoel voor onze groep van zestien cursisten.",
+          "model_quote": "Ook past onze groep daar goed in: we zijn met zestien en er zijn twintig zitplaatsen."
+        }
+      ],
+      "missing_sample_criterion": "Een reden over de terugreis ontbreekt.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Zouden we de cursus naar lokaal B kunnen verplaatsen?",
+          "De bus vertrekt daar een kwartier na de les, dus we wachten minder lang.",
+          "Onze groep heeft zestien zitplaatsen nodig en lokaal B heeft er twintig."
+        ]
+      }
+    }
+  ],
+  "diversity": "Seven authorised historical topics remain. Work tasks distinguish route advice, task redistribution, priority requests and training improvements. Two education items address missed content and classroom relocation; one retained neighbourhood task argues for a compromise. This replacement group is not a complete mock form.",
+  "author_doubts_decisions": [
+    "Short response lengths fit the configured time without requiring fast speech.",
+    "Route reasons are independently supported by traffic and crossing columns.",
+    "Street-plan sample mentions parking but says nothing about trees, so its null quote is valid.",
+    "Cursuslocatie sample states enough chairs for sixteen; an exact numeric capacity is not required by the criterion, and the missing travel reason remains absent.",
+    "Inwerken sample gives two advice points but no later check.",
+    "Historical topics are preserved deliberately; no new organisation-name searches apply."
+  ],
+  "media_notes": "Adopt and verify hashes before generating seven narrator instructions and three cues. Regenerate any legacy audio based on changed text. No media or integration performed during review.",
+  "limitations": [
+    "AI editorial review only; B1 remains an unvalidated authoring target. No official exam equivalence or score claim.",
+    "Speaking-time fit is based on text length and editorial judgment; no learner timing pilot or audio review performed.",
+    "Project reference tasks are not calibrated exemplars; content/exemplars is absent."
+  ]
+}

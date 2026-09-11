@@ -1,3 +1,4 @@
+import { setting as environmentSetting } from '../environment';
 import express from 'express';
 import type { ServerBuild } from 'react-router';
 import { createRequestHandler } from '@react-router/express';
@@ -13,7 +14,7 @@ const development = process.env.NODE_ENV !== 'production',
   origin = publicOrigin(),
   base = basePath(),
   // Behind a reverse proxy, the number of hops whose X-Forwarded-* headers are trusted.
-  trustProxy = Number(process.env.INBURGERING_TRUST_PROXY || 0);
+  trustProxy = Number(environmentSetting('TRUST_PROXY') || 0);
 const hosts = new Set([`127.0.0.1:${port}`, `localhost:${port}`, `[::1]:${port}`]);
 if (origin) hosts.add(new URL(origin).host);
 const app = express();
@@ -88,7 +89,7 @@ if (development) {
   const built = String(build.basename || '/').replace(/\/+$/, '');
   if (built !== base)
     throw new Error(
-      `The build expects the base path "${built || '/'}" but INBURGERING_BASE_PATH is "${base || '/'}". Rebuild with the same value.`,
+      `The build expects the base path "${built || '/'}" but OEFENSCHRIFT_BASE_PATH is "${base || '/'}". Rebuild with the same value.`,
     );
   app.use(createRequestHandler({ build, mode: 'production' }));
 }

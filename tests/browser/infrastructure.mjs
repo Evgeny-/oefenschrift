@@ -83,7 +83,11 @@ async function shot(name) {
 }
 
 const bank = JSON.parse(await fs.readFile('content/catalogue.json', 'utf8')),
-  draft = bank.find((i) => i.level === 'A2' && i.part === 'speaking'),
+  // Cue tasks intentionally hide sentence starters until review. This journey
+  // exercises the normal hint disclosure on a picture description instead.
+  draft = bank.find(
+    (i) => i.level === 'A2' && i.part === 'speaking' && i.taskType === 'picture-describe',
+  ),
   done = bank.find((i) => i.level === 'A2' && i.part === 'reading');
 async function wait(expression) {
   await evaluate(
@@ -107,13 +111,13 @@ const sourceFile = 'app/components/OpenExercise.tsx',
   newText = "'Sentence starters HMR'";
 try {
   await evaluate(
-    `localStorage.setItem('inburgering.study.v2',JSON.stringify({version:2,settings:{lang:'en',level:'B1',theme:'light',clock:false},records:{${JSON.stringify(done.id)}:{completed:true,kind:'quiz',correct:0,total:${done.questions.length},at:1000}},drafts:{${JSON.stringify(draft.id)}:'Mijn bewaarde concept.'},reviews:{},active:null}));true;`,
+    `localStorage.setItem('oefenschrift.study.v2',JSON.stringify({version:2,settings:{lang:'en',level:'B1',theme:'light',clock:false},records:{${JSON.stringify(done.id)}:{completed:true,kind:'quiz',correct:0,total:${done.questions.length},at:1000,revision:${JSON.stringify(done.revision)}}},drafts:{${JSON.stringify(draft.id)}:'Mijn bewaarde concept.'},reviews:{},active:null}));true;`,
   );
   await send('script.addPreloadScript', {
     functionDeclaration: `()=>{window.initialSlides=[];document.addEventListener('transitionrun',event=>{if(event.target.classList?.contains('selection-indicator'))window.initialSlides.push(event.propertyName);});}`,
   });
   await evaluate(
-    `document.cookie='inburgering_preferences='+encodeURIComponent(JSON.stringify({lang:'en',level:'B1',theme:'light',clock:false}))+'; Path=/';true;`,
+    `document.cookie='oefenschrift_preferences='+encodeURIComponent(JSON.stringify({lang:'en',level:'B1',theme:'light',clock:false}))+'; Path=/';true;`,
   );
   await navigate('/reading');
   await evaluate('document.fonts.ready.then(()=>true)');
@@ -344,7 +348,7 @@ try {
   // The session pass: set by the page, invisible to scripts, and the key of a browser's
   // allowance; refusals while a service was off cost nothing.
   await check(
-    `(async()=>{const s=await (await fetch('/api/status')).json();return !document.cookie.includes('inburgering_pass')&&s.remaining.feedback===30&&s.remaining.speech===20})()`,
+    `(async()=>{const s=await (await fetch('/api/status')).json();return !document.cookie.includes('oefenschrift_pass')&&s.remaining.feedback===30&&s.remaining.speech===20})()`,
     'The pass is HttpOnly and the daily allowance is untouched by refused calls',
   );
   await check(
@@ -353,7 +357,7 @@ try {
   );
   await navigate('/privacy');
   await check(
-    `document.querySelector('h1').textContent==='Privacy'&&document.querySelectorAll('.storage-table tbody tr').length===7&&document.body.innerText.includes('inburgering_pass')&&!!document.querySelector('.footer-links a[href="/en/terms"]')`,
+    `document.querySelector('h1').textContent==='Privacy'&&document.querySelectorAll('.storage-table tbody tr').length===7&&document.body.innerText.includes('oefenschrift_pass')&&!!document.querySelector('.footer-links a[href="/en/terms"]')`,
     'The privacy page lists every cookie and storage item, and the footer links the terms',
   );
   await navigate('/terms');
@@ -446,7 +450,7 @@ try {
     await evaluate('new Promise(r=>setTimeout(r,120))');
   };
   const recordsBefore = await evaluate(
-    `Object.keys(JSON.parse(localStorage.getItem('inburgering.study.v2')).records).length`,
+    `Object.keys(JSON.parse(localStorage.getItem('oefenschrift.study.v2')).records).length`,
   );
   await check(
     `document.querySelector('.home-hero [data-action="level-check"]')?.textContent==='Take the level check'&&!document.querySelector('.home-spec')`,
@@ -486,7 +490,7 @@ try {
     'The result shows counts per subject, one recommendation and the review',
   );
   await check(
-    `Object.keys(JSON.parse(localStorage.getItem('inburgering.study.v2')).records).length===${JSON.stringify(recordsBefore)}&&JSON.parse(localStorage.getItem('inburgering.study.v2')).checks.length===1`,
+    `Object.keys(JSON.parse(localStorage.getItem('oefenschrift.study.v2')).records).length===${JSON.stringify(recordsBefore)}&&JSON.parse(localStorage.getItem('oefenschrift.study.v2')).checks.length===1`,
     'A check is stored on its own and marks no exercise as completed',
   );
   await navigate('/');

@@ -1,0 +1,399 @@
+{
+  "review_id": "044-independent-editorial-review",
+  "source": "content/batches/044-original.json",
+  "source_original_sha256": "6b5dffceaf17a09255a3412aecd42ac8a40c843a6d722e20062ff0e0bbbeed70",
+  "source_sha256": "109b2684de73024b400aa2d499f19cdb19573322946eb26e6893d97a2a9b3123",
+  "proposed": "content/batches/044-proposed.json",
+  "starters_source": "content/batches/044-starters.json",
+  "starters_sha256": "8325698102406bb2d690d640860c56daec321e734c2a342f3c581f7b18b72a9e",
+  "starters_verdict": "pass",
+  "proposed_starters": "content/batches/044-proposed-starters.json",
+  "review_type": "independent AI editorial review of the full replacement batch and sentence starters with local repairs",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "reviewer": "GPT-6 Astra; separate reviewer context under explicit user model override",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:speaking:buurvrouw:1",
+    "A2:speaking:te-laat:1",
+    "A2:speaking:batch001-apotheek:1",
+    "A2:speaking:batch001-koelkast:1",
+    "A2:speaking:batch002-kapper:1",
+    "A2:speaking:batch002-portemonnee:1"
+  ],
+  "edits": [
+    {
+      "id": "A2:speaking:buurvrouw:1",
+      "field": "model",
+      "before": "Ik heb morgen een extra dienst op mijn werk. Daarom lukt ons bezoek niet. Past zaterdag voor u? Dan kom ik graag om twee uur. Ik neem koekjes mee voor bij de koffie.",
+      "after": "Ik heb morgen een extra dienst op mijn werk. Daarom kan ik niet komen. Past zaterdag voor u? Dan kom ik graag om twee uur. Ik neem koekjes mee voor bij de koffie.",
+      "reason": "Use a direct natural phrase for inability to visit."
+    },
+    {
+      "id": "A2:speaking:batch002-kapper:1",
+      "field": "sample",
+      "before": "Roos hangt haar jas op. Dan ze gaat zitten. Aan het einde betaalt ze met haar pas.",
+      "after": "Roos hang haar jas op. Aan het einde betaalt ze met haar pas.",
+      "reason": "Remove the sample’s description of panel two so its null quote denotes a real omission; retain one typical agreement error and exact quotes."
+    },
+    {
+      "id": "A2:speaking:batch002-kapper:1",
+      "field": "quotes",
+      "before": [
+        "Roos hangt haar jas op.",
+        null,
+        "Aan het einde betaalt ze met haar pas."
+      ],
+      "after": [
+        "Roos hang haar jas op.",
+        null,
+        "Aan het einde betaalt ze met haar pas."
+      ],
+      "reason": "Remove the sample’s description of panel two so its null quote denotes a real omission; retain one typical agreement error and exact quotes."
+    },
+    {
+      "id": "A2:speaking:buurvrouw:1",
+      "field": "starters[2]",
+      "before": "Ik kan om …",
+      "after": "Ik kan om … bij u komen.",
+      "reason": "A time alone now completes a full predicate and meets the visit-time criterion."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "full_source_review": "Read all six original records, full notes, all 18 original starters and all six historical source records. Read the full final proposal and final starters after repairs. Reviewed prompt, criterion translations, models, sample errors, exact quotes, image briefs/alt texts and cue roles.",
+    "batch_check": "npm run batch:check -- content/batches/044-proposed.json: Checked 6 items, 0 questions. No failures, no warnings. Six existing IDs are intentional replacements.",
+    "count_and_ids": "All six supplied IDs preserved, in order. Six A2 speaking items; two video-answer, one picture-describe, one picture-choose, two picture-sequence.",
+    "metadata": "duo-a2 / a2-spreken; 40 seconds speaking and 10 seconds preparation. Domains fit. targetLevelValidated remains false. No retired type, revisions or generated media fields.",
+    "sample_quotes": "All 12 non-null quotes are verbatim. Exactly one genuinely omitted criterion in each sample after repairing kapper. Minor learner errors deliberately retained, while model Dutch is correct.",
+    "starters": "All 18 reviewed in full context, aligned to criterion order, with ellipses and natural complete-sentence completion tests recorded per item. No fixed choice or invented required facts.",
+    "visuals": "Eleven briefs have exact configured cast traits and Dutch alt text. Fridge pair differs in size alone. Both sequences preserve cast and setting across three separate panels. Open-task alt text may describe actions as established by review 027.",
+    "cue_audio": "Two two-part cues, f-older and f-adult from config/voices.json; no digits. Extra third detail is explicitly requested in each printed/spoken prompt. Narrator instructions, cue clips and stills await media generation.",
+    "sources": "No KNM, legal or medical claims, named businesses, addresses or new organisations. No external factual verification required. Pharmacy asks only for describing the scene and an opinion.",
+    "level": "Model words 31–34, mean sentence length 6.2–8.5, maximum 14. Common vocabulary; only the pharmacy model uses an omdat clause.",
+    "references": "Read blueprint, rubric, actual docs/briefs/review.md, author brief, workflow, A2 speaking research paragraph, voices/illustration config, reviews 043 and 039 schema plus open-task review 027. Compared against two adopted batch027 tasks per type. content/exemplars does not exist."
+  },
+  "items": [
+    {
+      "id": "A2:speaking:buurvrouw:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Everyday vocabulary, explicit prompts and short model clauses match the project’s A2 speaking authoring target. Compared with batch027-ziekmelden, batch027-taalcafe-oefenen in the adopted batch 027 source; these are project comparisons, not calibrated exemplars.",
+        "flags": []
+      },
+      "taskType": "video-answer",
+      "domain": "wonen-buurt",
+      "measured": {
+        "model_words": 33,
+        "mean_model_sentence_words": 6.6,
+        "maximum_model_sentence_words": 9
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Vertel waarom u morgen niet kunt komen.",
+          "verdict": "pass",
+          "sample_quote": "Morgen moet ik werken in winkel.",
+          "model_coverage": "Extra work shift is the reason for absence."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Stel een andere dag voor.",
+          "verdict": "pass",
+          "sample_quote": "Kan ik zaterdag bij u komen?",
+          "model_coverage": "Saturday is a proposed alternative."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Noem een tijd voor uw bezoek.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "Two o’clock supplies the requested visit time."
+        }
+      ],
+      "missing_sample_criterion": "No visit time appears.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Morgen kan ik niet, omdat ik moet werken.",
+          "Kan ik op vrijdag komen?",
+          "Ik kan om drie uur bij u komen."
+        ]
+      }
+    },
+    {
+      "id": "A2:speaking:te-laat:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Everyday vocabulary, explicit prompts and short model clauses match the project’s A2 speaking authoring target. Compared with batch027-ziekmelden, batch027-taalcafe-oefenen in the adopted batch 027 source; these are project comparisons, not calibrated exemplars.",
+        "flags": []
+      },
+      "taskType": "video-answer",
+      "domain": "werk",
+      "measured": {
+        "model_words": 31,
+        "mean_model_sentence_words": 6.2,
+        "maximum_model_sentence_words": 7
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Vertel waarom u later komt.",
+          "verdict": "pass",
+          "sample_quote": "Mijn fiets heeft een lek band.",
+          "model_coverage": "Flat tyre explains delay."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Zeg hoe laat u op uw werk bent.",
+          "verdict": "pass",
+          "sample_quote": "Ik ben om half tien op het werk.",
+          "model_coverage": "Half past nine states arrival."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Vertel hoe u nu naar uw werk gaat.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "The bus supplies the new transport method."
+        }
+      ],
+      "missing_sample_criterion": "No new transport method appears.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Ik kom later, omdat mijn bus niet rijdt.",
+          "Ik ben er om tien uur.",
+          "Ik ga nu met de trein."
+        ]
+      }
+    },
+    {
+      "id": "A2:speaking:batch001-apotheek:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Everyday vocabulary, explicit prompts and short model clauses match the project’s A2 speaking authoring target. Compared with batch027-wachtkamer, batch027-keuken in the adopted batch 027 source; these are project comparisons, not calibrated exemplars.",
+        "flags": []
+      },
+      "taskType": "picture-describe",
+      "domain": "gezondheid",
+      "measured": {
+        "model_words": 34,
+        "mean_model_sentence_words": 8.5,
+        "maximum_model_sentence_words": 14
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Zeg waar Roos is.",
+          "verdict": "pass",
+          "sample_quote": "Roos staat in een apotheek.",
+          "model_coverage": "The pharmacy counter identifies the place."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Noem twee handelingen op het plaatje.",
+          "verdict": "pass",
+          "sample_quote": "Ze geeft een papier aan de medewerker. De medewerker pak een doosje.",
+          "model_coverage": "Giving paper and taking a box supply two visible actions."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Geef uw mening over hulp bij de apotheek.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "Finding help pleasant because of medicine questions expresses an opinion without giving medical advice."
+        }
+      ],
+      "missing_sample_criterion": "No opinion appears.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Roos is bij de apotheek.",
+          "Roos geeft een papier en de medewerker pakt een doosje.",
+          "Hulp bij de apotheek vind ik fijn."
+        ]
+      }
+    },
+    {
+      "id": "A2:speaking:batch001-koelkast:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Everyday vocabulary, explicit prompts and short model clauses match the project’s A2 speaking authoring target. Compared with batch027-bakkerij, batch027-contant-pinnen in the adopted batch 027 source; these are project comparisons, not calibrated exemplars.",
+        "flags": []
+      },
+      "taskType": "picture-choose",
+      "domain": "winkels-diensten",
+      "measured": {
+        "model_words": 32,
+        "mean_model_sentence_words": 8,
+        "maximum_model_sentence_words": 11
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Kies de kleine of de grote koelkast.",
+          "verdict": "pass",
+          "sample_quote": "Ik kies de kleine koelkast.",
+          "model_coverage": "The small fridge is the model’s choice; either picture is permitted."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Geef een reden voor uw keuze.",
+          "verdict": "pass",
+          "sample_quote": "Hij past goed in mijn klein keuken.",
+          "model_coverage": "Living alone and buying little food explain the choice."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Zeg iets over de andere koelkast.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "The large fridge has more space and does not fit the model speaker’s kitchen."
+        }
+      ],
+      "missing_sample_criterion": "Nothing describes the other fridge.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Ik kies de grote koelkast.",
+          "Deze koelkast is handig, omdat ik veel eten koop.",
+          "De andere koelkast is kleiner."
+        ]
+      }
+    },
+    {
+      "id": "A2:speaking:batch002-kapper:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Everyday vocabulary, explicit prompts and short model clauses match the project’s A2 speaking authoring target. Compared with batch027-sollicitatiegesprek, batch027-verhuizen in the adopted batch 027 source; these are project comparisons, not calibrated exemplars.",
+        "flags": []
+      },
+      "taskType": "picture-sequence",
+      "domain": "winkels-diensten",
+      "measured": {
+        "model_words": 33,
+        "mean_model_sentence_words": 8.2,
+        "maximum_model_sentence_words": 14
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Vertel wat er op het eerste plaatje gebeurt.",
+          "verdict": "pass",
+          "sample_quote": "Roos hang haar jas op.",
+          "model_coverage": "Hanging a coat covers the first panel."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Vertel wat er op het tweede plaatje gebeurt.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "Sitting and the haircut cover the second panel."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Vertel wat er op het derde plaatje gebeurt.",
+          "verdict": "pass",
+          "sample_quote": "Aan het einde betaalt ze met haar pas.",
+          "model_coverage": "Card payment covers the third panel."
+        }
+      ],
+      "missing_sample_criterion": "After repair the sample describes only coat hanging and payment; neither sitting nor cutting is stated.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Eerst hangt Roos haar jas op.",
+          "Daarna knipt de kapper haar haar.",
+          "Aan het einde betaalt Roos met haar pas."
+        ]
+      }
+    },
+    {
+      "id": "A2:speaking:batch002-portemonnee:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Everyday vocabulary, explicit prompts and short model clauses match the project’s A2 speaking authoring target. Compared with batch027-sollicitatiegesprek, batch027-verhuizen in the adopted batch 027 source; these are project comparisons, not calibrated exemplars.",
+        "flags": []
+      },
+      "taskType": "picture-sequence",
+      "domain": "winkels-diensten",
+      "measured": {
+        "model_words": 33,
+        "mean_model_sentence_words": 6.6,
+        "maximum_model_sentence_words": 11
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Vertel wat Modibo op het eerste plaatje doet.",
+          "verdict": "pass",
+          "sample_quote": "Modibo kijkt onder een tafel in het café.",
+          "model_coverage": "Looking under a table covers the first panel."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Vertel wat Modibo op het tweede plaatje doet.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "Talking to the member of staff covers the second panel."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Vertel wat Modibo op het derde plaatje doet.",
+          "verdict": "pass",
+          "sample_quote": "Daarna krijgt hij zijn portemonnee terug.",
+          "model_coverage": "Receiving the blue wallet covers the third panel."
+        }
+      ],
+      "missing_sample_criterion": "Returning the wallet does not establish that Modibo spoke to the staff member.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Eerst kijkt Modibo onder een tafel.",
+          "Daarna praat Modibo met de medewerker.",
+          "Op het laatste plaatje krijgt hij zijn portemonnee terug."
+        ]
+      }
+    }
+  ],
+  "diversity": "The six historical topics remain: rescheduling a neighbour visit, work delay, pharmacy help, a broken fridge, visiting the hairdresser and retrieving a wallet at a cafe. The fridge premise now motivates a size choice and the hairdresser visit becomes a sequence, both acceptable under the authorised format rewrite. Compare modern neighbour introduction, pharmacy-adjacent waiting-room description, online/shop choice and clothes-alteration sequence: communicative operations differ. This migration group is not a complete mock form; service settings predominate.",
+  "author_doubts_decisions": [
+    "Fridge purchase preserves the broken-fridge practical topic while providing the required two-picture task.",
+    "Hairdresser visit and wallet search preserve the historical subjects while making all three panels useful.",
+    "Hairdresser sample sitting sentence removed: the broad second criterion allows describing sitting, so the original null was indefensible.",
+    "Retain Roos’s bun/scarf and trimming a loose strand; generation review must confirm the haircut is visually legible.",
+    "No organisation-name search is needed for unnamed shops and services."
+  ],
+  "media_notes": "No media generated or reviewed. After the hash gate, generate six narrator instructions, two character cues and eleven illustrations. Verify pharmacy handover and box pickup, two refrigerator heights using the same adult scale, visible hair cutting with bun/scarf intact, coherent payment terminal, an empty search panel and a blue-wallet return. Existing legacy audio cannot represent the rewritten prompts.",
+  "limitations": [
+    "AI editorial review only; A2 is an unvalidated authoring target. No teacher review, learner trial or official exam equivalence.",
+    "Text, cue scripts and image briefs passed. Actual image clarity, pronunciation, timing and intelligibility remain subject to media review.",
+    "No content/exemplars directory exists; two adopted project tasks per type serve as comparison material, alongside the project’s documented official format."
+  ]
+}

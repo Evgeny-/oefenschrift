@@ -1,3 +1,4 @@
+import { TASK_LABELS } from './exercise-types';
 // Interface labels for content metadata. Skill ids come from the reviewed
 // catalogue; a question without a skill is grouped under its exercise title.
 const skills: Record<string, [string, string]> = {
@@ -53,42 +54,8 @@ export function skillLabel(skill: string | undefined, lang: 'nl' | 'en'): string
   const label = skill ? skills[skill] : undefined;
   return label ? label[lang === 'nl' ? 0 : 1] : null;
 }
-const types: Record<string, [string, string]> = {
-  message: ['Bericht', 'Message'],
-  notice: ['Mededeling', 'Notice'],
-  email: ['E-mail', 'Email'],
-  advertisement: ['Advertentie', 'Advertisement'],
-  text: ['Tekst', 'Text'],
-  article: ['Artikel', 'Article'],
-  news: ['Nieuwsbericht', 'News item'],
-  information: ['Informatie', 'Information'],
-  audio: ['Luisterfragment', 'Listening clip'],
-  // Blueprint task types (content/blueprint.md section 4).
-  brief: ['Brief', 'Letter'],
-  folder: ['Folder', 'Leaflet'],
-  bericht: ['Bericht', 'Message'],
-  advertentie: ['Advertentie', 'Advertisement'],
-  krant: ['Krantenbericht', 'Newspaper item'],
-  regels: ['Regels', 'Rules'],
-  rooster: ['Rooster', 'Schedule'],
-  gesprek: ['Gesprek', 'Conversation'],
-  voicemail: ['Voicemail', 'Voicemail'],
-  omroep: ['Omroepbericht', 'Announcement'],
-  nieuws: ['Nieuwsbericht', 'News item'],
-  uitleg: ['Uitleg', 'Explanation'],
-  reclame: ['Presentatie', 'Presentation'],
-  artikel: ['Artikel', 'Article'],
-  interview: ['Interview', 'Interview'],
-  studieboek: ['Studieboek', 'Textbook'],
-  website: ['Website', 'Website'],
-  nieuwsbericht: ['Nieuwsbericht', 'News item'],
-  voorwaarden: ['Voorwaarden', 'Terms'],
-  opzoektekst: ['Opzoektekst', 'Look-up text'],
-  leerkaart: ['Leerkaart', 'Study card'],
-  feit: ['Feit', 'Fact'],
-};
 export function typeLabel(type: string | undefined, lang: 'nl' | 'en'): string | null {
-  const label = type ? types[type] : undefined;
+  const label = type && Object.hasOwn(TASK_LABELS, type) ? TASK_LABELS[type] : undefined;
   return label ? label[lang === 'nl' ? 0 : 1] : null;
 }
 // The unit a practice set counts: texts, clips or tasks.

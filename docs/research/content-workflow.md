@@ -34,7 +34,7 @@ The reviewer reads every item in full and applies `content/reviews/rubric.md`. F
 
 For KNM, the reviewer opens each cited official page, confirms that it supports the precise claim, checks current terminology and exceptions that could change the answer, and records the verified URL in the review evidence. Search snippets alone do not count as verification.
 
-The reviewer sends item-specific revision requests to the author. Each request names the field, identifies the failure, and proposes a repair or acceptance condition. The reviewer does not modify the batch.
+The reviewer records item-specific findings and writes repairs to a proposed copy, following `docs/briefs/review.md`. The author's source stays intact until the coordinator adopts the hash-verified proposal. Larger changes can return to the author for another independent review.
 
 ## 6. Revision loop
 
@@ -62,12 +62,22 @@ Triage reports into content error, ambiguity, language level, media, interface, 
 
 ## Current implementation and remaining validation
 
-Run `npm run content:integrate` after review, then `npm run build` and `npm test`. Integration checks exact batch and evidence hashes, verifies source-quote containment and assigns a stable `revision` to each content item. `scripts/generate_listening.py` invokes the same integration gate before producing cached audio. The current app records exercise revisions with reports and question fingerprints with locally saved mistakes.
+Run `npm run content:integrate` after review, then `npm run build` and `npm test`. Integration checks exact batch and evidence hashes, verifies source-quote containment and assigns a stable `revision` to each content item. `scripts/audio.ts` and `scripts/illustrate.ts` invoke the integration gate before generating catalogue media; a file-based run requires an adopted, passing, hash-verified batch. The current app records exercise revisions with reports and question fingerprints with locally saved mistakes.
 
 Batches 001–003 have independent AI editorial reviews. Batch 003 adds the first eight KNM sets and contains no new audio. The ten existing listening clips have technical and browser playback checks; a complete specialist listening review is still pending. No batch has teacher-validated difficulty, learner calibration or an official pass conversion. Keep these limits visible in release notes and do not promote an AI editorial pass into a validated exam claim.
 
 ## Optional sentence starters
 
-`content/hints/sentence-starters.json` supplies three partial Dutch fragments per open task, in criteria order. The author reads the prompt and criteria, writes enough words to suggest a sentence structure, and leaves facts or completions to the learner. A separate reviewer reads every fragment in task context, tests natural completions, and sends grammatical or alignment corrections to the author. Complete sample answers and invented task facts fail review.
+`content/hints/sentence-starters.json` supplies one partial Dutch fragment per criterion, in criteria order. The author reads the prompt and criteria, writes enough words to suggest a sentence structure, and leaves facts or completions to the learner. A separate reviewer reads every fragment in task context, tests natural completions, and sends grammatical or alignment corrections to the author. Complete sample answers and invented task facts fail review.
 
 The passing artifact in `content/hints/review.json` records the exact overlay and catalogue hashes. Integration rejects changed content until the overlay receives a focused review. `npm run build` runs the integration gate before bundling. The interface exposes hints on request without filling the answer field. This editorial review does not validate learning outcomes or CEFR difficulty.
+
+## September 2026 record standardization
+
+All active exercises use `taskType`; `textType` is reserved for B1 communicative categories. The app and authoring validator share the vocabulary and bilingual labels in `app/domain/exercise-types.ts`. Integration invokes `scripts/batch-validation.ts` on each effective reviewed batch, verifies individual passing verdicts, and refuses schema violations even when source hashes match.
+
+Replacement batches preserve exercise IDs and set membership, leaving their older source and review files as history. They list the intentionally superseded IDs in `replaces`. Integration rebuilds each reviewed record and preserves only media whose source is unchanged. Historical evidence overlays cannot overwrite evidence from a rewritten item. `batch:adopt` validates the proposal before replacing the original files.
+
+Saved sessions and completed records carry exercise revisions. The one-time migration record in `content/migrations/2026-09-standardization.json` identifies older saves that lack revisions, so rewritten exercises start fresh while unaffected progress and draft text survive. Every changed script or prompt passes media generation and review again.
+
+`scripts/prepare.ts` checks required media before development, browser tests and production builds. Audio must exist, match the script hash and have a passing transcription round trip. Each illustration must exist and have a passing visual review for its current brief. A transcription round trip checks content fidelity; it does not certify pronunciation, pacing or emphasis. The specialist listening review described above remains a separate requirement.

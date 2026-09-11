@@ -1,4 +1,4 @@
-import { Form, NavLink, Outlet, useLoaderData } from 'react-router';
+import { Form, NavLink, Outlet, useLoaderData, data } from 'react-router';
 import { getStore } from '../../server/store';
 import { adminSession } from '../../server/security';
 import { readPreferences } from '../domain/render-state';
@@ -7,13 +7,16 @@ import { LogoMark } from '../components/Wordmark';
 import { logo } from '../components/logo';
 import { withBase } from '../domain/base';
 export function loader({ request }) {
-  adminSession(request);
-  return {
-    open: getStore()
-      .reports()
-      .filter((report) => report.status === 'open').length,
-    theme: readPreferences(request.headers.get('Cookie') || '').theme,
-  };
+  const session = adminSession(request);
+  return data(
+    {
+      open: getStore()
+        .reports()
+        .filter((report) => report.status === 'open').length,
+      theme: readPreferences(request.headers.get('Cookie') || '').theme,
+    },
+    { headers: session.headers },
+  );
 }
 export function meta() {
   return [{ title: 'Administration | Oefenschrift' }, { name: 'robots', content: 'noindex' }];

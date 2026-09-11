@@ -32,7 +32,7 @@ import {
 const catalogue = JSON.parse(readFileSync('content/catalogue.json', 'utf8')),
   sets = JSON.parse(readFileSync('content/practice-sets.json', 'utf8'));
 function fixture() {
-  const path = mkdtempSync(join(tmpdir(), 'inburgering-test-'));
+  const path = mkdtempSync(join(tmpdir(), 'oefenschrift-test-'));
   return {
     path,
     db: join(path, 'test.sqlite3'),
@@ -161,9 +161,9 @@ test('statistics aggregate counts and latency without response content', () => {
   }
 });
 test('admin sessions come only from a login, and mutations need the matching cookie, CSRF value and exact same origin', () => {
-  process.env.INBURGERING_ADMIN_SECRET = 'synthetic-test-secret';
-  process.env.INBURGERING_ADMIN_USER = 'operator';
-  process.env.INBURGERING_ADMIN_PASSWORD = 'correct horse battery';
+  process.env.OEFENSCHRIFT_ADMIN_SECRET = 'synthetic-test-secret';
+  process.env.OEFENSCHRIFT_ADMIN_USER = 'operator';
+  process.env.OEFENSCHRIFT_ADMIN_PASSWORD = 'correct horse battery';
   try {
     assert.throws(
       () =>
@@ -207,7 +207,7 @@ test('admin sessions come only from a login, and mutations need the matching coo
     assert.throws(
       () =>
         adminSession(
-          new Request(request.url, { headers: { Cookie: 'inburgering_ops=' + legacy } }),
+          new Request(request.url, { headers: { Cookie: 'oefenschrift_ops=' + legacy } }),
         ),
       'tokens without the login prefix are not sessions',
     );
@@ -228,9 +228,9 @@ test('admin sessions come only from a login, and mutations need the matching coo
       visitorHash('0123456789abcdef0123456789abcdee'),
     );
   } finally {
-    delete process.env.INBURGERING_ADMIN_SECRET;
-    delete process.env.INBURGERING_ADMIN_USER;
-    delete process.env.INBURGERING_ADMIN_PASSWORD;
+    delete process.env.OEFENSCHRIFT_ADMIN_SECRET;
+    delete process.env.OEFENSCHRIFT_ADMIN_USER;
+    delete process.env.OEFENSCHRIFT_ADMIN_PASSWORD;
   }
 });
 test('anonymous events are validated against the catalogue and aggregate without learner text', () => {
@@ -457,7 +457,7 @@ test('SSR route state resolves every exercise type without browser globals', asy
   );
   assert.deepEqual(
     readPreferences(
-      'inburgering_preferences=' +
+      'oefenschrift_preferences=' +
         encodeURIComponent(
           JSON.stringify({
             level: 'B1',
@@ -475,7 +475,7 @@ test('SSR route state resolves every exercise type without browser globals', asy
       clock: true,
     },
   );
-  assert.equal(readPreferences('inburgering_preferences=%broken').level, 'A2');
+  assert.equal(readPreferences('oefenschrift_preferences=%broken').level, 'A2');
 });
 test('missing points are inserted before the sign-off of a suggested message', () => {
   assert.equal(

@@ -17,7 +17,7 @@ const parts = ['reading', 'listening', 'writing', 'speaking', 'knm'];
 export default function Home() {
   const [search] = useSearchParams();
   // Keep the local preview link usable even after finishing exercises.
-  const previewSample = import.meta.env.DEV && search.get('sample') === 'yellow';
+  const previewSample = import.meta.env.DEV && search.has('sample');
   const { state, t, name, catalogue, practiceSets, startSet, open } = useStudyContext(),
     lang = state.settings.lang,
     level = state.settings.level;

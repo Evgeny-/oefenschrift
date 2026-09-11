@@ -1,5 +1,5 @@
 import type { Exercise, Session, StudyState } from '../types';
-import { CHECK_PARTS, flatten, validSession } from './study';
+import { CHECK_PARTS, flatten, startSession } from './study';
 // The level check: ten questions across reading and listening at one level — the two
 // language skills that can be scored from an answer key. KNM is knowledge, not a level,
 // and writing and speaking need feedback, so they stay out.
@@ -84,19 +84,7 @@ export function startCheck(
 ): Session | null {
   const draw = drawCheck(catalogue, level, records, random);
   if (!draw) return null;
-  const session: Session = {
-    ids: draw.ids,
-    mode: 'check',
-    level,
-    index: 0,
-    answers: {},
-    checked: {},
-    startedAt: now,
-    endedAt: null,
-    elapsedSeconds: 0,
-    questions: draw.questions,
-  };
-  return validSession(session, catalogue) ? session : null;
+  return startSession(draw.ids, 'check', catalogue, now, draw.questions);
 }
 export function checkInProgress(state: StudyState) {
   const a = state.active;

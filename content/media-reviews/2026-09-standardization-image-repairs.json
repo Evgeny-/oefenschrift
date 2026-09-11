@@ -1,0 +1,47 @@
+{
+  "review_type": "Independent AI visual inspection",
+  "reviewer": "GPT-6 Astra reviewer agent",
+  "reviewedAt": "2026-09-11",
+  "source": "content/batches/052-original.json",
+  "source_sha256": "d631bf08ecae5fa0b247c539611f276a0ffdb68e7bfa4b4bc5310a66cd4f7a4b",
+  "method": "Read the full adopted batch052 and both current catalogue exercises, then opened each repaired image and both companion images individually with view_image at delivery resolution. Compared action, fixed traits, setting, faces, objects and Dutch alt against the source and checklist.",
+  "limitations": "AI inspection only, not human review or CEFR validation. Approvals bind to exact image hashes; regenerated files require fresh inspection.",
+  "summary": {
+    "total": 3,
+    "pass": 2,
+    "redo": 1
+  },
+  "ready_for_all_media_approval": false,
+  "entries": [
+    {
+      "key": "A2:speaking:batch002-burenpakket:1#image0",
+      "file": "images/a438d8f5a8f63da6.webp",
+      "sha256": "323da3eed98005835b9eb17a03dad066727479ddfe2d42a969d72034d5054cba",
+      "prompt_sha256": "665a1ed4c9925276f00cdef33b3204679f92306e7894021671945044d9e3fcf2",
+      "verdict": "pass",
+      "reason": "The mustard door with narrow vertical glazing now matches the companion panel. Viewed from inside, Karim receives the plain parcel from the worker outside. His black hair, beard and grey jacket remain consistent; hands and faces are readable, with no text or logos.",
+      "alt_verdict": "pass",
+      "alt": "Karim bij zijn voordeur op het eerste plaatje."
+    },
+    {
+      "key": "A2:speaking:batch002-burenpakket:1#image2",
+      "file": "images/c29ec7f1f5c71efa.webp",
+      "sha256": "cf9c2b3db0846aa4c847f267aa928ff15bdd8314bf10c766b0a7b24a216bff24",
+      "prompt_sha256": "efcc007e828534a5ab2b100487e9cd95303690ee0d5e56d15f07a07973a4ef11",
+      "verdict": "redo",
+      "reason": "Door colour, glazing and inside/outside composition are repaired: Karim is inside and Sabrina receives the parcel outside. Sabrina has no visible eyes at display resolution, although her nose and smile are drawn. Redraw this panel with simple visible eyes, preserving the corrected composition, long dark hair, green jumper, Karim traits and yellow glazed door. No other necessary repair found.",
+      "alt_verdict": "pass",
+      "alt": "Karim met Sabrina op het derde plaatje."
+    },
+    {
+      "key": "A2:speaking:batch003-tramkaart:1#image1",
+      "file": "images/d9c1f11dbb1f94e1.webp",
+      "sha256": "b4cacb70e79ea6366bc00fbbeb2752908b1958b0094bb5c3889af006a952cae5",
+      "prompt_sha256": "d2a2fd9f9bcd4cc5c30bd16cf776029fe1d4ee732175b63c2b6e87d532d110e2",
+      "verdict": "pass",
+      "reason": "The employee now has a visible eye, nose and smile. The cream tram has dusty-blue bands and yellow doors matching the machine panel. Roos retains her bun and yellow scarf on the left; the ticket handover across the counter is clear. No readable text, logos or task-relevant artefacts found.",
+      "alt_verdict": "pass",
+      "alt": "Roos bij een medewerker aan een balie."
+    }
+  ]
+}

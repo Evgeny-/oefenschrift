@@ -80,6 +80,10 @@ const bank = JSON.parse(await fs.readFile('content/catalogue.json', 'utf8'));
 const sets = JSON.parse(await fs.readFile('content/practice-sets.json', 'utf8'));
 const listening = sets.find((s) => s.level === 'A2' && s.part === 'listening'),
   writing = sets.find((s) => s.level === 'A2' && s.part === 'writing');
+const listeningQuestions = listening.ids.flatMap((id) => {
+  const item = bank.find((item) => item.id === id);
+  return item.questions.map((question) => ({ item, question }));
+});
 async function navigate(path) {
   await send('browsingContext.navigate', { context, url: origin + path, wait: 'complete' });
   await evaluate('new Promise(r=>setTimeout(r,350))');
@@ -93,13 +97,33 @@ async function answer(text) {
   await evaluate('new Promise(r=>setTimeout(r,200))');
 }
 async function mockFeedback(fail = false) {
-  await evaluate(
-    `window.realFetch=window.realFetch||window.fetch;window.feedbackCalls=window.feedbackCalls||0;window.fetch=(url,options)=>{if(url!=='/api/feedback')return window.realFetch(url,options);window.feedbackCalls++;${fail ? "return Promise.resolve(new Response('{}',{status:503}));" : `const data=JSON.parse(options.body);return Promise.resolve(new Response(JSON.stringify({criteria:[{index:0,met:true,uncertain:false,evidence:'Ik kan morgen niet komen.',feedback:'Duidelijk.'},{index:1,met:false,uncertain:false,evidence:'',feedback:'Er ontbreekt een reden.'},{index:2,met:true,uncertain:false,evidence:'Kan ik vrijdag komen?',feedback:'Duidelijk.'}],comment:'Twee punten zijn duidelijk.',next_step:'Voeg een reden toe.',corrected_text:'Ik kan morgen niet komen, omdat [reden]. Kan ik vrijdag komen?',translations:{nl:{comment:'Twee punten zijn duidelijk.',next_step:'Voeg een reden toe.',criteria_feedback:['Duidelijk.','Er ontbreekt een reden.','Duidelijk.']},en:{comment:'Two points are clear.',next_step:'Add a reason.',criteria_feedback:['Clear.','A reason is missing.','Clear.']}}}),{headers:{'Content-Type':'application/json'}}));`}};true;`,
+  const counts = Object.fromEntries(
+    bank.filter((item) => item.criteria).map((item) => [item.id, item.criteria.length]),
   );
+  await evaluate(`
+    window.realFetch=window.realFetch||window.fetch;
+    window.feedbackCalls=window.feedbackCalls||0;
+    window.fetch=(url,options)=>{
+      if(url!=='/api/feedback')return window.realFetch(url,options);
+      window.feedbackCalls++;
+      if(${fail})return Promise.resolve(new Response('{}',{status:503}));
+      const data=JSON.parse(options.body), count=${JSON.stringify(counts)}[data.id];
+      const criteria=Array.from({length:count},(_,index)=>({index,met:index!==1,uncertain:false,
+        evidence:index===1?'':index===0?'Ik kan morgen niet komen.':'Kan ik vrijdag komen?',
+        feedback:index===1?'Er ontbreekt een reden.':'Duidelijk.'}));
+      const result={criteria,comment:'Het antwoord is nagekeken.',next_step:'Voeg een reden toe.',
+        corrected_text:'Ik kan morgen niet komen, omdat [reden]. Kan ik vrijdag komen?',
+        translations:{nl:{comment:'Het antwoord is nagekeken.',next_step:'Voeg een reden toe.',
+          criteria_feedback:criteria.map(c=>c.feedback)},
+          en:{comment:'Your answer has been reviewed.',next_step:'Add a reason.',
+          criteria_feedback:criteria.map((_,i)=>i===1?'A reason is missing.':'Clear.')}}};
+      return Promise.resolve(new Response(JSON.stringify(result),{headers:{'Content-Type':'application/json'}}));
+    };true;
+  `);
 }
 try {
   await evaluate(
-    `localStorage.setItem('inburgering.study.v2',JSON.stringify({version:2,settings:{lang:'en',level:'A2',theme:'light',clock:false},records:{},drafts:{},reviews:{},active:null}));document.cookie='inburgering_preferences='+encodeURIComponent(JSON.stringify({lang:'en',level:'A2',theme:'light',clock:false}))+'; Path=/';true;`,
+    `localStorage.setItem('oefenschrift.study.v2',JSON.stringify({version:2,settings:{lang:'en',level:'A2',theme:'light',clock:false},records:{},drafts:{},reviews:{},active:null}));document.cookie='oefenschrift_preferences='+encodeURIComponent(JSON.stringify({lang:'en',level:'A2',theme:'light',clock:false}))+'; Path=/';true;`,
   );
   await navigate('/listening');
   await evaluate('document.fonts.ready.then(()=>true)');
@@ -118,27 +142,26 @@ try {
   await shot('listening-catalogue');
   await click(`[data-set="${listening.id}"]`);
   await check(
-    `location.pathname==='/en/sets/${listening.id}'&&JSON.parse(localStorage.getItem('inburgering.study.v2')).active.ids.length===${listening.ids.length}`,
+    `location.pathname==='/en/sets/${listening.id}'&&JSON.parse(localStorage.getItem('oefenschrift.study.v2')).active.ids.length===${listening.ids.length}`,
     'Opening a set starts all its exercises under a shareable URL',
   );
   await check(
     `!document.body.innerText.includes('Synthetic sample voice')&&!document.querySelector('.audio-caption')`,
     'Listening player has no synthetic-voice caption',
   );
-  const firstTitle = await evaluate(`document.querySelector('h1').textContent`);
   await shot('listening-options');
   await click('.answer-option:has(input[value="A"])');
   await shot('listening-selected');
   await click('.question .primary');
   await click('.question .primary');
   await check(
-    `document.querySelector('h1').textContent!==${JSON.stringify(firstTitle)}&&document.querySelector('.question')&&location.pathname==='/en/sets/${listening.id}'`,
-    'Next leads straight to the next listening exercise, without an intermediate result',
+    `document.querySelector('h1').textContent===${JSON.stringify(listeningQuestions[1].item.title)}&&document.querySelector('.question')&&location.pathname==='/en/sets/${listening.id}'`,
+    'Next leads straight to the next listening question, without an intermediate result',
   );
   await send('browsingContext.reload', { context, wait: 'complete' });
   await evaluate('new Promise(r=>setTimeout(r,350))');
   await check(
-    `JSON.parse(localStorage.getItem('inburgering.study.v2')).active.index===1`,
+    `JSON.parse(localStorage.getItem('oefenschrift.study.v2')).active.index===1`,
     'Reload resumes the current question in a set',
   );
   await click('[data-page="writing"]');
@@ -167,29 +190,29 @@ try {
   );
   const calls = await evaluate('window.feedbackCalls');
   await check(
-    `document.querySelector('.feedback-summary').textContent==='Two points are clear.'&&document.querySelector('#language-control [aria-label="Nederlands"]').getAttribute('href')==='/sets/${writing.id}'`,
+    `document.querySelector('.feedback-summary').textContent==='Your answer has been reviewed.'&&document.querySelector('#language-control [aria-label="Nederlands"]').getAttribute('href')==='/sets/${writing.id}'`,
     'The English page shows the English explanation and links to its Dutch twin',
   );
   await click('#language-control [aria-label="Nederlands"]');
   await wait(`location.pathname==='/sets/${writing.id}'`);
   await check(
-    `window.feedbackCalls===${calls}&&document.querySelector('.feedback-summary').textContent==='Twee punten zijn duidelijk.'&&document.documentElement.lang==='nl'`,
+    `window.feedbackCalls===${calls}&&document.querySelector('.feedback-summary').textContent==='Het antwoord is nagekeken.'&&document.documentElement.lang==='nl'`,
     'Flags move to the Dutch address and translate the same assessment without another model call',
   );
   await shot('suggested-answer');
   await click('[data-action="finish-review"]');
   await check(
-    `JSON.parse(localStorage.getItem('inburgering.study.v2')).active.index===1&&document.querySelector('#open-answer')&&location.pathname==='/sets/${writing.id}'`,
+    `JSON.parse(localStorage.getItem('oefenschrift.study.v2')).active.index===1&&document.querySelector('#open-answer')&&location.pathname==='/sets/${writing.id}'`,
     'Review completion advances directly to the next writing exercise',
   );
   await click('[data-page="listening"]');
   await check(
-    `document.querySelector('[data-set="${listening.id}"] .ring-label').textContent==='1/6'&&!document.querySelector('[data-set="${listening.id}"] .ring-done')&&document.querySelector('[data-set="${listening.id}"] .exercise-status').textContent===''`,
+    `document.querySelector('[data-set="${listening.id}"] .ring-label').textContent==='1/${listeningQuestions.length}'&&!document.querySelector('[data-set="${listening.id}"] .ring-done')&&document.querySelector('[data-set="${listening.id}"] .exercise-status').textContent===''`,
     'An unfinished set shows its progress in the ring alone after switching subjects',
   );
   await click(`[data-set="${listening.id}"]`);
   await check(
-    `JSON.parse(localStorage.getItem('inburgering.study.v2')).active.index===1`,
+    `JSON.parse(localStorage.getItem('oefenschrift.study.v2')).active.index===1`,
     'Returning restores the listening set independently of the writing set',
   );
   for (let n = 0; n < 20 && (await evaluate(`!!document.querySelector('.question')`)); n++) {
@@ -204,7 +227,7 @@ try {
     'A single result appears after the complete set, with Next set as the primary action',
   );
   await check(
-    `JSON.parse(localStorage.getItem('inburgering.study.v2')).active.ids.every(id=>JSON.parse(localStorage.getItem('inburgering.study.v2')).records[id]?.completed)`,
+    `JSON.parse(localStorage.getItem('oefenschrift.study.v2')).active.ids.every(id=>JSON.parse(localStorage.getItem('oefenschrift.study.v2')).records[id]?.completed)`,
     'Closed-set completion records every exercise',
   );
   await shot('set-results');
@@ -216,7 +239,7 @@ try {
   await click('[data-page="writing"]');
   await click(`[data-set="${writing.id}"]`);
   await check(
-    `JSON.parse(localStorage.getItem('inburgering.study.v2')).active.index===1`,
+    `JSON.parse(localStorage.getItem('oefenschrift.study.v2')).active.index===1`,
     'Writing set retains its own progress while another set is completed',
   );
   await mockFeedback();
@@ -242,9 +265,11 @@ try {
     'A completed open set shows a full ink ring and no status words',
   );
   await navigate('/exercise/A2%3Alistening%3Atandarts%3A1');
-  await click('.answer-option:has(input[value="A"])');
-  await click('.question .primary');
-  await click('.question .primary');
+  for (const question of bank.find((item) => item.id === 'A2:listening:tandarts:1').questions) {
+    await click(`.answer-option:has(input[value="${question.answer}"])`);
+    await click('.question .primary');
+    await click('.question .primary');
+  }
   await check(
     `document.querySelector('[data-action="continue-practice"]').textContent==='Volgende oefening'`,
     'Individual links still work and offer the next exercise',

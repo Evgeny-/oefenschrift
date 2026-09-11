@@ -1,3 +1,4 @@
+import { setting as environmentSetting } from '../../environment';
 import { spawn, type ChildProcess } from 'node:child_process';
 import { createServer, connect } from 'node:net';
 import { mkdir, mkdtemp, open } from 'node:fs/promises';
@@ -41,7 +42,7 @@ const port = await freePort(),
   bidiPort = await freePort();
 const origin = `http://127.0.0.1:${port}`,
   // A production run can sit under a base path, as on the shared host.
-  base = (process.env.INBURGERING_BASE_PATH || '').replace(/\/+$/, '');
+  base = (environmentSetting('BASE_PATH') || '').replace(/\/+$/, '');
 const production = process.argv.includes('--production');
 const environment = {
   ...process.env,
@@ -49,14 +50,14 @@ const environment = {
   TEST_ORIGIN: origin,
   NODE_ENV: production ? 'production' : 'development',
   FIREFOX_BIDI_PORT: String(bidiPort),
-  INBURGERING_DB: resolve(directory, 'test.sqlite3'),
+  OEFENSCHRIFT_DB: resolve(directory, 'test.sqlite3'),
   // Inside node_modules so Vite may serve it (tmp/ is on the deny list), apart from the
   // node_modules/.vite that a running development server uses.
-  INBURGERING_VITE_CACHE: resolve('node_modules/.vite-browser-test'),
-  INBURGERING_ADMIN_SECRET: randomBytes(32).toString('hex'),
-  INBURGERING_ADMIN_USER: 'browser-test',
-  INBURGERING_ADMIN_PASSWORD: 'browser-test-password',
-  INBURGERING_OFFLINE: '1',
+  OEFENSCHRIFT_VITE_CACHE: resolve('node_modules/.vite-browser-test'),
+  OEFENSCHRIFT_ADMIN_SECRET: randomBytes(32).toString('hex'),
+  OEFENSCHRIFT_ADMIN_USER: 'browser-test',
+  OEFENSCHRIFT_ADMIN_PASSWORD: 'browser-test-password',
+  OEFENSCHRIFT_OFFLINE: '1',
   OPENAI_API_KEY: 'browser-test-no-provider',
   ELEVENLABS_API_KEY: 'browser-test-no-provider',
 };
@@ -113,7 +114,9 @@ try {
       }),
     'Firefox',
   );
-  for (const test of production ? ['production'] : ['infrastructure', 'refinement']) {
+  for (const test of production
+    ? ['production']
+    : ['migration', 'standardization', 'infrastructure', 'refinement', 'home-sample']) {
     console.log(`\nFirefox: ${test}`);
     const child = spawn(process.execPath, [`tests/browser/${test}.mjs`], {
       env: environment,

@@ -48,7 +48,7 @@ const withEnvironment = (values: Record<string, string | undefined>, run: () => 
 const request = (url: string, headers = {}, method = 'GET') =>
   new Request(url, { method, headers });
 test('a configured public origin is accepted next to loopback, and inbound links keep working', () => {
-  withEnvironment({ INBURGERING_ORIGIN: 'https://oefenschrift.example/' }, () => {
+  withEnvironment({ OEFENSCHRIFT_ORIGIN: 'https://oefenschrift.example/' }, () => {
     assert.equal(publicOrigin(), 'https://oefenschrift.example');
     assert.doesNotThrow(() => assertOrigin(request('https://oefenschrift.example/a2/reading')));
     assert.doesNotThrow(() => assertOrigin(request('http://127.0.0.1:8766/a2/reading')));
@@ -75,13 +75,13 @@ test('a configured public origin is accepted next to loopback, and inbound links
     );
     assert.match(loginSession().headers['Set-Cookie'], /; Secure$/);
   });
-  withEnvironment({ INBURGERING_ORIGIN: undefined }, () => {
+  withEnvironment({ OEFENSCHRIFT_ORIGIN: undefined }, () => {
     assert.equal(publicOrigin(), null);
     assert.throws(() => assertOrigin(request('https://oefenschrift.example/')));
     assert.doesNotThrow(() => assertOrigin(request('http://localhost:8766/')));
     assert.doesNotMatch(loginSession().headers['Set-Cookie'], /Secure/);
   });
-  withEnvironment({ INBURGERING_ORIGIN: 'https://oefenschrift.example/practice' }, () => {
+  withEnvironment({ OEFENSCHRIFT_ORIGIN: 'https://oefenschrift.example/practice' }, () => {
     assert.throws(() => publicOrigin(), /bare origin/);
   });
   // A click from a search result or a chat message is a cross-site navigation; a cross-site
@@ -160,8 +160,8 @@ test('a service is offered only with a key, the switch on, the breaker closed an
       {
         OPENAI_API_KEY: 'test-placeholder',
         ELEVENLABS_API_KEY: undefined,
-        INBURGERING_FEEDBACK_DAILY_CAP: undefined,
-        INBURGERING_CREDENTIALS_FILE: '/nonexistent',
+        OEFENSCHRIFT_FEEDBACK_DAILY_CAP: undefined,
+        OEFENSCHRIFT_CREDENTIALS_FILE: '/nonexistent',
       },
       () => {
         const now = Date.UTC(2026, 8, 10, 12);
@@ -224,7 +224,7 @@ test('a service is offered only with a key, the switch on, the breaker closed an
       },
     );
     withEnvironment(
-      { OPENAI_API_KEY: 'test-placeholder', INBURGERING_FEEDBACK_DAILY_CAP: '25' },
+      { OPENAI_API_KEY: 'test-placeholder', OEFENSCHRIFT_FEEDBACK_DAILY_CAP: '25' },
       () => {
         store.setSetting('feedback_daily_cap', null);
         assert.equal(serviceState('feedback', Date.now(), store).cap, 25);

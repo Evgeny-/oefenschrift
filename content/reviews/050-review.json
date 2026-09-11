@@ -1,0 +1,676 @@
+{
+  "review_id": "050-review",
+  "source": "content/batches/050-original.json",
+  "source_sha256": "1cedea8a3bbadc2160a9ac44a54ce76fb2df5bfa115ee7859dc5ed66cd762143",
+  "review_type": "independent-ai-editorial-full-replacement-review",
+  "reviewer": "GPT-6 Astra, separate reviewer context; user-authorized model substitution; no Smithers",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:knm:batch007-godsdienstvrijheid:1",
+    "A2:knm:batch007-donorregister:1",
+    "A2:knm:batch019-uitzendbureau:1",
+    "A2:knm:batch019-scholing:1",
+    "A2:knm:batch019-zorgtoeslag:1",
+    "A2:knm:batch019-geboorteaangifte:1",
+    "A2:knm:batch019-belastingteruggave:1",
+    "A2:knm:batch019-kiesrecht:1",
+    "A2:knm:batch019-kwalificatieplicht:1"
+  ],
+  "edits": [
+    {
+      "id": "A2:knm:batch007-godsdienstvrijheid:1",
+      "field": "sourceUrl",
+      "new_value": "https://repository.overheid.nl/frbr/officielepublicaties/stcrt/2024/stcrt-2024-15802/1/xml/stcrt-2024-15802.xml",
+      "reason": "Official eindterm and Constitution support precedence of law; replaced inaccessible citation with retrieved official XML."
+    },
+    {
+      "id": "A2:knm:batch007-godsdienstvrijheid:1",
+      "field": "sourceNote",
+      "new_value": "Independently fetched the official Staatscourant XML on 2026-09-11; eindterm 7.2.3 covers freedom of belief and precedence of state law over religious rules. Also opened Rijksoverheid Grondwet 2023 landing page and its complete PDF, article 6: freedom of religion carries responsibility under law. Original wetten.overheid.nl URL could not be fetched; the official publication XML was retrieved directly. Stable constitutional principle; recheck yearly.",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch007-godsdienstvrijheid:1",
+      "field": "sourceReviewedAt",
+      "new_value": "2026-09-11",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch007-donorregister:1",
+      "field": "text",
+      "new_value": "Bij automatische registratie staat 'geen bezwaar tegen orgaandonatie' in het Donorregister. U kunt deze registratie veranderen.",
+      "reason": "Automatic registration label is tested without treating actual donation or relatives’ decisions as unconditional."
+    },
+    {
+      "id": "A2:knm:batch007-donorregister:1",
+      "field": "questions",
+      "new_value": [
+        {
+          "id": "q1",
+          "skill": "rule-application",
+          "prompt": "Mevrouw Bakker staat zonder eigen keuze in het Donorregister. Welke tekst staat bij haar naam?",
+          "options": {
+            "A": "Ik wil geen donor worden.",
+            "B": "Mijn partner of familie beslist.",
+            "C": "Geen bezwaar tegen orgaandonatie."
+          },
+          "answer": "C",
+          "evidence": "Bij automatische registratie staat 'geen bezwaar tegen orgaandonatie' in het Donorregister.",
+          "explanation": "Zonder eigen keuze wordt zij geregistreerd met 'geen bezwaar'. De andere twee teksten zijn keuzes die iemand zelf kan invullen. Een arts bespreekt donatie met de familie. Die kan in bepaalde situaties bezwaar maken. Mevrouw Bakker kan haar registratie veranderen."
+        }
+      ],
+      "reason": "Automatic registration label is tested without treating actual donation or relatives’ decisions as unconditional."
+    },
+    {
+      "id": "A2:knm:batch007-donorregister:1",
+      "field": "sourceNote",
+      "new_value": "Full Rijksoverheid page read 2026-09-11: registration covers municipal residents aged 18+, with newcomers invited after three years; no response produces geen bezwaar, and changing a choice remains possible. Full companion https://www.rijksoverheid.nl/vraag-en-antwoord/orgaandonatie-en-weefseldonatie/rol-nabestaande-bij-orgaandonatie-en-weefseldonatie read: relatives may decide for unregistered people and object with evidence of wishes or serious reasons. Full Donorregister pages https://www.donorregister.nl/uw-keuze-maken/welke-keuzes-heeft-u and https://www.donorregister.nl/uw-keuze-maken/wat-gebeurt-er-als-u-geen-keuze-invult confirm automatic versus personally chosen labels. Last page fetched directly after web timeout. Question explicitly concerns an existing registration, not donation eligibility or a newcomer waiting for registration. Recheck yearly.",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch007-donorregister:1",
+      "field": "sourceReviewedAt",
+      "new_value": "2026-09-11",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch019-uitzendbureau:1",
+      "field": "text",
+      "new_value": "Inschrijven bij een uitzendbureau kost niets. Het uitzendbureau mag u geen geld vragen voor het uitzenden. Uw contract is met het uitzendbureau.",
+      "reason": "Free registration follows the placement-fee prohibition; split the card into shorter sentences."
+    },
+    {
+      "id": "A2:knm:batch019-uitzendbureau:1",
+      "field": "questions",
+      "new_value": [
+        {
+          "id": "q1",
+          "skill": "rule-application",
+          "prompt": "Fatima wil zich inschrijven bij een uitzendbureau. Moet zij daarvoor betalen?",
+          "options": {
+            "A": "Ja, een vast bedrag per maand.",
+            "B": "Nee, inschrijven bij het bureau is gratis.",
+            "C": "Alleen als zij via het bureau werk vindt."
+          },
+          "answer": "B",
+          "evidence": "Het uitzendbureau mag u geen geld vragen voor het uitzenden.",
+          "explanation": "Een uitzendbureau mag u geen geld of een andere tegenprestatie vragen voor het uitzenden. Inschrijven is dus gratis, ook als u daarna via het bureau werk vindt. Het bureau stuurt u naar werk bij een ander bedrijf; uw contract is met het uitzendbureau."
+        }
+      ],
+      "reason": "Free registration follows the placement-fee prohibition; split the card into shorter sentences."
+    },
+    {
+      "id": "A2:knm:batch019-uitzendbureau:1",
+      "field": "sourceNote",
+      "new_value": "Full Rijksoverheid page independently read 2026-09-11: the employment agency is the contractual employer and cannot demand money or other compensation for placing a worker. Both a monthly charge and a successful-placement charge conflict with this rule. This item concerns registration/placement fees, not separate lawful deductions for other services. Recheck yearly.",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch019-uitzendbureau:1",
+      "field": "sourceReviewedAt",
+      "new_value": "2026-09-11",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch019-scholing:1",
+      "field": "text",
+      "new_value": "Julio moet leren werken met het nieuwe computersysteem van zijn werkgever. Zijn werkgever betaalt deze verplichte cursus.",
+      "reason": "Card now covers the explicit mandatory computer-system example; removed broad training and UWV claims."
+    },
+    {
+      "id": "A2:knm:batch019-scholing:1",
+      "field": "questions",
+      "new_value": [
+        {
+          "id": "q1",
+          "skill": "rule-application",
+          "prompt": "Het bedrijf van Julio krijgt een nieuw computersysteem. Julio moet daarvoor een cursus volgen. Wie betaalt die cursus?",
+          "options": {
+            "A": "Julio moet de cursus zelf betalen.",
+            "B": "Het UWV betaalt de cursus voor hem.",
+            "C": "Zijn werkgever betaalt de cursus."
+          },
+          "answer": "C",
+          "evidence": "Zijn werkgever betaalt deze verplichte cursus.",
+          "explanation": "De werkgever voert het nieuwe systeem in. Hij moet Julio de cursus gratis aanbieden. De kosten zijn dus voor zijn werkgever. Julio hoeft deze cursus niet zelf te betalen of bij het UWV aan te vragen."
+        }
+      ],
+      "reason": "Card now covers the explicit mandatory computer-system example; removed broad training and UWV claims."
+    },
+    {
+      "id": "A2:knm:batch019-scholing:1",
+      "field": "sourceNote",
+      "new_value": "Full Rijksoverheid landing page and linked three-page SZW FAQ PDF independently opened 2026-09-11: https://open.overheid.nl/repository/ronl-ca958cf89d600038ed4b243754af202a74e183dc/1/pdf/FAQ%20Transparante%20arbeidsvoorwaarden.pdf . Section 2 expressly includes employer-introduced computer-system training among training the employer must provide free. Qualifications legally required before beginning a profession are not automatically covered; card now uses only the explicit computer-system case. Removed unverified general claim that UWV serves only benefit recipients. Source is the still-published 2022 ministry guidance, checked current; recheck yearly.",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch019-scholing:1",
+      "field": "sourceReviewedAt",
+      "new_value": "2026-09-11",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch019-zorgtoeslag:1",
+      "field": "questions",
+      "new_value": [
+        {
+          "id": "q1",
+          "skill": "rule-application",
+          "prompt": "Sabrina wil zorgtoeslag aanvragen via Mijn toeslagen. Wat heeft zij nodig om in te loggen?",
+          "options": {
+            "A": "Haar DigiD.",
+            "B": "Haar zorgpas.",
+            "C": "Haar bankpas."
+          },
+          "answer": "A",
+          "evidence": "Daarvoor heeft u DigiD nodig",
+          "explanation": "Sabrina logt in op Mijn toeslagen met haar DigiD. Haar zorgpas en bankpas zijn daarvoor geen inlogmiddel. Voor hulp kan zij naar een toeslagenservicepunt of een bibliotheek die deze hulp biedt."
+        }
+      ],
+      "reason": "DigiD is the specific login; library help wording is conditional on local provision."
+    },
+    {
+      "id": "A2:knm:batch019-zorgtoeslag:1",
+      "field": "sourceNote",
+      "new_value": "Full Rijksoverheid page independently read 2026-09-11, including the transcript and help sections: Mijn toeslagen uses DigiD; zorgtoeslag contributes to Dutch health-insurance costs; assistance is available via service points and participating libraries. No income, asset, nationality or residency eligibility inference is tested. Removed speculative 2027/2029 system forecasts. Recheck yearly.",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch019-zorgtoeslag:1",
+      "field": "sourceReviewedAt",
+      "new_value": "2026-09-11",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch019-geboorteaangifte:1",
+      "field": "questions",
+      "new_value": [
+        {
+          "id": "q1",
+          "skill": "rule-application",
+          "prompt": "Karim krijgt een dochter in Nederland. Bij welke organisatie doet hij aangifte van haar geboorte?",
+          "options": {
+            "A": "Bij de gemeente.",
+            "B": "Bij het ziekenhuis.",
+            "C": "Bij de SVB."
+          },
+          "answer": "A",
+          "evidence": "aangeven bij de gemeente waar het kind is geboren",
+          "explanation": "Karim doet aangifte bij de gemeente waar zijn dochter is geboren. Daar wordt de geboorteakte gemaakt. Een verklaring van het ziekenhuis is geen geboorteakte. De SVB neemt de geboorteaangifte niet op."
+        }
+      ],
+      "reason": "Domestic birth and competent authority made explicit; removed unqualified deadline and broad SVB claim."
+    },
+    {
+      "id": "A2:knm:batch019-geboorteaangifte:1",
+      "field": "sourceNote",
+      "new_value": "Full Rijksoverheid page independently read 2026-09-11: declaration is made in the birth municipality, which creates the birth certificate. Hospital birth declarations are supporting documents; hospital staff can sometimes declare a birth to the municipality. The normal three-day period has weekend/holiday extensions ensuring at least two working days, so the shortened explanation omits a deadline. The scenario expressly concerns a birth in the Netherlands. SVB is not the civil registrar. Recheck yearly.",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch019-geboorteaangifte:1",
+      "field": "sourceReviewedAt",
+      "new_value": "2026-09-11",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch019-belastingteruggave:1",
+      "field": "text",
+      "new_value": "Na een vakantiebaan kunt u te veel betaalde belasting terugvragen via de aangifte inkomstenbelasting. Hoeveel u terugkrijgt, hangt af van uw situatie.",
+      "reason": "Tax-return route retained without exclusive refund mechanism or guaranteed refund claim."
+    },
+    {
+      "id": "A2:knm:batch019-belastingteruggave:1",
+      "field": "questions",
+      "new_value": [
+        {
+          "id": "q1",
+          "skill": "rule-application",
+          "prompt": "Via welk formulier kan Sem na zijn vakantiebaan te veel betaalde belasting terugvragen?",
+          "options": {
+            "A": "Via een aanvraag voor zorgtoeslag.",
+            "B": "Via een aanvraag voor kinderbijslag.",
+            "C": "Via de aangifte inkomstenbelasting."
+          },
+          "answer": "C",
+          "evidence": "te veel betaalde belasting terugvragen via de aangifte inkomstenbelasting",
+          "explanation": "Sem kan na afloop van het jaar aangifte inkomstenbelasting doen. Daarmee kan hij te veel betaalde belasting terugvragen. Zorgtoeslag en kinderbijslag zijn andere regelingen. Het bedrag dat hij terugkrijgt, hangt af van zijn situatie."
+        }
+      ],
+      "reason": "Tax-return route retained without exclusive refund mechanism or guaranteed refund claim."
+    },
+    {
+      "id": "A2:knm:batch019-belastingteruggave:1",
+      "field": "sourceNote",
+      "new_value": "Full Belastingdienst jongeren page independently read 2026-09-11: sections for school pupils working and part-year full-time employees support claiming excess withholding after year-end through an income-tax return. Page explicitly says refund amount depends on circumstances. Removed exclusive only-if claim, promise of all withholding back and claim that employers cannot refund corrections. No refund threshold or assessment amount is asserted. Benefit application distractors are not tax returns. Recheck yearly.",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch019-belastingteruggave:1",
+      "field": "sourceReviewedAt",
+      "new_value": "2026-09-11",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch019-kiesrecht:1",
+      "field": "text",
+      "new_value": "Ook inwoners zonder EU-nationaliteit kunnen onder voorwaarden stemmen voor de gemeenteraad. Zij moeten onder meer vijf jaar legaal en zonder onderbreking in Nederland wonen.",
+      "reason": "Conditional municipal eligibility replaces an insufficient six-year residence premise."
+    },
+    {
+      "id": "A2:knm:batch019-kiesrecht:1",
+      "field": "questions",
+      "new_value": [
+        {
+          "id": "q1",
+          "skill": "rule-application",
+          "prompt": "Hasan is geen EU-burger. Voor welke verkiezing kan hij onder voorwaarden stemmen?",
+          "options": {
+            "A": "Voor de Tweede Kamer.",
+            "B": "Voor de gemeenteraad.",
+            "C": "Voor het Europees Parlement."
+          },
+          "answer": "B",
+          "evidence": "inwoners zonder EU-nationaliteit kunnen onder voorwaarden stemmen voor de gemeenteraad",
+          "explanation": "Hasan kan voor de gemeenteraad stemmen als hij aan de voorwaarden voldoet. Daarvoor gelden onder meer regels over zijn leeftijd en verblijf. Voor de Tweede Kamer heeft hij de Nederlandse nationaliteit nodig. Voor het Europees Parlement moet hij burger van een EU-land zijn."
+        }
+      ],
+      "reason": "Conditional municipal eligibility replaces an insufficient six-year residence premise."
+    },
+    {
+      "id": "A2:knm:batch019-kiesrecht:1",
+      "field": "sourceUrl",
+      "new_value": "https://www.kiesraad.nl/verkiezingen/gemeenteraden/stemmen/niet-nederlandse-inwoners",
+      "reason": "Conditional municipal eligibility replaces an insufficient six-year residence premise."
+    },
+    {
+      "id": "A2:knm:batch019-kiesrecht:1",
+      "field": "sourceNote",
+      "new_value": "Full Kiesraad page independently read 2026-09-11: non-EU electors need age 18+, no disenfranchisement, five continuous legal years by nomination day and a qualifying residence title (Vreemdelingenwet art.8 a,b,c,d,e,l or relevant BES document). Temporary protection alone does not qualify; diplomatic/consular staff and resident non-Dutch family are excluded. Full Rijksoverheid municipal-voting page also checked: municipal address registration and dated 2026 cutoffs. Repaired question asks conditional possibility, not guaranteed eligibility from six years alone. Full https://www.kiesraad.nl/verkiezingen/tweede-kamer/stemmen and https://www.kiesraad.nl/verkiezingen/europees-parlement/stemmen read: Dutch nationality and EU nationality respectively required. Recheck at each election.",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch019-kiesrecht:1",
+      "field": "sourceReviewedAt",
+      "new_value": "2026-09-11",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch019-kwalificatieplicht:1",
+      "field": "text",
+      "new_value": "Een vmbo-diploma is geen startkwalificatie. Zonder vrijstelling moet u verder leren tot uw achttiende. Met een startkwalificatie, bijvoorbeeld mbo niveau twee, mag u eerder stoppen.",
+      "reason": "Continued education key allows earlier qualification; exemption and BBL exceptions handled."
+    },
+    {
+      "id": "A2:knm:batch019-kwalificatieplicht:1",
+      "field": "questions",
+      "new_value": [
+        {
+          "id": "q1",
+          "skill": "rule-application",
+          "prompt": "Sem is 17 en heeft alleen een vmbo-diploma. Wat geldt voor hem zonder vrijstelling?",
+          "options": {
+            "A": "Hij mag met zijn diploma van school.",
+            "B": "Hij moet voorlopig een opleiding blijven volgen.",
+            "C": "Hij mag met een arbeidscontract van school."
+          },
+          "answer": "B",
+          "evidence": "Zonder vrijstelling moet u verder leren tot uw achttiende. Met een startkwalificatie, bijvoorbeeld mbo niveau twee, mag u eerder stoppen.",
+          "explanation": "Met alleen een vmbo-diploma heeft Sem nog geen startkwalificatie. Zonder vrijstelling moet hij verder leren tot zijn achttiende of tot hij eerder een startkwalificatie haalt. Een arbeidscontract beëindigt deze plicht niet. In een bbl-opleiding kan hij werken en leren combineren."
+        }
+      ],
+      "reason": "Continued education key allows earlier qualification; exemption and BBL exceptions handled."
+    },
+    {
+      "id": "A2:knm:batch019-kwalificatieplicht:1",
+      "field": "sourceNote",
+      "new_value": "Full Rijksoverheid page independently read 2026-09-11: qualification duty applies at 16 and 17 without havo/vwo/mbo2-or-higher qualification; can therefore end before 18 on obtaining one. Exceptions for prior practical education, specified VSO tracks and individual exemptions checked. Scenario now specifies no exemption and only a vmbo diploma. BBL combining work and education is allowed, while an employment contract alone does not end the duty. Removed unqualified option requiring school until 18 in every case. Recheck yearly.",
+      "reason": "Independent current-source verification recorded for this revision."
+    },
+    {
+      "id": "A2:knm:batch019-kwalificatieplicht:1",
+      "field": "sourceReviewedAt",
+      "new_value": "2026-09-11",
+      "reason": "Independent current-source verification recorded for this revision."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "command": "npm run batch:check content/batches/050-proposed.json",
+    "result": "9 items, 9 questions; A3 B3 C3; three options each; no failures or warnings. Existing-ID informational notice expected.",
+    "full_final_source_read": true,
+    "all_ids_preserved": true,
+    "source_snapshot_compared": "tmp/standardization/050-source.json (nine assigned IDs from seventeen-record snapshot)",
+    "exact_evidence": true,
+    "unchanged_image_briefs": true,
+    "all_nine_eindtermen_checked": "Official Staatscourant 2024-15802 XML fetched directly; metadata mappings retained.",
+    "no_generated_media": true
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch007-godsdienstvrijheid:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Editorial comparison with documented short A2 KNM fact-question shape; no calibrated difficulty claim. Official eindterm and Constitution support precedence of law; replaced inaccessible citation with retrieved official XML.",
+      "language_control": {
+        "card_words": 22,
+        "question_words": 15,
+        "maximum_sentence_words": 14,
+        "mean_sentence_words": 11.0
+      },
+      "evidence": [
+        {
+          "question_id": "q1",
+          "verdict": "pass",
+          "answer": "A",
+          "quote": "De wet van de staat gaat boven de regels van een geloof",
+          "key_and_distractor_audit": {
+            "A": "Correct: state law takes precedence in the official eindterm.",
+            "B": "Reverses that legal priority.",
+            "C": "Freedom to choose belief does not allow choosing whether state law applies."
+          }
+        }
+      ],
+      "official_source_verification": {
+        "accessed_at": "2026-09-11",
+        "method": "Opened full official pages; relevant document sections read from linked full PDF or directly fetched official XML. Search snippets were not used as verification.",
+        "urls": [
+          "https://repository.overheid.nl/frbr/officielepublicaties/stcrt/2024/stcrt-2024-15802/1/xml/stcrt-2024-15802.xml",
+          "https://www.rijksoverheid.nl/documenten/2023/04/26/grondwet-voor-het-koninkrijk-der-nederlanden"
+        ],
+        "findings": "Independently fetched the official Staatscourant XML on 2026-09-11; eindterm 7.2.3 covers freedom of belief and precedence of state law over religious rules. Also opened Rijksoverheid Grondwet 2023 landing page and its complete PDF, article 6: freedom of religion carries responsibility under law. Original wetten.overheid.nl URL could not be fetched; the official publication XML was retrieved directly. Stable constitutional principle; recheck yearly."
+      },
+      "media": "Original image brief and alt preserved exactly; no answer-giving text or visual cue to the tested rule."
+    },
+    {
+      "id": "A2:knm:batch007-donorregister:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Editorial comparison with documented short A2 KNM fact-question shape; no calibrated difficulty claim. Automatic registration label is tested without treating actual donation or relatives’ decisions as unconditional.",
+      "language_control": {
+        "card_words": 16,
+        "question_words": 15,
+        "maximum_sentence_words": 11,
+        "mean_sentence_words": 8.0
+      },
+      "evidence": [
+        {
+          "question_id": "q1",
+          "verdict": "pass",
+          "answer": "C",
+          "quote": "Bij automatische registratie staat 'geen bezwaar tegen orgaandonatie' in het Donorregister.",
+          "key_and_distractor_audit": {
+            "A": "A personally registered refusal, not the automatic label.",
+            "B": "A personally registered delegation, not the automatic label; family exceptions to actual donation do not change this answer.",
+            "C": "Correct automatic registration label."
+          }
+        }
+      ],
+      "official_source_verification": {
+        "accessed_at": "2026-09-11",
+        "method": "Opened full official pages; relevant document sections read from linked full PDF or directly fetched official XML. Search snippets were not used as verification.",
+        "urls": [
+          "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/orgaandonatie-en-weefseldonatie/actieve-donorregistratie",
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/orgaandonatie-en-weefseldonatie/rol-nabestaande-bij-orgaandonatie-en-weefseldonatie",
+          "https://www.donorregister.nl/uw-keuze-maken/welke-keuzes-heeft-u",
+          "https://www.donorregister.nl/uw-keuze-maken/wat-gebeurt-er-als-u-geen-keuze-invult"
+        ],
+        "findings": "Full Rijksoverheid page read 2026-09-11: registration covers municipal residents aged 18+, with newcomers invited after three years; no response produces geen bezwaar, and changing a choice remains possible. Full companion https://www.rijksoverheid.nl/vraag-en-antwoord/orgaandonatie-en-weefseldonatie/rol-nabestaande-bij-orgaandonatie-en-weefseldonatie read: relatives may decide for unregistered people and object with evidence of wishes or serious reasons. Full Donorregister pages https://www.donorregister.nl/uw-keuze-maken/welke-keuzes-heeft-u and https://www.donorregister.nl/uw-keuze-maken/wat-gebeurt-er-als-u-geen-keuze-invult confirm automatic versus personally chosen labels. Last page fetched directly after web timeout. Question explicitly concerns an existing registration, not donation eligibility or a newcomer waiting for registration. Recheck yearly."
+      },
+      "media": "Original image brief and alt preserved exactly; no answer-giving text or visual cue to the tested rule."
+    },
+    {
+      "id": "A2:knm:batch019-uitzendbureau:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Editorial comparison with documented short A2 KNM fact-question shape; no calibrated difficulty claim. Free registration follows the placement-fee prohibition; split the card into shorter sentences.",
+      "language_control": {
+        "card_words": 22,
+        "question_words": 11,
+        "maximum_sentence_words": 10,
+        "mean_sentence_words": 7.3
+      },
+      "evidence": [
+        {
+          "question_id": "q1",
+          "verdict": "pass",
+          "answer": "B",
+          "quote": "Het uitzendbureau mag u geen geld vragen voor het uitzenden.",
+          "key_and_distractor_audit": {
+            "A": "Monthly registration fees would breach the prohibition.",
+            "B": "Correct: registration/placement is free to the worker.",
+            "C": "Successful placement does not create a permissible worker fee."
+          }
+        }
+      ],
+      "official_source_verification": {
+        "accessed_at": "2026-09-11",
+        "method": "Opened full official pages; relevant document sections read from linked full PDF or directly fetched official XML. Search snippets were not used as verification.",
+        "urls": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/arbeidsovereenkomst-en-cao/welke-arbeidsvoorwaarden-heb-ik-als-uitzendkracht"
+        ],
+        "findings": "Full Rijksoverheid page independently read 2026-09-11: the employment agency is the contractual employer and cannot demand money or other compensation for placing a worker. Both a monthly charge and a successful-placement charge conflict with this rule. This item concerns registration/placement fees, not separate lawful deductions for other services. Recheck yearly."
+      },
+      "media": "Original image brief and alt preserved exactly; no answer-giving text or visual cue to the tested rule."
+    },
+    {
+      "id": "A2:knm:batch019-scholing:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Editorial comparison with documented short A2 KNM fact-question shape; no calibrated difficulty claim. Card now covers the explicit mandatory computer-system example; removed broad training and UWV claims.",
+      "language_control": {
+        "card_words": 17,
+        "question_words": 18,
+        "maximum_sentence_words": 11,
+        "mean_sentence_words": 8.5
+      },
+      "evidence": [
+        {
+          "question_id": "q1",
+          "verdict": "pass",
+          "answer": "C",
+          "quote": "Zijn werkgever betaalt deze verplichte cursus.",
+          "key_and_distractor_audit": {
+            "A": "Employee cannot be charged for this required system training.",
+            "B": "The scenario places the duty on the employer; UWV is not the payer under this rule.",
+            "C": "Correct: employer funds required system training."
+          }
+        }
+      ],
+      "official_source_verification": {
+        "accessed_at": "2026-09-11",
+        "method": "Opened full official pages; relevant document sections read from linked full PDF or directly fetched official XML. Search snippets were not used as verification.",
+        "urls": [
+          "https://www.rijksoverheid.nl/documenten/2022/08/02/faq-transparante-arbeidsvoorwaarden",
+          "https://open.overheid.nl/repository/ronl-ca958cf89d600038ed4b243754af202a74e183dc/1/pdf/FAQ%20Transparante%20arbeidsvoorwaarden.pdf"
+        ],
+        "findings": "Full Rijksoverheid landing page and linked three-page SZW FAQ PDF independently opened 2026-09-11: https://open.overheid.nl/repository/ronl-ca958cf89d600038ed4b243754af202a74e183dc/1/pdf/FAQ%20Transparante%20arbeidsvoorwaarden.pdf . Section 2 expressly includes employer-introduced computer-system training among training the employer must provide free. Qualifications legally required before beginning a profession are not automatically covered; card now uses only the explicit computer-system case. Removed unverified general claim that UWV serves only benefit recipients. Source is the still-published 2022 ministry guidance, checked current; recheck yearly."
+      },
+      "media": "Original image brief and alt preserved exactly; no answer-giving text or visual cue to the tested rule."
+    },
+    {
+      "id": "A2:knm:batch019-zorgtoeslag:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Editorial comparison with documented short A2 KNM fact-question shape; no calibrated difficulty claim. DigiD is the specific login; library help wording is conditional on local provision.",
+      "language_control": {
+        "card_words": 23,
+        "question_words": 15,
+        "maximum_sentence_words": 10,
+        "mean_sentence_words": 7.7
+      },
+      "evidence": [
+        {
+          "question_id": "q1",
+          "verdict": "pass",
+          "answer": "A",
+          "quote": "Daarvoor heeft u DigiD nodig",
+          "key_and_distractor_audit": {
+            "A": "Correct login credential.",
+            "B": "Health-insurance identification is not a Mijn toeslagen credential.",
+            "C": "Bank identification is not a Mijn toeslagen credential."
+          }
+        }
+      ],
+      "official_source_verification": {
+        "accessed_at": "2026-09-11",
+        "method": "Opened full official pages; relevant document sections read from linked full PDF or directly fetched official XML. Search snippets were not used as verification.",
+        "urls": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/kan-ik-zorgtoeslag-krijgen"
+        ],
+        "findings": "Full Rijksoverheid page independently read 2026-09-11, including the transcript and help sections: Mijn toeslagen uses DigiD; zorgtoeslag contributes to Dutch health-insurance costs; assistance is available via service points and participating libraries. No income, asset, nationality or residency eligibility inference is tested. Removed speculative 2027/2029 system forecasts. Recheck yearly."
+      },
+      "media": "Original image brief and alt preserved exactly; no answer-giving text or visual cue to the tested rule."
+    },
+    {
+      "id": "A2:knm:batch019-geboorteaangifte:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Editorial comparison with documented short A2 KNM fact-question shape; no calibrated difficulty claim. Domestic birth and competent authority made explicit; removed unqualified deadline and broad SVB claim.",
+      "language_control": {
+        "card_words": 18,
+        "question_words": 15,
+        "maximum_sentence_words": 13,
+        "mean_sentence_words": 9.0
+      },
+      "evidence": [
+        {
+          "question_id": "q1",
+          "verdict": "pass",
+          "answer": "A",
+          "quote": "aangeven bij de gemeente waar het kind is geboren",
+          "key_and_distractor_audit": {
+            "A": "Correct: birth municipality acts as civil registrar.",
+            "B": "Hospital birth statement is not civil registration; staff declaring in exceptional cases still declare to municipality.",
+            "C": "SVB is not the birth registrar."
+          }
+        }
+      ],
+      "official_source_verification": {
+        "accessed_at": "2026-09-11",
+        "method": "Opened full official pages; relevant document sections read from linked full PDF or directly fetched official XML. Search snippets were not used as verification.",
+        "urls": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/aangifte-geboorte-en-naamskeuze-kind/aangifte-geboorte"
+        ],
+        "findings": "Full Rijksoverheid page independently read 2026-09-11: declaration is made in the birth municipality, which creates the birth certificate. Hospital birth declarations are supporting documents; hospital staff can sometimes declare a birth to the municipality. The normal three-day period has weekend/holiday extensions ensuring at least two working days, so the shortened explanation omits a deadline. The scenario expressly concerns a birth in the Netherlands. SVB is not the civil registrar. Recheck yearly."
+      },
+      "media": "Original image brief and alt preserved exactly; no answer-giving text or visual cue to the tested rule."
+    },
+    {
+      "id": "A2:knm:batch019-belastingteruggave:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Editorial comparison with documented short A2 KNM fact-question shape; no calibrated difficulty claim. Tax-return route retained without exclusive refund mechanism or guaranteed refund claim.",
+      "language_control": {
+        "card_words": 22,
+        "question_words": 13,
+        "maximum_sentence_words": 14,
+        "mean_sentence_words": 11.0
+      },
+      "evidence": [
+        {
+          "question_id": "q1",
+          "verdict": "pass",
+          "answer": "C",
+          "quote": "te veel betaalde belasting terugvragen via de aangifte inkomstenbelasting",
+          "key_and_distractor_audit": {
+            "A": "Health-insurance support application does not claim income-tax overpayment.",
+            "B": "Child-benefit application does not claim income-tax overpayment.",
+            "C": "Correct: after-year-end income-tax return is the described claim route."
+          }
+        }
+      ],
+      "official_source_verification": {
+        "accessed_at": "2026-09-11",
+        "method": "Opened full official pages; relevant document sections read from linked full PDF or directly fetched official XML. Search snippets were not used as verification.",
+        "urls": [
+          "https://www.belastingdienst.nl/wps/wcm/connect/nl/jongeren/content/kan-ik-belasting-terugvragen"
+        ],
+        "findings": "Full Belastingdienst jongeren page independently read 2026-09-11: sections for school pupils working and part-year full-time employees support claiming excess withholding after year-end through an income-tax return. Page explicitly says refund amount depends on circumstances. Removed exclusive only-if claim, promise of all withholding back and claim that employers cannot refund corrections. No refund threshold or assessment amount is asserted. Benefit application distractors are not tax returns. Recheck yearly."
+      },
+      "media": "Original image brief and alt preserved exactly; no answer-giving text or visual cue to the tested rule."
+    },
+    {
+      "id": "A2:knm:batch019-kiesrecht:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Editorial comparison with documented short A2 KNM fact-question shape; no calibrated difficulty claim. Conditional municipal eligibility replaces an insufficient six-year residence premise.",
+      "language_control": {
+        "card_words": 24,
+        "question_words": 12,
+        "maximum_sentence_words": 13,
+        "mean_sentence_words": 12.0
+      },
+      "evidence": [
+        {
+          "question_id": "q1",
+          "verdict": "pass",
+          "answer": "B",
+          "quote": "inwoners zonder EU-nationaliteit kunnen onder voorwaarden stemmen voor de gemeenteraad",
+          "key_and_distractor_audit": {
+            "A": "Requires Dutch nationality, which entails EU citizenship and is excluded by the premise.",
+            "B": "Correct conditional possibility for eligible non-EU municipal residents.",
+            "C": "Requires EU nationality, excluded by the premise."
+          }
+        }
+      ],
+      "official_source_verification": {
+        "accessed_at": "2026-09-11",
+        "method": "Opened full official pages; relevant document sections read from linked full PDF or directly fetched official XML. Search snippets were not used as verification.",
+        "urls": [
+          "https://www.kiesraad.nl/verkiezingen/gemeenteraden/stemmen/niet-nederlandse-inwoners",
+          "https://www.kiesraad.nl/verkiezingen/tweede-kamer/stemmen",
+          "https://www.kiesraad.nl/verkiezingen/europees-parlement/stemmen"
+        ],
+        "findings": "Full Kiesraad page independently read 2026-09-11: non-EU electors need age 18+, no disenfranchisement, five continuous legal years by nomination day and a qualifying residence title (Vreemdelingenwet art.8 a,b,c,d,e,l or relevant BES document). Temporary protection alone does not qualify; diplomatic/consular staff and resident non-Dutch family are excluded. Full Rijksoverheid municipal-voting page also checked: municipal address registration and dated 2026 cutoffs. Repaired question asks conditional possibility, not guaranteed eligibility from six years alone. Full https://www.kiesraad.nl/verkiezingen/tweede-kamer/stemmen and https://www.kiesraad.nl/verkiezingen/europees-parlement/stemmen read: Dutch nationality and EU nationality respectively required. Recheck at each election."
+      },
+      "media": "Original image brief and alt preserved exactly; no answer-giving text or visual cue to the tested rule."
+    },
+    {
+      "id": "A2:knm:batch019-kwalificatieplicht:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Editorial comparison with documented short A2 KNM fact-question shape; no calibrated difficulty claim. Continued education key allows earlier qualification; exemption and BBL exceptions handled.",
+      "language_control": {
+        "card_words": 25,
+        "question_words": 14,
+        "maximum_sentence_words": 11,
+        "mean_sentence_words": 8.3
+      },
+      "evidence": [
+        {
+          "question_id": "q1",
+          "verdict": "pass",
+          "answer": "B",
+          "quote": "Zonder vrijstelling moet u verder leren tot uw achttiende. Met een startkwalificatie, bijvoorbeeld mbo niveau twee, mag u eerder stoppen.",
+          "key_and_distractor_audit": {
+            "A": "VMBO alone is not a start qualification.",
+            "B": "Correct ongoing education obligation, with no false claim it necessarily lasts until 18.",
+            "C": "An employment contract alone does not end qualification duty; BBL still includes education."
+          }
+        }
+      ],
+      "official_source_verification": {
+        "accessed_at": "2026-09-11",
+        "method": "Opened full official pages; relevant document sections read from linked full PDF or directly fetched official XML. Search snippets were not used as verification.",
+        "urls": [
+          "https://www.rijksoverheid.nl/themas/onderwijs/leerplicht/leerplicht-en-kwalificatieplicht"
+        ],
+        "findings": "Full Rijksoverheid page independently read 2026-09-11: qualification duty applies at 16 and 17 without havo/vwo/mbo2-or-higher qualification; can therefore end before 18 on obtaining one. Exceptions for prior practical education, specified VSO tracks and individual exemptions checked. Scenario now specifies no exemption and only a vmbo diploma. BBL combining work and education is allowed, while an employment contract alone does not end the duty. Removed unqualified option requiring school until 18 in every case. Recheck yearly."
+      },
+      "media": "Original image brief and alt preserved exactly; no answer-giving text or visual cue to the tested rule."
+    }
+  ],
+  "diversity": "Authorised replacements retain nine existing topics and all IDs. Catalogue KNM titles inspected. Themes 1,4,6,7,8 remain a mixed correction batch, not a complete mock or theme drill. Existing related school, voting and DigiD cards do not justify deleting these authorised replacements.",
+  "media_notes": "No media generated or reviewed in this task. Preserve matching image assets only through integration. Changed questions/options require updated narrator audio after hash adoption; unchanged briefs avoid image regeneration.",
+  "limitations": [
+    "AI editorial review only; no teacher validation, learner calibration or official exam equivalence. targetLevelValidated remains false.",
+    "No content/exemplars directory exists. Level verdict refers to the documented official short fact-question format and the language heuristics.",
+    "The original wetten.overheid.nl citation could not be fetched. The official Staatscourant XML was fetched directly; Constitution article 6 was read in the official linked PDF. The donor follow-up page required direct HTML retrieval after a web timeout.",
+    "The short cards do not enumerate every legal exception. Questions are scoped so omitted age/residence/donation/assessment conditions cannot create competing keys; source notes record the reviewed exceptions.",
+    "Image briefs were reviewed and preserved; existing rendered media were not inspected. Do not interpret this content pass as a new media review."
+  ]
+}

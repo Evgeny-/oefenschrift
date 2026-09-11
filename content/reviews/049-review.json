@@ -1,0 +1,561 @@
+{
+  "review_id": "049-independent-editorial-review",
+  "source": "content/batches/049-original.json",
+  "source_original_sha256": "c87879659950fadae7356f9259cc8267811f06e8f18f26f04037d2bc1e5d1cc6",
+  "source_sha256": "cf080ec83ccdc45327d4084ba90f7c3e31be01a1fa3e4bff6a204fe6efed2d56",
+  "proposed": "content/batches/049-proposed.json",
+  "starters_source": "content/batches/049-starters.json",
+  "starters_sha256": "5b3ff285e9448493dcaeb75bc07a0caa7d5818614f4e5317f356a2f65c48246a",
+  "starters_verdict": "pass",
+  "proposed_starters": "content/batches/049-proposed-starters.json",
+  "review_type": "independent AI editorial review of the full replacement batch and sentence starters with local repairs",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "reviewer": "GPT-6 Astra; separate reviewer context under explicit user model override",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "B1:writing:batch002-rooster:1",
+    "B1:writing:batch002-geluid:1",
+    "B1:writing:batch002-buurtfeest:1",
+    "B1:writing:batch003-verkeerssituatie:1",
+    "B1:writing:batch003-opleiding:1",
+    "B1:writing:batch003-reparatie:1",
+    "B1:writing:batch003-vrijwilligersrooster:1"
+  ],
+  "edits": [
+    {
+      "id": "B1:writing:batch002-buurtfeest:1",
+      "field": "formFields[2].label",
+      "before": "Van hoe laat tot hoe laat kunt u zaterdag helpen?",
+      "after": "Van hoe laat tot hoe laat kunt u zaterdag helpen? Kies tijden tussen 10.00 en 18.00 uur.",
+      "reason": "Match the displayed form question exactly to the criterion; prevent a valid answer to a broader question from failing."
+    },
+    {
+      "id": "B1:writing:batch002-buurtfeest:1",
+      "field": "formFields[4].label",
+      "before": "Wat wilt u weten over een bijeenkomst voor helpers vóór het feest? Stel een vraag.",
+      "after": "Vraag of er vóór het feest een bijeenkomst voor helpers is.",
+      "reason": "Match the displayed form question exactly to the criterion; prevent a valid answer to a broader question from failing."
+    },
+    {
+      "id": "B1:writing:batch002-buurtfeest:1",
+      "field": "starters[3]",
+      "before": "Is er vóór … een …?",
+      "after": "Is er vóór … een bijeenkomst voor …?",
+      "reason": "Keep the partial frame aligned to the meeting or same-day-frequency goal while leaving the learner to complete it."
+    },
+    {
+      "id": "B1:writing:batch003-opleiding:1",
+      "field": "formFields[3].label",
+      "before": "Op welke dag en tussen welke tijden wilt u studietijd?",
+      "after": "Vraag studietijd aan. Noem de dag en de begin- en eindtijd.",
+      "reason": "Match the displayed form question exactly to the criterion; prevent a valid answer to a broader question from failing."
+    },
+    {
+      "id": "B1:writing:batch003-opleiding:1",
+      "field": "formFields[5].label",
+      "before": "Welke vraag hebt u over toestemming voor uw aanvraag?",
+      "after": "Vraag of uw leidinggevende toestemming geeft voor uw aanvraag.",
+      "reason": "Match the displayed form question exactly to the criterion; prevent a valid answer to a broader question from failing."
+    },
+    {
+      "id": "B1:writing:batch003-reparatie:1",
+      "field": "prompt",
+      "before": "Uw laptop zou op 12 april klaar zijn. Het is nu 15 april en u hebt hem nodig voor uw werk. Vraag de reparateur om een oplossing vóór een datum die u zelf kiest. Maak de zin op de open plek af.",
+      "after": "Uw laptop zou op 12 april klaar zijn. Het is nu 15 april en u hebt hem nodig voor uw werk. Vraag de reparateur om een oplossing en noem een uiterste datum na 15 april. Kies die datum zelf. Maak de zin op de open plek af.",
+      "reason": "Make the future deadline and inclusive latest-date wording explicit in both prompt and criterion."
+    },
+    {
+      "id": "B1:writing:batch003-vrijwilligersrooster:1",
+      "field": "sample",
+      "before": "Ik heb het overzicht van de laatste vier weken bekeken. Er waren twintig diensten en zes vrijwilligers meldden zich pas op de dag zelf af. Nu sturen zij alleen u een bericht. Bij vier diensten was er geen vervanger, waardoor de balie het eerste uur gesloten bleef. Bezoekers konden toen niet naar binnen. Volgens mij kunnen we dit anders regelen. Ik stel voor dat vrijwilligers bij een afmelding eerst een bericht in een gezamenlijke groep zetten. Daarna neemt u contact op met mensen van een reservelijst als niemand heeft gereageerd. Zo kunnen beschikbare vrijwilligers meteen antwoorden, terwijl u niet iedereen apart hoeft te bellen. Dat bespaart tijd omdat iedereen krijgen dezelfde informatie.",
+      "after": "Ik heb het overzicht van de laatste vier weken bekeken. Er waren twintig diensten en zes keer meldde een vrijwilliger zich pas op de dag zelf af. Nu stuurt de afwezige vrijwilliger alleen u een bericht. Bij vier diensten was er geen vervanger, waardoor de balie het eerste uur gesloten bleef. Bezoekers moesten daardoor een uur op hulp wachten. Volgens mij kunnen we dit anders regelen. Ik stel voor dat vrijwilligers bij een afmelding eerst een bericht in een gezamenlijke groep zetten. Daarna neemt u contact op met mensen van een reservelijst als niemand heeft gereageerd. Zo kunnen beschikbare vrijwilligers meteen antwoorden, terwijl u niet iedereen apart hoeft te bellen. Dat bespaart tijd omdat iedereen krijgen dezelfde informatie.",
+      "reason": "Ground the sample in six cancellation events and a closed service desk, then rebuild exact quotes."
+    },
+    {
+      "id": "B1:writing:batch003-vrijwilligersrooster:1",
+      "field": "quotes[0]",
+      "before": "Er waren twintig diensten en zes vrijwilligers meldden zich pas op de dag zelf af. Nu sturen zij alleen u een bericht.",
+      "after": "Er waren twintig diensten en zes keer meldde een vrijwilliger zich pas op de dag zelf af. Nu stuurt de afwezige vrijwilliger alleen u een bericht.",
+      "reason": "Ground the sample in six cancellation events and a closed service desk, then rebuild exact quotes."
+    },
+    {
+      "id": "B1:writing:batch003-vrijwilligersrooster:1",
+      "field": "quotes[1]",
+      "before": "Bij vier diensten was er geen vervanger, waardoor de balie het eerste uur gesloten bleef. Bezoekers konden toen niet naar binnen.",
+      "after": "Bij vier diensten was er geen vervanger, waardoor de balie het eerste uur gesloten bleef. Bezoekers moesten daardoor een uur op hulp wachten.",
+      "reason": "Ground the sample in six cancellation events and a closed service desk, then rebuild exact quotes."
+    },
+    {
+      "id": "B1:writing:batch003-vrijwilligersrooster:1",
+      "field": "starters[0]",
+      "before": "Nu melden vrijwilligers zich …; in vier weken gebeurde dit …",
+      "after": "Nu meldt een vrijwilliger zich af door …; afmelden op de dag zelf gebeurde in vier weken …",
+      "reason": "Keep the partial frame aligned to the meeting or same-day-frequency goal while leaving the learner to complete it."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "full_source_review": "Read all seven original and historical records, the complete author notes, all 24 original starters and all seven final proposed records with the final starter overlay. Reviewed every prompt, scaffold, form label, table cell, criterion translation, sample, quote and model.",
+    "batch_check": "npm run batch:check -- content/batches/049-proposed.json: Checked 7 items, 0 questions. No failures, no warnings. Seven existing IDs are intentional replacements.",
+    "count_and_ids": "All seven supplied IDs preserved in order, with original topics. Three zinstaken, two form-based deelschrijftaken and two table-based korte schrijftaken.",
+    "metadata": "nt2-i / b1-schrijven. Three werk, one educatie and three overig domains match the task contexts. No retired type, textType substitute, revision or generated media fields; targetLevelValidated remains false.",
+    "sample_quotes": "All 17 non-null quotes are exact substrings. Exactly one criterion fails per sample. The three grammar-task samples are deliberately grammatical to avoid a second failed criterion. Longer samples retain typical learner errors.",
+    "starters": "All 24 partial frames checked in criterion order with grammatical completion tests. Sentence-task fragments fit the printed lead-in; the grammar-only starter need not independently satisfy adequacy.",
+    "models": "Zinstaak models 9, 12 and 10 words; form models 76 and 82; short-email models 142 and 146. All within task-specific ranges. Each model covers every content and grammar criterion.",
+    "level": "B1 authoring target retained. Traffic and study-time mean sentence lengths are 11.8 and 11.7, slightly below the broad stimulus heuristic; causal links, subordinate clauses and multi-element composition support acceptance under the task-specific model rule. No sentence exceeds 18 words.",
+    "forms": "Five and six fields respectively; each has four open fields. Open questions now exactly mirror criteria. Models and prepared samples cover open fields; fictional identity text fields are not separate content criteria.",
+    "tables": "Traffic times 08.15–08.30 and about 25 children preserved; the parking proposal addresses obstructed sight without asserting a legal entitlement. Volunteer figures count 20 shifts, six cancellation events and four uncovered shifts; service closure implies delayed help, not closure of the building. Both prompts explain that the table is not sent with the email.",
+    "sources": "No KNM or changing factual policy claims. Fictional observations and routine imagined work arrangements require no external factual verification. No invented named organisation or street; example.org addresses and a generic personal surname.",
+    "references": "Read AGENTS.md, blueprint relevant sections, rubric, author/review briefs, content workflow and B1 writing research paragraph. Read catalogue B1 writing titles and two adopted reference items per task type; content/exemplars is absent."
+  },
+  "items": [
+    {
+      "id": "B1:writing:batch002-rooster:1",
+      "verdict": "pass",
+      "level": {
+        "target": "B1",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Single subordinate clause fits the documented zinstaak format. Course conflict gives less content choice than the vacancy reference but comparable grammar demand. Compared against project references and the documented official task format, without claiming calibrated equivalence.",
+        "references": [
+          "B1:writing:batch014-ziekmelding:1",
+          "B1:writing:batch014-vacature:1"
+        ],
+        "flags": []
+      },
+      "taskType": "zinstaak",
+      "domain": "werk",
+      "measured": {
+        "model_words": 9,
+        "mean_model_sentence_words": 9,
+        "maximum_model_sentence_words": 9
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Noem uw opleiding op woensdagavond als reden waarom u niet kunt werken.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "ik op woensdagavond altijd les voor mijn opleiding volg"
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Maak een bijzin na 'omdat', met de persoonsvorm achteraan.",
+          "verdict": "pass",
+          "sample_quote": "ik die avond een verjaardag van mijn neef vier",
+          "model_coverage": "ik op woensdagavond altijd les voor mijn opleiding volg"
+        }
+      ],
+      "missing_sample_criterion": "A birthday is supplied instead of the specified course conflict; the omdat clause remains grammatical.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "ik op woensdagavond les heb",
+          "ik op woensdagavond een opleiding volg"
+        ]
+      },
+      "gap_review": {
+        "grammarTarget": "bijzin",
+        "completed_model_email_body": "Ik zag dat ik woensdag van 18.00 tot 22.00 uur moet werken. Ik kan die dienst niet doen, omdat ik op woensdagavond altijd les voor mijn opleiding volg. Donderdagavond ben ik wel beschikbaar. Kunt u bevestigen of u mijn dienst kunt verplaatsen?",
+        "completed_sample_email_body": "Ik zag dat ik woensdag van 18.00 tot 22.00 uur moet werken. Ik kan die dienst niet doen, omdat ik die avond een verjaardag van mijn neef vier. Donderdagavond ben ik wel beschikbaar. Kunt u bevestigen of u mijn dienst kunt verplaatsen?",
+        "verdict": "pass",
+        "note": "Only the fragment after the printed lead-in is typed; printed punctuation is retained. Both full reconstructions read grammatically; sample adequacy alone fails."
+      }
+    },
+    {
+      "id": "B1:writing:batch002-geluid:1",
+      "verdict": "pass",
+      "level": {
+        "target": "B1",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "One independently chosen practical measure with modal inversion; the embedded infinitive in the model adds a natural B1 structure. Compared against project references and the documented official task format, without claiming calibrated equivalence.",
+        "references": [
+          "B1:writing:batch014-ziekmelding:1",
+          "B1:writing:batch014-vacature:1"
+        ],
+        "flags": []
+      },
+      "taskType": "zinstaak",
+      "domain": "educatie",
+      "measured": {
+        "model_words": 12,
+        "mean_model_sentence_words": 12,
+        "maximum_model_sentence_words": 12
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Stel een maatregel voor die het bellen in de stille studieruimte vermindert.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "kunt u bezoekers vragen om hun telefoongesprekken buiten de studieruimte te voeren"
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Gebruik na 'Misschien' eerst de persoonsvorm en daarna het onderwerp.",
+          "verdict": "pass",
+          "sample_quote": "kunt u mij vertellen hoe laat de bibliotheek morgen opengaat",
+          "model_coverage": "kunt u bezoekers vragen om hun telefoongesprekken buiten de studieruimte te voeren"
+        }
+      ],
+      "missing_sample_criterion": "Opening hours are requested, with correct inversion; no measure against phone calls is proposed.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "kunt u een bord ophangen met een verzoek om buiten te bellen",
+          "zou u bezoekers kunnen vragen om buiten te bellen"
+        ]
+      },
+      "gap_review": {
+        "grammarTarget": "inversie",
+        "completed_model_email_body": "Ik studeer vaak in uw stille ruimte. Daar voeren bezoekers regelmatig telefoongesprekken, waardoor ik steeds opnieuw moet beginnen met lezen. Misschien kunt u bezoekers vragen om hun telefoongesprekken buiten de studieruimte te voeren? Ik hoop dat ik hier binnenkort weer rustig kan leren.",
+        "completed_sample_email_body": "Ik studeer vaak in uw stille ruimte. Daar voeren bezoekers regelmatig telefoongesprekken, waardoor ik steeds opnieuw moet beginnen met lezen. Misschien kunt u mij vertellen hoe laat de bibliotheek morgen opengaat? Ik hoop dat ik hier binnenkort weer rustig kan leren.",
+        "verdict": "pass",
+        "note": "Only the fragment after the printed lead-in is typed; printed punctuation is retained. Both full reconstructions read grammatically; sample adequacy alone fails."
+      }
+    },
+    {
+      "id": "B1:writing:batch002-buurtfeest:1",
+      "verdict": "pass",
+      "level": {
+        "target": "B1",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Four open form answers combine motivation, availability and relevant experience. Shorter than the reference forms but within the 50–150-word target. Compared against project references and the documented official task format, without claiming calibrated equivalence.",
+        "references": [
+          "B1:writing:batch015-avondcursus:1",
+          "B1:writing:batch029-uitzendwerk:1"
+        ],
+        "flags": []
+      },
+      "taskType": "deelschrijftaak",
+      "domain": "overig",
+      "measured": {
+        "model_words": 76,
+        "mean_model_sentence_words": 12.7,
+        "maximum_model_sentence_words": 17
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Noem een taak en leg uit waarom u die wilt doen.",
+          "verdict": "pass",
+          "sample_quote": "Ik wil de kinderspellen begeleiden, omdat ik graag met kinderen werk.",
+          "model_coverage": "Ik wil graag de kinderspellen begeleiden, omdat ik het leuk vind om kinderen samen te laten spelen."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Noem uw begin- en eindtijd op zaterdag binnen de tijden van het feest.",
+          "verdict": "pass",
+          "sample_quote": "Zaterdag kan ik van tien tot twee uur helpen.",
+          "model_coverage": "Op zaterdag ben ik vanaf tien uur beschikbaar en kan ik tot twee uur blijven."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Beschrijf ervaring die bij uw taak past.",
+          "verdict": "pass",
+          "sample_quote": "Op de school van mijn dochter heb ik al vaker bij sportdagen geholpen. Toen legde ik de spellen uit en hield ik de punten bij.",
+          "model_coverage": "Ik heb al enkele keren geholpen bij een sportdag op de school van mijn dochter. Daar legde ik de spelregels uit aan kleine groepen."
+        },
+        {
+          "criterion": 4,
+          "criterion_nl": "Vraag of er vóór het feest een bijeenkomst voor helpers is.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "Is er vóór het feest een bijeenkomst waar de helpers de taken bespreken?"
+        }
+      ],
+      "missing_sample_criterion": "No question about a meeting for helpers appears.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Ik wil drankjes verkopen, omdat ik graag met bezoekers praat.",
+          "Op zaterdag kan ik van twaalf uur tot vier uur helpen.",
+          "Ik heb eerder in een kantine gewerkt.",
+          "Is er vóór het feest een bijeenkomst voor de helpers?"
+        ]
+      }
+    },
+    {
+      "id": "B1:writing:batch003-verkeerssituatie:1",
+      "verdict": "pass",
+      "level": {
+        "target": "B1",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Five requirements connect table observations to an independently proposed intervention and its mechanism. Numeric processing is lighter than the two table references. Compared against project references and the documented official task format, without claiming calibrated equivalence.",
+        "references": [
+          "B1:writing:batch015-kledingkast:1",
+          "B1:writing:batch015-pauzerooster:1"
+        ],
+        "flags": []
+      },
+      "taskType": "korte-schrijftaak",
+      "domain": "overig",
+      "measured": {
+        "model_words": 142,
+        "mean_model_sentence_words": 11.8,
+        "maximum_model_sentence_words": 17
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Beschrijf waar de oversteekplaats ligt en hoeveel kinderen er oversteken.",
+          "verdict": "pass",
+          "sample_quote": "Ik woon tegenover de basisschool en wil u iets vertellen over de straat tussen onze huizen en de school. Iedere ochtend steken daar ongeveer 25 kinderen over.",
+          "model_coverage": "In de straat tussen onze woningen en de school steken elke ochtend ongeveer 25 kinderen over."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Noem het drukste tijdstip en leg uit wat de situatie onveilig maakt.",
+          "verdict": "pass",
+          "sample_quote": "Tussen kwart over acht en half negen is het heel druk. Veel auto’s rijden snel door en kinderen moeten lang wachten. Ook staan er bestelwagens waardoor de kinderen het verkeer niet goed kunnen zien.",
+          "model_coverage": "Vooral tussen kwart over acht en half negen moeten kinderen lang wachten, terwijl veel auto’s snel doorrijden. Er ligt geen zebrapad. Bovendien staan vlak bij de oversteekplaats bestelwagens die het zicht beperken."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Stel een concrete maatregel voor.",
+          "verdict": "pass",
+          "sample_quote": "Ik stel voor om bij de oversteekplaats enkele parkeerplaatsen weg te halen.",
+          "model_coverage": "Daarom stel ik voor om enkele parkeerplaatsen naast deze plek vrij te houden."
+        },
+        {
+          "criterion": 4,
+          "criterion_nl": "Leg uit hoe uw maatregel de situatie verbetert.",
+          "verdict": "pass",
+          "sample_quote": "Daardoor kunnen automobilisten de kinderen eerder zien en hebben de kinderen zelf meer zicht op de straat.",
+          "model_coverage": "Dan kunnen bestuurders eerder zien dat er kinderen klaarstaan om over te steken. De kinderen krijgen daardoor ook beter zicht op aankomende auto’s."
+        },
+        {
+          "criterion": 5,
+          "criterion_nl": "Vraag om een reactie binnen een termijn die u zelf kiest.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "Graag ontvang ik binnen twee weken een reactie op mijn voorstel."
+        }
+      ],
+      "missing_sample_criterion": "No request for a reply or deadline appears.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "De oversteekplaats ligt tegenover de school en wordt gebruikt door ongeveer 25 kinderen per ochtend.",
+          "Vooral tussen kwart over acht en half negen is het onveilig, omdat bestelwagens het zicht beperken.",
+          "Ik stel voor om daar parkeerplaatsen weg te halen.",
+          "Met deze maatregel kunnen kinderen het verkeer beter zien.",
+          "Kunt u binnen twee weken laten weten wat u van mijn voorstel vindt?"
+        ]
+      }
+    },
+    {
+      "id": "B1:writing:batch003-opleiding:1",
+      "verdict": "pass",
+      "level": {
+        "target": "B1",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Two distinct job benefits, study hours and conditional work coverage require connected practical reasoning across four form answers. Compared against project references and the documented official task format, without claiming calibrated equivalence.",
+        "references": [
+          "B1:writing:batch015-avondcursus:1",
+          "B1:writing:batch029-uitzendwerk:1"
+        ],
+        "flags": []
+      },
+      "taskType": "deelschrijftaak",
+      "domain": "werk",
+      "measured": {
+        "model_words": 82,
+        "mean_model_sentence_words": 11.7,
+        "maximum_model_sentence_words": 16
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Geef twee redenen waarom de opleiding nuttig is voor uw werk.",
+          "verdict": "pass",
+          "sample_quote": "Mijn opleiding klantenservice helpt mij om moeilijke vragen beter te beantwoorden. Ook leer ik hoe ik duidelijker e-mails aan klanten kan schrijven.",
+          "model_coverage": "Door mijn opleiding klantenservice kan ik klanten met ingewikkelde vragen beter helpen. Daarnaast leer ik zakelijke e-mails schrijven, waardoor mijn antwoorden duidelijker worden."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Vraag studietijd op een concrete dag met een begin- en eindtijd.",
+          "verdict": "pass",
+          "sample_quote": "Mag ik volgende week vrijdag van een tot vijf uur leren voor mijn examen?",
+          "model_coverage": "Ik zou volgende week vrijdag van een tot vijf uur willen studeren voor het examen."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Leg uit hoe uw werk tijdens uw afwezigheid wordt gedaan.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "Mijn dringende taken maak ik donderdag af. Een collega heeft aangeboden om vrijdagmiddag mijn telefoontjes over te nemen, als u daarmee akkoord gaat. Ik stuur haar vooraf een overzicht van de lopende vragen."
+        },
+        {
+          "criterion": 4,
+          "criterion_nl": "Vraag of uw leidinggevende toestemming geeft.",
+          "verdict": "pass",
+          "sample_quote": "Kunt u mij laten weten of u geeft toestemming voor deze studiemiddag?",
+          "model_coverage": "Wilt u laten weten of u toestemming geeft voor deze studiemiddag?"
+        }
+      ],
+      "missing_sample_criterion": "No coverage of work during absence appears.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "De opleiding helpt mij om klanten beter te adviseren; daarnaast leer ik duidelijker schrijven.",
+          "Mag ik op vrijdag van een uur tot vijf uur studeren?",
+          "Tijdens mijn afwezigheid neemt een collega mijn telefoontjes over.",
+          "Geeft u toestemming voor deze studiemiddag?"
+        ]
+      }
+    },
+    {
+      "id": "B1:writing:batch003-reparatie:1",
+      "verdict": "pass",
+      "level": {
+        "target": "B1",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "One deadline and practical remedy inside om plus te-infinitive. The specified grammar is part of the documented zinstaak range. Compared against project references and the documented official task format, without claiming calibrated equivalence.",
+        "references": [
+          "B1:writing:batch014-ziekmelding:1",
+          "B1:writing:batch014-vacature:1"
+        ],
+        "flags": []
+      },
+      "taskType": "zinstaak",
+      "domain": "werk",
+      "measured": {
+        "model_words": 10,
+        "mean_model_sentence_words": 10,
+        "maximum_model_sentence_words": 10
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Vraag om een oplossing en noem een uiterste datum na 15 april.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "mij uiterlijk op 17 april een tijdelijke laptop te lenen"
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Gebruik na 'om' een correcte constructie met 'te' en een infinitief.",
+          "verdict": "pass",
+          "sample_quote": "mij een overzicht van uw openingstijden te sturen",
+          "model_coverage": "mij uiterlijk op 17 april een tijdelijke laptop te lenen"
+        }
+      ],
+      "missing_sample_criterion": "Opening hours neither remedy the laptop problem nor give a deadline; the te-infinitive is correct.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "mij uiterlijk op 18 april te helpen met een leenlaptop",
+          "mijn laptop te repareren"
+        ]
+      },
+      "gap_review": {
+        "grammarTarget": "te-infinitief",
+        "completed_model_email_body": "Op 12 april zou ik mijn gerepareerde laptop kunnen ophalen. Ik heb nog geen bericht ontvangen. Zonder laptop kan ik mijn klanten geen tekeningen sturen. Ik verzoek u om mij uiterlijk op 17 april een tijdelijke laptop te lenen. Ik hoor graag of dat lukt.",
+        "completed_sample_email_body": "Op 12 april zou ik mijn gerepareerde laptop kunnen ophalen. Ik heb nog geen bericht ontvangen. Zonder laptop kan ik mijn klanten geen tekeningen sturen. Ik verzoek u om mij een overzicht van uw openingstijden te sturen. Ik hoor graag of dat lukt.",
+        "verdict": "pass",
+        "note": "Only the fragment after the printed lead-in is typed; printed punctuation is retained. Both full reconstructions read grammatically; sample adequacy alone fails."
+      }
+    },
+    {
+      "id": "B1:writing:batch003-vrijwilligersrooster:1",
+      "verdict": "pass",
+      "level": {
+        "target": "B1",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Five elements combine frequency, consequence, sequenced procedure, causal benefit and trial duration. The model uses condition and consequence clauses. Compared against project references and the documented official task format, without claiming calibrated equivalence.",
+        "references": [
+          "B1:writing:batch015-kledingkast:1",
+          "B1:writing:batch015-pauzerooster:1"
+        ],
+        "flags": []
+      },
+      "taskType": "korte-schrijftaak",
+      "domain": "overig",
+      "measured": {
+        "model_words": 146,
+        "mean_model_sentence_words": 12.2,
+        "maximum_model_sentence_words": 18
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Beschrijf de huidige manier van afmelden en hoe vaak mensen zich op de dag zelf afmeldden.",
+          "verdict": "pass",
+          "sample_quote": "Er waren twintig diensten en zes keer meldde een vrijwilliger zich pas op de dag zelf af. Nu stuurt de afwezige vrijwilliger alleen u een bericht.",
+          "model_coverage": "Zes keer meldde een vrijwilliger zich pas op de dag zelf af. Op dit moment krijgt alleen u daarover een bericht, zodat anderen niet weten dat er hulp nodig is."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Noem hoeveel diensten geen vervanger hadden en het gevolg voor bezoekers.",
+          "verdict": "pass",
+          "sample_quote": "Bij vier diensten was er geen vervanger, waardoor de balie het eerste uur gesloten bleef. Bezoekers moesten daardoor een uur op hulp wachten.",
+          "model_coverage": "Bij vier diensten lukte het niet om iemand te vinden. Daardoor bleef de balie telkens het eerste uur dicht en moesten bezoekers wachten."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Stel een nieuwe werkwijze voor met minstens twee stappen.",
+          "verdict": "pass",
+          "sample_quote": "Ik stel voor dat vrijwilligers bij een afmelding eerst een bericht in een gezamenlijke groep zetten. Daarna neemt u contact op met mensen van een reservelijst als niemand heeft gereageerd.",
+          "model_coverage": "Mijn voorstel is om bij een afmelding eerst een bericht in een gezamenlijke groep te zetten. Als binnen een half uur niemand reageert, belt u vrijwilligers van een reservelijst."
+        },
+        {
+          "criterion": 4,
+          "criterion_nl": "Leg uit waarom uw voorstel het zoeken naar een vervanger makkelijker maakt.",
+          "verdict": "pass",
+          "sample_quote": "Zo kunnen beschikbare vrijwilligers meteen antwoorden, terwijl u niet iedereen apart hoeft te bellen.",
+          "model_coverage": "Op deze manier ziet iedereen tegelijk welke dienst vrij is en hoeft u minder mensen afzonderlijk te benaderen."
+        },
+        {
+          "criterion": 5,
+          "criterion_nl": "Vraag om het voorstel gedurende een periode uit te proberen; kies zelf een duur.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "Zouden we deze aanpak een maand kunnen proberen?"
+        }
+      ],
+      "missing_sample_criterion": "No request for a trial or its duration appears.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Nu meldt een vrijwilliger zich af door alleen de coördinator een bericht te sturen; afmelden op de dag zelf gebeurde in vier weken zes keer.",
+          "Bij vier diensten bleef de balie het eerste uur dicht, waardoor bezoekers op hulp moesten wachten.",
+          "Eerst sturen we een groepsbericht; daarna bellen we de mensen op de reservelijst.",
+          "Hierdoor is het makkelijker om snel iemand te vinden die beschikbaar is.",
+          "Kunnen we dit een maand lang proberen?"
+        ]
+      }
+    }
+  ],
+  "diversity": "Preserves all seven historical topics under the replacement instruction. Three grammar targets differ. Form motivations and coordination tasks differ from table-based civic and volunteer proposals. Neighbourhood and volunteering remain over-represented in the wider bank; this preservation batch is not an 8+2+2 mock form.",
+  "author_doubts_decisions": [
+    "Three inadequate zinstaak samples are grammatical after insertion into the full scaffold; no additional learner grammar error was introduced.",
+    "Library intervention remains open: asking visitors to call outside is one plausible response, and the criterion accepts other measures.",
+    "Traffic table is fictional observation data; the model requests an investigation of a parking measure and makes no legal feasibility claim.",
+    "Retain neighbourhood and volunteering settings because the user requires historical topic preservation.",
+    "Tighten meeting and permission form labels so compliant answers cannot fail the narrower criterion.",
+    "Clarify the repair deadline in the prompt to match the criterion and model.",
+    "Replace volunteer sample assumptions about distinct people and building access; retain the intended missing trial request."
+  ],
+  "media_notes": "No audio or images required for this batch; no media generated or reviewed. Forms and tables remain structured text.",
+  "limitations": [
+    "AI editorial review only. No teacher assessment, learner pilot, validated CEFR difficulty or official exam equivalence.",
+    "Project comparisons substitute for absent curated exemplars; they do not calibrate difficulty.",
+    "Content checker passed. No app, browser or integration checks run in this bounded review."
+  ]
+}

@@ -114,10 +114,7 @@ export function Clock({ timer }) {
 }
 export function ExerciseHeader({ item, timer, questionId = null, tag = null }) {
   const { state, t, name } = useStudyContext(),
-    type =
-      (item.taskType || item.type) && item.type !== 'audio'
-        ? typeLabel(item.taskType || item.type, state.settings.lang)
-        : null;
+    type = typeLabel(item.taskType, state.settings.lang);
   const subtitle =
     (item.part === 'knm' ? 'KNM' : `${item.level} · ${name(item.part)}`) +
     (type ? ` · ${type}` : '');

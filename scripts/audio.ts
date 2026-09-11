@@ -1,3 +1,5 @@
+import { setting as environmentSetting } from '../environment';
+import { requireReviewedMedia } from './media-review';
 // Generate listening audio, question audio and speaking prompts from reviewed scripts.
 //
 //   tsx scripts/audio.ts                 report what would be generated (dry run)
@@ -73,7 +75,7 @@ const cerLimit = (wordCount: number) => (wordCount < 10 ? 0.15 : 0.04),
   INSERT_LIMIT = 2;
 
 function apiKey(): string {
-  const path = process.env.INBURGERING_CREDENTIALS_FILE || config.credentials_file;
+  const path = environmentSetting('CREDENTIALS_FILE') || config.credentials_file;
   let key = process.env.ELEVENLABS_API_KEY || '';
   if (!key && existsSync(path)) {
     const match = readFileSync(path, 'utf8').match(
@@ -536,6 +538,7 @@ function jobs(items: Item[]): Job[] {
 
 async function run() {
   const source = option('--file', '');
+  if (GENERATE) await requireReviewedMedia(source);
   const catalogue: Item[] = JSON.parse(readFileSync(source || 'content/catalogue.json', 'utf8'));
   const manifestPath = source ? resolve(OUT, 'audio-manifest.json') : 'content/audio-manifest.json';
   const manifest: Record<string, Clip> = existsSync(manifestPath)
@@ -693,6 +696,7 @@ async function run() {
   console.log(
     `${generated} generated, ${failures} failed, manifest ${manifestPath}.${failed.length ? ` Transcripts of failed clips: ${resolve(TMP, 'failures.json')}` : ''}`,
   );
+  if (failures) process.exitCode = 1;
   if (source) {
     writeFileSync(resolve(OUT, 'items-with-audio.json'), JSON.stringify(catalogue, null, 2) + '\n');
     return;

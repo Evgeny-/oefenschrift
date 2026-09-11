@@ -31,7 +31,14 @@ test('migration preserves previous drafts, reviewed items and an active question
       version: 1,
       settings: { lang: 'en', level: 'B1', clock: true },
       drafts: { [id]: 'Ik kan niet komen.' },
-      records: { [id]: { completed: true, kind: 'self', at: 123 } },
+      records: {
+        [id]: {
+          completed: true,
+          kind: 'self',
+          at: 123,
+          revision: catalogue.find((item) => item.id === id).revision,
+        },
+      },
       active: startSession(['B1:reading:p1:1'], 'practice', catalogue, 1000),
     };
   const s = restore(memory({ 'samen.study.v1': JSON.stringify(old) }), catalogue);
@@ -141,7 +148,12 @@ test('original and reviewed questions have valid answer keys and exact sample ev
 test('AI completion stays distinct from answer accuracy and self review after reload', () => {
   const s = defaults(),
     id = 'A2:writing:afspraak:1';
-  s.records[id] = { completed: true, kind: 'ai', at: 100 };
+  s.records[id] = {
+    completed: true,
+    kind: 'ai',
+    at: 100,
+    revision: catalogue.find((item) => item.id === id).revision,
+  };
   s.reviews[id] = [true, false, true];
   const st = memory();
   save(st, s);
@@ -208,8 +220,8 @@ test('question revisions remove stale mistakes but preserve aggregate completion
   edited.questions = edited.questions.slice(1);
   assert.equal(restore(st, changed).records[item.id].total, item.questions.length);
 });
-test('legacy aggregate scores remain visible without inventing question-level mistakes', () => {
-  const item = catalogue.find((i) => i.questions),
+test('unrevised legacy aggregate scores remain visible without inventing question-level mistakes', () => {
+  const item = catalogue.find((i) => i.questions && i.id.includes(':batch004-')),
     s = defaults();
   s.records[item.id] = {
     completed: true,

@@ -1,5 +1,6 @@
 import { Outlet, type ShouldRevalidateFunction } from 'react-router';
 import { getStore } from '../../server/store';
+import { HomeSampleProvider } from '../components/home/SampleQuestion';
 
 // Shared by every study page. React Router keeps this loader's data while the
 // learner changes subjects, levels, languages or exercises inside the layout.
@@ -19,5 +20,9 @@ export const shouldRevalidate: ShouldRevalidateFunction = ({
   return currentUrl.href === nextUrl.href && defaultShouldRevalidate;
 };
 export default function StudyLayout() {
-  return <Outlet />;
+  return (
+    <HomeSampleProvider>
+      <Outlet />
+    </HomeSampleProvider>
+  );
 }

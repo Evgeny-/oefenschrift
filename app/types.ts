@@ -16,6 +16,12 @@ export interface Exercise {
   level: Level | 'KNM';
   part: Part;
   revision: string;
+  taskType: string;
+  exam: 'duo-a2' | 'nt2-i' | 'knm';
+  domain: string;
+  status: 'draft' | 'ai-editorially-reviewed';
+  targetLevelValidated: false;
+  type?: never;
   questions?: Question[];
   criteria?: [string, string][];
   prompt?: string;
@@ -44,11 +50,13 @@ export interface Session {
   elapsedSeconds?: number;
   setId?: string;
   questions?: string[];
+  revisions?: Record<string, string>;
 }
 export interface ExerciseRecord {
   completed: boolean;
   kind: 'quiz' | 'ai' | 'self';
   at: number;
+  revision?: string;
   correct?: number;
   total?: number;
   responses?: Record<string, { selected: string; fingerprint: string }>;

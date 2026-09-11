@@ -2,6 +2,8 @@ import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { readFile, readdir, realpath, rename, writeFile } from 'node:fs/promises';
 import { resolve, sep } from 'node:path';
+import { validateBatch } from './batch-validation';
+import { itemPassedReview } from './content-review';
 
 const digest = (value: string | Buffer) => createHash('sha256').update(value).digest('hex');
 function requireValue(condition: unknown, message: string): asserts condition {
@@ -44,6 +46,9 @@ export async function checkContent(write = false, refreshHints = '') {
   const byId = new Map<string, any>(catalogue.map((item) => [item.id, item]));
   requireValue(byId.size === catalogue.length, 'Duplicate catalogue IDs');
   const reviewedStarters: { filename: string; starters: Record<string, string[]> }[] = [];
+  const owners = new Map<string, string>();
+  const imports = new Map<string, any[]>();
+  const finalSources = new Map<string, any>();
   for (const filename of (await readdir('content/reviews'))
     .filter((name) => name.endsWith('-review.json'))
     .sort()) {
@@ -77,10 +82,31 @@ export async function checkContent(write = false, refreshHints = '') {
       );
       reviewedStarters.push({ filename, starters: batchStarters });
     }
-    for (const item of await reviewedSource(review, 'content/batches', 'batch_verdict')) {
+    const sourceItems = await reviewedSource(review, 'content/batches', 'batch_verdict');
+    requireValue(Array.isArray(sourceItems) && sourceItems.length, `${filename}: empty batch`);
+    requireValue(
+      sourceItems.every((item) => itemPassedReview(review, item.id)),
+      `${filename}: every imported exercise needs an individual passing review`,
+    );
+    imports.set(filename, sourceItems);
+    for (const item of sourceItems) {
+      const owner = owners.get(item.id);
+      requireValue(
+        !owner || review.replaces?.includes(item.id),
+        `${filename}: replacing ${item.id} from ${owner} needs an explicit replaces entry`,
+      );
+      owners.set(item.id, filename);
+    }
+  }
+  // Resolve replacements before touching the catalogue. Importing superseded
+  // versions first would discard media that still matches the final source.
+  for (const [filename, items] of imports) {
+    for (const item of items.filter((entry) => owners.get(entry.id) === filename)) {
+      finalSources.set(item.id, structuredClone(item));
       if (!byId.has(item.id)) {
-        catalogue.push(item);
-        byId.set(item.id, item);
+        const added = { ...item };
+        catalogue.push(added);
+        byId.set(item.id, added);
       }
       const previous = byId.get(item.id);
       // Media fields live on the catalogue, not in the batch: keep question audio when the question is unchanged.
@@ -98,7 +124,21 @@ export async function checkContent(write = false, refreshHints = '') {
       );
       const intro = previous.introAudio && { text: previous.intro, audio: previous.introAudio };
       const previousImages = Array.isArray(previous.images) ? previous.images : [];
-      Object.assign(previous, item, { status: 'ai-editorially-reviewed' });
+      const media: Record<string, unknown> = {};
+      if (
+        previous.text === item.text &&
+        JSON.stringify(previous.script) === JSON.stringify(item.script)
+      )
+        for (const key of ['audio', 'duration', 'peaks'])
+          if (previous[key] !== undefined) media[key] = previous[key];
+      if (previous.prompt === item.prompt && previous.promptAudio)
+        media.promptAudio = previous.promptAudio;
+      if (JSON.stringify(previous.cue) === JSON.stringify(item.cue) && previous.cueAudio)
+        media.cueAudio = previous.cueAudio;
+      // Replace the reviewed record, retaining only media whose source is unchanged.
+      // Object.assign alone left retired fields (including type and old scripts) behind.
+      for (const key of Object.keys(previous)) delete previous[key];
+      Object.assign(previous, item, media, { status: 'ai-editorially-reviewed' });
       if (intro && intro.text === previous.intro) previous.introAudio = intro.audio;
       // Generated picture files live on the catalogue too: keep them when the brief is unchanged.
       if (Array.isArray(previous.images))
@@ -129,12 +169,31 @@ export async function checkContent(write = false, refreshHints = '') {
       }
     }
   }
+  const voices = await readJson('config/voices.json');
+  for (const [filename, items] of imports) {
+    const effective = items.filter((item) => owners.get(item.id) === filename);
+    if (!effective.length) continue;
+    // The original full batch was balanced at review. A surviving subset of a
+    // partially superseded batch is checked per item, without imposing new key quotas.
+    const checked = validateBatch(effective, catalogue, voices, effective.length === items.length);
+    requireValue(
+      !checked.failures.length,
+      `${filename}: authoring checks failed during integration:\n${checked.failures.join('\n')}`,
+    );
+  }
+  requireValue(
+    catalogue.every((item) => owners.has(item.id)),
+    'Every exercise must come from a passing reviewed batch',
+  );
   for (const filename of (await readdir('content/evidence'))
     .filter((name) => name.endsWith('-review.json'))
     .sort()) {
     const review = await readJson('content/evidence/' + filename);
     const evidence = await reviewedSource(review, 'content/evidence', 'verdict');
     for (const [id, quotes] of Object.entries(evidence) as [string, Record<string, string>][]) {
+      // A later reviewed rewrite supplies its own evidence. Historical overlays remain
+      // hash-verified for the audit trail, but cannot overwrite the rewritten questions.
+      if (owners.has(id)) continue;
       const item = byId.get(id);
       requireValue(
         item?.questions &&
@@ -174,9 +233,36 @@ export async function checkContent(write = false, refreshHints = '') {
       'criteria',
       'model',
       'sourceUrl',
+      'exam',
+      'taskType',
+      'textType',
+      'domain',
+      'situation',
+      'intro',
+      'script',
+      'cue',
+      'scaffold',
+      'formFields',
+      'table',
+      'images',
+      'imageBrief',
+      'imageAlt',
+      'opening',
+      'minSentences',
+      'speakingSeconds',
+      'prepSeconds',
+      'rubric',
+      'sample',
+      'quotes',
+      'grammarTarget',
+      'adequacyNote',
+      'goal',
     ];
+    // Revisions describe the reviewed exercise. Regenerating derived media must
+    // not erase answers to an otherwise unchanged exercise.
+    const source = finalSources.get(item.id);
     const core = Object.fromEntries(
-      fields.filter((key) => Object.hasOwn(item, key)).map((key) => [key, item[key]]),
+      fields.filter((key) => Object.hasOwn(source, key)).map((key) => [key, source[key]]),
     );
     item.revision = 'c1:' + digest(canonical(core)).slice(0, 16);
   }
@@ -192,11 +278,17 @@ export async function checkContent(write = false, refreshHints = '') {
     'verdict',
   );
   const open = catalogue.filter((item) => !item.questions?.length);
+  const currentStarters = reviewedStarters.map((batch) => ({
+    ...batch,
+    starters: Object.fromEntries(
+      Object.entries(batch.starters).filter(([id]) => owners.get(id) === batch.filename),
+    ),
+  }));
   // Starters reviewed with their batch are merged into the overlay; the overlay's reviewed hash moves
   // with them, and the merge is recorded in the hints review.
   // A revised batch whose review re-covered its starters (new starters hash, verdict pass) replaces
   // the overlay entries it changed; the review JSON's hash gate is what makes both cases reviewed.
-  const staleStarters = reviewedStarters
+  const staleStarters = currentStarters
     .map((batch) => ({
       ...batch,
       ids: Object.keys(batch.starters).filter(
@@ -238,7 +330,7 @@ export async function checkContent(write = false, refreshHints = '') {
   if (refreshHints && digest(candidate) !== review.catalogue_sha256) {
     const previousOpen = JSON.parse(original).filter((item) => !item.questions?.length);
     // A changed task is covered when its batch review, at the batch's current hash, passed the starters too.
-    const covered = (id: string) => reviewedStarters.some((batch) => batch.starters[id]);
+    const covered = (id: string) => currentStarters.some((batch) => batch.starters[id]);
     const same =
       previousOpen.length === open.length &&
       previousOpen.every((before) => {

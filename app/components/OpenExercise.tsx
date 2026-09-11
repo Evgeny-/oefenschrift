@@ -273,7 +273,9 @@ export function OpenExercise({ item }) {
       lang: state.settings.lang,
       level: state.settings.level,
     });
-    setState((s) => reviewOpen(s, item.id, result ? 'ai' : 'self', !!practiceSet));
+    setState((s) =>
+      reviewOpen(s, item.id, result ? 'ai' : 'self', !!practiceSet, Date.now(), item.revision),
+    );
     if (!practiceSet) go(item.part);
   };
   useEnterAction(reviewing, reviewed);

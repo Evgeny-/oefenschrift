@@ -1,6 +1,7 @@
 import type { StudyState, Session, Exercise, ExerciseRecord } from '../types';
-export const STORAGE_KEY = 'inburgering.study.v2';
-const OLD_KEY = 'samen.study.v1';
+import { STORAGE_KEY, readStudy, writeStored } from './persistence';
+import standardization from '../../content/migrations/2026-09-standardization.json';
+export { STORAGE_KEY } from './persistence';
 export const defaults = (): StudyState => ({
   version: 2,
   // Light by default: this is a place to read and study. System and Dark remain explicit choices.
@@ -56,6 +57,11 @@ export function mistakes(item, record) {
   });
 }
 export const CHECK_PARTS = ['reading', 'listening'];
+function matchesRevision(savedRevision, item) {
+  if (savedRevision) return savedRevision === item.revision;
+  const previous = standardization.previousRevisions[item.id];
+  return !previous || previous === item.revision;
+}
 export function validSession(a, catalogue) {
   if (
     !a ||
@@ -74,6 +80,7 @@ export function validSession(a, catalogue) {
       catalogue.some(
         (i) =>
           i.id === id &&
+          matchesRevision(a.revisions?.[id], i) &&
           (i.questions?.length ||
             (a.mode === 'practice' && ['writing', 'speaking'].includes(i.part))) &&
           (i.part === 'knm' || i.level === a.level) &&
@@ -99,8 +106,7 @@ export function validSession(a, catalogue) {
 export function restore(storage, catalogue) {
   const state = defaults();
   try {
-    const raw = storage.getItem(STORAGE_KEY) ?? storage.getItem(OLD_KEY),
-      parsed = JSON.parse(raw);
+    const parsed = readStudy(storage);
     if (!parsed || ![1, 2].includes(parsed.version)) return state;
     if (['A2', 'B1', 'B2'].includes(parsed.settings?.level))
       state.settings.level = parsed.settings.level;
@@ -114,9 +120,14 @@ export function restore(storage, catalogue) {
       if (Number.isFinite(timer) && timer > 0 && timer < 1e8)
         state.timers[item.id] = Math.floor(timer);
       const r = parsed.records?.[item.id];
-      if (r?.completed === true && Number.isFinite(r.at)) {
+      if (r?.completed === true && Number.isFinite(r.at) && matchesRevision(r.revision, item)) {
         if (['self', 'ai'].includes(r.kind) && !item.questions)
-          state.records[item.id] = { completed: true, kind: r.kind, at: r.at };
+          state.records[item.id] = {
+            completed: true,
+            kind: r.kind,
+            at: r.at,
+            revision: item.revision,
+          };
         else if (
           item.questions &&
           Number.isInteger(r.correct) &&
@@ -129,6 +140,7 @@ export function restore(storage, catalogue) {
               correct: r.correct,
               total: Number.isInteger(r.total) && r.total > 0 ? r.total : item.questions.length,
               at: r.at,
+              revision: item.revision,
             },
             responses = {};
           for (const q of item.questions) {
@@ -145,21 +157,30 @@ export function restore(storage, catalogue) {
       }
       if (typeof parsed.drafts?.[item.id] === 'string')
         state.drafts[item.id] = parsed.drafts[item.id];
-      if (Array.isArray(parsed.reviews?.[item.id]))
+      const reviewRevision =
+        parsed.records?.[item.id]?.revision ||
+        parsed.active?.revisions?.[item.id] ||
+        (Object.values(parsed.sessions || {}) as Session[]).find(
+          (session) => session.revisions?.[item.id],
+        )?.revisions?.[item.id];
+      if (Array.isArray(parsed.reviews?.[item.id]) && matchesRevision(reviewRevision, item))
         state.reviews[item.id] = parsed.reviews[item.id].map((v) => v === true);
     }
     const seconds = (value) =>
       Number.isFinite(value) && value > 0 && value < 1e8 ? Math.floor(value) : 0;
+    const sessionSnapshot = (session) => ({
+      ...session,
+      checked: session.checked || {},
+      elapsedSeconds: seconds(session.elapsedSeconds),
+      revisions: Object.fromEntries(
+        session.ids.map((id) => [id, catalogue.find((item) => item.id === id)?.revision]),
+      ),
+    });
     for (const [id, session] of Object.entries(parsed.sessions || {}) as [string, Session][]) {
       if (session?.setId === id && validSession(session, catalogue))
-        state.sessions[id] = { ...session, elapsedSeconds: seconds(session.elapsedSeconds) };
+        state.sessions[id] = sessionSnapshot(session);
     }
-    if (validSession(parsed.active, catalogue))
-      state.active = {
-        ...parsed.active,
-        checked: parsed.active.checked || {},
-        elapsedSeconds: seconds(parsed.active.elapsedSeconds),
-      };
+    if (validSession(parsed.active, catalogue)) state.active = sessionSnapshot(parsed.active);
     if (Array.isArray(parsed.checks))
       state.checks = parsed.checks
         .filter(
@@ -169,14 +190,13 @@ export function restore(storage, catalogue) {
             validSession(check, catalogue),
         )
         .slice(0, 20)
-        .map((check) => ({ ...check, checked: {}, elapsedSeconds: seconds(check.elapsedSeconds) }));
+        .map((check) => ({ ...sessionSnapshot(check), checked: {} }));
   } catch {}
   return state;
 }
 export function save(storage, state) {
   try {
-    storage.setItem(STORAGE_KEY, JSON.stringify(state));
-    return true;
+    return writeStored(storage, STORAGE_KEY, JSON.stringify(state));
   } catch {
     return false;
   }
@@ -199,6 +219,9 @@ export function startSession(
     startedAt: now,
     endedAt: null,
     elapsedSeconds: 0,
+    revisions: Object.fromEntries(
+      ids.map((id) => [id, catalogue.find((item) => item.id === id)?.revision]),
+    ),
     ...(questions ? { questions } : {}),
   };
   if (!validSession(a, catalogue)) throw Error('Cannot start an empty or mixed exercise set.');
@@ -245,6 +268,7 @@ export function complete(state, catalogue, now = Date.now()) {
         correct: qs.filter((x) => x.q.answer === a.answers[x.key]).length,
         total: qs.length,
         at: now,
+        revision: catalogue.find((item) => item.id === id)?.revision,
         responses,
       };
   });
@@ -295,10 +319,17 @@ export function keepSetSessions(previous, next) {
     if (session?.setId) sessions[session.setId] = session;
   return { ...next, sessions };
 }
-export function reviewOpen(state, id, kind, inSet = false, now = Date.now()) {
+export function reviewOpen(
+  state,
+  id,
+  kind,
+  inSet = false,
+  now = Date.now(),
+  revision = state.active?.revisions?.[id],
+) {
   const next = {
     ...state,
-    records: { ...state.records, [id]: { completed: true, kind, at: now } },
+    records: { ...state.records, [id]: { completed: true, kind, at: now, revision } },
   };
   const a = state.active;
   if (inSet && a?.setId && a.mode === 'practice' && !a.endedAt && a.ids[a.index] === id) {

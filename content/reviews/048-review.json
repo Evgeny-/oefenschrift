@@ -1,0 +1,415 @@
+{
+  "review_id": "048-independent-editorial-review",
+  "source": "content/batches/048-original.json",
+  "source_original_sha256": "601279d40ba5b7d844d3c0ffee993683c86ec14217b18058c02ecc01a68d99d6",
+  "source_sha256": "5fcada86feaeac75495e6b3231c02b1726b583ca7f323812cf481c8cbb75b618",
+  "proposed": "content/batches/048-proposed.json",
+  "starters_source": "content/batches/048-starters.json",
+  "starters_sha256": "21322096add99f9bf3a932d14e80cddfd7a36202ccf8e6a72e7d0572eb858633",
+  "starters_verdict": "pass",
+  "proposed_starters": "content/batches/048-proposed-starters.json",
+  "review_type": "independent AI editorial review of the full replacement batch and sentence starters with local repairs",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "reviewer": "GPT-6 Astra; separate reviewer context under explicit user model override",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:writing:batch002-plant:1",
+    "A2:writing:batch003-container:1",
+    "A2:writing:batch003-sportles:1",
+    "A2:writing:batch003-logeerkamer:1",
+    "A2:writing:batch003-loonstrook:1"
+  ],
+  "edits": [
+    {
+      "id": "A2:writing:batch003-sportles:1",
+      "field": "criteria",
+      "before": [
+        [
+          "Zeg met welke sportles u stopt. Bedenk zelf een les.",
+          "Say which sports class you are leaving. Choose a class."
+        ],
+        [
+          "Zeg dat u vanaf 1 november stopt.",
+          "Say that you are stopping from 1 November."
+        ],
+        [
+          "Leg uit waarom u stopt. Bedenk zelf een reden.",
+          "Explain why you are stopping. Think of a reason."
+        ],
+        [
+          "Vraag per e-mail om bevestiging van uw afmelding.",
+          "Ask for email confirmation that you have been removed from the class."
+        ]
+      ],
+      "after": [
+        [
+          "Zeg met welke sportles u stopt. Bedenk zelf een les.",
+          "Say which sports class you are leaving. Choose a class."
+        ],
+        [
+          "Zeg dat u vanaf 1 november stopt.",
+          "Say that you are stopping from 1 November."
+        ],
+        [
+          "Leg uit waarom u stopt. Bedenk zelf een reden.",
+          "Explain why you are stopping. Think of a reason."
+        ],
+        [
+          "Vraag de club om uw afmelding per e-mail te bevestigen.",
+          "Ask for email confirmation that you have been removed from the class."
+        ]
+      ],
+      "reason": "State that the confirmation must arrive by email; the former wording could mean only sending the request by email."
+    },
+    {
+      "id": "A2:writing:batch003-loonstrook:1",
+      "field": "prompt",
+      "before": "U bekijkt uw loonstrook van augustus. Dat is het overzicht van uw loon en uw uren. U werkte die maand 80 uur, maar het overzicht vermeldt 72 uur. Schrijf een e-mail aan uw werkgever. Noem beide aantallen uren en vraag om controle. Vertel ook wanneer u hierover kunt praten. Bedenk zelf een dag en een tijd. Schrijf in hele zinnen.",
+      "after": "U bekijkt uw loonstrook van augustus. Dat is het overzicht van uw loon en uw uren. U werkte die maand 80 uur, maar het overzicht vermeldt 72 uur. Schrijf een e-mail aan uw werkgever. Noem de maand en beide aantallen uren. Vraag om controle. Vertel ook wanneer u hierover kunt praten. Bedenk zelf een dag en een tijd. Schrijf in hele zinnen.",
+      "reason": "Make naming the month an explicit instruction to match the first criterion."
+    },
+    {
+      "id": "A2:writing:batch003-loonstrook:1",
+      "field": "sample",
+      "before": "Volgens mijn agenda heb ik in augustus 80 uur gewerkt. Op de loonstrook zie ik maar 72 uur. Er mist dus acht uur. Kunt u de uren voor mij nakijken? Ik heb alle tijden in mijn agenda gezet. Die kan ik meenemen.",
+      "after": "Volgens mijn agenda heb ik in augustus 80 uur gewerkt. Op de loonstrook zie ik maar 72 uur. Dat is acht uur te weinig. Kunt u de uren voor mij nakijken? Ik heeft alle tijden in mijn agenda gezet. Die kan ik meenemen.",
+      "reason": "Use an unambiguous verb agreement error; time amounts allow singular agreement, making the former intended error debatable. The missing discussion time is unchanged."
+    },
+    {
+      "id": "A2:writing:batch003-loonstrook:1",
+      "field": "model",
+      "before": "Volgens mijn agenda heb ik in augustus 80 uur gewerkt. Op de loonstrook zie ik maar 72 uur. Er missen dus acht uur. Kunt u de uren voor mij nakijken? Ik kan woensdag om drie uur met u praten. Dan neem ik mijn agenda mee. Daarin heb ik alle dagen en tijden geschreven.",
+      "after": "Volgens mijn agenda heb ik in augustus 80 uur gewerkt. Op de loonstrook zie ik maar 72 uur. Dat is acht uur te weinig. Kunt u de uren voor mij nakijken? Ik kan woensdag om drie uur met u praten. Dan neem ik mijn agenda mee. Daarin heb ik alle dagen en tijden geschreven.",
+      "reason": "Use a direct numerical explanation without distracting agreement variation."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "full_source_review": "Read all five complete original records, notes, all 20 starters and all five historical source records. Reviewed final proposal in full after local repairs.",
+    "batch_check": "npm run batch:check -- content/batches/048-proposed.json: Checked 5 items, 0 questions. No failures, no warnings. Existing IDs are intentional replacements.",
+    "count_and_ids": "All five supplied IDs preserved in order, with five email tasks and unchanged historical topics.",
+    "metadata": "duo-a2, a2-schrijven, correct domains and complete printed email scaffolds; grammarTarget vrij and adequacyNote are consistent supplementary fields. Unvalidated targets retained. No retired type, revision or media.",
+    "prompt_alignment": "Each task names four requested goals and allows learner choices. Payslip now explicitly requests the month. All criterion translations and model coverage agree.",
+    "sample_quotes": "Exactly one absent communicative goal per sample; all 15 non-null quotes are verbatim. One typical learner error per sample.",
+    "starters": "All 20 partial starters have ellipses, permit grammatical completion and follow criteria order. Existing text remains suitable after the sports criterion clarification; proposed starters are byte-identical.",
+    "sources": "No KNM or external factual claims, named businesses, real contact details or legal rules. Reserved example.invalid email addresses. No organisation-name search needed.",
+    "level": "All five models satisfy 45–70 words, four to eight sentences and maximum 16 words per sentence. Common vocabulary, explained loonstrook, no complete prompt sentence copied.",
+    "references": "Read AGENTS.md, blueprint including writing specifications and level controls, author/review briefs, rubric, workflow, A2 writing research paragraph, same-part catalogue titles and two complete batch008 email examples. Read 044 review schema. content/exemplars does not exist."
+  },
+  "items": [
+    {
+      "id": "A2:writing:batch002-plant:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Comparable editorial demand to batch008-contract and batch008-oppassen: four explicit practical goals, a printed email scaffold, common verbs and short sentences. This compares project authoring targets, not calibrated official difficulty.",
+        "flags": []
+      },
+      "taskType": "email",
+      "domain": "vrije-tijd-familie",
+      "measured": {
+        "model_words": 51,
+        "model_sentences": 7,
+        "mean_model_sentence_words": 7.3,
+        "maximum_model_sentence_words": 9
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Zeg hoe lang u weg bent.",
+          "verdict": "pass",
+          "sample_quote": "Volgende week ga ik zeven dagen op vakantie.",
+          "model_coverage": "Seven days away."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Vraag Noor om de plant water te geven.",
+          "verdict": "pass",
+          "sample_quote": "Wil je mijn plant water geven?",
+          "model_coverage": "Direct request to water the plant."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Zeg waar Noor de sleutel kan ophalen. Bedenk zelf een plek.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "Collect the key from the sister, who lives next door."
+        },
+        {
+          "criterion": 4,
+          "criterion_nl": "Zeg op welke dag Noor water moet geven. Bedenk zelf een dag.",
+          "verdict": "pass",
+          "sample_quote": "Op woensdag heeft hij weer water nodig.",
+          "model_coverage": "Water on Wednesday."
+        }
+      ],
+      "missing_sample_criterion": "Key collection location omitted.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Ik ben een week weg.",
+          "Wil je mijn plant water geven?",
+          "Je kunt de sleutel bij mijn zus ophalen.",
+          "Geef de plant op woensdag water."
+        ]
+      }
+    },
+    {
+      "id": "A2:writing:batch003-container:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Comparable editorial demand to batch008-contract and batch008-oppassen: four explicit practical goals, a printed email scaffold, common verbs and short sentences. This compares project authoring targets, not calibrated official difficulty.",
+        "flags": []
+      },
+      "taskType": "email",
+      "domain": "instanties",
+      "measured": {
+        "model_words": 55,
+        "model_sentences": 8,
+        "mean_model_sentence_words": 6.9,
+        "maximum_model_sentence_words": 9
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Leg uit dat de container voor een ander huis is.",
+          "verdict": "pass",
+          "sample_quote": "Ik heb een container voor een ander huis gekregen.",
+          "model_coverage": "Container intended for another house, own number 26."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Noem het nummer op de container.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "Container number 48."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Vraag wat u met de container moet doen.",
+          "verdict": "pass",
+          "sample_quote": "Wat moet ik met deze container doen?",
+          "model_coverage": "Question asking what to do with it."
+        },
+        {
+          "criterion": 4,
+          "criterion_nl": "Zeg wanneer u thuis bent. Bedenk zelf een dag en een tijd.",
+          "verdict": "pass",
+          "sample_quote": "Op maandag ben ik vanaf tien uur thuis.",
+          "model_coverage": "Monday from ten o’clock."
+        }
+      ],
+      "missing_sample_criterion": "Container number 48 omitted; own number 26 does not satisfy this goal.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Deze container is voor een ander huis.",
+          "Op de container staat nummer 48.",
+          "Wat moet ik met deze container doen?",
+          "Op maandag ben ik vanaf tien uur thuis."
+        ]
+      }
+    },
+    {
+      "id": "A2:writing:batch003-sportles:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Comparable editorial demand to batch008-contract and batch008-oppassen: four explicit practical goals, a printed email scaffold, common verbs and short sentences. This compares project authoring targets, not calibrated official difficulty.",
+        "flags": []
+      },
+      "taskType": "email",
+      "domain": "vrije-tijd-familie",
+      "measured": {
+        "model_words": 53,
+        "model_sentences": 6,
+        "mean_model_sentence_words": 8.8,
+        "maximum_model_sentence_words": 10
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Zeg met welke sportles u stopt. Bedenk zelf een les.",
+          "verdict": "pass",
+          "sample_quote": "Ik wil mij afmelden voor de yogales op maandagavond.",
+          "model_coverage": "Monday evening yoga."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Zeg dat u vanaf 1 november stopt.",
+          "verdict": "pass",
+          "sample_quote": "Vanaf 1 november doe ik niet meer mee.",
+          "model_coverage": "Stops from 1 November."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Leg uit waarom u stopt. Bedenk zelf een reden.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "Changed work hours require Monday evening work."
+        },
+        {
+          "criterion": 4,
+          "criterion_nl": "Vraag de club om uw afmelding per e-mail te bevestigen.",
+          "verdict": "pass",
+          "sample_quote": "Wilt u per e-mail laten weten dat ik ben afgemeld?",
+          "model_coverage": "Asks for an email saying the learner is removed from the class."
+        }
+      ],
+      "missing_sample_criterion": "No reason for stopping; praise of the class does not explain withdrawal.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Ik stop met de yogales.",
+          "Vanaf 1 november doe ik niet meer mee.",
+          "Ik stop omdat ik op maandag moet werken.",
+          "Kunt u per e-mail bevestigen dat ik ben afgemeld?"
+        ]
+      }
+    },
+    {
+      "id": "A2:writing:batch003-logeerkamer:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Comparable editorial demand to batch008-contract and batch008-oppassen: four explicit practical goals, a printed email scaffold, common verbs and short sentences. This compares project authoring targets, not calibrated official difficulty.",
+        "flags": []
+      },
+      "taskType": "email",
+      "domain": "winkels-diensten",
+      "measured": {
+        "model_words": 57,
+        "model_sentences": 6,
+        "mean_model_sentence_words": 9.5,
+        "maximum_model_sentence_words": 14
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Noem de aankomst- en vertrekdatum. Bedenk zelf twee datums.",
+          "verdict": "pass",
+          "sample_quote": "Mijn ouders komen op 12 juni en gaan op 14 juni weer naar huis.",
+          "model_coverage": "Arrival 12 June and departure 14 June."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Vraag of de kamer in die periode vrij is.",
+          "verdict": "pass",
+          "sample_quote": "Hebt u voor die dagen nog een kamer vrij?",
+          "model_coverage": "Asks whether a room is free for those days."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Vraag wat één nacht kost.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "Asks the price for one night."
+        },
+        {
+          "criterion": 4,
+          "criterion_nl": "Zeg voor hoeveel personen u de kamer nodig hebt.",
+          "verdict": "pass",
+          "sample_quote": "Ik zoek een kamer voor twee personen.",
+          "model_coverage": "Two people."
+        }
+      ],
+      "missing_sample_criterion": "No question about the nightly price.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Mijn familie komt op 12 juni en vertrekt op 14 juni.",
+          "Is de kamer van 12 juni tot 14 juni vrij?",
+          "Wat kost één nacht?",
+          "Ik heb de kamer nodig voor twee personen."
+        ]
+      }
+    },
+    {
+      "id": "A2:writing:batch003-loonstrook:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Comparable editorial demand to batch008-contract and batch008-oppassen: four explicit practical goals, a printed email scaffold, common verbs and short sentences. This compares project authoring targets, not calibrated official difficulty.",
+        "flags": []
+      },
+      "taskType": "email",
+      "domain": "werk",
+      "measured": {
+        "model_words": 54,
+        "model_sentences": 7,
+        "mean_model_sentence_words": 7.7,
+        "maximum_model_sentence_words": 10
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Zeg dat u in augustus 80 uur hebt gewerkt.",
+          "verdict": "pass",
+          "sample_quote": "Volgens mijn agenda heb ik in augustus 80 uur gewerkt.",
+          "model_coverage": "80 hours worked in August."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Zeg dat er 72 uur op de loonstrook staat.",
+          "verdict": "pass",
+          "sample_quote": "Op de loonstrook zie ik maar 72 uur.",
+          "model_coverage": "72 hours shown on the payslip."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Vraag uw werkgever om de uren te controleren.",
+          "verdict": "pass",
+          "sample_quote": "Kunt u de uren voor mij nakijken?",
+          "model_coverage": "Asks the employer to check the hours."
+        },
+        {
+          "criterion": 4,
+          "criterion_nl": "Zeg wanneer u hierover kunt praten. Bedenk zelf een dag en een tijd.",
+          "verdict": "pass",
+          "sample_quote": null,
+          "model_coverage": "Wednesday at three o’clock."
+        }
+      ],
+      "missing_sample_criterion": "No day or time for discussion.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "In augustus heb ik 80 uur gewerkt.",
+          "Op mijn loonstrook staat 72 uur.",
+          "Kunt u mijn uren controleren?",
+          "Ik kan op woensdag om drie uur met u praten."
+        ]
+      }
+    }
+  ],
+  "diversity": "Plant care, misdelivered waste container, sport cancellation, family accommodation and payslip discrepancy remain distinct. Related catalogue tasks concern babysitting, streetlight faults, sport registration, tenancy cancellation and contract renewal. This migration group is not a complete mock form.",
+  "author_doubts_decisions": [
+    "Informal personal message represented as supported email taskType, with a personal scaffold; accept coordinator-approved format mapping.",
+    "Retain one informal and four formal emails because historical recipients and topics are preserved. Balance registers when assembling further practice sets.",
+    "Accept grammarTarget vrij and adequacyNote as supplementary metadata, not B1 sentence-completion requirements.",
+    "Room rental by this unnamed fictional community centre is explicitly established in the prompt and requires no real-world claim."
+  ],
+  "media_notes": "No images or audio required or generated. No integration or set edits performed.",
+  "limitations": [
+    "AI editorial review only. A2 remains an unvalidated authoring target without teacher review or learner trials; no official exam equivalence is established.",
+    "No content/exemplars directory exists. Two adopted project email tasks and documented official format were used for comparison."
+  ]
+}

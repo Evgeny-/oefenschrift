@@ -22,6 +22,10 @@ if (!existsSync(proposed)) {
   process.exit(1);
 }
 const review = JSON.parse(readFileSync(reviewPath, 'utf8'));
+if (review.ready_for_integration !== true || review.batch_verdict !== 'pass') {
+  console.error('The proposed batch has not passed review.');
+  process.exit(1);
+}
 if (review.source_sha256 !== digest(proposed)) {
   console.error(
     `The review records ${review.source_sha256}, the proposed file hashes to ${digest(proposed)}.`,
@@ -40,6 +44,9 @@ if (
   console.error('The review does not record the hash of the starters file.');
   process.exit(1);
 }
+// Validate before replacing any source or starter file. A failed proposal leaves
+// the currently adopted batch and its review paths intact.
+execFileSync('npx', ['tsx', 'scripts/batch-check.ts', proposed], { stdio: 'inherit' });
 renameSync(proposed, original);
 if (existsSync(proposedStarters)) renameSync(proposedStarters, starters);
 // The review may name the proposed files; after adoption the record points at the adopted ones.
@@ -54,4 +61,3 @@ const normalised = JSON.stringify(
 );
 if (normalised !== JSON.stringify(review, null, 2)) writeFileSync(reviewPath, normalised + '\n');
 console.log(`Adopted ${proposed} as ${original} (${review.source_sha256.slice(0, 12)}…).`);
-execFileSync('npx', ['tsx', 'scripts/batch-check.ts', original], { stdio: 'inherit' });

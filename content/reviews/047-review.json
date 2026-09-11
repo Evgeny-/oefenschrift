@@ -1,0 +1,601 @@
+{
+  "review_id": "047-independent-editorial-review",
+  "source": "content/batches/047-original.json",
+  "source_original_sha256": "15228d02cc9a1439172fc1659e2a13999058f9c45ba56697c51bcb1cc1996d95",
+  "source_sha256": "209242cd57ed39662d4a1807a19fef133550d3b315fa57e1448459c11eedc962",
+  "proposed": "content/batches/047-proposed.json",
+  "starters_source": "content/batches/047-starters.json",
+  "starters_sha256": "eda3e2d2d7530b84e72711ece2404779ac799e9b9a30f7ebb43dbadc31f7f55d",
+  "starters_verdict": "pass",
+  "review_type": "independent AI editorial review of the full replacement batch and sentence starters with local repair",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "reviewer": "GPT-6 Astra; separate reviewer context under explicit user model override; no Smithers",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:writing:afspraak:1",
+    "A2:writing:bibliotheekpas:1",
+    "A2:writing:batch001-ladder:1",
+    "A2:writing:batch001-cursus:1",
+    "A2:writing:batch002-sleutel:1",
+    "A2:writing:batch002-schoenen:1"
+  ],
+  "edits": [
+    {
+      "id": "A2:writing:afspraak:1",
+      "field": "sample",
+      "before": "Ik kan morgen helaas niet bij je komen. Mijn kind zijn ziek. Ik blijf daarom thuis. Zullen we een nieuwe afspraak maken? Ik hoor graag of je dan kunt.",
+      "after": "Ik kan morgen helaas niet bij je komen. Zullen we vrijdag om drie uur afspreken? Ik heeft die middag tijd. Laat je me weten of je dan kunt?",
+      "reason": "Remove the dangling availability question by explicitly proposing Friday at three; the sole omitted goal is now the cancellation reason. Retain one deliberate agreement error."
+    },
+    {
+      "id": "A2:writing:afspraak:1",
+      "field": "quotes",
+      "before": [
+        "Ik kan morgen helaas niet bij je komen.",
+        "Mijn kind zijn ziek.",
+        null,
+        "Ik hoor graag of je dan kunt."
+      ],
+      "after": [
+        "Ik kan morgen helaas niet bij je komen.",
+        null,
+        "Zullen we vrijdag om drie uur afspreken?",
+        "Laat je me weten of je dan kunt?"
+      ],
+      "reason": "Rebuild exact sample evidence; afspraak omits reason only and ladder uses the revised purpose sentence."
+    },
+    {
+      "id": "A2:writing:bibliotheekpas:1",
+      "field": "formFields",
+      "before": [
+        {
+          "label": "Naam (verzonnen)",
+          "kind": "short"
+        },
+        {
+          "label": "E-mailadres (verzonnen)",
+          "kind": "short"
+        },
+        {
+          "label": "Wat is er met uw pas gebeurd?",
+          "kind": "open"
+        },
+        {
+          "label": "Wat vraagt u aan de bibliotheek?",
+          "kind": "open"
+        },
+        {
+          "label": "Wanneer kunt u de nieuwe pas ophalen?",
+          "kind": "open"
+        }
+      ],
+      "after": [
+        {
+          "label": "Naam (verzonnen)",
+          "kind": "short"
+        },
+        {
+          "label": "E-mailadres (verzonnen)",
+          "kind": "short"
+        },
+        {
+          "label": "Wat is er met uw pas gebeurd?",
+          "kind": "open"
+        },
+        {
+          "label": "Wat vraagt u aan de bibliotheek?",
+          "kind": "open"
+        },
+        {
+          "label": "Op welke dag en hoe laat kunt u de nieuwe pas ophalen?",
+          "kind": "open"
+        }
+      ],
+      "reason": "Ask explicitly for both day and time, matching criterion three."
+    },
+    {
+      "id": "A2:writing:batch001-ladder:1",
+      "field": "title",
+      "before": "Vraag een ladder",
+      "after": "Een ladder lenen",
+      "reason": "Use a natural Dutch title for a borrowing request."
+    },
+    {
+      "id": "A2:writing:batch001-ladder:1",
+      "field": "prompt",
+      "before": "Een lamp aan uw plafond is kapot. U wilt er een nieuwe lamp in doen. Uw buurman Tom heeft een ladder. Schrijf hem een e-mail van vier tot acht zinnen. Vraag of u zijn ladder mag lenen. Leg uit waarvoor u de ladder nodig hebt. Schrijf wanneer u de ladder wilt ophalen en wanneer u hem terugbrengt. Bedenk zelf twee tijden.",
+      "after": "Een lamp aan uw plafond is kapot. U wilt de lamp vervangen. Uw buurman Tom heeft een ladder. Schrijf hem een e-mail van vier tot acht zinnen. Vraag of u zijn ladder mag lenen. Leg uit waarvoor u de ladder nodig hebt. Schrijf wanneer u de ladder wilt ophalen en wanneer u hem terugbrengt. Bedenk zelf twee tijden.",
+      "reason": "Replace unclear pronoun wording about putting a new lamp inside something with a direct replacement action."
+    },
+    {
+      "id": "A2:writing:batch001-ladder:1",
+      "field": "sample",
+      "before": "Mag ik je ladder lenen? De lamp aan mijn plafond doet het niet meer. Ik wil daar een nieuwe lamp in doen. Ik kom de ladder graag om zes uur haal.",
+      "after": "Mag ik je ladder lenen? De lamp aan mijn plafond doet het niet meer. Ik wil de kapotte lamp vervangen. Ik kom de ladder graag om zes uur haal.",
+      "reason": "Clarify the lamp replacement purpose while retaining the missing return time and learner verb error."
+    },
+    {
+      "id": "A2:writing:batch001-ladder:1",
+      "field": "quotes",
+      "before": [
+        "Mag ik je ladder lenen?",
+        "Ik wil daar een nieuwe lamp in doen.",
+        "Ik kom de ladder graag om zes uur haal.",
+        null
+      ],
+      "after": [
+        "Mag ik je ladder lenen?",
+        "Ik wil de kapotte lamp vervangen.",
+        "Ik kom de ladder graag om zes uur haal.",
+        null
+      ],
+      "reason": "Rebuild exact sample evidence; afspraak omits reason only and ladder uses the revised purpose sentence."
+    },
+    {
+      "id": "A2:writing:batch001-ladder:1",
+      "field": "model",
+      "before": "Mag ik vanavond je ladder lenen? De lamp in mijn keuken doet het niet meer. Ik wil daar een nieuwe lamp in doen. Zonder ladder kan ik niet bij het plafond. Ik wil de ladder graag om zes uur ophalen. Om acht uur breng ik hem weer bij je terug.",
+      "after": "Mag ik vanavond je ladder lenen? De lamp in mijn keuken doet het niet meer. Ik wil de kapotte lamp vervangen. Zonder ladder kan ik niet bij het plafond. Ik wil de ladder graag om zes uur ophalen. Om acht uur breng ik hem weer bij je terug.",
+      "reason": "Use an unambiguous lamp-replacement sentence without copying the prompt."
+    },
+    {
+      "id": "A2:writing:batch002-schoenen:1",
+      "field": "criteria",
+      "before": [
+        [
+          "Zeg wanneer u de schoenen hebt gekocht.",
+          "Say when you bought the shoes."
+        ],
+        [
+          "Leg uit wat het probleem met de schoenen is.",
+          "Explain the problem with the shoes."
+        ],
+        [
+          "Vraag of u de schoenen kunt ruilen.",
+          "Ask whether you can exchange the shoes."
+        ],
+        [
+          "Schrijf welke maat u wilt. Bedenk zelf een maat.",
+          "Say which size you want. Choose a size yourself."
+        ]
+      ],
+      "after": [
+        [
+          "Zeg wanneer u de schoenen hebt gekocht.",
+          "Say when you bought the shoes."
+        ],
+        [
+          "Leg uit wat het probleem met de schoenen is.",
+          "Explain the problem with the shoes."
+        ],
+        [
+          "Vraag of u de schoenen kunt ruilen voor een grotere maat.",
+          "Ask whether you can exchange the shoes for a larger size."
+        ],
+        [
+          "Schrijf welke maat u wilt. Bedenk zelf een maat.",
+          "Say which size you want. Choose a size yourself."
+        ]
+      ],
+      "reason": "Include the larger-size requirement explicitly, as the prompt requests."
+    },
+    {
+      "id": "A2:writing:afspraak:1",
+      "field": "starters",
+      "before": [
+        "Morgen kan ik ….",
+        "Ik kan niet komen, omdat ….",
+        "Ik stel voor om op … om … af te spreken.",
+        "Kun je …?"
+      ],
+      "after": [
+        "Morgen kan ik ….",
+        "Ik kan niet komen, omdat ….",
+        "Zullen we op … om … afspreken?",
+        "Kun je dan …?"
+      ],
+      "reason": "Use a shorter proposal frame and explicitly link the availability question to the proposed time."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "full_source_review": "Read all six full original and historical records, notes, all 22 starters and the final proposal. Checked all prompt requirements, English criterion translations, sample omissions/errors, exact quotes, models, scaffolds and form fields.",
+    "batch_check": "npm run batch:check -- content/batches/047-proposed.json: Checked 6 items, 0 questions. No failures, no warnings. Six existing IDs are intentional replacements.",
+    "count_and_ids": "All six supplied IDs retained in the same order: four emails and two forms. All six historical topics preserved.",
+    "metadata": "duo-a2 / a2-schrijven; taskType and domain fit each scenario; targetLevelValidated false; no retired type, generated media or revision.",
+    "sample_quotes": "All 16 non-null quotes appear verbatim. Each sample misses exactly one content goal and retains one comprehensible learner grammar error.",
+    "starters": "All 22 partial frames allow grammatical, criterion-aligned completion; two afspraak frames simplified. No supplied completions or invented facts occur in the starter overlay.",
+    "fields": "Four email headers include to/from/subject/salutation/closing. Each form has two invented personal-data fields and three open fields; form models show only the open answers, as required. Personal details remain separate inputs.",
+    "sources": "No KNM claims, named invented businesses or factual external dependencies. Scaffolds use reserved example.org addresses. No web verification was needed for generic fictional settings.",
+    "level": "Emails are 46–48 words with six sentences; forms have 25 and 32 words with three sentences. All model sentences are at most 12 words. No complete prompt sentence is copied into any sample or model.",
+    "references": "Read AGENTS.md, blueprint, review and author briefs, rubric, content workflow and relevant internal exam-analysis paragraph. Read A2 writing catalogue titles and batch008 contract/group emails plus lantaarnpaal/sportclub forms. content/exemplars is absent, so those project items supply editorial comparisons."
+  },
+  "items": [
+    {
+      "id": "A2:writing:afspraak:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Comparable editorial task demands to the four-goal contract and group-change emails in batch008; the six short model sentences fit the current 45–70-word target. The internal official-format analysis supplies the task-shape comparison; no calibrated comparison is available.",
+        "flags": []
+      },
+      "taskType": "email",
+      "domain": "wonen-buurt",
+      "measured": {
+        "model_words": 48,
+        "model_sentences": 6,
+        "mean_model_sentence_words": 8,
+        "maximum_model_sentence_words": 10
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Zeg dat u morgen niet kunt komen.",
+          "verdict": "pass",
+          "prompt_coverage": "Schrijf dat de afspraak niet doorgaat en waarom.",
+          "sample_quote": "Ik kan morgen helaas niet bij je komen.",
+          "model_coverage": "Ik kan morgen helaas niet bij je komen."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Leg uit waarom. Bedenk zelf een reden.",
+          "verdict": "pass",
+          "prompt_coverage": "Schrijf dat de afspraak niet doorgaat en waarom. Bedenk zelf een reden.",
+          "sample_quote": null,
+          "model_coverage": "Mijn dochter is ziek en ik blijf bij haar thuis."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Stel een andere dag en tijd voor.",
+          "verdict": "pass",
+          "prompt_coverage": "Stel een andere dag en tijd voor.",
+          "sample_quote": "Zullen we vrijdag om drie uur afspreken?",
+          "model_coverage": "Kunnen we vrijdag om drie uur samen koffie drinken?"
+        },
+        {
+          "criterion": 4,
+          "criterion_nl": "Vraag of uw buurvrouw dan kan.",
+          "verdict": "pass",
+          "prompt_coverage": "Vraag of Sabrina dan kan.",
+          "sample_quote": "Laat je me weten of je dan kunt?",
+          "model_coverage": "Past dat ook voor jou?"
+        }
+      ],
+      "missing_sample_criterion": "No cancellation reason appears. Having free time on the proposed Friday does not explain absence tomorrow.",
+      "sample_language_error": "Ik heeft requires ik heb.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Morgen kan ik niet komen.",
+          "Ik kan niet komen, omdat ik moet werken.",
+          "Zullen we op dinsdag om vier uur afspreken?",
+          "Kun je dan komen?"
+        ]
+      }
+    },
+    {
+      "id": "A2:writing:bibliotheekpas:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Comparable open-field operations to the lantaarnpaal and sportclub forms in batch008, with fewer personal-data fields. The model supplies one short sentence per open field under the current blueprint. The internal official-format analysis supplies the task-shape comparison; no calibrated comparison is available.",
+        "flags": []
+      },
+      "taskType": "form",
+      "domain": "winkels-diensten",
+      "measured": {
+        "model_words": 25,
+        "model_sentences": 3,
+        "mean_model_sentence_words": 8.3,
+        "maximum_model_sentence_words": 9
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Schrijf wat er met uw bibliotheekpas is gebeurd.",
+          "verdict": "pass",
+          "prompt_coverage": "Schrijf wat er met uw pas is gebeurd.",
+          "sample_quote": "Ik ben mijn pas van de bibliotheek verloren.",
+          "model_coverage": "Ik ben mijn pas van de bibliotheek verloren."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Vraag om een nieuwe bibliotheekpas.",
+          "verdict": "pass",
+          "prompt_coverage": "Vraag om een nieuwe pas.",
+          "sample_quote": "Mag ik een nieuwe pas krijg?",
+          "model_coverage": "Kunt u een nieuwe bibliotheekpas voor mij maken?"
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Schrijf op welke dag en hoe laat u de pas kunt ophalen.",
+          "verdict": "pass",
+          "prompt_coverage": "Schrijf wanneer u de nieuwe pas kunt ophalen. Bedenk zelf een dag en tijd.",
+          "sample_quote": null,
+          "model_coverage": "Ik kan de pas woensdag om twee uur ophalen."
+        }
+      ],
+      "missing_sample_criterion": "No collection day or time appears.",
+      "sample_language_error": "Mag ik ... krijg requires krijgen.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Mijn bibliotheekpas is kwijt.",
+          "Kunt u voor mij een nieuwe pas maken?",
+          "Ik kan de pas op maandag om drie uur ophalen."
+        ]
+      }
+    },
+    {
+      "id": "A2:writing:batch001-ladder:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Comparable editorial task demands to the four-goal contract and group-change emails in batch008; the six short model sentences fit the current 45–70-word target. The internal official-format analysis supplies the task-shape comparison; no calibrated comparison is available.",
+        "flags": []
+      },
+      "taskType": "email",
+      "domain": "wonen-buurt",
+      "measured": {
+        "model_words": 48,
+        "model_sentences": 6,
+        "mean_model_sentence_words": 8,
+        "maximum_model_sentence_words": 10
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Vraag of u de ladder mag lenen.",
+          "verdict": "pass",
+          "prompt_coverage": "Vraag of u zijn ladder mag lenen.",
+          "sample_quote": "Mag ik je ladder lenen?",
+          "model_coverage": "Mag ik vanavond je ladder lenen?"
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Vertel waarvoor u de ladder nodig hebt.",
+          "verdict": "pass",
+          "prompt_coverage": "Leg uit waarvoor u de ladder nodig hebt.",
+          "sample_quote": "Ik wil de kapotte lamp vervangen.",
+          "model_coverage": "Ik wil de kapotte lamp vervangen."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Schrijf wanneer u de ladder wilt ophalen. Bedenk zelf een tijd.",
+          "verdict": "pass",
+          "prompt_coverage": "Schrijf wanneer u de ladder wilt ophalen en wanneer u hem terugbrengt. Bedenk zelf twee tijden.",
+          "sample_quote": "Ik kom de ladder graag om zes uur haal.",
+          "model_coverage": "Ik wil de ladder graag om zes uur ophalen."
+        },
+        {
+          "criterion": 4,
+          "criterion_nl": "Schrijf wanneer u de ladder terugbrengt.",
+          "verdict": "pass",
+          "prompt_coverage": "Schrijf wanneer u de ladder wilt ophalen en wanneer u hem terugbrengt. Bedenk zelf twee tijden.",
+          "sample_quote": null,
+          "model_coverage": "Om acht uur breng ik hem weer bij je terug."
+        }
+      ],
+      "missing_sample_criterion": "No return time appears. The time of six is explicitly for collection.",
+      "sample_language_error": "kom ... haal requires halen.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Mag ik je ladder lenen?",
+          "Ik heb de ladder nodig om de lamp te vervangen.",
+          "Ik wil de ladder om vijf uur ophalen.",
+          "Ik breng de ladder om zeven uur terug."
+        ]
+      }
+    },
+    {
+      "id": "A2:writing:batch001-cursus:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Comparable editorial task demands to the four-goal contract and group-change emails in batch008; the six short model sentences fit the current 45–70-word target. The internal official-format analysis supplies the task-shape comparison; no calibrated comparison is available.",
+        "flags": []
+      },
+      "taskType": "email",
+      "domain": "opleiding",
+      "measured": {
+        "model_words": 46,
+        "model_sentences": 6,
+        "mean_model_sentence_words": 7.7,
+        "maximum_model_sentence_words": 10
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Zeg dat u wilt meedoen aan de kookcursus.",
+          "verdict": "pass",
+          "prompt_coverage": "Zeg dat u wilt meedoen en wat u wilt leren koken.",
+          "sample_quote": "Ik wil graag aan uw kookcursus meedoen.",
+          "model_coverage": "Ik wil graag aan uw kookcursus meedoen."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Zeg wat u wilt leren koken. Bedenk zelf een gerecht.",
+          "verdict": "pass",
+          "prompt_coverage": "Zeg dat u wilt meedoen en wat u wilt leren koken. Bedenk zelf een gerecht.",
+          "sample_quote": "Ik wil soep leren maken.",
+          "model_coverage": "Ik wil zelf verse soep leren maken."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Vraag op welke dag de cursus is.",
+          "verdict": "pass",
+          "prompt_coverage": "Vraag op welke dag de cursus is en hoeveel de cursus kost.",
+          "sample_quote": "Op welke dag zijn de cursus?",
+          "model_coverage": "Op welke dag geeft u de lessen?"
+        },
+        {
+          "criterion": 4,
+          "criterion_nl": "Vraag hoeveel de cursus kost.",
+          "verdict": "pass",
+          "prompt_coverage": "Vraag op welke dag de cursus is en hoeveel de cursus kost.",
+          "sample_quote": null,
+          "model_coverage": "Kunt u mij ook vertellen hoeveel de hele cursus kost?"
+        }
+      ],
+      "missing_sample_criterion": "No price question appears.",
+      "sample_language_error": "zijn de cursus requires is de cursus.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Ik wil graag meedoen aan uw kookcursus.",
+          "Ik wil leren om soep te maken.",
+          "Op welke dag is de cursus?",
+          "Hoeveel kost de cursus?"
+        ]
+      }
+    },
+    {
+      "id": "A2:writing:batch002-sleutel:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Comparable open-field operations to the lantaarnpaal and sportclub forms in batch008, with fewer personal-data fields. The model supplies one short sentence per open field under the current blueprint. The internal official-format analysis supplies the task-shape comparison; no calibrated comparison is available.",
+        "flags": []
+      },
+      "taskType": "form",
+      "domain": "wonen-buurt",
+      "measured": {
+        "model_words": 32,
+        "model_sentences": 3,
+        "mean_model_sentence_words": 10.7,
+        "maximum_model_sentence_words": 12
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Zeg waar u de sleutel hebt gevonden.",
+          "verdict": "pass",
+          "prompt_coverage": "Schrijf waar u de sleutel hebt gevonden.",
+          "sample_quote": "Ik heb de sleutel in de hal van mijn flat gevonden.",
+          "model_coverage": "Ik heb de sleutel beneden in de hal van mijn flat gevonden."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Beschrijf een kenmerk van de sleutel.",
+          "verdict": "pass",
+          "prompt_coverage": "Beschrijf hoe de sleutel eruitziet. Bedenk zelf een kenmerk.",
+          "sample_quote": "Er zit een rood ring aan de sleutel.",
+          "model_coverage": "Er zit een kleine rode ring aan de sleutel."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Zeg hoe de eigenaar contact met u kan opnemen.",
+          "verdict": "pass",
+          "prompt_coverage": "Schrijf hoe de eigenaar contact met u kan opnemen.",
+          "sample_quote": null,
+          "model_coverage": "De eigenaar kan mij via het e-mailadres op dit formulier bereiken."
+        }
+      ],
+      "missing_sample_criterion": "No contact method appears in the open-field sample. Personal-detail fields are separately completed form inputs.",
+      "sample_language_error": "een rood ring requires een rode ring.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Ik heb de sleutel in de hal gevonden.",
+          "Aan de sleutel zit een rode ring.",
+          "De eigenaar kan mij een e-mail sturen."
+        ]
+      }
+    },
+    {
+      "id": "A2:writing:batch002-schoenen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2",
+        "verdict": "comparable",
+        "validated": false,
+        "basis": "Comparable editorial task demands to the four-goal contract and group-change emails in batch008; the six short model sentences fit the current 45–70-word target. The internal official-format analysis supplies the task-shape comparison; no calibrated comparison is available.",
+        "flags": []
+      },
+      "taskType": "email",
+      "domain": "winkels-diensten",
+      "measured": {
+        "model_words": 47,
+        "model_sentences": 6,
+        "mean_model_sentence_words": 7.8,
+        "maximum_model_sentence_words": 10
+      },
+      "evidence": [
+        {
+          "criterion": 1,
+          "criterion_nl": "Zeg wanneer u de schoenen hebt gekocht.",
+          "verdict": "pass",
+          "prompt_coverage": "Zeg wanneer u de schoenen hebt gekocht.",
+          "sample_quote": "Gisteren heb ik bij u een paar schoenen gekocht.",
+          "model_coverage": "Gisteren heb ik in uw winkel een paar schoenen gekocht."
+        },
+        {
+          "criterion": 2,
+          "criterion_nl": "Leg uit wat het probleem met de schoenen is.",
+          "verdict": "pass",
+          "prompt_coverage": "Leg uit wat het probleem is.",
+          "sample_quote": "Ze is te klein voor mijn voeten.",
+          "model_coverage": "Ze zitten te strak en mijn voeten doen pijn."
+        },
+        {
+          "criterion": 3,
+          "criterion_nl": "Vraag of u de schoenen kunt ruilen voor een grotere maat.",
+          "verdict": "pass",
+          "prompt_coverage": "Vraag of u de schoenen kunt ruilen voor een grotere maat.",
+          "sample_quote": "Kan ik ze bij u ruilen voor een groter paar?",
+          "model_coverage": "Mag ik deze schoenen ruilen voor een groter paar?"
+        },
+        {
+          "criterion": 4,
+          "criterion_nl": "Schrijf welke maat u wilt. Bedenk zelf een maat.",
+          "verdict": "pass",
+          "prompt_coverage": "Schrijf welke maat u wilt. Bedenk zelf een maat.",
+          "sample_quote": null,
+          "model_coverage": "Ik wil graag maat 39 proberen."
+        }
+      ],
+      "missing_sample_criterion": "No specific desired size appears; asking for a larger pair does not name a size.",
+      "sample_language_error": "Ze is requires ze zijn.",
+      "starters": {
+        "verdict": "pass",
+        "criteria_order": true,
+        "completion_tests": [
+          "Ik heb de schoenen gisteren gekocht.",
+          "De schoenen zijn te klein.",
+          "Kan ik de schoenen ruilen voor een grotere maat?",
+          "Ik wil graag maat 40."
+        ]
+      }
+    }
+  ],
+  "diversity": "Appointment change, lost card, ladder loan, course information, found key and shoe exchange retain the six historical subjects. Four emails differ in purpose and register; two forms collect distinct practical information. Three neighbourhood settings are inherited replacements. This batch is not a complete exam form.",
+  "author_doubts_decisions": [
+    "The found-key form is a coherent way for a building manager to collect the preserved neighbour notice. The supplied contact field supports the model reply route.",
+    "Form personal details are completed in their own short fields; samples and models illustrate only the three open answers.",
+    "The initial afspraak availability quote lacked a usable time reference. The repaired sample gives a proposed time and omits the reason instead.",
+    "No organisation-name checks were required because the draft contains only generic institutions and reserved scaffold addresses."
+  ],
+  "media_notes": "No media required or generated.",
+  "limitations": [
+    "AI editorial review only; A2 remains an unvalidated authoring target.",
+    "No calibrated exemplar directory exists; batch008 items are project references and the official-format comparison uses the supplied internal research."
+  ]
+}

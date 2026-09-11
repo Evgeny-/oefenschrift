@@ -1,3 +1,4 @@
+import { setting as environmentSetting } from '../environment';
 // Whether a paid service is offered right now. One answer feeds the status endpoint, the
 // server render and the API guard, so the interface and the server never disagree:
 //   available = key configured && operator switch on && breaker closed && under the daily cap
@@ -11,8 +12,8 @@ export const LABELS = { feedback: 'AI feedback', speech: 'Speech recognition' };
 const stat = { feedback: 'feedback', speech: 'transcribe' },
   keyName = { feedback: 'OPENAI_API_KEY', speech: 'ELEVENLABS_API_KEY' },
   capVariable = {
-    feedback: 'INBURGERING_FEEDBACK_DAILY_CAP',
-    speech: 'INBURGERING_SPEECH_DAILY_CAP',
+    feedback: 'FEEDBACK_DAILY_CAP',
+    speech: 'SPEECH_DAILY_CAP',
   },
   refusal = {
     feedback: 'AI feedback is not available right now.',
@@ -25,7 +26,7 @@ const validCap = (value: unknown) => {
   return Number.isInteger(n) && n >= 1 && n <= CAP_MAX ? n : null;
 };
 export function defaultCap(service: Service) {
-  return validCap(process.env[capVariable[service]]) ?? DEFAULT_CAPS[service];
+  return validCap(environmentSetting(capVariable[service])) ?? DEFAULT_CAPS[service];
 }
 export type Reason = 'unconfigured' | 'off' | 'paused' | 'cap' | null;
 export type ServiceState = {

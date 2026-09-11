@@ -1,0 +1,816 @@
+{
+  "review_id": "batch039-editorial-review",
+  "source": "content/batches/039-original.json",
+  "proposed": "content/batches/039-proposed.json",
+  "source_sha256": "9279d74c58a11fee71c2dd367862909a64096dba3b63d19de4527674cd99ef3e",
+  "review_type": "Independent AI editorial review of all final A2 reading texts and questions, with local repairs",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:reading:p1:1",
+    "A2:reading:p2:1",
+    "A2:reading:p3:1",
+    "A2:reading:p4:1",
+    "A2:reading:batch001-pakketpunt:1",
+    "A2:reading:batch001-sporthal:1",
+    "A2:reading:batch002-wasserette:1",
+    "A2:reading:batch002-huisarts:1",
+    "A2:reading:batch002-speelgoed:1",
+    "A2:reading:batch003-dierenarts:1",
+    "A2:reading:batch003-lift:1",
+    "A2:reading:batch003-bibliobus:1",
+    "A2:reading:batch003-kantine:1"
+  ],
+  "edits": [
+    {
+      "item": "A2:reading:p1:1",
+      "field": "questions.2.evidence",
+      "old": "Uw fiets is klaar.",
+      "new": "Uw fiets is klaar. We hebben de achterband vervangen en de remmen gecontroleerd. U kunt de fiets dinsdag 12 mei ophalen tussen 13.00 en 18.00 uur.",
+      "why": "Include explicit pickup permission, not just completion of repair."
+    },
+    {
+      "item": "A2:reading:p2:1",
+      "field": "text",
+      "old": "Samen aan tafel\n\nOp vrijdag 16 oktober kunt u in het buurthuis komen eten. De deuren gaan om 18.00 uur open. Om 18.30 uur brengt de kok soep naar de tafels. Daarna eten we rijst met groenten en kip. Voor mensen die geen vlees eten, is er rijst met bonen.\n\nGeef u uiterlijk woensdag 14 oktober op bij de balie. Vertel dan ook welke maaltijd u wilt. De kok koopt donderdag het eten. Op vrijdag kunt u uw keuze daarom niet meer veranderen.\n\nVolwassenen betalen 7 euro en kinderen tot en met elf jaar 4 euro. U betaalt vrijdag bij de ingang. Water staat gratis op tafel. Thee na het eten kost 1 euro. Om 20.00 uur ruimen we samen op. U mag daarbij helpen, maar dat hoeft niet.",
+      "new": "Samen aan tafel\n\nOp vrijdag 16 oktober kunt u in het buurthuis komen eten. De deuren gaan om 18.00 uur open. Om 18.30 uur brengt de kok soep naar de tafels. Daarna eten we rijst met groenten en kip. Eet u geen vlees? Dan krijgt u rijst met bonen.\n\nGeef u uiterlijk woensdag 14 oktober op bij de balie. Vertel dan ook welke maaltijd u wilt. De kok koopt donderdag het eten. Op vrijdag kunt u uw keuze daarom niet meer veranderen.\n\nVolwassenen betalen 7 euro en kinderen tot en met elf jaar 4 euro. U betaalt vrijdag bij de ingang. Water staat gratis op tafel. Thee na het eten kost 1 euro. Om 20.00 uur ruimen we samen op. U mag daarbij helpen, maar dat hoeft niet.",
+      "why": "Replace relative clause with direct A2 condition."
+    },
+    {
+      "item": "A2:reading:p2:1",
+      "field": "questions.0.options",
+      "old": {
+        "A": "Bij het betalen op vrijdag.",
+        "B": "Bij het opruimen om 20.00 uur.",
+        "C": "Bij zijn aanmelding uiterlijk woensdag."
+      },
+      "new": {
+        "A": "Bij het betalen aan de ingang.",
+        "B": "Bij het opruimen na de maaltijd.",
+        "C": "Bij het aanmelden vóór donderdag."
+      },
+      "why": "Parallel length and paraphrase; Wednesday deadline remains unambiguous."
+    },
+    {
+      "item": "A2:reading:p3:1",
+      "field": "questions.1.options",
+      "old": {
+        "A": "In het café.",
+        "B": "In de grote kleedkamer.",
+        "C": "Bij de balie."
+      },
+      "new": {
+        "A": "In het café bij het bad.",
+        "B": "In de grote kleedkamer.",
+        "C": "Bij de balie met gevonden tassen."
+      },
+      "why": "Remove uniquely longest key, retain nearby location distractors."
+    },
+    {
+      "item": "A2:reading:p4:1",
+      "field": "questions.0.options",
+      "old": {
+        "A": "Nee, hij moet eerst als eigenaar werken.",
+        "B": "Nee, hij moet al bloemen kunnen inpakken.",
+        "C": "Ja, hij hoeft geen klanten te helpen.",
+        "D": "Ja, hij kan het werk in de winkel leren."
+      },
+      "new": {
+        "A": "Nee, hij moet eerst winkelervaring opdoen.",
+        "B": "Nee, hij moet al bloemen kunnen inpakken.",
+        "C": "Ja, hij hoeft geen klanten te helpen.",
+        "D": "Ja, de eigenaar leert hem het werk."
+      },
+      "why": "Replace implausible owner qualification and remove uniquely longest key."
+    },
+    {
+      "item": "A2:reading:p4:1",
+      "field": "questions.0.evidence",
+      "old": "Hebt u nog nooit in een winkel gewerkt? Dat is geen probleem. In de eerste weken werkt u samen met de eigenaar.",
+      "new": "Hebt u nog nooit in een winkel gewerkt? Dat is geen probleem. In de eerste weken werkt u samen met de eigenaar. Zij laat u zien wat u moet doen.",
+      "why": "Include explicit teaching evidence for repaired key."
+    },
+    {
+      "item": "A2:reading:batch001-pakketpunt:1",
+      "field": "text",
+      "old": "Beste meneer El Amrani,\n\nWe hebben uw pakket dinsdag bij u thuis gebracht, maar u was niet thuis. Het ligt vanaf woensdag 13 mei in de winkel naast de supermarkt. U kunt het daar woensdag tussen 12.00 en 19.00 uur ophalen. De supermarkt is al om 8.00 uur open, maar het pakketpunt opent later.\n\nLaat bij het ophalen de code uit dit bericht zien. Neem ook uw identiteitsbewijs mee. De medewerker controleert uw naam en geeft u dan het pakket. U hoeft niets te betalen. Alleen voor het versturen van een nieuw pakket betaalt u aan de balie.\n\nUw pakket blijft tot en met maandag 18 mei liggen. Daarna gaat het terug naar de afzender. Kunt u niet op tijd komen? Vraag de winkel vóór maandag om het pakket langer te bewaren.",
+      "new": "Beste meneer El Amrani,\n\nWe hebben uw pakket dinsdag bij u thuis gebracht, maar u was niet thuis. Het ligt vanaf woensdag 13 mei in de winkel naast de supermarkt. U kunt het daar woensdag tussen 12.00 en 19.00 uur ophalen. De supermarkt is al om 8.00 uur open, maar het pakketpunt opent later.\n\nLaat bij het ophalen deze code zien: 6049. Neem ook uw identiteitsbewijs mee. De medewerker controleert uw naam en geeft u dan het pakket. U hoeft niets te betalen. Alleen voor het versturen van een nieuw pakket betaalt u aan de balie.\n\nUw pakket blijft tot en met maandag 18 mei liggen. Daarna gaat het terug naar de afzender. Kunt u niet op tijd komen? Vraag de winkel vóór maandag om het pakket langer te bewaren.",
+      "why": "Supply the code the fictional message tells its recipient to show."
+    },
+    {
+      "item": "A2:reading:batch001-sporthal:1",
+      "field": "questions.0.options.A",
+      "old": "Bij de hoofdingang.",
+      "new": "Binnen bij de kleedkamer.",
+      "why": "Avoid two front-entrance distractors describing the same place; kleedkamer remains text-anchored."
+    },
+    {
+      "item": "A2:reading:batch001-sporthal:1",
+      "field": "questions.1.prompt",
+      "old": "Sem kent de sporthal nog niet. Wie kan hem bij binnenkomst helpen?",
+      "new": "Sem kent de sporthal nog niet. Wie helpt nieuwe bezoekers volgens het bericht?",
+      "why": "Ask for the assigned helper rather than anyone who could conceivably help."
+    },
+    {
+      "item": "A2:reading:batch002-wasserette:1",
+      "field": "text",
+      "old": "Welkom terug in de wasserette\n\nOnze winkel is weer open. De kleine wasmachines staan links van de ingang. Voor dekens en grote hoeveelheden was gebruikt u de grote machines achter in de winkel. De drogers staan rechts. Leg uw spullen niet op de stoelen. Die zijn voor klanten die wachten.\n\nKies eerst een vrije machine en onthoud het nummer. Loop daarna naar de betaalautomaat naast de deur. Kies daar het nummer en betaal met uw bankpas. De automaat neemt geen contant geld aan.\n\nWasmiddel zit niet bij de prijs. U kunt het meenemen of bij de balie kopen. Daar kunt u wel contant betalen. Een medewerker helpt u als een machine niet start. Blijf dan bij uw was en druk op de bel naast de machine.",
+      "new": "Welkom terug in de wasserette\n\nOnze winkel is weer open. De kleine wasmachines staan links van de ingang. Voor dekens en grote hoeveelheden was gebruikt u de grote machines achter in de winkel. De drogers staan rechts. Leg uw spullen niet op de stoelen. Daar kunnen klanten wachten.\n\nKies eerst een vrije machine en onthoud het nummer. Loop daarna naar de betaalautomaat naast de deur. Kies daar het nummer en betaal met uw bankpas. De automaat neemt geen contant geld aan.\n\nWasmiddel zit niet bij de prijs. U kunt het meenemen of bij de balie kopen. Daar kunt u wel contant betalen. Een medewerker helpt u als een machine niet start. Blijf dan bij uw was en druk op de bel naast de machine.",
+      "why": "Remove relative clause beyond the A2 blueprint list."
+    },
+    {
+      "item": "A2:reading:batch002-wasserette:1",
+      "field": "questions.0.options",
+      "old": {
+        "A": "Een droger kiezen en op de bel drukken.",
+        "B": "Op een stoel zitten en wasmiddel kopen.",
+        "C": "Een grote machine kiezen en het nummer onthouden."
+      },
+      "new": {
+        "A": "Een droger kiezen en het nummer onthouden.",
+        "B": "Een kleine machine kiezen en het nummer onthouden.",
+        "C": "Een grote machine kiezen en het nummer onthouden."
+      },
+      "why": "Parallel plausible machine-choice distractors replace unrelated combinations."
+    },
+    {
+      "item": "A2:reading:batch002-wasserette:1",
+      "field": "questions.0.evidence",
+      "old": "Kies eerst een vrije machine en onthoud het nummer. Loop daarna naar de betaalautomaat naast de deur.",
+      "new": "Voor dekens en grote hoeveelheden was gebruikt u de grote machines achter in de winkel. De drogers staan rechts. Leg uw spullen niet op de stoelen. Daar kunnen klanten wachten.\n\nKies eerst een vrije machine en onthoud het nummer. Loop daarna naar de betaalautomaat naast de deur.",
+      "why": "Include the large-machine requirement as well as selection-before-payment sequence."
+    },
+    {
+      "item": "A2:reading:batch002-wasserette:1",
+      "field": "questions.1.evidence",
+      "old": "U kunt het meenemen of bij de balie kopen. Daar kunt u wel contant betalen.",
+      "new": "Wasmiddel zit niet bij de prijs. U kunt het meenemen of bij de balie kopen. Daar kunt u wel contant betalen.",
+      "why": "Include the antecedent of het to prove what can be bought for cash."
+    },
+    {
+      "item": "A2:reading:batch002-huisarts:1",
+      "field": "text",
+      "old": "Beste mevrouw Jansen,\n\nUw afspraak van dinsdag 12 mei kan niet doorgaan. Dokter De Wit is ziek. Wij hebben voor u een nieuwe afspraak gemaakt op donderdag 14 mei. U bent dan om 9.20 uur welkom bij dokter Smit.\n\nKunt u donderdag komen? Dan hoeft u niet te reageren. Past de tijd niet? Bel ons dan vóór woensdag 12.00 uur. De assistent zoekt met u een andere tijd. U hoeft niet opnieuw uit te leggen waarom u de dokter wilt spreken.\n\nMeld u bij aankomst eerst bij de balie. De afspraak is op de eerste verdieping. Naast de trap is een lift. De wachtkamer beneden is deze week alleen voor het bloedprikken. U kunt uw jas en tas meenemen naar boven.\n\nMet vriendelijke groet,\nDe assistenten van de praktijk",
+      "new": "Beste mevrouw Jansen,\n\nUw afspraak van dinsdag 12 mei kan niet doorgaan. Dokter De Wit is ziek. Wij hebben voor u een nieuwe afspraak gemaakt op donderdag 14 mei. U bent dan om 9.20 uur welkom bij dokter Smit.\n\nKunt u donderdag komen? Dan hoeft u niet te reageren. Past de tijd niet? Bel ons dan vóór woensdag 12.00 uur. De assistent zoekt met u een andere tijd. U hoeft niet opnieuw uit te leggen waarom u de dokter wilt spreken.\n\nMeld u bij aankomst eerst bij de balie. Wacht daarna in de wachtkamer op de eerste verdieping. Naast de trap is een lift. De wachtkamer beneden is deze week alleen voor het bloedprikken. U kunt uw jas en tas meenemen naar boven.\n\nMet vriendelijke groet,\nDe assistenten van de praktijk",
+      "why": "State the waiting location explicitly; an upstairs appointment alone does not establish a waiting room."
+    },
+    {
+      "item": "A2:reading:batch002-huisarts:1",
+      "field": "questions.0.evidence",
+      "old": "De afspraak is op de eerste verdieping. Naast de trap is een lift. De wachtkamer beneden is deze week alleen voor het bloedprikken.",
+      "new": "Wacht daarna in de wachtkamer op de eerste verdieping.",
+      "why": "Use the explicit final waiting instruction."
+    },
+    {
+      "item": "A2:reading:batch002-huisarts:1",
+      "field": "questions.0.options",
+      "old": {
+        "A": "In de wachtkamer op de eerste verdieping.",
+        "B": "In de wachtkamer voor het bloedprikken.",
+        "C": "Bij de balie naast de ingang."
+      },
+      "new": {
+        "A": "In de wachtkamer op de eerste verdieping.",
+        "B": "In de wachtkamer beneden voor het bloedprikken.",
+        "C": "Bij de balie beneden, naast de ingang."
+      },
+      "why": "Parallel option lengths remove uniquely longest key."
+    },
+    {
+      "item": "A2:reading:batch003-lift:1",
+      "field": "text",
+      "old": "Beste bewoners,\n\nDinsdag 17 maart vervangen we een onderdeel van de lift. De lift werkt die dag niet tussen 8.00 en 16.00 uur. De trap blijft beschikbaar. Om 16.00 uur test de monteur de lift. Gebruik de lift pas als de monteur het bord bij de deur heeft weggehaald.\n\nKunt u moeilijk traplopen? Bel de beheerder vóór maandag 15.00 uur. We bespreken dan welke hulp u dinsdag nodig hebt. Een buur kan bijvoorbeeld boodschappen voor u meenemen. De beheerder kan contact met een buur voor u regelen.\n\nHoud de hal dinsdag vrij. De monteur moet daar met zijn gereedschap langs kunnen. Fietsen kunt u in de berging zetten. Verwacht u een groot pakket? Vraag de bezorger om woensdag te komen.\n\nMet vriendelijke groet,\nDe beheerder",
+      "new": "Beste bewoners,\n\nDinsdag 17 maart vervangen we een onderdeel van de lift. Vanaf 8.00 uur kunt u de lift niet gebruiken. De trap blijft beschikbaar. Om 16.00 uur test de monteur de lift. Gebruik de lift pas als de monteur het bord bij de deur heeft weggehaald.\n\nKunt u moeilijk traplopen? Bel de beheerder vóór maandag 15.00 uur. We bespreken dan welke hulp u dinsdag nodig hebt. Een buur kan bijvoorbeeld boodschappen voor u meenemen. De beheerder kan contact met een buur voor u regelen.\n\nHoud de hal dinsdag vrij. De monteur moet daar met zijn gereedschap langs kunnen. Fietsen kunt u in de berging zetten. Verwacht u een groot pakket? Vraag de bezorger om woensdag te komen.\n\nMet vriendelijke groet,\nDe beheerder",
+      "why": "Avoid suggesting automatic reopening at 16.00 while the test/sign condition still applies."
+    },
+    {
+      "item": "A2:reading:batch003-lift:1",
+      "field": "questions.2.options.D",
+      "old": "Er komt tijdelijk werk aan de lift.",
+      "new": "De monteur gaat de lift repareren.",
+      "why": "Use natural Dutch for the communicative purpose instead of er komt tijdelijk werk."
+    },
+    {
+      "item": "A2:reading:batch003-bibliobus:1",
+      "field": "questions.1.prompt",
+      "old": "Jari wil alleen boeken terugbrengen. Hij is zijn pas vergeten. Wat kan hij doen?",
+      "new": "Jari wil alleen boeken terugbrengen. Moet hij daarvoor zijn pas laten zien?",
+      "why": "Exclude the defensible but unnecessary action of requesting a replacement card."
+    },
+    {
+      "item": "A2:reading:batch003-bibliobus:1",
+      "field": "questions.1.options",
+      "old": {
+        "A": "Zijn boeken zonder pas terugbrengen.",
+        "B": "Eerst een nieuwe pas laten maken.",
+        "C": "Eerst een boek voor volgende donderdag bestellen."
+      },
+      "new": {
+        "A": "Nee, terugbrengen kan zonder pas.",
+        "B": "Ja, hij moet eerst een nieuwe pas aanvragen.",
+        "C": "Ja, hij moet eerst een boek bestellen."
+      },
+      "why": "Make both distractors false requirements rather than optional actions a person could take."
+    },
+    {
+      "item": "A2:reading:batch003-kantine:1",
+      "field": "questions.1.options",
+      "old": {
+        "A": "Bij het bestellen vóór 10.30 uur.",
+        "B": "Bij de kok vanaf 9.00 uur.",
+        "C": "Bij het ophalen tussen 12.00 en 12.30 uur."
+      },
+      "new": {
+        "A": "Bij het bestellen vóór 10.30 uur.",
+        "B": "Bij de kok vanaf 9.00 uur.",
+        "C": "Bij het ophalen vanaf 12.00 uur."
+      },
+      "why": "Remove uniquely longest correct option while retaining timing contrast."
+    },
+    {
+      "item": "A2:reading:batch003-bibliobus:1",
+      "field": "questions.1.prompt",
+      "old": "Jari wil alleen boeken terugbrengen. Moet hij daarvoor zijn pas laten zien?",
+      "new": "Jari wil alleen boeken terugbrengen en heeft zijn pas niet bij zich. Welke regel geldt?",
+      "why": "Ask which rule applies without introducing an odd-polarity option."
+    },
+    {
+      "item": "A2:reading:batch003-bibliobus:1",
+      "field": "questions.1.options",
+      "old": {
+        "A": "Nee, terugbrengen kan zonder pas.",
+        "B": "Ja, hij moet eerst een nieuwe pas aanvragen.",
+        "C": "Ja, hij moet eerst een boek bestellen."
+      },
+      "new": {
+        "A": "Hij mag boeken zonder pas terugbrengen.",
+        "B": "Hij moet eerst een nieuwe pas aanvragen.",
+        "C": "Hij moet eerst een boek bestellen."
+      },
+      "why": "Remove the uniquely negative correct option while keeping false requirements."
+    },
+    {
+      "item": "A2:reading:batch003-lift:1",
+      "field": "questions.2.options",
+      "old": {
+        "A": "Er komt woensdag een nieuwe beheerder.",
+        "B": "Er komt dinsdag een grote pakketbezorging.",
+        "C": "Er komt nieuw gereedschap voor alle bewoners.",
+        "D": "De monteur gaat de lift repareren."
+      },
+      "new": {
+        "A": "De beheerder begint woensdag in deze flat.",
+        "B": "De bezorger brengt dinsdag een groot pakket.",
+        "C": "De bewoners krijgen dinsdag allemaal nieuw gereedschap.",
+        "D": "De monteur gaat dinsdag de lift repareren."
+      },
+      "why": "Use parallel subject/action options so the key has no unique construction."
+    },
+    {
+      "item": "A2:reading:batch003-lift:1",
+      "field": "questions.2.evidence",
+      "old": "Dinsdag 17 maart vervangen we een onderdeel van de lift.",
+      "new": "Dinsdag 17 maart vervangen we een onderdeel van de lift. Vanaf 8.00 uur kunt u de lift niet gebruiken. De trap blijft beschikbaar. Om 16.00 uur test de monteur de lift.",
+      "why": "Include the named mechanic as well as planned repair."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "item_count": 13,
+    "question_count": 31,
+    "key_distribution": {
+      "A": 8,
+      "B": 8,
+      "D": 7,
+      "C": 8
+    },
+    "option_counts": {
+      "4": 12,
+      "3": 19
+    },
+    "purpose_questions": 5,
+    "stable_ids": "Exact match to all 13 migration source IDs. Replaces deliberately supersedes their earlier batch sources.",
+    "name_check": "Exact web search for Fietsatelier Velmora on 2026-09-11 returned no results. Other institutions unnamed; people fictional.",
+    "media": "No audio or pictures required by these prose types. Table/picture coverage is a launch-bank requirement.",
+    "batch_check": "npm run batch:check -- content/batches/039-proposed.json: 13 items, 31 questions; no failures, no warnings.",
+    "level_reference": "Read the official A2 paragraph in docs/research/exam-blueprints-2026-09-10.md and integrated batch004 parkeervergunning and werkkleding in full. content/exemplars/ does not exist, so two references per task type were unavailable."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "All are shorter direct texts within the 100–250-word band. Local named exemplar directory is absent; comparable verdicts refer to linguistic/task demands described in the official format analysis.",
+    "No KNM facts; service arrangements are fictional. No medical dosage is taught."
+  ],
+  "items": [
+    {
+      "id": "A2:reading:p1:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_validated": false,
+      "level_reason": "Pickup hours, missing receipt alternative and completed repair purpose are explicit. Common vocabulary and direct clauses remain within the A2 authoring target.",
+      "evidence": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "answer": "A",
+          "quote": "Op woensdag is onze winkel dicht. Vanaf donderdag zijn we weer open, van 9.00 tot 18.00 uur.",
+          "key_rationale": "Woensdag is de winkel gesloten. Donderdag kan zij vanaf 9.00 uur terecht.",
+          "distractors": {
+            "B": "Uses reopening time on closed day.",
+            "C": "Uses pickup day after closing.",
+            "D": "Uses closing time as opening time."
+          }
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "answer": "B",
+          "quote": "Bent u de bon kwijt? Laat dan uw identiteitsbewijs zien.",
+          "key_rationale": "Zonder bon laat zij haar identiteitsbewijs zien. De bankpas is voor het betalen.",
+          "distractors": {
+            "A": "Payment object is confused with identification.",
+            "C": "Optional returned object is confused with identification."
+          }
+        },
+        {
+          "id": "q3",
+          "verdict": "pass",
+          "answer": "D",
+          "quote": "Uw fiets is klaar. We hebben de achterband vervangen en de remmen gecontroleerd. U kunt de fiets dinsdag 12 mei ophalen tussen 13.00 en 18.00 uur.",
+          "key_rationale": "De reparatie is klaar. Het bericht vertelt wanneer en hoe zij de fiets kan ophalen.",
+          "distractors": {
+            "A": "The mechanic has already checked them.",
+            "B": "The old band may be taken home, not brought.",
+            "C": "Staff bring the bicycle outside the shop, not to her home."
+          }
+        }
+      ],
+      "word_count": 125,
+      "sentence_mean": 6.6,
+      "sentence_max": 13
+    },
+    {
+      "id": "A2:reading:p2:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_validated": false,
+      "level_reason": "Meal choice deadline and adult plus child price require short practical combinations. Common vocabulary and direct clauses remain within the A2 authoring target.",
+      "evidence": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "answer": "C",
+          "quote": "Geef u uiterlijk woensdag 14 oktober op bij de balie. Vertel dan ook welke maaltijd u wilt.",
+          "key_rationale": "Hij kiest zijn maaltijd bij de aanmelding. Donderdag koopt de kok het eten al.",
+          "distractors": {
+            "A": "Payment on Friday happens after the Wednesday choice deadline.",
+            "B": "Cleanup happens after eating; the meal was chosen on registration."
+          }
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "answer": "A",
+          "quote": "Volwassenen betalen 7 euro en kinderen tot en met elf jaar 4 euro. U betaalt vrijdag bij de ingang. Water staat gratis op tafel.",
+          "key_rationale": "Hasan betaalt 7 euro en zijn dochter 4 euro. Water kost niets, dus samen is het 11 euro.",
+          "distractors": {
+            "B": "Counts only the adult.",
+            "C": "Adds the price of tea, which they do not drink."
+          }
+        }
+      ],
+      "word_count": 128,
+      "sentence_mean": 7.5,
+      "sentence_max": 13
+    },
+    {
+      "id": "A2:reading:p3:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_validated": false,
+      "level_reason": "Arrival time is separate from lesson start; collection differs from parent waiting. Common vocabulary and direct clauses remain within the A2 authoring target.",
+      "evidence": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "answer": "D",
+          "quote": "Om 10.25 uur moeten ze bij de deur van het bad staan.",
+          "key_rationale": "Hij moet om 10.25 uur klaarstaan. De les begint vijf minuten later.",
+          "distractors": {
+            "A": "The usual lesson start is used.",
+            "B": "The changed lesson start is used.",
+            "C": "The lesson end is used."
+          }
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "answer": "B",
+          "quote": "Een docent brengt de kinderen naar de grote kleedkamer. Daar kunt u uw kind ophalen.",
+          "key_rationale": "De docent brengt de kinderen naar de grote kleedkamer. Het café is voor wachtende ouders.",
+          "distractors": {
+            "A": "Parent waiting location is confused with collection.",
+            "C": "Lost-bag collection is confused with child collection."
+          }
+        },
+        {
+          "id": "q3",
+          "verdict": "pass",
+          "answer": "C",
+          "quote": "Deze zaterdag begint de zwemles om 10.30 uur. De les begint normaal om 10.00 uur.",
+          "key_rationale": "De e-mail geeft tijdelijke veranderingen door, zoals de latere begintijd en de andere kleedkamer.",
+          "distractors": {
+            "A": "Lost bags are mentioned, not new bags.",
+            "B": "A staff member cleans the pool.",
+            "D": "Ordinary times return next Saturday."
+          }
+        }
+      ],
+      "word_count": 132,
+      "sentence_mean": 6.9,
+      "sentence_max": 12
+    },
+    {
+      "id": "A2:reading:p4:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_validated": false,
+      "level_reason": "No prior experience is required, and the application precedes the phone call. Common vocabulary and direct clauses remain within the A2 authoring target.",
+      "evidence": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "answer": "D",
+          "quote": "Hebt u nog nooit in een winkel gewerkt? Dat is geen probleem. In de eerste weken werkt u samen met de eigenaar. Zij laat u zien wat u moet doen.",
+          "key_rationale": "Ervaring is niet nodig. De eigenaar leert hem het werk; Nederlands spreken is wel nodig.",
+          "distractors": {
+            "A": "The text explicitly permits applicants without shop experience.",
+            "B": "Packing is taught as part of the job.",
+            "C": "Helping customers is explicitly part of the job."
+          }
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "answer": "A",
+          "quote": "Stuur vóór 20 november een e-mail met uw naam en telefoonnummer.",
+          "key_rationale": "Hij stuurt eerst een e-mail. Daarna belt de eigenaar hem en kan er een gesprek volgen.",
+          "distractors": {
+            "B": "The owner calls him after he applies.",
+            "C": "Salary discussion follows the initial application."
+          }
+        }
+      ],
+      "word_count": 133,
+      "sentence_mean": 7.8,
+      "sentence_max": 12
+    },
+    {
+      "id": "A2:reading:batch001-pakketpunt:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_validated": false,
+      "level_reason": "Shop hours differ from supermarket hours; storage extension must be requested in advance. Common vocabulary and direct clauses remain within the A2 authoring target.",
+      "evidence": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "answer": "B",
+          "quote": "U kunt het daar woensdag tussen 12.00 en 19.00 uur ophalen.",
+          "key_rationale": "Het pakketpunt opent om 12.00 uur. De supermarkt is eerder open, maar heeft andere tijden.",
+          "distractors": {
+            "A": "Uses supermarket opening time.",
+            "C": "Uses closing time."
+          }
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "answer": "C",
+          "quote": "Kunt u niet op tijd komen? Vraag de winkel vóór maandag om het pakket langer te bewaren.",
+          "key_rationale": "Hij moet op tijd om langer bewaren vragen. Anders gaat het pakket na maandag terug.",
+          "distractors": {
+            "A": "Confuses return to sender with arranging shop storage.",
+            "B": "Confuses a separate paid service with extending pickup."
+          }
+        }
+      ],
+      "word_count": 130,
+      "sentence_mean": 10.0,
+      "sentence_max": 14
+    },
+    {
+      "id": "A2:reading:batch001-sporthal:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_validated": false,
+      "level_reason": "Temporary bike location and assigned helper differ from front building works. Common vocabulary and direct clauses remain within the A2 authoring target.",
+      "evidence": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "answer": "D",
+          "quote": "Fietsen kunt u achter het gebouw neerzetten. De rekken aan de voorkant blijven leeg.",
+          "key_rationale": "Hij zet zijn fiets achter het gebouw. De bouwers gebruiken de ruimte aan de voorkant.",
+          "distractors": {
+            "A": "Changing rooms are for visitors; bicycles must remain behind the building.",
+            "B": "Parking permission concerns cars.",
+            "C": "Front bike racks must remain empty."
+          }
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "answer": "A",
+          "quote": "Bij de achterdeur staat een medewerker. Nieuwe bezoekers kunnen daar vragen waar hun kleedkamer is.",
+          "key_rationale": "De medewerker bij de achterdeur helpt nieuwe bezoekers. De bouwers werken aan de hoofdingang.",
+          "distractors": {
+            "B": "Builder has construction duties.",
+            "C": "Other visitors are routed from parking but are not assigned to help."
+          }
+        },
+        {
+          "id": "q3",
+          "verdict": "pass",
+          "answer": "B",
+          "quote": "Van 3 tot en met 7 maart werken bouwers aan de hoofdingang. Ze plaatsen een nieuwe deur. Iedereen gaat deze dagen via de achterkant naar binnen.",
+          "key_rationale": "Het bericht legt uit hoe bezoekers tijdens het werk binnenkomen. De lestijden veranderen niet.",
+          "distractors": {
+            "A": "Viewing photos does not require registration.",
+            "C": "Lesson times remain unchanged.",
+            "D": "Cars may stay in the parking area."
+          }
+        }
+      ],
+      "word_count": 130,
+      "sentence_mean": 8.1,
+      "sentence_max": 12
+    },
+    {
+      "id": "A2:reading:batch002-wasserette:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_validated": false,
+      "level_reason": "Blanket machine type and selection sequence combine; cash is only for counter detergent. Common vocabulary and direct clauses remain within the A2 authoring target.",
+      "evidence": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "answer": "C",
+          "quote": "Voor dekens en grote hoeveelheden was gebruikt u de grote machines achter in de winkel. De drogers staan rechts. Leg uw spullen niet op de stoelen. Daar kunnen klanten wachten.\n\nKies eerst een vrije machine en onthoud het nummer. Loop daarna naar de betaalautomaat naast de deur.",
+          "key_rationale": "Zij kiest eerst een geschikte machine. Het nummer heeft zij nodig bij de automaat.",
+          "distractors": {
+            "A": "A dryer is for drying; the blanket requires a large washing machine.",
+            "B": "The text assigns blankets to large machines, not small ones."
+          }
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "answer": "D",
+          "quote": "Wasmiddel zit niet bij de prijs. U kunt het meenemen of bij de balie kopen. Daar kunt u wel contant betalen.",
+          "key_rationale": "Bij de balie kan zij wasmiddel contant betalen. De betaalautomaat accepteert alleen een bankpas.",
+          "distractors": {
+            "A": "Automated payment requires a card.",
+            "B": "The same cash prohibition applies at the payment machine.",
+            "C": "The counter sells detergent; washing is paid at the machine."
+          }
+        }
+      ],
+      "word_count": 124,
+      "sentence_mean": 7.8,
+      "sentence_max": 15
+    },
+    {
+      "id": "A2:reading:batch002-huisarts:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_validated": false,
+      "level_reason": "Waiting upstairs is explicit after repair; rejection deadline differs from appointment time. Common vocabulary and direct clauses remain within the A2 authoring target.",
+      "evidence": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "answer": "A",
+          "quote": "Wacht daarna in de wachtkamer op de eerste verdieping.",
+          "key_rationale": "Haar afspraak is boven. De wachtkamer beneden is voor mensen die bloed laten prikken.",
+          "distractors": {
+            "B": "Downstairs waiting room has a different purpose.",
+            "C": "Reception is for arrival registration, not waiting for the doctor."
+          }
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "answer": "B",
+          "quote": "Past de tijd niet? Bel ons dan vóór woensdag 12.00 uur.",
+          "key_rationale": "Als de nieuwe tijd niet past, moet zij vóór woensdagmiddag bellen. Bij akkoord hoeft zij niet te reageren.",
+          "distractors": {
+            "A": "Uses the appointment time as contact deadline.",
+            "C": "No response is appropriate only if she can attend."
+          }
+        },
+        {
+          "id": "q3",
+          "verdict": "pass",
+          "answer": "C",
+          "quote": "Uw afspraak van dinsdag 12 mei kan niet doorgaan. Dokter De Wit is ziek. Wij hebben voor u een nieuwe afspraak gemaakt op donderdag 14 mei.",
+          "key_rationale": "De praktijk verzet haar afspraak omdat de dokter ziek is. De informatie over de kamers helpt bij haar bezoek.",
+          "distractors": {
+            "A": "Blood test waiting area is background information.",
+            "B": "The text explicitly says repetition is unnecessary."
+          }
+        }
+      ],
+      "word_count": 131,
+      "sentence_mean": 7.3,
+      "sentence_max": 13
+    },
+    {
+      "id": "A2:reading:batch002-speelgoed:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_validated": false,
+      "level_reason": "Only four accepted puzzles earn vouchers; spare vouchers may be transferred. Common vocabulary and direct clauses remain within the A2 authoring target.",
+      "evidence": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "answer": "D",
+          "quote": "Knuffels nemen we niet aan.\n\nEen medewerker kijkt uw spullen na. Voor elk goed stuk speelgoed krijgt u één bon. Bewaar deze bonnen. U gebruikt ze later om ander speelgoed uit te zoeken.\n\nVan 12.00 tot 14.00 uur staan alle spullen op tafels. Met één bon kiest u één stuk speelgoed.",
+          "key_rationale": "Vier goede puzzels leveren vier bonnen op. Voor de knuffel krijgt Mila geen bon.",
+          "distractors": {
+            "A": "Counts the exchange rate but ignores the four puzzles.",
+            "B": "Counts the rejected stuffed toy as accepted.",
+            "C": "Counts both the four outgoing and four incoming toys."
+          }
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "answer": "A",
+          "quote": "Hebt u bonnen over? Geef ze aan een andere bezoeker. Voor een volgende ruilmiddag zijn ze niet geldig.",
+          "key_rationale": "Zij kan de bonnen weggeven. Bewaren voor een volgende middag kan niet.",
+          "distractors": {
+            "B": "Explicitly excluded later validity.",
+            "C": "Stuffed toys are not accepted and thus are not in this swap."
+          }
+        }
+      ],
+      "word_count": 124,
+      "sentence_mean": 7.3,
+      "sentence_max": 13
+    },
+    {
+      "id": "A2:reading:batch003-dierenarts:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_validated": false,
+      "level_reason": "Label clarification precedes use; collection also requires arranging the later checkup. Common vocabulary and direct clauses remain within the A2 authoring target.",
+      "evidence": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "answer": "B",
+          "quote": "Lees dit thuis vóór de eerste tablet. Is de tekst niet duidelijk? Bel dan de assistent voor uitleg.",
+          "key_rationale": "Zij vraagt eerst uitleg aan de assistent. De controle op 25 mei is een ander moment.",
+          "distractors": {
+            "A": "Scheduled review is not the instruction-clarification step.",
+            "C": "Empty package is to be brought at the checkup, not used to resolve immediate doubt."
+          }
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "answer": "C",
+          "quote": "Voor deze controle is wel een afspraak nodig. Maak die vrijdag bij het ophalen.",
+          "key_rationale": "Vrijdag maakt zij de afspraak voor de controle. Voor het ophalen zelf is geen afspraak nodig.",
+          "distractors": {
+            "A": "Pickup explicitly needs no appointment.",
+            "B": "Label must be kept, not replaced.",
+            "D": "Friday closing time is confused with the Monday control."
+          }
+        }
+      ],
+      "word_count": 134,
+      "sentence_mean": 7.9,
+      "sentence_max": 14
+    },
+    {
+      "id": "A2:reading:batch003-lift:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_validated": false,
+      "level_reason": "Advance support deadline and removed sign govern different actions. Common vocabulary and direct clauses remain within the A2 authoring target.",
+      "evidence": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "answer": "B",
+          "quote": "Kunt u moeilijk traplopen? Bel de beheerder vóór maandag 15.00 uur. We bespreken dan welke hulp u dinsdag nodig hebt.",
+          "key_rationale": "Zij belt vóór maandag 15.00 uur, zodat de beheerder hulp kan bespreken vóór het werk begint.",
+          "distractors": {
+            "A": "Uses the work interval instead of the advance contact deadline.",
+            "C": "Delivery advice is a different arrangement."
+          }
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "answer": "A",
+          "quote": "Gebruik de lift pas als de monteur het bord bij de deur heeft weggehaald.",
+          "key_rationale": "De test kan na 16.00 uur nog bezig zijn. Het weggehaalde bord betekent dat gebruik weer mag.",
+          "distractors": {
+            "B": "Clock time alone does not satisfy the release condition.",
+            "C": "The mechanic must remove the sign; storage instruction is for bicycles."
+          }
+        },
+        {
+          "id": "q3",
+          "verdict": "pass",
+          "answer": "D",
+          "quote": "Dinsdag 17 maart vervangen we een onderdeel van de lift. Vanaf 8.00 uur kunt u de lift niet gebruiken. De trap blijft beschikbaar. Om 16.00 uur test de monteur de lift.",
+          "key_rationale": "De brief kondigt werk aan de lift aan en legt uit wat bewoners tijdens dat werk kunnen doen.",
+          "distractors": {
+            "A": "Wednesday is an alternative package day, not a staff change.",
+            "B": "Residents are advised to move such delivery to Wednesday.",
+            "C": "Tools belong to the mechanic."
+          }
+        }
+      ],
+      "word_count": 123,
+      "sentence_mean": 6.8,
+      "sentence_max": 14
+    },
+    {
+      "id": "A2:reading:batch003-bibliobus:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_validated": false,
+      "level_reason": "New bus hours and card-free returns distinguish adjacent service rules. Common vocabulary and direct clauses remain within the A2 authoring target.",
+      "evidence": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "answer": "C",
+          "quote": "Vanaf donderdag 4 juni staat de bibliobus van 15.30 tot 17.00 uur op het dorpsplein.",
+          "key_rationale": "De nieuwe tijd is 15.30 tot 17.00 uur. Om 15.00 uur is de bus nog niet op het plein.",
+          "distractors": {
+            "A": "Uses the old start and new start as a visiting interval.",
+            "B": "The bus does not visit on public holidays."
+          }
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "answer": "A",
+          "quote": "Voor terugbrengen hebt u geen pas nodig. Voor lenen moet u uw bibliotheekpas laten zien.",
+          "key_rationale": "Terugbrengen kan zonder pas. De pas is alleen nodig als hij boeken wil lenen.",
+          "distractors": {
+            "B": "Returning explicitly needs no card, so obtaining a new one is unnecessary.",
+            "C": "Requesting a book concerns borrowing next week; return needs no card or order."
+          }
+        }
+      ],
+      "word_count": 131,
+      "sentence_mean": 7.7,
+      "sentence_max": 15
+    },
+    {
+      "id": "A2:reading:batch003-kantine:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_validated": false,
+      "level_reason": "Allergy discussion precedes ordering; payment belongs to collection. Common vocabulary and direct clauses remain within the A2 authoring target.",
+      "evidence": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "answer": "B",
+          "quote": "Hebt u een allergie? Praat dan eerst met de kok. Hij vertelt welke lunch geschikt is. Schrijf daarna uw keuze op het formulier.",
+          "key_rationale": "Zij bespreekt eerst wat zij kan eten. Daarna vult zij haar keuze op het formulier in.",
+          "distractors": {
+            "A": "Payment occurs when collecting lunch.",
+            "C": "She must discuss suitability before choosing.",
+            "D": "Container is for eating elsewhere, not the allergy check."
+          }
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "answer": "C",
+          "quote": "U haalt uw lunch tussen 12.00 en 12.30 uur op bij de balie. Daar betaalt u ook.",
+          "key_rationale": "Zij betaalt bij het ophalen. Vóór 10.30 uur geeft zij alleen haar bestelling door.",
+          "distractors": {
+            "A": "Confuses ordering with payment.",
+            "B": "Uses kitchen availability for allergy discussion."
+          }
+        }
+      ],
+      "word_count": 131,
+      "sentence_mean": 7.7,
+      "sentence_max": 13
+    }
+  ]
+}

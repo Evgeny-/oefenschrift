@@ -7,6 +7,7 @@ import AudioPlayer from './AudioPlayer';
 import { EvidenceText } from './TextEvidence';
 import { evidenceFor } from '../domain/text';
 import { KeyHint, PlayIcon, ClipButton } from './Controls';
+import { mediaUrl } from '../domain/base';
 import { Back, ExerciseHeader, Heading, sessionTimer } from './ExerciseHeader';
 import { Results } from './Results';
 import { useAnswerKeys } from './keys';
@@ -124,7 +125,7 @@ function Paragraphs({ text, quotes }) {
   });
 }
 // The official A2 listening and KNM players read the question aloud; a small button replays it.
-function QuestionColumns({
+export function QuestionColumns({
   questionKey,
   item,
   q,
@@ -138,11 +139,22 @@ function QuestionColumns({
   check,
   next,
   previous,
+  shortcuts = true,
+  finishLabel = undefined,
 }) {
   const { t, state } = useStudyContext(),
     evidence = checked && !mock ? evidenceFor(item, q) : [];
-  useAnswerKeys({ options: q.options, chosen, checked, mock, select, check, next });
-  const type = typeLabel(item.taskType || item.type, state.settings.lang);
+  useAnswerKeys({
+    options: q.options,
+    chosen,
+    checked,
+    mock,
+    select,
+    check,
+    next,
+    enabled: shortcuts,
+  });
+  const type = typeLabel(item.taskType, state.settings.lang);
   // Blueprint items carry the exam's situation line; the standard instruction follows it, as in the official player.
   const situation = item.situation && (
     <div className="situation" lang="nl">
@@ -180,7 +192,7 @@ function QuestionColumns({
           .filter((i) => i?.file)
           .map((i) => (
             <figure key={i.file} className="picture">
-              <img src={`/${String(i.file).replace(/^\//, '')}`} alt={i.alt || ''} loading="lazy" />
+              <img src={mediaUrl(i.file)} alt={i.alt || ''} loading="lazy" />
             </figure>
           ))}
       </div>
@@ -302,12 +314,12 @@ function QuestionColumns({
           {!mock && !checked ? (
             <button className="primary" disabled={!chosen} onClick={check}>
               {t('Controleer antwoord', 'Check answer')}
-              <KeyHint />
+              {shortcuts && <KeyHint />}
             </button>
           ) : (
             <button className="primary" disabled={!chosen} onClick={next}>
-              {last ? t('Afronden', 'Finish') : t('Volgende', 'Next')}
-              <KeyHint />
+              {last ? finishLabel || t('Afronden', 'Finish') : t('Volgende', 'Next')}
+              {shortcuts && <KeyHint />}
             </button>
           )}
         </div>

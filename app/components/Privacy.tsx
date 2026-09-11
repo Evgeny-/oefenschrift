@@ -4,21 +4,30 @@ import { Heading } from './ExerciseViews';
 import { ContactLink } from './Controls';
 import AppLink from './AppLink';
 import site from '../../content/site.json';
+import {
+  PREFERENCES_COOKIE,
+  POSITION_COOKIE,
+  PASS_COOKIE,
+  OPS_COOKIE,
+  STORAGE_KEY,
+  VISITOR_KEY,
+  SESSION_KEY,
+} from '../domain/persistence';
 // The privacy notice for the public service. Facts that belong to the operator (name,
 // contact) come from content/site.json; everything else describes what the code does.
 const rows = [
   {
-    name: 'inburgering_preferences',
+    name: PREFERENCES_COOKIE,
     what: ['Taal, niveau, thema en timerinstelling', 'Language, level, theme and timer setting'],
     life: ['1 jaar', '1 year'],
   },
   {
-    name: 'inburgering_position',
+    name: POSITION_COOKIE,
     what: ['Je plaats in de huidige oefenset', 'Your position in the current practice set'],
     life: ['1 jaar', '1 year'],
   },
   {
-    name: 'inburgering_pass',
+    name: PASS_COOKIE,
     what: [
       'Een willekeurig, ondertekend sessienummer waarmee de server het gebruik van AI-feedback en spraakherkenning per browser begrenst. Bevat geen gegevens over jou en is niet leesbaar voor scripts.',
       'A random, signed session number the server uses to limit AI feedback and speech recognition per browser. Holds no data about you and is not readable by scripts.',
@@ -26,17 +35,17 @@ const rows = [
     life: ['24 uur', '24 hours'],
   },
   {
-    name: 'inburgering_ops',
+    name: OPS_COOKIE,
     what: [
       'Alleen voor de beheerder na inloggen op de beheeromgeving',
       'Operator only, after signing in to the operations pages',
     ],
-    life: ['12 uur', '12 hours'],
+    life: ['6 maanden', '6 months'],
   },
 ];
 const storage = [
   {
-    name: 'inburgering.study.v2',
+    name: STORAGE_KEY,
     what: [
       'Je voortgang, resultaten, concepten en transcripties (browseropslag)',
       'Your progress, results, drafts and transcripts (browser storage)',
@@ -44,7 +53,7 @@ const storage = [
     life: ['Tot je ze wist', 'Until you clear it'],
   },
   {
-    name: 'inburgering.visitor',
+    name: VISITOR_KEY,
     what: [
       'Een willekeurig browsernummer voor de anonieme gebruiksstatistiek',
       'A random browser number for the anonymous usage statistics',
@@ -52,7 +61,7 @@ const storage = [
     life: ['Tot je het wist', 'Until you clear it'],
   },
   {
-    name: 'inburgering.visited',
+    name: SESSION_KEY,
     what: [
       'Telt één bezoek per browsersessie (sessieopslag)',
       'Counts one visit per browser session (session storage)',
@@ -68,7 +77,7 @@ export default function Privacy() {
     <>
       <Heading
         title={t('Privacy', 'Privacy')}
-        subtitle={t('Bijgewerkt op 10 september 2026', 'Updated 10 September 2026')}
+        subtitle={t('Bijgewerkt op 11 september 2026', 'Updated 11 September 2026')}
       />
       <div className="privacy-document">
         <p>

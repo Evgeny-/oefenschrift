@@ -77,50 +77,53 @@ test('provider calls share a small number of slots; a burst waits briefly, then 
   assert.ok(await acquire('feedback', 10), 'services have separate slots');
 });
 test('the session pass is signed, expires after a day, renews after twelve hours and is never a login', () => {
-  process.env.INBURGERING_ADMIN_SECRET = 'synthetic-test-secret';
+  process.env.OEFENSCHRIFT_ADMIN_SECRET = 'synthetic-test-secret';
   try {
     const now = 1_700_000_000_000,
       pass = issuePass(now);
     assert.match(
       pass.header,
-      /^inburgering_pass=pass\.\d+\.[a-f0-9]{32}\.[a-f0-9]{64}; Path=\/; HttpOnly; SameSite=Lax; Max-Age=86400$/,
+      /^oefenschrift_pass=pass\.\d+\.[a-f0-9]{32}\.[a-f0-9]{64}; Path=\/; HttpOnly; SameSite=Lax; Max-Age=86400$/,
     );
     const token = pass.header.split(';')[0].split('=')[1],
       request = (cookie: string) =>
         new Request('http://127.0.0.1:8766/api/feedback', { headers: { Cookie: cookie } });
-    assert.equal(passId(request('inburgering_pass=' + token), now), pass.id);
+    assert.equal(passId(request('oefenschrift_pass=' + token), now), pass.id);
     assert.equal(
-      passId(request('inburgering_pass=' + token), now + PASS_HOURS * 3600 * 1000 - 1),
+      passId(request('oefenschrift_pass=' + token), now + PASS_HOURS * 3600 * 1000 - 1),
       pass.id,
     );
     assert.equal(
-      passId(request('inburgering_pass=' + token), now + PASS_HOURS * 3600 * 1000),
+      passId(request('oefenschrift_pass=' + token), now + PASS_HOURS * 3600 * 1000),
       null,
       'expired',
     );
     assert.equal(
       passId(
-        request('inburgering_pass=' + token.slice(0, -1) + (token.endsWith('0') ? '1' : '0')),
+        request('oefenschrift_pass=' + token.slice(0, -1) + (token.endsWith('0') ? '1' : '0')),
         now,
       ),
       null,
       'bad signature',
     );
-    assert.equal(passId(request('inburgering_pass=' + token.replace(/^pass/, 'login')), now), null);
-    assert.equal(passId(request('inburgering_ops=' + token), now), null, 'wrong cookie');
+    assert.equal(
+      passId(request('oefenschrift_pass=' + token.replace(/^pass/, 'login')), now),
+      null,
+    );
+    assert.equal(passId(request('oefenschrift_ops=' + token), now), null, 'wrong cookie');
     assert.equal(passId(request(''), now), null);
     // Page loads keep a young pass and replace an old or missing one.
-    assert.deepEqual(ensurePass(request('inburgering_pass=' + token), now + 1000), {
+    assert.deepEqual(ensurePass(request('oefenschrift_pass=' + token), now + 1000), {
       id: pass.id,
       header: null,
     });
     const renewed = ensurePass(
-      request('inburgering_pass=' + token),
+      request('oefenschrift_pass=' + token),
       now + PASS_RENEW_HOURS * 3600 * 1000,
     );
     assert.ok(renewed.header && renewed.id !== pass.id);
     assert.ok(ensurePass(request(''), now).header);
   } finally {
-    delete process.env.INBURGERING_ADMIN_SECRET;
+    delete process.env.OEFENSCHRIFT_ADMIN_SECRET;
   }
 });

@@ -27,8 +27,18 @@ export function useEnterAction(enabled: boolean, action: () => void) {
   }, [enabled, action]);
 }
 // Answer keys (A, B, C) and 1, 2, 3 select an option; Enter checks or continues.
-export function useAnswerKeys({ options, chosen, checked, mock, select, check, next }) {
+export function useAnswerKeys({
+  options,
+  chosen,
+  checked,
+  mock,
+  select,
+  check,
+  next,
+  enabled = true,
+}) {
   useEffect(() => {
+    if (!enabled) return;
     const onKey = (event: KeyboardEvent) => {
       const target = shortcutTarget(event);
       if (target === null) return;
@@ -51,5 +61,5 @@ export function useAnswerKeys({ options, chosen, checked, mock, select, check, n
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [options, chosen, checked, mock, select, check, next]);
+  }, [options, chosen, checked, mock, select, check, next, enabled]);
 }

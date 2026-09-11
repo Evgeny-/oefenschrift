@@ -134,7 +134,21 @@
 }
 .storage-table code {
   font-size: 0.9em;
+  overflow-wrap: anywhere;
 }
 .storage-table + .storage-table {
   margin-top: 1.5rem;
+}
+@media (max-width: 600px) {
+  .storage-table {
+    table-layout: fixed;
+  }
+  .storage-table th:first-child {
+    width: 34%;
+  }
+  .storage-table td:last-child,
+  .storage-table th:last-child {
+    width: 22%;
+    white-space: normal;
+  }
 }

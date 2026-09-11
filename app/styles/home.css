@@ -231,27 +231,49 @@
 .home-more {
   margin-top: 2.5rem;
 }
-/* A yellow surround invites a first try; the real question sits on a reading surface. */
+/* The mixed sample uses the page canvas and the same controls as a practice set. */
 .home-sample {
   max-width: 64rem;
-  padding: 1.5rem;
-  border-radius: var(--radius-surface);
-  background: var(--action);
+  scroll-margin-top: 1.5rem;
 }
-.home-sample > h2 {
-  color: var(--button-text);
-  font-weight: 600;
+.sample-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.sample-heading h3:focus {
+  outline: none;
 }
 .home-sample .exercise-columns {
   margin-top: 1rem;
-  padding: 1.25rem;
-  border-radius: var(--radius-surface);
-  background: var(--paper);
 }
-.home-sample .answer-feedback .small {
-  margin-top: 0.5rem;
-  font-size: var(--text-small);
-  line-height: 1.5;
+.sample-results {
+  max-width: 34rem;
+}
+.sample-score {
+  margin-top: 1rem;
+  font-family: 'Nunito', 'Helvetica Neue', sans-serif;
+  font-size: var(--text-title);
+  font-weight: 800;
+}
+.sample-scores {
+  padding: 0;
+  margin: 1rem 0;
+  list-style: none;
+}
+.sample-scores li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.sample-scores li > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
 }
 /* Frequently asked questions fold under hairlines, like a review list. */
 .home-faq {
@@ -331,12 +353,6 @@
   }
   .home-subject p {
     max-width: calc(100% - 7.5rem);
-  }
-  .home-sample {
-    padding: 1rem;
-  }
-  .home-sample .exercise-columns {
-    padding: 1rem;
   }
 }
 @media (max-width: 44rem) {

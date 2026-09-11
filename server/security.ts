@@ -1,23 +1,31 @@
+import { setting as environmentSetting } from '../environment';
 import { randomBytes, createHmac, timingSafeEqual, scryptSync } from 'node:crypto';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { redirect } from 'react-router';
+import {
+  OPS_COOKIE,
+  PASS_COOKIE,
+  cookieValue,
+  readCookie,
+  legacyNames,
+} from '../app/domain/persistence';
 // The public address of the site, for example https://oefenschrift.nl. Unset in
 // development and tests, where the server answers on loopback only.
 export function publicOrigin() {
-  const value = (process.env.INBURGERING_ORIGIN || '').trim().replace(/\/+$/, '');
+  const value = (environmentSetting('ORIGIN') || '').trim().replace(/\/+$/, '');
   if (!value) return null;
   const url = new URL(value);
   if (!['http:', 'https:'].includes(url.protocol) || url.pathname !== '/' || url.search || url.hash)
-    throw new Error('INBURGERING_ORIGIN must be a bare origin such as https://example.org');
+    throw new Error('OEFENSCHRIFT_ORIGIN must be a bare origin such as https://example.org');
   return url.origin;
 }
 // The path the site is served under on a shared host ('' at a root). The bundles carry the
 // same value from build time; the entry refuses to start when the two differ.
 export function basePath() {
-  const value = (process.env.INBURGERING_BASE_PATH || '').trim().replace(/\/+$/, '');
+  const value = (environmentSetting('BASE_PATH') || '').trim().replace(/\/+$/, '');
   if (value && !/^\/[\w-]+(\/[\w-]+)*$/.test(value))
-    throw new Error('INBURGERING_BASE_PATH must look like /projects/name');
+    throw new Error('OEFENSCHRIFT_BASE_PATH must look like /projects/name');
   return value;
 }
 export function stripBase(pathname: string) {
@@ -62,7 +70,7 @@ export function clientAddress(request) {
   return request.headers.get('X-Client-Address') || 'local';
 }
 function secret() {
-  if (process.env.INBURGERING_ADMIN_SECRET) return process.env.INBURGERING_ADMIN_SECRET;
+  if (environmentSetting('ADMIN_SECRET')) return environmentSetting('ADMIN_SECRET');
   const path = resolve('var/admin-secret');
   mkdirSync('var', { recursive: true });
   try {
@@ -106,17 +114,13 @@ function valid(token) {
   );
 }
 function cookie(request) {
-  return (request.headers.get('Cookie') || '')
-    .split(';')
-    .map((x) => x.trim())
-    .find((x) => x.startsWith('inburgering_ops='))
-    ?.slice(16);
+  return readCookie(request.headers.get('Cookie') || '', OPS_COOKIE);
 }
-function cookieHeader(value, maxAge) {
-  return `inburgering_ops=${value}; Path=${basePath() || '/'}; HttpOnly; SameSite=Strict; Max-Age=${maxAge}${publicOrigin()?.startsWith('https:') ? '; Secure' : ''}`;
+function cookieHeader(value, maxAge, name = OPS_COOKIE) {
+  return `${name}=${value}; Path=${basePath() || '/'}; HttpOnly; SameSite=${name.endsWith('_ops') ? 'Strict' : 'Lax'}; Max-Age=${maxAge}${publicOrigin()?.startsWith('https:') ? '; Secure' : ''}`;
 }
 export const CREDENTIALS_PATH = 'var/admin-credentials.json';
-// The operator account: INBURGERING_ADMIN_USER with INBURGERING_ADMIN_PASSWORD (local
+// The operator account: OEFENSCHRIFT_ADMIN_USER with OEFENSCHRIFT_ADMIN_PASSWORD (local
 // development and tests) or a scrypt hash written by `npm run admin:password`.
 export function adminCredentials(): {
   user: string;
@@ -124,12 +128,12 @@ export function adminCredentials(): {
   salt?: string;
   hash?: string;
 } | null {
-  const user = process.env.INBURGERING_ADMIN_USER;
-  if (user && process.env.INBURGERING_ADMIN_PASSWORD)
-    return { user, password: process.env.INBURGERING_ADMIN_PASSWORD };
+  const user = environmentSetting('ADMIN_USER');
+  if (user && environmentSetting('ADMIN_PASSWORD'))
+    return { user, password: environmentSetting('ADMIN_PASSWORD') };
   try {
     const stored = JSON.parse(
-      readFileSync(resolve(process.env.INBURGERING_ADMIN_CREDENTIALS || CREDENTIALS_PATH), 'utf8'),
+      readFileSync(resolve(environmentSetting('ADMIN_CREDENTIALS') || CREDENTIALS_PATH), 'utf8'),
     );
     if (
       typeof stored.user === 'string' &&
@@ -148,7 +152,7 @@ export function writeCredentials(user, password) {
     throw new Error('Choose a user name of 2-64 letters, digits, dots, @, _ or -.');
   if (typeof password !== 'string' || password.length < 10)
     throw new Error('Use a password of at least 10 characters.');
-  const path = resolve(process.env.INBURGERING_ADMIN_CREDENTIALS || CREDENTIALS_PATH);
+  const path = resolve(environmentSetting('ADMIN_CREDENTIALS') || CREDENTIALS_PATH);
   mkdirSync(resolve(path, '..'), { recursive: true });
   writeFileSync(
     path,
@@ -190,7 +194,10 @@ export function loginSession() {
   };
 }
 export function logoutHeaders() {
-  return { 'Set-Cookie': cookieHeader('', 0), 'Cache-Control': 'no-store' };
+  const headers = new Headers({ 'Cache-Control': 'no-store' });
+  for (const name of [OPS_COOKIE, ...legacyNames[OPS_COOKIE]])
+    headers.append('Set-Cookie', cookieHeader('', 0, name));
+  return headers;
 }
 export function signedIn(request) {
   assertOrigin(request);
@@ -200,7 +207,7 @@ export function signedIn(request) {
 // Pages and JSON endpoints call this first; without a session it sends the operator to the login form.
 export function adminSession(request) {
   const token = signedIn(request);
-  if (token) return { token, headers: { 'Cache-Control': 'no-store' } };
+  if (token) return { token, headers: migrationHeaders(request) };
   const url = new URL(request.url),
     path = stripBase(url.pathname);
   if (request.headers.get('Accept')?.includes('text/html') || path.startsWith('/ops'))
@@ -220,12 +227,7 @@ export function requireAdminMutation(request, token) {
 // existing pass instead of issuing a fresh allowance.
 export const PASS_HOURS = 24,
   PASS_RENEW_HOURS = 12;
-const passCookie = (request) =>
-  (request.headers.get('Cookie') || '')
-    .split(';')
-    .map((x) => x.trim())
-    .find((x) => x.startsWith('inburgering_pass='))
-    ?.slice(17);
+const passCookie = (request) => readCookie(request.headers.get('Cookie') || '', PASS_COOKIE);
 function passParts(token, now) {
   const [kind, time, random, sig] = String(token || '').split('.');
   if (
@@ -248,7 +250,7 @@ export function issuePass(now = Date.now()) {
   const token = value + '.' + sign(value);
   return {
     id: value.split('.')[2],
-    header: `inburgering_pass=${token}; Path=${basePath() || '/'}; HttpOnly; SameSite=Lax; Max-Age=${PASS_HOURS * 3600}${publicOrigin()?.startsWith('https:') ? '; Secure' : ''}`,
+    header: cookieHeader(token, PASS_HOURS * 3600, PASS_COOKIE),
   };
 }
 // For page loads: the current pass id plus a Set-Cookie header when a pass is missing,
@@ -259,6 +261,29 @@ export function ensurePass(request, now = Date.now()) {
     return { id: current.id, header: null };
   const fresh = issuePass(now);
   return { id: fresh.id, header: fresh.header };
+}
+// Copy signed tokens without changing their identity or extending their original expiry.
+// Headers must stay separate so browsers receive each Set-Cookie, including deletions.
+export function migrationHeaders(request, now = Date.now()) {
+  const headers = new Headers({ 'Cache-Control': 'no-store' });
+  const cookies = request.headers.get('Cookie') || '';
+  for (const name of [PASS_COOKIE, OPS_COOKIE]) {
+    for (const oldName of legacyNames[name]) {
+      const token = cookieValue(cookies, oldName);
+      if (token === undefined) continue;
+      const accepted = name === PASS_COOKIE ? !!passParts(token, now) : valid(token);
+      if (cookieValue(cookies, name) === undefined && accepted) {
+        const hours = name === PASS_COOKIE ? PASS_HOURS : SESSION_HOURS;
+        const remaining = Math.max(
+          0,
+          Math.floor((Number(token.split('.')[1]) + hours * 3600000 - now) / 1000),
+        );
+        headers.append('Set-Cookie', cookieHeader(token, remaining, name));
+      }
+      headers.append('Set-Cookie', cookieHeader('', 0, oldName));
+    }
+  }
+  return headers;
 }
 // Learner events carry a random browser id; only its keyed hash reaches the database.
 export function visitorHash(id) {

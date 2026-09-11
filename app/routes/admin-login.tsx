@@ -9,13 +9,17 @@ import {
   signedIn,
   siteOrigin,
   verifyLogin,
+  migrationHeaders,
 } from '../../server/security';
 import { LogoMark } from '../components/Wordmark';
 import { logo } from '../components/logo';
 const safeNext = (value: string | null) =>
   value && /^\/ops(?:\/|\?|$)/.test(value) && !value.startsWith('/ops/login') ? value : '/ops';
 export function loader({ request }) {
-  if (signedIn(request)) throw redirect(safeNext(new URL(request.url).searchParams.get('next')));
+  if (signedIn(request))
+    throw redirect(safeNext(new URL(request.url).searchParams.get('next')), {
+      headers: migrationHeaders(request),
+    });
   return {
     configured: !!adminCredentials(),
     next: safeNext(new URL(request.url).searchParams.get('next')),
@@ -81,7 +85,7 @@ export default function AdminLogin() {
             </p>
             <pre>npm run admin:password -- &lt;user&gt;</pre>
             <p className="small">
-              For local development, INBURGERING_ADMIN_USER and INBURGERING_ADMIN_PASSWORD in the
+              For local development, OEFENSCHRIFT_ADMIN_USER and OEFENSCHRIFT_ADMIN_PASSWORD in the
               environment also work.
             </p>
           </div>

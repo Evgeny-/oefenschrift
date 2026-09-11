@@ -12,3 +12,7 @@ Write:
 Rules that catch authors out: fictional but plausible settings; no real organisations, brands, addresses or people — search the web for every invented company, shop or institution name before using it (two invented names in one batch turned out to be real firms); no political or religious opinion, no graphic illness or crime; neighbourhood and volunteering are over-represented, work, education, shops, health, transport and instanties are needed; a slug may not repeat a catalogue slug of the same part.
 
 Run `npm run batch:check content/batches/<NNN>-original.json` until it reports no failures; copy the output into the notes. Do not edit the catalogue, practice sets, hints, config or app code; do not create media. Report in a few lines: the items (id, type, domain, key figures), the key distribution, doubts.
+
+## Shared record contract
+
+Use `taskType` for the exercise format and `textType` only for the B1 communicative category. Never emit the retired `type` field. Use the vocabulary in `app/domain/exercise-types.ts`; every accepted task type has Dutch and English labels. `npm run batch:check` and integration use the same validator. Include all required metadata, source/evidence fields, scaffolds and scripts for the part. For an authorised rewrite, preserve the supplied IDs and write the assigned replacement batch; do not pad an old short exercise or copy its obsolete structure. Keep generated media and `revision` out of authored sources.

@@ -16,7 +16,7 @@ test('compact counts keep three significant digits and a fixed suffix in every e
 });
 
 test('provider balances are read once per five minutes and retried after a failed read', async () => {
-  process.env.INBURGERING_OFFLINE = '1';
+  process.env.OEFENSCHRIFT_OFFLINE = '1';
   process.env.ELEVENLABS_API_KEY = 'test';
   process.env.OPENAI_ADMIN_KEY = 'test';
   const first = providerBalances(1000);
@@ -25,7 +25,7 @@ test('provider balances are read once per five minutes and retried after a faile
   assert.equal(value.eleven.error, 'Not checked in offline mode.');
   // An offline read counts as a failure, so the next read after a minute is fresh.
   assert.notEqual(providerBalances(1000 + 61000), first);
-  delete process.env.INBURGERING_OFFLINE;
+  delete process.env.OEFENSCHRIFT_OFFLINE;
   delete process.env.ELEVENLABS_API_KEY;
   delete process.env.OPENAI_ADMIN_KEY;
 });

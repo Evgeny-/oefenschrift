@@ -119,11 +119,7 @@ function PracticeSetList({ sets, restart = false }) {
           resume = saved && !saved.endedAt && !restart;
         const questions = items.reduce((total, item) => total + (item.questions?.length || 0), 0);
         const types = [
-          ...new Set(
-            items
-              .map((item) => typeLabel(item.type, lang))
-              .filter((type) => type && type !== typeLabel('audio', lang)),
-          ),
+          ...new Set(items.map((item) => typeLabel(item.taskType, lang)).filter(Boolean)),
         ];
         const scored = items.filter((item) => state.records[item.id]?.kind === 'quiz'),
           correct = scored.reduce((n, item) => n + state.records[item.id].correct, 0),
@@ -351,7 +347,7 @@ function ProgressTransfer() {
     const url = URL.createObjectURL(blob),
       link = document.createElement('a');
     link.href = url;
-    link.download = `inburgering-voortgang-${new Date().toISOString().slice(0, 10)}.json`;
+    link.download = `oefenschrift-voortgang-${new Date().toISOString().slice(0, 10)}.json`;
     document.body.append(link);
     link.click();
     link.remove();

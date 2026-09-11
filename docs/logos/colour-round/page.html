@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oefenschrift · Logo directions</title>
+    <link id="preview-favicon" rel="icon" type="image/svg+xml" />
+    <style>
+      /* EMBED_STYLES */
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div>
+          <p class="eyebrow">Oefenschrift / September 2026</p>
+          <h1>Logo directions</h1>
+          <p class="intro">
+            Try your original lettering with a yellow full stop, or compare all EMBED_DESIGN_COUNT
+            SVG designs beside the colourful subject cards.
+          </p>
+        </div>
+        <div class="view-controls">
+          <button id="theme" aria-pressed="false">Dark preview</button
+          ><button id="mono" aria-pressed="false">One colour</button>
+        </div>
+      </header>
+
+      <section class="workbench" aria-label="Selected logo preview">
+        <div class="selected-panel">
+          <div class="selected-meta">
+            <span id="selected-number"></span><span id="selected-family"></span>
+          </div>
+          <div id="selected-art" class="selected-art"></div>
+          <h2 id="selected-title"></h2>
+          <p id="selected-note"></p>
+          <div class="downloads">
+            <button id="download" class="primary">
+              Download logo SVG <span aria-hidden="true">↓</span></button
+            ><button id="source">SVG code</button>
+          </div>
+          <div class="size-proof">
+            <div>
+              <span class="micro">Current · 136px</span>
+              <div id="current-small" class="sidebar-size"></div>
+            </div>
+            <div>
+              <span class="micro">Selected · 136px</span>
+              <div id="selected-small" class="sidebar-size"></div>
+            </div>
+          </div>
+          <div class="icon-proof">
+            <span class="micro">Icon sizes</span><span id="icon-16" class="icon-16"></span
+            ><span id="icon-24" class="icon-24"></span><span id="icon-40" class="icon-40"></span
+            ><span id="icon-64" class="icon-64"></span
+            ><button id="download-icon" class="text-button">Download icon</button>
+          </div>
+        </div>
+        <div class="context-panel">
+          <div class="context-label">
+            <span class="micro">With your new home page</span
+            ><span class="micro">Sidebar logo · 136px</span>
+          </div>
+          <div class="mini-app">
+            <aside class="mini-sidebar">
+              <div id="app-logo"></div>
+              <span class="micro">Niveau</span>
+              <div class="mini-level"><b>A2</b><span>B1</span></div>
+              <nav aria-label="Preview navigation">
+                <span>Lezen</span><span>Luisteren</span><span>Schrijven</span><span>Spreken</span
+                ><span>KNM</span>
+              </nav>
+              <div class="mini-utilities"><span>Proefexamen</span><span>Voortgang</span></div>
+              <span class="mini-language">NL &nbsp; / &nbsp; EN</span>
+            </aside>
+            <div class="mini-content">
+              <h3>Oefen voor je<br />inburgeringsexamen</h3>
+              <p>Gratis oefenen. Geen account nodig.</p>
+              <span class="mini-start">Begin met Lezen A2 <span aria-hidden="true">→</span></span>
+              <div id="mini-cards" class="mini-cards"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="gallery-toolbar">
+        <div class="filters" role="group" aria-label="Filter logo directions">
+          <button data-filter="All" aria-pressed="true">All <span>EMBED_DESIGN_COUNT</span></button
+          ><button data-filter="Wordmarks" aria-pressed="false">Wordmarks</button
+          ><button data-filter="Symbols" aria-pressed="false">Symbols</button
+          ><button data-filter="Expressive" aria-pressed="false">Expressive</button
+          ><button data-filter="Saved" aria-pressed="false">
+            Saved <span id="saved-count">0</span>
+          </button>
+        </div>
+        <span id="visible-count" class="micro"></span>
+      </div>
+      <div id="gallery" class="gallery"></div>
+      <div id="empty" class="empty" hidden>
+        <h2>No saved logos yet</h2>
+        <p>Use the bookmark button on any design to keep it here.</p>
+        <button id="show-all">Show all designs</button>
+      </div>
+      <footer>
+        <p>
+          Every logo is drawn with SVG paths. The HTML page includes its fonts and card artwork, so
+          it also opens offline.
+        </p>
+        <p>Choose a direction here before changing the logo in the application.</p>
+      </footer>
+    </div>
+    <dialog id="code-dialog">
+      <form method="dialog">
+        <h2>SVG source</h2>
+        <button aria-label="Close SVG source">×</button>
+      </form>
+      <p>These paths work without installing a font.</p>
+      <textarea id="svg-code" readonly spellcheck="false" aria-label="SVG source code"></textarea>
+      <div class="code-actions">
+        <button id="copy" class="primary">Copy SVG</button
+        ><span id="copy-status" role="status"></span>
+      </div>
+    </dialog>
+    <p id="status" class="sr-only" role="status" aria-live="polite"></p>
+    <script>
+      /* EMBED_DATA */
+    </script>
+    <script>
+      /* EMBED_SCRIPT */
+    </script>
+    <script type="text/plain" id="embedded-font-license">
+      EMBED_FONT_LICENSE
+    </script>
+  </body>
+</html>

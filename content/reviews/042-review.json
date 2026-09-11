@@ -1,0 +1,514 @@
+{
+  "review_id": "batch042-independent-editorial-review",
+  "source": "content/batches/042-original.json",
+  "source_sha256": "056c3e9e3a09ceaa1ea7d43ba042578d7b1497582d93801490ec8d89475ab439",
+  "proposed": "content/batches/042-proposed.json",
+  "original_sha256": "59b7851346c79b16a1a8e2b2cf28587539567948e89407b76148548c27faf72a",
+  "review_type": "Independent full-source AI editorial review with local repairs",
+  "reviewer": "GPT-6 Astra, independent reviewer context",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:listening:tandarts:1",
+    "A2:listening:buurthuis:1",
+    "A2:listening:batch001-markt:1",
+    "A2:listening:batch001-schoolreis:1",
+    "A2:listening:batch002-trein:1",
+    "A2:listening:batch002-bakker:1",
+    "A2:listening:batch002-zwembad:1"
+  ],
+  "item_count": 7,
+  "question_count": 14,
+  "verdict_counts": {
+    "pass": 7,
+    "pass_edited": 4,
+    "pass_unchanged": 3,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "item": "A2:listening:tandarts:1",
+      "field": "script[0].text",
+      "before": "Goedemorgen Sabrina, u spreekt met de assistent van uw tandarts. Ik bel over uw afspraak op donderdag. De tandarts verwacht u om elf uur. Wilt u tien minuten eerder bij de balie zijn? We willen uw adres nog controleren. De praktijk gaat om half negen open. Neem uw identiteitsbewijs mee naar deze afspraak. Het oude formulier hoeft u niet mee te nemen. Dat staat al in onze computer. U kunt daarna in de wachtkamer gaan zitten. De tandarts haalt u daar op. Bel ons vandaag terug als u donderdag niet kunt komen.",
+      "after": "Goedemorgen Sabrina, u spreekt met de assistent van uw tandarts. Ik bel over uw afspraak op donderdag. De tandarts verwacht u om elf uur. Wilt u om tien voor elf bij de balie zijn? We willen uw adres nog controleren. De praktijk gaat om half negen open. Neem uw identiteitsbewijs mee naar deze afspraak. Het oude formulier hoeft u niet mee te nemen. Dat staat al in onze computer. U kunt daarna in de wachtkamer gaan zitten. De tandarts haalt u daar op. Bel ons vandaag terug als u donderdag niet kunt komen.",
+      "why": "State the required arrival time plainly once and align evidence/options/explanation."
+    },
+    {
+      "item": "A2:listening:tandarts:1",
+      "field": "text",
+      "before": "Assistent: Goedemorgen Sabrina, u spreekt met de assistent van uw tandarts. Ik bel over uw afspraak op donderdag. De tandarts verwacht u om elf uur. Wilt u tien minuten eerder bij de balie zijn? We willen uw adres nog controleren. De praktijk gaat om half negen open. Neem uw identiteitsbewijs mee naar deze afspraak. Het oude formulier hoeft u niet mee te nemen. Dat staat al in onze computer. U kunt daarna in de wachtkamer gaan zitten. De tandarts haalt u daar op. Bel ons vandaag terug als u donderdag niet kunt komen.",
+      "after": "Assistent: Goedemorgen Sabrina, u spreekt met de assistent van uw tandarts. Ik bel over uw afspraak op donderdag. De tandarts verwacht u om elf uur. Wilt u om tien voor elf bij de balie zijn? We willen uw adres nog controleren. De praktijk gaat om half negen open. Neem uw identiteitsbewijs mee naar deze afspraak. Het oude formulier hoeft u niet mee te nemen. Dat staat al in onze computer. U kunt daarna in de wachtkamer gaan zitten. De tandarts haalt u daar op. Bel ons vandaag terug als u donderdag niet kunt komen.",
+      "why": "State the required arrival time plainly once and align evidence/options/explanation."
+    },
+    {
+      "item": "A2:listening:tandarts:1",
+      "field": "questions[0].explanation",
+      "before": "Tien minuten vóór elf uur is tien voor elf. Elf uur is de afspraaktijd; half negen is de openingstijd.",
+      "after": "Sabrina moet om tien voor elf bij de balie zijn. Elf uur is de afspraaktijd; half negen is de openingstijd.",
+      "why": "State the required arrival time plainly once and align evidence/options/explanation."
+    },
+    {
+      "item": "A2:listening:tandarts:1",
+      "field": "questions[0].options.A",
+      "before": "Om tien voor elf.",
+      "after": "Tien voor elf.",
+      "why": "State the required arrival time plainly once and align evidence/options/explanation."
+    },
+    {
+      "item": "A2:listening:tandarts:1",
+      "field": "questions[0].options.B",
+      "before": "Om elf uur.",
+      "after": "Elf uur 's ochtends.",
+      "why": "State the required arrival time plainly once and align evidence/options/explanation."
+    },
+    {
+      "item": "A2:listening:tandarts:1",
+      "field": "questions[0].options.C",
+      "before": "Om half negen.",
+      "after": "Half negen 's ochtends.",
+      "why": "State the required arrival time plainly once and align evidence/options/explanation."
+    },
+    {
+      "item": "A2:listening:tandarts:1",
+      "field": "questions[0].evidence",
+      "before": "De tandarts verwacht u om elf uur. Wilt u tien minuten eerder bij de balie zijn?",
+      "after": "Wilt u om tien voor elf bij de balie zijn?",
+      "why": "State the required arrival time plainly once and align evidence/options/explanation."
+    },
+    {
+      "item": "A2:listening:batch001-markt:1",
+      "field": "script[0].text",
+      "before": "Beste bezoekers, luister even naar dit bericht over de markt. Het waait hard en de kramen moeten veilig worden opgeruimd. Daarom sluit de markt vandaag al om drie uur. Gewoonlijk kunt u hier tot vier uur terecht. U kunt uw boodschappen nog rustig afmaken. De bus naar het centrum vertrekt om kwart over vier. De halte is vandaag bij de zijingang. Bij de hoofdingang staan vrachtwagens voor de spullen van de markt. U kunt bij de bloemenkraam op de bus wachten. Daar staan banken onder een dak.",
+      "after": "Beste bezoekers, luister even naar dit bericht over de markt. Het waait hard en de kramen moeten veilig worden opgeruimd. Daarom sluit de markt vandaag al om drie uur. Gewoonlijk kunt u hier tot vier uur terecht. U kunt uw boodschappen nog rustig afmaken. De bus naar het centrum vertrekt om kwart over vier. De halte is vandaag bij de zijingang. Bij de hoofdingang staan vrachtwagens voor de spullen van de markt. De bloemenkraam staat midden op de markt. Daar kunt u onder een dak zitten. Loop daarna naar de halte om in te stappen.",
+      "why": "Make the sheltered seating location distinct from boarding; align explanation."
+    },
+    {
+      "item": "A2:listening:batch001-markt:1",
+      "field": "text",
+      "before": "Omroeper: Beste bezoekers, luister even naar dit bericht over de markt. Het waait hard en de kramen moeten veilig worden opgeruimd. Daarom sluit de markt vandaag al om drie uur. Gewoonlijk kunt u hier tot vier uur terecht. U kunt uw boodschappen nog rustig afmaken. De bus naar het centrum vertrekt om kwart over vier. De halte is vandaag bij de zijingang. Bij de hoofdingang staan vrachtwagens voor de spullen van de markt. U kunt bij de bloemenkraam op de bus wachten. Daar staan banken onder een dak.",
+      "after": "Omroeper: Beste bezoekers, luister even naar dit bericht over de markt. Het waait hard en de kramen moeten veilig worden opgeruimd. Daarom sluit de markt vandaag al om drie uur. Gewoonlijk kunt u hier tot vier uur terecht. U kunt uw boodschappen nog rustig afmaken. De bus naar het centrum vertrekt om kwart over vier. De halte is vandaag bij de zijingang. Bij de hoofdingang staan vrachtwagens voor de spullen van de markt. De bloemenkraam staat midden op de markt. Daar kunt u onder een dak zitten. Loop daarna naar de halte om in te stappen.",
+      "why": "Make the sheltered seating location distinct from boarding; align explanation."
+    },
+    {
+      "item": "A2:listening:batch001-markt:1",
+      "field": "questions[1].explanation",
+      "before": "De bus stopt bij de zijingang. Bij de hoofdingang staan vrachtwagens; bij de bloemenkraam kunnen bezoekers wachten.",
+      "after": "De bus stopt bij de zijingang. Bij de hoofdingang staan vrachtwagens. De bloemenkraam staat midden op de markt; na het zitten loopt u naar de halte.",
+      "why": "Make the sheltered seating location distinct from boarding; align explanation."
+    },
+    {
+      "item": "A2:listening:batch001-schoolreis:1",
+      "field": "script[0].text",
+      "before": "Hallo Fatima, ik ben de leerkracht van uw kind. Morgen gaat groep zes naar het museum. De kinderen moeten om acht uur op school zijn. Dan kijken we of iedereen er is. De bus vertrekt om kwart over acht. Om half negen komt de andere groep naar school. Geef uw kind brood en drinken mee. De school betaalt de bus en het museum. Geld is dus niet nodig. De kinderen blijven binnen en kunnen hun regenjas thuislaten. Om drie uur zijn we terug. U kunt uw kind dan bij het schoolplein ophalen.",
+      "after": "Hallo Fatima, ik ben de leerkracht van uw kind. Morgen gaat groep zes naar het museum. De kinderen moeten om acht uur op school zijn. We tellen dan alle kinderen. De bus vertrekt om kwart over acht. Om half negen komt de andere groep naar school. Geef uw kind brood en drinken mee. De school betaalt de bus en het museum. Geld is dus niet nodig. De kinderen blijven binnen en kunnen hun regenjas thuislaten. Om drie uur zijn we terug. U kunt uw kind dan bij het schoolplein ophalen.",
+      "why": "Use a short main clause within the strict A2 connective heuristic."
+    },
+    {
+      "item": "A2:listening:batch001-schoolreis:1",
+      "field": "text",
+      "before": "Leerkracht: Hallo Fatima, ik ben de leerkracht van uw kind. Morgen gaat groep zes naar het museum. De kinderen moeten om acht uur op school zijn. Dan kijken we of iedereen er is. De bus vertrekt om kwart over acht. Om half negen komt de andere groep naar school. Geef uw kind brood en drinken mee. De school betaalt de bus en het museum. Geld is dus niet nodig. De kinderen blijven binnen en kunnen hun regenjas thuislaten. Om drie uur zijn we terug. U kunt uw kind dan bij het schoolplein ophalen.",
+      "after": "Leerkracht: Hallo Fatima, ik ben de leerkracht van uw kind. Morgen gaat groep zes naar het museum. De kinderen moeten om acht uur op school zijn. We tellen dan alle kinderen. De bus vertrekt om kwart over acht. Om half negen komt de andere groep naar school. Geef uw kind brood en drinken mee. De school betaalt de bus en het museum. Geld is dus niet nodig. De kinderen blijven binnen en kunnen hun regenjas thuislaten. Om drie uur zijn we terug. U kunt uw kind dan bij het schoolplein ophalen.",
+      "why": "Use a short main clause within the strict A2 connective heuristic."
+    },
+    {
+      "item": "A2:listening:batch002-bakker:1",
+      "field": "questions[1].prompt",
+      "before": "Wat vraagt de bakker Karim vóór vijf uur te doen?",
+      "after": "Wat moet Karim vóór vijf uur doen?",
+      "why": "Remove the word bakker from the prompt so it does not echo only in the key."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "full_final_source_read": true,
+    "source_ids_preserved": true,
+    "schema": "npm run batch:check -- content/batches/042-proposed.json: 7 items, 14 questions; two warnings, no failures.",
+    "warnings": [
+      "0 persona-scenario prompts: broad checker heuristic from A2 reading, not required by listening section 4.2.",
+      "0 purpose questions: broad checker heuristic from A2 reading, not required by listening section 4.2."
+    ],
+    "key_distribution": {
+      "A": 4,
+      "B": 4,
+      "C": 3,
+      "D": 3
+    },
+    "option_counts": {
+      "3": 9,
+      "4": 5
+    },
+    "all_evidence_verbatim": true,
+    "all_scripts_join_exactly": true,
+    "native_netherlands_roles": "Checked against configured audition-approved roles; f-young and m-adult are distinct in the one conversation.",
+    "no_retired_type_or_generated_media": true,
+    "institution_name_check": "All institutions unnamed. Zwolle and Amersfoort are fictional journey destinations; no live timetable claim."
+  },
+  "items": [
+    {
+      "id": "A2:listening:tandarts:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "comparable",
+      "level_evidence": "Explicit arrival and identification requests among nearby appointment details. Comparable to the documented A2 listening task demand; this is an editorial judgement.",
+      "evidence": [
+        {
+          "id": "q1",
+          "answer": "A",
+          "evidence": "Wilt u om tien voor elf bij de balie zijn?",
+          "key_proof": "Sabrina moet om tien voor elf bij de balie zijn. Elf uur is de afspraaktijd; half negen is de openingstijd.",
+          "distractors": {
+            "B": "Confuses the eleven o’clock appointment with earlier arrival at the desk.",
+            "C": "Selects the half-past-eight opening time."
+          },
+          "skill": "time-place"
+        },
+        {
+          "id": "q2",
+          "answer": "B",
+          "evidence": "Neem uw identiteitsbewijs mee naar deze afspraak.",
+          "key_proof": "Sabrina moet haar identiteitsbewijs meenemen. Het formulier staat al in de computer. Haar adres wordt gecontroleerd, maar een adresbrief wordt niet gevraagd.",
+          "distractors": {
+            "A": "The old form is already stored and explicitly need not be brought.",
+            "C": "Turns the mentioned address check into an unrequested address letter."
+          },
+          "skill": "detail"
+        }
+      ],
+      "language_check": {
+        "spoken_words": 93,
+        "mean_sentence_words": 7.75,
+        "max_sentence_words": 10,
+        "estimated_seconds_at_2_5_words_per_second": 37.2,
+        "level_flag": null
+      },
+      "audio_review": {
+        "roles": [
+          "f-adult"
+        ],
+        "turns": 1,
+        "numbers_in_words": true,
+        "text_equals_joined_script": true,
+        "status": "Script editorial pass; generated media pending."
+      },
+      "answer_signal_check": "No uniquely longest key, unique prompt content-word echo, or polarity cue. Correct answers follow explicit audible information.",
+      "image_review": "No still requested."
+    },
+    {
+      "id": "A2:listening:buurthuis:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "comparable",
+      "level_evidence": "Eight short alternating turns; room and next-day material choices. Comparable to the documented A2 listening task demand; this is an editorial judgement.",
+      "evidence": [
+        {
+          "id": "q1",
+          "answer": "C",
+          "evidence": "Deze week zitten we in lokaal drie, op de eerste verdieping.",
+          "key_proof": "Lokaal drie ligt op de eerste verdieping. Beneden worden de muren geschilderd. Koffie drinken hoort bij het wachten vóór de les.",
+          "distractors": {
+            "A": "Uses the downstairs room being painted.",
+            "B": "Uses the coffee place before class."
+          },
+          "skill": "time-place"
+        },
+        {
+          "id": "q2",
+          "answer": "D",
+          "evidence": "Neem morgen je schrift mee.",
+          "key_proof": "Roos moet haar schrift meenemen. Het boek is pas volgende week nodig; de docent geeft haar een pen. Koffie kan ze vóór de les drinken.",
+          "distractors": {
+            "A": "The book is needed next week.",
+            "B": "The teacher supplies a pen.",
+            "C": "Coffee is available there before class; bringing a cup is not requested."
+          },
+          "skill": "detail"
+        }
+      ],
+      "language_check": {
+        "spoken_words": 107,
+        "mean_sentence_words": 6.29,
+        "max_sentence_words": 11,
+        "estimated_seconds_at_2_5_words_per_second": 42.8,
+        "level_flag": null
+      },
+      "audio_review": {
+        "roles": [
+          "f-young",
+          "m-adult"
+        ],
+        "turns": 8,
+        "numbers_in_words": true,
+        "text_equals_joined_script": true,
+        "status": "Script editorial pass; generated media pending."
+      },
+      "answer_signal_check": "No uniquely longest key, unique prompt content-word echo, or polarity cue. Correct answers follow explicit audible information.",
+      "image_review": "Neutral classroom drawing brief; exact Roos cast traits; Dutch alt and scene omit answer-bearing room/material clues."
+    },
+    {
+      "id": "A2:listening:batch001-markt:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "comparable",
+      "level_evidence": "Separates current closing time, bus departure and boarding place. Comparable to the documented A2 listening task demand; this is an editorial judgement.",
+      "evidence": [
+        {
+          "id": "q1",
+          "answer": "B",
+          "evidence": "Daarom sluit de markt vandaag al om drie uur.",
+          "key_proof": "Drie uur is de sluitingstijd van vandaag. Vier uur is de gewone sluitingstijd; kwart over vier is de vertrektijd van de bus.",
+          "distractors": {
+            "A": "Uses the normal four o’clock closing time.",
+            "C": "Uses the bus departure time."
+          },
+          "skill": "time-place"
+        },
+        {
+          "id": "q2",
+          "answer": "A",
+          "evidence": "De halte is vandaag bij de zijingang.",
+          "key_proof": "De bus stopt bij de zijingang. Bij de hoofdingang staan vrachtwagens. De bloemenkraam staat midden op de markt; na het zitten loopt u naar de halte.",
+          "distractors": {
+            "B": "Chooses the entrance occupied by trucks.",
+            "C": "The flower stall is explicitly in the middle of the market and listeners must walk to the stop afterwards."
+          },
+          "skill": "time-place"
+        }
+      ],
+      "language_check": {
+        "spoken_words": 95,
+        "mean_sentence_words": 8.64,
+        "max_sentence_words": 11,
+        "estimated_seconds_at_2_5_words_per_second": 38.0,
+        "level_flag": null
+      },
+      "audio_review": {
+        "roles": [
+          "narrator"
+        ],
+        "turns": 1,
+        "numbers_in_words": true,
+        "text_equals_joined_script": true,
+        "status": "Script editorial pass; generated media pending."
+      },
+      "answer_signal_check": "No uniquely longest key, unique prompt content-word echo, or polarity cue. Correct answers follow explicit audible information.",
+      "image_review": "No still requested."
+    },
+    {
+      "id": "A2:listening:batch001-schoolreis:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "comparable",
+      "level_evidence": "Distinguishes own group arrival from departure, another group and return. Comparable to the documented A2 listening task demand; this is an editorial judgement.",
+      "evidence": [
+        {
+          "id": "q1",
+          "answer": "D",
+          "evidence": "De kinderen moeten om acht uur op school zijn.",
+          "key_proof": "Acht uur is de verzameltijd. De bus vertrekt later; half negen geldt voor de andere groep. Om drie uur komt groep zes terug.",
+          "distractors": {
+            "A": "Uses bus departure, fifteen minutes after arrival.",
+            "B": "Uses another group’s arrival time.",
+            "C": "Uses the return time."
+          },
+          "skill": "time-place"
+        },
+        {
+          "id": "q2",
+          "answer": "C",
+          "evidence": "Geef uw kind brood en drinken mee.",
+          "key_proof": "Brood en drinken moeten mee. De school betaalt de bus. De regenjas kan thuisblijven.",
+          "distractors": {
+            "A": "The school pays for the bus.",
+            "B": "The raincoat may be left at home."
+          },
+          "skill": "detail"
+        }
+      ],
+      "language_check": {
+        "spoken_words": 90,
+        "mean_sentence_words": 7.5,
+        "max_sentence_words": 9,
+        "estimated_seconds_at_2_5_words_per_second": 36.0,
+        "level_flag": null
+      },
+      "audio_review": {
+        "roles": [
+          "f-adult"
+        ],
+        "turns": 1,
+        "numbers_in_words": true,
+        "text_equals_joined_script": true,
+        "status": "Script editorial pass; generated media pending."
+      },
+      "answer_signal_check": "No uniquely longest key, unique prompt content-word echo, or polarity cue. Correct answers follow explicit audible information.",
+      "image_review": "No still requested."
+    },
+    {
+      "id": "A2:listening:batch002-trein:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "comparable",
+      "level_evidence": "Selects platform and lift location from a spoken station layout. Comparable to the documented A2 listening task demand; this is an editorial judgement.",
+      "evidence": [
+        {
+          "id": "q1",
+          "answer": "A",
+          "evidence": "Uw trein vertrekt vandaag van spoor zeven.",
+          "key_proof": "De trein vertrekt van spoor zeven. Op spoor vier staat een kapotte trein. Twee hoort bij de vertrektijd.",
+          "distractors": {
+            "B": "Platform four holds the broken train.",
+            "C": "Misassigns the spoken hour two to a platform."
+          },
+          "skill": "time-place"
+        },
+        {
+          "id": "q2",
+          "answer": "D",
+          "evidence": "De lift vindt u naast de boekwinkel.",
+          "key_proof": "De lift is naast de boekwinkel. Tegenover de bakker is de trap; bij de koffiebar staat een medewerker. Bij spoor vier staat de kapotte trein.",
+          "distractors": {
+            "A": "The stairs are opposite the bakery.",
+            "B": "The employee stands by the coffee bar.",
+            "C": "Platform four is attached to the broken train, not the lift location."
+          },
+          "skill": "time-place"
+        }
+      ],
+      "language_check": {
+        "spoken_words": 89,
+        "mean_sentence_words": 7.42,
+        "max_sentence_words": 10,
+        "estimated_seconds_at_2_5_words_per_second": 35.6,
+        "level_flag": null
+      },
+      "audio_review": {
+        "roles": [
+          "narrator"
+        ],
+        "turns": 1,
+        "numbers_in_words": true,
+        "text_equals_joined_script": true,
+        "status": "Script editorial pass; generated media pending."
+      },
+      "answer_signal_check": "No uniquely longest key, unique prompt content-word echo, or polarity cue. Correct answers follow explicit audible information.",
+      "image_review": "No still requested."
+    },
+    {
+      "id": "A2:listening:batch002-bakker:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "comparable",
+      "level_evidence": "Follows an ingredient problem and the callback before collection. Comparable to the documented A2 listening task demand; this is an editorial judgement.",
+      "evidence": [
+        {
+          "id": "q1",
+          "answer": "B",
+          "evidence": "De aardbeien zijn vandaag niet gekomen.",
+          "key_proof": "De aardbeien ontbreken. De doos staat klaar, chocolade is een alternatief en het briefje krijgt Karim bij het ophalen.",
+          "distractors": {
+            "A": "The box is already ready.",
+            "C": "Chocolate is offered as the available alternative.",
+            "D": "The tips are supplied at collection; they are not identified as the failed delivery."
+          },
+          "skill": "detail"
+        },
+        {
+          "id": "q2",
+          "answer": "C",
+          "evidence": "Wilt u vóór vijf uur terugbellen?",
+          "key_proof": "Karim moet vóór vijf uur bellen om zijn keuze door te geven. Ophalen en betalen gebeuren later.",
+          "distractors": {
+            "A": "Collection follows the choice and making the cake.",
+            "B": "Payment happens at collection."
+          },
+          "skill": "sequence"
+        }
+      ],
+      "language_check": {
+        "spoken_words": 94,
+        "mean_sentence_words": 7.83,
+        "max_sentence_words": 14,
+        "estimated_seconds_at_2_5_words_per_second": 37.6,
+        "level_flag": null
+      },
+      "audio_review": {
+        "roles": [
+          "m-shop"
+        ],
+        "turns": 1,
+        "numbers_in_words": true,
+        "text_equals_joined_script": true,
+        "status": "Script editorial pass; generated media pending."
+      },
+      "answer_signal_check": "No uniquely longest key, unique prompt content-word echo, or polarity cue. Correct answers follow explicit audible information.",
+      "image_review": "No still requested."
+    },
+    {
+      "id": "A2:listening:batch002-zwembad:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "comparable",
+      "level_evidence": "Matches a locker object and a temporarily unavailable facility. Comparable to the documented A2 listening task demand; this is an editorial judgement.",
+      "evidence": [
+        {
+          "id": "q1",
+          "answer": "A",
+          "evidence": "Voor dat kastje heeft u een munt van één euro nodig.",
+          "key_proof": "Voor het kastje is een munt nodig. De bankpas is voor betalen aan de balie; het kaartje geeft toegang tot het zwembad.",
+          "distractors": {
+            "B": "The bank card pays at the counter.",
+            "C": "The ticket admits the visitor."
+          },
+          "skill": "detail"
+        },
+        {
+          "id": "q2",
+          "answer": "B",
+          "evidence": "Het warme bad is vandaag dicht voor onderhoud.",
+          "key_proof": "Het warme bad is dicht. De andere baden zijn open en bezoekers kunnen de kleedkamers gebruiken.",
+          "distractors": {
+            "A": "The large pool is explicitly open.",
+            "C": "The children’s pool is explicitly open.",
+            "D": "Visitors are instructed to use the changing rooms."
+          },
+          "skill": "detail"
+        }
+      ],
+      "language_check": {
+        "spoken_words": 94,
+        "mean_sentence_words": 8.55,
+        "max_sentence_words": 11,
+        "estimated_seconds_at_2_5_words_per_second": 37.6,
+        "level_flag": null
+      },
+      "audio_review": {
+        "roles": [
+          "presenter"
+        ],
+        "turns": 1,
+        "numbers_in_words": true,
+        "text_equals_joined_script": true,
+        "status": "Script editorial pass; generated media pending."
+      },
+      "answer_signal_check": "No uniquely longest key, unique prompt content-word echo, or polarity cue. Correct answers follow explicit audible information.",
+      "image_review": "No still requested."
+    }
+  ],
+  "decisions_on_author_doubts": {
+    "dentist_time": "Repaired to an explicit ten-to-eleven instruction; calculation no longer required.",
+    "dentist_address_letter": "Accepted as an address-check/document confusion. The letter is not requested and identification is explicit.",
+    "train_two": "Accepted as a nearby audible-number category error; seven, four and two are distinct spoken forms.",
+    "market_waiting": "Repaired because waiting at a stall might imply boarding there; its location and subsequent walk are now explicit.",
+    "timing": "Approximately 36–43 seconds at 2.5 words per second, before dialogue gaps; measure generated clips."
+  },
+  "diversity_review": "Preserves all seven authorised scenarios. Covers four task types across health, education, shops/services, transport and leisure. Distinct listening operations despite overlap with later bank settings.",
+  "set_assembly": "Keep IDs and current membership. Avoid placing this market with batch022-sluitingstijd, this station with batch023-spoor, or this bakery with batch023-verjaardagstaart in the same future form. This replacement batch is not a full mock.",
+  "media_notes": "After adoption and hash verification, regenerate changed fragment/question audio and produce the classroom still. Check actual duration, transcription, pronunciation, pauses and emphasis. Inspect drawing before publication. Configured conversation mode is stitched.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty, official exam equivalence or learner outcomes.",
+    "No content/exemplars directory exists. Compared the dialogue with batch005-training and batch005-scherm and used the locally documented official A2 format for other task types; no claim of two calibrated exemplars per type.",
+    "Only scripts and image brief were reviewed. No audio was generated or heard; publication remains blocked pending media checks."
+  ]
+}

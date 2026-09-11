@@ -28,7 +28,11 @@ Facts about the official exams below were verified on 10 September 2026 in DUO's
 
 ## 3. Item record
 
-Items live in `content/catalogue.json` after review; drafts live in `content/batches/`. Existing fields stay as they are. New fields are added per part below; all are optional in the schema so old items keep validating, but new items must carry the ones marked required for their part.
+Items live in `content/catalogue.json` after review; drafts live in `content/batches/`. Every active item uses the current contract. `taskType` is the only format field; the retired `type` field is rejected. `textType` has a separate meaning: the communicative text category for B1 reading and listening. Do not use it as a substitute for `taskType`.
+
+The accepted task types, domains, skills and bilingual display labels are shared in `app/domain/exercise-types.ts`; metadata checks are in `app/domain/exercise-schema.ts`. `scripts/batch-validation.ts` applies the per-part structure checks both in `npm run batch:check` and in `npm run content:integrate` / `npm run content:verify`. A matching review hash does not bypass those checks. Adding a task type requires its Dutch and English labels and its per-part validation before authoring exercises of that type.
+
+Rewritten exercises retain their IDs and set membership. The historical source and review artifacts remain intact; a later reviewed batch supplies the replacement. Original IDs that predate the batch naming rule are accepted only when already present in the catalogue. Integration replaces retired fields and invalidates media whose source changed. Stored sessions and completion records carry exercise revisions; a rewrite cannot reuse answers to the prior version.
 
 Common fields:
 

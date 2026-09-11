@@ -12,9 +12,16 @@ import { readRoute, routePath, routeLevel, routeLang, levelPages } from '../doma
 import { defaults } from '../domain/study';
 import { readPreferences, stateForRoute, applyResumePosition } from '../domain/render-state';
 import { serviceStatus } from '../../server/availability';
-import { basePath, ensurePass, siteOrigin, stripBase } from '../../server/security';
+import {
+  basePath,
+  ensurePass,
+  siteOrigin,
+  stripBase,
+  migrationHeaders,
+} from '../../server/security';
 import { remaining } from '../../server/limits';
 import { pageSeo } from '../domain/seo';
+import { POSITION_COOKIE, readCookie } from '../domain/persistence';
 export function loader({ request, params }) {
   const url = new URL('/' + (params['*'] || ''), request.url),
     route = readRoute(url, null);
@@ -57,19 +64,13 @@ export function loader({ request, params }) {
     practiceSets,
     renderedAt,
   );
-  const position = cookie
-    .split(';')
-    .map((value) => value.trim())
-    .find((value) => value.startsWith('inburgering_position='));
-  if (position)
-    initialState = applyResumePosition(
-      initialState,
-      position.slice('inburgering_position='.length),
-      catalogue,
-    );
+  const position = readCookie(cookie, POSITION_COOKIE);
+  if (position) initialState = applyResumePosition(initialState, position, catalogue);
   // The first page sets the session pass the paid calls require; a browser that already
   // has a young one keeps it, so its allowance for today carries over.
   const pass = ensurePass(request, renderedAt);
+  const headers = migrationHeaders(request, renderedAt);
+  if (pass.header) headers.append('Set-Cookie', pass.header);
   // Tabs opened before the shared layout was deployed make unfiltered data requests
   // and expect content here. Keep those tabs working until their next document load;
   // the current router sends _routes when it reuses the shared layout's catalogue.
@@ -97,7 +98,7 @@ export function loader({ request, params }) {
         settings.lang,
       ),
     },
-    pass.header ? { headers: { 'Set-Cookie': pass.header } } : undefined,
+    { headers },
   );
 }
 export function meta({ loaderData: data }: MetaArgs<typeof loader>) {

@@ -3,20 +3,16 @@
 // option letter, the interface language and level. Answer texts, transcripts and
 // recordings are never part of an event. The Privacy page describes this.
 import { postJson } from './request';
-const VISITOR_KEY = 'inburgering.visitor',
-  SESSION_KEY = 'inburgering.visited';
+import { VISITOR_KEY, SESSION_KEY, readStored, writeStored } from './persistence';
 let queue: any[] = [],
   timer: ReturnType<typeof setTimeout> | null = null,
   listening = false;
 export function visitorId() {
   if (typeof window === 'undefined') return null;
   try {
-    let id = localStorage.getItem(VISITOR_KEY);
-    if (!id || !/^[a-f0-9]{32}$/.test(id)) {
-      id = crypto.randomUUID().replace(/-/g, '');
-      localStorage.setItem(VISITOR_KEY, id);
-    }
-    return id;
+    const saved = readStored(localStorage, VISITOR_KEY, (value) => /^[a-f0-9]{32}$/.test(value));
+    const id = saved || crypto.randomUUID().replace(/-/g, '');
+    return writeStored(localStorage, VISITOR_KEY, id) || saved ? id : null;
   } catch {
     return null;
   }
@@ -51,9 +47,11 @@ export function track(event: Record<string, unknown>) {
 }
 // One visit per browser session, so a reload does not count twice.
 export function trackVisit(settings: { lang: string; level: string }) {
+  visitorId();
   try {
-    if (sessionStorage.getItem(SESSION_KEY)) return;
-    sessionStorage.setItem(SESSION_KEY, '1');
+    const visited = readStored(sessionStorage, SESSION_KEY);
+    writeStored(sessionStorage, SESSION_KEY, '1');
+    if (visited) return;
   } catch {}
   track({ kind: 'visit', lang: settings.lang, level: settings.level });
 }

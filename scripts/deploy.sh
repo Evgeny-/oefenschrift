@@ -18,14 +18,14 @@ remote() { ssh "${ssh_opts[@]}" "$target" "$@"; }
 
 # Follow the server's active address so a domain move also applies to future CI deploys.
 # Read only these public settings; provider keys and operator credentials stay on the server.
-location_json=$(remote "cd '$REMOTE_DIR' && node --env-file=.env -e 'console.log(JSON.stringify({origin:process.env.INBURGERING_ORIGIN,base:process.env.INBURGERING_BASE_PATH||\"\"}))'")
+location_json=$(remote "cd '$REMOTE_DIR' && node --env-file=.env -e 'console.log(JSON.stringify({origin:(process.env.OEFENSCHRIFT_ORIGIN??process.env.INBURGERING_ORIGIN),base:(process.env.OEFENSCHRIFT_BASE_PATH??process.env.INBURGERING_BASE_PATH)||\"\"}))'")
 configured_base=$(node -p 'JSON.parse(require("fs").readFileSync(0,"utf8")).base' <<< "$location_json")
 configured_origin=$(node -p 'JSON.parse(require("fs").readFileSync(0,"utf8")).origin' <<< "$location_json")
-[[ "$configured_origin" == https://* ]] || { echo "The server needs an HTTPS INBURGERING_ORIGIN" >&2; exit 1; }
-export INBURGERING_BASE_PATH="${INBURGERING_BASE_PATH-$configured_base}"
-PUBLIC_URL="${PUBLIC_URL:-${configured_origin}${INBURGERING_BASE_PATH}/}"
+[[ "$configured_origin" == https://* ]] || { echo "The server needs an HTTPS OEFENSCHRIFT_ORIGIN" >&2; exit 1; }
+export OEFENSCHRIFT_BASE_PATH="${OEFENSCHRIFT_BASE_PATH-${INBURGERING_BASE_PATH-$configured_base}}"
+PUBLIC_URL="${PUBLIC_URL:-${configured_origin}${OEFENSCHRIFT_BASE_PATH}/}"
 
-echo "Checking types and building for ${INBURGERING_BASE_PATH}..."
+echo "Checking types and building for ${OEFENSCHRIFT_BASE_PATH}..."
 npm run typecheck
 npm run build
 

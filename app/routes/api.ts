@@ -9,6 +9,7 @@ import {
   passId,
   siteOrigin,
   visitorHash,
+  migrationHeaders,
 } from '../../server/security';
 // Whole-server ceilings behind the per-client limits: cheap database writes only.
 const eventCalls: number[] = [],
@@ -46,6 +47,8 @@ export function loader({ request, params }) {
   if (params.service === 'status') {
     const now = Date.now(),
       pass = ensurePass(request, now);
+    const headers = migrationHeaders(request, now);
+    if (pass.header) headers.append('Set-Cookie', pass.header);
     return Response.json(
       {
         ...serviceStatus(now),
@@ -53,12 +56,7 @@ export function loader({ request, params }) {
         reports: true,
         model: configuration().feedback_model,
       },
-      {
-        headers: {
-          'Cache-Control': 'no-store',
-          ...(pass.header ? { 'Set-Cookie': pass.header } : {}),
-        },
-      },
+      { headers },
     );
   }
   throw new Response('Not found', { status: 404 });

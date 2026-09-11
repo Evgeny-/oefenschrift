@@ -76,7 +76,7 @@ async function shot(name) {
 
 try {
   await evaluate(
-    `localStorage.setItem('inburgering.study.v2',JSON.stringify({version:2,settings:{lang:'en',level:'A2',theme:'light',clock:false},records:{'A2:writing:afspraak:1':{completed:true,kind:'ai',at:Date.now()}},drafts:{'A2:speaking:buurvrouw:1':'Ik kan morgen niet komen. Ik werk.'},reviews:{},active:null}));document.cookie='inburgering_preferences='+encodeURIComponent(JSON.stringify({lang:'en',level:'A2',theme:'light',clock:false}))+'; Path=/';true;`,
+    `localStorage.setItem('oefenschrift.study.v2',JSON.stringify({version:2,settings:{lang:'en',level:'A2',theme:'light',clock:false},records:{'A2:writing:afspraak:1':{completed:true,kind:'ai',at:Date.now()}},drafts:{'A2:speaking:buurvrouw:1':'Ik kan morgen niet komen. Ik werk.'},reviews:{},active:null}));document.cookie='oefenschrift_preferences='+encodeURIComponent(JSON.stringify({lang:'en',level:'A2',theme:'light',clock:false}))+'; Path=/';true;`,
   );
   await send('browsingContext.navigate', {
     context,

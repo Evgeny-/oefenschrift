@@ -1,3 +1,5 @@
+import { setting as environmentSetting } from '../environment';
+import { requireReviewedMedia } from './media-review';
 // Generate exercise illustrations from image briefs in the house style (config/illustration.json).
 //
 //   tsx scripts/illustrate.ts                       report what would be generated (dry run)
@@ -57,7 +59,7 @@ const services = JSON.parse(readFileSync('config/services.json', 'utf8'));
 const style = JSON.parse(readFileSync(option('--style', 'config/illustration.json'), 'utf8'));
 
 function apiKey(): string {
-  const path = process.env.INBURGERING_CREDENTIALS_FILE || services.credentials_file;
+  const path = environmentSetting('CREDENTIALS_FILE') || services.credentials_file;
   let key = process.env.OPENAI_API_KEY || '';
   if (!key && existsSync(path)) {
     const m = readFileSync(path, 'utf8').match(/^\s*(?:export\s+)?OPENAI_API_KEY\s*=\s*(.*?)\s*$/m);
@@ -123,6 +125,7 @@ function jobs(items: Item[]): Job[] {
 
 async function run() {
   const source = option('--file', '');
+  if (GENERATE) await requireReviewedMedia(source);
   const items: Item[] = JSON.parse(readFileSync(source || 'content/catalogue.json', 'utf8'));
   const manifestPath = source ? resolve(OUT, 'image-manifest.json') : 'content/image-manifest.json';
   const manifest: Record<string, any> = existsSync(manifestPath)
@@ -220,6 +223,7 @@ async function run() {
   console.log(
     `${generated} generated, ${failures} failed, manifest ${manifestPath}. Every new image still needs a human look (manifest reviewed: false).`,
   );
+  if (failures) process.exitCode = 1;
   if (source) {
     writeFileSync(resolve(OUT, 'items-with-images.json'), JSON.stringify(items, null, 2) + '\n');
     return;
