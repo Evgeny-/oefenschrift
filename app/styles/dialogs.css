@@ -11,6 +11,83 @@
 .privacy-document h2 {
   margin: 2rem 0 0.75rem;
 }
+.about-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+.about-flow li {
+  position: relative;
+  text-align: center;
+}
+.about-flow-icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--sheet);
+}
+.about-flow h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+.about-flow p {
+  font-size: var(--text-body);
+  line-height: 1.5;
+}
+.about-flow-arrow {
+  position: absolute;
+  top: 0.75rem;
+  right: -1.5rem;
+  color: var(--muted);
+}
+.about-limit {
+  margin-top: 0.75rem;
+}
+.about-details {
+  margin-top: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.about-details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.about-details p {
+  margin-top: 1rem;
+}
+.about-actions {
+  margin-top: 1.5rem;
+}
+@media (max-width: 760px) {
+  .about-flow {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .about-flow li {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 1rem;
+    text-align: left;
+  }
+  .about-flow-icon {
+    margin: 0;
+  }
+  .about-flow-arrow {
+    top: auto;
+    right: auto;
+    bottom: -1.75rem;
+    left: 0.75rem;
+    rotate: 90deg;
+  }
+}
 .dialog-backdrop {
   position: fixed;
   inset: 0;
