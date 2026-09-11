@@ -1,0 +1,543 @@
+{
+  "review_id": "batch033-editorial-review",
+  "source": "content/batches/033-original.json",
+  "source_sha256": "bf9dc94559eedebddfc6b7f849661e1b81e9bd5e3248391da6c182ea7e1b0297",
+  "source_sha256_note": "SHA-256 of content/batches/033-proposed.json, the bytes to adopt (docs/briefs/review.md). The author's original hashes to 3baeb0d3758c439c05384ba7d45206c286d170c57e0f4afd271dcb36f286ce9b.",
+  "proposed": "content/batches/033-proposed.json",
+  "original_sha256": "3baeb0d3758c439c05384ba7d45206c286d170c57e0f4afd271dcb36f286ce9b",
+  "starters_source": null,
+  "starters_sha256": null,
+  "starters_verdict": "not applicable (closed items only, no starters file)",
+  "review_type": "AI editorial review of twelve KNM feit items (July 2025 format: picture brief, one factual question of at most twenty words, three options) giving a second item to once-covered eindtermen in themes 1, 4, 6, 7 and 8: source verification by fetching every cited and secondary page with curl (rubric check 13; Autoriteit Persoonsgegevens with a browser-like user agent), eindterm texts read on wetten.overheid.nl, key proof from evidence, distractor tests, KNM level-check rules (no decodable key, no prompt word only in the key, no odd-polarity key, no longest key, no behaviour question, cast traits verbatim), A2 heuristics, complement and study-card difference per item, diversity against the catalogue and batch 032, level verdict per item, and the coordinator's 30-word cap on fact cards applied to every item",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_counts": {
+    "pass": 12,
+    "pass_unchanged": 0,
+    "pass_edited": 12,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "item": "A2:knm:batch033-inlichtingenplicht:1",
+      "field": "text",
+      "before": "Wie bijstand krijgt, heeft een inlichtingenplicht. Verandert er iets in uw situatie? Dan moet u dat direct aan de gemeente doorgeven. Bijvoorbeeld als u gaat werken, gaat samenwonen of verhuist. Wie dat niet doet, moet te veel ontvangen geld terugbetalen en kan een boete krijgen.",
+      "after": "Wie bijstand krijgt, heeft een inlichtingenplicht. Gaat u werken, samenwonen of verhuizen? Dan moet u dat direct aan de gemeente doorgeven. Anders moet u te veel ontvangen geld terugbetalen.",
+      "why": "Trimmed from 45 to 29 words (coordinator: fact cards at most 30 words). The rule, the page's three examples and the repayment consequence stay; the boete moves to the explanation, which already states it. Evidence substring unchanged."
+    },
+    {
+      "item": "A2:knm:batch033-inlichtingenplicht:1",
+      "field": "questions[0].options.A",
+      "before": "Ja, dat moet hij direct melden.",
+      "after": "Ja, elke verandering moet hij direct melden.",
+      "why": "The key was the shortest option by 15 characters (31 against 46 and 48; 6 words against 9 and 8). Padded to 44 characters with the rule itself; 'verandering' and 'melden' occur nowhere in the prompt, so no prompt word recurs only in the key. Same meaning, same key letter."
+    },
+    {
+      "item": "A2:knm:batch033-tijdelijk-contract:1",
+      "field": "text",
+      "before": "Een tijdelijk contract heeft een einddatum. Op die datum stopt het contract vanzelf. Niemand hoeft het op te zeggen. Duurt het contract zes maanden of langer? Dan moet de werkgever een maand van tevoren zeggen of het doorgaat. Een vast contract heeft geen einddatum.",
+      "after": "Een tijdelijk contract heeft een einddatum. Op die datum stopt het contract vanzelf. Niemand hoeft het op te zeggen. Een vast contract heeft geen einddatum.",
+      "why": "Trimmed from 44 to 25 words. The aanzegtermijn (six months, one month's notice) is not tested and stays in the explanation; the card keeps the end-by-date rule, the no-notice rule and the vast/tijdelijk contrast of the indicator. Evidence substring unchanged."
+    },
+    {
+      "item": "A2:knm:batch033-beroepsgeheim:1",
+      "field": "text",
+      "before": "Alles wat u met de huisarts bespreekt, valt onder het medisch beroepsgeheim. De huisarts mag die informatie alleen met anderen delen als u daarvoor toestemming geeft. Dat geldt ook voor uw werkgever en uw familie.",
+      "after": "Wat u de huisarts vertelt, valt onder het beroepsgeheim. De huisarts mag die informatie alleen met anderen delen als u daarvoor toestemming geeft. Ook niet met uw werkgever of familie.",
+      "why": "Trimmed from 35 to 30 words; the rule is stated as the eindterm states it (no hedge in the card: for the employer, the case the key covers, the law knows no exception, and the GGD exception stays in the explanation). 'medisch' dropped before 'beroepsgeheim' for length; the title and the explanation keep the full term. Evidence substring unchanged."
+    },
+    {
+      "item": "A2:knm:batch033-beroepsgeheim:1",
+      "field": "questions[0].options.B",
+      "before": "Nee, alleen met haar toestemming.",
+      "after": "Nee, alleen als zij toestemming geeft.",
+      "why": "The key was the shortest option (5 words / 33 characters against 8 / 39 and 8 / 39). Now 6 words / 38 characters in the same 'als'-frame as distractor A; no prompt word recurs only in the key; key letter unchanged."
+    },
+    {
+      "item": "A2:knm:batch033-kraamzorg:1",
+      "field": "text",
+      "before": "Na de bevalling krijgt de moeder thuis kraamzorg, meestal tot en met de achtste dag. De kraamverzorgende verzorgt de moeder en de baby en geeft tips. Kraamzorg zit in het basispakket van de zorgverzekering. U betaalt een eigen bijdrage per uur.",
+      "after": "Na de bevalling krijgt de moeder thuis kraamzorg, meestal tot en met dag acht. De kraamverzorgende verzorgt de moeder en de baby en geeft tips. Kraamzorg zit in het basispakket.",
+      "why": "Trimmed from 41 to 30 words. 'meestal' kept: Zorginstituut says 'in principe tot en met dag 8', sometimes 10 and by law up to six weeks, so the hedge is the honest rendering; the eigen bijdrage per uur moves to the explanation, which already states it. Evidence substring unchanged."
+    },
+    {
+      "item": "A2:knm:batch033-tandarts-kind:1",
+      "field": "text",
+      "before": "Tandartszorg voor kinderen tot 18 jaar zit in het basispakket: controle en behandeling. Kinderen betalen ook geen eigen risico. Volwassenen betalen gewone tandartszorg meestal zelf, of zij sluiten daarvoor een aanvullende verzekering af.",
+      "after": "Tandartszorg voor kinderen tot 18 jaar zit in het basispakket: controle en behandeling. Kinderen betalen ook geen eigen risico. Volwassenen betalen gewone tandartszorg meestal zelf of via een aanvullende verzekering.",
+      "why": "Trimmed from 33 to 30 words; same three facts. Evidence substring unchanged."
+    },
+    {
+      "item": "A2:knm:batch033-tandarts-kind:1",
+      "field": "questions[0].options.C",
+      "before": "Ja, maar alleen de eerste controle per jaar.",
+      "after": "Ja, maar het gaat wel van het eigen risico af.",
+      "why": "'Alleen de eerste controle per jaar' was an invented cap anchored in nothing on the cited page (rubric 7). The new distractor is anchored in the cited page's own table (row Tandarts, kinderen tot 18 jaar: eigen risico 'Nee'), in the eigen-risico page ('Ook betaalt u voor de mondzorg voor kinderen geen eigen risico') and in the card's second sentence; it is the adult rule (insured care first counts against the eigen risico) misapplied to a child. 46 characters against 44 and 43, so the key is not the longest; polarity Nee / Ja* / Ja unchanged."
+    },
+    {
+      "item": "A2:knm:batch033-tandarts-kind:1",
+      "field": "questions[0].explanation",
+      "before": "Controle en behandeling bij de tandarts zitten voor kinderen tot 18 jaar in het basispakket, dus de zorgverzekering van Amina betaalt elke controle, niet alleen de eerste per jaar. Kinderen hebben ook geen eigen risico. Voor volwassenen zit gewone tandartszorg niet in het basispakket; zij kunnen zich daarvoor aanvullend verzekeren.",
+      "after": "Controle en behandeling bij de tandarts zitten voor kinderen tot 18 jaar in het basispakket, dus de zorgverzekering van Amina betaalt de controle. Kinderen betalen ook geen eigen risico, dus er gaat niets van een eigen risico af. Voor volwassenen zit gewone tandartszorg niet in het basispakket; zij kunnen zich daarvoor aanvullend verzekeren.",
+      "why": "Follows the new distractor C: says why the eigen-risico option fails instead of the removed 'eerste controle per jaar'."
+    },
+    {
+      "item": "A2:knm:batch033-tandarts-kind:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Welke zorg zit in het basispakket van de zorgverzekering?', table 'Zorg in het basispakket', row Tandarts: 'Kinderen tot 18 jaar: controle en behandeling; en fluoridebehandeling vanaf het doorbreken van blijvende tanden en kiezen' with eigen risico 'Nee' and wettelijke eigen bijdrage 'Nee'; 'Vanaf 18 jaar: chirurgische tandheelkundige hulp en röntgenonderzoek' (eigen risico 'Ja'). Rijksoverheid, 'Eigen risico zorgverzekering' (https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/eigen-risico-zorgverzekering, cited by batch 006): no eigen risico under 18. Indicator of 4.4.1: 'tandartszorg en fysiotherapie voor kinderen tot 18 jaar deel uitmaken van het basispakket en dat volwassenen zich hiervoor aanvullend kunnen verzekeren'. Zorgverzekeringswet and Besluit zorgverzekering; the basispakket is reset every year, children's dental care has been in it since 2006; yearly check.",
+      "after": "Rijksoverheid, 'Welke zorg zit in het basispakket van de zorgverzekering?', table 'Zorg in het basispakket', row Tandarts: 'Kinderen tot 18 jaar: controle en behandeling; en fluoridebehandeling vanaf het doorbreken van blijvende tanden en kiezen' with eigen risico 'Nee' and wettelijke eigen bijdrage 'Nee'; 'Vanaf 18 jaar: chirurgische tandheelkundige hulp en röntgenonderzoek' (eigen risico 'Ja'). Rijksoverheid, 'Eigen risico zorgverzekering' (https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/eigen-risico-zorgverzekering, cited by batch 006): no eigen risico under 18. Indicator of 4.4.1: 'tandartszorg en fysiotherapie voor kinderen tot 18 jaar deel uitmaken van het basispakket en dat volwassenen zich hiervoor aanvullend kunnen verzekeren'. Zorgverzekeringswet and Besluit zorgverzekering; the basispakket is reset every year, children's dental care has been in it since 2006; yearly check. Distractor C (eigen risico) is anchored in the same table (eigen risico 'Nee' for children) and in the eigen-risico page: 'Ook betaalt u voor de mondzorg voor kinderen geen eigen risico.'",
+      "why": "Records the anchor of the replaced distractor."
+    },
+    {
+      "item": "A2:knm:batch033-rechtsbijstand:1",
+      "field": "text",
+      "before": "Een advocaat kost geld. Wie een laag inkomen heeft, kan gesubsidieerde rechtsbijstand krijgen: de overheid betaalt dan mee aan de advocaat. U betaalt bijna altijd zelf een eigen bijdrage. Die bijdrage hangt af van uw inkomen.",
+      "after": "Wie een laag inkomen heeft, kan gesubsidieerde rechtsbijstand krijgen: de overheid betaalt dan mee aan de advocaat. U betaalt bijna altijd een eigen bijdrage. Die hangt af van uw inkomen.",
+      "why": "Trimmed from 36 to 30 words by dropping the opening 'Een advocaat kost geld.'; rule, eigen bijdrage and its income dependence stay. Evidence substring unchanged."
+    },
+    {
+      "item": "A2:knm:batch033-paspoort-aanvragen:1",
+      "field": "text",
+      "before": "Een paspoort of identiteitskaart vraagt u aan bij de gemeente waar u staat ingeschreven. U moet het document zelf aanvragen; ook kinderen komen mee. Neem een pasfoto en uw oude paspoort mee. Voor een Nederlands paspoort moet u de Nederlandse nationaliteit hebben.",
+      "after": "Een paspoort of identiteitskaart vraagt u aan bij de gemeente waar u staat ingeschreven. Aanvragen doet u persoonlijk; ook kinderen komen mee. Voor een Nederlands paspoort moet u Nederlander zijn.",
+      "why": "Trimmed from 42 to 30 words. The where (key), the persoonlijk rule and the nationality condition stay; the pasfoto and old passport move to the explanation. Evidence substring unchanged."
+    },
+    {
+      "item": "A2:knm:batch033-paspoort-aanvragen:1",
+      "field": "questions[0].explanation",
+      "before": "Een paspoort of identiteitskaart vraagt u persoonlijk aan bij de gemeente waar u ingeschreven staat, en daar haalt u het ook op. De politie geeft geen paspoorten uit, en de IND gaat over verblijfsvergunningen, niet over paspoorten.",
+      "after": "Een paspoort of identiteitskaart vraagt u persoonlijk aan bij de gemeente waar u ingeschreven staat, en daar haalt u het ook op. Neem een pasfoto en uw oude paspoort mee. De politie geeft geen paspoorten uit, en de IND gaat over verblijfsvergunningen, niet over paspoorten.",
+      "why": "Keeps the pasfoto and old-passport detail that left the card (page: 'een kleurenpasfoto', 'alle reisdocumenten die in uw bezit zijn')."
+    },
+    {
+      "item": "A2:knm:batch033-passief-kiesrecht:1",
+      "field": "text",
+      "before": "Kiesrecht bestaat uit twee delen. Actief kiesrecht is het recht om te stemmen. Passief kiesrecht is het recht om gekozen te worden, bijvoorbeeld in de gemeenteraad of de Tweede Kamer. Voor de Tweede Kamer geldt voor allebei: Nederlander en 18 jaar of ouder.",
+      "after": "Kiesrecht bestaat uit twee delen. Actief kiesrecht is het recht om te stemmen. Passief kiesrecht is het recht om gekozen te worden, bijvoorbeeld in de gemeenteraad of de Tweede Kamer.",
+      "why": "Trimmed from 43 to 30 words by dropping the Tweede Kamer conditions (Nederlander, 18), which are not tested and which the author had to fence off from the 019 kiesrecht item; the definitions of the indicator stay. Evidence substring unchanged."
+    },
+    {
+      "item": "A2:knm:batch033-bsn:1",
+      "field": "text",
+      "before": "Het burgerservicenummer (BSN) is uw eigen nummer voor contact met de overheid. Ook uw huisarts, uw zorgverzekeraar en uw werkgever gebruiken uw BSN. Andere organisaties mogen het BSN alleen gebruiken als de wet dat toestaat. Een sportclub of een winkel mag dus niet om uw BSN vragen.",
+      "after": "Uw burgerservicenummer (BSN) gebruikt u bij de overheid, uw huisarts en werkgever. Andere organisaties mogen het BSN alleen gebruiken als de wet dat toestaat. Een sportclub mag dat dus niet.",
+      "why": "Trimmed from 47 to 30 words; the users the law names, the rule and the sports-club case stay (the consent point stays in the explanation). Evidence substring unchanged."
+    },
+    {
+      "item": "A2:knm:batch033-schooladvies:1",
+      "field": "questions[0].prompt",
+      "before": "Amina zit in groep 8. Zij krijgt een schooladvies: vmbo, havo of vwo. Wie geeft dat advies?",
+      "after": "De zoon van Karim zit in groep 8. Hij krijgt een schooladvies: vmbo, havo of vwo. Wie geeft dat advies?",
+      "why": "Amina is 'girl of about 10' in the cast and 'Amina is 10 jaar' in this batch's tandarts item; groep 8 pupils are 11-12. The author's alternative persona is used with an existing cast link instead of a new one: Karim already has a school-age son (007 medezeggenschapsraad). 19 words."
+    },
+    {
+      "item": "A2:knm:batch033-schooladvies:1",
+      "field": "questions[0].options.C",
+      "before": "De ouders van Amina.",
+      "after": "De ouders zelf.",
+      "why": "Follows the persona swap; 15 characters, equal to the key, so the key is no longer the shortest option alone."
+    },
+    {
+      "item": "A2:knm:batch033-schooladvies:1",
+      "field": "text",
+      "before": "In groep 8 van de basisschool krijgt elk kind een schooladvies. De basisschool zegt daarin welk schooltype het beste past: vmbo, havo of vwo. Het kind maakt ook een doorstroomtoets. Met het definitieve advies melden de ouders het kind aan bij een middelbare school.",
+      "after": "In groep 8 krijgt elk kind een schooladvies. De basisschool zegt daarin welk schooltype het beste past: vmbo, havo of vwo. Daarna kiezen de ouders een middelbare school.",
+      "why": "Trimmed from 44 to 28 words; the doorstroomtoets stays in the explanation. Evidence substring unchanged."
+    },
+    {
+      "item": "A2:knm:batch033-schooladvies:1",
+      "field": "questions[0].explanation",
+      "before": "Het schooladvies komt van de basisschool, in groep 8. De school kijkt naar de ontwikkeling van het kind en naar de uitslag van de doorstroomtoets. De middelbare school plaatst het kind op basis van dat advies en mag geen eigen toets afnemen. Ouders kiezen wel een school, maar het niveau volgt uit het advies.",
+      "after": "Het schooladvies komt van de basisschool, in groep 8. De school kijkt naar de ontwikkeling van het kind en naar de uitslag van de doorstroomtoets. De middelbare school plaatst het kind op basis van dat advies en mag geen eigen toets afnemen. Ouders kiezen wel een school, maar het niveau volgt uit het advies van de basisschool.",
+      "why": "Last sentence now names the basisschool once more so the parents distractor is answered in the persona-neutral wording."
+    },
+    {
+      "item": "A2:knm:batch033-schooladvies:1",
+      "field": "imageBrief",
+      "before": "Amina (girl of about 10, two braids, purple hoodie) sitting at a school desk while a teacher standing beside her points at a sheet of paper on the desk, a classroom window behind them; no readable text.",
+      "after": "Karim (man in his thirties, short black hair and beard, grey jacket) sitting at a table in a classroom beside his son, a boy of about twelve with short black hair, while a teacher on the other side of the table points at a sheet of paper; a classroom window behind them; no readable text.",
+      "why": "Follows the persona swap; Karim's cast traits verbatim; the scene (a talk about a sheet of paper in a classroom) shows the situation, not which school gives the advice."
+    },
+    {
+      "item": "A2:knm:batch033-schooladvies:1",
+      "field": "imageAlt",
+      "before": "Amina zit in de klas aan een tafel terwijl een leraar naar een papier wijst.",
+      "after": "Karim zit met zijn zoon aan een tafel in een klaslokaal tegenover een leraar die naar een papier wijst.",
+      "why": "Follows the new picture; does not name the school type or who advises."
+    },
+    {
+      "item": "A2:knm:batch033-schoolvakantie:1",
+      "field": "questions[0].options.C",
+      "before": "Alleen als zij door haar werk niet in een schoolvakantie weg kan.",
+      "after": "Alleen als zij door haar werk in geen enkele schoolvakantie weg kan.",
+      "why": "'niet in een schoolvakantie weg kan' could be read as 'cannot get away in one particular holiday'; the page's condition is 'tijdens geen enkele schoolvakantie', now stated as such (rubric 4). 68 characters against 71 for B, so the key is still not the longest."
+    },
+    {
+      "item": "A2:knm:batch033-schoolvakantie:1",
+      "field": "text",
+      "before": "Kinderen van 5 tot 18 jaar moeten onderwijs volgen. Op vakantie buiten de schoolvakanties mag niet. Ouders kunnen daarvoor een boete krijgen. Er is één uitzondering: als ouders door hun werk in geen enkele schoolvakantie weg kunnen. Dan kan de directeur van de school maximaal tien dagen vrij geven.",
+      "after": "Vakantie buiten de schoolvakanties mag niet; ouders riskeren een boete. Uitzondering: als ouders door hun werk in geen enkele schoolvakantie weg kunnen. De directeur kan maximaal tien dagen vrij geven.",
+      "why": "Trimmed from 49 to 30 words by dropping the 5-to-18 sentence (the leerplicht card's and 019 kwalificatieplicht's fact); prohibition, fine, exception and the ten-day limit stay. Evidence substring unchanged."
+    },
+    {
+      "item": "A2:knm:batch033-basisbeurs:1",
+      "field": "text",
+      "before": "Studenten aan mbo 3 en 4, hbo en universiteit krijgen de basisbeurs als prestatiebeurs. Haalt de student binnen tien jaar een diploma? Dan wordt de beurs een gift. Zonder diploma moet de student de beurs met rente terugbetalen. Geld dat u extra leent bij DUO, betaalt u altijd terug.",
+      "after": "Aan hbo en universiteit is de basisbeurs een prestatiebeurs. Haalt de student binnen tien jaar een diploma? Dan wordt de beurs een gift. Anders moet de student terugbetalen, met rente.",
+      "why": "Trimmed from 49 to 30 words; the mbo 3/4 clause and the DUO-loan sentence move to the explanation. Evidence substring unchanged."
+    },
+    {
+      "item": "A2:knm:batch033-basisbeurs:1",
+      "field": "questions[0].explanation",
+      "before": "Voor hbo en universiteit is de basisbeurs een prestatiebeurs: haalt Roos binnen tien jaar haar diploma, dan wordt de beurs een gift en betaalt zij niets terug. Haalt zij geen diploma, dan moet zij het hele bedrag met rente terugbetalen. Alleen voor mbo 1 en 2 is de basisbeurs altijd een gift. Een lening bij DUO moet u altijd terugbetalen.",
+      "after": "Voor mbo 3 en 4, hbo en universiteit is de basisbeurs een prestatiebeurs: haalt Roos binnen tien jaar haar diploma, dan wordt de beurs een gift en betaalt zij niets terug. Haalt zij geen diploma, dan moet zij het hele bedrag met rente terugbetalen. Alleen voor mbo 1 en 2 is de basisbeurs altijd een gift. Een lening bij DUO moet u altijd terugbetalen.",
+      "why": "Names mbo 3 and 4 with hbo and universiteit now that the card states only the persona's level (DUO: 'Voor mbo 3 en 4, hbo en universitaire opleidingen is de basisbeurs een prestatiebeurs')."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 12,
+    "distribution": {
+      "A2_knm": 12
+    },
+    "themes": {
+      "1": 2,
+      "4": 3,
+      "6": 2,
+      "7": 2,
+      "8": 3
+    },
+    "eindtermen": [
+      "1.1.8",
+      "1.2.1",
+      "4.1.1",
+      "4.1.4",
+      "4.4.1",
+      "6.2.2",
+      "6.5.2",
+      "7.1.4",
+      "7.2.5",
+      "8.1.1",
+      "8.1.3",
+      "8.3.3"
+    ],
+    "eindtermen_verified_against": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM, fetched with curl on 2026-09-11); all twelve numbers exist, sit under the stated theme, and the eindterm and indicator texts quoted in the notes match the page verbatim; each item complements a different indicator (or a different fact of the same eindterm) than the existing item named in the notes",
+    "batch_check_original": "npm run batch:check content/batches/033-original.json: Checked 12 items, 12 questions. Keys: {\"A\":4,\"C\":4,\"B\":4}. Options: {\"3\":12}. No failures, no warnings.",
+    "batch_check_proposed": "npm run batch:check content/batches/033-proposed.json: Checked 12 items, 12 questions. Keys: {\"A\":4,\"C\":4,\"B\":4}. Options: {\"3\":12}. No failures, no warnings. (catalogue of 344 items, 80 KNM, on 2026-09-11)",
+    "key_counts": {
+      "A": 4,
+      "B": 4,
+      "C": 4
+    },
+    "key_sequence": "A C B A B C A C B A C B",
+    "option_counts": {
+      "3": 12
+    },
+    "prompt_word_range": "10-20 (limit 20; schooladvies sits on it)",
+    "text_word_range": "25-30 in 3-4 sentences (coordinator cap 30; original 33-49)",
+    "longest_text_sentence_words": 17,
+    "average_text_sentence_words_range": "6.2-10.0",
+    "option_word_range": "2-12, parallel within each item",
+    "key_longest_option_by_characters": 0,
+    "prompt_word_recurring_only_in_key": 0,
+    "yes_no_items": "inlichtingenplicht Ja*/Nee/Alleen, beroepsgeheim Ja/Nee*/Nee, tandarts-kind Nee/Ja*/Ja, rechtsbijstand Ja/Nee/Nee*, bsn Ja/Nee*/Alleen, schoolvakantie Ja/Nee/Alleen*, basisbeurs Ja/Nee*/Nee: no key is the odd polarity out in a two-polarity item; the neutral option is the key once and a distractor twice",
+    "behaviour_questions": 0,
+    "closed_evidence_is_verbatim": true,
+    "task_type": "feit on all 12; skill rule-application on 9, detail on 3 (kraamzorg, passief-kiesrecht, schooladvies)",
+    "question_forms": "7 yes/no with qualification (3 in the ja / nee / alleen shape), 2 persona who, 1 persona where, 1 persona what happens, 1 definition; no direct-fact question",
+    "required_knm_fields_present": "theme, eindterm, sourceUrl, sourceNote, sourceReviewedAt (2026-09-11), imageBrief, imageAlt on all 12; status draft; targetLevelValidated false; exam knm; domain werk/gezondheid/instanties/opleiding",
+    "all_sources_opened": true,
+    "sources_fetched_with_curl_on": "2026-09-11",
+    "sources_http_status": "all 26 pages HTTP 200 at the recorded address, no redirects (12 cited pages, 12 secondary pages, BW boek 7 artikel 457 and the Regeling inburgering 2021); the three Autoriteit Persoonsgegevens pages need a browser-like user agent",
+    "sources_redirected": {},
+    "complement_items_differ": "every item states a fact absent from its complement (006 bijstandsplicht, 006 cao, 006 huisartskeuze, 006 consultatiebureau, 006 eigenrisico, 007 juridischloket, 007 reisdocument, 019 kiesrecht, 019 privacy, 007 vmbo, 019 kwalificatieplicht, 007 studiefinanciering) and from the eight batch-003 study cards; batch 032 (theme 2) shares no eindterm, slug or fact",
+    "cast_traits_verbatim": true,
+    "invented_names": "none (only real institutions the items are about and generic settings)",
+    "slug_collisions": "none against the catalogue and batch 032",
+    "phrase_scan": "six-word phrases against the catalogue and all other batches: one stock formula (\"vraagt u aan bij de gemeente\", also in 006 wmo)"
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch033-inlichtingenplicht:1",
+      "theme": 1,
+      "eindterm": "1.1.8",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "19-word persona prompt, options 7-9 words in the ja / nee / alleen shape (key padded to 44 characters against 46 and 48), fact card 29 words in four sentences (longest 9). The rule is knowable, not decodable: a reporting threshold (B) and \"only above the benefit\" (C) are what people in many systems assume.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM, fetched with curl on 2026-09-11): \"1.1.8 Is op de hoogte van de belangrijkste rechten en plichten van uitkeringsgerechtigden.\" with the indicator \"weet dat wijzigingen in de inkomenssituatie van invloed kunnen zijn op uitkeringen\". On topic; complements 006 bijstandsplicht (duty to accept work).",
+      "source_check": "https://www.rijksoverheid.nl/vraag-en-antwoord/bijstand/wat-zijn-mijn-rechten-en-plichten-in-de-bijstand (HTTP 200, no redirect), section \"Inlichtingenplicht in de bijstand\": \"Vanaf het moment dat u bijstand aanvraagt, heeft u een inlichtingenplicht. ... Verandert er iets in uw situatie? Dan moet u dit direct laten weten.\" First example: \"u gaat geheel of gedeeltelijk werken en ontvangt inkomsten\"; consequence: \"Dan moet u dit terugbetalen en daarnaast kunt u een boete krijgen.\"",
+      "evidence": "Key A \"Ja, elke verandering moet hij direct melden.\" entailed by \"Dan moet u dat direct aan de gemeente doorgeven\" after \"Gaat u werken, samenwonen of verhuizen?\". B (two days of work need not be reported) fails by \"geheel of gedeeltelijk werken\"; C (only when he earns more than the benefit) fails because every change must be reported and the gemeente does the arithmetic. \"Moet hij dat doorgeven?\" asks for a rule, as 006 bijstandsplicht does. Picture: Hasan stacking vegetables in a shop, shows the work, not the answer.",
+      "key": "A",
+      "evidence_quote": "Dan moet u dat direct aan de gemeente doorgeven",
+      "edited_fields": [
+        "text",
+        "questions[0].options.A"
+      ]
+    },
+    {
+      "id": "A2:knm:batch033-tijdelijk-contract:1",
+      "theme": 1,
+      "eindterm": "1.2.1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "17-word persona prompt, three \"Het ...\" sentences of 5-7 words (key 36 characters, the middle one), fact card 25 words in four sentences (longest 7). The end-by-date rule must be known; the opzegging belief (A) and the one-contract-then-permanent belief (B) are real.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM, fetched with curl on 2026-09-11): \"1.2.1 Is ervan op de hoogte dat een arbeidsovereenkomst de rechten en plichten beschrijft van werknemer en werkgever.\" with the indicator \"kent het verschil tussen een vast contract, een tijdelijk contract en een contract via een uitzendbureau\". On topic; complements 006 cao and 019 uitzendbureau.",
+      "source_check": "https://www.rijksoverheid.nl/vraag-en-antwoord/arbeidsovereenkomst-en-cao/wanneer-wordt-mijn-arbeidsovereenkomst-beeindigd (HTTP 200): \"Als uw tijdelijke contract eindigt op de afgesproken datum, eindigt uw contract van rechtswege. ... De werkgever moet wel rekening houden met een aanzegtermijn.\" Secondary (HTTP 200): wat-is-een-aanzegtermijn \"Sluiten werkgever en werknemer een tijdelijk contract van 6 maanden of langer af? Dan geldt de aanzegtermijn. ... Hij moet dit schriftelijk doen. ... uiterlijk 1 maand voor het einde van het contract\"; wanneer-verandert-mijn-tijdelijke-arbeidscontract-in-een-vast-contract \"meer dan 3 tijdelijke contracten ... of langer dan 3 jaar\" and the Wet meer zekerheid flexwerkers note (Eerste Kamer 7 juli 2026, per 1 januari 2028).",
+      "evidence": "Key C \"Het stopt vanzelf, zonder opzegging.\" entailed by \"Op die datum stopt het contract vanzelf. Niemand hoeft het op te zeggen.\" A fails by the same sentences; B fails by the page (automatic conversion only after more than three contracts or three years). Tacit continuation (author doubt 8) is a different case and does not make A true. Picture: Karim at a desk with a sheet and a calendar, neutral.",
+      "key": "C",
+      "evidence_quote": "Op die datum stopt het contract vanzelf",
+      "edited_fields": [
+        "text"
+      ]
+    },
+    {
+      "id": "A2:knm:batch033-beroepsgeheim:1",
+      "theme": 4,
+      "eindterm": "4.1.1",
+      "verdict": "pass",
+      "level": "comparable (easy end)",
+      "level_reason": "15-word persona prompt, options 6-8 words (key 38 characters against 39 and 39), fact card 30 words in three sentences (longest 14). Medical confidentiality is widely known, so a rights-friendly guess reaches B, but A (the employer asks) and C (family is inside the circle) are real beliefs and nothing in the wording marks the key.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM, fetched with curl on 2026-09-11): \"4.1.1 Is op de hoogte van de rol van de huisarts en de praktijkondersteuner als eerste aanspreekpunt bij gezondheidsvraagstukken.\" with the indicator \"weet dat alles wat met een huisarts of praktijkondersteuner besproken wordt, valt onder het medisch beroepsgeheim en dat informatie alleen na toestemming van de cliënt met anderen gedeeld mag worden\". Literal; complements 006 huisartskeuze.",
+      "source_check": "https://wetten.overheid.nl/BWBR0005290/2026-07-01#Boek7_Titeldeel7_Afdeling5_Artikel457 (HTTP 200, geldend van 01-07-2026), artikel 457 lid 1: \"draagt de hulpverlener zorg, dat aan anderen dan de patiënt geen inlichtingen over de patiënt dan wel inzage in of afschrift van de gegevens uit het dossier worden verstrekt dan met toestemming van de patiënt\"; lid 2 excludes only those involved in the treatment and a replacement. Secondary (HTTP 200): rechten-en-plichten-bij-medische-behandeling \"recht op privacy en geheimhouding van uw medische gegevens\"; toestemming-geven-aan-zorgverleners-voor-delen-medisch-dossier \"Zorgverleners mogen een medisch dossier alleen delen als u toestemming geeft.\" with the exceptions (waarnemend huisarts, GGD \"De arts moet dat dan direct melden bij de GGD\", Veilig Thuis); Autoriteit Persoonsgegevens zieke-werknemers (HTTP 200 with a browser-like user agent) \"Mag mijn werkgever vragen wat ik heb als ik me ziek meld? Nee, dat mag niet. ... Alleen de arbodienst of bedrijfsarts mag uw medische gegevens vragen en opslaan.\"",
+      "evidence": "Key B \"Nee, alleen als zij toestemming geeft.\" entailed by \"De huisarts mag die informatie alleen met anderen delen als u daarvoor toestemming geeft\". A fails by the same sentence and by the AP page (the employer may not even ask); C fails by \"Ook niet met uw werkgever of familie\" and lid 2. No exception reaches the employer, so the unhedged key is exact; the GGD exception is in the explanation. Picture: Fatima opposite a doctor, neutral.",
+      "key": "B",
+      "evidence_quote": "De huisarts mag die informatie alleen met anderen delen als u daarvoor toestemming geeft",
+      "edited_fields": [
+        "text",
+        "questions[0].options.B"
+      ]
+    },
+    {
+      "id": "A2:knm:batch033-kraamzorg:1",
+      "theme": 4,
+      "eindterm": "4.1.4",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "18-word persona prompt, noun-phrase options of 2-5 words (key 21 characters, the shortest, as in 006 ww-uitkering and 007 studiefinanciering; the key is the unfamiliar word the item tests), fact card 30 words in three sentences (longest 14). \"kraam\" occurs nowhere in the prompt.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM, fetched with curl on 2026-09-11): \"4.1.4 Is ervan op de hoogte hoe kraam- en geboortezorg in Nederland geregeld is.\" with the indicator \"Weet welke diensten de kraam-, geboortezorg en een consultatiebureau bieden.\" Literal; complements 006 consultatiebureau.",
+      "source_check": "https://www.zorginstituutnederland.nl/verzekerde-zorg/k/kraamzorg-zvw (HTTP 200): \"Na de bevalling verzorgt en ondersteunt de kraamverzorgende u en uw baby. De kraamverzorgende controleert uw gezondheid en dat van uw baby.\"; \"Kraamzorg wordt vergoed uit het basispakket van de zorgverzekering.\"; \"in principe krijgt u tot en met dag 8 na de bevalling kraamzorg. In sommige gevallen is dat tot en met 10 dagen\"; \"Voor kraamzorg thuis betaalt u in 2026 een eigen bijdrage van € 5,70 per uur.\" Secondary (HTTP 200): basispakket page row \"Kraamzorg | Nee | Ja, bijdrage per uur\"; checklist-kind-krijgen \"kraamzorg regelen\" and \"U krijgt ook een uitnodiging van het consultatiebureau.\"",
+      "evidence": "Key A \"Een kraamverzorgende.\" entailed by \"Na de bevalling krijgt de moeder thuis kraamzorg ... De kraamverzorgende verzorgt de moeder en de baby en geeft tips\". B (a hospital nurse at home) has no basis in Dutch practice; C (consultatiebureau) comes later by invitation, and the first-week screenings (hielprik, gehoortest) are not the daily care the prompt asks about. Picture: Sabrina in bed with the baby, nobody helping, neutral.",
+      "key": "A",
+      "evidence_quote": "De kraamverzorgende verzorgt de moeder en de baby",
+      "edited_fields": [
+        "text"
+      ]
+    },
+    {
+      "id": "A2:knm:batch033-tandarts-kind:1",
+      "theme": 4,
+      "eindterm": "4.4.1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "16-word persona prompt, options 7-10 words (key 43 characters against 44 and 46), fact card 30 words in three sentences (longest 13). Polarity Nee / Ja* / Ja. The child/adult contrast is the indicator's own; A is the adult rule generalised, C the eigen-risico rule misapplied.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM, fetched with curl on 2026-09-11): \"4.4.1 Is ervan op de hoogte dat de zorgverzekering verplicht is, waarbij vrijwillig aanvullend bijverzekerd kan worden.\" with the indicator \"weet dat tandartszorg en fysiotherapie voor kinderen tot 18 jaar deel uitmaken van het basispakket en dat volwassenen zich hiervoor aanvullend kunnen verzekeren\". Literal; complements 006 eigenrisico and 019 tandartskeuze.",
+      "source_check": "https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/wat-zit-er-in-het-basispakket-van-de-zorgverzekering (HTTP 200), table row: \"Tandarts | Kinderen tot 18 jaar: controle en behandeling; en fluoridebehandeling vanaf het doorbreken van 'blijvende' tanden en kiezen | Nee | Nee |\" (eigen risico, wettelijke eigen bijdrage) and \"Vanaf 18 jaar: chirurgische tandheelkundige hulp en röntgenonderzoek | Ja | Nee\". Secondary (HTTP 200): eigen-risico-zorgverzekering \"Voor kinderen tot 18 jaar betaalt u geen eigen risico. Dit geldt voor alle zorg uit het basispakket\" and \"Ook betaalt u voor de mondzorg voor kinderen geen eigen risico.\" The adult aanvullend clause rests on the indicator text.",
+      "evidence": "Key B \"Ja, tot 18 jaar zit dat in het basispakket.\" entailed by \"Tandartszorg voor kinderen tot 18 jaar zit in het basispakket: controle en behandeling\". A fails by the same sentence; the new C fails by \"Kinderen betalen ook geen eigen risico\" and the eigen-risico page. Amina is 10, inside the rule. Picture: Amina in the dentist's chair, neutral.",
+      "key": "B",
+      "evidence_quote": "Tandartszorg voor kinderen tot 18 jaar zit in het basispakket",
+      "edited_fields": [
+        "text",
+        "questions[0].options.C",
+        "questions[0].explanation",
+        "sourceNote"
+      ]
+    },
+    {
+      "id": "A2:knm:batch033-rechtsbijstand:1",
+      "theme": 6,
+      "eindterm": "6.5.2",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "17-word persona prompt, options 8-10 words (key 51 characters, the shortest by four; all three carry \"helemaal\" or \"een deel\" in one frame), fact card 30 words in three sentences (longest 17). Polarity Ja / Nee / Nee*. The eigen bijdrage is the indicator's own fact; B is the tempting over-generalisation of the free Juridisch Loket.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM, fetched with curl on 2026-09-11): \"6.5.2 Is ervan op de hoogte dat hij voor juridische hulp bij advocaten of een Juridisch Loket terecht kan.\" with the indicator \"weet dat van iemand met een laag inkomen een eigen bijdrage gevraagd wordt die past bij de inkomenssituatie\". Literal; complements 007 juridischloket.",
+      "source_check": "https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/hulp-bij-juridisch-probleem/financiele-bijdrage-van-de-overheid (HTTP 200): \"De overheid betaalt soms mee aan de kosten van een advocaat of mediator. Dit heet gesubsidieerde rechtsbijstand. U betaalt bijna altijd een eigen bijdrage.\"; \"U mag bijvoorbeeld niet te veel inkomen of vermogen hebben.\"; \"De hoogte van de eigen bijdrage hangt af van uw inkomen en vermogen.\" Secondary (HTTP 200): hoe-verloopt-het-aanvragen-van-gesubsidieerde-rechtsbijstand \"Dan vraagt uw advocaat of mediator dit voor u aan bij de Raad voor de Rechtsbijstand.\" and \"heet een toevoeging\".",
+      "evidence": "Key C \"Nee, de overheid betaalt mee; hij betaalt een deel.\" entailed by \"de overheid betaalt dan mee aan de advocaat. U betaalt bijna altijd een eigen bijdrage\". A fails by the first, B by the second (\"bijna altijd een eigen bijdrage\"). Picture: Modibo opposite a lawyer with a folder, neutral.",
+      "key": "C",
+      "evidence_quote": "de overheid betaalt dan mee aan de advocaat",
+      "edited_fields": [
+        "text"
+      ]
+    },
+    {
+      "id": "A2:knm:batch033-paspoort-aanvragen:1",
+      "theme": 6,
+      "eindterm": "6.2.2",
+      "verdict": "pass",
+      "level": "comparable (easy end)",
+      "level_reason": "16-word persona prompt, three-word options (key 16 characters, the middle one), fact card 30 words in three sentences (longest 14). The gemeente is a familiar key in the bank; the police (A) and the IND (C) are the bodies newcomers confuse it with, so the item still discriminates. Place it first in the theme-6 drill.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM, fetched with curl on 2026-09-11): \"6.2.2 Is op de hoogte van de regels en procedures voor het verkrijgen van officiële documenten als verblijfsvergunning, paspoort en rijbewijs.\" with the indicator \"weet bij welke instanties hij moet zijn voor deze documenten\". Literal; complements 007 reisdocument.",
+      "source_check": "https://www.rijksoverheid.nl/vraag-en-antwoord/paspoort-en-identiteitskaart/waar-en-hoe-kan-ik-een-paspoort-of-identiteitskaart-aanvragen (HTTP 200): \"U vraagt een paspoort of ID-kaart aan bij de gemeente waar u staat ingeschreven.\"; \"U moet een paspoort of identiteitskaart altijd persoonlijk aanvragen. Ook kinderen moeten aanwezig zijn bij de aanvraag.\"; \"een kleurenpasfoto die voldoet aan de pasfoto-eisen; alle reisdocumenten die in uw bezit zijn\"; \"Om een paspoort of ID-kaart te kunnen aanvragen, moet u de Nederlandse nationaliteit hebben.\"",
+      "evidence": "Key A \"Bij de gemeente.\" entailed by \"vraagt u aan bij de gemeente waar u staat ingeschreven\". B and C are not issuing bodies (page: the gemeente, abroad an embassy or consulate). Picture: meneer De Vries at his kitchen table with a small dark red booklet, no town hall, neutral.",
+      "key": "A",
+      "evidence_quote": "vraagt u aan bij de gemeente waar u staat ingeschreven",
+      "edited_fields": [
+        "text",
+        "questions[0].explanation"
+      ]
+    },
+    {
+      "id": "A2:knm:batch033-passief-kiesrecht:1",
+      "theme": 7,
+      "eindterm": "7.1.4",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "10-word definitional prompt with a persona lead (as 007 bijzondere-school), options 6-7 words in one frame (key 31 characters, the shortest by three), fact card 30 words in three sentences (longest 17). \"passief\" invites B, not the key; A is the actief/passief confusion the indicator names.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM, fetched with curl on 2026-09-11): \"7.1.4 Is op de hoogte van wat 'kiesrecht' inhoudt en wat het belang van stemmen is.\" with the indicator \"Kent het verschil tussen actief en passief kiesrecht\". Literal; complements 019 kiesrecht (third indicator) and the stemmen card.",
+      "source_check": "https://www.kiesraad.nl/verkiezingen/tweede-kamer/stemmen/kiesgerechtigdheid (HTTP 200): \"Het actief kiesrecht is het recht om te stemmen. Het passief kiesrecht is het recht om gekozen te worden.\" and \"De voorwaarden voor het passief kiesrecht zijn hetzelfde als voor het actief kiesrecht, behalve dat de toetsdatum voor de leeftijd (18 jaar) de dag van toelating tot de Tweede Kamer is\".",
+      "evidence": "Key C \"Het recht om gekozen te worden.\" entailed by \"Passief kiesrecht is het recht om gekozen te worden\". A is the actief kiesrecht sentence; B contradicts both definitions (kiesrecht is a right to act, not an exemption). Picture: Sem reading in a classroom, neutral.",
+      "key": "C",
+      "evidence_quote": "Passief kiesrecht is het recht om gekozen te worden",
+      "edited_fields": [
+        "text"
+      ]
+    },
+    {
+      "id": "A2:knm:batch033-bsn:1",
+      "theme": 7,
+      "eindterm": "7.2.5",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "18-word persona prompt, options 7-9 words in the ja / nee / alleen shape (key 44 characters, the middle one), fact card 30 words in three sentences (longest 12). The consent option is the tempting AVG idea; the rule must be known.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM, fetched with curl on 2026-09-11): \"7.2.5 Is ervan op de hoogte dat de privacy van de burger door de wet wordt beschermd.\" with the indicator \"Weet dat hij alleen die persoonsgegevens deelt met overheids- en andere instanties die zij nodig hebben voor hun taak\". On topic; complements 019 privacy (second indicator).",
+      "source_check": "https://www.rijksoverheid.nl/themas/overheid-en-democratie/privacy-en-persoonsgegevens/burgerservicenummer-bsn (HTTP 200): \"Het bsn is bedoeld voor het contact tussen burgers en de overheid. En voor overheden onderling. Organisaties buiten de overheid mogen het bsn alleen gebruiken als dat wettelijk is bepaald. Dit geldt bijvoorbeeld voor zorgverleners, zoals huisartsen, apotheken en zorgverzekeraars.\" Secondary, Autoriteit Persoonsgegevens (HTTP 200 with a browser-like user agent): voorwaarden-gebruik-bsn \"Organisaties mogen het BSN alleen gebruiken als in de wet staat dat ze dat mogen. Staat het niet in de wet, dan mag het niet. Ook niet met toestemming.\"; bsn-op-het-werk \"Werkgevers zijn verplicht om het burgerservicenummer (BSN) van hun werknemers te registreren. Dat staat in de Wet op de loonbelasting.\"",
+      "evidence": "Key B \"Nee, dat mag alleen als de wet het toestaat.\" entailed by \"Andere organisaties mogen het BSN alleen gebruiken als de wet dat toestaat. Een sportclub mag dat dus niet.\" A fails by the same sentence; C fails by the AP page (\"Ook niet met toestemming\"), stated in the explanation. Picture: Julio filling in a form at a sports-hall counter, nothing readable, neutral.",
+      "key": "B",
+      "evidence_quote": "Andere organisaties mogen het BSN alleen gebruiken als de wet dat toestaat",
+      "edited_fields": [
+        "text"
+      ]
+    },
+    {
+      "id": "A2:knm:batch033-schooladvies:1",
+      "theme": 8,
+      "eindterm": "8.1.1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "20-word persona prompt (the limit; 007 aansprakelijkheid sits on it too), noun-phrase options of 2-3 words (key 15 characters, equal to C), fact card 28 words in three sentences (longest 13). \"school\" occurs in the prompt, A and B alike; B (the receiving school tests) and C (parents choose the level) are what parents from other systems expect.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM, fetched with curl on 2026-09-11): \"8.1.1 Is op de hoogte van de opbouw van het Nederlands onderwijssysteem (van 0 tot 18+ jaar).\" with the indicator \"weet dat bij doorstroming naar vervolgonderwijs toelatingseisen kunnen gelden\". On topic; complements 007 vmbo.",
+      "source_check": "https://www.rijksoverheid.nl/vraag-en-antwoord/schooladvies-en-doorstroomtoets-basisschool/adviezen-in-groep-8 (HTTP 200): \"In groep 8 van de basisschool krijgt uw kind een schooladvies voor de middelbare school. In het advies staat welk schooltype het beste bij uw kind past.\"; \"de school brengt voorlopig advies uit, uw kind maakt de doorstroomtoets, uit de toets volgt het toetsadvies. Alleen met het definitieve advies kan uw kind zich melden bij de middelbare school.\" Secondary (HTTP 200): toelating-voortgezet-onderwijs-gebaseerd-op-definitief-schooladvies \"Een middelbare school plaatst een leerling op basis van het schooladvies van de basisschool.\" and \"De middelbare school mag leerlingen bij de toelating geen extra toetsen laten maken om hun niveau te bepalen.\"",
+      "evidence": "Key A \"De basisschool.\" entailed by \"De basisschool zegt daarin welk schooltype het beste past\". B fails by the toelating page (no own tests); C fails by \"Daarna kiezen de ouders een middelbare school\" (they choose the school, not the level). Persona: Karim's school-age son (007 medezeggenschapsraad), because Amina is 10. Picture: Karim and his son opposite a teacher with a sheet, shows a talk, not which school advises.",
+      "key": "A",
+      "evidence_quote": "De basisschool zegt daarin welk schooltype het beste past",
+      "edited_fields": [
+        "questions[0].prompt",
+        "questions[0].options.C",
+        "text",
+        "questions[0].explanation",
+        "imageBrief",
+        "imageAlt"
+      ]
+    },
+    {
+      "id": "A2:knm:batch033-schoolvakantie:1",
+      "theme": 8,
+      "eindterm": "8.1.3",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "17-word persona prompt, options 9-12 words in the ja / nee / alleen shape (key 68 characters against 71 for B), fact card 30 words in three sentences (longest 12). The learner must know the rule has one exception; B (never) and A (parents decide) are the two beliefs the indicator rules out.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM, fetched with curl on 2026-09-11): \"8.1.3 Is ervan op de hoogte dat er een wettelijke verplichting is om kinderen van 5 tot 18 jaar onderwijs te laten volgen.\" with the indicator \"weet dat de door de school vastgestelde vakantietijden bindend zijn\". Literal; complements 019 kwalificatieplicht and the leerplicht card (a different exception: gewichtige omstandigheden).",
+      "source_check": "https://www.rijksoverheid.nl/vraag-en-antwoord/leerplicht/leerplicht-schoolvakanties (HTTP 200): \"U mag uw kind niet meenemen op vakantie buiten de schoolvakanties wanneer deze leerplichtig is. U kunt een boete krijgen als u dit wel doet. Als u in de schoolvakanties niet weg kunt door uw werk kunt u toestemming vragen om buiten de schoolvakanties op vakantie te gaan.\"; \"Soms kunt u door uw werk tijdens geen enkele schoolvakantie in het schooljaar met uw gezin op vakantie.\"; \"U vraagt toestemming bij de directeur van de school. ... De directeur mag uw kind vrij geven voor maximaal 10 dagen. Dit mag 1 keer in een schooljaar.\"; \"dit niet in de eerste 2 weken na de zomervakantie is\". Secondary (HTTP 200): geoorloofd-schoolverzuim-en-spijbelen \"Jongeren tussen de 5 en 18 jaar moeten onderwijs volgen.\"",
+      "evidence": "Key C \"Alleen als zij door haar werk in geen enkele schoolvakantie weg kan.\" entailed by \"Uitzondering: als ouders door hun werk in geen enkele schoolvakantie weg kunnen\". A fails by \"Vakantie buiten de schoolvakanties mag niet\"; B fails by the exception sentence. Picture: Fatima and Amina beside a suitcase at home, no school, neutral.",
+      "key": "C",
+      "evidence_quote": "als ouders door hun werk in geen enkele schoolvakantie weg kunnen",
+      "edited_fields": [
+        "questions[0].options.C",
+        "text"
+      ]
+    },
+    {
+      "id": "A2:knm:batch033-basisbeurs:1",
+      "theme": 8,
+      "eindterm": "8.3.3",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "16-word persona prompt, options 8-10 words (key 54 characters, the middle one), fact card 30 words in four sentences (longest 9). Polarity Ja / Nee* / Nee. The prestatiebeurs mechanism must be known; A is the loan rule, C the mbo 1/2 rule, each misapplied to hbo.",
+      "eindterm_check": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, geldend van 18-04-2026 t/m heden, bijlage 2 Eindtermen KNM, fetched with curl on 2026-09-11): \"8.3.3 Is ervan op de hoogte dat hij voor een tegemoetkoming in studiekosten een aanvraag bij Dienst Uitvoering Onderwijs (DUO) kan indienen.\" (no indicators). On topic: the terms of the DUO grant; complements 007 studiefinanciering (where to apply).",
+      "source_check": "https://duo.nl/particulier/studiefinanciering/basisbeurs.jsp (HTTP 200, \"Laatste update was op 07 september 2026\"): \"De basisbeurs is een gift als u mbo 1 of 2 doet. Voor mbo 3 en 4, hbo en universitaire opleidingen is de basisbeurs een 'prestatiebeurs'. De prestatiebeurs wordt omgezet in een gift als u binnen 10 jaar uw diploma behaalt. Lukt dit niet, dan moet u het totale bedrag met rente terugbetalen.\" Secondary (HTTP 200): gift-of-terugbetalen.jsp \"Pas als u binnen 10 jaar uw diploma haalt, worden deze onderdelen van de studiefinanciering een gift.\" and \"Een rentedragende lening of collegegeldkrediet moet u altijd terugbetalen.\"",
+      "evidence": "Key B \"Nee, niet als zij binnen tien jaar haar diploma haalt.\" entailed by \"Haalt de student binnen tien jaar een diploma? Dan wordt de beurs een gift\". A fails by the same; C fails by \"Anders moet de student terugbetalen, met rente\" (and C is true only for mbo 1 and 2, which the hbo persona excludes). Picture: Roos in a library with a laptop and books, neutral.",
+      "key": "B",
+      "evidence_quote": "Haalt de student binnen tien jaar een diploma? Dan wordt de beurs een gift",
+      "edited_fields": [
+        "text",
+        "questions[0].explanation"
+      ]
+    }
+  ],
+  "decisions_on_author_doubts": {
+    "1_bsn_vs_019_privacy": "kept; different fact (which organisations may use the BSN; consent does not help), stated nowhere else in the bank; the overlap is the principle every 7.2.5 item shares",
+    "2_beroepsgeheim_exceptions": "card kept simple and unhedged: the eindterm states the rule that way and no legal exception reaches the employer (BW 7:457 lid 2; AP: even the bedrijfsarts may not pass medical details on); the GGD exception stays in the explanation; law text as sourceUrl accepted as in 018/019",
+    "3_kraamzorg_meestal": "kept (\"in principe ... dag 8\", sometimes 10, by law six weeks); prompt \"de eerste dagen\" kept, the consultatiebureau comes in the second week and first-week screenings are not the care asked about",
+    "4_tandarts_invented_cap": "replaced with the page-anchored eigen-risico distractor (table column eigen risico \"Nee\"; eigen-risico page \"geen eigen risico\" for children's mondzorg); explanation and source note follow",
+    "5_schooladvies_amina_age": "age is off (cast \"about 10\", tandarts item \"10 jaar\", groep 8 is 11-12): persona swapped to Karim's school-age son, an existing link from 007 medezeggenschapsraad; prompt, option C, brief, alt and explanation follow",
+    "6_paspoort_gemeente_again": "accepted, comparable (easy end); first in the theme-6 drill",
+    "7_passief_kiesrecht_form": "accepted; the Tweede Kamer conditions left the card, so nothing remains to reconcile with 019 kiesrecht",
+    "8_tijdelijk_contract_stilzwijgend": "accepted; tacit continuation is a different case and does not make A true",
+    "9_schoolvakantie_b_vs_c": "kept; key reworded to the page's \"geen enkele schoolvakantie\" for precision",
+    "10_text_length": "every card trimmed to 25-30 words as the coordinator asked; nothing tested left a card, and the trimmed material stays in the explanations; blueprint 4.5 does not state the cap itself (noted under limitations)",
+    "11_concurrent_work": "batch 032 on disk, not adopted, no overlap; checker run against the catalogue of 2026-09-11"
+  },
+  "level_summary": {
+    "comparable": [
+      "inlichtingenplicht",
+      "tijdelijk-contract",
+      "kraamzorg",
+      "tandarts-kind",
+      "rechtsbijstand",
+      "passief-kiesrecht",
+      "bsn",
+      "schooladvies",
+      "schoolvakantie",
+      "basisbeurs"
+    ],
+    "comparable_easy_end": [
+      "beroepsgeheim",
+      "paspoort-aanvragen"
+    ],
+    "easier": [],
+    "harder": [],
+    "flags": [],
+    "note": "No item is off-level in language (prompts and options at A2, cards under every section 10 heuristic) and none is off-format."
+  },
+  "diversity_review": "Twelve settings, eleven cast members (Karim, Fatima, Amina twice each), domains werk 2 / gezondheid 3 / instanties 4 / opleiding 3; forms 7 yes/no, 2 who, 1 where, 1 what happens, 1 definition. Against the bank every key is a new fact; the gemeente is keyed again (paspoort) with different distractor bodies. No overlap with batch 032.",
+  "set_assembly": {
+    "coverage_after_adoption": "the twelve eindtermen have two items each; still once-covered in themes 1, 4, 6, 7, 8: 39 eindtermen; uncovered: 1.1.1, 1.1.3, 1.1.6, 4.4.2, 6.1.2, 6.2.4, 7.2.1, 8.1.4, 8.2.3 and theme 5",
+    "theme_sizes": {
+      "1": 12,
+      "4": 14,
+      "6": 13,
+      "7": 13,
+      "8": 12
+    },
+    "keys_per_theme_pool": {
+      "1": "A4 B4 C4",
+      "4": "A6 B5 C3 (A 43%)",
+      "6": "A5 B4 C4",
+      "7": "A4 B4 C5",
+      "8": "A3 B5 C4 (B 42%)"
+    },
+    "placement": "theme 1: inlichtingenplicht (A) after bijstandsplicht, tijdelijk-contract (C) after cao; theme 4: kraamzorg (A) after consultatiebureau, beroepsgeheim (B) after huisartskeuze, tandarts-kind (B) after eigenrisico; an 8-10-item theme-4 drill should leave out one or two A-keyed items to stay under 40%; theme 6: paspoort-aanvragen (A) first, rechtsbijstand (C) after juridischloket; theme 7: passief-kiesrecht (C) after kiesrecht, bsn (B) after privacy; theme 8: schooladvies (A) before vmbo, schoolvakantie (C) after kwalificatieplicht, basisbeurs (B) after studiefinanciering"
+  },
+  "media_notes": {
+    "pictures": "twelve single illustrations at 816x816 in the house style; cast traits verbatim in all briefs; schooladvies brief new (Karim beside his son, a boy of about twelve with short black hair, opposite a teacher with a sheet). Contact-sheet checks: paspoort no town hall; kraamzorg nobody helping; schooladvies nothing marking the school type, no readable sheet; bsn nothing readable on the clipboard; schoolvakantie no school; inlichtingenplicht no readable price tags; Amina consistent between tandarts-kind and schoolvakantie, Fatima between beroepsgeheim and schoolvakantie, Karim between tijdelijk-contract and schooladvies",
+    "audio": "question audio (prompt plus options) for all twelve from the proposed text; the edited prompt (schooladvies) and options (inlichtingenplicht A, beroepsgeheim B, tandarts-kind C, schooladvies C, schoolvakantie C) exist only in the proposed file; BSN and DUO read as in the existing clips"
+  },
+  "retire_triggers": "inlichtingenplicht, tijdelijk-contract (re-check the explanation's ketenregeling before 1 January 2028), rechtsbijstand, basisbeurs, paspoort-aanvragen: yearly; tandarts-kind, kraamzorg: with each year's basispakket; schooladvies: when the single national doorstroomtoets (2030) is legislated; beroepsgeheim, passief-kiesrecht, bsn, schoolvakantie: statutory or constitutional",
+  "coordinator_notes": [
+    "Adopt with npm run batch:adopt 033; the recorded hash is of the proposed file.",
+    "Audio and pictures from the proposed text; the schooladvies picture now shows Karim with a non-cast boy whose traits (\"boy of about twelve with short black hair\") should be reused verbatim if he recurs.",
+    "The 30-word card cap applied here is not in blueprint 4.5; if it is to hold for the bank, add it to 4.5 and note that the 006, 007 and 019 cards exceed it.",
+    "Theme 4 pool is A-heavy (6 of 14) after adoption; choose drill membership accordingly."
+  ],
+  "limitations": [
+    "AI editorial review; no independent educator review, learner trial or psychometric calibration; A2 remains an authoring target and nothing here claims official equivalence.",
+    "Level is judged against the description of the official item in the research document, not against a stored exemplar.",
+    "Pictures and audio do not exist yet; briefs were judged as text.",
+    "The beroepsgeheim item rests on the law text plus Rijksoverheid and AP pages; no single Rijksoverheid sentence states the huisarts-to-employer case.",
+    "The 30-word cap comes from the coordinator's brief, not from blueprint 4.5."
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "review_id": "batch035-editorial-review",
+  "source": "content/batches/035-original.json",
+  "original_sha256": "7a7b5768e4b46826ae58d6b8b111736f74265d5aecfa074dd9ca32accf18e39f",
+  "proposed": "content/batches/035-proposed.json",
+  "source_sha256": "020f357f27289f859281a5d24d6d2aab13cd304563f55a49221700f60c779337",
+  "starters_source": null,
+  "starters_sha256": null,
+  "starters_verdict": "not-applicable (closed items only)",
+  "review_type": "Independent AI editorial review of three original B1 reading texts (Staatsexamen NT2 Programma I, Lezen I shape: opiniestuk, studieboek, huisregels read in full) against content/blueprint.md §1, §3, §4.6, §5, §8–§10, §12–§13, the Lezen I paragraph of docs/research/exam-blueprints-2026-09-10.md, content/reviews/rubric.md and the findings of content/reviews/024-review.md; fresh context, batch judged before the author's notes were read; small repairs made in the proposed file, no item rewritten.",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 3,
+    "distribution": {
+      "B1_reading": 3
+    },
+    "task_types": {
+      "artikel": 1,
+      "studieboek": 1,
+      "voorwaarden": 1
+    },
+    "text_types": {
+      "persuasief": 1,
+      "descriptief": 1,
+      "instructief": 1
+    },
+    "domains": {
+      "overig": 1,
+      "werk": 1,
+      "educatie": 1
+    },
+    "question_count": 20,
+    "questions_per_text": [
+      6,
+      7,
+      7
+    ],
+    "option_counts": {
+      "3": 20
+    },
+    "key_counts": {
+      "A": 7,
+      "B": 6,
+      "C": 7
+    },
+    "key_sequence": "ABCAAB ABCABCC BCACBCA",
+    "no_key_three_in_a_row": true,
+    "purpose_question_last_per_text": true,
+    "purpose_keys": [
+      "overtuigen",
+      "informeren",
+      "uitleggen"
+    ],
+    "purpose_key_matches_text_type": "persuasief → overtuigen, descriptief → informeren, instructief → uitleggen (the bank's form for instructief since 010)",
+    "purpose_option_form_informeren_overtuigen_waarschuwen": true,
+    "opinion_or_inference_item_per_text": "text 1: q3 inference, q4 opinion (relabelled), q5 summary; text 2: q6 inference; text 3: q5 inference",
+    "paragraph_span_detail_items": "text 1 q1, q2, q4 (2–3 sentences); text 2 q1, q2, q3 (3–4 sentences); text 3 q3, q6 (2–3 sentences)",
+    "rule_application_items": "text 2 q5 (two rules combined on a surplus case); text 3 q1, q2, q4 (persona cases)",
+    "evidence_verbatim_in_text": true,
+    "evidence_crossing_line_break": "none; text 2 q3 lies inside step 3 of the single-break step block, which the app renders with white-space: pre-line as the 024 fee list",
+    "key_never_longest_option": true,
+    "key_most_specific_or_odd_polarity_out": "none after edits (text 3 q5 repaired: key was the only option without 'niet')",
+    "prompt_word_recurring_only_in_key": "none (script check; 'auto' and 'euro' recur only in a distractor of text 1 q2 and text 2 q5)",
+    "cross_question_key_echo": "text 1 q5/q6 shared 'korte ritjes beter … lopen'; repaired by edit 5",
+    "absolute_terms_in_keys": false,
+    "hedged_claims_where_a_rule_is_stated": "text 1 health claims hedged ('minder vaak', 'zelden'); text 2 rules are the book's house rules ('volgens het boek'), no legal statement; text 3 rules are the school's own; no statement about the law in any text",
+    "words_per_text": [
+      690,
+      689,
+      657
+    ],
+    "prose_sentence_stats": {
+      "te-voet": {
+        "sentences": 46,
+        "average": 14.3,
+        "longest": 27
+      },
+      "kasopmaak": {
+        "sentences": 48,
+        "average": 13.9,
+        "longest": 28
+      },
+      "mediatheek": {
+        "sentences": 41,
+        "average": 15.3,
+        "longest": 29
+      }
+    },
+    "level_band_b1": "average 12-18, none over 30: all three inside",
+    "situation_lines": [
+      "U leest een opiniestuk in een huis-aan-huisblad.",
+      "U leest een bladzijde uit een lesboek voor verkoopmedewerkers.",
+      "U leest de huisregels en leenvoorwaarden van de mediatheek van een mbo-college."
+    ],
+    "arithmetic_in_text_2_example": "812,40 − 150 = 662,40; 667,40 − 662,40 = 5,00: exact",
+    "ids_and_slugs_new_to_catalogue_and_batches_032_038": true,
+    "status_draft_targetLevelValidated_false": true,
+    "web_checks_2026_09_11": {
+      "Hoogmeer College": "no school of that name; Hoogmeer is a street in Wijchen; engine offers College De Meer (Amsterdam) and Indian Hooghly colleges",
+      "Farah Kuipers (huisarts)": "no person of that name; only practices named Kuiper/Kuipers with other initials"
+    },
+    "avoid_list_section_9": "nothing graphic, political or religious; no brand, real address or real institution; health statements general with an explicit exception for illness or disability; parking described as a nuisance, not as a legal matter",
+    "batch_check_on_proposed": "Checked 3 items, 20 questions. Keys: {\"A\":7,\"B\":6,\"C\":7}. Options: {\"3\":20}. No failures, no warnings."
+  },
+  "edits": [
+    {
+      "n": 1,
+      "item": "B1:reading:batch035-te-voet:1",
+      "field": "text",
+      "severity": "recommended",
+      "from": "Kunt u door een ziekte of een handicap echt niet lopen,",
+      "to": "Kunt u door een ziekte of een beperking echt niet lopen,",
+      "why": "Current term in Dutch public texts and KNM material; outside every evidence quote; word count unchanged (690)."
+    },
+    {
+      "n": 2,
+      "item": "B1:reading:batch035-te-voet:1",
+      "field": "questions.q1.options.A",
+      "severity": "recommended",
+      "from": "Je slaapt beter en hebt minder vaak een hoge bloeddruk.",
+      "to": "Je slaapt beter en je hebt minder kans op een hoge bloeddruk.",
+      "why": "The key was lifted almost verbatim from the text ('slaapt beter, heeft minder vaak een te hoge bloeddruk'); B1 asks for paraphrase between text and key and both distractors already paraphrase. Not the longest option (61 against 62)."
+    },
+    {
+      "n": 3,
+      "item": "B1:reading:batch035-te-voet:1",
+      "field": "questions.q2.options.C; questions.q2.explanation",
+      "severity": "required",
+      "from": "De buurman van de praktijk kan zijn oprit dan niet meer gebruiken.",
+      "to": "Patiënten komen dan te laat op hun afspraak bij de praktijk.",
+      "why": "The text does not say what blocks the neighbour's driveway, and a car half on the pavement in front of a driveway does block it, so C was not clearly false for the question asked. The new distractor is anchored in the angry patient of the introduction and in 'nog nooit te laat geweest' and is clearly not the writer's reason. Explanation rebuilt; key letter, evidence and options A/B unchanged."
+    },
+    {
+      "n": 4,
+      "item": "B1:reading:batch035-te-voet:1",
+      "field": "questions.q4.skill",
+      "severity": "recommended",
+      "from": "detail",
+      "to": "opinion",
+      "why": "The prompt asks what the writer says about an objection and the key reads 'Zij vindt dat …'; coverage should count an opinion item here."
+    },
+    {
+      "n": 5,
+      "item": "B1:reading:batch035-te-voet:1",
+      "field": "questions.q6.options.B",
+      "severity": "recommended",
+      "from": "De lezer overtuigen dat hij korte ritjes beter kan lopen.",
+      "to": "De lezer overtuigen dat hij de auto vaker moet laten staan.",
+      "why": "The q5 key ('Korte ritjes kun je beter lopen: …') and the q6 key shared the phrase 'korte ritjes beter … lopen', so q6 could be matched by wording; the new key paraphrases the evidence ('laat de auto staan voor korte ritjes') within the piece's own limit ('Ik vraag niet of u de auto wegdoet'). Not the longest option (59 against 72)."
+    },
+    {
+      "n": 6,
+      "item": "B1:reading:batch035-kasopmaak:1",
+      "field": "text (roles paragraph)",
+      "severity": "recommended",
+      "from": "Zij noteert het bedrag op het kasformulier.",
+      "to": "Zij noteert het bedrag op het kasformulier, zodat het bij het opmaken wordt meegeteld.",
+      "why": "Steps 4–5 compared the drawer minus the float with the 'contant' line and never mentioned the cash skimmed during the day, so the page taught a procedure that would show a false shortage on any day with afromen; the clause closes the gap (689 words, sentence of 14 words). Outside every evidence quote."
+    },
+    {
+      "n": 7,
+      "item": "B1:reading:batch035-kasopmaak:1",
+      "field": "questions.q3.options.C",
+      "severity": "recommended",
+      "from": "Het blijft in de la en telt niet mee bij de verkopen.",
+      "to": "Het blijft in de la en hoort niet bij de verkopen van die dag.",
+      "why": "The key was a verbatim lift of step 3; the paraphrase makes it a reading item rather than a match. Key remains the shortest option by one character, as the original was."
+    },
+    {
+      "n": 8,
+      "item": "B1:reading:batch035-mediatheek:1",
+      "field": "text (section 4)",
+      "severity": "recommended",
+      "from": "dan beschouwen wij het als kwijt en betaal je",
+      "to": "dan beschouwt de mediatheek het als kwijt en betaal je",
+      "why": "The only 'wij' in a text that otherwise speaks of 'de mediatheek' in the third person; one voice throughout (author's register doubt). Outside every evidence quote; 657 words."
+    },
+    {
+      "n": 9,
+      "item": "B1:reading:batch035-mediatheek:1",
+      "field": "questions.q3.prompt; questions.q3.options.A; questions.q3.options.C",
+      "severity": "recommended",
+      "from": "Wat gebeurt er nadat een student een uitgeleend boek heeft gereserveerd? / Zij krijgt … / Zij haalt …",
+      "to": "Wat gebeurt er nadat Julio een uitgeleend boek heeft gereserveerd? / Hij krijgt een e-mail zodra het terug is en heeft dan vijf schooldagen om het op te halen. / Hij haalt het boek binnen vijf schooldagen op bij de student die het nu heeft.",
+      "why": "A generic 'een student' followed by 'zij' in two options while option B's other student is 'hij' invited a pronoun misreading; a named persona (Julio, §8 cast, unused in this batch) removes it. Explanation unchanged."
+    },
+    {
+      "n": 10,
+      "item": "B1:reading:batch035-mediatheek:1",
+      "field": "questions.q5.options.A; questions.q5.options.B; questions.q5.explanation",
+      "severity": "recommended",
+      "from": "A: Omdat een beschadigd boek niet mee naar huis mag, maar alleen in de mediatheek gelezen wordt. / B: Omdat een student anders kan betalen voor schade die een vorige lener heeft gemaakt.",
+      "to": "A: Omdat een beschadigd boek alleen in de mediatheek gelezen mag worden. / B: Omdat een student anders betaalt voor schade van een vorige lener.",
+      "why": "'kan betalen voor' is not Dutch for 'may end up paying for', and the key was the only option without 'niet' against two prohibitions (odd polarity). A is now a positive restriction, B states the rule's consequence as the text does ('betaalt de laatste lener'). Key not the longest (66 against 69 and 79); anchors unchanged; explanation rebuilt."
+    }
+  ],
+  "rejected": [],
+  "decisions_on_author_doubts": [
+    {
+      "doubt": "Purpose key overtuigen for the opinion piece (text 1 q6), easy because of the announcing sentence",
+      "decision": "Kept: required by the coordinator and matching the text type; the self-announcing evidence makes q6 easier than an official purpose item, as in 010/024, accepted under the house rule of verbatim evidence for purpose keys. Key reworded (edit 5) so it no longer shares its phrase with the q5 key."
+    },
+    {
+      "doubt": "q5 evidence is the 'dus'-sentence rather than the thesis",
+      "decision": "Kept; no evidence reused between q5 and q6."
+    },
+    {
+      "doubt": "q2 distractor C, the neighbour's blocked driveway",
+      "decision": "Replaced by the author's alternative (edit 3): the text does not say what blocks the driveway, so C was not clearly false."
+    },
+    {
+      "doubt": "Health claims of text 1",
+      "decision": "Within §9: general public-health message, 'minder vaak' hedged, no figure, no individual advice, explicit exception for illness or disability."
+    },
+    {
+      "doubt": "'bij het hoofdkantoor of bij de eigenaar'",
+      "decision": "Kept: the book covers chains and independent shops; 'vaak de eigenaar' is not 'always'; no question turns on it."
+    },
+    {
+      "doubt": "q6 hedge 'kan ontstaan' (text 2)",
+      "decision": "Kept: both distractors carry 'meestal', so the hedge does not mark the key."
+    },
+    {
+      "doubt": "Numbered steps in one block",
+      "decision": "Kept: q3's evidence lies inside step 3 without a line break and highlights as in 024."
+    },
+    {
+      "doubt": "Jargon 'aangeslagen'",
+      "decision": "No gloss: explained twice by its sentence, never in or needed for a key."
+    },
+    {
+      "doubt": "taskType voorwaarden read in full without a quantity item",
+      "decision": "Accepted: the shape of batch011-verlofregeling; the print-credit quantity item can be added later if a mock needs the text as text 6."
+    },
+    {
+      "doubt": "q5 label inference (text 3)",
+      "decision": "Kept: the reason is not stated; it follows from the last-borrower rule. Key made idiomatic (edit 10)."
+    },
+    {
+      "doubt": "'je' register and the single 'wij'",
+      "decision": "'je' accepted as how mbo schools write to students; 'wij' unified to the third person (edit 8)."
+    },
+    {
+      "doubt": "Library setting",
+      "decision": "Accepted: first library text in the reading bank; the catalogue's library items are writing tasks."
+    },
+    {
+      "doubt": "Overlap with batch 034's parking-permit page",
+      "decision": "None: parking is an argument in text 1, no rule, figure or organisation shared."
+    },
+    {
+      "doubt": "Text 1 at 690 words",
+      "decision": "Kept; the only text edit is a one-for-one word swap."
+    },
+    {
+      "doubt": "Twenty questions",
+      "decision": "A set decision: te-voet + 024 examenreglement (13 Q); kasopmaak + mediatheek (14 Q)."
+    },
+    {
+      "doubt": "No exemplars",
+      "decision": "As in 010/011/024: level judged against the Lezen I description and the calibrated earlier texts."
+    }
+  ],
+  "items": [
+    {
+      "id": "B1:reading:batch035-te-voet:1",
+      "verdict": "pass",
+      "edited": true,
+      "task_type": "artikel",
+      "text_type": "persuasief",
+      "domain": "overig",
+      "words": 690,
+      "questions": 6,
+      "keys": "ABCAAB",
+      "level_figures": {
+        "prose_sentences": 46,
+        "average_sentence": 14.3,
+        "longest_sentence": 27
+      },
+      "level": "comparable (q1 and q6 on the easy side)",
+      "level_reason": "Opinion piece in the official persuasief shape: thesis with an oproep, three arguments under subheadings, two objections rebutted one by one, a closing request and a byline; question forms are the official ones (detail over 2–3 sentences, function of an example, the writer's stance on an objection, best summary, purpose). q1's key follows from one sentence and q6's evidence announces the purpose, both slightly easier than the official items of those forms; the summary and example items are at level.",
+      "evidence": [
+        "q1 A: \"Wie elke dag een half uur stevig doorloopt, slaapt beter, heeft minder vaak een te hoge bloeddruk en voelt zich rustiger.\" B overgeneralises 'liever met een advies dan met een recept'; C contradicts 'geen extra tijd kost'.",
+        "q2 B: \"laten geen ruimte over voor mensen met een rollator of een kinderwagen. Zij moeten de straat op\". A reverses victim and danger (the reversing cars); C (new) lateness is nowhere tied to the pavement.",
+        "q3 C: \"Sinds hij te voet komt, staat hij binnen zes minuten bij mijn balie … Voor afstanden tot een kilometer wint de auto bijna nooit\". A age plays no role; B the writer wants fewer cars, not more spaces.",
+        "q4 A: \"het regent veel minder vaak dan wij denken … jassen met een capuchon en paraplu's … wordt zelden nat\". B contradicts 'in elk seizoen'; C she walks in every season and arrived wet three times.",
+        "q5 A: \"Lopen is dus niet alleen goed voor uzelf, maar ook voor de buurt.\" B a remark about her own practice; C the one-sentence exception at the end.",
+        "q6 B: \"Daarom doe ik in dit stuk een oproep aan alle lezers: laat de auto staan voor korte ritjes en ga lopen.\" A health is an argument, not neutral information; C the pavement is an argument, no warning to the reader."
+      ]
+    },
+    {
+      "id": "B1:reading:batch035-kasopmaak:1",
+      "verdict": "pass",
+      "edited": true,
+      "task_type": "studieboek",
+      "text_type": "descriptief",
+      "domain": "werk",
+      "words": 689,
+      "questions": 7,
+      "keys": "ABCABCC",
+      "level_figures": {
+        "prose_sentences": 48,
+        "average_sentence": 13.9,
+        "longest_sentence": 28
+      },
+      "level": "comparable",
+      "level_reason": "Textbook paragraph like 024's klachtenafhandeling: reasons, roles with a defined principle, five numbered steps, a diagnosis paragraph, a worked example with exact arithmetic; detail keys span 2–4 sentences, q5 combines two rules on a surplus case, q6 asks the function of the example, purpose informeren. Trade words are explained in place and never the sole obstacle.",
+      "evidence": [
+        "q1 A: \"Is er iets misgegaan … dan moet dat snel worden ontdekt … Ook is de kas de volgende ochtend meteen klaar voor gebruik.\" B nothing is ordered; C the count checks cash against sales, not the sales figure.",
+        "q2 B: \"De medewerker die de laatste dienst aan de kassa heeft gedraaid, telt het geld. De leidinggevende … controleert de telling en tekent het kasformulier.\" A reversed; C misreads the vierogenprincipe.",
+        "q3 C: \"Dat bedrag blijft in de la voor de volgende dag en telt niet mee bij de verkopen.\" A step 5 concerns the money left after the float; B nothing is added to the 'contant' line.",
+        "q4 A: \"Het verschil moet zichtbaar blijven, want alleen dan kan de oorzaak worden gevonden\". B the dagrapport is the register's record; C the ten-euro rule is not the reason for the prohibition.",
+        "q5 B: \"te veel is net zo goed een verschil als te weinig. Is het verschil groter dan tien euro, dan schrijft de leidinggevende er een toelichting bij en meldt zij het dezelfde dag bij het hoofdkantoor of bij de eigenaar.\" A the forbidden action; C contradicts the surplus rule.",
+        "q6 C: \"Er was dus geen geld weg; het was alleen niet goed geregistreerd.\" A contradicts 'Ook zo'n klein verschil schrijft u op'; B the manager enters the refund because the colleague forgot.",
+        "q7 C: \"In deze paragraaf leest u wie de kas opmaakt, welke stappen daarbij horen en wat u doet als de telling niet klopt.\" A the vierogenprincipe is described, not argued; B a change error is one cause among several."
+      ]
+    },
+    {
+      "id": "B1:reading:batch035-mediatheek:1",
+      "verdict": "pass",
+      "edited": true,
+      "task_type": "voorwaarden",
+      "text_type": "instructief",
+      "domain": "educatie",
+      "words": 657,
+      "questions": 7,
+      "keys": "BCACBCA",
+      "level_figures": {
+        "prose_sentences": 41,
+        "average_sentence": 15.3,
+        "longest_sentence": 29
+      },
+      "level": "comparable (rule applications one-step, as in 011's verlofregeling)",
+      "level_reason": "Rules text read in full in the shape of batch011-verlofregeling: three persona rule applications with a condition each, two paragraph-span detail items, one inference item and purpose uitleggen; no two-figure computation, which an official look-up text would carry, but the item is not labelled as one. 'je' register as mbo schools write to students.",
+      "evidence": [
+        "q1 B: \"dan kun je aan de balie een gastpas aanvragen … Met een gastpas mag je twee boeken tegelijk lenen; reserveren en printen zijn met een gastpas niet mogelijk.\" A the account is closed on leaving; C contradicts the reservation rule.",
+        "q2 C: \"Verlengen kan twee keer … zolang niemand anders het boek heeft gereserveerd. Een gereserveerd boek kun je niet verlengen; je levert het dan uiterlijk op de inleverdatum in.\" A renewals apply to unreserved books only; B the desk is a channel, not an exception.",
+        "q3 A: \"Je krijgt een e-mail zodra het boek terug is. Het ligt dan vijf schooldagen voor je klaar aan de balie.\" B the current borrower gets no message; C the book is collected at the desk.",
+        "q4 C: \"Is het boek een week na de inleverdatum nog niet terug, dan wordt je account geblokkeerd: je kunt dan niets lenen … totdat alles is ingeleverd.\" A 'De mediatheek rekent geen boetes'; B the four-week rule does not apply at ten days.",
+        "q5 B: \"Controleer een boek daarom bij het lenen op schade en meld die meteen aan de balie. Schade die bij het inleveren wordt ontdekt en niet eerder is gemeld, betaalt de laatste lener.\" A in-house reading applies to magazines and the examenkast; C the lost-book criterion, not the reason for the check.",
+        "q6 C: \"Op de begane grond staan tafels voor groepswerk; overleggen mag hier op normale gesprekstoon. De eerste verdieping is de stilteruimte: je praat er niet\". A food is banned everywhere; B printers and group rooms are both downstairs.",
+        "q7 A: \"In deze regels lees je hoe lenen, reserveren, studeren en printen in de mediatheek werken en wat er gebeurt als een boek te laat of beschadigd terugkomt.\" B and C each name one section of seven."
+      ]
+    }
+  ],
+  "diversity_review": "Three settings, domains, text types and task types with distinct tested operations; personas unique within the batch after edit 9 (Karim, Amina, Julio and Sem recur from 010/024 by design). First walking/transport-choice text and first GP-authored opinion piece (health and transport on the §9 needed list); second studieboek text on a different subject (a procedure with figures, no law); first library text. With 010, 011, 024 and 034 the bank holds beschouwend 3 / persuasief 3 / instructief 5 / descriptief 4 and werk 5 / educatie 5 / overig 5.",
+  "set_assembly": {
+    "drills": [
+      "te-voet (6 Q) + batch024-examenreglement (7 Q): the 13-question pairing the 024 review left open",
+      "kasopmaak + mediatheek (14 Q)"
+    ],
+    "mock_form_2": "te-voet (overig, persuasief) and kasopmaak (werk, descriptief) or mediatheek (educatie, instructief) next to 024's klachtenafhandeling, gratis-zwemles and examenreglement (text 6); a beschouwend text is still needed (034's zelfroosteren, werk, once adopted), and the coordinator should watch the domain spread (two werk-descriptief texts if kasopmaak and klachtenafhandeling sit in one form)."
+  },
+  "media_notes": [
+    "None: B1 reading items carry no audio or pictures."
+  ],
+  "coordinator_notes": [
+    "Adopt with npm run batch:adopt 035; source_sha256 is the hash of content/batches/035-proposed.json.",
+    "content/batches/035-notes.md is stale in five places after the edits (text 1 q2 option C and q6 key, q4 skill, text 3 q3 persona and q5 options, the afromen and 'wij' sentences); the notes are the author's file and were not edited.",
+    "Text 1 is at 690 words: any later addition of more than ten words must be paid for by a cut."
+  ],
+  "limitations": [
+    "AI editorial review; no independent educator review, learner trial or psychometric calibration; no claim of equivalence with the Staatsexamen NT2 Programma I. Level labels remain unvalidated authoring targets (targetLevelValidated: false).",
+    "The level column compares each text with the Lezen I description and the calibrated 010/011/024 texts; content/exemplars/ does not exist.",
+    "Originality rests on the author's declaration and this reviewer's reading of the official formats; the retail procedure and the library rules are plausible practice, not a description of any real shop or school; the health statements are general, not medical advice."
+  ]
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSearchParams } from 'react-router';
 import { useStudyContext } from '../StudyContext';
 import { flatten, hasProgress, savedSetSession } from '../domain/study';
 import { checkAvailability, checkInProgress, checkSummary, latestCheck } from '../domain/check';
@@ -14,6 +15,9 @@ const parts = ['reading', 'listening', 'writing', 'speaking', 'knm'];
 // The home page does two things: it says what this is, and it gets you into an
 // exercise. The subjects themselves live in the sidebar, one click away.
 export default function Home() {
+  const [search] = useSearchParams();
+  // Keep the local preview link usable even after finishing exercises.
+  const previewSample = import.meta.env.DEV && search.get('sample') === 'yellow';
   const { state, t, name, catalogue, practiceSets, startSet, open } = useStudyContext(),
     lang = state.settings.lang,
     level = state.settings.level;
@@ -175,7 +179,9 @@ export default function Home() {
         </section>
       )}
       <Subjects />
-      {!Object.values(state.records).some((record) => record.completed) && <SampleQuestion />}
+      {(previewSample || !Object.values(state.records).some((record) => record.completed)) && (
+        <SampleQuestion />
+      )}
       <section className="home-section">
         <h2>{t('Wat je hier vindt', "What you'll find here")}</h2>
         <div className="home-why">

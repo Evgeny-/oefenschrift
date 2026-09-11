@@ -105,7 +105,7 @@ Requirements: `rubric: a2-schrijven`; a `model` answer; `sample` and `quotes` as
 
 ### 4.5 KNM — `exam: knm`, `part: knm`
 
-- `taskType: feit`. One photo (`images[0]`, `kind: photo`), one question of at most twenty words, three options, `questionAudio` for the question and each option, `theme` (1–8) and `eindterm` (for example `6.3.2`) from the July 2025 list, `sourceUrl`, `sourceNote`, `sourceReviewedAt`.
+- `taskType: feit`. One picture (`images[0]`; a drawing in the house style of §7, a photo only for a real place, document or object), a fact card `text` of at most thirty words shown after answering, one question of at most twenty words, three options, `questionAudio` for the question and each option, `theme` (1–8) and `eindterm` (for example `6.3.2`) from the July 2025 list, `sourceUrl`, `sourceNote`, `sourceReviewedAt`.
 - Question forms: a direct fact ("Wanneer was de Holocaust?"), a persona fact ("Erik woont in een sociale huurwoning. Wat is dat?"), a yes/no with qualification ("Is belastingaangifte doen verplicht in Nederland?" — "Ja, dat is vaak verplicht."). No behaviour questions ("Wat kan hij het beste doen?").
 - Options are short noun phrases or short sentences at A2; one is correct by the cited source; the two others are plausible confusions (another institution, another rule, another period).
 - Coverage: every eindterm at least twice in the launch bank; blocks assembled per theme.

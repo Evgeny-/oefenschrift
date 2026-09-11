@@ -1,0 +1,465 @@
+{
+  "review_id": "batch036-editorial-review",
+  "source": "content/batches/036-original.json",
+  "source_original_sha256": "60e4eace4cbc35e3ab1a034f6bf260306633b1649733f22f035a2ddc9b2fe353",
+  "source_sha256": "6b44e7e38514ac71ec2b7efa588e1050c3681b3dac72fc36c35e317b6c2e1d04",
+  "proposed": "content/batches/036-proposed.json",
+  "starters_source": null,
+  "starters_sha256": null,
+  "starters_verdict": "not applicable: no open tasks in this batch",
+  "review_type": "AI editorial review of B1 listening scripts (Staatsexamen NT2 Programma I shape) before audio: shape, spoken naturalness, level, keys proven from evidence, every distractor tested, coherence of the arrangements, facts kept generic, diversity and media notes; repairs applied in the proposed file; the 025 review's findings applied",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_summary": "Both texts pass in the proposed file after six recommended edits, all in the afvalbeleid text: the q1 key made numerically exact (\"meer dan de helft\") with its two distractors re-balanced, the q3 script naming the blue container as the exception to the one fixed collection day, the q3 persona prompt neutralised, the q4 prompt naming the speaker as the intro does, and the two explanations updated. The functioneringsgesprek text is unchanged. No item rejected. Checker on the proposed file: no failures, no warnings.",
+  "edits": [
+    {
+      "id": "E1",
+      "item": "B1:listening:batch036-afvalbeleid:1",
+      "field": "questions[q1].options.C",
+      "kind": "recommended",
+      "new": "Omdat meer dan de helft van het restafval gescheiden had kunnen worden.",
+      "why": "The fragment says \"meer dan de helft hoorde er niet in\"; the key must agree with the numeric fact exactly (rubric 9); the original \"de helft\" could make a careful listener hesitate."
+    },
+    {
+      "id": "E2",
+      "item": "B1:listening:batch036-afvalbeleid:1",
+      "field": "questions[q1].options.A, questions[q1].options.B",
+      "kind": "recommended",
+      "new": "A: \"Omdat het verbranden van restafval vanaf januari niet meer is toegestaan.\" B: \"Omdat gescheiden afval de gemeente veel meer geld kost dan restafval.\"",
+      "why": "After E1 the key (71 characters) would have been the longest option by seven; A (73) and B (69) now bracket it (blueprint §5). \"veel meer\" mirrors the text's \"veel minder\"; A keeps its meaning."
+    },
+    {
+      "id": "E3",
+      "item": "B1:listening:batch036-afvalbeleid:1",
+      "field": "questions[q3].script[0].text",
+      "kind": "recommended",
+      "new": "… De grijze container legen wij alleen in de even weken; in de oneven weken blijft hij dus binnen. Alleen de blauwe container komt op een andere dag: één keer per vier weken, op een vrijdag. Zet de container vóór half acht 's ochtends aan de straat, …",
+      "why": "The fragment states \"op één vaste dag in uw straat\" and then gives the blue container a Friday; the speaker now names it as the exception, so the arrangement is consistent. The Friday stays because it keeps the blue container out of the Tuesday persona item. +2 spoken words (fragment 138, 57–64 s)."
+    },
+    {
+      "id": "E4",
+      "item": "B1:listening:batch036-afvalbeleid:1",
+      "field": "questions[q3].prompt",
+      "kind": "recommended",
+      "new": "Meneer De Vries woont in het centrum. Het is dinsdag in een oneven week. Wat zet hij die dag aan de straat?",
+      "why": "The singular \"Welke container\" presupposed one container and worked against option B (\"De groene en de grijze container\") on grammar alone; neutral wording keeps all three options live."
+    },
+    {
+      "id": "E5",
+      "item": "B1:listening:batch036-afvalbeleid:1",
+      "field": "questions[q3].explanation",
+      "kind": "recommended",
+      "new": "In het centrum komt de wagen op dinsdag. De groene container wordt elke week geleegd, dus die zet hij aan de straat. De grijze container wordt alleen in de even weken geleegd; in een oneven week blijft die binnen. Groen en grijs samen geldt alleen op een dinsdag in een even week. De blauwe container komt op een andere dag, een vrijdag.",
+      "why": "Says why the blue container plays no part on the Tuesday, matching E3."
+    },
+    {
+      "id": "E6",
+      "item": "B1:listening:batch036-afvalbeleid:1",
+      "field": "questions[q4].prompt, questions[q4].explanation",
+      "kind": "recommended",
+      "new": "Prompt: \"Wat raadt de medewerker van de gemeente aan als u zelf naar de milieustraat gaat?\"; explanation: \"Op zaterdag staat er vaak een rij tot op de weg; daarom raadt de medewerker van de gemeente aan om doordeweeks te komen, want dan rijdt u zo door. Zaterdag is dus juist druk, en op maandag is de milieustraat dicht.\"",
+      "why": "The learner reads the prompt before the fragment and knows the speaker only from the intro as \"een medewerker van de gemeente\"; \"presentator\" is the voice label, which stays as the brief fixed it."
+    },
+    {
+      "id": "derived",
+      "item": "B1:listening:batch036-afvalbeleid:1",
+      "field": "questions[q3].text, text",
+      "kind": "derived",
+      "new": "rebuilt mechanically from the scripts (question text = script joined as \"Speaker: text\" lines; item text = fragments joined with a blank line)",
+      "why": "Blueprint §4.7."
+    }
+  ],
+  "rejected": [],
+  "author_doubts_decisions": {
+    "text1_q1_opinion_label": "kept opinion: the prompt asks for Modibo's own assessment, and the catalogue's opinion items (013 q3, 012 q4/q7, 025 q6) are likewise stated near-literally; the 025 relabel concerned inference versus detail; the text keeps summary (q7) as its whole-text item",
+    "text1_q3_inference_label": "kept inference: the official function-of-an-example form, tagged inference in the catalogue (012-mantelzorg q1; 037 q4/q7); no single sentence states the key, the listener combines the example, \"zo gaat het vaker\", the consequence and the rule in the last turn; also the inference item the bank lacked after 025",
+    "text1_q6_sequence_label": "kept sequence: key and distractors order events relative to one another (after this talk, once he has the certificate, after the June talk); time-place would fit a calendar answer",
+    "text2_q5_arithmetic": "kept as written (coordinator's decision confirmed): the speaker computes the variable part, models the same addition for the ten-times case, and \"iets meer dan nu\" lets the listener check the total against three hundred and fifty",
+    "text2_q3_dorpen_clause": "kept: the Tuesday/Thursday split makes \"één vaste dag in uw straat\" meaningful and gives the persona item its third condition (025 q3 also has three); E3 resolves the only tension the clause created",
+    "je_register_text1": "kept je: team leader and employee in a warehouse",
+    "text1_text_type": "kept beschouwend: the talk weighs the past half year and closes on Modibo's reflection; the bank needed a beschouwend or descriptief werk text (025 review) and this batch adds one of each",
+    "de_vries_daughter": "kept; the distractor no longer follows the 025 pattern",
+    "cross_part_echoes": "acceptable, parts never share a set; see diversity_review",
+    "length": "text 2 now 881 of 900 item words (19 headroom), text 1 885 (15); any later addition needs a cut in the same text",
+    "presentator_label": "label kept as the brief fixed it; the one prompt that named the speaker now uses the intro's wording (E6)"
+  },
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 2,
+    "distribution": {
+      "B1_listening": 2
+    },
+    "task_types": {
+      "gesprek": 1,
+      "voorlichting": 1
+    },
+    "text_types": {
+      "beschouwend": 1,
+      "descriptief": 1
+    },
+    "domains": {
+      "werk": 1,
+      "overig": 1
+    },
+    "exam_field": "nt2-i on both",
+    "situation_lines": "both follow the B1 form of blueprint §3",
+    "intro_words": {
+      "functioneringsgesprek": 45,
+      "afvalbeleid": 45
+    },
+    "question_count": 13,
+    "questions_per_text": {
+      "functioneringsgesprek": 7,
+      "afvalbeleid": 6
+    },
+    "option_counts": {
+      "3": 13
+    },
+    "key_counts": {
+      "B": 5,
+      "A": 4,
+      "C": 4
+    },
+    "key_shares": {
+      "B": 0.38,
+      "A": 0.31,
+      "C": 0.31
+    },
+    "key_sequence": {
+      "functioneringsgesprek": "BACABCA",
+      "afvalbeleid": "CBABCB"
+    },
+    "consecutive_same_key_three_times": false,
+    "closed_evidence_is_verbatim": true,
+    "evidence_from_own_fragment": true,
+    "evidence_occurs_once_in_item_text": true,
+    "evidence_entails_key": "13 of 13",
+    "distractors_anchored_and_false": "26 of 26",
+    "option_form_parallel": "every question shares one frame across its three options (checked per question; E2 keeps the \"Omdat …\" frame)",
+    "key_longest_by_checker_rule": 0,
+    "key_longest_by_exact_count": "text 2 q5 by one character (\"Driehonderdzeventig euro.\" against \"Tweehonderdveertig euro.\"), unavoidable with number words",
+    "prompt_words_only_in_key": 0,
+    "question_text_equals_joined_script": true,
+    "item_text_equals_fragments_joined_with_blank_line": true,
+    "voice_roles_valid": true,
+    "two_roles_per_text": {
+      "functioneringsgesprek": [
+        "f-adult",
+        "m-young"
+      ],
+      "afvalbeleid": [
+        "presenter",
+        "m-older"
+      ]
+    },
+    "speaker_labels_consistent": true,
+    "third_voice": false,
+    "spoken_words_per_fragment": {
+      "functioneringsgesprek": [
+        133,
+        123,
+        128,
+        125,
+        123,
+        113,
+        114
+      ],
+      "afvalbeleid": [
+        124,
+        128,
+        138,
+        153,
+        154,
+        158
+      ]
+    },
+    "fragment_seconds_estimate": {
+      "functioneringsgesprek": [
+        [
+          55,
+          62
+        ],
+        [
+          51,
+          57
+        ],
+        [
+          53,
+          60
+        ],
+        [
+          52,
+          59
+        ],
+        [
+          51,
+          58
+        ],
+        [
+          47,
+          53
+        ],
+        [
+          47,
+          54
+        ]
+      ],
+      "afvalbeleid": [
+        [
+          50,
+          57
+        ],
+        [
+          53,
+          60
+        ],
+        [
+          57,
+          64
+        ],
+        [
+          63,
+          71
+        ],
+        [
+          63,
+          71
+        ],
+        [
+          65,
+          73
+        ]
+      ]
+    },
+    "spoken_words_per_text": {
+      "functioneringsgesprek": 859,
+      "afvalbeleid": 855
+    },
+    "turns_per_text": {
+      "functioneringsgesprek": 26,
+      "afvalbeleid": 16
+    },
+    "minutes_with_turn_gaps": {
+      "functioneringsgesprek": [
+        6.22,
+        7.04
+      ],
+      "afvalbeleid": [
+        6.12,
+        6.94
+      ]
+    },
+    "item_text_words": {
+      "functioneringsgesprek": 885,
+      "afvalbeleid": 881
+    },
+    "item_text_cap": 900,
+    "sentence_average_words": {
+      "functioneringsgesprek": 11.9,
+      "afvalbeleid": 12
+    },
+    "explaining_speaker_sentence_average": {
+      "Sabrina": 13.8,
+      "Presentator": 12.6
+    },
+    "responding_speaker_sentence_average": {
+      "Modibo": 9.1,
+      "Meneer De Vries": 9.5
+    },
+    "longest_sentence_words": {
+      "functioneringsgesprek": 28,
+      "afvalbeleid": 29
+    },
+    "sentences_over_30_words": 0,
+    "digits_in_spoken_text": false,
+    "abbreviations_in_spoken_text": "\"gft\" only, spelled as it is said; the existing clip A2:knm:batch006-gft:1#q1 passed its round trip (WER 0.011)",
+    "transcribed_fillers": false,
+    "b1_connectors_in_use": true,
+    "last_question_whole_text": {
+      "functioneringsgesprek": "summary",
+      "afvalbeleid": "opinion"
+    },
+    "skills": {
+      "opinion": 2,
+      "detail": 3,
+      "inference": 1,
+      "quantity": 2,
+      "rule-application": 2,
+      "sequence": 1,
+      "summary": 1,
+      "advice": 1
+    },
+    "invented_organisation_names": "none in text 1 (a webwinkel, an opleider, the app: generic); text 2 reuses the fictional gemeente Rietburg of A2 listening 005/022/023, re-checked on the web on 11 September 2026: only the Rietburg castle ruin and Rhodt unter Rietburg in Germany, no Dutch gemeente, place or firm",
+    "avoid_list": "no politics, religion, graphic illness, crime, brands, real addresses; no legal claim about forklift certificates; waste arrangements worded as this gemeente's own",
+    "six_word_phrase_overlap": "only formula phrases: \"duidelijk maken met het voorbeeld van\" (reading batches 010/011/024/034/035), \"u hoort een deel van een\" (012-mantelzorg intro), \"aan het eind van de avond\" and \"gaan in de groene container en\" (031 speaking); none between the two texts",
+    "checker_original": "Checked 2 items, 13 questions. Keys: {\"B\":5,\"A\":4,\"C\":4}. Options: {\"3\":13}. No failures, no warnings.",
+    "checker_proposed": "Checked 2 items, 13 questions. Keys: {\"B\":5,\"A\":4,\"C\":4}. Options: {\"3\":13}. No failures, no warnings.",
+    "diff_original_to_proposed_verified_field_by_field": true
+  },
+  "items": {
+    "B1:listening:batch036-functioneringsgesprek:1": {
+      "verdict": "pass",
+      "level": "comparable (upper range)",
+      "level_reason": "Sabrina's sentences average 13.8 words (56% at twelve or more, longest 28; thirteen sentences over twenty words, more than any catalogue text, but each a chain of short clauses joined by en/want/dus/maar and colons); inverted conditionals, relative clauses, a passive, signal words (dus, zodra, zodat, behalve, intussen); Modibo's answers average 9.1. Two computed items (q4 two figures, q5 a rule applied to a month) and one function-of-example inference. Harder than 013-logistiek (average 9.2) and 012-buschauffeur (10.9), on a par with 025-kinderboeken (13.6); the shape of the official 2025 performance-review text. Not off-level.",
+      "edits": [],
+      "questions": {
+        "q1": {
+          "key": "B",
+          "skill": "opinion",
+          "evidence": "Goed, denk ik. In het begin was alles nieuw, maar nu haal ik mijn aantal orders per uur bijna elke dag. Alleen de avonddienst op dinsdag is lastig; daar kom ik straks op terug.",
+          "proof": "His own verdict is \"Goed\"; he reaches his orders per hour almost every day; only the Tuesday evening shift is hard (\"is lastig\" ↔ \"vindt hij lastig\").",
+          "distractors": {
+            "A": "reverses \"nu haal ik mijn aantal orders per uur bijna elke dag\"",
+            "C": "takes his fear of \"een lijst met mijn fouten\" for a fact and reverses \"Goed\"; he says only that everything was new at the start"
+          }
+        },
+        "q2": {
+          "key": "A",
+          "skill": "detail",
+          "evidence": "want snel zijn kan iedereen leren; zorgvuldig werken en oog hebben voor anderen, dat is zeldzamer.",
+          "proof": "Speed anyone can learn; careful work and an eye for others is rarer, after \"belangrijker vind ik dat je weinig fouten maakt\" and \"nieuwe mensen helpt zonder dat iemand het vraagt\"; \"oog hebben voor anderen\" ↔ \"nieuwe collega's helpt\".",
+          "distractors": {
+            "B": "\"Je haalt je aantallen\" is reaching the target, not beating the team; the team comparison (één op de honderd / driehonderd) is about returned orders, and speed \"kan iedereen leren\"",
+            "C": "Julio understood the scanner thanks to Modibo, so Modibo is not \"als enige\""
+          }
+        },
+        "q3": {
+          "key": "C",
+          "skill": "inference",
+          "evidence": "je lost iets zelf op en zegt het tegen niemand. Dat lijkt handig, maar ik kan de leverancier pas bellen als ik het weet, en de klant wachtte intussen op zijn spullen.",
+          "proof": "The example shows the pattern (solved, told nobody) and its cost (she cannot call the supplier, the customer waits); the last turn states the rule \"Een melding … ook als je het al hebt opgelost\". The listener combines example, generalisation and rule.",
+          "distractors": {
+            "A": "reverses \"Slim opgelost, daar gaat het niet om\"",
+            "B": "misattribution: the driver is the one who told her; the point is about Modibo"
+          }
+        },
+        "q4": {
+          "key": "A",
+          "skill": "quantity",
+          "evidence": "De cursus duurt twee dagen, bij een opleider hier in de buurt. Het examen is een week later, op een aparte dag",
+          "proof": "Two course days plus the exam on a separate day = three days.",
+          "distractors": {
+            "B": "the course alone",
+            "C": "the interval between course and exam, not the days he is occupied"
+          }
+        },
+        "q5": {
+          "key": "B",
+          "skill": "rule-application",
+          "evidence": "Ik maak het rooster altijd op de vijftiende van de maand ervoor, dus geef vóór die dag in de app aan op welke avonden je liever niet werkt.",
+          "proof": "The roster is made on the fifteenth of the month before, so the May roster on 15 April; preferences go into the app before that day. Modibo's recap \"Dus vóór de vijftiende doorgeven\" repeats the point.",
+          "distractors": {
+            "A": "wrong month (after the May roster exists) and wrong channel (the app, not a message)",
+            "C": "the fallback for when the Tuesday is rostered anyway, not the first step"
+          }
+        },
+        "q6": {
+          "key": "C",
+          "skill": "sequence",
+          "evidence": "zodra je het certificaat hebt, werk je één dag per week bij de goederenontvangst, waar de vrachtwagens worden gelost",
+          "proof": "Agreement three: once he has the certificate, one day a week at goods receiving; Sabrina rejects starting now (\"zonder certificaat sta je er alleen maar te kijken\").",
+          "distractors": {
+            "A": "Modibo's own proposal (\"Ik kan er toch nu al beginnen?\"), rejected",
+            "B": "June is agreement four, the next talk"
+          }
+        },
+        "q7": {
+          "key": "A",
+          "skill": "summary",
+          "evidence": "Je noemde eerst wat goed gaat, en het punt over het melden begrijp ik nu; ik dacht altijd dat ik je daarmee stoorde. En ik heb concrete dingen om aan te werken: de app, de cursus, de ontvangst.",
+          "proof": "Modibo's recap: she named the good things first, he now understands the reporting point and has concrete things to work on; consistent with q2 (few errors) and \"meer zin in mijn werk\".",
+          "distractors": {
+            "B": "reverses the few errors of q2; the course is his own wish",
+            "C": "reverses \"Ik heb nu meer zin in mijn werk dan vanochtend\""
+          }
+        }
+      }
+    },
+    "B1:listening:batch036-afvalbeleid:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "The gemeente speaker's sentences average 12.6 words (56% at twelve or more, longest 29), inverted conditionals throughout, passives, relative clauses, signal words (daarom, dus, voortaan, tot slot); meneer De Vries averages 9.5. The load is the density of days, weeks and euros; q5 (fixed part plus the speaker's own variable-part figure) is the heaviest item of the batch, with the addition modelled for the ten-times case. Comparable to 012-mantelzorg (11.3) and 025-medicijnlijst (12.6).",
+      "edits": [
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5",
+        "E6"
+      ],
+      "questions": {
+        "q1": {
+          "key": "C",
+          "skill": "detail",
+          "evidence": "Wij hebben dat afval laten onderzoeken, en meer dan de helft hoorde er niet in: groente- en fruitresten, papier, plastic verpakkingen.",
+          "proof": "The sorting analysis found that more than half of the residual waste did not belong there (\"hoorde er niet in\" ↔ \"gescheiden had kunnen worden\"); the reason the speaker announces with \"Eerst het waarom\".",
+          "distractors": {
+            "A": "burning continues; it is \"duur\", not forbidden",
+            "B": "reverses \"dat kost de gemeente veel minder\""
+          },
+          "note": "key made exact with \"meer dan de helft\" (E1); A and B re-balanced (E2)"
+        },
+        "q2": {
+          "key": "B",
+          "skill": "detail",
+          "evidence": "Nieuw is de blauwe container voor papier en karton. De bundels aan de straat verdwijnen, want bij regen was het papier onbruikbaar.",
+          "proof": "New is the blue container for paper and cardboard; the bundles at the kerb disappear (\"de blauwe container\" ↔ \"een eigen container\").",
+          "distractors": {
+            "A": "the transparent bags are for plastic, blik and drankpakken",
+            "C": "only for whoever refuses the container, \"zoals nu\": not the change"
+          }
+        },
+        "q3": {
+          "key": "A",
+          "skill": "rule-application",
+          "evidence": "De groene container legen wij elke week, want etensresten gaan snel stinken. De grijze container legen wij alleen in de even weken; in de oneven weken blijft hij dus binnen.",
+          "proof": "Centre: Tuesday. Green every week; grey only in even weeks, so it stays in during an odd week; the blue container comes on a Friday. Tuesday in an odd week: green only.",
+          "distractors": {
+            "B": "the even-week case",
+            "C": "reverses both rules"
+          },
+          "note": "script names the blue container as the exception (E3); prompt neutralised (E4); explanation extended (E5)"
+        },
+        "q4": {
+          "key": "B",
+          "skill": "advice",
+          "evidence": "Op zaterdag staat er vaak een rij tot op de weg. Kunt u doordeweeks komen, doe dat dan; op een dinsdagochtend rijdt u zo door.",
+          "proof": "Saturday has a queue to the road; come on a weekday, on a Tuesday morning you drive straight through (\"rijdt u zo door\" ↔ \"geen rij\").",
+          "distractors": {
+            "A": "reverses the Saturday queue",
+            "C": "reverses \"op maandag is hij dicht\""
+          },
+          "note": "prompt names the speaker as the intro does (E6)"
+        },
+        "q5": {
+          "key": "C",
+          "skill": "quantity",
+          "evidence": "Het vaste deel is tweehonderdveertig euro per jaar. Daarvoor legen wij de groene en de blauwe container en halen wij de zakken op. Het tweede deel betaalt u per keer dat de grijze container wordt geleegd: vijf euro per keer. Zet u hem elke twee weken buiten, dan is dat zesentwintig keer, dus honderddertig euro.",
+          "proof": "Fixed part two hundred and forty plus the speaker's own \"zesentwintig keer, dus honderddertig euro\" = three hundred and seventy; the speaker models the addition for ten times (\"vijftig euro, en betaalt u in totaal tweehonderdnegentig euro\") and \"wie niets verandert, betaalt iets meer dan nu\" (three hundred and fifty) confirms it.",
+          "distractors": {
+            "A": "the variable part alone",
+            "B": "the fixed part alone"
+          }
+        },
+        "q6": {
+          "key": "B",
+          "skill": "opinion",
+          "evidence": "Dat denk ik nu niet meer, want als ik goed scheid, betaal ik minder. Alleen die even en oneven weken, daar ga ik fouten mee maken, dat weet ik nu al.",
+          "proof": "He no longer thinks the gemeente just wants money because good separating means paying less; only the even and odd weeks will go wrong (\"die even en oneven weken\" ↔ \"de ophaaldagen\").",
+          "distractors": {
+            "A": "the belief he came with and explicitly abandons (\"Dat denk ik nu niet meer\")",
+            "C": "contradicted by \"de app laat ik door mijn dochter installeren\""
+          }
+        }
+      }
+    }
+  },
+  "diversity_review": "Within the batch: two task types, text types, domains and voice pairs; no shared six-word phrase; skills differ (weighing and agreements versus rules, days and amounts). Against the B1 listening catalogue (002 ×3 short, 012 buschauffeur/mantelzorg, 013 logistiek/ziekenhuiskeuken, 025 kinderboeken/medicijnlijst) and the parallel batch 037 (hovenier, bouwplaats): both settings new; the functioneringsgesprek is the first gesprek in the werk domain and the second beschouwend text (shares only the warehouse workplace with 013-logistiek, no tested point); the afvalbeleid evening is the second voorlichting and the first descriptief text outside educatie. Cross-part echoes, acceptable because parts never share a set: A2 listening 005-training (forklift safety training), B1 writing 015-gemiste-werkdag (Sabrina and Julio in a warehouse), B1 speaking 031-afvalcontainers (container out the evening before; consistent), A2 writing 003-container, KNM 006-gft (consistent), B1 writing 028-afvalpas; Rietburg from A2 listening 005/022/023. Same-part cast reuse: meneer De Vries (025-medicijnlijst, both m-older) and Julio (a warehouse colleague here, a new construction worker in 037-bouwplaats); a mock drawing both 036-functioneringsgesprek and 037-bouwplaats would show Julio in two jobs, harmless in drills.",
+  "set_assembly": "Each text is one B1 listening drill (blueprint §11). With 012, 013, 025 and 036 the blueprint-shaped B1 listening texts number eight with 52 questions: task types gesprek 2, instructie 2, interview 2, voorlichting 2; text types instructief 3, beschouwend 2, descriptief 2, persuasief 1; domains werk 3, educatie 2, overig 3; no video text. Two mocks of six texts need twelve; 037, if adopted, brings ten. Question counts here: 7 and 6.",
+  "media_notes": "Text 1 Sabrina→f-adult (Esmee), Modibo→m-young (Nick); text 2 Presentator→presenter (Peter), Meneer De Vries→m-older (Arjen, as in 025); narrator (Serge) reads intro and questions; stitched mode per config/voices.json; no third voice. All numbers, times and amounts in words; \"één\" and \"vóór\" with accents; \"'s ochtends\"/\"'s avonds\" only mid-sentence; colons and semicolons as pauses, including \"Eén: … Twee: … Drie: … En vier:\"; no digits, fillers or quotation marks. \"gft\" is spelled as three letters as it is said (existing clip A2:knm:batch006-gft:1#q1 passed at WER 0.011). \"groente- en fruitresten\" (suspended hyphen) should read as \"groente en fruitresten\"; listen to that clip. The round trip may normalise the long number words of text 2 q5 to digits; expected. No audio existed for the changed fragment (text 2 q3), so E3 invalidates nothing. No pictures.",
+  "coordinator_notes": "Adopt with npm run batch:adopt 036 (verifies source_sha256 against the proposed bytes). Headroom under the 900-word cap: text 1 15 words, text 2 19 words; any later addition needs a cut in the same text. Both texts stay blocked for publication until the media review; the E3 fragment (text 2 q3) had no clip yet.",
+  "limitations": "AI editorial review, no human difficulty validation; audio does not exist yet and the published items stay blocked until the media review; content/exemplars/ does not exist, so level was judged against the catalogue's 012/013/025 texts and the research description of the official Luisteren I texts; the HR facts (functioneringsgesprek versus beoordelingsgesprek, the course format) and the waste arrangements (diftar, milieustraat, afvalcoaches) were checked only against generic public descriptions and the figures are the story's own; the reviewer's own new wording (E1–E6) has not had an independent second reading beyond the coordinator's diff."
+}

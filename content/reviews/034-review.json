@@ -1,0 +1,392 @@
+{
+  "review_id": "batch034-editorial-review",
+  "source": "content/batches/034-original.json",
+  "original_sha256": "a2b6ce36d4c3d1a648df887c35f8aa0a56e2788508e26d970c194bc840ee2ac0",
+  "proposed": "content/batches/034-proposed.json",
+  "source_sha256": "c654ded826517a1144f9af9ee0b092db16ac9542bf6e95474900abd23d580e6a",
+  "starters_source": null,
+  "starters_sha256": null,
+  "starters_verdict": "not-applicable (closed items only)",
+  "review_type": "Independent AI editorial review of three original B1 reading texts (Staatsexamen NT2 Programma I, Lezen I shape: nieuwsbericht, interview, gemeente information page as look-up text) against content/reviews/rubric.md (fourteen checks), content/blueprint.md sections 1, 3, 4.6, 5, 8, 9, 10, 12 and 13, the Lezen I paragraph of docs/research/exam-blueprints-2026-09-10.md, docs/briefs/author.md and the 024 reviewer's findings (content/reviews/024-review.md); every key proven from the verbatim evidence, every distractor tested against the text, level judged per text; small repairs applied in the proposed file (docs/briefs/review.md); the author notes were read after the items had been judged and their section 8 doubts decided.",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 3,
+    "distribution": {
+      "B1_reading": 3
+    },
+    "task_types": {
+      "nieuwsbericht": 1,
+      "interview": 1,
+      "opzoektekst": 1
+    },
+    "text_types": {
+      "beschouwend": 1,
+      "descriptief": 1,
+      "instructief": 1
+    },
+    "domains": {
+      "werk": 1,
+      "educatie": 1,
+      "overig": 1
+    },
+    "question_count": 20,
+    "questions_per_text": [
+      7,
+      6,
+      7
+    ],
+    "option_counts": {
+      "3": 20
+    },
+    "key_counts": {
+      "A": 7,
+      "B": 7,
+      "C": 6
+    },
+    "key_sequence": "CABACBA BCAABC BBACCAB",
+    "no_key_three_in_a_row": true,
+    "purpose_question_last_per_text": true,
+    "purpose_keys": [
+      "informeren",
+      "informeren",
+      "uitleggen"
+    ],
+    "purpose_option_form_informeren_overtuigen_waarschuwen": true,
+    "opinion_or_inference_item_in_texts_1_and_2": "text 1: opinion q2, q6 and inference q4 (function of the example); text 2: opinion q3 and inference q5 (function of the example)",
+    "paragraph_span_detail_items_in_texts_1_and_2": "text 1: q1 (2 sentences), q3 (3), q5 (3); text 2: q1 (5 sentences), q2 (4)",
+    "lookup_text_shape_text_3": "quantity item combining two figures with a zone mapping (q2), four rule-application items (q1, q3, q4, q5), one light inference (q6), purpose last; situation line 'U zoekt informatie op …'",
+    "evidence_verbatim_in_text": true,
+    "evidence_rebuilt_after_text_edits": [
+      "zelfroosteren q6 (edit 3)",
+      "deeltijd-hbo q1 (edit 4)"
+    ],
+    "key_never_longest_option": true,
+    "key_odd_polarity_out": "none (text 1 q5 repaired: both distractors were absolute against a hedged key)",
+    "prompt_word_recurring_only_in_key": "none after edit 12 (text 2 q5 'maken')",
+    "absolute_terms_in_keys": false,
+    "words_per_text": [
+      654,
+      645,
+      628
+    ],
+    "prose_sentence_stats": {
+      "zelfroosteren": {
+        "sentences": 44,
+        "average": 14.3,
+        "longest": 25
+      },
+      "deeltijd-hbo": {
+        "sentences": 42,
+        "average": 14.1,
+        "longest": 28
+      },
+      "bewonersvergunning": {
+        "sentences": 39,
+        "average": 15.8,
+        "longest": 29
+      }
+    },
+    "level_band_b1": "average 12-18, none over 30: all three inside",
+    "situation_lines": [
+      "U leest een nieuwsbericht op de website van een regionale krant.",
+      "U leest een interview op de website van een hogeschool.",
+      "U zoekt informatie op de website van uw gemeente."
+    ],
+    "ids_and_slugs_new_to_catalogue_and_batch_035": true,
+    "status_draft_targetLevelValidated_false": true,
+    "internal_consistency_after_edits": "text 1: the kept roster rule (max two weekends a month) no longer contradicts Jari's extra weekend or the council's late-filler weekends; live occupancy in the wish week makes the council's objection and remedy fit the three-step mechanism; timeline February / April / half a year / a year consistent. text 2: Friday hours are paid study hours (no leave day on a non-working day); 3 + 4 + 3 = ten hours; diploma summer 2029 fits 'sinds september vorig jaar' plus four years. text 3: 216 + 432 = 648; refund month June after a move on 12 May; Sem as Hasan's son matches config/illustration.json.",
+    "web_checks_2026_09_11": {
+      "Streekziekenhuis Bronwaard": "no hits; the engine offers Streekziekenhuis Koningin Beatrix (Winterswijk)",
+      "Hogeschool Oostwaard": "no hits; only the surname Van Oostwaard and the estate Hofstede Oostwaard (Maarssen)",
+      "gemeente Wierdam": "no municipality or place; parking-permit results are Amsterdam, Rotterdam, Weert",
+      "Jari Postma / Thérèse Kool / Hilde Brandsma / Selma Kaya": "no public person found in a matching context"
+    },
+    "law_checked": "studiekostenbeding: not allowed for mandatory training since 1 August 2022, allowed with a sliding scale for non-mandatory training (Dutch employment-law guidance consulted 2026-09-11); the text presents the clause only as Selma's own signed agreement for a voluntary hbo course",
+    "avoid_list_section_9": "nothing graphic, political or religious; the ondernemingsraad is a workplace body; no brand, real address or real institution beyond gemeente and DigiD, which the page is about; roles mixed (male nurse, female planner and council chair, female student in an office job)",
+    "batch_check_on_proposed": "Checked 3 items, 20 questions. Keys: {\"C\":6,\"A\":7,\"B\":7}. Options: {\"3\":20}. No failures, no warnings."
+  },
+  "edits": [
+    {
+      "n": 1,
+      "item": "B1:reading:batch034-zelfroosteren:1",
+      "field": "text (kept rules)",
+      "severity": "required",
+      "from": "niemand werkt meer dan vijf dagen achter elkaar, en iedereen draait evenveel weekenden en feestdagen.",
+      "to": "niemand werkt meer dan vijf dagen achter elkaar, en niemand draait meer dan twee weekenden per maand.",
+      "why": "An equal-weekends rule contradicted Jari's 'werk in ruil daarvoor liever een weekend extra' (q2 evidence) and the council's 'Wie later invult, houdt de avonden en de weekenden over' (q6 evidence); a maximum is consistent with both. Not part of any evidence quote."
+    },
+    {
+      "n": 2,
+      "item": "B1:reading:batch034-zelfroosteren:1",
+      "field": "text (wish week; council paragraph)",
+      "severity": "required",
+      "from": "… op welke dagen zij vrij willen zijn. In de tweede week … | Zij wil dat de app de wensen pas verdeelt als iedereen ze heeft ingevuld",
+      "to": "… op welke dagen zij vrij willen zijn. Daarbij zien zij meteen hoeveel collega's er al op een dienst staan. In de tweede week … | Zij wil dat de app de wensen pas laat zien als iedereen ze heeft ingevuld",
+      "why": "The council's objection and remedy presuppose visible occupancy during the wish week; week 2 allows over-subscription, so without the sentence nothing is ever 'gone', and 'verdeelt' implied allocation by the app, which the mechanism never does. q1's week-2 evidence untouched."
+    },
+    {
+      "n": 3,
+      "item": "B1:reading:batch034-zelfroosteren:1",
+      "field": "text (council paragraph); questions.q6.evidence",
+      "severity": "required",
+      "from": "snel weg zijn bij collega's die als eerste hun wensen invullen",
+      "to": "snel bezet zijn door collega's die als eerste hun wensen invullen",
+      "why": "'weg zijn bij' is not Dutch for 'taken by'; 'bezet zijn door' is. Evidence rebuilt verbatim; key B unchanged."
+    },
+    {
+      "n": 4,
+      "item": "B1:reading:batch034-deeltijd-hbo:1",
+      "field": "text (first answer); questions.q1.evidence",
+      "severity": "required",
+      "from": "Die vier uur krijg ik van mijn werkgever, dus daar hoef ik geen vrije dag voor op te nemen.",
+      "to": "Die vier uur krijg ik van mijn werkgever; ze worden gewoon doorbetaald.",
+      "why": "Selma works Monday to Thursday, so a leave day for Friday morning was never needed; the hours are paid study hours, consistent with 'geeft mij de vier uur op vrijdagochtend'. Evidence rebuilt verbatim; key B unchanged."
+    },
+    {
+      "n": 5,
+      "item": "B1:reading:batch034-deeltijd-hbo:1",
+      "field": "text (first answer)",
+      "severity": "required",
+      "from": "Bij elkaar is dat ongeveer vijftien uur per week.",
+      "to": "Bij elkaar is dat ongeveer tien uur per week.",
+      "why": "Her list is three (Tuesday class) + four (Friday morning, where she also does the modules) + three (Sunday) = ten hours; fifteen contradicted it. Not part of any evidence quote."
+    },
+    {
+      "n": 6,
+      "item": "B1:reading:batch034-bewonersvergunning:1",
+      "field": "taskType",
+      "severity": "required",
+      "from": "website",
+      "to": "opzoektekst",
+      "why": "Look-up shape (situation 'U zoekt informatie op …', six persona scanning items, a two-figure sum, no paragraph-span detail or opinion item); blueprint 4.6 ties that shape to opzoektekst and the 024 review relabelled examenreglement for the same reason. Sets are explicit id lists; revert at adoption if the brief's label is preferred."
+    },
+    {
+      "n": 7,
+      "item": "B1:reading:batch034-zelfroosteren:1",
+      "field": "text (steps paragraph)",
+      "severity": "recommended",
+      "from": "Het roosteren gaat in drie stappen. Eerst bepaalt de planner",
+      "to": "Het roosteren gaat in drie stappen. Vooraf bepaalt de planner",
+      "why": "With 'Eerst' the staffing frame counted as a step and the three weeks made four; the heading equates steps with weeks."
+    },
+    {
+      "n": 8,
+      "item": "B1:reading:batch034-zelfroosteren:1",
+      "field": "questions.q3.options.A",
+      "severity": "recommended",
+      "from": "Zij beslist nu zelf wie er vrij krijgt als te veel collega's dezelfde week willen.",
+      "to": "Zij beslist nu zelf wie er vrij krijgt als te veel collega's dezelfde week vrij willen.",
+      "why": "Completes the ellipsis; the distractor stays anchored in the meivakantie example and false."
+    },
+    {
+      "n": 9,
+      "item": "B1:reading:batch034-zelfroosteren:1",
+      "field": "questions.q5.options.A",
+      "severity": "recommended",
+      "from": "Het ziekteverzuim is op alle afdelingen van het ziekenhuis gedaald.",
+      "to": "Ook op de andere afdelingen is het ziekteverzuim gedaald.",
+      "why": "Both distractors were absolute overstatements ('alle', 'geen … meer') against a hedged key ('minder vaak'); A stays anchored in 'terwijl het op de andere afdelingen gelijk bleef' and false. Key C and explanation unchanged."
+    },
+    {
+      "n": 10,
+      "item": "B1:reading:batch034-deeltijd-hbo:1",
+      "field": "questions.q2.prompt",
+      "severity": "recommended",
+      "from": "Waarvoor heeft Selma de studiecoach?",
+      "to": "Waarvoor kan Selma bij de studiecoach terecht?",
+      "why": "Natural Dutch; key C unchanged."
+    },
+    {
+      "n": 11,
+      "item": "B1:reading:batch034-deeltijd-hbo:1",
+      "field": "questions.q4.prompt",
+      "severity": "recommended",
+      "from": "Selma haalt haar diploma in de zomer van 2028. In het voorjaar van 2029 gaat zij bij een ander bedrijf werken. …",
+      "to": "Selma haalt haar diploma in de zomer van 2029. In het voorjaar van 2030 gaat zij bij een ander bedrijf werken. …",
+      "why": "A start in 'september vorig jaar' on a four-year course, read in 2026, puts the diploma in summer 2029; the gap (under a year, within two years), key A and the explanation are unchanged."
+    },
+    {
+      "n": 12,
+      "item": "B1:reading:batch034-deeltijd-hbo:1",
+      "field": "questions.q5.options.B (key); questions.q5.explanation",
+      "severity": "recommended",
+      "from": "Dat vaste studiemomenten het verschil maken.",
+      "to": "Dat het helpt om op vaste momenten te studeren.",
+      "why": "'maken' from the prompt ('duidelijk maken') recurred only in the key; the new key still paraphrases the coach's remedy and the result, and stays shorter than both distractors without tripping the checker's length ratio. Explanation extended with 'en zette zij die in haar agenda'."
+    },
+    {
+      "n": 13,
+      "item": "B1:reading:batch034-bewonersvergunning:1",
+      "field": "questions.q5.options.B; questions.q5.explanation",
+      "severity": "recommended",
+      "from": "Hij stuurt een kopie van zijn kentekenbewijs per post naar de gemeente.",
+      "to": "Hij gaat zonder afspraak naar de balie en laat daar zijn identiteitsbewijs zien.",
+      "why": "The postal route was false only by absence (rubric 7); the new distractor misreads the stated balie rule (no appointment, one document) and is contradicted by 'maak dan een afspraak … en neem uw identiteitsbewijs en uw kentekenbewijs mee'. The author's 'zonder in te loggen' alternative was not used. Key C unchanged."
+    }
+  ],
+  "rejected": [],
+  "decisions_on_author_doubts": [
+    {
+      "doubt": "taskType of text 3 (website or opzoektekst)",
+      "decision": "opzoektekst (edit 6), as for 024 examenreglement; the situation line and the question shape already say look-up text."
+    },
+    {
+      "doubt": "Text 1 against 010 ploegendienst (both work texts with a roster app)",
+      "decision": "Distinct: news feature with figures and a critical third party against an interview; self-rostering in three rounds against rotation, sleep and swap rules; tested operations differ. One overlapping inference (010 q5 and 034 q4 both draw 'the colleagues now solve it themselves'), acceptable across batches; the two texts should not share a drill or a mock form."
+    },
+    {
+      "doubt": "Text 1 q4 attribution to 'de schrijver' for an example partly told by the planner",
+      "decision": "Kept. The example is introduced and framed in the narrator's voice ('In april wilden vijf verpleegkundigen … Vroeger had zij dan zelf moeten beslissen wie er pech had.') before the quotation supplies the outcome; the official article form applies. The speaker variant is the fallback only for an example told entirely inside a quotation."
+    },
+    {
+      "doubt": "Text 1 timeline (februari, april/meivakantie, half jaar, een jaar)",
+      "decision": "Consistent; no change."
+    },
+    {
+      "doubt": "Text 1 invented figures and the ondernemingsraad",
+      "decision": "Accepted, as for 011 huisartsenpost-drukte: fictional hospital, no statistic presented as real; the works council is a workplace body and its objection is the one the sector names."
+    },
+    {
+      "doubt": "Text 2 q4, the repayment clause as the student's own agreement",
+      "decision": "No hedge needed: her own signed studieovereenkomst for a voluntary hbo course with a sliding scale, which current guidance allows; the text states no rule of law. 'in ons bedrijf' not added."
+    },
+    {
+      "doubt": "Text 2 q1 option shape (three-moment lists)",
+      "decision": "List form kept; it forces the five-sentence span. The hour total in the same answer was wrong and is corrected (edit 5); the one-figure alternative would have keyed a false figure."
+    },
+    {
+      "doubt": "Text 2 q6 evidence is an announcing sentence",
+      "decision": "Accepted, as the purpose evidence of 010/011/024."
+    },
+    {
+      "doubt": "Text 3 q2, two figures from one section",
+      "decision": "Kept: 216 euro and the doubling rule are two figures combined through a rule, with the centrum → zone A mapping as a third step; comparable with 010 busabonnement q1. The two-section alternative is not needed."
+    },
+    {
+      "doubt": "Text 3 q5 distractor B false by absence",
+      "decision": "Replaced (edit 13) with the no-appointment misreading, anchored in the stated balie rule, rather than the author's 'zonder in te loggen'."
+    },
+    {
+      "doubt": "Text 3, municipal variation",
+      "decision": "Accepted: the page states Wierdam's own rules and says nothing about other gemeenten; the A2 Westerhout and Rietburg items keep their figures."
+    },
+    {
+      "doubt": "Twenty questions (7 + 6 + 7)",
+      "decision": "Set decision: zelfroosteren + deeltijd-hbo = 13-question drill; bewonersvergunning (7) pairs with a six-question text of another batch (035 te-voet, also overig) or serves as text 6 of a mock form."
+    },
+    {
+      "doubt": "No exemplars for the level comparison",
+      "decision": "Level judged against the Lezen I description and the calibrated 010/011/024 texts, as in earlier batches."
+    }
+  ],
+  "items": [
+    {
+      "id": "B1:reading:batch034-zelfroosteren:1",
+      "verdict": "pass",
+      "edited": true,
+      "task_type": "nieuwsbericht",
+      "text_type": "beschouwend",
+      "domain": "werk",
+      "words": 654,
+      "questions": 7,
+      "keys": "CABACBA",
+      "level_figures": {
+        "prose_sentences": 44,
+        "average_sentence": 14.3,
+        "longest_sentence": 25
+      },
+      "level": "comparable",
+      "level_reason": "News feature in the official beschouwend shape: dateline lead with the hope behind the change, a mechanism in three weekly steps, a nurse and a planner quoted, first figures with a comparison group, a works council's objection with a remedy, an open decision. Preterite narration, a counterfactual ('had zij dan zelf moeten beslissen'), relative clauses and signal words (terwijl, bovendien, toch, zodat, in ruil daarvoor); ziekteverzuim, uitzendkrachten and ondernemingsraad carried by context. Questions need paraphrase over two to three sentences (q1, q3, q5), reading 'Nu is het andersom' against the previous sentence (q2), the function of the example (q4), attribution of a concern to the right party (q6) and the purpose (q7). Comparable with 011 huisartsenpost-drukte.",
+      "evidence": [
+        "q1 C: \"In de tweede week laat de app zien waar te veel en waar te weinig collega's staan. Een dienst met te veel mensen kleurt rood, en wie daar staat, kan zichzelf naar een andere dienst verplaatsen.\" A is week 1 ('op welke dagen zij vrij willen zijn'); B is week 3 (the planner and the open shifts).",
+        "q2 A: \"Vroeger kreeg ik het rooster en moest ik mijn leven daaromheen bouwen. Nu is het andersom. Ik houd mijn trainingsavonden vrij en werk in ruil daarvoor liever een weekend extra.\" B reversed (an extra weekend); C: he hardly needs to swap, easier swapping is not claimed.",
+        "q3 B: \"Ik maak het rooster niet meer, ik bewaak het. Ik controleer of de regels worden gevolgd en ik vul de gaten die de collega's zelf niet gevuld krijgen. Dat zijn er verrassend weinig.\" A is what she did 'vroeger'; C contradicted by 'ging het ook bij hen goed' after a short explanation.",
+        "q4 A: \"In april wilden vijf verpleegkundigen dezelfde week vrij, in de meivakantie. Vroeger had zij dan zelf moeten beslissen wie er pech had. \\\"Nu zagen ze in de app dat het niet paste. Twee collega's zonder schoolgaande kinderen hebben toen hun vakantie een week opgeschoven, zonder dat ik iets hoefde te zeggen.\\\"\" B turns a voluntary choice into a priority rule; C is the reverse of what happened.",
+        "q5 C: \"Het aantal verzoeken om een dienst te ruilen is meer dan gehalveerd.\" with the surrounding sentences: A contradicted by 'terwijl het op de andere afdelingen gelijk bleef' (after edit 9); B overstates 'minder vaak'.",
+        "q6 B: \"De ondernemingsraad wijst erop dat populaire diensten, zoals de dagdienst op een doordeweekse dag, snel bezet zijn door collega's die als eerste hun wensen invullen. Wie later invult, houdt de avonden en de weekenden over.\" A is the planner's remark, solved; C misreads 'lost het tekort … niet op'.",
+        "q7 A: \"De verpleegkundigen daar maken hun rooster zelf, met een app op hun telefoon. Het ziekenhuis hoopt zo het werk aantrekkelijker te maken en het aantal ziekmeldingen te verlagen. Na een half jaar zijn de eerste cijfers bekend.\" B: the feature takes no position and ends with an open decision; C: the council's point is one paragraph with a proposed fix."
+      ]
+    },
+    {
+      "id": "B1:reading:batch034-deeltijd-hbo:1",
+      "verdict": "pass",
+      "edited": true,
+      "task_type": "interview",
+      "text_type": "descriptief",
+      "domain": "educatie",
+      "words": 645,
+      "questions": 6,
+      "keys": "BCAABC",
+      "level_figures": {
+        "prose_sentences": 42,
+        "average_sentence": 14.1,
+        "longest_sentence": 28
+      },
+      "level": "comparable (q5 on the easy side)",
+      "level_reason": "Interview in the shape of 010 ploegendienst: an introduction, six interviewer questions as subheadings, the student in the first person. Inverted conditional ('ga ik … weg, dan betaal ik'), a comparative correlative ('Hoe eerder ik vertrek, hoe groter dat deel'), relative clauses, signal words (daarom, want, sindsdien, voordat); studieovereenkomst and collegegeld glossed by their sentences. q1 assembles the week from five sentences, q2 needs the negation 'moet je niet bij de coach zijn', q3 needs both halves of a judgement, q4 applies the clause to a case, q5 is the example-function item, q6 the purpose. q5 is lighter than an official example-function item because the title already carries its point; accepted, official interview titles do the same.",
+      "evidence": [
+        "q1 B: \"Op dinsdag ga ik na het werk meteen door naar de hogeschool … Vrijdagochtend is mijn studieochtend. Die vier uur krijg ik van mijn werkgever; ze worden gewoon doorbetaald. Vrijdagmiddag ben ik vrij en doe ik het huishouden. Op zondagochtend zit ik nog een keer drie uur aan mijn bureau …\" A: only Tuesday has a class; C: Friday afternoon is free.",
+        "q2 C: \"een docent met wie je elke zes weken een gesprek hebt over je planning en je voortgang. Voor vragen over de stof moet je niet bij de coach zijn … Maar als het thuis of op het werk even niet loopt, kun je bij haar terecht.\" A: wrong frequency and subject; B: the negated role.",
+        "q3 A: \"Ze zijn handig, want ik hoef er niet voor naar school, maar ze vragen wel discipline. Een video kijk je makkelijk uit zonder dat je iets onthoudt.\" B: not harder, and what she misses is fellow students; C: the modules carry 'de rest van de stof'.",
+        "q4 A: \"ga ik binnen twee jaar na mijn diploma bij het bedrijf weg, dan betaal ik een deel van het collegegeld terug. Hoe eerder ik vertrek, hoe groter dat deel.\" Summer 2029 → spring 2030 is within two years; B misreads the diploma as the end of the obligation; C: 'een deel', not the whole.",
+        "q5 B: \"In het gesprek daarna heeft mijn studiecoach mij geholpen om vaste studiemomenten te kiezen en die in mijn agenda te zetten … Sindsdien heb ik elk tentamen in één keer gehaald.\" A: the closing aside on grades; C: the trigger, not the lesson ('Ik wilde alles in de laatste week doen').",
+        "q6 C: \"In de serie 'Studeren naast je werk' vertelt zij hoe zij dat volhoudt.\" A: she calls her own arrangement reasonable, nothing is argued; B: 'zwaar, maar … ook heerlijk', with advice on how to do it."
+      ]
+    },
+    {
+      "id": "B1:reading:batch034-bewonersvergunning:1",
+      "verdict": "pass",
+      "edited": true,
+      "task_type": "opzoektekst",
+      "text_type": "instructief",
+      "domain": "overig",
+      "words": 628,
+      "questions": 7,
+      "keys": "BBACCAB",
+      "level_figures": {
+        "prose_sentences": 39,
+        "average_sentence": 15.8,
+        "longest_sentence": 29
+      },
+      "level": "comparable",
+      "level_reason": "Gemeente information page under six headings in the conditional register of Dutch regulations ('Woont u …, dan …', 'Hoort bij uw woning …, dan …', 'Is de zone vol, dan …', 'Koopt u een andere auto, geef dan …'), passives and relative clauses ('de zone waarin u woont', 'de volle maanden die nog niet begonnen zijn'); vergunningzone, kentekenbewijs and parkeercontroleur carried by context. Six persona scanning items: single-rule lookups (q1, q3, q5, q6, lighter), a sum that needs the centrum → zone A mapping, the first tariff and the doubling rule (q2), and the other-zone rule plus the refund month (q4, the hardest), then the purpose. Comparable with 010 busabonnement and 024 examenreglement.",
+      "evidence": [
+        "q1 B: \"Hoort bij uw woning een eigen parkeerplaats of een garage, dan komt u niet in aanmerking voor een vergunning.\" A: the waiting list belongs to a second permit in a full zone; C: the double tariff is the price of a second permit.",
+        "q2 B: \"Een eerste vergunning kost in zone A 216 euro per jaar … Een tweede vergunning kost het dubbele van het tarief van uw zone.\" with 'Zone A is het centrum': 216 + 432 = 648. A doubles the first tariff only; C doubles the doubled tariff.",
+        "q3 A: \"De bezoekersregeling is er voor alle bewoners van een vergunningzone, dus ook als u zelf geen auto en geen vergunning hebt.\" with 'Voor bezoek zijn er twee mogelijkheden'. B invents a restriction; C contradicted by 'De auto moet op uw naam staan'.",
+        "q4 C: \"Verhuist u naar een andere zone, dan vraagt u een nieuwe vergunning aan … In beide gevallen stopt uw oude vergunning op de dag van de verhuizing. U krijgt dan het geld terug voor de volle maanden die nog niet begonnen zijn.\" A contradicted by 'stopt … op de dag van de verhuizing'; B applies the within-zone rule to a move between zones.",
+        "q5 C: \"Aanvragen met de DigiD van iemand anders is niet toegestaan. Hebt u zelf geen DigiD, maak dan een afspraak bij de balie in het gemeentehuis en neem uw identiteitsbewijs en uw kentekenbewijs mee.\" A contradicted by the first sentence; B (after edit 13) drops the appointment and one of the two documents.",
+        "q6 A: \"De vergunning is digitaal en gekoppeld aan uw kenteken; de parkeercontroleur ziet in het systeem dat u mag parkeren. U ontvangt dus geen kaart of sticker.\" B: the decision notice is not the permit; C: the scratch card is for visitors.",
+        "q7 B: \"Op deze pagina leest u voor wie de vergunning is, wat die kost en hoe u die aanvraagt.\" A: both visitor options are presented without preference; C: the second-permit price is one sentence."
+      ]
+    }
+  ],
+  "diversity_review": "Three settings, domains, text types and task types with distinct tested operations; personas unique within the batch (Selma; mevrouw Bakker, Fatima, meneer De Vries, Julio, Hasan with his son Sem, Karim), Sem as Hasan's son consistent with config/illustration.json; first self-rostering text and first news feature in werk, first interview with a student (011 deeltijdopleiding is a ROC admission page), first B1 parking text (the A2 parkeervergunning items are a renewal letter and a voicemail in other fictional gemeenten). Nearest neighbour 010 ploegendienst: distinct in genre, subject and operations, with one overlapping vroeger/nu inference (010 q5, 034 q4); keep the two apart in drills and forms. No overlap with batch 035 (te-voet, kasopmaak, mediatheek). With 010, 011, 024 and 034: four B1 reading texts per domain; text types beschouwend 3, persuasief 2, instructief 4 (three look-up texts), descriptief 3.",
+  "set_assembly": {
+    "drills": [
+      "b1-reading-07: zelfroosteren + deeltijd-hbo (13 Q)",
+      "bewonersvergunning (7 Q) pairs with a six-question text of another batch (035 te-voet, also overig, would make a 13-question overig drill) or waits for a mock form"
+    ],
+    "mock_forms": "Form 2 as planned in the 024 review (klachtenafhandeling werk/descriptief, gratis-zwemles overig/persuasief, examenreglement educatie/instructief as text 6) gains zelfroosteren (werk, beschouwend) and deeltijd-hbo (educatie, descriptief); it still needs one overig text read in full (035 te-voet is a candidate). bewonersvergunning then serves as text 6 of form 3; alternatively it is text 6 of form 2 and examenreglement moves to form 3. zelfroosteren and 010 ploegendienst belong to different forms."
+  },
+  "media_notes": [
+    "None: B1 reading items carry no audio or pictures."
+  ],
+  "coordinator_notes": [
+    "Adopt with npm run batch:adopt 034; source_sha256 is the hash of content/batches/034-proposed.json.",
+    "content/batches/034-notes.md is stale in nine places after the edits (the kept roster rule, the wish-week sentence, 'bezet zijn door', 'Vooraf', the Friday-hours clause, 'tien uur', text 2 q2/q4/q5 wordings, text 3 q5 distractor B, the taskType); the notes were not edited.",
+    "taskType opzoektekst can be reverted to website at adoption if the brief's label is preferred; the checker accepts both and no set depends on it.",
+    "Mock form 2 can now be completed with 034 except for one overig text read in full (see set_assembly).",
+    "The app prints \"Lees eerst de vraag. Lees daarna de tekst.\" under the situation line of nt2-i reading items (noted since the 010/011 level check); not a content matter."
+  ],
+  "limitations": [
+    "AI editorial review; no independent educator review, learner trial or psychometric calibration; no claim of equivalence with the Staatsexamen NT2 Programma I. Level labels remain unvalidated authoring targets.",
+    "The level column compares each text with the Lezen I description and the calibrated 010/011/024 texts; content/exemplars/ does not exist.",
+    "Originality rests on the author's declaration and the reviewer's reading of the official formats; the employment-law statement about the repayment clause was checked against current Dutch guidance on 2026-09-11 and appears in the text only as one employee's agreement, not as legal advice."
+  ]
+}

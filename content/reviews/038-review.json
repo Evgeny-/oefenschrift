@@ -1,0 +1,281 @@
+{
+  "review_id": "batch038-editorial-review",
+  "source": "content/batches/038-original.json",
+  "source_original_sha256": "8baee3d2b2d464d53189635453ce4070dbe2145a5b83ae83bf21726be9edff9b",
+  "proposed": "content/batches/038-proposed.json",
+  "source_sha256": "5da7b7ccc779438356d501b1a7f28fafda2fa47a7161a8f2700cf4d5de55f507",
+  "source_note": "source_sha256 is the SHA-256 of the proposed file, the bytes npm run batch:adopt 038 will adopt; source_original_sha256 is the author's file as reviewed.",
+  "starters_source": "content/batches/038-starters.json",
+  "starters_sha256": "c87a42f51271984ff668892da692acb3b81006c076cc11407f359bcb3fb3e3f0",
+  "starters_verdict": "pass",
+  "starters_note": "038-proposed-starters.json is byte-identical to the author's 038-starters.json (same hash): the starters were re-read against the edited criteria (E1, E2, E3) and need no change; the file exists because the brief asks for it when a criterion changed.",
+  "review_type": "AI editorial review of B1 writing zinstaken (Staatsexamen NT2 Programma I Schrijven, tasks 1-8) and their sentence starters: prompt form and gap type, scaffold register, whether the lead-in forces exactly the grammar target and the context one function, criteria naming the structure, sample quotes and learner errors, model structure, an alternative correct sentence per task, level, originality and name checks; repairs applied in the proposed file",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_summary": "8 pass in the proposed file (5 unchanged, 3 after edits), 0 rejected. Edits: betaalpas grammar criterion rewritten to the second-position rule so that all three correct orders after 'dus' earn the point (required) and its adequacy criterion widened so that a request to unblock the card counts; laptop adequacy criterion widened with examples and its closing body sentence changed so that 'dan' no longer points at the Anders sentence; straatverlichting sample replaced by one that unambiguously misses adequacy only (required). Doubts: domain tags 2/2/4 accepted as honest; the bank stays generic and the to-address stays; 'dus' accepted as hoofdzin trigger with both orders; 'Die dag' accepted as inversion trigger; korfbal and 028-ophalen both kept and placed apart. Starters pass unchanged. Level: all eight comparable with the official zinstaak; none off-level.",
+  "edits": [
+    {
+      "id": "E1",
+      "item": "B1:writing:batch038-betaalpas:1",
+      "field": "criteria[1]",
+      "kind": "required",
+      "old": [
+        "De zin is een correcte hoofdzin na 'dus': de persoonsvorm staat direct na het onderwerp of direct na 'dus' (hoofdzinsvolgorde), niet achteraan zoals in een bijzin.",
+        "The sentence is a correct main clause after 'dus': the finite verb comes directly after the subject or directly after 'dus' (main-clause order), not at the end as in a subordinate clause."
+      ],
+      "new": [
+        "De zin is een correcte hoofdzin na 'dus': de persoonsvorm staat op de tweede plaats (hoofdzinsvolgorde), direct na het onderwerp ('dus ik kan …') of met inversie direct na 'dus' of na een ander zinsdeel vooraan ('dus kan ik …', 'dus nu kan ik …'); niet achteraan zoals in een bijzin.",
+        "The sentence is a correct main clause after 'dus': the finite verb is in second position (main-clause order), directly after the subject ('dus ik kan …') or, with inversion, directly after 'dus' or after another fronted element ('dus kan ik …', 'dus nu kan ik …'); not at the end as in a subordinate clause."
+      ],
+      "why": "The author's wording admitted only 'directly after the subject or directly after dus', so a correct, natural sentence such as '…, dus nu kan ik niets meer betalen.' (fronted adverb inside the dus-clause) would have failed the self-check and the judge (rubric 4, 5); the same failure class as 014-verjaardag, repaired with the second-position rule that 014 required and 028 used for 'maar'. Verb-final order (the sample) still fails; the model and both starters still meet it."
+    },
+    {
+      "id": "E2",
+      "item": "B1:writing:batch038-betaalpas:1",
+      "field": "criteria[0], adequacyNote",
+      "kind": "recommended",
+      "old": [
+        "De zin noemt het gevolg voor de schrijver: hij of zij kan nu niet betalen of geen geld opnemen, heeft de pas dringend weer nodig of zit door de blokkade in de problemen.",
+        "The sentence names the consequence for the writer: he or she cannot pay or withdraw money now, urgently needs the card again or is in trouble because of the block.",
+        "Het gevolg voor de schrijver noemen: hij of zij kan nu niet betalen of geen geld opnemen, heeft de pas dringend weer nodig of zit door de blokkade in de problemen."
+      ],
+      "new": [
+        "De zin noemt het gevolg van de blokkade voor de schrijver: hij of zij kan nu niet betalen of geen geld opnemen, heeft de pas dringend weer nodig (of vraagt daarom om de pas snel te deblokkeren) of zit door de blokkade in de problemen.",
+        "The sentence names the consequence of the block for the writer: he or she cannot pay or withdraw money now, urgently needs the card again (or therefore asks for the card to be unblocked quickly) or is in trouble because of the block.",
+        "Het gevolg van de blokkade voor de schrijver noemen: hij of zij kan nu niet betalen of geen geld opnemen, heeft de pas dringend weer nodig (of vraagt daarom om de pas snel te deblokkeren) of zit door de blokkade in de problemen."
+      ],
+      "why": "'…, dus ik wil u vragen de pas zo snel mogelijk te deblokkeren.' is a natural continuation of 'Ik betaal bijna alles met deze pas' and shows the intention the exam judges tolerantly; the closed list left it to the judge (rubric 5). Sample and model still meet criterion 1; both starters fit."
+    },
+    {
+      "id": "E3",
+      "item": "B1:writing:batch038-laptop:1",
+      "field": "criteria[0], adequacyNote",
+      "kind": "recommended",
+      "old": [
+        "De zin noemt het gevolg als de schrijver de laptop niet kan delen: hij of zij kan dan niet of niet goed meedoen met de workshop, zit zonder computer of moet de opdracht op een andere manier maken.",
+        "The sentence names the consequence if the writer cannot share the laptop: he or she then cannot take part in the workshop or not properly, has no computer or has to do the assignment another way.",
+        "Het gevolg noemen als het delen niet kan: de schrijver kan dan niet of niet goed meedoen met de workshop, zit zonder computer of moet de opdracht op een andere manier maken."
+      ],
+      "new": [
+        "De zin noemt het gevolg als de schrijver de laptop niet kan delen, bijvoorbeeld: hij of zij kan dan niet of niet goed meedoen met de workshop, zit zonder computer, moet ergens anders een laptop lenen of moet de opdracht op een andere manier maken.",
+        "The sentence names the consequence if the writer cannot share the laptop, for example: he or she then cannot take part in the workshop or not properly, has no computer, has to borrow a laptop somewhere else or has to do the assignment another way.",
+        "Het gevolg noemen als het delen niet kan: de schrijver kan dan niet of niet goed meedoen met de workshop, zit zonder computer, moet ergens anders een laptop lenen of moet de opdracht op een andere manier maken."
+      ],
+      "why": "'Anders moet ik ergens anders een laptop lenen.' is a consequence a learner writes here and the closed list did not name it; 'bijvoorbeeld' makes the list examples, as the batch's other adequacy criteria already do. The sample (a repeated request) still fails; the model and both starters still meet it."
+    },
+    {
+      "id": "E4",
+      "item": "B1:writing:batch038-laptop:1",
+      "field": "scaffold.body",
+      "kind": "recommended",
+      "old": "De docent wil dat we donderdag allemaal een laptop meenemen voor de workshop over presenteren. Ik heb thuis alleen een tablet, en daarop werkt het programma niet. Mag ik donderdag naast je zitten en jouw laptop met je delen? Anders ___. Ik neem dan iets lekkers mee voor in de pauze.",
+      "new": "De docent wil dat we donderdag allemaal een laptop meenemen voor de workshop over presenteren. Ik heb thuis alleen een tablet, en daarop werkt het programma niet. Mag ik donderdag naast je zitten en jouw laptop met je delen? Anders ___. Als je het goedvindt, neem ik iets lekkers mee voor in de pauze.",
+      "why": "With the gap filled ('Anders kan ik donderdag niet meedoen …') the next sentence's 'dan' attached to the Anders case and read as 'in that case I'll bring something nice'; the app shows the model inside the gapped body, so the learner reads the whole e-mail (rubric 3, 4). The new sentence keeps register, sweetener and B1 shape and touches nothing the gap depends on; body 54 words."
+    },
+    {
+      "id": "E5",
+      "item": "B1:writing:batch038-straatverlichting:1",
+      "field": "sample, quotes",
+      "kind": "required",
+      "old": [
+        "Ik heb daarna geen enkele bericht meer van u ontvangen.",
+        [
+          null,
+          "Ik heb daarna geen enkele bericht meer van u ontvangen."
+        ]
+      ],
+      "new": [
+        "Ik fiets elke avond over deze fietspad naar huis.",
+        [
+          null,
+          "Ik fiets elke avond over deze fietspad naar huis."
+        ]
+      ],
+      "why": "A sample must miss exactly one point. 'Ik heb daarna geen enkele bericht meer van u ontvangen.' implies that nothing was done and lets 'daardoor' attach to the broken lamp of the first sentence, so tolerant adequacy marking could give the point and the sample would miss nothing. The new sample is a correct main clause with the verb second (grammar met, quoted whole) that says nothing about the light or the report, so the subject line, 'daardoor' and the closing question hang: adequacy null without argument. One tolerated error ('deze fietspad'), 9 words."
+    }
+  ],
+  "rejected": [],
+  "decisions_on_author_doubts": {
+    "1_domain_counts": "Accepted as honest tags: werk 2 / educatie 2 / overig 4 (the requested 3/2/3 would need a different setting, not a retag). None of the four overig tasks is a work situation or the candidate's own study; the child's club is daily life as in 028-ophalen, 016 and 017. Running zinstaak total after 014, 028, 038: werk 8, educatie 6, overig 10; the next zinstaak batch should lean werk.",
+    "2_bank_name": "Keep generic: no bank in subject, salutation or body, no bank rule claimed; the fictional to-address klantenservice@zilverdijkbank.nl may stay (coordinator's rule; 028 accepted Wilgendam). Web check repeated 2026-09-11: no bank or firm named Zilverdijk/Zilverdijkbank.",
+    "3_dus_two_orders": "Accepted as the hoofdzin trigger. The criterion now states the second-position rule with the three correct orders as examples ('dus ik kan …', 'dus kan ik …', 'dus nu kan ik …') instead of naming two positions (E1); verb-final order, the omdat carry-over, still fails.",
+    "4_die_dag_as_inversion_trigger": "Accepted, as 'Volgens het huurcontract' in 028: a fronted time phrase forces the finite verb next; no correct completion begins with the subject; 'Die dag, mijn buurvrouw haalt …' with a comma shows no inversion and earns no grammar point (feedback note, as for 'Helaas,').",
+    "5_korfbal_next_to_028_ophalen": "Both kept: settings fixed by the coordinator; both start from a parent blocked by work, but the acts, structures, addressees, children and register differ (request with dat-clause to a teacher versus announcement with inversion to a trainer). Placement rule: never in one drill; at least three positions apart if a form ever holds both. The body never names korfbal (only the title does), which is fine.",
+    "6_laptop_sample": "Keep: a repeated request after an adverb that demands a consequence is the copied-request failure (as 028-dienstruil), 0 for adequacy; feedback should name it as a repetition.",
+    "7_body_length": "Keep: 46-56 words in three to five sentences; receptie's 20-word opener is two coordinated main clauses and the 25-word full model sentence is under the B1 limit of 30; \"en die kon ik niet verzetten\" motivates the request.",
+    "8_certificaat_premise": "Keep: the agreement is stated in the e-mail, no cao or legal rule is claimed, and asking when an agreed amount is paid is an ordinary work e-mail; 295 euro is a realistic basic BHV fee.",
+    "9_is_het_mogelijk_om": "Accepted: the standard B1 request formula that takes om … te, a new frame next to 014's 'lukt het mij niet om' and 028's 'een dag vrij nemen om'; 028's 'Zou het mogelijk zijn dat' tests a bijzin.",
+    "10_inhalen_sample": "Keep: asking to postpone the test is a different request from the one the context demands (the explanation of the missed lesson, with days offered for it), so adequacy is 0; unlike the straatverlichting sample it does not imply the required content. Feedback: the task was to ask for the lesson, not to move the test.",
+    "11_two_consequences_two_questions": "Accepted: the lead-ins differ in kind (coordinator 'dus' versus adverb 'Anders'; open versus indirect after 'wanneer'), so the structures differ, as in 014.",
+    "12_cast_names": "Fine: the section 8 list is a pool of names; Hasan (cast: a man in his fifties) as the neighbour at number 12, Roos as a fellow student and Farah as a neighbour contradict nothing.",
+    "13_cross_part_echoes": "Allowed and recorded in diversity_review; none is a re-skin.",
+    "14_slugs_and_concurrent_batches": "Confirmed: no slug exists in any part of the catalogue or in batches 032-037; lantaarnpaal, sportclub, bezorging, pakket, burenpakket and training exist in other parts or levels and were avoided; no checker warning."
+  },
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 8,
+    "distribution": {
+      "B1_writing": 8
+    },
+    "task_types": {
+      "zinstaak": 8
+    },
+    "grammar_targets": {
+      "hoofdzin": 2,
+      "bijzin": 2,
+      "inversie": 2,
+      "te-infinitief": 1,
+      "vrij": 1
+    },
+    "lead_ins": {
+      "zodat": "receptie",
+      "open": "verkeerd-bezorgd, straatverlichting",
+      "om (after Is het mogelijk)": "inhalen",
+      "dus": "betaalpas",
+      "Die dag": "korfbal",
+      "wanneer": "certificaat",
+      "Anders": "laptop"
+    },
+    "registers": {
+      "formal": 4,
+      "informal": 4
+    },
+    "domains_proposed": {
+      "werk": 2,
+      "educatie": 2,
+      "overig": 4
+    },
+    "domains_original": {
+      "werk": 2,
+      "educatie": 2,
+      "overig": 4
+    },
+    "batch_check_original": "npm run batch:check content/batches/038-original.json: Checked 8 items, 0 questions. No failures, no warnings.",
+    "batch_check_proposed": "npm run batch:check content/batches/038-proposed.json: Checked 8 items, 0 questions. No failures, no warnings.",
+    "diff_original_to_proposed_verified_field_by_field": "betaalpas.criteria[1]; betaalpas.criteria[0], .adequacyNote; laptop.criteria[0], .adequacyNote; laptop.scaffold.body; straatverlichting.sample, .quotes; the build script asserts every old value and reverting the eight values reproduces 8baee3d2 exactly",
+    "prompts_carry_official_instruction": true,
+    "prompt_wording_matches_gap_type": "'Maak de e-mail af. Maak de zin op de open plek af.' for the six lead-in gaps, 'Maak de e-mail af. Schrijf één zin op de open plek.' for the two open gaps (014 decision 2)",
+    "lead_in_forces_exactly_the_target": true,
+    "context_forces_one_function": true,
+    "scaffolds_complete_and_register_consistent": true,
+    "criteria_two_per_task_adequacy_then_grammar": true,
+    "grammar_criterion_names_the_structure": "verb final (bijzin: receptie after zodat, certificaat after wanneer), verb second in all main-clause orders (hoofdzin: betaalpas after dus with the three orders named, straatverlichting open), verb before subject (inversie: korfbal after a fronted time phrase, laptop after Anders), te before the infinitive with the separable case (inhalen), any correct structure (vrij: verkeerd-bezorgd)",
+    "bilingual_criteria_agree": true,
+    "open_sample_quotes_are_verbatim": true,
+    "one_null_quote_per_item": true,
+    "null_positions": "adequacy missed in verkeerd-bezorgd, inhalen, laptop, straatverlichting; grammar missed in receptie, betaalpas, korfbal, certificaat",
+    "learner_errors_per_sample": "1-2; where grammar is missed the error is the one that costs the point (main-clause order inside a zodat- or wanneer-clause, verb-final order after dus, verb third after Die dag); where adequacy is missed the only error is a tolerated ending (het verjaardag, een latere moment, jou, deze fietspad)",
+    "no_prompt_sentence_copied_into_sample_or_model": true,
+    "models_meet_every_criterion": true,
+    "models_show_target_structure": true,
+    "alternative_correct_sentence_per_task": true,
+    "model_word_range": "10-13 typed words; 10-25 as full sentences with the lead-in",
+    "sample_word_range": "7-11 words",
+    "body_shape": "3-5 sentences including the gap sentence, 46-56 words (laptop 54 after E4), sentence averages 10.4-16.7, longest sentence 21 (straatverlichting), none over 30",
+    "weekday_dates_verified_for_2026": "dinsdag 18 augustus, dinsdag 8 september, maandag 14 september, woensdag 23 september, donderdag 24 september",
+    "facts": "BHV = bedrijfshulpverlening, 295 euro a realistic basic-course fee, the reimbursement is an agreement stated in the e-mail; no bank rule, no carrier, no municipal procedure claimed; meldingsnummer and phone number invented in the blueprint form",
+    "invented_organisation_names_checked_on_web_2026_09_11": "Taalschool Zonnedreef, Vlasborg, Zilverdijkbank, Lindervoort: none is a real school, firm, bank or municipality (Taalschool Utrecht/Rijswijk/Rotterdam, Vlas B.V., Zilverbank silver shop, Westervoort/Meerdervoort are different names); Dahliastraat is a common street name used without a town",
+    "cast_names": "Ricardo, Hasan, Roos, Farah from the blueprint list and cast; Sander, Yusuf, mevrouw Hendriks, mevrouw Roelofs invented; no name twice in the batch; Hasan (cast: man in his fifties) as a neighbour contradicts no family link",
+    "no_real_addresses": "Dahliastraat without a town; house numbers 12 and 21 without a street",
+    "avoid_list_respected": true,
+    "slug_unique_within_part": true,
+    "slug_shared_with_another_part": null,
+    "six_word_phrase_overlap_with_catalogue": "only the fixed instruction sentences and the criterion formulae shared with 014/028 (required by the format); no body, sample or model phrase recurs",
+    "exemplars_available": false,
+    "all_target_levels_validated": false,
+    "official_equivalence_claim": false
+  },
+  "starters_checks": {
+    "item_ids_match_batch": true,
+    "one_starter_per_criterion_in_order": true,
+    "every_starter_has_ellipsis": true,
+    "partial_not_complete_answers": true,
+    "fit_the_gap_after_the_lead_in": true,
+    "grammatical_when_completed_naturally": true,
+    "register_matches_scaffold": true,
+    "no_invented_task_facts": true,
+    "aligned_with_proposed_criteria": "betaalpas starters (one per order) are admitted by E1 and meet the widened criterion 1 (E2); laptop starters are consequences under E3; straatverlichting starters are unaffected by E5",
+    "notes": "For a zinstaak both starters are fragments that fit the printed gap, so each shows the target structure and leaves the content to the learner. The first starter of receptie, inhalen, korfbal, certificaat and laptop is the model's frame with the facts blanked, as accepted in 014 and 028."
+  },
+  "items": [
+    {
+      "id": "B1:writing:batch038-receptie:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Informal e-mail to colleague Ricardo ('Hoi Ricardo,' / 'Groetjes,', jij/jouw/je); lead-in ', zodat ___?' is subordinating, so verb-final, and between the request to cover the desk from half past twelve to two and the offer to sit at the desk on Friday only the purpose of the cover fits (on time at the dentist, or desk and phone staffed). Sample 'ik kan op tijd bij het tandarts zijn' states the purpose (quoted whole); main-clause order inside the zodat-clause, so criterion 2 is null; second error 'het tandarts' (gender, tolerated). Model 'ik op tijd bij de tandarts ben en de balie bezet blijft', 12 typed words, 'ben' and 'blijft' last in their clauses. Donderdag 24 september 2026 verified. A one-hour desk cover with a purpose clause exists nowhere in the bank (003-vrijwilligersrooster and 015-pauzerooster are other formats and acts).",
+      "alternative_sentence": "Zou jij die dag van half een tot twee uur de receptie willen overnemen, zodat er tijdens mijn afspraak iemand aan de balie zit?",
+      "level_check": "comparable: a purpose clause after zodat, the same verb-final test as omdat (014) and als (028); the 20-word opener is two coordinated main clauses."
+    },
+    {
+      "id": "B1:writing:batch038-verkeerd-bezorgd:1",
+      "verdict": "pass",
+      "level": "comparable, slightly easier",
+      "evidence": "Informal e-mail to neighbour Hasan ('Hoi Hasan,' / 'Groetjes,', jouw/je) with an open gap and the prompt 'Schrijf één zin op de open plek.'; the swapped digits (delivered at 12, the writer lives at 21) and 'Ik ben vanavond na zes uur thuis en morgen de hele dag' force a sentence that asks Hasan about the package or proposes how the writer gets it; a question or a request statement both do it, which justifies grammarTarget vrij (criterion 2: correct word order and finite verb, as 014-studieadviseur and 028-bedankje). Sample 'Het pakket is een cadeau voor het verjaardag van mijn zus.' is a correct main clause (quoted whole) that asks nothing, so criterion 1 is null; 'het verjaardag' tolerated. Model 'Kan ik het pakket vanavond even bij je komen ophalen?', 10 words. The A2 items about packages (002-burenpakket, 022-pakket, 008-bezorging) are other parts, levels and acts; the writer's own package at the wrong number is new.",
+      "alternative_sentence": "Heb jij het pakket misschien aangenomen?",
+      "level_check": "comparable, slightly easier: any correct sentence earns the grammar point; one vrij task in eight, like 014-studieadviseur and 028-bedankje."
+    },
+    {
+      "id": "B1:writing:batch038-inhalen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Formal reply to the language school ('Geachte mevrouw Hendriks,' / 'Met vriendelijke groet,', uw; subject 'Re: Afwezig op maandag 14 september'); lead-in 'Is het mogelijk om ___?' takes te + infinitive and nothing else; 'Ik wil de uitleg van die les niet missen, omdat de toets al over twee weken is' and 'Ik kan op woensdag en vrijdag de hele dag' force a request to make up the lesson or get the material. Sample 'de toets op een latere moment te maken' is a correct te-infinitive (quoted whole) that asks for a later test instead, the misread-task failure, so criterion 1 is null; 'een latere moment' tolerated. Model 'de les van maandag deze week bij een andere groep in te halen', 13 typed words, 'te' inside the separable verb, the case the criterion names. Maandag 14 september 2026 verified. Taalschool Zonnedreef is no real school (web, 2026-09-11). 028-aantekeningen asks a course mate for notes and B1 speaking 002-cursusgemist phones a fellow student; a formal written request to the school is new.",
+      "alternative_sentence": "Is het mogelijk om de uitleg van die les op woensdag van de docent te krijgen?",
+      "level_check": "comparable: the official te-infinitief task with the separable-verb case in the model; the request formula is the one B1 learners use."
+    },
+    {
+      "id": "B1:writing:batch038-betaalpas:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Formal e-mail to a bank's customer service ('Geachte heer, mevrouw,', uw; the bank is named only in the to-address); lead-in 'Ik betaal bijna alles met deze pas, dus ___.' joins main clauses, so verb second in any main-clause order, and with 'zo snel mogelijk' in the closing question only the consequence of the block fits. Sample 'ik nu bijna niks meer kan betalen' names the consequence (quoted whole); verb-final order after 'dus', the omdat carry-over, so criterion 2 is null; one error, the decisive one ('niks' is colloquial, not an error). Model 'ik kan nu geen boodschappen doen en ook geen geld opnemen', 11 typed words, 'kan' directly after the subject. Criterion 2 rewritten to the second-position rule with the three correct orders (E1) because 'dus nu kan ik …' would have failed under the author's wording; criterion 1 and adequacyNote widened so that a request to unblock the card counts (E2). No bank rule claimed. No bank item exists in any part.",
+      "alternative_sentence": "Ik betaal bijna alles met deze pas, dus heb ik de pas dringend weer nodig.",
+      "level_check": "comparable: the want/maar-type main-clause test; the two idiomatic orders after dus are the point to explain in feedback."
+    },
+    {
+      "id": "B1:writing:batch038-korfbal:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Informal e-mail to trainer Sander ('Hoi Sander,' / 'Groetjes,', je/me); lead-in 'Die dag ___.' is a fronted time phrase that forces the finite verb next, as 'Volgens het huurcontract' in 028; 'kan ik niet op tijd bij de zaal zijn' and 'Yusuf weet ervan' leave only who collects him or how the pick-up is arranged that day. Sample 'mijn buurvrouw Farah haalt hem op na het training' names the arrangement (quoted whole); verb third after 'Die dag', so criterion 2 is null; second error 'het training'. Model 'haalt mijn buurvrouw Farah hem na de training bij de zaal op', 12 typed words, 'haalt mijn buurvrouw' directly after the phrase. Woensdag 23 september 2026 verified; phone number in the blueprint form. The body names no sport (the title does). Kept next to 028-ophalen (doubt 5): different act, structure, addressee, child and register; placed apart.",
+      "alternative_sentence": "Die dag wordt hij door de moeder van een teamgenoot opgehaald.",
+      "level_check": "comparable: inversion after a fronted phrase, like 028-borg and the official inversion tasks."
+    },
+    {
+      "id": "B1:writing:batch038-certificaat:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Formal e-mail to manager mevrouw Roelofs at Vlasborg ('Geachte mevrouw Roelofs,' / 'Met vriendelijke groet,'; no second-person form in the body, the salutation and closing fix the register as in 028-ophalen); lead-in 'Ik wil graag weten wanneer ___.' is an indirect question with verb-final order, the counterpart of 014's 'of'; the agreement (295 euro on passing) and the certificate as attachment leave one question, when the money comes. Sample 'krijg ik de kosten van het cursus terug' asks the right thing (quoted whole); direct-question order inside the wanneer-clause, so criterion 2 is null; second error 'het cursus'. Model 'ik het bedrag van 295 euro op mijn rekening kan verwachten', 11 typed words, 'kan verwachten' last. Dinsdag 8 september 2026 verified. Vlasborg is no real firm (web, 2026-09-11). 014-ziekmelding and 028-vrije-dag write to a manager with other acts; a passed exam with a reimbursement question is new.",
+      "alternative_sentence": "Ik wil graag weten wanneer de cursuskosten worden vergoed.",
+      "level_check": "comparable: an indirect question after wanneer, the same verb-final test as 014-examendatum's of."
+    },
+    {
+      "id": "B1:writing:batch038-laptop:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": "Informal e-mail to fellow student Roos ('Hoi Roos,' / 'Groetjes,', je/jouw); lead-in 'Anders ___.' forces inversion and, after the request to share the laptop, can only introduce what happens if sharing is not possible. Sample 'wil ik heel graag jou laptop gebruiken' is inverted (quoted whole) but repeats the request instead of naming a consequence, the copied-request failure, so criterion 1 is null; 'jou' for 'jouw' is a spelling slip outside the zinstaak scale. Model 'kan ik donderdag niet meedoen met de oefeningen op de computer', 11 typed words, 'kan ik' after 'Anders'. Criterion 1 and adequacyNote widened with examples and 'moet ergens anders een laptop lenen' (E3); the closing body sentence changed to 'Als je het goedvindt, neem ik iets lekkers mee voor in de pauze.' so that its 'dan' no longer attaches to the Anders sentence (E4). 003-reparatie is a laptop at repair (older format); 028-aantekeningen is a consequence after 'Helaas' before a request for notes; here the consequence follows the request after conditional 'Anders' in another setting.",
+      "alternative_sentence": "Anders zit ik de hele workshop zonder computer.",
+      "level_check": "comparable: a consequence after a sentence-initial adverb, like 014-ziekmelding and 028-aantekeningen."
+    },
+    {
+      "id": "B1:writing:batch038-straatverlichting:1",
+      "verdict": "pass",
+      "level": "comparable, harder end",
+      "evidence": "Formal complaint to the gemeente (meldingen@lindervoort.nl, 'Geachte heer, mevrouw,', uw) with an open gap and the prompt 'Schrijf één zin op de open plek.'; the subject 'Klacht: melding 2026-4471 nog niet opgelost', 'daardoor' in the next sentence and 'Wanneer wordt de lamp gerepareerd?' force a sentence saying the light is still broken or nothing has happened; a statement is a main clause with the verb second, which criterion 2 states with fronted elements included (014-afscheid wording). Model 'De lantaarnpaal is na drie weken nog steeds niet gerepareerd.', 10 words, 'is' second. The author's sample 'Ik heb daarna geen enkele bericht meer van u ontvangen.' could earn the adequacy point under tolerant marking (it implies nothing was done), so it was replaced (E5) by 'Ik fiets elke avond over deze fietspad naar huis.', a correct main clause (quoted whole) that says nothing about the light, criterion 1 null, 'deze fietspad' tolerated. Dinsdag 18 augustus 2026 verified; three weeks later fits an undated e-mail around 11 September. Lindervoort is no municipality (web, 2026-09-11). A2 writing 008-lantaarnpaal is a first report on an A2 form; the B1 follow-up complaint with a reference number is new.",
+      "alternative_sentence": "Tot nu toe is er niets gebeurd.",
+      "level_check": "comparable, harder end: an open gap without a structural cue, like 014-afscheid and 028-afvalpas; suited to a late position in a form."
+    }
+  ],
+  "diversity_review": "Eight settings, eight addressees, no cast name twice; six lead-in/structure combinations (zodat, om after 'Is het mogelijk', dus, Die dag, wanneer, Anders) plus two open gaps; speech acts a purpose, a question to a neighbour, a request, two consequences, an announcement, an indirect question, a complaint statement; registers 4 + 4; domains werk 2, educatie 2, overig 4. Against the B1 writing catalogue: no setting, addressee, organisation or lead-in recurs; with 014 and 028 there are eighteen frames plus six open gaps for drills. Nearest neighbours, distinct in act and structure: laptop next to 028-aantekeningen (fellow student, inversion after an adverb, consequence beside a request; different order, lead-in and setting); korfbal next to 028-ophalen (doubt 5); straatverlichting next to A2 008-lantaarnpaal (first report on a form) and 028-afvalpas (gemeente request); receptie next to 003-vrijwilligersrooster and 015-pauzerooster; certificaat next to 014-ziekmelding and 028-vrije-dag. Cross-part echoes (other parts, allowed): A2 002-burenpakket and 022-pakket next to verkeerd-bezorgd; B1 speaking 002-cursusgemist and 031-taalcafe-avond next to inhalen; A2 speaking 027-contant-pinnen next to betaalpas; A2 listening 005-voetbal and 023-turnles next to korfbal; B1 speaking 031-brandalarm and 030-rijexamen next to certificaat; 030-eindpresentatie next to the laptop workshop; 031-afvalcontainers next to straatverlichting. Batches 032-037 share only the work and gemeente spheres. Neighbourhood once (fixed by the coordinator), volunteering not at all; needed-list topics: cover at work, a training at work, delivery, a bank service, the children's sports club, a gemeente complaint.",
+  "set_assembly": "Drills of four (blueprint 11), two registers, three domains, four structures each: drill 1 receptie (bijzin zodat, I, werk), betaalpas (hoofdzin dus, F, overig), korfbal (inversie, I, overig), inhalen (te-infinitief, F, educatie); drill 2 certificaat (bijzin wanneer, F, werk), laptop (inversie, I, educatie), straatverlichting (hoofdzin open, F, overig), verkeerd-bezorgd (vrij, I, overig). Form: 015 and 029 are paired with 014 and 028, so these eight need two deelschrijftaken and two korte schrijftaken from a future batch before a third Schrijven I form (8 + 2 + 2) exists; suggested order 1 receptie, 2 betaalpas, 3 korfbal, 4 inhalen, 5 laptop, 6 certificaat, 7 verkeerd-bezorgd, 8 straatverlichting (registers alternate, open gaps last). korfbal and 028-ophalen never in one drill and at least three positions apart if a form ever holds both. content/blueprints/ does not exist; the form definition is a coordinator step.",
+  "media_notes": "None: zinstaken carry no images or audio.",
+  "coordinator_notes": [
+    "Adopt with npm run batch:adopt 038; the script verifies source_sha256 against 038-proposed.json and starters_sha256 against 038-proposed-starters.json (byte-identical to the author's starters), which it renames over the original.",
+    "Domain counts are werk 2 / educatie 2 / overig 4 instead of the requested 3 / 2 / 3 (accepted as honest tags); running zinstaak total werk 8 / educatie 6 / overig 10; brief the next zinstaak batch with three or four work settings.",
+    "Feedback instructions for zinstaken (the 014 and 028 lists still stand): after 'dus' both 'dus ik kan …' and 'dus kan ik …' (and 'dus nu kan ik …') are correct and verb-final order is the omdat carry-over; 'Die dag, mijn buurvrouw haalt …' and 'Anders, ik kan …' with a comma show no inversion and earn no grammar point, to be described as a missing inversion; 'zodat ik … kan zijn' (finite verb before an infinitive at the end) is correct verb-final order; 'wanneer krijg ik …' after 'Ik wil graag weten' is direct-question order; the inhalen sample is the misread-task failure, the laptop sample the repeated request, the straatverlichting sample personal context instead of the required statement; a 0 for adequacy loses the grammar point too in the real exam.",
+    "The four web checks of the author (notes section 5) were repeated on 2026-09-11 with the same result: no Taalschool Zonnedreef, no firm Vlasborg, no bank Zilverdijk, no municipality Lindervoort.",
+    "Blueprint 4.8 now carries the lead-in convention; the triggers of this batch fall under it and need no blueprint change.",
+    "content/exemplars/ still does not exist; level was judged against the official zinstaak description and batches 014 and 028."
+  ],
+  "limitations": "AI editorial review; no human difficulty validation, no claim of equivalence with the official exam; level judged against the official task description and batches 014 and 028, not stored exemplars or learner data; the feedback judge's handling of this batch's wordings (the three orders after 'dus', inversion after a fronted time phrase, the widened adequacy criteria, the replaced sample) needs its own evaluation with learner answers; the reviewer's five new wordings have had no independent second reading beyond the coordinator's diff."
+}

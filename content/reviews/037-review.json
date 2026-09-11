@@ -1,0 +1,528 @@
+{
+  "review_id": "batch037-editorial-review",
+  "source": "content/batches/037-original.json",
+  "source_original_sha256": "74b1585fd5b9d9848d34f2ef2ae8d821d478854a5d2e1209afa93bd977cea57f",
+  "source_sha256": "9ea63881893a68f37577cb685c908b19320673c9d1c8fa64f28f0d6b9cd30e40",
+  "proposed": "content/batches/037-proposed.json",
+  "starters_source": null,
+  "starters_sha256": null,
+  "starters_verdict": "not applicable: no open tasks in this batch",
+  "review_type": "AI editorial review of B1 listening scripts (Staatsexamen NT2 Programma I shape) before audio: shape, spoken naturalness, TTS safety, level, keys proven from evidence, every distractor tested, form signals, coherence, accident content kept non-graphic, diversity and media notes; repairs applied in the proposed file; the 025 reviewer's findings applied",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_summary": "Both texts pass in the proposed file after eleven edits: the abbreviation written as the voice must say it (m-b-o) in the intro and two turns, the required option-form repair of bouwplaats q1 (both distractors kept the helmet, the key alone handed it in), the hovenier q5 form pairing repaired and the item relabelled detail, the q7 key aligned with its evidence (meevalt), a coherence fix (twee keer per week), a sentence split, a prompt word that recurred only in the key (mag) removed, the accident sentence softened to a ladder and six weeks without eyewitness framing, two presenter framing lines varied away from 012-buschauffeur. No item rejected. Checker on the proposed file: no failures, no warnings.",
+  "edits": [
+    {
+      "id": "E1",
+      "item": "B1:listening:batch037-hovenier:1",
+      "field": "intro",
+      "kind": "recommended",
+      "new": "U hoort een interview uit een radioprogramma over leren op latere leeftijd. De presentator praat met Hanna. Zij is achtenzestig jaar en is na haar pensioen begonnen aan een m-b-o-opleiding tot hovenier. Ze vertelt over haar klas, het praktijkexamen en de reactie van haar familie.",
+      "why": "Coordinator's decision: mbo is spoken as letters and written as the voice must say it; the narrator speaks the intro."
+    },
+    {
+      "id": "E2",
+      "item": "B1:listening:batch037-hovenier:1",
+      "field": "questions[q1].script[0].text",
+      "kind": "recommended",
+      "new": "Goedemiddag. Vandaag praten we over leren op latere leeftijd. Mijn gast is Hanna, achtenzestig jaar en tweedejaars van de m-b-o-opleiding tot hovenier. Hanna, de meeste mensen doen het na hun pensioen rustiger aan. Waarom begon jij aan een opleiding?",
+      "why": "Same as E1, consistently in script and derived text."
+    },
+    {
+      "id": "E3",
+      "item": "B1:listening:batch037-hovenier:1",
+      "field": "questions[q5].script[1].text",
+      "kind": "recommended",
+      "new": "Dat verschilt. Mijn man dacht in het begin dat het een bevlieging was, iets wat na een maand over zou zijn. Nu brengt hij mij twee keer per week naar het hoveniersbedrijf waar ik als leerling werk, want dat is met de fiets te ver. Mijn dochter maakte zich zorgen over mijn rug, en ze belt nog steeds na elke praktijkdag om te vragen hoe het ging. En mijn kleinzoon van zestien vindt het vooral grappig. Hij doet zelf een opleiding tot kok, en op zondagmiddag zitten we samen aan tafel: hij overhoort mij de plantennamen, en ik overhoor hem de recepten. Tegen zijn vrienden zegt hij dat zijn oma ook op het m-b-o zit.",
+      "why": "\"elke dinsdag\" contradicted the two company days of q6; \"m-b-o\" as E1. +2 words."
+    },
+    {
+      "id": "E4",
+      "item": "B1:listening:batch037-hovenier:1",
+      "field": "questions[q5].options.B, questions[q5].skill",
+      "kind": "recommended",
+      "new": {
+        "options.B": "Dat het te zwaar zou zijn voor haar rug.",
+        "skill": "detail"
+      },
+      "why": "The two distractors shared the template \"Dat het te … was …\" and the key was the odd one out (form signal, blueprint §5); with \"zou zijn\" no pair of options excludes the key. A third person's reported view retrieved from one sentence is detail in this catalogue; opinion marks a speaker's own stance. Decision on the author's doubt 2."
+    },
+    {
+      "id": "E5",
+      "item": "B1:listening:batch037-hovenier:1",
+      "field": "questions[q6].script[0].text, questions[q6].script[1].text",
+      "kind": "recommended",
+      "new": {
+        "script[0].text": "Stel, iemand van jouw leeftijd wil dit ook. Wat zou je die persoon aanraden?",
+        "script[1].text": "Ga naar een open dag en vraag daar of ze ouderen aannemen. Kies een vak dat je al een beetje kent, want dan heb je in de klas iets te bieden en voel je je minder een vreemde. Ik heb met de school afgesproken dat ik één dag per week les heb en twee dagen bij het bedrijf werk. De jongeren werken vier dagen. Wat ik niet zou doen, is wachten tot je zeker weet dat je het kunt. Dat weet je pas als je begonnen bent. Na de open dag heb ik nog een jaar getwijfeld, en in dat jaar had ik al kunnen leren."
+      },
+      "why": "The presenter line repeated the framing of 012-buschauffeur q6 (nearest neighbour, same part); the 27-word sentence with the elliptical \"en niet vier, zoals de jongeren\" is split so the anchor of distractor B is a plain sentence. −1 word net."
+    },
+    {
+      "id": "E6",
+      "item": "B1:listening:batch037-hovenier:1",
+      "field": "questions[q6].options.B, questions[q6].explanation",
+      "kind": "recommended",
+      "new": {
+        "options.B": "Werk evenveel dagen bij het bedrijf als de jongeren.",
+        "explanation": "Hanna raadt aan een vak te kiezen dat je al een beetje kent, omdat je dan in de klas iets te bieden hebt. Zelf werkt ze twee dagen bij het bedrijf, terwijl de jongeren er vier werken; ze raadt dus niet aan evenveel dagen te werken als zij. En wachten tot je zeker weet dat je het kunt, zou ze juist niet doen: dat weet je pas als je begonnen bent."
+      },
+      "why": "\"dezelfde dagen\" could mean the same weekdays; the distractor tests the number of days."
+    },
+    {
+      "id": "E7",
+      "item": "B1:listening:batch037-hovenier:1",
+      "field": "questions[q7].script[0].text, questions[q7].options.B, questions[q7].explanation",
+      "kind": "recommended",
+      "new": {
+        "script[0].text": "Laatste vraag. Wat heeft dit jaar op school je gebracht?",
+        "options.B": "Dat het haar meevalt om weer een beginner te zijn.",
+        "explanation": "Op kantoor deed Hanna dertig jaar hetzelfde werk en was ze daar goed in; nu maakt ze weer fouten en doet ze dingen voor het eerst, en dat vindt ze veel minder erg dan ze had gedacht. Het valt haar dus mee om weer een beginner te zijn. Of het kantoorwerk zwaarder was, zegt ze niet, en ze wil juist niet steeds hetzelfde doen: ze heeft geleerd dat ze nog kan veranderen."
+      },
+      "why": "\"niet erg\" overstated the evidence \"veel minder erg dan ik had gedacht\"; \"meevalt\" is that sentence exactly while \"beginner\" stays unstated, so the item remains inference (decision on doubt 3). The presenter's \"Tot slot: als je terugkijkt\" was 012 q7's framing. −4 words."
+    },
+    {
+      "id": "E8",
+      "item": "B1:listening:batch037-bouwplaats:1",
+      "field": "questions[q1].options.A, questions[q1].options.B, questions[q1].explanation",
+      "kind": "required",
+      "new": {
+        "options.A": "De datum controleren en de helm houden als die nog goed is.",
+        "options.B": "De helm pas inleveren als hij een barst heeft.",
+        "explanation": "Een helm die van hoogte valt, levert Julio bij Ricardo in en hij krijgt een andere, ook als hij geen barst ziet, want de schade kan van binnen zitten. De datum aan de binnenkant gaat over de vijf jaar dat een helm mee mag; die regel geldt naast de regel over vallen, niet in plaats daarvan. Wachten tot er een barst te zien is, mag dus niet."
+      },
+      "why": "Both distractors kept the helmet and the key alone handed it in: the odd action out. B now hands it in on the wrong condition (contradicted by \"ook als je geen barst ziet\") and shares \"inleveren\" with the key; A shortened from 73 to 59 characters."
+    },
+    {
+      "id": "E9",
+      "item": "B1:listening:batch037-bouwplaats:1",
+      "field": "questions[q2].prompt",
+      "kind": "recommended",
+      "new": "Julio loopt over de looproute. Er staat een vrachtwagen op de route te lossen. Wat moet hij doen?",
+      "why": "\"mag\" recurred from the prompt only in the key (\"of hij erlangs mag\"); blueprint §5."
+    },
+    {
+      "id": "E10",
+      "item": "B1:listening:batch037-bouwplaats:1",
+      "field": "questions[q6].script[1].text, questions[q6].evidence, questions[q6].explanation",
+      "kind": "recommended",
+      "new": {
+        "script[1].text": "Eén ding. Op mijn vorige bouwplaats ging het allemaal losser. Daar zette je je helm af als het warm was, en niemand zei er iets van. Hier voelt het strenger, en ik moet eraan wennen dat ik niet zomaar overal mag lopen. Maar daar is een collega van een ladder gevallen, en die heeft zes weken niet kunnen werken. Dus als ik moet kiezen, dan liever een paar regels te veel dan één te weinig. Ik weet alleen nog niet hoe ik bij de opslag kom als de kraan draait.",
+        "evidence": "Hier voelt het strenger, en ik moet eraan wennen dat ik niet zomaar overal mag lopen. Maar daar is een collega van een ladder gevallen, en die heeft zes weken niet kunnen werken. Dus als ik moet kiezen, dan liever een paar regels te veel dan één te weinig.",
+        "explanation": "Julio vindt het hier strenger dan op zijn vorige bouwplaats en moet eraan wennen, maar hij kiest liever een paar regels te veel dan één te weinig, omdat daar een collega van een ladder is gevallen. Losser was het juist op de vorige bouwplaats, en de helm afzetten bij warm weer noemt hij als voorbeeld van vroeger, niet als wens."
+      },
+      "why": "Coordinator: keep the accident mention non-graphic. Eyewitness framing, the scaffold and three months replaced by a plain past event on a ladder with six weeks off; still his motive, still anchors distractor C, echoes the ladder of the coffee rule. Decision on doubt 4. −2 words."
+    },
+    {
+      "id": "derived",
+      "item": "both",
+      "field": "hovenier questions[q1,q5,q6,q7].text; bouwplaats questions[q6].text; both item text",
+      "kind": "derived",
+      "new": "rebuilt mechanically from the scripts",
+      "why": "Blueprint §4.7: question text = script joined as \"Speaker: text\" lines; item text = fragments joined with a blank line."
+    }
+  ],
+  "rejected": [],
+  "author_doubts_decisions": {
+    "third_rule_application_vs_siren_test": "kept q3 as the detail item: three applied rules match the 025-medicijnlijst precedent and the official instructief conversation; a fourth would make four of six items applied rules and drop the only reason question; the siren-test item (Friday ten o'clock, siren stops after ten seconds → hij werkt door) is noted as a ready extra for a later revision, the fragment supports it unchanged",
+    "q5_opinion_label": "relabelled detail (E4): a third person's reported view retrieved from one sentence; opinion is reserved for a speaker's own stance in this catalogue",
+    "q7_inference_label": "kept inference: beginner is not said and the function-of-a-comparison form is the established inference shape (036 q3, 012-mantelzorg q1); key reworded to meevalt (E7)",
+    "scaffold_fall": "kept as his motive, softened and non-graphic (E10): ladder, six weeks, no eyewitness framing",
+    "work_pattern_one_plus_two_days": "kept: an arrangement with the school near the minimum practical hours of a work-based route, needed for q6 B; sentence split (E5) makes vier dagen audible",
+    "five_year_helmet": "kept without a hedge: the site's rule, no option depends on it",
+    "seven_minute_bound": "kept: at the author's slow estimate both texts touch seven minutes, but measured rates of the generated B1 clips (f-older with presenter about 2.4 words/s, m-adult 3.0, m-young 2.4, narrator 2.2) put text 1 at about 6.3 minutes and text 2 at about 5.5; headroom under the 900-word cap 39 and 27 words",
+    "mbo_spoken_as_letters": "written m-b-o in the intro and both turns (E1–E3); the round trip strips hyphens and compares characters without spaces, so a transcription mbo or MBO matches; listen once to the intro and the q1/q5 clips",
+    "no_persona_prompts_text1": "fine: official interview items ask about the speakers"
+  },
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 2,
+    "distribution": {
+      "B1_listening": 2
+    },
+    "task_types": {
+      "interview": 1,
+      "instructie": 1
+    },
+    "text_types": {
+      "beschouwend": 1,
+      "instructief": 1
+    },
+    "domains": {
+      "educatie": 1,
+      "werk": 1
+    },
+    "exam_field": "nt2-i on both",
+    "situation_lines": "both follow the B1 form of blueprint §3 and match the intro",
+    "intro_words": {
+      "hovenier": 45,
+      "bouwplaats": 45
+    },
+    "question_count": 13,
+    "questions_per_text": {
+      "hovenier": 7,
+      "bouwplaats": 6
+    },
+    "option_counts": {
+      "3": 13
+    },
+    "key_counts": {
+      "A": 4,
+      "B": 5,
+      "C": 4
+    },
+    "key_shares": {
+      "A": 0.31,
+      "B": 0.38,
+      "C": 0.31
+    },
+    "key_sequence": {
+      "hovenier": "BACBCAB",
+      "bouwplaats": "CBACAB"
+    },
+    "consecutive_same_key_three_times": false,
+    "closed_evidence_is_verbatim": true,
+    "evidence_from_own_fragment": true,
+    "evidence_occurs_once_in_item_text": true,
+    "evidence_entails_key": "13 of 13",
+    "distractors_anchored_and_false": "26 of 26",
+    "option_form_parallel": "after E4 and E8",
+    "key_longest_by_checker_rule": 0,
+    "prompt_words_only_in_key": "0 after E9",
+    "question_text_equals_joined_script": true,
+    "item_text_equals_fragments_joined_with_blank_line": true,
+    "voice_roles_valid": true,
+    "two_roles_per_text": {
+      "hovenier": [
+        "presenter",
+        "f-older"
+      ],
+      "bouwplaats": [
+        "m-adult",
+        "m-young"
+      ]
+    },
+    "speaker_labels_consistent": true,
+    "third_voice": false,
+    "spoken_words_per_fragment": {
+      "hovenier": [
+        131,
+        126,
+        116,
+        120,
+        120,
+        120,
+        113
+      ],
+      "bouwplaats": [
+        155,
+        127,
+        139,
+        150,
+        141,
+        143
+      ]
+    },
+    "fragment_seconds_estimate": {
+      "hovenier": [
+        [
+          53,
+          60
+        ],
+        [
+          51,
+          58
+        ],
+        [
+          47,
+          54
+        ],
+        [
+          49,
+          55
+        ],
+        [
+          49,
+          55
+        ],
+        [
+          49,
+          55
+        ],
+        [
+          47,
+          53
+        ]
+      ],
+      "bouwplaats": [
+        [
+          63,
+          72
+        ],
+        [
+          52,
+          59
+        ],
+        [
+          57,
+          65
+        ],
+        [
+          61,
+          70
+        ],
+        [
+          58,
+          65
+        ],
+        [
+          59,
+          66
+        ]
+      ]
+    },
+    "spoken_words_per_text": {
+      "hovenier": 846,
+      "bouwplaats": 855
+    },
+    "turns_per_text": {
+      "hovenier": 15,
+      "bouwplaats": 18
+    },
+    "minutes_with_turn_gaps": {
+      "hovenier": [
+        6.05,
+        6.86
+      ],
+      "bouwplaats": [
+        6.14,
+        6.95
+      ]
+    },
+    "minutes_at_measured_voice_rates": {
+      "hovenier": 6.3,
+      "bouwplaats": 5.5
+    },
+    "item_text_words": {
+      "hovenier": 861,
+      "bouwplaats": 873
+    },
+    "item_text_cap": 900,
+    "sentence_average_words": {
+      "hovenier": 13.2,
+      "bouwplaats": 11.7
+    },
+    "explaining_speaker_sentence_average": {
+      "Hanna": 15.4,
+      "Ricardo": 12.1
+    },
+    "explaining_speaker_share_twelve_or_more": {
+      "Hanna": 0.71,
+      "Ricardo": 0.47
+    },
+    "longest_sentence_words": {
+      "hovenier": 26,
+      "bouwplaats": 26
+    },
+    "sentences_over_30_words": 0,
+    "digits_in_spoken_text": false,
+    "abbreviations_in_spoken_text": "m-b-o three times, written for the voice",
+    "transcribed_fillers": false,
+    "quotation_marks_in_turns": false,
+    "b1_connectors_in_use": true,
+    "last_question_whole_text": {
+      "hovenier": "inference",
+      "bouwplaats": "opinion"
+    },
+    "skills": {
+      "detail": 4,
+      "rule-application": 3,
+      "opinion": 2,
+      "inference": 2,
+      "quantity": 1,
+      "advice": 1
+    },
+    "invented_organisation_names": "none: een kantoor, de school, het hoveniersbedrijf, een bouwplaats, de keet are generic; nothing to search",
+    "avoid_list": "no politics, religion, crime, brands, real addresses; the one accident is a single non-graphic sentence (E10), the near miss has nobody hurt",
+    "six_word_phrase_overlap": "only formula phrases (situation line shared with 012-buschauffeur and 025-kinderboeken; the opening \"Goedemiddag. Vandaag\" with 012); none between the two texts; the two presenter framing lines shared with 012 removed by E5 and E7",
+    "checker_original": "Checked 2 items, 13 questions. Keys: {\"B\":5,\"A\":4,\"C\":4}. Options: {\"3\":13}. No failures, no warnings.",
+    "checker_proposed": "Checked 2 items, 13 questions. Keys: {\"B\":5,\"A\":4,\"C\":4}. Options: {\"3\":13}. No failures, no warnings.",
+    "diff_original_to_proposed_verified_field_by_field": true,
+    "changed_paths": 26
+  },
+  "items": {
+    "B1:listening:batch037-hovenier:1": {
+      "verdict": "pass",
+      "level": "comparable (upper range)",
+      "level_reason": "Hanna's sentences average 15.4 words with 71% at twelve or more and a longest of 26: the densest B1 listening text in the bank (012-buschauffeur 11.8/56%, 025-kinderboeken 13.6/64%, 036-functioneringsgesprek 13.8/56%). The long sentences are coordinated chains with colons, not deep subordination; want/omdat/daarom/sindsdien, concessive al, relative clauses, an indirect question, a counterfactual and passives are in use; the vocabulary is common with uitlaatklep, border, bevlieging, overhoren and examinator carried by context; paraphrase between prompt and text throughout. The narrative interview arc matches the official beschouwend interview items. Harder than 012-buschauffeur and slightly above 025-kinderboeken; not off-level, no flag.",
+      "edits": [
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5",
+        "E6",
+        "E7"
+      ],
+      "questions": {
+        "q1": {
+          "key": "B",
+          "skill": "detail",
+          "evidence": "Dat wilde ik leren van mensen die het vak kennen.",
+          "proof": "She knew her own garden and nothing else and wanted to learn from people who know the trade; \"er verstand van hebben\" paraphrases \"het vak kennen\".",
+          "distractors": {
+            "A": "reverses the garden she had for forty years and finally had time for",
+            "C": "the neighbour asked \"voor de grap\" whether she should go to school; no wish to come along"
+          }
+        },
+        "q2": {
+          "key": "A",
+          "skill": "detail",
+          "evidence": "Dat veranderde bij de eerste praktijkles. We moesten een border beplanten, en ik wist welke planten in de schaduw kunnen staan, omdat ik dat veertig jaar in mijn eigen tuin had uitgeprobeerd. Sindsdien vragen ze mij om advies",
+          "proof": "The silence changed at the first practical lesson when she knew the shade plants; since then they ask her advice.",
+          "distractors": {
+            "B": "reverses the direction: she asks them for computer help",
+            "C": "reverses \"de helft van hun grappen begrijp ik niet\""
+          }
+        },
+        "q3": {
+          "key": "C",
+          "skill": "opinion",
+          "evidence": "Nee, het zwaarste is het lichamelijke werk. In een praktijkles tillen we de hele ochtend tegels van twintig kilo",
+          "proof": "The hardest is the physical work, exemplified by a morning of twenty-kilo tiles; \"moeilijkst\" paraphrases \"zwaarste\".",
+          "distractors": {
+            "A": "the theory everyone expected to be hard; it \"gaat goed\" because she has the time",
+            "B": "the precise work she does more of in exchange for less lifting"
+          }
+        },
+        "q4": {
+          "key": "B",
+          "skill": "quantity",
+          "evidence": "In die acht uur leg ik een pad van tegels, plant ik een border volgens de tekening en snoei ik een heg.",
+          "proof": "\"In die acht uur\", consistent with the drawing at eight and the garden finished by four.",
+          "distractors": {
+            "A": "the hour she still has to gain",
+            "C": "last week's practice time"
+          }
+        },
+        "q5": {
+          "key": "C",
+          "skill": "detail",
+          "evidence": "Mijn man dacht in het begin dat het een bevlieging was, iets wat na een maand over zou zijn.",
+          "proof": "\"Bevlieging\" is glossed in the same sentence as something that would be over after a month; \"snel weer over zou gaan\" paraphrases it.",
+          "distractors": {
+            "A": "the reason he now drives her, not his view of the plan",
+            "B": "the daughter's worry"
+          },
+          "note": "option B reworded to \"zou zijn\" and item relabelled detail (E4); \"twee keer per week\" in the script (E3)"
+        },
+        "q6": {
+          "key": "A",
+          "skill": "advice",
+          "evidence": "Kies een vak dat je al een beetje kent, want dan heb je in de klas iets te bieden en voel je je minder een vreemde.",
+          "proof": "Choose a trade you already know a little; \"waar je al iets van weet\" paraphrases \"dat je al een beetje kent\".",
+          "distractors": {
+            "B": "reverses her arrangement of two company days against the youngsters' four",
+            "C": "reverses \"Wat ik niet zou doen, is wachten tot je zeker weet dat je het kunt\""
+          },
+          "note": "presenter line and the split sentence (E5); option B reworded to \"evenveel dagen\" (E6)"
+        },
+        "q7": {
+          "key": "B",
+          "skill": "inference",
+          "evidence": "Nu ben ik weer iemand die fouten maakt en dingen voor het eerst doet, en dat vind ik veel minder erg dan ik had gedacht.",
+          "proof": "Thirty years of the same work she was good at against making mistakes and doing things for the first time, which turns out much less bad than she thought: it \"valt mee\" to be a beginner again; \"beginner\" is not said.",
+          "distractors": {
+            "A": "never said; the office is only thirty years of the same work",
+            "C": "reverses \"ik heb vooral geleerd dat ik op mijn leeftijd nog kan veranderen\""
+          },
+          "note": "key reworded to \"meevalt\" and presenter line varied (E7)"
+        }
+      }
+    },
+    "B1:listening:batch037-bouwplaats:1": {
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Ricardo's sentences average 12.1 words with 47% at twelve or more and a longest of 26; inverted conditionals throughout (Valt je helm …, Hoor je een sirene …, Meld je je niet …, Stopt hij …, Wil je …), passives, zodat/voordat/bovendien/ook als, a counterfactual; three applied-rule items, q5 combining two conditions with the break times and the heat clause; keet, bedrijfshulpverlener and bijna-ongeval are glossed in the text. Comparable to 013-ziekenhuiskeuken (11.0/42%) and 025-medicijnlijst (12.6/51%) and to the official instructief conversation; not off-level.",
+      "edits": [
+        "E8",
+        "E9",
+        "E10"
+      ],
+      "questions": {
+        "q1": {
+          "key": "C",
+          "skill": "rule-application",
+          "evidence": "Valt je helm van hoogte, of krijgt hij een harde klap, dan lever je hem bij mij in. Je krijgt dan een andere, ook als je geen barst ziet.",
+          "proof": "A helmet that falls from height is handed in and replaced even without a visible crack; the case (fell from the scaffold, no crack) triggers this rule, not the five-year date rule.",
+          "distractors": {
+            "A": "applies the date rule instead; that rule holds beside the impact rule, not instead of it",
+            "B": "hands it in only once cracked, contradicted by \"ook als je geen barst ziet\" and \"van binnen beschadigd\""
+          },
+          "note": "options A and B and the explanation reworded (E8)"
+        },
+        "q2": {
+          "key": "B",
+          "skill": "rule-application",
+          "evidence": "Dan wacht je tot hij weg is, of je vraagt de chauffeur of je erlangs mag.",
+          "proof": "A lorry unloading on the route: wait until it is gone or ask the driver.",
+          "distractors": {
+            "A": "the forbidden move: \"Je loopt niet zelf buiten de lijnen om de wagen heen\"",
+            "C": "reverses \"De chauffeur ziet je vanuit de cabine niet\" and ignores the reversing"
+          },
+          "note": "prompt now \"Wat moet hij doen?\" (E9)"
+        },
+        "q3": {
+          "key": "A",
+          "skill": "detail",
+          "evidence": "Bij hem meld je je, want hij streept op zijn lijst af wie van het terrein is.",
+          "proof": "He ticks off who is off the site; \"bijhoudt\" paraphrases \"streept op zijn lijst af\"; whoever does not report is searched for.",
+          "distractors": {
+            "B": "the Friday test checks the siren; not why one reports to him",
+            "C": "tools are put down; nobody keeps them"
+          },
+          "note": "kept as the detail item; the siren-test applied item is a ready extra (decision on doubt 1)"
+        },
+        "q4": {
+          "key": "C",
+          "skill": "inference",
+          "evidence": "We willen weten waar het bijna misgaat, zodat we het kunnen oplossen voordat er echt iemand gewond raakt. Vorig jaar kwamen er drie kaarten over dezelfde losse trapleuning. Toen hebben we die vastgezet. Zonder die kaarten was daar misschien iemand van de trap gevallen.",
+          "proof": "Three cards about the same rail led to its being fixed, and without them someone might have fallen: the example shows that a report can prevent an accident.",
+          "distractors": {
+            "A": "reverses \"niemand wordt gestraft voor een melding\"",
+            "B": "reverses \"Je naam hoeft er niet op\""
+          }
+        },
+        "q5": {
+          "key": "A",
+          "skill": "rule-application",
+          "evidence": "Roken mag alleen in de pauze en alleen op de rookplek, dat is de bank achter de keet, bij de asbak.",
+          "proof": "Smoking needs both conditions; the breaks are at ten (a quarter of an hour) and half past twelve, and the eleven o'clock break exists only in heat, which the prompt excludes; so eleven o'clock on an ordinary day is outside the break.",
+          "distractors": {
+            "B": "right place, wrong time: applies one condition of two",
+            "C": "over-generalises \"wordt niet gerookt\"; the bench in the break is allowed"
+          }
+        },
+        "q6": {
+          "key": "B",
+          "skill": "opinion",
+          "evidence": "Hier voelt het strenger, en ik moet eraan wennen dat ik niet zomaar overal mag lopen. Maar daar is een collega van een ladder gevallen, en die heeft zes weken niet kunnen werken. Dus als ik moet kiezen, dan liever een paar regels te veel dan één te weinig.",
+          "proof": "Stricter here and something to get used to, but rather a few rules too many than one too few.",
+          "distractors": {
+            "A": "reverses \"ging het allemaal losser\" about the previous site",
+            "C": "takes the old site's habit of taking the helmet off for his own wish; contradicted by his choice"
+          },
+          "note": "accident sentence softened, evidence and explanation rebuilt (E10)"
+        }
+      }
+    }
+  },
+  "diversity_review": "Within the batch: two task types, text types, domains and voice pairs; no shared six-word phrase; skills differ. Against the B1 listening catalogue and 036: both settings are new. Text 1 is the third radio interview and shares with 012-buschauffeur (nearest neighbour) the situation formula, the opening line and the seven-beat arc of a late-life change, including a \"Wat vindt X het moeilijkst\" item and a \"don't wait\" advice fragment whose reversal is a distractor in both; content differs throughout and the presenter's framing lines no longer coincide after E5/E7. Text 2 is the fourth instructief text and the second first-day instruction after 013-ziekenhuiskeuken; all rules differ, but both close with the newcomer finding the new place stricter and accepting it. Neither is a repeated setting. Cross-part echoes (acceptable, parts never share a set): B1 speaking 031-brandalarm (office evacuation) and B1 reading 034-deeltijd-hbo (part-time study interview).",
+  "set_assembly": "Each text is one B1 listening drill. Blueprint-shaped B1 listening texts after 036 and 037: ten (012 ×2, 013 ×2, 025 ×2, 036 ×2, 037 ×2): beschouwend 3, instructief 4, descriptief 2, persuasief 1; werk 4, educatie 3, overig 3. Two mocks need twelve texts and a video text: add a persuasief and a descriptief text (overig or educatie) before freezing forms. Keep 037-hovenier and 012-buschauffeur in different mock forms, and 037-bouwplaats and 013-ziekenhuiskeuken likewise.",
+  "media_notes": "Text 1 Presentator→presenter (Peter), Hanna→f-older (Hanneke: quiet voice, loudness normalisation applies; slowest pairing, text 1 about 6.3 minutes); text 2 Ricardo→m-adult (Robert), Julio→m-young (Nick); narrator (Serge) reads intros and questions; stitched mode. All numbers and times in words; \"'s ochtends\" once mid-sentence; \"m-b-o\" three times, hyphenated so the letters are spoken (round trip tolerant: hyphens stripped, characters compared without spaces); \"één\" four times, \"Eén ding.\" sentence-initial; \"Zo'n\" once; colons as pauses; no quotation marks. Listen once to the intro and the q1/q5 clips of text 1 for the letters and to the q1 fragment of text 2 (155 words, the longest of the batch). No pictures.",
+  "coordinator_notes": "Adopt with npm run batch:adopt 037 (verifies source_sha256 against the proposed bytes). Headroom under the 900-word cap: 39 words (text 1) and 27 (text 2). Text 1 is the densest B1 listening text so far; no flag, but a listen to Hanna's clips at Hanneke's pace is worth doing before publication. Steer the next B1 listening batch to a persuasief and a descriptief text and plan the video text.",
+  "limitations": "AI editorial review, no human difficulty validation; audio does not exist yet and published items stay blocked until the media review; content/exemplars/ does not exist, level judged against 012/013/025, batch 036 and the research description of the official texts; the author's web checks (helmet lifetime, mbo hovenier routes) were not repeated because every such fact is presented as the site's or the school's own arrangement and no key depends on one; the reviewer's own wording (E3–E10) has had no independent second reading beyond the coordinator's diff."
+}

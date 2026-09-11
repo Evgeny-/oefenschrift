@@ -1,0 +1,514 @@
+{
+  "review_id": "batch032-editorial-review",
+  "source": "content/batches/032-original.json",
+  "source_sha256": "2e2791fc0fbaac48b5c2a08981954f6b4b57e25fd59018e5b3a4223edbf5b322",
+  "source_sha256_note": "SHA-256 of content/batches/032-proposed.json, the bytes to be adopted (docs/briefs/review.md). The reviewed original hashed to 8285b65da6b4717918b859607f19096d800d11a2a69478c292beda1601f1c030.",
+  "proposed": "content/batches/032-proposed.json",
+  "starters_source": null,
+  "starters_sha256": null,
+  "starters_verdict": "not applicable (closed items only)",
+  "review_type": "Independent AI editorial, fact and level review of 12 original KNM items (July 2025 format: one picture, one factual question of at most twenty words, three options) for theme 2 Omgangsvormen, waarden en normen, second batch, against content/reviews/rubric.md (check 13 decisive), content/blueprint.md sections 1, 3, 4.5, 5, 7, 8, 9, 10, 12, 13, docs/research/exam-blueprints-2026-09-10.md section 3.1 'KNM', the KNM rules of content/reviews/006-007-level-check.md and the 018 reviewer's edits. Every cited page and every secondary page named in a sourceNote was fetched with curl on 2026-09-11 (22 pages, all HTTP 200, plus five pages fetched to settle doubts) and the supporting sentence located in the page text; the theme 2 eindtermen were read on wetten.overheid.nl (Regeling inburgering 2021, bijlage 2, geldend van 18-04-2026) and match the eindterm fields and quoted texts verbatim. Repairs were applied in the proposed file; one item was rejected as a repeat and replaced by the author's verified reserve as the coordinator's brief allowed.",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-09-11",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "verdict_counts": {
+    "pass": 12,
+    "pass_unchanged": 6,
+    "pass_edited": 5,
+    "replaced": 1,
+    "rejected": 1
+  },
+  "edits": [
+    {
+      "item": "A2:knm:batch032-direct-nee:1",
+      "field": "text",
+      "before": "Veel mensen in Nederland zeggen direct wat zij willen. Een direct 'nee' op een uitnodiging is hier gewoon. Het is meestal geen teken van boosheid. En het betekent niet dat het contact voorbij is.",
+      "after": "Veel mensen in Nederland zeggen direct wat zij willen. Een direct 'nee' op een uitnodiging is hier gewoon. Het is meestal geen teken van boosheid en ook geen einde van het contact.",
+      "why": "The fourth sentence 'En het betekent niet dat het contact voorbij is' stated flatly what eindterm 2.1.2 only supports as a general tendency; folded into the hedged sentence so that 'meestal' covers both glosses (the 018 directheid rule), and the card drops from 34 to 31 words. Evidence quote unchanged and still verbatim."
+    },
+    {
+      "item": "A2:knm:batch032-direct-nee:1",
+      "field": "questions[0].explanation",
+      "before": "Veel mensen in Nederland zeggen direct wat zij willen, ook als het antwoord 'nee' is. Zo'n direct antwoord is hier gewoon. Het is meestal geen teken van boosheid, en het betekent niet dat de buurvrouw geen contact meer wil.",
+      "after": "Veel mensen in Nederland zeggen direct wat zij willen, ook als het antwoord 'nee' is. Zo'n direct antwoord is hier gewoon. Het is meestal geen teken van boosheid, en het betekent meestal ook niet dat de buurvrouw geen contact meer wil.",
+      "why": "Same hedge on the contact clause as in the card."
+    },
+    {
+      "item": "A2:knm:batch032-direct-betekenis:1",
+      "field": "text",
+      "before": "Veel mensen in Nederland uiten zich direct. Dat betekent: zij zeggen open wat zij denken en wat zij willen. Ook als het kritiek is. 'Direct zijn' gaat over hoe mensen praten, niet over op tijd komen.",
+      "after": "Veel mensen in Nederland uiten zich direct. Dat betekent: zij zeggen open wat zij denken, ook als het kritiek is. 'Direct zijn' gaat over hoe mensen praten, niet over op tijd komen.",
+      "why": "Card trimmed towards the 30-word guideline: 'en wat zij willen' dropped (the key says 'wat zij denken') and the verbless fragment 'Ook als het kritiek is.' folded into the sentence it qualifies. 36 -> 32 words, three sentences, longest 13."
+    },
+    {
+      "item": "A2:knm:batch032-direct-betekenis:1",
+      "field": "questions[0].evidence",
+      "before": "zij zeggen open wat zij denken en wat zij willen",
+      "after": "zij zeggen open wat zij denken",
+      "why": "Follows the trimmed card; still a verbatim substring and still entails key A word for word."
+    },
+    {
+      "item": "A2:knm:batch032-gemeente-afspraak:1",
+      "field": "questions[0].prompt",
+      "before": "Sabrina wil haar rijbewijs vernieuwen bij de gemeente. Hoe gaat dat bij veel gemeenten?",
+      "after": "Sabrina wil een nieuwe identiteitskaart aanvragen bij de gemeente. Hoe gaat dat bij veel gemeenten?",
+      "why": "A rijbewijs can now be renewed online at the RDW (rdw.nl 'Rijbewijs online verlengen', fetched 2026-09-11: any Dutch licence issued after 1 October 2006; the card is then collected at the gemeente), so for that document 'Zij maakt van tevoren een afspraak' was about to become the weaker real-world answer and the item would have needed retiring within a year. An identiteitskaart is applied for in person only and is named among the appointment-only products on the cited Amersfoort page ('ID-kaart aanvragen of vernieuwen - Let op! Maak 2 afspraken'). The tested fact (appointment-only at many gemeenten, cancelling online or by phone) is unchanged. 15 words."
+    },
+    {
+      "item": "A2:knm:batch032-gemeente-afspraak:1",
+      "field": "text",
+      "before": "Bij instanties maakt u meestal van tevoren een afspraak. Bij veel gemeenten kunt u alleen op afspraak langskomen. Dat geldt bijvoorbeeld voor een paspoort of rijbewijs. Wie niet kan komen, zegt de afspraak af, online of per telefoon.",
+      "after": "Bij instanties maakt u meestal van tevoren een afspraak. Bij veel gemeenten kunt u alleen op afspraak langskomen. Dat geldt bijvoorbeeld voor een paspoort of identiteitskaart. Wie niet kan komen, zegt de afspraak af, online of per telefoon.",
+      "why": "'rijbewijs' -> 'identiteitskaart' to match the prompt; evidence unchanged."
+    },
+    {
+      "item": "A2:knm:batch032-gemeente-afspraak:1",
+      "field": "questions[0].explanation",
+      "before": "Bij veel gemeenten kunt u alleen op afspraak langskomen voor een paspoort of rijbewijs: u maakt de afspraak van tevoren, meestal online, en komt dan naar het gemeentehuis. Zonder afspraak langsgaan kan daar niet, en een rijbewijs regelt u niet per telefoon. Kunt u niet komen? Dan zegt u de afspraak af, online of per telefoon.",
+      "after": "Bij veel gemeenten kunt u alleen op afspraak langskomen voor een paspoort of identiteitskaart: u maakt de afspraak van tevoren, meestal online, en komt dan naar het gemeentehuis. Zonder afspraak langsgaan kan daar niet, en een identiteitskaart regelt u niet per telefoon. Kunt u niet komen? Dan zegt u de afspraak af, online of per telefoon.",
+      "why": "Follows the document change."
+    },
+    {
+      "item": "A2:knm:batch032-gemeente-afspraak:1",
+      "field": "sourceNote",
+      "before": "Gemeente Amersfoort, 'Afspraak maken met Burgerzaken': 'De afdeling Burgerzaken werkt alleen op afspraak.', 'Voor veel producten en diensten is een afspraak nodig bij de afdeling Burgerzaken, aan de balie in het stadhuis.', 'Let op! Maak voor het aanvragen of vernieuwen van een paspoort, ID-kaart of rijbewijs 2 aparte afspraken: 1 voor de aanvraag en 1 voor het afhalen.' and 'Wil je een geplande afspraak afzeggen of wijzigen? Gebruik dan de link uit je bevestigingsmail of bel met 14 033.' Same rule in gemeente Gouda, 'Paspoort' (https://www.gouda.nl/direct-regelen/leven-en-wonen/reizen-en-papieren/paspoort/): 'U kunt alleen op afspraak een paspoort aanvragen en ophalen in het Huis van de Stad.' and 'Lukt dit online niet? Bel ons dan op telefoonnummer 14 0182.'; gemeente Utrecht, 'Afspraak maken' (https://www.utrecht.nl/contact/afspraak-maken): 'U kunt voor deze onderwerpen alleen met een afspraak langskomen.' (Burgerzaken among them); gemeente Almere, 'Afspraak maken' (https://www.almere.nl/contact/afspraak-maken): 'De gemeente Almere werkt vooral op afspraak.' The general statement is eindterm 2.1.3 (Regeling inburgering 2021, bijlage 2): 'het doorgaans belangrijk is om van tevoren afspraken te maken o.a. op het werk en met instanties'. Re-check the gemeente pages yearly.",
+      "after": "Gemeente Amersfoort, 'Afspraak maken met Burgerzaken' (fetched 2026-09-11): 'De afdeling Burgerzaken werkt alleen op afspraak.', 'Voor veel producten en diensten is een afspraak nodig bij de afdeling Burgerzaken, aan de balie in het stadhuis.', product list 'ID-kaart aanvragen of vernieuwen - Let op! Maak 2 afspraken: 1 voor aanvragen én 1 voor afhalen' and 'Let op! Maak voor het aanvragen of vernieuwen van een paspoort, ID-kaart of rijbewijs 2 aparte afspraken: 1 voor de aanvraag en 1 voor het afhalen.', and 'Wil je een geplande afspraak afzeggen of wijzigen? Gebruik dan de link uit je bevestigingsmail of bel met 14 033.' Same rule in gemeente Gouda, 'Paspoort' (https://www.gouda.nl/direct-regelen/leven-en-wonen/reizen-en-papieren/paspoort/): 'U kunt alleen op afspraak een paspoort aanvragen en ophalen in het Huis van de Stad.' and 'Lukt dit online niet? Bel ons dan op telefoonnummer 14 0182.'; gemeente Utrecht, 'Afspraak maken' (https://www.utrecht.nl/contact/afspraak-maken): 'U kunt voor deze onderwerpen alleen met een afspraak langskomen.' (Burgerzaken among them) and 'Afspraak veranderen of afzeggen: Dat kan via de link in de bevestiging die u per e-mail krijgt.'; gemeente Almere, 'Afspraak maken' (https://www.almere.nl/contact/afspraak-maken): 'De gemeente Almere werkt vooral op afspraak.' The general statement is eindterm 2.1.3 (Regeling inburgering 2021, bijlage 2): 'het doorgaans belangrijk is om van tevoren afspraken te maken o.a. op het werk en met instanties'. The scenario is an identiteitskaart, not a rijbewijs, because the RDW renews driving licences online (https://www.rdw.nl/het-rijbewijs/aanvragen-of-verlengen/rijbewijs-online-verlengen, fetched 2026-09-11: 'Dan kunt u de verlenging of uitbreiding online regelen bij ons.' and 'Kijk op de website van de gemeente of u een afspraak moet maken voor het ophalen van uw rijbewijs.'); an identiteitskaart is applied for in person. Re-check the gemeente pages yearly.",
+      "why": "Records the ID-kaart product line and the RDW online-renewal page behind the document change; the other quotes are unchanged and were re-verified."
+    },
+    {
+      "item": "A2:knm:batch032-kerstdagen:1",
+      "field": "questions[0].prompt",
+      "before": "Karim werkt in een magazijn. Hij vraagt wanneer Kerstmis een officiële feestdag is. Welke dag of dagen zijn dat?",
+      "after": "Karim werkt in een magazijn. Wanneer is Kerstmis in Nederland een officiële feestdag?",
+      "why": "'Hij vraagt wanneer Kerstmis een officiële feestdag is. Welke dag of dagen zijn dat?' was an indirect question followed by a second question, unusual Dutch for a read-aloud item (rubric 3). One direct question keeps the singular 'feestdag' so the plural does not give the two-day answer away; the options remain the three dates. 13 words."
+    },
+    {
+      "item": "A2:knm:batch032-vuurwerk:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Regels vuurwerk afsteken': 'Voor consumenten geldt een vuurwerkverbod. Alleen klein vuurwerk, zoals sterretjes, is nog toegestaan.', 'Iedereen mag het hele jaar door klein vuurwerk afsteken. Dit is vuurwerk in de categorie F1.', 'Vuurwerk zoals vuurpijlen, cakes, compoundboxen en knalvuurwerk mag alleen nog door professionals worden afgestoken.' and 'Consumenten mogen deze producten niet meer kopen en bezitten. En zij mogen deze producten ook niet meer afsteken.' Rijksoverheid theme page 'Vuurwerk' (https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/vuurwerk), news of 1 July 2026: 'Het landelijk vuurwerkverbod voor consumenten gaat in op 1 augustus 2026.' (Wet veilige jaarwisseling). Rijksoverheid, 'Welk vuurwerk mag ik nog afsteken?': 'U mag als consument alleen vuurwerk van de categorie F1 afsteken, zoals knalerwten, sierfonteintjes en sterretjes.' Nieuwjaarsdag on the officiële feestdagen list. Distractor C and the explanation's 'oude regel' rest on Staatsblad 2026, 168 (Besluit veilige jaarwisseling, 25 June 2026, https://zoek.officielebekendmakingen.nl/stb-2026-168.html), nota van toelichting 5.1: 'Vóór de inwerkingtreding van de Wet veilige jaarwisseling mochten consumenten van 31 december 18.00 uur tot 1 januari 02.00 uur vuurwerk afsteken dat is aangewezen als consumentenvuurwerk in de Rac.' New law: re-check before the 2026/2027 jaarwisseling and yearly.",
+      "after": "Rijksoverheid, 'Regels vuurwerk afsteken' (fetched 2026-09-11): 'Voor consumenten geldt een vuurwerkverbod. Alleen klein vuurwerk, zoals sterretjes, is nog toegestaan.', 'Iedereen mag het hele jaar door klein vuurwerk afsteken. Dit is vuurwerk in de categorie F1.', 'Vuurwerk zoals vuurpijlen, cakes, compoundboxen en knalvuurwerk mag alleen nog door professionals worden afgestoken.' and 'Consumenten mogen deze producten niet meer kopen en bezitten. En zij mogen deze producten ook niet meer afsteken.' Rijksoverheid, 'Maatregelen voor minder gewonden en schade door vuurwerk' (https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/vuurwerk/maatregelen-voor-minder-gewonden-en-schade-door-vuurwerk): 'Vanaf 1 augustus 2026 is er een landelijk vuurwerkverbod voor consumenten.', 'Vanaf 1 augustus 2026 is het afsteken, kopen en bezitten van vuurwerk voor consumenten verboden, behalve die van categorie F1.' and 'Klein vuurwerk van de categorie F1, zoals sterretjes en knalerwten, blijft toegestaan.' Rijksoverheid news of 17 August 2026, 'Campagne rondom landelijke vuurwerkinleverdagen van start' (https://www.rijksoverheid.nl/actueel/nieuws/2026/08/17/campagne-rondom-landelijke-vuurwerkinleverdagen-van-start): 'De nieuwe Wet veilige jaarwisseling is per 1 augustus van kracht.' Rijksoverheid, 'Welk vuurwerk mag ik nog afsteken?' (https://www.rijksoverheid.nl/vraag-en-antwoord/vuurwerk/welk-vuurwerk-afsteken): 'U mag als consument alleen vuurwerk van de categorie F1 afsteken, zoals knalerwten, sierfonteintjes en sterretjes.' Nieuwjaarsdag on the officiële feestdagen list. Distractor C and the explanation's 'oude regel' rest on Staatsblad 2026, 168 (Besluit veilige jaarwisseling, AMvB of 25 June 2026, published 1 July 2026, https://zoek.officielebekendmakingen.nl/stb-2026-168.html), artikel III 'Dit besluit treedt in werking met ingang van 1 augustus 2026 nadat artikel IIa van de Wet veilige jaarwisseling op dezelfde datum in werking is getreden.' and nota van toelichting 5.1: 'Vóór de inwerkingtreding van de Wet veilige jaarwisseling mochten consumenten van 31 december 18.00 uur tot 1 januari 02.00 uur vuurwerk afsteken dat is aangewezen als consumentenvuurwerk in de Rac.' New law, first jaarwisseling under it is 2026/2027: re-check before every jaarwisseling; retire or rewrite if the consumer ban is repealed or the F1 exception changes.",
+      "why": "The author's note quoted a theme-page news item of 1 July 2026 that is no longer shown on the theme page (which now lists 22 July, 17 August and 11 September 2026); replaced by the sentences verified on 2026-09-11 on the 'Maatregelen' page and in the 17 August news item, and the Staatsblad entry-into-force article added. The retire trigger is spelled out."
+    },
+    {
+      "item": "A2:knm:batch032-muisjes:1",
+      "field": "sourceNote",
+      "before": "Kenniscentrum Immaterieel Erfgoed Nederland, 'De cultuur van beschuit met muisjes' (network entry, 'Bijgeschreven in netwerk vanaf: augustus 2019'): 'Na de geboorte komt er veel bezoek en om te vieren dat er een baby is geboren, trakteert men beschuit met muisjes.', 'Beoefenaars en betrokkenen zijn ouders van pasgeboren kinderen met familie en vrienden, zoals grootouders, broers en zussen, buren, kennissen, naasten en overige kraambezoekers.' and 'Tegenwoordig zijn de muisjes roze/wit bij de geboorte van een meisje en blauw/wit bij een jongen, na de introductie van de blauw met witte muisjes in 1994.' A practitioners' entry on the public knowledge centre's site, weaker than a government page; no rijksoverheid.nl or gemeente page states the custom (searched 11 September 2026). Eindterm 2.2.2 names 'geboorte' among the family events with 'de belangrijkste gebruiken'. Distractors rest on the trakteren and vlag pages cited in batch 018. Stable custom.",
+      "after": "Kenniscentrum Immaterieel Erfgoed Nederland, 'De cultuur van beschuit met muisjes' (network entry, 'Bijgeschreven in netwerk vanaf: augustus 2019'): 'Na de geboorte komt er veel bezoek en om te vieren dat er een baby is geboren, trakteert men beschuit met muisjes.', 'Beoefenaars en betrokkenen zijn ouders van pasgeboren kinderen met familie en vrienden, zoals grootouders, broers en zussen, buren, kennissen, naasten en overige kraambezoekers.' and 'Tegenwoordig zijn de muisjes roze/wit bij de geboorte van een meisje en blauw/wit bij een jongen, na de introductie van de blauw met witte muisjes in 1994.' A practitioners' entry on the public knowledge centre's site, weaker than a government page; no rijksoverheid.nl or gemeente page states the custom (searched 11 September 2026). Eindterm 2.2.2 names 'geboorte' among the family events with 'de belangrijkste gebruiken'. Distractors rest on the trakteren and vlag pages cited in batch 018. Stable custom. Corroboration: Meertens Instituut (KNAW), Volkskundige Trefwoorden Bank, trefwoord 'geboorte' (https://www.meertens.knaw.nl/vtb/index.php?trefwoord=geboorte, fetched 2026-09-11) lists the folklore studies 'Beschuit met muisjes en andere gebruiken rond geboorte' (Strouken, 2e dr. 1991) and 'Suikerbonen en beschuit met muisjes. Eetcultuur rondom sleutelmomenten' (2006) under the birth customs. Accepted with the hedged card ('vaak', 'veel families'); the custom is not time-sensitive.",
+      "why": "Adds a public research institute (KNAW) that files the custom under geboorte; the erfgoed entry stays the primary citation."
+    },
+    {
+      "item": "A2:knm:batch032-generatie:1",
+      "field": "(item)",
+      "before": "(item removed: generatie)",
+      "after": "(item added at the same position: A2:knm:batch032-overlijden:1, key B)",
+      "why": "generatie repeats catalogue item A2:knm:batch018-omgangsvormen:1: the same eindterm sentence as the key ('verschillen per groep en generatie' against 'per groep, regio en generatie'), the same uniformity distractor ('in heel Nederland precies hetzelfde' against 'overal in Nederland precies hetzelfde') and the same persona frame ('woont sinds een jaar / sinds kort in Nederland'); only the third option differs. Rubric 11 and blueprint section 9 treat that as a repeat. Replaced by the author's verified 2.2.2 reserve as the coordinator instructed."
+    }
+  ],
+  "rejected": [
+    {
+      "item": "A2:knm:batch032-generatie:1",
+      "reason": "Repeat of catalogue item A2:knm:batch018-omgangsvormen:1 (rubric 11, blueprint section 9): same eindterm sentence as the key ('Nee, zij verschillen per groep en generatie.' against 'Ze verschillen per groep, regio en generatie.'), same uniformity distractor ('in heel Nederland precies hetzelfde' against 'overal in Nederland precies hetzelfde'), same persona frame ('woont sinds een jaar in Nederland' against 'sinds kort'); only the third option differs and carries no distinct fact.",
+      "replaced_by": "A2:knm:batch032-overlijden:1",
+      "replacement_note": "The author's verified 2.2.2 reserve (032-notes.md section 6; page fetched and quotes confirmed on 2026-09-11), written into the same position with key B so that the batch stays A 4 / B 4 / C 4; options rebalanced so the key is not the longest by more than two characters; card rewritten into three A2 sentences."
+    }
+  ],
+  "checks": {
+    "json_parses": true,
+    "unique_item_ids": true,
+    "item_count": 12,
+    "distribution": {
+      "A2_knm": 12
+    },
+    "themes": {
+      "2": 12
+    },
+    "eindtermen": {
+      "2.1.1": [
+        "carnaval"
+      ],
+      "2.1.2": [
+        "direct-nee",
+        "direct-betekenis"
+      ],
+      "2.1.3": [
+        "gemeente-afspraak"
+      ],
+      "2.1.5": [
+        "bevrijdingsdag",
+        "kerstdagen",
+        "vuurwerk",
+        "suikerfeest"
+      ],
+      "2.2.1": [
+        "contributie",
+        "jeugdfonds"
+      ],
+      "2.2.2": [
+        "muisjes",
+        "overlijden"
+      ]
+    },
+    "eindtermen_verified_against": "https://wetten.overheid.nl/BWBR0045574/2026-04-18 (Regeling inburgering 2021, bijlage 2, Thema 2, geldend van 18-04-2026 t/m heden), fetched 2026-09-11; all seven theme 2 eindtermen exist and the eindterm and indicator texts quoted in the notes and sourceNote fields match the page verbatim",
+    "eindterm_mapping_exact_bullet": [
+      "direct-nee",
+      "direct-betekenis",
+      "gemeente-afspraak",
+      "bevrijdingsdag",
+      "kerstdagen",
+      "suikerfeest",
+      "contributie",
+      "muisjes"
+    ],
+    "eindterm_mapping_on_topic_loose": [
+      "carnaval (2.1.1 regio; carnaval named in 2.1.5)",
+      "vuurwerk (rule about Oud en Nieuw)",
+      "jeugdfonds (membership with a low income)",
+      "overlijden (legal frame of the uitvaart)"
+    ],
+    "coverage_with_batch_018": {
+      "2.1.1": 2,
+      "2.1.2": 3,
+      "2.1.3": 3,
+      "2.1.4": 3,
+      "2.1.5": 6,
+      "2.2.1": 3,
+      "2.2.2": 4
+    },
+    "batch_check": "npm run batch:check content/batches/032-proposed.json: Checked 12 items, 12 questions. Keys: {\"A\":4,\"B\":4,\"C\":4}. Options: {\"3\":12}. No failures, no warnings.",
+    "key_counts": {
+      "A": 4,
+      "B": 4,
+      "C": 4
+    },
+    "key_sequence": "A B C A B C A A C B C B",
+    "key_letters_moved_by_edits": false,
+    "option_counts": {
+      "3": 12
+    },
+    "prompt_word_range": "12-19 (limit 20)",
+    "option_word_range": "3-11",
+    "option_length_signal": "no key the longest option by more than two characters; ties in gemeente-afspraak, jeugdfonds and overlijden (by one), contributie longer by two",
+    "text_word_range": "27-38",
+    "text_sentences_range": "3-4",
+    "longest_text_sentence_words": 16,
+    "average_text_sentence_words_range": "6.8-11.7",
+    "closed_evidence_is_verbatim": true,
+    "key_is_longest_option": false,
+    "prompt_word_only_in_key": false,
+    "yes_no_items": "vuurwerk (nee* / nee / ja) and suikerfeest (ja / nee / nee*): both keys share their polarity with a distractor",
+    "behaviour_questions": 0,
+    "question_forms": "8 persona facts, 2 definitional, 2 yes/no with qualification, 0 direct facts",
+    "task_type": "feit on all 12; skill rule-application on all 12",
+    "domains": {
+      "vrije-tijd-familie": 5,
+      "werk": 2,
+      "opleiding": 2,
+      "instanties": 2,
+      "wonen-buurt": 1
+    },
+    "cast_traits_verbatim": true,
+    "cast_use": "Karim 2, Fatima 2, Amina 2, Sem 2, Sabrina 2, Julio 1, Roos 1, Modibo 1, Hasan 1, mevrouw Bakker 1; family links as in config/illustration.json",
+    "briefs_end_no_text": true,
+    "slugs_and_titles_unused_in_catalogue_and_batch_033": true,
+    "required_knm_fields_present": "theme, eindterm, sourceUrl, sourceNote, sourceReviewedAt (2026-09-11), imageBrief, imageAlt on all 12; status draft; targetLevelValidated false",
+    "all_sources_opened": true,
+    "sources_fetched_http_200": [
+      "https://www.rijksoverheid.nl/themas/onderwijs/schoolvakanties/vrij-van-school-op-feestdagen",
+      "https://www.gemeentemaastricht.nl/stad/evenementen/carnaval-2026-maastricht",
+      "https://wetten.overheid.nl/BWBR0045574/2026-04-18#Bijlage2",
+      "https://www.amersfoort.nl/afspraak-maken-met-burgerzaken",
+      "https://www.gouda.nl/direct-regelen/leven-en-wonen/reizen-en-papieren/paspoort/",
+      "https://www.utrecht.nl/contact/afspraak-maken",
+      "https://www.almere.nl/contact/afspraak-maken",
+      "https://www.rijksoverheid.nl/themas/overheid-en-democratie/tweede-wereldoorlog/bevrijdingsdag-5-mei",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/arbeidsovereenkomst-en-cao/bevrijdingsdag-5-mei-vrije-dag",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/arbeidsovereenkomst-en-cao/officiele-feestdagen",
+      "https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/vuurwerk/regels-vuurwerk",
+      "https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/vuurwerk",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/vuurwerk/welk-vuurwerk-afsteken",
+      "https://zoek.officielebekendmakingen.nl/stb-2026-168.html",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/leerplicht/leerplicht-kind-niet-naar-school",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/schooladvies-en-doorstroomtoets-basisschool/doorstroomtoets-ramadan",
+      "https://ondernemersplein.overheid.nl/bedrijfsvoering/rechtsvormen-en-organisatie/de-vereniging/",
+      "https://www.kvk.nl/starten/de-vereniging/",
+      "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/sport-en-bewegen/sporten-en-bewegen-voor-kinderen",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/armoedebestrijding/kan-ik-ondersteuning-voor-mijn-kinderen-krijgen",
+      "https://www.immaterieelerfgoed.nl/nl/page/5447/de-cultuur-van-beschuit-met-muisjes",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/overlijden/welke-regels-gelden-er-bij-begraven-en-cremeren"
+    ],
+    "extra_pages_fetched_for_decisions": [
+      "https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/vuurwerk/maatregelen-voor-minder-gewonden-en-schade-door-vuurwerk",
+      "https://www.rijksoverheid.nl/actueel/nieuws/2026/08/17/campagne-rondom-landelijke-vuurwerkinleverdagen-van-start",
+      "https://www.rdw.nl/het-rijbewijs/aanvragen-of-verlengen/rijbewijs-online-verlengen",
+      "https://www.meertens.knaw.nl/vtb/index.php?trefwoord=geboorte",
+      "https://www.rijksoverheid.nl/themas/overheid-en-democratie/tweede-wereldoorlog/nationale-herdenkingen",
+      "https://www.koninklijkhuis.nl/onderwerpen/activiteiten-en-werkzaamheden/koningsdag",
+      "https://www.rijksoverheid.nl/vraag-en-antwoord/grondwet-en-statuut/wanneer-kan-ik-de-vlag-uithangen-en-wat-is-de-vlaginstructie"
+    ],
+    "sources_not_found": [
+      "the Rijksoverheid vuurwerk theme page no longer shows the 1 July 2026 news item the author quoted ('Het landelijk vuurwerkverbod voor consumenten gaat in op 1 augustus 2026.'); the same fact was verified on the 'Maatregelen' page and in the 17 August 2026 news item, which the proposed sourceNote cites instead"
+    ],
+    "time_sensitive_items": {
+      "vuurwerk": "Wet veilige jaarwisseling in force since 1 August 2026 (Stb. 2026, 168 artikel III); first jaarwisseling under the ban 2026/2027; re-check before every jaarwisseling",
+      "gemeente-afspraak": "gemeente pages yearly; scenario is an identiteitskaart because rijbewijs renewal is online at the RDW",
+      "jeugdfonds": "fund conditions and age limit yearly; tested fact stable",
+      "overlijden": "Wet op de lijkbezorging under modernisation; re-check yearly"
+    },
+    "copyright": "all wording original; nothing copied from official practice items or the cited pages beyond short factual phrases"
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch032-carnaval:1",
+      "theme": 2,
+      "eindterm": "2.1.1",
+      "domain": "werk",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "19-word persona prompt, options 7-7-6 words, card 34 words in four sentences (longest 15). A genuine regional-custom fact; B is the mirror region and C the uniformity belief eindterm 2.1.1 targets; nothing in the wording marks the key (34 characters against 35 and 30).",
+      "source_check": "rijksoverheid.nl 'Op welke feestdagen is mijn kind vrij van school?', section 'Vrij met carnaval': 'Uw kind krijgt geen vrijstelling van de leerplicht voor carnaval. In de praktijk plannen veel scholen in het zuiden van Nederland een korte vakantie tijdens carnaval.' Gemeente Maastricht 'Carnaval 2026 in Maastricht': 'Het is het grootste volksfeest van de stad, waarbij de vastelaovendsvierders 3, soms zelfs 5 dagen lang genieten.' and 'Dit jaar vieren we carnaval op 15, 16 en 17 februari.' Carnaval absent from the Rijksoverheid officiële feestdagen list (2026 and 2027 lists read). 'vooral' is the hedge on the government sentence that itself localises the custom.",
+      "evidence": "Key A 'Vooral in het zuiden van het land.' entailed by 'Carnaval is vooral in het zuiden van Nederland een groot feest'. B 'noorden' contradicts it; C 'Overal … even groot' contradicts 'verschillen per regio' and the localised school break. 'groot' recurs in the prompt and in C, not only in the key.",
+      "edited_fields": [],
+      "key": "A",
+      "evidence_quote": "Carnaval is vooral in het zuiden van Nederland een groot feest",
+      "prompt_words": 19,
+      "text_words": 34
+    },
+    {
+      "id": "A2:knm:batch032-overlijden:1",
+      "theme": 2,
+      "eindterm": "2.2.2",
+      "domain": "vrije-tijd-familie",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "15-word persona prompt, options 8-6-6 words (38/39/36 characters, key longest by one), card 35 words in three sentences (longest 14, average 11.7). A statutory fact KNM courses teach under 'overlijden'; A is the same-day burial of other traditions, C the longer wait; neither decodable from the prompt.",
+      "source_check": "rijksoverheid.nl 'Wanneer mag ik een overledene laten begraven of cremeren?': 'U mag een overledene niet eerder dan 36 uur na overlijden laten begraven of cremeren. En niet later dan 6 werkdagen na overlijden. Het weekend en feestdagen zijn geen werkdagen.', 'Dit staat in de Wet op de lijkbezorging (Wlb).', 'Bij begraven of cremeren na 6 werkdagen heeft u toestemming nodig van de burgemeester …', 'Na de crematie moet het crematorium de as van de overledene 1 maand bewaren.' Written by the reviewer from the author's verified reserve (032-notes.md section 6).",
+      "evidence": "Key B 'Binnen zes werkdagen na het overlijden.' entailed by 'uiterlijk zes werkdagen na het overlijden'. A 'Nog op de dag van het overlijden zelf' excluded by 'niet eerder dan 36 uur'; C 'Meestal een maand' contradicts the six-working-day limit (a later date only with the burgemeester's permission). Eindterm mapping: 2.2.2 names overlijden; the tested fact is the legal frame of the uitvaart, recorded as an on-topic, loose mapping.",
+      "edited_fields": [
+        "(new item, replaces generatie)"
+      ],
+      "key": "B",
+      "evidence_quote": "uiterlijk zes werkdagen na het overlijden",
+      "prompt_words": 15,
+      "text_words": 35
+    },
+    {
+      "id": "A2:knm:batch032-direct-nee:1",
+      "theme": 2,
+      "eindterm": "2.1.2",
+      "domain": "wonen-buurt",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "19-word persona prompt with a quoted refusal, options 6-7-7 words in one frame ('De buurvrouw …'), card 31 words in three sentences (longest 14). The eindterm's fact applied to a refusal; A (anger) and B (contact over) are the two misreadings; the key (37 characters) sits between 29 and 44.",
+      "source_check": "wetten.overheid.nl BWBR0045574, geldend van 18-04-2026, bijlage 2, 2.1.2: 'Weet dat veel mensen in Nederland zich direct kunnen uiten.' Matches the sourceNote verbatim. The two glosses are the item's hedged reading of what a direct refusal does not mean, as accepted for 018 directheid.",
+      "evidence": "Key C 'De buurvrouw zegt direct wat zij wil.' entailed by 'Veel mensen in Nederland zeggen direct wat zij willen. Een direct 'nee' op een uitnodiging is hier gewoon.' A contradicts 'meestal geen teken van boosheid', B contradicts 'ook geen einde van het contact'. No prompt word recurs only in the key.",
+      "edited_fields": [
+        "text",
+        "questions[0].explanation"
+      ],
+      "key": "C",
+      "evidence_quote": "Veel mensen in Nederland zeggen direct wat zij willen. Een direct 'nee' op een uitnodiging is hier gewoon.",
+      "prompt_words": 19,
+      "text_words": 32
+    },
+    {
+      "id": "A2:knm:batch032-direct-betekenis:1",
+      "theme": 2,
+      "eindterm": "2.1.2",
+      "domain": "opleiding",
+      "verdict": "pass",
+      "level": "comparable (easy end)",
+      "level_reason": "16-word persona prompt, options 6-6-5 words, card 32 words in three sentences (longest 13). Definitional form as the blueprint's own example; the key cannot be read off the word 'direct' (B is exactly the 'immediately/punctual' decoding), C is the opposite; key 31 characters against 33 and 33.",
+      "source_check": "Same eindterm 2.1.2 (verbatim on wetten.overheid.nl). The punctuality contrast is indicator 2.1.3's own fact ('waarde hechten aan op tijd komen'), read on the same page.",
+      "evidence": "Key A 'Zij zeggen open wat zij denken.' is the evidence 'zij zeggen open wat zij denken' word for word. B contradicts ''Direct zijn' gaat over hoe mensen praten, niet over op tijd komen'; C contradicts 'ook als het kritiek is'.",
+      "edited_fields": [
+        "text",
+        "questions[0].evidence"
+      ],
+      "key": "A",
+      "evidence_quote": "zij zeggen open wat zij denken",
+      "prompt_words": 16,
+      "text_words": 32
+    },
+    {
+      "id": "A2:knm:batch032-gemeente-afspraak:1",
+      "theme": 2,
+      "eindterm": "2.1.3",
+      "domain": "instanties",
+      "verdict": "pass",
+      "level": "comparable (easy end)",
+      "level_reason": "15-word persona prompt, options 6-6-5 words in one frame ('Zij …'), card 38 words in four sentences (longest 12). The appointment culture is known to many learners, but A (walk in) and C (all by phone) are real newcomer expectations and 'alleen op afspraak' is the eindterm's own point; key ties A at 35 characters.",
+      "source_check": "amersfoort.nl 'Afspraak maken met Burgerzaken': 'De afdeling Burgerzaken werkt alleen op afspraak.', product 'ID-kaart aanvragen of vernieuwen - Let op! Maak 2 afspraken', 'Wil je een geplande afspraak afzeggen of wijzigen? Gebruik dan de link uit je bevestigingsmail of bel met 14 033.'; gouda.nl 'Paspoort': 'U kunt alleen op afspraak een paspoort aanvragen en ophalen …'; utrecht.nl 'Afspraak maken': 'U kunt voor deze onderwerpen alleen met een afspraak langskomen.'; almere.nl: 'De gemeente Almere werkt vooral op afspraak.' rdw.nl 'Rijbewijs online verlengen' (reason for the document change): 'Dan kunt u de verlenging of uitbreiding online regelen bij ons.' Eindterm 2.1.3 verbatim on wetten.overheid.nl.",
+      "evidence": "Key B 'Zij maakt van tevoren een afspraak.' entailed by 'Bij veel gemeenten kunt u alleen op afspraak langskomen'. A contradicts 'alleen op afspraak'; C is false because the document is applied for at the balie and the phone only cancels ('zegt de afspraak af, online of per telefoon'). 'afspraak' occurs in A and B, so it does not mark the key.",
+      "edited_fields": [
+        "questions[0].prompt",
+        "text",
+        "questions[0].explanation",
+        "sourceNote"
+      ],
+      "key": "B",
+      "evidence_quote": "Bij veel gemeenten kunt u alleen op afspraak langskomen",
+      "prompt_words": 15,
+      "text_words": 38
+    },
+    {
+      "id": "A2:knm:batch032-bevrijdingsdag:1",
+      "theme": 2,
+      "eindterm": "2.1.5",
+      "domain": "vrije-tijd-familie",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "14-word persona prompt, options 7-10-7 words in one frame ('De dag dat …'), card 30 words in three sentences (longest 13). The 4/5 mei distinction is the eindterm's own pair; the key (39 characters) is not the longest (B 50) and each option has its own verb, so none is the odd one out.",
+      "source_check": "rijksoverheid.nl 'Bevrijdingsdag 5 mei': 'Bevrijdingsdag is de nationale feestdag waarop we de bevrijding van Nederland in 1945 vieren.' and 'Bevrijdingsdag valt altijd op 5 mei …'; 'Is Bevrijdingsdag (5 mei) een vrije dag?': 'Bevrijdingsdag (5 mei) is een officiële feestdag in Nederland, maar niet iedereen is dan vrij.' and 'Scholen zijn bijna altijd dicht op Bevrijdingsdag.' Distractor pages re-fetched: 'Nationale herdenkingen Tweede Wereldoorlog' ('Dodenherdenking: 4 mei') and koninklijkhuis.nl 'Koningsdag' ('de verjaardag van de Koning … 27 april').",
+      "evidence": "Key C 'De dag dat de bevrijding wordt gevierd.' entailed by 'Nederland viert dan de bevrijding van 1945'. B is 4 mei (Nationale Herdenking), A is 27 april (Koningsdag); both false for 5 mei by the cited pages.",
+      "edited_fields": [],
+      "key": "C",
+      "evidence_quote": "Nederland viert dan de bevrijding van 1945",
+      "prompt_words": 14,
+      "text_words": 30
+    },
+    {
+      "id": "A2:knm:batch032-kerstdagen:1",
+      "theme": 2,
+      "eindterm": "2.1.5",
+      "domain": "werk",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "13-word persona prompt, options 4-3-4 words, all dates (18/19/18 characters), card 33 words in three sentences (longest 16). The second Christmas day is the Dutch particular a newcomer must know; B is the one-day Christmas of many countries, C counts Christmas Eve; nothing marks the key.",
+      "source_check": "rijksoverheid.nl 'Wanneer zijn de officiële feestdagen in Nederland?': 'Kerstmis: vrijdag 25 december en zaterdag 26 december 2026', 'Kerstmis: zaterdag 25 december en zondag 26 december 2027', 'Er is geen wet die heeft vastgelegd dat bepaalde feestdagen vrije dagen zijn voor werknemers. … In uw cao of arbeidsovereenkomst staat of u vrij bent op feestdagen.'; school page: 'Op de volgende nationale feestdagen zijn alle scholen in principe gesloten: … Eerste en Tweede Kerstdag.'",
+      "evidence": "Key A '25 en 26 december.' entailed by 'een officiële feestdag op 25 en 26 december'. B 'Alleen 25 december' and C '24 en 25 december' contradict the list.",
+      "edited_fields": [
+        "questions[0].prompt"
+      ],
+      "key": "A",
+      "evidence_quote": "een officiële feestdag op 25 en 26 december",
+      "prompt_words": 13,
+      "text_words": 33
+    },
+    {
+      "id": "A2:knm:batch032-vuurwerk:1",
+      "theme": 2,
+      "eindterm": "2.1.5",
+      "domain": "vrije-tijd-familie",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "12-word yes/no prompt, options 7-8-11 words (48/50/53 characters, key shortest), nee/nee/ja with the key sharing polarity with B, card 36 words in four sentences (longest 12). A current rule squarely on rijksoverheid.nl; B is the over-correction, C the rule that applied until 2026 and that older course books still carry.",
+      "source_check": "rijksoverheid.nl 'Regels vuurwerk afsteken': 'Voor consumenten geldt een vuurwerkverbod. Alleen klein vuurwerk, zoals sterretjes, is nog toegestaan.', 'Iedereen mag het hele jaar door klein vuurwerk afsteken. Dit is vuurwerk in de categorie F1.', 'Vuurwerk zoals vuurpijlen, cakes, compoundboxen en knalvuurwerk mag alleen nog door professionals worden afgestoken.'; 'Maatregelen voor minder gewonden en schade door vuurwerk': 'Vanaf 1 augustus 2026 is er een landelijk vuurwerkverbod voor consumenten.' and 'Klein vuurwerk van de categorie F1, zoals sterretjes en knalerwten, blijft toegestaan.'; news 17-08-2026: 'De nieuwe Wet veilige jaarwisseling is per 1 augustus van kracht.'; 'Welk vuurwerk mag ik nog afsteken?': 'U mag als consument alleen vuurwerk van de categorie F1 afsteken, zoals knalerwten, sierfonteintjes en sterretjes.'; Staatsblad 2026, 168 (Besluit veilige jaarwisseling, signed 25-06-2026, published 01-07-2026, Ministerie van IenW): artikel III 'Dit besluit treedt in werking met ingang van 1 augustus 2026 nadat artikel IIa van de Wet veilige jaarwisseling op dezelfde datum in werking is getreden.', toelichting 5.1 'Vóór de inwerkingtreding van de Wet veilige jaarwisseling mochten consumenten van 31 december 18.00 uur tot 1 januari 02.00 uur vuurwerk afsteken …'. The 1 July 2026 news item the author quoted is no longer on the theme page; the sourceNote now cites the pages above.",
+      "evidence": "Key A 'Nee, alleen klein vuurwerk zoals sterretjes mag.' entailed by 'Alleen klein vuurwerk, zoals sterretjes, mag nog'. B contradicts it (F1 allowed all year); C contradicts 'Zelf vuurpijlen of knalvuurwerk afsteken mag niet meer' (the old 18:00 rule, Stb. 2026, 168 §5.1). All three options contain 'mag', so the prompt's 'Mag dat' marks none.",
+      "edited_fields": [
+        "sourceNote"
+      ],
+      "key": "A",
+      "evidence_quote": "Alleen klein vuurwerk, zoals sterretjes, mag nog",
+      "prompt_words": 12,
+      "text_words": 36
+    },
+    {
+      "id": "A2:knm:batch032-suikerfeest:1",
+      "theme": 2,
+      "eindterm": "2.1.5",
+      "domain": "opleiding",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "12-word yes/no prompt, options 7-9-7 words (45/42/43 characters), ja/nee/nee with the key sharing polarity with B, card 30 words in three sentences (longest 14). The second fact (parents may ask leave in advance) separates B from C, so the item tests more than the official list.",
+      "source_check": "rijksoverheid.nl school page, 'Religieuze feestdagen': 'Scholen mogen leerlingen vrij geven op andere (religieuze) feestdagen dan de officiële feestdagen. Dit geldt dan voor álle leerlingen van de school. … Voorbeelden zijn scholen die niet lesgeven op Goede vrijdag, op Bid- en Dankdag voor Gewas en Arbeid, of tijdens het Suikerfeest.'; 'Wanneer hoeft mijn kind niet naar school?': 'Vertel de schooldirecteur dat u vrij wilt vragen voor uw kind.' and 'Wilt u dat uw kind vrij is voor een feestdag? Bijvoorbeeld voor het Suikerfeest of het Joods Paasfeest? Vertel dit vooraf aan de school.' (religious reasons listed under geoorloofd schoolverzuim). Suikerfeest absent from the officiële feestdagen list. The apposition 'aan het einde van de ramadan' is untested general knowledge (no government page defines the feast; Meertens keyword bank checked).",
+      "evidence": "Key C 'Nee, maar ouders kunnen vooraf vrij vragen.' entailed by 'is in Nederland geen officiële feestdag. … Ouders kunnen ook vooraf vrij vragen voor hun kind'. A contradicts 'geen officiële feestdag' and 'mogen'; B contradicts the leerplicht page.",
+      "edited_fields": [],
+      "key": "C",
+      "evidence_quote": "is in Nederland geen officiële feestdag. Scholen mogen die dag wel vrij geven. Ouders kunnen ook vooraf vrij vragen voor hun kind",
+      "prompt_words": 12,
+      "text_words": 30
+    },
+    {
+      "id": "A2:knm:batch032-contributie:1",
+      "theme": 2,
+      "eindterm": "2.2.1",
+      "domain": "vrije-tijd-familie",
+      "verdict": "pass",
+      "level": "comparable (easy end)",
+      "level_reason": "13-word persona prompt, options 6-7-6 words (39/41/36 characters, key longest by two), card 27 words in four sentences (longest 8). Definitional; 'contributie' is transparent for some language backgrounds but not decodable from the prompt, and A and C are the page's other two elements of a vereniging.",
+      "source_check": "ondernemersplein.overheid.nl 'De vereniging': 'Een vereniging is een organisatie met leden die samen een doel willen bereiken. Meestal organiseert een vereniging maatschappelijke activiteiten. Zoals een sport- of buurtvereniging.', 'De hoogste macht ligt bij de ledenvergadering.', 'De leden hebben allemaal één stem op de ledenvergadering. De ledenvergadering benoemt het bestuur …', 'Het geld van een vereniging komt binnen via de contributies die leden betalen.'; kvk.nl 'De vereniging: rechtsvorm met leden': 'Je kunt een vereniging oprichten als je een doel wilt bereiken, zoals samen sporten, muziek maken of de natuur beschermen.' Indicator 2.2.1 verbatim on wetten.overheid.nl.",
+      "evidence": "Key B 'Geld dat leden aan de vereniging betalen.' entailed by 'De leden betalen contributie: geld voor de vereniging'. A is the ledenvergadering, C the bestuur; both named on the page as other things. 'vereniging' recurs in B and C, so it does not mark the key.",
+      "edited_fields": [],
+      "key": "B",
+      "evidence_quote": "De leden betalen contributie: geld voor de vereniging",
+      "prompt_words": 13,
+      "text_words": 27
+    },
+    {
+      "id": "A2:knm:batch032-jeugdfonds:1",
+      "theme": 2,
+      "eindterm": "2.2.1",
+      "domain": "instanties",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "17-word persona prompt, options 5-5-5 words in one frame (two bodies each; 30/28/30 characters), card 29 words in four sentences (longest 9). An institution question; A (Belastingdienst/UWV) is the money-body confusion, B (school) the school-sport model of other countries. Eindterm mapping loose (2.2.1 membership with a low income), recorded as such.",
+      "source_check": "rijksoverheid.nl 'Sporten en bewegen voor kinderen', 'Financiële ondersteuning via Jeugdfonds Sport en Cultuur': 'Om hiervoor te zorgen, ondersteunt de overheid het Jeugdfonds voor Sport en Cultuur. Dit fonds betaalt het lesgeld voor kinderen van wie de ouders het lidmaatschap niet kunnen betalen. Het fonds verlaagt de leeftijdsgrens van 4 naar 2 jaar.'; 'Kan ik ondersteuning krijgen voor mijn kind(eren)?': 'Elke gemeente ondersteunt huishoudens met een laag inkomen. Bijvoorbeeld met een kindpakket.', 'Of lid worden bij een sportclub. Hiervoor kunt u als ouder mogelijk een tegemoetkoming krijgen.'",
+      "evidence": "Key C 'De gemeente of een jeugdfonds.' entailed by 'Het Jeugdfonds Sport en Cultuur betaalt dan de contributie. Ook de gemeente helpt gezinnen met een laag inkomen'. A and B name bodies that pay no club fee.",
+      "edited_fields": [],
+      "key": "C",
+      "evidence_quote": "Het Jeugdfonds Sport en Cultuur betaalt dan de contributie. Ook de gemeente helpt gezinnen met een laag inkomen",
+      "prompt_words": 17,
+      "text_words": 29
+    },
+    {
+      "id": "A2:knm:batch032-muisjes:1",
+      "theme": 2,
+      "eindterm": "2.2.2",
+      "domain": "vrije-tijd-familie",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "14-word persona prompt with a hedge, options 5-5-5 words in one frame (27/25/27 characters), card 32 words in four sentences (longest 10). A recognisable custom with the two neighbouring customs of 2.2.2 as distractors; the reverse of 018 geslaagd, where muisjes was the distractor.",
+      "source_check": "immaterieelerfgoed.nl 'De cultuur van beschuit met muisjes' (Kenniscentrum Immaterieel Erfgoed Nederland, network entry, 'Bijgeschreven in netwerk vanaf: augustus 2019'): 'Na de geboorte komt er veel bezoek en om te vieren dat er een baby is geboren, trakteert men beschuit met muisjes.', 'Beoefenaars en betrokkenen zijn ouders van pasgeboren kinderen met familie en vrienden, zoals … buren …', 'Tegenwoordig zijn de muisjes roze/wit bij de geboorte van een meisje en blauw/wit bij een jongen …'. Corroboration: Meertens Instituut (KNAW) Volkskundige Trefwoorden Bank, trefwoord 'geboorte', lists 'Beschuit met muisjes en andere gebruiken rond geboorte' (Strouken, 1991). Distractor pages re-fetched: the Rijksoverheid vlag page ('het slagen voor een examen') and the Voedingscentrum trakteren page (cited in 018).",
+      "evidence": "Key B 'De geboorte van een baby.' entailed by 'Is er een baby geboren? … Veel families trakteren het bezoek dan op beschuit met muisjes.' A (birthday: the child treats) and C (exam: the flag) are the customs of 018 items 12 and 11.",
+      "edited_fields": [],
+      "key": "B",
+      "evidence_quote": "Is er een baby geboren? Dan komt er vaak bezoek: de kraamvisite. Veel families trakteren het bezoek dan op beschuit met muisjes.",
+      "prompt_words": 14,
+      "text_words": 32
+    }
+  ],
+  "decisions_on_author_doubts": {
+    "1_generatie_vs_018": "repeat; swapped for the verified overlijden reserve",
+    "2_carnaval_vooral": "kept: the Rijksoverheid sentence localises the carnaval school break to the south, the Maastricht page calls it the city's largest volksfeest; 'vooral' is the hedge; item stays under 2.1.1 with 2.1.5 as the secondary mapping",
+    "3_vuurwerk_under_2_1_5": "kept with a retire note: ban verified in force (Rijksoverheid pages, news of 17 August 2026, Staatsblad 2026, 168); re-check before every jaarwisseling",
+    "4_suikerfeest_definition": "kept: stable general knowledge, untested, not a time-sensitive government fact; no rijksoverheid.nl page defines the feast",
+    "5_kerstdagen_dates": "confirmed parallel; only the prompt was made plainer",
+    "6_muisjes_source": "accepted with the hedged card; Meertens Instituut keyword bank added as corroboration",
+    "7_gemeente_afspraak_hedge_and_033": "hedge stands on three 'alleen op afspraak' pages plus one 'vooral' and the eindterm's 'doorgaans'; document changed to an identiteitskaart because the RDW renews driving licences online; no overlap with 033 (how, not where)",
+    "8_jeugdfonds_scope": "kept; eindterm mapping recorded as loose; ledenvergadering reserve stays available",
+    "9_direct_nee_glosses": "kept, both now under 'meestal'",
+    "10_topics_not_written": "agreed; nothing to add",
+    "11_pictures": "all accepted; see media_notes"
+  },
+  "level_summary": "All twelve items comparable to the official July 2025 item; direct-betekenis, gemeente-afspraak and contributie at the easy end (definitional or widely known facts with real distractors); no item easier by word decoding, none harder than its eindterm draws it, none off-level in language (prompts 12-19 words, options 3-11 words, cards 27-38 words with sentences of at most 16). No flags.",
+  "diversity_review": "No slug, title or tested fact repeats in the catalogue or in batch 033 after the swap; reverse pairs with 018 (5 mei / 4 mei, muisjes / vlag) test different facts; direct-nee and direct-betekenis differ from 018 directheid in setting and in what is asked. Twelve distinct settings; no cast member more than twice; domains vrije-tijd-familie 5, werk 2, opleiding 2, instanties 2, wonen-buurt 1; neighbourhood once, no volunteering. Still no direct fact question without a persona.",
+  "set_assembly": "Drill order (easy first, no letter three times in a row): contributie (B), direct-betekenis (A), kerstdagen (A), bevrijdingsdag (C), gemeente-afspraak (B), carnaval (A), muisjes (B), direct-nee (C), jeugdfonds (C), vuurwerk (A), suikerfeest (C), overlijden (B). A ten-item drill drops direct-nee and kerstdagen and keeps 3/4/3. With 018 every theme 2 eindterm has at least two items; a theme 2 block of a mock can draw 5 from each batch.",
+  "media_notes": [
+    "Twelve single illustrations at 816x816 in the house style; cast traits verbatim; every brief ends \"no text\".",
+    "Contact-sheet risks: muisjes no baby, cradle or card; bevrijdingsdag no flags; vuurwerk no fireworks; carnaval no costumes or map; overlijden no hearse, coffin or cards; direct-nee \"both women relaxed\" mildly weakens distractor A but is the honest picture of an ordinary refusal.",
+    "Question audio: prompt plus options for all twelve from the proposed text; the kerstdagen and gemeente-afspraak prompts and the overlijden item are new relative to the original."
+  ],
+  "retire_triggers": {
+    "vuurwerk": "before every jaarwisseling; repeal of the consumer ban or a change of the F1 exception retires it",
+    "gemeente-afspraak": "gemeente pages yearly; keep the identiteitskaart scenario (rijbewijs is online at the RDW)",
+    "jeugdfonds": "yearly; fund conditions and age limit change, the tested fact does not",
+    "overlijden": "yearly; Wet op de lijkbezorging under modernisation (36 hours and six working days are the tested terms)",
+    "kerstdagen, bevrijdingsdag, suikerfeest": "officiële feestdagen list, yearly",
+    "carnaval, direct-nee, direct-betekenis, contributie, muisjes": "stable customs and statute"
+  },
+  "coordinator_notes": [
+    "Adopt with npm run batch:adopt 032; the proposed hash is in source_sha256.",
+    "generatie is dropped and overlijden takes its slot; the batch notes still describe generatie and the rijbewijs scenario, which the adopted file no longer contains.",
+    "Question audio and pictures for kerstdagen, gemeente-afspraak and overlijden must be generated from the proposed text.",
+    "Diary entries: re-check vuurwerk before the 2026/2027 jaarwisseling and yearly; gemeente-afspraak, jeugdfonds and overlijden yearly.",
+    "A third theme 2 batch could add a direct fact question without a persona and the ledenvergadering reserve (2.2.1)."
+  ],
+  "limitations": [
+    "AI editorial review; no independent educator review, learner trial or psychometric calibration; A2 remains an authoring target and nothing here claims official equivalence.",
+    "Level is judged against the description of the official item in the research document, not against a stored exemplar.",
+    "Pictures and audio do not exist yet; briefs were judged as text.",
+    "The overlijden item was written by the reviewer from the author's verified reserve; its wording has had one pair of eyes.",
+    "direct-nee and direct-betekenis rest on the eindterm text alone; the muisjes custom rests on a heritage entry plus a KNAW folklore bibliography rather than a government page; the Suikerfeest definition is untested general knowledge."
+  ]
+}

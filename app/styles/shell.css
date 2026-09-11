@@ -1,4 +1,15 @@
 /* Navigation: one alignment, one active state, settings kept together. */
+/* Extend each surface to its window edge so the centred shell has one colour
+   boundary, at the sidebar divider. The hard stop follows the 72rem/12rem layout. */
+@media (width > 44rem) {
+  body:has(.app-shell) {
+    background-image: linear-gradient(
+      to right,
+      var(--paper) max(12rem, calc(50% - 24rem)),
+      var(--content-paper) 0
+    );
+  }
+}
 .app-shell {
   --sidebar-width: 12rem;
   display: grid;
@@ -316,6 +327,8 @@
   bottom: 2px;
 }
 .workspace {
+  --paper: var(--content-paper);
+  background: var(--paper);
   display: flex;
   flex-direction: column;
   min-width: 0;
