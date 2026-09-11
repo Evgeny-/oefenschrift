@@ -476,13 +476,13 @@ export function ClipButton({ src, playLabel, pauseLabel, caption = '' }) {
       />
       <button
         type="button"
-        className="play-button play-button-small"
+        className={caption ? 'secondary clip-button' : 'play-button play-button-small'}
         onClick={toggle}
         aria-label={playing ? pauseLabel : playLabel}
       >
         <PlayIcon playing={playing} />
+        {caption && <span className="clip-caption">{caption}</span>}
       </button>
-      {caption && <span className="clip-caption">{caption}</span>}
     </span>
   );
 }

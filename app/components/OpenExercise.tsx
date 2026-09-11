@@ -46,7 +46,7 @@ function TaskStimulus({ item, t }) {
             <ClipButton
               src={item.promptAudio}
               playLabel={t('Opdracht beluisteren', 'Listen to the instruction')}
-              pauseLabel={t('Pauzeren', 'Pause')}
+              pauseLabel={t('Opdracht pauzeren', 'Pause instruction')}
               caption={t('Opdracht', 'Instruction')}
             />
           )}
@@ -54,7 +54,7 @@ function TaskStimulus({ item, t }) {
             <ClipButton
               src={item.cueAudio}
               playLabel={t('Vraag beluisteren', 'Listen to the question')}
-              pauseLabel={t('Pauzeren', 'Pause')}
+              pauseLabel={t('Vraag pauzeren', 'Pause question')}
               caption={
                 item.cue?.speaker
                   ? `${t('U hoort', 'You hear')}: ${item.cue.speaker}`
@@ -63,12 +63,6 @@ function TaskStimulus({ item, t }) {
             />
           )}
         </div>
-      )}
-      {item.speakingSeconds && (
-        <p className="small task-timing" lang="nl">
-          {item.prepSeconds ? `${item.prepSeconds} seconden voorbereiden · ` : ''}
-          {item.speakingSeconds} seconden spreektijd
-        </p>
       )}
       {scaffold.salutation && (
         <p className="scaffold-line" lang="nl">

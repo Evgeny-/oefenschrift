@@ -36,7 +36,10 @@
   height: 12px;
 }
 .question-audio {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  vertical-align: middle;
 }
 .situation {
   margin-bottom: 1rem;
@@ -257,13 +260,15 @@ summary {
   align-items: center;
   margin: 0.5rem 0;
 }
-.clip-caption {
-  font-size: var(--text-small);
-  color: var(--muted);
-  margin-left: 0.4rem;
-  vertical-align: middle;
+.clip-button {
+  max-width: 100%;
+  justify-content: flex-start;
+  font-weight: 400;
+  text-align: left;
 }
-.task-timing {
-  color: var(--muted);
-  margin: 0.25rem 0 0.75rem;
+.clip-button svg {
+  display: block;
+  flex: none;
+  width: 12px;
+  height: 12px;
 }
