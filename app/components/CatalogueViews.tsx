@@ -599,8 +599,8 @@ export function About() {
               <img
                 className="about-flow-image"
                 src={mediaUrl(`images/about/${step.image}.svg`)}
-                width="88"
-                height="88"
+                width="64"
+                height="64"
                 alt=""
               />
               <div>
