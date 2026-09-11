@@ -301,6 +301,7 @@ export class ContentStore {
     failed,
     ms,
     usage: { input_tokens?: number; output_tokens?: number } | null = null,
+    at = Date.now(),
   ) {
     if (!['feedback', 'transcribe'].includes(service)) return;
     const tokens = (key) => Math.max(0, Math.round(Number(usage?.[key]) || 0));
@@ -309,7 +310,7 @@ export class ContentStore {
         'INSERT INTO service_stats(day,service,calls,failures,total_ms,input_tokens,output_tokens) VALUES(?,?,1,?,?,?,?) ON CONFLICT(day,service) DO UPDATE SET calls=calls+1,failures=failures+excluded.failures,total_ms=total_ms+excluded.total_ms,input_tokens=input_tokens+excluded.input_tokens,output_tokens=output_tokens+excluded.output_tokens',
       )
       .run(
-        new Date().toISOString().slice(0, 10),
+        new Date(at).toISOString().slice(0, 10),
         service,
         failed ? 1 : 0,
         Math.max(0, Math.round(ms)),

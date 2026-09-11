@@ -196,7 +196,8 @@ test('a service is offered only with a key, the switch on, the breaker closed an
         setCap('feedback', '3', store);
         assert.throws(() => setCap('feedback', '0', store), /whole number/);
         assert.throws(() => setCap('feedback', 'many', store), /whole number/);
-        for (let i = 0; i < 3; i++) store.statistic('feedback', false, 10);
+        // Stamped at the test's fixed day, so the count does not depend on the real clock.
+        for (let i = 0; i < 3; i++) store.statistic('feedback', false, 10, null, now);
         state = serviceState('feedback', now, store);
         assert.deepEqual([state.cap, state.today, state.capped, state.reason], [3, 3, true, 'cap']);
         assert.throws(
