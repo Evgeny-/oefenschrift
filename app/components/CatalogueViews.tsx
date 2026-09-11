@@ -8,6 +8,7 @@ import { Heading } from './ExerciseViews';
 import { checkDate, checkLine } from './LevelCheck';
 import AppLink from './AppLink';
 import useSelectionIndicator from './useSelectionIndicator';
+import { mediaUrl } from '../domain/base';
 function ListFilters({ filter, onChange, includeAll = true, includeDrafts = false }) {
   const { t } = useStudyContext(),
     indicator = useSelectionIndicator(filter);
@@ -543,34 +544,42 @@ export function About() {
     {
       title: t('Nieuwe opdracht', 'Original task'),
       text: t(
-        'AI schrijft alledaags Nederlands in de vorm van het examen.',
-        'Everyday Dutch, written with AI using exam task formats.',
+        'We schrijven elke oefening met geavanceerde AI-modellen, rond alledaags Nederlands.',
+        'We write every exercise with frontier AI models, using everyday Dutch.',
       ),
-      icon: 'M4 20l1-5L16 4a2.8 2.8 0 0 1 4 4L9 19l-5 1Zm10-14 4 4',
+      image: 'write',
     },
     {
-      title: t('Apart nagekeken', 'Separate review'),
-      text: t(
-        'Een tweede AI controleert de taal en antwoorden.',
-        'Another AI checks the language and answers.',
+      title: t('Nagekeken en herzien', 'Review and revise'),
+      text: (
+        <>
+          {t('Een aparte AI toetst aan ', 'A separate AI applies ')}
+          <a href="https://github.com/Evgeny-/oefenschrift/blob/main/content/reviews/rubric.md">
+            {t('strenge criteria', 'strict review rules')}
+          </a>
+          {t(
+            '. Alleen goedgekeurde oefeningen komen online.',
+            '. Only exercises that pass are published.',
+          )}
+        </>
       ),
-      icon: 'M5 3h10l4 4v14H5V3Zm9 0v5h5M8 14l3 3 5-6',
+      image: 'review',
     },
     {
       title: t('Jij oefent', 'You practise'),
       text: t(
-        'Je geeft zelf antwoord, in je eigen tempo.',
-        'Answer for yourself, at your own pace.',
+        'Geef antwoord en bekijk de uitleg, in je eigen tempo.',
+        'Try an answer, then read the feedback at your own pace.',
       ),
-      icon: 'M5 4h14v16H5V4Zm4 4h6m-6 4h6m-6 4h3',
+      image: 'practise',
     },
     {
-      title: t('Gerichte uitleg', 'Useful feedback'),
+      title: t('Beter met jouw hulp', 'Improve with you'),
       text: t(
-        'Zie waarom een antwoord klopt of hoe je jouw antwoord kunt verbeteren.',
-        'See why an answer is right, or how to improve yours.',
+        'Meldingen van cursisten helpen ons oefeningen te verbeteren. Elke wijziging wordt opnieuw beoordeeld.',
+        'Learner reports guide fixes. Each change goes through review again.',
       ),
-      icon: 'M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm2 5h10m-10 4h6',
+      image: 'improve',
     },
   ];
   return (
@@ -587,21 +596,13 @@ export function About() {
         <ol className="about-flow" role="list" aria-labelledby="about-flow-heading">
           {steps.map((step, index) => (
             <li key={index}>
-              <span className="about-flow-icon">
-                <svg
-                  width="26"
-                  height="26"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d={step.icon} />
-                </svg>
-              </span>
+              <img
+                className="about-flow-image"
+                src={mediaUrl(`images/about/${step.image}.svg`)}
+                width="88"
+                height="88"
+                alt=""
+              />
               <div>
                 <h3>{step.title}</h3>
                 <p>{step.text}</p>
@@ -625,36 +626,38 @@ export function About() {
             </li>
           ))}
         </ol>
-        <p>
+        <p className="about-report">
           {t(
-            'KNM-feiten worden gecontroleerd met officiële bronnen.',
-            'KNM facts are checked against official sources.',
+            'Klopt iets niet? Kies ‘Meld een probleem’ bij die opgave.',
+            'Something wrong? Choose ‘Report a problem’ on that exercise.',
           )}
         </p>
-        <p className="note about-limit">
-          {t(
-            'A2 en B1 zijn de beoogde niveaus. Tests met docenten en cursisten zijn nog nodig.',
-            'A2 and B1 are target levels. Teacher and learner testing are still needed.',
-          )}
-        </p>
-        <details className="about-details">
-          <summary>{t('Controles en beperkingen', 'Checks and limits')}</summary>
+        <section className="about-checks" aria-labelledby="about-checks-heading">
+          <h2 id="about-checks-heading">{t('Controles en beperkingen', 'Checks and limits')}</h2>
           <p>
             {t(
-              'AI kan fouten maken. Je oefenscore voorspelt niet of je slaagt. Audio gebruikt gegenereerde Nederlandse stemmen en wordt met het script vergeleken; een volledige luisterbeoordeling door een specialist moet nog gebeuren.',
-              'AI can make mistakes. A practice score does not predict whether you will pass. Audio uses generated Dutch voices and is checked against its script; a full specialist listening review is still pending.',
+              'KNM-feiten worden gecontroleerd met officiële bronnen. Lees onze ',
+              'KNM facts are checked against official sources. Read our ',
             )}
-          </p>
-          <p>
-            {t('Lees de ', 'Read the ')}
-            <a href="https://github.com/Evgeny-/oefenschrift/blob/main/content/reviews/rubric.md">
-              {t('beoordelingscriteria', 'review checklist')}
-            </a>
-            {t(' en ', ' and ')}
             <a href="https://github.com/Evgeny-/oefenschrift/tree/main/content/reviews">
               {t('beoordelingsverslagen', 'review reports')}
             </a>
-            . {t('Gebruik ook de officiële oefeningen van ', 'Also use official practice from ')}
+            .
+          </p>
+          <p>
+            {t(
+              'AI kan fouten maken. A2 en B1 zijn de beoogde niveaus; tests met docenten en cursisten zijn nog nodig. Je oefenscore voorspelt niet of je slaagt.',
+              'AI can make mistakes. A2 and B1 are target levels; teacher and learner testing are still needed. Your practice score does not predict an exam pass.',
+            )}
+          </p>
+          <p>
+            {t(
+              'De gegenereerde Nederlandse audio wordt met het script vergeleken. Een volledige luisterbeoordeling door een specialist moet nog gebeuren.',
+              'Generated Dutch audio is checked against its script. A full specialist listening review is still pending.',
+            )}
+          </p>
+          <p>
+            {t('Gebruik ook de officiële oefeningen van ', 'Also use official practice from ')}
             <a
               href={t(
                 'https://www.inburgeren.nl/examen-doen/oefenen.jsp',
@@ -669,18 +672,7 @@ export function About() {
             </a>
             .
           </p>
-          <p>
-            {t(
-              'Klopt iets niet? Kies ‘Meld een probleem’ bij die opgave.',
-              'Something wrong? Choose ‘Report a problem’ on that exercise.',
-            )}
-          </p>
-        </details>
-        <div className="actions about-actions">
-          <AppLink className="primary" to="home">
-            {t('Kies een onderdeel', 'Choose a subject')}
-          </AppLink>
-        </div>
+        </section>
       </div>
     </>
   );
