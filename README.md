@@ -4,7 +4,7 @@ Free, independent practice for the Dutch **inburgering** exams: reading, listeni
 
 **Live:** [oefenschrift.nl](https://oefenschrift.nl/)
 
-![The start page: level, subjects with their practice sets, a level check and a sample question](docs/screenshots/home.png)
+![The Dutch start page with illustrated cards for reading, listening, writing, speaking and KNM](docs/screenshots/home.png)
 
 ## What you get
 
