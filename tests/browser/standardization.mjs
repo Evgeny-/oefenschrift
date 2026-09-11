@@ -125,6 +125,7 @@ try {
   );
   assert.ok(await evaluate(`document.documentElement.scrollWidth<=innerWidth`));
   const image = await send('browsingContext.captureScreenshot', { context });
+  await fs.mkdir('tmp/standardization', { recursive: true });
   await fs.writeFile('tmp/standardization/catalogue-mobile.png', Buffer.from(image.data, 'base64'));
   console.log(
     'Every old and new reading, writing and speaking set displays task labels in both languages; narrow layout fits.',
