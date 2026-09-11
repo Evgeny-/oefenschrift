@@ -545,38 +545,78 @@ export function About() {
       <div className="about">
         <p>
           {t(
-            'Dit zijn onafhankelijke oefenopgaven, geen officiële examens. Je kunt bij elke opgave een opmerking achterlaten. Die komt in een beoordelingslijst voor een volgende versie.',
-            'These are independent practice exercises, not official exams. Each exercise accepts feedback, which goes into a review queue for a later revision.',
+            'Oefenschrift biedt gratis oefeningen voor lezen, luisteren, schrijven en spreken op A2 en B1, en voor Kennis van de Nederlandse Maatschappij (KNM). Je oefent in korte sets en kunt later verdergaan waar je was gebleven.',
+            'Oefenschrift offers free practice for reading, listening, writing and speaking at A2 and B1, plus knowledge of Dutch society (KNM). You work in short sets that you can pause and return to.',
+          )}
+        </p>
+        <h2>{t('Waarom zo oefenen?', 'Why practise this way?')}</h2>
+        <p>
+          {t(
+            'De opdrachten gaan over situaties waarin je Nederlands nodig hebt, zoals een bericht van je verhuurder begrijpen of een probleem op het werk uitleggen. Het niveau bepaalt de lengte van het materiaal en wat je ermee moet doen. Bij B1 moet je bijvoorbeeld informatie uit verschillende alinea’s combineren of je keuze met redenen uitleggen.',
+            'The tasks use situations where you need Dutch, such as understanding a message from your landlord or explaining a problem at work. The level guides the length of the material and what you need to do with it. B1 tasks may ask you to combine information across paragraphs or explain the reasons for a choice.',
           )}
         </p>
         <p>
           {t(
-            'De oefeningen zijn zelf geschreven voor A2 en B1. De moeilijkheid is nog niet door een NT2-docent of een onderzoek met cursisten vastgesteld.',
-            'These original exercises target A2 and B1. Their difficulty has not been validated by an NT2 teacher or a learner study.',
+            'Bij lezen en luisteren verwijst de uitleg naar de passage waaruit het antwoord volgt. Zo kun je terugvinden welk detail je hebt gemist. Schrijf- en spreekopdrachten maken duidelijk wat je antwoord moet overbrengen. Zelf nakijken en AI-feedback volgen die punten, zodat je bij een volgende poging weet waaraan je kunt werken.',
+            'In reading and listening, the explanation points to the passage that supports the answer. You can see which detail you missed. Writing and speaking tasks set out what your answer needs to communicate. Self-review and AI feedback follow those requirements, giving you something specific to work on in your next attempt.',
+          )}
+        </p>
+        <h2>{t('Hoe we de inhoud nakijken', 'How we check the content')}</h2>
+        <p>
+          {t(
+            'De oefeningen worden met AI geschreven volgens een opzet die is gebaseerd op officiële oefenmaterialen voor A2 en B1. De teksten en situaties zijn nieuw geschreven. Een aparte AI-beoordelaar leest elke opgave volledig en controleert de taal en antwoordlogica. Bij meerkeuzevragen onderzoekt die ook of een ander antwoord toch juist kan zijn. Aanpassingen worden opnieuw nagekeken voordat ze op de site komen.',
+            'The exercises are written with AI from a blueprint informed by official A2 and B1 practice materials. Texts and situations are newly written. A separate AI reviewer reads every exercise in full and checks its language and answer logic. For multiple-choice questions, it also checks whether another option could be correct. Revisions are reviewed before publication.',
           )}
         </p>
         <p>
           {t(
-            'Nieuwe opgaven worden door een tweede AI-agent nagekeken op taal, duidelijkheid en antwoordlogica. Dat vervangt geen beoordeling door een docent.',
-            'A second AI agent reviews new exercises for language, clarity and answer logic. This does not replace a teacher’s review.',
+            'Bij KNM bewaren we de bron van de verantwoordelijke overheidsinstantie en de datum waarop die is gecontroleerd. Luisterfragmenten gebruiken gegenereerde stemmen uit Nederland. Spraakherkenning vergelijkt de opname met het nagekeken script om afwijkende woorden op te sporen.',
+            'KNM questions record a source from the responsible public body and the date it was checked. Listening clips use generated Netherlands Dutch voices. Speech recognition compares the recording with the reviewed script to catch wording errors.',
+          )}
+        </p>
+        <p>
+          {t('Je kunt onze ', 'You can read our ')}
+          <a href="https://github.com/Evgeny-/oefenschrift/blob/main/content/reviews/rubric.md">
+            {t('beoordelingscriteria', 'review checklist')}
+          </a>
+          {t(' en ', ' and ')}
+          <a href="https://github.com/Evgeny-/oefenschrift/tree/main/content/reviews">
+            {t('beoordelingsverslagen', 'review reports')}
+          </a>
+          {t(' openbaar inzien.', '.')}
+        </p>
+        <h2>{t('Wat nog onderzocht moet worden', 'What still needs testing')}</h2>
+        <p>
+          {t(
+            'A2 en B1 zijn de beoogde niveaus. De moeilijkheid is nog niet vastgesteld door een NT2-docent of getest met cursisten. We hebben ook niet onderzocht of oefenen op deze site de examenresultaten verbetert. Een volledige luisterbeoordeling door een specialist moet nog gebeuren. De site is onafhankelijk van DUO; je score voorspelt niet of je slaagt.',
+            'A2 and B1 are target levels. Difficulty has not yet been validated by an NT2 teacher or tested with learners. We have not measured whether using this site improves exam results. A complete specialist listening review is still pending. The site is independent of DUO; your score does not predict whether you will pass.',
+          )}
+        </p>
+        <h2>{t('Aan de slag', 'Using the exercises')}</h2>
+        <p>
+          {t('Oefen daarnaast met de ', 'Also use the ')}
+          <a
+            href={t(
+              'https://www.inburgeren.nl/examen-doen/oefenen.jsp',
+              'https://www.inburgeren.nl/en/taking-the-integration-exam/practicing.jsp',
+            )}
+          >
+            {t('officiële oefenexamens van DUO', 'official DUO practice exams')}
+          </a>
+          {t(' en de ', ' and the ')}
+          <a href="https://www.staatsexamensnt2.nl/voorbereiden/examens-oefenen">
+            {t('oefenmaterialen voor het Staatsexamen NT2', 'Staatsexamen NT2 practice materials')}
+          </a>
+          {t(
+            ' om het examen zelf te leren kennen. Klopt iets niet in een opgave? Kies daar ‘Meld een probleem’, dan komt je melding in de lijst om na te kijken.',
+            ' to get familiar with the exam itself. If something seems wrong in an exercise, choose ‘Report a problem’ there so it can be reviewed.',
           )}
         </p>
         <p>
           {t(
-            'Luisterfragmenten gebruiken een synthetische Nederlandse stem. Je kunt je spreekantwoord opnemen en laten omzetten in tekst. Controleer je transcript voordat je feedback vraagt.',
-            'Listening clips use a synthetic Dutch voice. Record your spoken answer and check the transcript before requesting feedback.',
-          )}
-        </p>
-        <p>
-          {t(
-            'Bij meerkeuzevragen werkt ook het toetsenbord: 1, 2 en 3 (of A, B en C) kiezen een antwoord, Enter controleert en gaat verder.',
-            'Multiple-choice questions also take the keyboard: 1, 2 and 3 (or A, B and C) choose an answer, Enter checks and continues.',
-          )}
-        </p>
-        <p>
-          {t(
-            'De interface kan in het Nederlands of Engels; oefenteksten blijven Nederlands. Deze versie draait lokaal.',
-            'The interface supports Dutch and English; exercise texts stay Dutch. This version runs locally.',
+            'Je kunt de interface in het Nederlands of Engels gebruiken; oefenteksten blijven Nederlands. Controleer bij spreken je transcript voordat je feedback vraagt. In een oefenset kun je meerkeuzevragen ook met het toetsenbord beantwoorden: toets het cijfer of de letter van een antwoord in; Enter controleert en gaat verder.',
+            'The interface supports Dutch and English; exercise texts stay Dutch. When speaking, check your transcript before requesting feedback. In a practice set, press an answer’s number or letter to choose it with the keyboard; Enter checks and continues.',
           )}
         </p>
       </div>
