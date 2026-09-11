@@ -40,7 +40,7 @@ remote "mkdir -p '$REMOTE_DIR/var' && test -f '$REMOTE_DIR/.env' || echo 'No .en
 
 echo "Syncing..."
 sync() { rsync -az --delete -e "ssh -i \"$SSH_KEY\" -o IdentitiesOnly=yes -o BatchMode=yes" "$@"; }
-sync build/ "$target:$REMOTE_DIR/build/"
+bash scripts/sync-build.sh -e "ssh -i \"$SSH_KEY\" -o IdentitiesOnly=yes -o BatchMode=yes" build/ "$target:$REMOTE_DIR/build/"
 sync content/ "$target:$REMOTE_DIR/content/"
 sync config/ "$target:$REMOTE_DIR/config/"
 sync "$stage/node_modules/" "$target:$REMOTE_DIR/node_modules/"
