@@ -25,15 +25,23 @@
 .play-button svg {
   display: block;
 }
+/* The clip buttons beside the introduction and the question read them aloud. They sit inside
+   the line in the soft selected-pill tokens, so the player keeps the only full yellow button. */
 .play-button-small {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
   vertical-align: middle;
-  margin-left: 0.5rem;
+  margin-left: 0.4rem;
+  background: var(--tab-selected);
+  color: var(--tab-ink);
+}
+.play-button-small:hover {
+  background: var(--action);
+  color: var(--button-text);
 }
 .play-button-small svg {
-  width: 12px;
-  height: 12px;
+  width: 11px;
+  height: 11px;
 }
 .question-audio {
   display: inline-flex;
@@ -51,13 +59,6 @@
   font-size: var(--text-small);
   color: var(--muted);
   margin-top: 0.15rem;
-}
-.situation .intro {
-  margin-top: 0.35rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
 }
 .pictures {
   display: grid;
@@ -169,6 +170,13 @@ summary {
   font-size: var(--text-body);
   color: var(--ink);
   line-height: 1.8;
+}
+/* A conversation: each turn is its own paragraph, opened by the speaker's name. */
+.dialogue .turn + .turn {
+  margin-top: 0.5rem;
+}
+.dialogue b {
+  font-weight: 600;
 }
 
 /* Printed material of blueprint writing tasks: e-mail header, salutation/closing, form fields. */

@@ -116,7 +116,14 @@ try {
   );
   for (const test of production
     ? ['production']
-    : ['migration', 'standardization', 'infrastructure', 'refinement', 'home-sample']) {
+    : [
+        'migration',
+        'standardization',
+        'infrastructure',
+        'refinement',
+        'translation',
+        'home-sample',
+      ]) {
     console.log(`\nFirefox: ${test}`);
     const child = spawn(process.execPath, [`tests/browser/${test}.mjs`], {
       env: environment,

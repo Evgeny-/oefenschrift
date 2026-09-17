@@ -274,6 +274,15 @@
   .preferences-trigger {
     min-width: 44px;
   }
+  /* The inline clip button keeps its size in the line; its touch target grows around it. */
+  .play-button-small {
+    position: relative;
+  }
+  .play-button-small::after {
+    content: '';
+    position: absolute;
+    inset: -0.625rem;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   * {

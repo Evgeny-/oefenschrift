@@ -24,14 +24,17 @@ function TaskStimulus({ item, t }) {
         <div className="pictures" data-count={pictures.length}>
           {pictures.map((i, n) => (
             <figure key={i.file} className="picture">
-              <img src={mediaUrl(i.file)} alt={i.alt || ''} loading="lazy" />
+              {/* The pictures are the task itself (a picture-sequence speaking or writing
+                  note), so load them eagerly: a learner reading "Vertel wat … doet" against a
+                  blank strip cannot tell who the exercise is about. */}
+              <img src={mediaUrl(i.file)} alt={i.alt || ''} loading="eager" />
               {pictures.length > 1 && <figcaption>{n + 1}</figcaption>}
             </figure>
           ))}
         </div>
       )}
       {scaffold.to && (
-        <dl className="mail-header" lang="nl">
+        <dl className="mail-header" lang="nl" translate="no">
           <dt>{t('Aan', 'To')}</dt>
           <dd>{scaffold.to}</dd>
           <dt>{t('Van', 'From')}</dt>
@@ -41,7 +44,7 @@ function TaskStimulus({ item, t }) {
         </dl>
       )}
       {(item.promptAudio || item.cueAudio) && (
-        <div className="task-audio" lang="nl">
+        <div className="task-audio" lang="nl" translate="no">
           {item.promptAudio && (
             <ClipButton
               src={item.promptAudio}
@@ -65,19 +68,19 @@ function TaskStimulus({ item, t }) {
         </div>
       )}
       {scaffold.salutation && (
-        <p className="scaffold-line" lang="nl">
+        <p className="scaffold-line" lang="nl" translate="no">
           {scaffold.salutation}
         </p>
       )}
       {item.taskType === 'wijkkrant' && item.opening && (
-        <p className="scaffold-line" lang="nl">
+        <p className="scaffold-line" lang="nl" translate="no">
           {item.opening}
         </p>
       )}
       {item.table && Array.isArray(item.table.rows) && (
         // A B1 korte schrijftaak gives its facts in a small table that is not part of the e-mail.
         <div className="task-table-scroll">
-          <table className="task-table" lang="nl">
+          <table className="task-table" lang="nl" translate="no">
             {item.table.caption && <caption>{item.table.caption}</caption>}
             {Array.isArray(item.table.columns) && (
               <thead>
@@ -104,7 +107,7 @@ function TaskStimulus({ item, t }) {
       )}
       {item.taskType === 'zinstaak' && scaffold.body && (
         // A zinstaak shows a short e-mail with one gap; the learner writes the missing sentence.
-        <p className="gap-text" lang="nl">
+        <p className="gap-text" lang="nl" translate="no">
           {String(scaffold.body)
             .split('___')
             .map((part, n, parts) => (
@@ -120,7 +123,7 @@ function TaskStimulus({ item, t }) {
         </p>
       )}
       {Array.isArray(item.formFields) && (
-        <dl className="form-fields" lang="nl">
+        <dl className="form-fields" lang="nl" translate="no">
           {item.formFields.map((f) => (
             <React.Fragment key={f.label}>
               <dt>{f.label}</dt>
@@ -279,7 +282,7 @@ export function OpenExercise({ item }) {
       <div className="exercise-columns open-columns">
         <section className="task-brief sheet">
           <span className="sheet-label">{t('Opdracht', 'Task')}</span>
-          <p className="passage" lang="nl">
+          <p className="passage" lang="nl" translate="no">
             {item.prompt}
           </p>
           <TaskStimulus item={item} t={t} />
@@ -323,7 +326,7 @@ export function OpenExercise({ item }) {
                     <path d="m8 10 4 4 4-4" />
                   </svg>
                 </summary>
-                <ul lang="nl">
+                <ul lang="nl" translate="no">
                   {starters[item.id].map((line, i) => (
                     <li key={i}>{line}</li>
                   ))}
@@ -367,6 +370,7 @@ export function OpenExercise({ item }) {
                 <GrowingTextarea
                   id="open-answer"
                   lang="nl"
+                  translate="no"
                   spellCheck
                   maxLength={3000}
                   value={draft}
@@ -375,7 +379,7 @@ export function OpenExercise({ item }) {
                   placeholder={t('Schrijf hier in het Nederlands…', 'Write here in Dutch…')}
                 />
                 {item.scaffold?.closing && (
-                  <p className="scaffold-line" lang="nl">
+                  <p className="scaffold-line" lang="nl" translate="no">
                     {item.scaffold.closing}
                   </p>
                 )}
@@ -487,7 +491,7 @@ export function OpenExercise({ item }) {
                         </summary>
                         <div>
                           {result.criteria[i].evidence && (
-                            <p lang="nl">
+                            <p lang="nl" translate="no">
                               <mark>{result.criteria[i].evidence}</mark>
                             </p>
                           )}
@@ -558,7 +562,7 @@ export function OpenExercise({ item }) {
                     <summary>{t('Bekijk een voorbeeld', 'See an example')}</summary>
                     {item.taskType === 'zinstaak' && item.scaffold?.body ? (
                       // The example sentence belongs in its gap, so the learner sees it in context.
-                      <p className="gap-text" lang="nl">
+                      <p className="gap-text" lang="nl" translate="no">
                         {String(item.scaffold.body)
                           .split('___')
                           .map((part, n, parts) => (
@@ -569,7 +573,9 @@ export function OpenExercise({ item }) {
                           ))}
                       </p>
                     ) : (
-                      <p lang="nl">{item.model}</p>
+                      <p lang="nl" translate="no">
+                        {item.model}
+                      </p>
                     )}
                   </details>
                 </>

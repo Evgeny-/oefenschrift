@@ -158,7 +158,7 @@ function PracticeSetList({ sets, restart = false }) {
                 <h3>
                   {t('Oefenset', 'Practice set')} {set.number}
                 </h3>
-                <span className="entry-texts" lang="nl">
+                <span className="entry-texts" lang="nl" translate="no">
                   {items.map((item) => item.title).join(' · ')}
                 </span>
                 <small>
@@ -203,7 +203,9 @@ function ExerciseList({ items, retry = false }) {
               onNavigate={() => open(item)}
             >
               <span className="exercise-entry-copy">
-                <h3 lang="nl">{item.title}</h3>
+                <h3 lang="nl" translate="no">
+                  {item.title}
+                </h3>
                 <small>{detail}</small>
               </span>
               <span className="exercise-status">

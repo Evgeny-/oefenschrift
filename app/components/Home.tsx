@@ -165,7 +165,9 @@ export default function Home() {
                     <NavIcon part={item.part} size={20} />
                   </span>
                   <span className="exercise-entry-copy">
-                    <h3 lang="nl">{item.title}</h3>
+                    <h3 lang="nl" translate="no">
+                      {item.title}
+                    </h3>
                     <small>
                       {item.level} · {name(item.part)} · {t('concept bewaard', 'draft saved')}
                     </small>

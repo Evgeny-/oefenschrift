@@ -7,7 +7,7 @@ import IssueReport from './IssueReport';
 export function Heading({ title, subtitle = undefined, dutch = false }) {
   return (
     <div className="heading">
-      <h1 tabIndex={-1} lang={dutch ? 'nl' : undefined}>
+      <h1 tabIndex={-1} lang={dutch ? 'nl' : undefined} translate={dutch ? 'no' : undefined}>
         {title}
       </h1>
       {subtitle && <p>{subtitle}</p>}

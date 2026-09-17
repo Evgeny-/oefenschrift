@@ -89,7 +89,7 @@ export function OpenSetResults() {
         {a.ids.map((id) => (
           <li key={id}>
             <button className="exercise-entry" onClick={() => go(`exercise/${id}`)}>
-              <span className="exercise-entry-copy" lang="nl">
+              <span className="exercise-entry-copy" lang="nl" translate="no">
                 {catalogue.find((i) => i.id === id).title}
               </span>
               <span className="exercise-status">✓</span>
@@ -117,23 +117,30 @@ export function QuestionReview({ session, entry, index }) {
         >
           {session.answers[key] === q.answer ? '✓' : '×'}
         </span>
-        <span lang="nl">
+        <span lang="nl" translate="no">
           {index + 1}. {q.prompt}
         </span>
       </summary>
       <div className="review-answer">
         <p>
           {t('Jouw antwoord', 'Your answer')}:{' '}
-          <span lang="nl">{q.options[session.answers[key]]}</span>
+          <span lang="nl" translate="no">
+            {q.options[session.answers[key]]}
+          </span>
         </p>
         {session.answers[key] !== q.answer && (
           <p>
-            {t('Goed antwoord', 'Correct answer')}: <span lang="nl">{q.options[q.answer]}</span>
+            {t('Goed antwoord', 'Correct answer')}:{' '}
+            <span lang="nl" translate="no">
+              {q.options[q.answer]}
+            </span>
           </p>
         )}
-        <p lang="nl">{q.explanation}</p>
+        <p lang="nl" translate="no">
+          {q.explanation}
+        </p>
         {evidence.length > 0 && (
-          <p className="review-evidence" lang="nl">
+          <p className="review-evidence" lang="nl" translate="no">
             <EvidenceText text={evidence.join(' ')} quotes={evidence} />
           </p>
         )}
@@ -150,30 +157,32 @@ export function Mistake({ session, entry, source = null }) {
   return (
     <div className="mistake">
       {source && (
-        <p className="small mistake-source" lang="nl">
+        <p className="small mistake-source" lang="nl" translate="no">
           {source}
         </p>
       )}
-      <p className="mistake-prompt" lang="nl">
+      <p className="mistake-prompt" lang="nl" translate="no">
         {q.prompt}
       </p>
       <dl className="mistake-answers">
         <dt>{t('Jouw antwoord', 'Your answer')}</dt>
-        <dd lang="nl">
+        <dd lang="nl" translate="no">
           <del>{q.options[session.answers[key]]}</del>
         </dd>
         <dt>{t('Goed antwoord', 'Correct answer')}</dt>
-        <dd lang="nl">{q.options[q.answer]}</dd>
+        <dd lang="nl" translate="no">
+          {q.options[q.answer]}
+        </dd>
         {evidence.length > 0 && (
           <>
             <dt>{item.part === 'knm' ? t('Feit', 'Fact') : t('In de tekst', 'In the text')}</dt>
-            <dd lang="nl">
+            <dd lang="nl" translate="no">
               <EvidenceText text={evidence.join(' ')} quotes={evidence} />
             </dd>
           </>
         )}
       </dl>
-      <p className="small" lang="nl">
+      <p className="small" lang="nl" translate="no">
         {q.explanation}
       </p>
     </div>
@@ -236,7 +245,9 @@ export function Results() {
             <ul className="result-texts">
               {texts.map(({ item, qs }) => (
                 <li key={item.id}>
-                  <span lang="nl">{item.title}</span>
+                  <span lang="nl" translate="no">
+                    {item.title}
+                  </span>
                   <span>
                     {qs.filter((x) => x.q.answer === a.answers[x.key]).length} / {qs.length}
                   </span>
@@ -265,7 +276,10 @@ export function Results() {
           )}
           {groups.map((group) => (
             <div className="mistake-group" key={group.label}>
-              <h3 lang={skillLabel(group.items[0].q.skill, lang) ? undefined : 'nl'}>
+              <h3
+                lang={skillLabel(group.items[0].q.skill, lang) ? undefined : 'nl'}
+                translate={skillLabel(group.items[0].q.skill, lang) ? undefined : 'no'}
+              >
                 {group.label}
               </h3>
               {group.items.map((entry) => (

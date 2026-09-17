@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { EvidenceText } from './TextEvidence';
+import { Dialogue } from './TextEvidence';
 import { Segments, PlayIcon } from './Controls';
 import { formatTime } from '../domain/study';
 import { mediaUrl } from '../domain/base';
@@ -141,9 +141,7 @@ export default function AudioPlayer({ source, t, transcript = true, evidence = [
       {transcript && (
         <details className="transcript" open={evidence.length ? true : undefined}>
           <summary>{t('Bekijk transcript', 'View transcript')}</summary>
-          <p lang="nl">
-            <EvidenceText text={source.text} quotes={evidence} />
-          </p>
+          <Dialogue text={source.text} quotes={evidence} />
         </details>
       )}
     </div>

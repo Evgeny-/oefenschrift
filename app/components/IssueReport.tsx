@@ -93,7 +93,9 @@ export default function IssueReport({ item, questionId = null }) {
                   'Your feedback is queued for review. You can continue with the exercise.',
                 )
               ) : (
-                <span lang="nl">{item.title}</span>
+                <span lang="nl" translate="no">
+                  {item.title}
+                </span>
               )}
             </Dialog.Description>
             {status === 'sent' ? (

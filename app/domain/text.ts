@@ -5,7 +5,7 @@ export function evidenceFor(item, q) {
     return quotes.filter((x) => typeof x === 'string' && x && item.text.includes(x));
   return (q.evidence_paragraphs || []).map((n) => item.text.split('\n\n')[n - 1]).filter(Boolean);
 }
-export function highlightParts(text, quotes = []) {
+function highlightRanges(text, quotes) {
   const ranges = [];
   for (const quote of quotes) {
     if (!quote) continue;
@@ -19,15 +19,46 @@ export function highlightParts(text, quotes = []) {
     if (last && r[0] <= last[1]) last[1] = Math.max(last[1], r[1]);
     else merged.push([...r]);
   }
+  return merged;
+}
+// The span [from, to) of the text, cut into plain and marked parts.
+function partsBetween(text, from, to, ranges) {
   const out = [];
-  let i = 0;
-  for (const [a, b] of merged) {
+  let i = from;
+  for (const [a, b] of ranges) {
+    if (b <= i || a >= to) continue;
     if (a > i) out.push({ text: text.slice(i, a), marked: false });
-    out.push({ text: text.slice(a, b), marked: true });
-    i = b;
+    out.push({ text: text.slice(Math.max(a, i), Math.min(b, to)), marked: true });
+    i = Math.min(b, to);
   }
-  if (i < text.length) out.push({ text: text.slice(i), marked: false });
+  if (i < to) out.push({ text: text.slice(i, to), marked: false });
   return out;
+}
+export function highlightParts(text, quotes = []) {
+  return partsBetween(text, 0, text.length, highlightRanges(text, quotes));
+}
+// A listening text is one line per turn, "Speaker: words". Quotes are found in the whole text
+// first, so one that runs on into the next turn marks the words of both; the names stay plain.
+// Null when a line has no speaker, so the text falls back to a single block.
+export function dialogueTurns(text, quotes = []) {
+  const turns = [];
+  let offset = 0;
+  for (const line of text.split('\n')) {
+    const m = line.match(/^([^:]{1,40}): +(\S.*)$/);
+    if (m)
+      turns.push({
+        speaker: m[1],
+        from: offset + line.length - m[2].length,
+        to: offset + line.length,
+      });
+    else if (line.trim()) return null;
+    offset += line.length + 1;
+  }
+  const ranges = highlightRanges(text, quotes);
+  return turns.map(({ speaker, from, to }) => ({
+    speaker,
+    parts: partsBetween(text, from, to, ranges),
+  }));
 }
 export function wordDiff(before, after) {
   const tokenize = (s) => s.match(/[\p{L}\p{N}]+(?:['’][\p{L}\p{N}]+)*|\s+|[^\s]/gu) || [];

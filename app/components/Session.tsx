@@ -4,7 +4,7 @@ import { flatten, complete } from '../domain/study';
 import { typeLabel } from '../domain/labels';
 import { track } from '../domain/telemetry';
 import AudioPlayer from './AudioPlayer';
-import { EvidenceText } from './TextEvidence';
+import { Dialogue, EvidenceText } from './TextEvidence';
 import { evidenceFor } from '../domain/text';
 import { KeyHint, PlayIcon, ClipButton } from './Controls';
 import { mediaUrl } from '../domain/base';
@@ -156,11 +156,13 @@ export function QuestionColumns({
   });
   const type = typeLabel(item.taskType, state.settings.lang);
   // Blueprint items carry the exam's situation line; the standard instruction follows it, as in the official player.
+  // A B1 listening text opens with the narrator's introduction instead: the official booklet prints
+  // the title and that introduction only, and the situation line would say the same thing twice.
   const situation = item.situation && (
-    <div className="situation" lang="nl">
-      <p>{item.situation}</p>
+    <div className="situation" lang="nl" translate="no">
+      {!item.intro && <p>{item.situation}</p>}
       {item.intro ? (
-        // A B1 listening text opens with the narrator's introduction; every fragment keeps it in view.
+        // Every fragment keeps the introduction in view.
         <p className="intro">
           {item.intro}
           {item.introAudio && (
@@ -192,14 +194,22 @@ export function QuestionColumns({
           .filter((i) => i?.file)
           .map((i) => (
             <figure key={i.file} className="picture">
-              <img src={mediaUrl(i.file)} alt={i.alt || ''} loading="lazy" />
+              {/* The pictures are the task itself ("Kijk naar de plaatjes"), so load them
+                  with the question rather than lazily — a blank picture strip reads as a
+                  missing exercise. */}
+              <img src={mediaUrl(i.file)} alt={i.alt || ''} loading="eager" />
             </figure>
           ))}
       </div>
     ) : null;
   return (
     <div className="exercise-columns">
-      <section aria-label={t('Opgave', 'Task')}>
+      {/* Keyed by the exercise so moving between texts in a set remounts the task column
+          instead of updating it in place. An in-page translator (Google Translate is common
+          among learners) replaces the passage's text nodes with its own <font> wrappers; a
+          later in-place update over those detached nodes leaves the previous text on screen —
+          or throws — so a fresh mount is the reliable transition. */}
+      <section aria-label={t('Opgave', 'Task')} key={item.id}>
         {situation}
         {/* Listening leads with the player; a picture supports the clip rather than the other way round. */}
         {clip.audio ? (
@@ -220,7 +230,12 @@ export function QuestionColumns({
             {checked && !mock ? (
               <div className="sheet fact-sheet">
                 <span className="sheet-label">{t('Feit', 'Fact')}</span>
-                <div className="passage" lang="nl">
+                <div
+                  className="passage"
+                  lang="nl"
+                  translate="no"
+                  key={evidence.length ? 'marked' : 'plain'}
+                >
                   <EvidenceText text={item.text} quotes={evidence} />
                 </div>
               </div>
@@ -231,8 +246,16 @@ export function QuestionColumns({
             {pictures}
             <div className="sheet">
               {type && <span className="sheet-label">{type}</span>}
-              <div className="passage" lang="nl">
-                {item.level === 'B1' && item.part === 'reading' ? (
+              <div
+                className="passage"
+                lang="nl"
+                translate="no"
+                key={evidence.length ? 'marked' : 'plain'}
+              >
+                {item.part === 'listening' ? (
+                  // A listening text still without its clip is read as the conversation it is.
+                  <Dialogue text={item.text} quotes={evidence} />
+                ) : item.level === 'B1' && item.part === 'reading' ? (
                   <Paragraphs text={item.text} quotes={evidence} />
                 ) : (
                   <EvidenceText text={item.text} quotes={evidence} />
@@ -244,7 +267,7 @@ export function QuestionColumns({
       </section>
       <section className="question" key={questionKey}>
         <fieldset>
-          <legend lang="nl">
+          <legend lang="nl" translate="no">
             {q.prompt}
             {q.questionAudio && (
               <ClipButton
@@ -271,7 +294,9 @@ export function QuestionColumns({
               <span className="answer-letter" aria-hidden="true">
                 {value}
               </span>
-              <span lang="nl">{label}</span>
+              <span lang="nl" translate="no">
+                {label}
+              </span>
               {checked && value === q.answer && (
                 <span className="sr-only">{t('Goed antwoord', 'Correct answer')}</span>
               )}
@@ -302,7 +327,9 @@ export function QuestionColumns({
                 ? t('Goed antwoord', 'Correct answer')
                 : t('Niet helemaal', 'Not quite')}
             </strong>
-            <p lang="nl">{q.explanation}</p>
+            <p lang="nl" translate="no">
+              {q.explanation}
+            </p>
           </div>
         )}
         <div className="actions">

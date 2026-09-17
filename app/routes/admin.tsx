@@ -324,7 +324,9 @@ export default function Overview() {
                   <tr key={row.item + row.question}>
                     <td>
                       <Link to={'/ops/exercises/' + encodeURIComponent(row.item)}>{row.title}</Link>
-                      <small lang="nl">{row.prompt}</small>
+                      <small lang="nl" translate="no">
+                        {row.prompt}
+                      </small>
                     </td>
                     <td className="num">{row.answers}</td>
                     <td className="num">{percent(row.correct, row.answers)}</td>

@@ -50,7 +50,9 @@ export default function ExerciseDetail() {
           <Link className="back" to="/ops/exercises">
             ← Exercises
           </Link>
-          <h1 lang="nl">{item.title}</h1>
+          <h1 lang="nl" translate="no">
+            {item.title}
+          </h1>
           <p className="small">
             {item.level} · {subjects[item.part] || item.part} · {row.id} ·{' '}
             {row.archived ? 'archived, not in practice' : 'available in practice'}
@@ -92,7 +94,7 @@ export default function ExerciseDetail() {
               <div className="question-stats">
                 {questions.map((q) => (
                   <div className="question-stat" key={q.id}>
-                    <p lang="nl">
+                    <p lang="nl" translate="no">
                       <strong>{q.id}</strong> · {q.prompt}
                     </p>
                     <p className="small">
