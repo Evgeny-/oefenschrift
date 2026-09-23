@@ -61,3 +61,48 @@ test('each page has English metadata under /en and names both languages as alter
   for (const route of ['progress', 'session', 'mock', 'privacy', 'check-result'])
     assert.equal(pageSeo(route, 'A2', bank, sets, 'https://example.test', 'en').noindex, true);
 });
+test('the card is the same everywhere and the whole written description survives', () => {
+  const home = pageSeo('home', 'A2', bank, sets, 'https://example.test'),
+    exercise = pageSeo('exercise/' + bank[0].id, 'A2', bank, sets, 'https://example.test');
+  assert.equal(home.image, 'https://example.test/og.png');
+  assert.equal(exercise.image, home.image);
+  assert.ok(home.imageAlt.includes('Oefenschrift'));
+  assert.ok(home.description.endsWith('Zonder account.'));
+  for (const page of [home, exercise, pageSeo('knm', 'A2', bank, sets, 'https://example.test')])
+    assert.ok(page.description.length <= 165 && !page.description.endsWith(' '));
+});
+type Site = { '@type': string; url: string };
+type Trail = {
+  '@type': string;
+  itemListElement: { position: number; name: string; item: string }[];
+};
+test('the home page describes the site and every other page its trail', () => {
+  const home = pageSeo('home', 'A2', bank, sets, 'https://example.test');
+  assert.equal(home.jsonLd.length, 1);
+  const site = home.jsonLd[0] as Site;
+  assert.equal(site['@type'], 'WebSite');
+  assert.equal(site.url, 'https://example.test/');
+  const set = sets.find((set) => set.ids.length),
+    trail = pageSeo('set/' + set.id, 'A2', bank, sets, 'https://example.test').jsonLd[0] as Trail;
+  assert.equal(trail['@type'], 'BreadcrumbList');
+  assert.deepEqual(
+    trail.itemListElement.map((step) => [step.position, step.name, step.item]),
+    [
+      [1, 'Oefenschrift', 'https://example.test/'],
+      [2, `${set.level} Lezen`, `https://example.test/${set.level.toLowerCase()}/reading`],
+      [3, `Oefenset ${set.number}`, `https://example.test/sets/${set.id}`],
+    ],
+  );
+  const en = pageSeo('set/' + set.id, 'A2', bank, sets, 'https://example.test', 'en')
+    .jsonLd[0] as Trail;
+  assert.deepEqual(
+    en.itemListElement.map((step) => step.item),
+    [
+      'https://example.test/en',
+      `https://example.test/en/${set.level.toLowerCase()}/reading`,
+      `https://example.test/en/sets/${set.id}`,
+    ],
+  );
+  // A page Google is told to skip says nothing more about itself.
+  assert.deepEqual(pageSeo('progress', 'A2', bank, sets, 'https://example.test').jsonLd, []);
+});

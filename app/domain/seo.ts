@@ -61,8 +61,83 @@ export function pageSeo(
     nl: root + routePath(route, level, 'nl'),
     en: root + routePath(route, level, 'en'),
   };
-  if (route === 'home')
-    return { ...home[lang], canonical: alternates[lang], noindex: false, alternates };
+  // Everything the head needs once the page has a name: the address in both languages, the
+  // card, and the structured data — the site itself on the home page, elsewhere the trail
+  // that leads here, which a result shows in place of the bare URL.
+  const decorate = (
+    name: string,
+    text: string,
+    noindex: boolean,
+    item?: Exercise,
+    set?: PracticeSet,
+  ) => {
+    // Long enough for a result snippet and cut on a word, so a generated description never
+    // ends mid-word; the written ones are short enough to pass through whole.
+    const line = text.replace(/\s+/g, ' ').trim();
+    const summary = line.length <= 165 ? line : line.slice(0, line.lastIndexOf(' ', 160)).trim();
+    const trail = [{ name: 'Oefenschrift', url: root + routePath('home', level, lang) }];
+    const part = item?.part ?? set?.part;
+    if (part) {
+      const partLevel = (item?.level ?? set?.level) as Level | 'KNM';
+      trail.push({
+        name: part === 'knm' ? names.knm : `${partLevel} ${names[part]}`,
+        url: root + routePath(part, partLevel === 'KNM' ? 'A2' : partLevel, lang),
+      });
+    }
+    // The last step is the page itself, under its own short name: the trail already says
+    // which part and level it belongs to.
+    if (route !== 'home')
+      trail.push({
+        name: item
+          ? item.title
+          : set
+            ? nl
+              ? `Oefenset ${set.number}`
+              : `Practice set ${set.number}`
+            : name,
+        url: alternates[lang],
+      });
+    return {
+      title: route === 'home' ? name : name + ' | Oefenschrift',
+      description: summary,
+      canonical: alternates[lang],
+      noindex,
+      alternates,
+      // One card for the whole site: its home page, with the five parts on it.
+      image: root + '/og.png',
+      imageAlt: nl
+        ? 'Oefenschrift: oefenopgaven voor lezen, luisteren, schrijven, spreken en KNM'
+        : 'Oefenschrift: practice tasks for reading, listening, writing, speaking and KNM',
+      jsonLd: noindex
+        ? []
+        : route === 'home'
+          ? [
+              {
+                '@context': 'https://schema.org',
+                '@type': 'WebSite',
+                name: 'Oefenschrift',
+                url: alternates[lang],
+                inLanguage: lang,
+                description: summary,
+                isAccessibleForFree: true,
+                publisher: { '@type': 'Organization', name: 'Oefenschrift', url: alternates.nl },
+              },
+            ]
+          : [
+              {
+                '@context': 'https://schema.org',
+                '@type': 'BreadcrumbList',
+                itemListElement: trail.map((step, position) => ({
+                  '@type': 'ListItem',
+                  position: position + 1,
+                  name: step.name,
+                  item: step.url,
+                })),
+              },
+            ],
+    };
+  };
+  if (route === 'home') return decorate(home[lang].title, home[lang].description, false);
   const item = route.startsWith('exercise/')
     ? catalogue.find((item) => item.id === route.slice(9))
     : undefined;
@@ -118,13 +193,7 @@ export function pageSeo(
   const noindex =
     ['progress', 'session', 'privacy', 'terms', 'mock', 'check-result'].includes(route) ||
     (subject && !available.length);
-  return {
-    title: title + ' | Oefenschrift',
-    description: description.replace(/\s+/g, ' ').slice(0, 160),
-    canonical: alternates[lang],
-    noindex,
-    alternates,
-  };
+  return decorate(title, description, noindex, item, set);
 }
 // Every public page in both languages; the head of each carries the hreflang pair.
 export function sitemapPaths(catalogue: Exercise[], sets: PracticeSet[]) {

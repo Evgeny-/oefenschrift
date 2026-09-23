@@ -123,10 +123,15 @@ export function meta({ loaderData: data }: MetaArgs<typeof loader>) {
         { property: 'og:title', content: data.seo.title },
         { property: 'og:description', content: data.seo.description },
         { property: 'og:url', content: data.seo.canonical },
-        { name: 'twitter:card', content: 'summary' },
+        { property: 'og:image', content: data.seo.image },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { property: 'og:image:alt', content: data.seo.imageAlt },
+        { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: data.seo.title },
         { name: 'twitter:description', content: data.seo.description },
         ...(data.seo.noindex ? [{ name: 'robots', content: 'noindex, follow' }] : []),
+        ...data.seo.jsonLd.map((schema) => ({ 'script:ld+json': schema })),
       ]
     : [{ title: 'Pagina niet gevonden | Oefenschrift' }, { name: 'robots', content: 'noindex' }];
 }
