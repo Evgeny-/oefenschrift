@@ -24,11 +24,13 @@ export function meta() {
 }
 export function links() {
   return [
-    // The icon (docs/logos/icon.mjs): the .ico first, then the SVG, which browsers that
-    // understand it prefer over a sized raster; the PNG square for phones.
+    // The icon (docs/logos/mark.mjs): the .ico first, then the SVG, which browsers that
+    // understand it prefer over a sized raster; the full square for iPhones, which round it
+    // themselves; and the manifest with Android's rounded and maskable icons.
     { rel: 'icon', href: withBase('/favicon.ico'), sizes: '16x16 32x32 48x48' },
     { rel: 'icon', href: withBase('/icon.svg'), type: 'image/svg+xml', sizes: 'any' },
     { rel: 'apple-touch-icon', href: withBase('/apple-touch-icon.png') },
+    { rel: 'manifest', href: withBase('/site.webmanifest') },
     ...[400, 600]
       .map((weight) => ({ href: withBase(`/fonts/fira-sans-${weight}.woff`) }))
       .concat([700, 800].map((weight) => ({ href: withBase(`/fonts/nunito-${weight}.woff`) })))

@@ -1,18 +1,16 @@
-// The site icon, built from the wordmark's O. Every candidate is drawn in a square box
-// around the O; the page docs/logos/oefenschrift-icons.html shows each one large, in a
-// mock browser tab in the light and the dark theme, and at 32 and 48 pixels. The
-// candidate named in `chosen` is written to assets/icons: icon.svg (transparent
-// candidates let the ink follow the colour scheme) and the raster fallbacks —
-// apple-touch-icon.png, icon-32.png and favicon.ico — drawn by the rasteriser below.
+// Icon candidates built from the split O, the site's mark until September 2026. Every
+// candidate is drawn in a square box around the O; the page
+// docs/logos/oefenschrift-icons.html shows each one large, in a mock browser tab in the
+// light and the dark theme, and at 32 and 48 pixels. The site's icons now come from the
+// speech-bubble mark and are written by mark.mjs.
 //
-//   npm install --no-save opentype.js
+//   npm install --no-save opentype.js@1.3.4
 //   node docs/logos/icon.mjs
 import fs from 'node:fs';
 import path from 'node:path';
-import zlib from 'node:zlib';
-import { loadFont, layout, contours, metrics, bounds, viewBox as boxOf, oGeometry, clipBoxes, cut, splitMarkup, wedge, flatten, inside, round } from './lib.mjs';
-const here = path.dirname(new URL(import.meta.url).pathname),
-  root = path.resolve(here, '../..');
+import { loadFont, layout, contours, metrics, bounds, viewBox as boxOf, oGeometry, clipBoxes, cut, splitMarkup, wedge, round } from './lib.mjs';
+const here = path.dirname(new URL(import.meta.url).pathname);
+// The candidate that was the site's icon until September 2026.
 const chosen = 'tilt-tile-ink';
 const font = await loadFont('Nunito', 800), m = metrics(font);
 const O = layout(font, 'O')[0], o = oGeometry(O);
@@ -128,7 +126,7 @@ const rows = groups
   .map(
     (group) => `<section><h2>${group}</h2>${candidates
       .filter((c) => c.group === group)
-      .map((c) => `<div class="row"><div class="big light">${use(c, 96)}</div><div class="tabs">${tab(c, 'light')}${tab(c, 'dark')}</div><div class="sizes"><span class="light">${use(c, 32)}</span><span class="dark">${use(c, 32)}</span><span class="light">${use(c, 48)}</span></div><p><strong>${c.title}</strong>${c.id === chosen ? ' · in use' : ''}<br>${c.note}</p></div>`)
+      .map((c) => `<div class="row"><div class="big light">${use(c, 96)}</div><div class="tabs">${tab(c, 'light')}${tab(c, 'dark')}</div><div class="sizes"><span class="light">${use(c, 32)}</span><span class="dark">${use(c, 32)}</span><span class="light">${use(c, 48)}</span></div><p><strong>${c.title}</strong>${c.id === chosen ? ' · the icon until September 2026' : ''}<br>${c.note}</p></div>`)
       .join('')}</section>`,
   )
   .join('');
@@ -152,93 +150,4 @@ svg.fixed{--ink:${INK};--accent:${ACCENT};--paper:${PAPER}}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">${symbols}</svg>${rows}${wordRows}</main></body></html>`,
 );
 
-// ---- The chosen one -------------------------------------------------------------
-const pick = candidates.find((c) => c.id === chosen);
-const out = path.join(root, 'assets/icons');
-fs.mkdirSync(out, { recursive: true });
-const file = (body, style) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}"><style>${style}</style>${body}</svg>`;
-const fixedStyle = `.ink{fill:${INK}}.accent{fill:${ACCENT}}.paper{fill:${PAPER}}`;
-fs.writeFileSync(
-  path.join(out, 'icon.svg'),
-  file(pick.markup, pick.mode === 'var' ? `${fixedStyle}@media(prefers-color-scheme:dark){.ink{fill:#eeece5}.accent{fill:#edc343}.paper{fill:#242424}}` : fixedStyle),
-);
-// Raster fallbacks, drawn here rather than by a system rasteriser, which flattened the
-// rounded corners onto white: a scene of filled shapes — the tile or disc, then the two
-// halves of the O — sampled sixteen times per pixel, so the corners stay transparent. A
-// mark on nothing gets a paper tile behind it for the .ico sizes; the touch icon is a full
-// square in the tile's colour, since the phone rounds it and paints transparent corners
-// black. The scene covers tiles and discs with a split O; another pick needs its own.
-const rgb = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
-const colour = { ink: rgb(INK), accent: rgb(ACCENT), paper: rgb(PAPER) };
-const halves = pick.markup.match(/<path class="(\w+)" clip-path="url\(#[^"]+-t\)"[^>]*\/><path class="(\w+)"/) || [null, 'accent', 'ink'];
-const angle = Number((pick.markup.match(/rotate\(([-\d.]+) /) || [0, 0])[1]);
-const glyph = flatten(O.path), splitAt = o.cy + (cut.share - 0.5) * o.h, gapHalf = (o.h * cut.gap) / 2;
-// Inside one of the two clip boxes: the point turned back by the cut's angle around the O.
-const inHalf = (px, py, top) => {
-  const a = (-angle * Math.PI) / 180, dx = px - o.cx, dy = py - o.cy;
-  const ry = o.cy + dx * Math.sin(a) + dy * Math.cos(a);
-  return top ? ry < splitAt - gapHalf : ry > splitAt + gapHalf;
-};
-const inTile = (px, py, radius, disc) => {
-  if (disc) return Math.hypot(px - o.cx, py - o.cy) <= size / 2;
-  const r = size * radius, qx = Math.max(x + r - px, px - (x + size - r), 0), qy = Math.max(y + r - py, py - (y + size - r), 0);
-  return px >= x && px <= x + size && py >= y && py <= y + size && Math.hypot(qx, qy) <= r;
-};
-function rasterise(px, radius, background) {
-  const disc = pick.id.includes('disc'), data = Buffer.alloc(px * px * 4), step = size / px, sub = 4;
-  for (let j = 0; j < px; j++)
-    for (let i = 0; i < px; i++) {
-      let r = 0, g = 0, b = 0, hits = 0;
-      for (let sy = 0; sy < sub; sy++)
-        for (let sx = 0; sx < sub; sx++) {
-          const cx = x + (i + (sx + 0.5) / sub) * step, cy = y + (j + (sy + 0.5) / sub) * step;
-          let paint = background && inTile(cx, cy, radius, disc && radius > 0) ? background : null;
-          if (inside(glyph, cx, cy)) paint = inHalf(cx, cy, true) ? colour[halves[1]] : inHalf(cx, cy, false) ? colour[halves[2]] : paint;
-          if (!paint) continue;
-          r += paint[0]; g += paint[1]; b += paint[2]; hits++;
-        }
-      const at = (j * px + i) * 4;
-      if (!hits) continue;
-      data[at] = Math.round(r / hits); data[at + 1] = Math.round(g / hits); data[at + 2] = Math.round(b / hits); data[at + 3] = Math.round((255 * hits) / (sub * sub));
-    }
-  return png(px, data);
-}
-// A PNG: eight-bit RGBA rows with filter 0, deflated.
-function png(px, rgba) {
-  const chunk = (type, body) => {
-    const head = Buffer.concat([Buffer.from(type), body]), crc = Buffer.alloc(4);
-    crc.writeUInt32BE(zlib.crc32(head));
-    const length = Buffer.alloc(4);
-    length.writeUInt32BE(body.length);
-    return Buffer.concat([length, head, crc]);
-  };
-  const ihdr = Buffer.alloc(13);
-  ihdr.writeUInt32BE(px, 0);
-  ihdr.writeUInt32BE(px, 4);
-  ihdr[8] = 8;
-  ihdr[9] = 6;
-  const rows = Buffer.alloc(px * (px * 4 + 1));
-  for (let j = 0; j < px; j++) rgba.copy(rows, j * (px * 4 + 1) + 1, j * px * 4, (j + 1) * px * 4);
-  return Buffer.concat([Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), chunk('IHDR', ihdr), chunk('IDAT', zlib.deflateSync(rows, { level: 9 })), chunk('IEND', Buffer.alloc(0))]);
-}
-const background = colour[pick.mode === 'var' ? 'paper' : pick.tileClass];
-for (const [name, px, radius] of [['apple-touch-icon', 180, 0], ['icon-48', 48, 0.22], ['icon-32', 32, 0.22], ['icon-16', 16, 0.22]])
-  fs.writeFileSync(path.join(out, `${name}.png`), rasterise(px, radius, radius === 0 ? background : pick.mode === 'var' ? colour.paper : background));
-const entries = [16, 32, 48].map((px) => fs.readFileSync(path.join(out, `icon-${px}.png`)));
-const header = Buffer.alloc(6 + 16 * entries.length);
-header.writeUInt16LE(1, 2);
-header.writeUInt16LE(entries.length, 4);
-let offset = header.length;
-entries.forEach((png, i) => {
-  const px = [16, 32, 48][i], at = 6 + 16 * i;
-  header.writeUInt8(px, at);
-  header.writeUInt8(px, at + 1);
-  header.writeUInt16LE(1, at + 4);
-  header.writeUInt16LE(32, at + 6);
-  header.writeUInt32LE(png.length, at + 8);
-  header.writeUInt32LE(offset, at + 12);
-  offset += png.length;
-});
-fs.writeFileSync(path.join(out, 'favicon.ico'), Buffer.concat([header, ...entries]));
-for (const px of [16, 48]) fs.unlinkSync(path.join(out, `icon-${px}.png`));
-console.log(`${candidates.length} candidates on the page; "${pick.title}" written to assets/icons`);
+console.log(`${candidates.length} candidates on the page`);
