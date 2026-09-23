@@ -5,6 +5,7 @@ import {
   Scripts,
   useLoaderData,
   useRouteError,
+  useRouteLoaderData,
   isRouteErrorResponse,
 } from 'react-router';
 import './styles.css';
@@ -43,8 +44,17 @@ export function links() {
       })),
   ];
 }
+type Page = { seo?: { jsonLd?: unknown[] } } | undefined;
 export function Layout({ children }) {
   const data = useLoaderData<typeof loader>();
+  // The structured data of the page below, written here rather than through the route's meta,
+  // because the head's script tags are inline and this policy admits an inline script only
+  // with the response nonce. Escaping '<' keeps a string in the data from closing the tag.
+  // Both ids of the same study module: the start page is its index route, registered as
+  // 'home' in routes.ts, and every other page comes through the splat route.
+  const inner = useRouteLoaderData('routes/study') as Page,
+    start = useRouteLoaderData('home') as Page;
+  const page = inner ?? start;
   return (
     <html
       lang={data?.settings.lang || 'nl'}
@@ -56,6 +66,14 @@ export function Layout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="referrer" content="no-referrer" />
         <Meta />
+        {(page?.seo?.jsonLd || []).map((schema) => (
+          <script
+            key={JSON.stringify(schema)}
+            type="application/ld+json"
+            nonce={data?.nonce}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
+          />
+        ))}
         <Links nonce={data?.nonce} />
         <script src={withBase('/theme.js')} />
       </head>

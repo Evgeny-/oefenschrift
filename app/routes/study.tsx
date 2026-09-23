@@ -131,7 +131,6 @@ export function meta({ loaderData: data }: MetaArgs<typeof loader>) {
         { name: 'twitter:title', content: data.seo.title },
         { name: 'twitter:description', content: data.seo.description },
         ...(data.seo.noindex ? [{ name: 'robots', content: 'noindex, follow' }] : []),
-        ...data.seo.jsonLd.map((schema) => ({ 'script:ld+json': schema })),
       ]
     : [{ title: 'Pagina niet gevonden | Oefenschrift' }, { name: 'robots', content: 'noindex' }];
 }
