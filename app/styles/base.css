@@ -34,7 +34,11 @@
   font-display: swap;
 }
 
-/* Five text sizes, three text weights. Warm paper, a lifted sheet for the material, yellow for actions and evidence. */
+/* Five text sizes, three text weights. White paper for the content and its sheets, a softly
+   warm sidebar, yellow for actions and evidence. The sidebar keeps a trace of the cream the
+   whole site used to have — 30% of it mixed towards off-white, chosen by the user in
+   September 2026 because the full cream beside white read too saturated — with hairlines
+   and fills of its own; at night it is the darker of two charcoals. */
 :root {
   color-scheme: light;
   background: var(--content-paper);
@@ -47,19 +51,19 @@
   --text-reading: 1.0625rem;
   --text-section: 1.0625rem;
   --text-title: 1.625rem;
-  --paper: #f3efe6;
-  --content-paper: #f8f5ef;
-  --sheet: #fffdf9;
-  --sheet-line: #ddd6c4;
-  --ink: #221f1a;
-  --muted: #6f6a5e;
-  --quiet: #e9e4d8;
-  --option: #faf7f0;
-  --selected: #e7e0cf;
-  --line: #e1dbcc;
-  --border: #8c8980;
-  --control-border: #ddd6c4;
-  --control-hover: #aaa69a;
+  --paper: #f7f6f2;
+  --content-paper: #ffffff;
+  --sheet: #ffffff;
+  --sheet-line: #e0e0dc;
+  --ink: #1d1d1b;
+  --muted: #66665f;
+  --quiet: #eeeeeb;
+  --option: #fafaf9;
+  --selected: #e9e9e5;
+  --line: #e6e6e2;
+  --border: #8a8a84;
+  --control-border: #e0e0dc;
+  --control-hover: #a9a9a3;
   --action: #efbf24;
   --action-hover: #dfaf16;
   --tab-selected: #f3dfa0;
@@ -73,25 +77,25 @@
   --icon-mark: #ffe79a;
   --mark-ink: #302b18;
   --removed: #8b5249;
-  --wave: #bfb59f;
+  --wave: #c3c3bc;
   --row: transparent;
-  --row-hover: #fffdf9;
+  --row-hover: #f7f7f5;
   --radius-control: 0.5rem;
   --radius-surface: 0.75rem;
   --inset: clamp(1.25rem, 3vw, 2.5rem);
 }
 [data-theme='dark'] {
   color-scheme: dark;
-  --paper: #242424;
-  --content-paper: #242424;
-  --sheet: #2c2c2a;
+  --paper: #1a1a19;
+  --content-paper: #262625;
+  --sheet: #2e2e2d;
   --sheet-line: #4a4946;
   --ink: #eeece5;
   --muted: #b9b5a9;
-  --quiet: #33332f;
-  --option: #2a2a28;
-  --selected: #3e3d38;
-  --line: #44433f;
+  --quiet: #34332f;
+  --option: #2b2b2a;
+  --selected: #3f3e3a;
+  --line: #42413e;
   --border: #8b8576;
   --control-border: #4a4946;
   --control-hover: #817e74;
@@ -111,7 +115,25 @@
   --removed: #d6a59b;
   --wave: #827e72;
   --row: transparent;
-  --row-hover: #2c2c2a;
+  --row-hover: #2e2e2d;
+}
+/* The sidebar's own tones (on phones the header): warm by day, the deeper charcoal at night. */
+:root:not([data-theme='dark']) .sidebar {
+  --ink: #201f1c;
+  --muted: #6a6961;
+  --quiet: #edece6;
+  --option: #fbfaf7;
+  --selected: #eae8e0;
+  --line: #e6e4dd;
+  --border: #8b8a83;
+  --control-border: #e1ded6;
+  --control-hover: #aaa9a1;
+}
+[data-theme='dark'] .sidebar {
+  --quiet: #282826;
+  --line: #2e2d2b;
+  --selected: #33322f;
+  --control-border: #383733;
 }
 * {
   box-sizing: border-box;

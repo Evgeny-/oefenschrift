@@ -281,8 +281,8 @@ try {
   );
   await click('#theme-control [aria-label="Donker"]');
   await check(
-    `getComputedStyle(document.body).backgroundColor==='rgb(36, 36, 36)'`,
-    'Dark mode uses neutral charcoal',
+    `getComputedStyle(document.body).backgroundColor==='rgb(26, 26, 25)'&&getComputedStyle(document.querySelector('.workspace')).backgroundColor==='rgb(38, 38, 37)'`,
+    'Dark mode puts the darker charcoal sidebar beside the charcoal content',
   );
   await shot('listening-dark');
   await click('[data-page="writing"]');
