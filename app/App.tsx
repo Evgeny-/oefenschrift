@@ -464,6 +464,11 @@ export default function App({
                   GitHub
                 </a>
               )}
+              {site.companion?.url && (
+                <a className="text-button" href={site.companion.url}>
+                  {t(site.companion.label.nl, site.companion.label.en)}
+                </a>
+              )}
               {site.creator?.email?.domain && (
                 <ContactLink
                   email={site.creator.email}
