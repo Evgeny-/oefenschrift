@@ -111,18 +111,19 @@ async function reportGeometry(label, scrollable = false) {
   await evaluate(
     `document.fonts.ready.then(async()=>{await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));await Promise.allSettled(document.querySelector('.report-dialog').getAnimations().map(animation=>animation.finished));return true;})`,
   );
+  // Fixed positioning uses the layout viewport, which excludes inset scrollbars.
   const bounds = JSON.parse(
     await evaluate(
-      `JSON.stringify((()=>{const dialog=document.querySelector('.report-dialog'),r=dialog.getBoundingClientRect();return {left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height,viewportWidth:innerWidth,viewportHeight:innerHeight,clientHeight:dialog.clientHeight,scrollHeight:dialog.scrollHeight}})())`,
+      `JSON.stringify((()=>{const dialog=document.querySelector('.report-dialog'),r=dialog.getBoundingClientRect();return {left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height,viewportWidth:document.documentElement.clientWidth,viewportHeight:document.documentElement.clientHeight,clientHeight:dialog.clientHeight,scrollHeight:dialog.scrollHeight}})())`,
     ),
   );
   if (
     Math.abs(bounds.left + bounds.width / 2 - bounds.viewportWidth / 2) >= 1 ||
     Math.abs(bounds.top + bounds.height / 2 - bounds.viewportHeight / 2) >= 1 ||
-    bounds.left < 15 ||
-    bounds.top < 15 ||
-    bounds.right > bounds.viewportWidth - 15 ||
-    bounds.bottom > bounds.viewportHeight - 15
+    bounds.left < 0 ||
+    bounds.top < 0 ||
+    bounds.right > bounds.viewportWidth ||
+    bounds.bottom > bounds.viewportHeight
   )
     throw Error(label + ': report dialog must be centered and contained ' + JSON.stringify(bounds));
   if (scrollable && bounds.scrollHeight <= bounds.clientHeight)

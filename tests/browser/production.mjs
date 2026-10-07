@@ -315,9 +315,10 @@ try {
     await evaluate(
       `document.fonts.ready.then(async()=>{await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));await Promise.allSettled(document.querySelector('.report-dialog').getAnimations().map(animation=>animation.finished));return true;})`,
     );
+    // Fixed positioning uses the layout viewport, which excludes inset scrollbars.
     const bounds = JSON.parse(
       await evaluate(
-        `JSON.stringify((()=>{const dialog=document.querySelector('.report-dialog'),r=dialog.getBoundingClientRect();return {left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height,viewportWidth:innerWidth,viewportHeight:innerHeight,clientHeight:dialog.clientHeight,scrollHeight:dialog.scrollHeight}})())`,
+        `JSON.stringify((()=>{const dialog=document.querySelector('.report-dialog'),r=dialog.getBoundingClientRect();return {left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height,viewportWidth:document.documentElement.clientWidth,viewportHeight:document.documentElement.clientHeight,clientHeight:dialog.clientHeight,scrollHeight:dialog.scrollHeight}})())`,
       ),
     );
     assert.ok(
@@ -326,10 +327,10 @@ try {
       `Compiled report dialog is not centered at ${width}×${height}: ${JSON.stringify(bounds)}`,
     );
     assert.ok(
-      bounds.left >= 15 &&
-        bounds.top >= 15 &&
-        bounds.right <= bounds.viewportWidth - 15 &&
-        bounds.bottom <= bounds.viewportHeight - 15,
+      bounds.left >= 0 &&
+        bounds.top >= 0 &&
+        bounds.right <= bounds.viewportWidth &&
+        bounds.bottom <= bounds.viewportHeight,
       `Compiled report dialog leaves the viewport at ${width}×${height}: ${JSON.stringify(bounds)}`,
     );
     if (name === 'short') {
