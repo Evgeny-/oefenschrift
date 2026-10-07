@@ -65,8 +65,33 @@ export const feedbackSchema = {
   required: ['on_task', 'criteria', 'corrected_text'],
   additionalProperties: false,
 };
+// Constrain each request to its actual rubric, including exercises added later.
+// The validator still checks unique indices in order before displaying a judgment.
+export function feedbackSchemaFor(item: any) {
+  const indices = item.criteria.map((_, index) => index);
+  return {
+    ...feedbackSchema,
+    properties: {
+      ...feedbackSchema.properties,
+      criteria: {
+        ...feedbackSchema.properties.criteria,
+        minItems: indices.length,
+        maxItems: indices.length,
+        items: {
+          anyOf: feedbackSchema.properties.criteria.items.anyOf.map((schema) => ({
+            ...schema,
+            properties: {
+              ...schema.properties,
+              index: { ...schema.properties.index, enum: indices },
+            },
+          })),
+        },
+      },
+    },
+  };
+}
 export const feedbackVersion = createHash('sha256')
-  .update(instructions + JSON.stringify(feedbackSchema) + 'typescript-confirmed-v2')
+  .update(instructions + JSON.stringify(feedbackSchema) + 'typescript-confirmed-v3-exact-criteria')
   .digest('hex')
   .slice(0, 16);
 // Missing points belong before the sign-off, so a suggested message still ends with its greeting.
@@ -328,8 +353,14 @@ function cached(key: string, run: () => Promise<any>) {
   while (cache.size > 128) cache.delete(cache.keys().next().value!);
   return promise;
 }
-const retryNote =
-  '\n\nRETRY: your previous judgment quoted words that do not occur in the learner answer. Evidence must be copied character for character from the learner answer (the user message) only, never from the task or the criteria. If you cannot quote the answer, set met:false with empty evidence.';
+function feedbackRetryNote(item: any, reason: string) {
+  const indices = item.criteria.map((_, index) => index).join(', ');
+  const coverage = `Return exactly ${item.criteria.length} criterion assessments with indices ${indices}, each once in that order. Include every criterion even when it is unmet or on_task is false.`;
+  const evidence = ['evidence-not-in-answer', 'evidence-empty'].includes(reason)
+    ? ' Evidence must be copied character for character from the learner answer (the user message) only, never from the task or the criteria. If you cannot quote the answer, set met:false with empty evidence.'
+    : '';
+  return `\n\nRETRY: your previous judgment was rejected (${reason}). Return a complete response that follows the supplied JSON schema. ${coverage}${evidence}`;
+}
 export type Usage = { input_tokens: number; output_tokens: number };
 export async function requestJudgment(
   item: any,
@@ -347,7 +378,8 @@ export async function requestJudgment(
     level: item.level,
     part: item.part,
     task: item.prompt,
-    criteria: item.criteria.map((c) => c[0]),
+    criteria_count: item.criteria.length,
+    criteria: item.criteria.map((c, index) => ({ index, criterion: c[0] })),
     // Blueprint tasks carry printed material the judgment depends on: a gapped e-mail, a table, form labels.
     ...(item.taskType ? { task_type: item.taskType } : {}),
     ...(item.scaffold?.body ? { text_with_gap: item.scaffold.body } : {}),
@@ -378,7 +410,7 @@ export async function requestJudgment(
             type: 'json_schema',
             name: 'exercise_feedback',
             strict: true,
-            schema: feedbackSchema,
+            schema: feedbackSchemaFor(item),
           },
         },
         ...(model.startsWith('gpt-5') ? { reasoning: { effort: 'none' } } : {}),
@@ -447,16 +479,24 @@ export async function assessWithRetry(
   onUsage: ((usage: Usage) => void) | null = null,
 ) {
   const warn = (message: string) => console.warn(`Feedback ${message} for ${item.id}.`);
-  let first;
+  let retryReason: string;
   try {
-    first = await requestJudgment(item, answer, fetcher, '', onUsage);
+    const first = await requestJudgment(item, answer, fetcher, '', onUsage);
     return { ...validateFeedback(first.result, item, answer), model: first.model };
   } catch (error) {
     if (!(error instanceof FeedbackRejected)) throw error;
+    retryReason = error.reason;
     warn(`rejected (${error.reason}); retrying once`);
   }
-  const second = await requestJudgment(item, answer, fetcher, retryNote, onUsage);
+  let second;
   try {
+    second = await requestJudgment(
+      item,
+      answer,
+      fetcher,
+      feedbackRetryNote(item, retryReason),
+      onUsage,
+    );
     return { ...validateFeedback(second.result, item, answer), model: second.model };
   } catch (error) {
     if (!(error instanceof FeedbackRejected) || error.reason !== 'evidence-not-in-answer') {
