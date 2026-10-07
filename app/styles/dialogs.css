@@ -87,8 +87,8 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  translate: -50% -50%;
-  transform: translateY(0) scale(1);
+  /* Keep centering in both transforms: the CSS build can fold away a separate translate. */
+  transform: translate(-50%, -50%) scale(1);
   opacity: 1;
   z-index: 51;
   width: min(32rem, calc(100vw - 2rem));
@@ -107,7 +107,7 @@
 .report-dialog[data-starting-style],
 .report-dialog[data-ending-style] {
   opacity: 0;
-  transform: translateY(8px) scale(0.98);
+  transform: translate(-50%, calc(-50% + 8px)) scale(0.98);
 }
 .report-content {
   padding: 1.5rem;

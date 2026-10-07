@@ -106,6 +106,29 @@ async function fill(selector, value) {
   );
   await settle();
 }
+async function reportGeometry(label, scrollable = false) {
+  await wait(`!!document.querySelector('.report-dialog')`);
+  await evaluate(
+    `document.fonts.ready.then(async()=>{await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));await Promise.allSettled(document.querySelector('.report-dialog').getAnimations().map(animation=>animation.finished));return true;})`,
+  );
+  const bounds = JSON.parse(
+    await evaluate(
+      `JSON.stringify((()=>{const dialog=document.querySelector('.report-dialog'),r=dialog.getBoundingClientRect();return {left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height,viewportWidth:innerWidth,viewportHeight:innerHeight,clientHeight:dialog.clientHeight,scrollHeight:dialog.scrollHeight}})())`,
+    ),
+  );
+  if (
+    Math.abs(bounds.left + bounds.width / 2 - bounds.viewportWidth / 2) >= 1 ||
+    Math.abs(bounds.top + bounds.height / 2 - bounds.viewportHeight / 2) >= 1 ||
+    bounds.left < 15 ||
+    bounds.top < 15 ||
+    bounds.right > bounds.viewportWidth - 15 ||
+    bounds.bottom > bounds.viewportHeight - 15
+  )
+    throw Error(label + ': report dialog must be centered and contained ' + JSON.stringify(bounds));
+  if (scrollable && bounds.scrollHeight <= bounds.clientHeight)
+    throw Error(label + ': report dialog must scroll ' + JSON.stringify(bounds));
+  checks.push(label);
+}
 const sourceFile = 'app/components/OpenExercise.tsx',
   oldText = "'Sentence starters'",
   newText = "'Sentence starters HMR'";
@@ -241,14 +264,77 @@ try {
   await wait(`!document.querySelector('.sentence-starters summary')?.textContent.includes('HMR')`);
   await shot('speaking');
   await click('.report-trigger');
+  await reportGeometry('The report dialog is centered and fully visible on desktop');
+  await shot('report-desktop');
+  await check(
+    `document.querySelector('.report-dialog').contains(document.activeElement)`,
+    'Opening a report moves keyboard focus into the dialog',
+  );
   await fill('.issue-report textarea', 'Synthetic browser test report');
+  await click('.issue-report input[value="other"]');
+  await send('input.performActions', {
+    context,
+    actions: [
+      {
+        type: 'key',
+        id: 'report-keyboard',
+        actions: [
+          { type: 'keyDown', value: '\uE00C' },
+          { type: 'keyUp', value: '\uE00C' },
+        ],
+      },
+    ],
+  });
+  await wait(
+    `!document.querySelector('.report-dialog')&&document.activeElement===document.querySelector('.report-trigger')`,
+  );
+  checks.push('Escape closes the report dialog and returns focus to its trigger');
+  await click('.report-trigger');
+  await check(
+    `document.querySelector('.issue-report textarea').value==='Synthetic browser test report'&&document.querySelector('.issue-report input[value="other"]').checked&&document.querySelector('#open-answer').value==='Mijn bewaarde concept.'`,
+    'Closing and reopening preserves the unsent report and the speaking draft',
+  );
+  await send('browsingContext.setViewport', { context, viewport: { width: 320, height: 844 } });
+  await reportGeometry('The report dialog stays centered and contained at 320px');
+  await shot('report-narrow');
+  await send('browsingContext.setViewport', { context, viewport: { width: 390, height: 360 } });
+  await reportGeometry('A short viewport contains the report in a scrollable dialog', true);
+  await evaluate(
+    `(()=>{window.browserReportFetch=window.fetch;window.fetch=(input,init)=>new URL(typeof input==='string'?input:input.url,location.href).pathname.endsWith('/api/reports')&&init?.method==='POST'?Promise.resolve(new Response(JSON.stringify({error:'Synthetic report failure'}),{status:503,headers:{'Content-Type':'application/json'}})):window.browserReportFetch(input,init);return true;})()`,
+  );
+  await click('.issue-report .primary');
+  await wait(`!!document.querySelector('.issue-report .feedback-error')`);
+  await check(
+    `document.querySelector('.issue-report textarea').value==='Synthetic browser test report'&&document.querySelector('.issue-report input[value="other"]').checked&&!document.querySelector('.issue-report .primary').disabled`,
+    'A failed report keeps its details and reason and allows retry',
+  );
+  await reportGeometry('Report failure stays centered and scrollable in a short viewport', true);
+  await check(
+    `(()=>{const dialog=document.querySelector('.report-dialog'),button=dialog.querySelector('.primary');button.scrollIntoView({block:'end'});const popup=dialog.getBoundingClientRect(),r=button.getBoundingClientRect();return r.top>=popup.top&&r.bottom<=popup.bottom;})()`,
+    'The retry action remains reachable by scrolling a short report dialog',
+  );
+  await shot('report-short');
+  await evaluate(`window.fetch=window.browserReportFetch;delete window.browserReportFetch;true;`);
+  await send('browsingContext.setViewport', { context, viewport: { width: 1280, height: 900 } });
   await click('.issue-report .primary');
   await wait(`!!document.querySelector('.report-receipt')`);
   await check(
     `document.querySelector('.report-receipt').textContent.includes('#')`,
     'An exercise report reaches the SQLite queue',
   );
+  await reportGeometry('The report confirmation settles into a centered dialog');
+  await check(
+    `document.activeElement===document.querySelector('.report-receipt button')`,
+    'A successful report focuses the continue action',
+  );
   await click('.report-receipt button');
+  await wait(
+    `!document.querySelector('.report-dialog')&&document.activeElement===document.querySelector('.report-trigger')`,
+  );
+  await check(
+    `document.querySelector('#open-answer').value==='Mijn bewaarde concept.'`,
+    'Sending and closing a report preserves the speaking draft',
+  );
   await navigate('/ops/reports');
   await check(
     `location.pathname==='/ops/login'&&new URL(location.href).searchParams.get('next')==='/ops/reports'`,

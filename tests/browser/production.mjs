@@ -300,7 +300,62 @@ try {
   checks.push('Set link opens the listening workspace');
   await send('browsingContext.reload', { context, wait: 'complete' });
   await ready('.question');
+  await ready('.app-shell[data-hydrated]');
   checks.push('Direct set reload restores practice');
+  // Test the compiled CSS: development styles cannot catch a centering transform
+  // lost during bundling. A short viewport must keep the form inside a scrollable popup.
+  for (const [name, width, height] of [
+    ['desktop', 1280, 900],
+    ['narrow', 320, 844],
+    ['short', 390, 360],
+  ]) {
+    await send('browsingContext.setViewport', { context, viewport: { width, height } });
+    await evaluate(`document.querySelector('.report-trigger').click();true;`);
+    await ready('.report-dialog');
+    await evaluate(
+      `document.fonts.ready.then(async()=>{await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));await Promise.allSettled(document.querySelector('.report-dialog').getAnimations().map(animation=>animation.finished));return true;})`,
+    );
+    const bounds = JSON.parse(
+      await evaluate(
+        `JSON.stringify((()=>{const dialog=document.querySelector('.report-dialog'),r=dialog.getBoundingClientRect();return {left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height,viewportWidth:innerWidth,viewportHeight:innerHeight,clientHeight:dialog.clientHeight,scrollHeight:dialog.scrollHeight}})())`,
+      ),
+    );
+    assert.ok(
+      Math.abs(bounds.left + bounds.width / 2 - bounds.viewportWidth / 2) < 1 &&
+        Math.abs(bounds.top + bounds.height / 2 - bounds.viewportHeight / 2) < 1,
+      `Compiled report dialog is not centered at ${width}×${height}: ${JSON.stringify(bounds)}`,
+    );
+    assert.ok(
+      bounds.left >= 15 &&
+        bounds.top >= 15 &&
+        bounds.right <= bounds.viewportWidth - 15 &&
+        bounds.bottom <= bounds.viewportHeight - 15,
+      `Compiled report dialog leaves the viewport at ${width}×${height}: ${JSON.stringify(bounds)}`,
+    );
+    if (name === 'short') {
+      assert.ok(bounds.scrollHeight > bounds.clientHeight, 'Short report dialog must scroll');
+      assert.ok(
+        await evaluate(
+          `(()=>{const dialog=document.querySelector('.report-dialog'),button=dialog.querySelector('.primary');button.scrollIntoView({block:'end'});const popup=dialog.getBoundingClientRect(),r=button.getBoundingClientRect();return r.top>=popup.top&&r.bottom<=popup.bottom;})()`,
+        ),
+        'The report submit button is reachable in a short viewport',
+      );
+    }
+    const screenshot = await send('browsingContext.captureScreenshot', { context });
+    await fs.writeFile(
+      'tmp/production-report-' + name + '.png',
+      Buffer.from(screenshot.data, 'base64'),
+    );
+    checks.push(`Compiled report dialog stays centered and contained at ${width}×${height}`);
+    await evaluate(`document.querySelector('.dialog-close').click();true;`);
+    await evaluate(
+      `new Promise((resolve,reject)=>{const end=Date.now()+7000;const check=()=>!document.querySelector('.report-dialog')?resolve(true):Date.now()>end?reject(Error('Report dialog did not close')):setTimeout(check,40);check();})`,
+    );
+  }
+  await send('browsingContext.setViewport', {
+    context,
+    viewport: { width: 1280, height: 900 },
+  });
   await send('browsingContext.navigate', {
     context,
     url: site + '/ops/exercises',
