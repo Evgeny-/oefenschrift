@@ -1,0 +1,680 @@
+{
+  "created_at": "2026-10-07T10:18:51.286Z",
+  "feedback_version": "3a61944507689716",
+  "production_model": "gpt-5.4-nano",
+  "arms": [
+    {
+      "id": "nano_none",
+      "model": "gpt-5.4-nano",
+      "effort": "none",
+      "input_rate": 0.2,
+      "cached_rate": 0.02,
+      "output_rate": 1.25
+    },
+    {
+      "id": "luna_none",
+      "model": "gpt-6-luna",
+      "effort": "none",
+      "input_rate": 0.1,
+      "cached_rate": 0.01,
+      "output_rate": 0.5
+    },
+    {
+      "id": "luna_low",
+      "model": "gpt-6-luna",
+      "effort": "low",
+      "input_rate": 0.1,
+      "cached_rate": 0.01,
+      "output_rate": 0.5
+    }
+  ],
+  "calls": 6,
+  "runs": [
+    {
+      "name": "b1_cloze_correct_inversion_unchanged",
+      "arm": "luna_none",
+      "item": "B1:writing:batch014-ziekmelding:1",
+      "answer": "blijf ik vandaag thuis",
+      "expected_met": [
+        true,
+        true
+      ],
+      "criteria": [
+        [
+          "De zin geeft het gevolg van de ziekte: de schrijver komt vandaag niet werken (blijft thuis of meldt zich ziek).",
+          "The sentence gives the consequence of the illness: the writer is not coming to work today (stays home or reports sick)."
+        ],
+        [
+          "De zin heeft inversie na 'Daarom': eerst de persoonsvorm, dan het onderwerp.",
+          "The sentence has inversion after 'Daarom': first the finite verb, then the subject."
+        ]
+      ],
+      "expectation": "Insert the answer after the printed 'Daarom'. It states a valid consequence of illness and uses verb-subject inversion. Both criteria pass. corrected_text must stay the gap completion 'blijf ik vandaag thuis'; do not reproduce the printed email, prepend Daarom or add facts.",
+      "must_preserve": [
+        "blijf ik vandaag thuis"
+      ],
+      "forbidden_additions": [
+        "Daarom",
+        "Karim",
+        "koorts",
+        "morgen"
+      ],
+      "result": {
+        "on_task": true,
+        "criteria": [
+          {
+            "index": 0,
+            "met": true,
+            "uncertain": false,
+            "evidence": "blijf ik vandaag thuis",
+            "feedback": {
+              "nl": "De zin geeft aan dat je vandaag thuisblijft.",
+              "en": "The sentence says that you are staying home today."
+            }
+          },
+          {
+            "index": 1,
+            "met": true,
+            "uncertain": false,
+            "evidence": "blijf ik",
+            "feedback": {
+              "nl": "Na ‘Daarom’ staat de persoonsvorm vóór het onderwerp.",
+              "en": "After “Daarom,” the verb comes before the subject."
+            }
+          }
+        ],
+        "corrected_text": "blijf ik vandaag thuis",
+        "comment": {
+          "nl": "Je hebt 2 van de 2 punten duidelijk genoemd.",
+          "en": "You clearly covered 2 of 2 points."
+        },
+        "next_step": {
+          "nl": "Oefen nu een andere opdracht.",
+          "en": "Practise another task next."
+        },
+        "model": "gpt-6-luna"
+      },
+      "checks": {
+        "valid_response": true,
+        "expected_decisions": true,
+        "preserved_facts": true,
+        "no_forbidden_additions": true
+      },
+      "seconds": 1.9,
+      "usage": {
+        "input_tokens": 1194,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1191
+        },
+        "output_tokens": 131,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1325
+      },
+      "cost_usd": 7.771000000000001e-05,
+      "raw_result": {
+        "on_task": true,
+        "criteria": [
+          {
+            "index": 0,
+            "met": true,
+            "uncertain": false,
+            "evidence": "blijf ik vandaag thuis",
+            "feedback": {
+              "nl": "De zin geeft aan dat je vandaag thuisblijft.",
+              "en": "The sentence says that you are staying home today."
+            }
+          },
+          {
+            "index": 1,
+            "met": true,
+            "uncertain": false,
+            "evidence": "blijf ik",
+            "feedback": {
+              "nl": "Na ‘Daarom’ staat de persoonsvorm vóór het onderwerp.",
+              "en": "After “Daarom,” the verb comes before the subject."
+            }
+          }
+        ],
+        "corrected_text": "blijf ik vandaag thuis"
+      },
+      "provider_error": null
+    },
+    {
+      "name": "b1_cloze_correct_inversion_unchanged",
+      "arm": "nano_none",
+      "item": "B1:writing:batch014-ziekmelding:1",
+      "answer": "blijf ik vandaag thuis",
+      "expected_met": [
+        true,
+        true
+      ],
+      "criteria": [
+        [
+          "De zin geeft het gevolg van de ziekte: de schrijver komt vandaag niet werken (blijft thuis of meldt zich ziek).",
+          "The sentence gives the consequence of the illness: the writer is not coming to work today (stays home or reports sick)."
+        ],
+        [
+          "De zin heeft inversie na 'Daarom': eerst de persoonsvorm, dan het onderwerp.",
+          "The sentence has inversion after 'Daarom': first the finite verb, then the subject."
+        ]
+      ],
+      "expectation": "Insert the answer after the printed 'Daarom'. It states a valid consequence of illness and uses verb-subject inversion. Both criteria pass. corrected_text must stay the gap completion 'blijf ik vandaag thuis'; do not reproduce the printed email, prepend Daarom or add facts.",
+      "must_preserve": [
+        "blijf ik vandaag thuis"
+      ],
+      "forbidden_additions": [
+        "Daarom",
+        "Karim",
+        "koorts",
+        "morgen"
+      ],
+      "result": {
+        "on_task": true,
+        "criteria": [
+          {
+            "index": 0,
+            "met": true,
+            "uncertain": false,
+            "evidence": "ik vandaag thuis",
+            "feedback": {
+              "nl": "Het gevolg is duidelijk: je blijft vandaag thuis.",
+              "en": "The consequence is clear: you stay home today."
+            }
+          },
+          {
+            "index": 1,
+            "met": true,
+            "uncertain": false,
+            "evidence": "blijf ik vandaag thuis",
+            "feedback": {
+              "nl": "Na 'Daarom' staat de persoonsvorm eerst: 'blijf', daarna het onderwerp 'ik'.",
+              "en": "After 'Daarom', the verb comes first: 'blijf', then the subject 'ik'."
+            }
+          }
+        ],
+        "corrected_text": "Vannacht ben ik ziek geworden en ik heb nog steeds koorts. Daarom blijf ik vandaag thuis. Mijn collega Karim weet welke klanten ik vandaag zou bellen. Morgen laat ik u weten of ik weer kan werken.",
+        "comment": {
+          "nl": "Je hebt 2 van de 2 punten duidelijk genoemd.",
+          "en": "You clearly covered 2 of 2 points."
+        },
+        "next_step": {
+          "nl": "Oefen nu een andere opdracht.",
+          "en": "Practise another task next."
+        },
+        "model": "gpt-5.4-nano-2026-03-17"
+      },
+      "checks": {
+        "valid_response": true,
+        "expected_decisions": true,
+        "preserved_facts": true,
+        "no_forbidden_additions": false
+      },
+      "seconds": 2.32,
+      "usage": {
+        "input_tokens": 1194,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 189,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1383
+      },
+      "cost_usd": 0.00047505000000000003,
+      "raw_result": {
+        "on_task": true,
+        "criteria": [
+          {
+            "index": 0,
+            "met": true,
+            "uncertain": false,
+            "evidence": "blijft ik vandaag thuis",
+            "feedback": {
+              "nl": "Het gevolg is duidelijk: je blijft vandaag thuis.",
+              "en": "The consequence is clear: you stay home today."
+            }
+          },
+          {
+            "index": 1,
+            "met": true,
+            "uncertain": false,
+            "evidence": "Daarom blijf ik vandaag thuis",
+            "feedback": {
+              "nl": "Na 'Daarom' staat de persoonsvorm eerst: 'blijf', daarna het onderwerp 'ik'.",
+              "en": "After 'Daarom', the verb comes first: 'blijf', then the subject 'ik'."
+            }
+          }
+        ],
+        "corrected_text": "Vannacht ben ik ziek geworden en ik heb nog steeds koorts. Daarom blijf ik vandaag thuis. Mijn collega Karim weet welke klanten ik vandaag zou bellen. Morgen laat ik u weten of ik weer kan werken."
+      },
+      "provider_error": null
+    },
+    {
+      "name": "b1_cloze_correct_inversion_unchanged",
+      "arm": "luna_low",
+      "item": "B1:writing:batch014-ziekmelding:1",
+      "answer": "blijf ik vandaag thuis",
+      "expected_met": [
+        true,
+        true
+      ],
+      "criteria": [
+        [
+          "De zin geeft het gevolg van de ziekte: de schrijver komt vandaag niet werken (blijft thuis of meldt zich ziek).",
+          "The sentence gives the consequence of the illness: the writer is not coming to work today (stays home or reports sick)."
+        ],
+        [
+          "De zin heeft inversie na 'Daarom': eerst de persoonsvorm, dan het onderwerp.",
+          "The sentence has inversion after 'Daarom': first the finite verb, then the subject."
+        ]
+      ],
+      "expectation": "Insert the answer after the printed 'Daarom'. It states a valid consequence of illness and uses verb-subject inversion. Both criteria pass. corrected_text must stay the gap completion 'blijf ik vandaag thuis'; do not reproduce the printed email, prepend Daarom or add facts.",
+      "must_preserve": [
+        "blijf ik vandaag thuis"
+      ],
+      "forbidden_additions": [
+        "Daarom",
+        "Karim",
+        "koorts",
+        "morgen"
+      ],
+      "result": {
+        "on_task": true,
+        "criteria": [
+          {
+            "index": 0,
+            "met": true,
+            "uncertain": false,
+            "evidence": "blijf ik vandaag thuis",
+            "feedback": {
+              "nl": "Je zegt dat je vandaag thuisblijft, dus je komt niet werken.",
+              "en": "You say you are staying home today, so you are not coming to work."
+            }
+          },
+          {
+            "index": 1,
+            "met": true,
+            "uncertain": false,
+            "evidence": "blijf ik",
+            "feedback": {
+              "nl": "Na ‘Daarom’ staat de persoonsvorm ‘blijf’ vóór het onderwerp ‘ik’.",
+              "en": "After “Daarom,” the verb “blijf” comes before the subject “ik”."
+            }
+          }
+        ],
+        "corrected_text": "blijf ik vandaag thuis",
+        "comment": {
+          "nl": "Je hebt 2 van de 2 punten duidelijk genoemd.",
+          "en": "You clearly covered 2 of 2 points."
+        },
+        "next_step": {
+          "nl": "Oefen nu een andere opdracht.",
+          "en": "Practise another task next."
+        },
+        "model": "gpt-6-luna"
+      },
+      "checks": {
+        "valid_response": true,
+        "expected_decisions": true,
+        "preserved_facts": true,
+        "no_forbidden_additions": true
+      },
+      "seconds": 2.45,
+      "usage": {
+        "input_tokens": 1194,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1191
+        },
+        "output_tokens": 155,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1349
+      },
+      "cost_usd": 8.971e-05,
+      "raw_result": {
+        "on_task": true,
+        "criteria": [
+          {
+            "index": 0,
+            "met": true,
+            "uncertain": false,
+            "evidence": "blijf ik vandaag thuis",
+            "feedback": {
+              "nl": "Je zegt dat je vandaag thuisblijft, dus je komt niet werken.",
+              "en": "You say you are staying home today, so you are not coming to work."
+            }
+          },
+          {
+            "index": 1,
+            "met": true,
+            "uncertain": false,
+            "evidence": "blijf ik",
+            "feedback": {
+              "nl": "Na ‘Daarom’ staat de persoonsvorm ‘blijf’ vóór het onderwerp ‘ik’.",
+              "en": "After “Daarom,” the verb “blijf” comes before the subject “ik”."
+            }
+          }
+        ],
+        "corrected_text": "blijf ik vandaag thuis"
+      },
+      "provider_error": null
+    },
+    {
+      "name": "b1_cloze_meaning_met_inversion_wrong",
+      "arm": "luna_none",
+      "item": "B1:writing:batch014-ziekmelding:1",
+      "answer": "ik blijf vandaag thuis",
+      "expected_met": [
+        true,
+        false
+      ],
+      "criteria": [
+        [
+          "De zin geeft het gevolg van de ziekte: de schrijver komt vandaag niet werken (blijft thuis of meldt zich ziek).",
+          "The sentence gives the consequence of the illness: the writer is not coming to work today (stays home or reports sick)."
+        ],
+        [
+          "De zin heeft inversie na 'Daarom': eerst de persoonsvorm, dan het onderwerp.",
+          "The sentence has inversion after 'Daarom': first the finite verb, then the subject."
+        ]
+      ],
+      "expectation": "The printed lead-in is 'Daarom', so the supplied subject-verb order fails the separate grammar criterion while its illness consequence remains adequate. Correct the gap to 'blijf ik vandaag thuis'. Missing grammar requires a word-order repair, not an invented factual placeholder or the whole email.",
+      "must_preserve": [
+        "vandaag",
+        "thuis"
+      ],
+      "forbidden_additions": [
+        "Daarom",
+        "Karim",
+        "koorts",
+        "morgen"
+      ],
+      "result": {
+        "on_task": true,
+        "criteria": [
+          {
+            "index": 0,
+            "met": true,
+            "uncertain": false,
+            "evidence": "ik blijf vandaag thuis",
+            "feedback": {
+              "nl": "Je zegt dat je vandaag thuisblijft.",
+              "en": "You say that you are staying home today."
+            }
+          },
+          {
+            "index": 1,
+            "met": false,
+            "uncertain": false,
+            "evidence": "",
+            "feedback": {
+              "nl": "Na ‘Daarom’ staat de persoonsvorm vóór het onderwerp; dat zie ik hier niet.",
+              "en": "After ‘Daarom,’ the finite verb comes before the subject; that does not appear here."
+            }
+          }
+        ],
+        "corrected_text": "ik blijf vandaag thuis\n[De zin heeft inversie na 'Daarom': eerst de persoonsvorm, dan het onderwerp.]",
+        "comment": {
+          "nl": "Je hebt 1 van de 2 punten duidelijk genoemd.",
+          "en": "You clearly covered 1 of 2 points."
+        },
+        "next_step": {
+          "nl": "Vul dit punt aan: De zin heeft inversie na 'Daarom': eerst de persoonsvorm, dan het onderwerp.",
+          "en": "Add the missing information for this point: The sentence has inversion after 'Daarom': first the finite verb, then the subject."
+        },
+        "model": "gpt-6-luna"
+      },
+      "checks": {
+        "valid_response": true,
+        "expected_decisions": true,
+        "preserved_facts": true,
+        "no_forbidden_additions": false
+      },
+      "seconds": 1.77,
+      "usage": {
+        "input_tokens": 1193,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1190
+        },
+        "output_tokens": 138,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1331
+      },
+      "cost_usd": 8.120000000000001e-05,
+      "raw_result": {
+        "on_task": true,
+        "criteria": [
+          {
+            "index": 0,
+            "met": true,
+            "uncertain": false,
+            "evidence": "ik blijf vandaag thuis",
+            "feedback": {
+              "nl": "Je zegt dat je vandaag thuisblijft.",
+              "en": "You say that you are staying home today."
+            }
+          },
+          {
+            "index": 1,
+            "met": false,
+            "uncertain": false,
+            "evidence": "",
+            "feedback": {
+              "nl": "Na ‘Daarom’ staat de persoonsvorm vóór het onderwerp; dat zie ik hier niet.",
+              "en": "After ‘Daarom,’ the finite verb comes before the subject; that does not appear here."
+            }
+          }
+        ],
+        "corrected_text": "Daarom blijf ik vandaag thuis."
+      },
+      "provider_error": null
+    },
+    {
+      "name": "b1_cloze_meaning_met_inversion_wrong",
+      "arm": "nano_none",
+      "item": "B1:writing:batch014-ziekmelding:1",
+      "answer": "ik blijf vandaag thuis",
+      "expected_met": [
+        true,
+        false
+      ],
+      "criteria": [
+        [
+          "De zin geeft het gevolg van de ziekte: de schrijver komt vandaag niet werken (blijft thuis of meldt zich ziek).",
+          "The sentence gives the consequence of the illness: the writer is not coming to work today (stays home or reports sick)."
+        ],
+        [
+          "De zin heeft inversie na 'Daarom': eerst de persoonsvorm, dan het onderwerp.",
+          "The sentence has inversion after 'Daarom': first the finite verb, then the subject."
+        ]
+      ],
+      "expectation": "The printed lead-in is 'Daarom', so the supplied subject-verb order fails the separate grammar criterion while its illness consequence remains adequate. Correct the gap to 'blijf ik vandaag thuis'. Missing grammar requires a word-order repair, not an invented factual placeholder or the whole email.",
+      "must_preserve": [
+        "vandaag",
+        "thuis"
+      ],
+      "forbidden_additions": [
+        "Daarom",
+        "Karim",
+        "koorts",
+        "morgen"
+      ],
+      "error": {
+        "name": "Error",
+        "reason": "evidence-not-in-answer",
+        "code": "feedback_rejected",
+        "upstream": null,
+        "providerStatus": 200
+      },
+      "checks": {
+        "valid_response": false,
+        "expected_decisions": false
+      },
+      "seconds": 2.34,
+      "usage": {
+        "input_tokens": 1193,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 200,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1393
+      },
+      "cost_usd": 0.0004886000000000001,
+      "raw_result": {
+        "on_task": true,
+        "criteria": [
+          {
+            "index": 0,
+            "met": true,
+            "uncertain": false,
+            "evidence": "ik blijf vandaag thuis",
+            "feedback": {
+              "nl": "Je geeft het gevolg van de ziekte: je blijft vandaag thuis.",
+              "en": "You give the consequence of the illness: you stay home today."
+            }
+          },
+          {
+            "index": 1,
+            "met": true,
+            "uncertain": false,
+            "evidence": "Daarom ik blijf",
+            "feedback": {
+              "nl": "Na 'Daarom' staat eerst de persoonsvorm ('blijft') en daarna het onderwerp ('ik') klopt met inversie.",
+              "en": "After 'Daarom', the finite verb comes first ('blijft') and then the subject ('ik'), which matches inversion."
+            }
+          }
+        ],
+        "corrected_text": "Vannacht ben ik ziek geworden en ik heb nog steeds koorts. Daarom blijf ik vandaag thuis. Mijn collega Karim weet welke klanten ik vandaag zou bellen. Morgen laat ik u weten of ik weer kan werken."
+      },
+      "provider_error": null
+    },
+    {
+      "name": "b1_cloze_meaning_met_inversion_wrong",
+      "arm": "luna_low",
+      "item": "B1:writing:batch014-ziekmelding:1",
+      "answer": "ik blijf vandaag thuis",
+      "expected_met": [
+        true,
+        false
+      ],
+      "criteria": [
+        [
+          "De zin geeft het gevolg van de ziekte: de schrijver komt vandaag niet werken (blijft thuis of meldt zich ziek).",
+          "The sentence gives the consequence of the illness: the writer is not coming to work today (stays home or reports sick)."
+        ],
+        [
+          "De zin heeft inversie na 'Daarom': eerst de persoonsvorm, dan het onderwerp.",
+          "The sentence has inversion after 'Daarom': first the finite verb, then the subject."
+        ]
+      ],
+      "expectation": "The printed lead-in is 'Daarom', so the supplied subject-verb order fails the separate grammar criterion while its illness consequence remains adequate. Correct the gap to 'blijf ik vandaag thuis'. Missing grammar requires a word-order repair, not an invented factual placeholder or the whole email.",
+      "must_preserve": [
+        "vandaag",
+        "thuis"
+      ],
+      "forbidden_additions": [
+        "Daarom",
+        "Karim",
+        "koorts",
+        "morgen"
+      ],
+      "result": {
+        "on_task": true,
+        "criteria": [
+          {
+            "index": 0,
+            "met": true,
+            "uncertain": false,
+            "evidence": "ik blijf vandaag thuis",
+            "feedback": {
+              "nl": "Je zegt dat je vandaag thuisblijft.",
+              "en": "You say that you are staying home today."
+            }
+          },
+          {
+            "index": 1,
+            "met": false,
+            "uncertain": false,
+            "evidence": "",
+            "feedback": {
+              "nl": "Na ‘Daarom’ staat de persoonsvorm vóór het onderwerp.",
+              "en": "After ‘Daarom,’ the finite verb must come before the subject."
+            }
+          }
+        ],
+        "corrected_text": "ik blijf vandaag thuis\n[De zin heeft inversie na 'Daarom': eerst de persoonsvorm, dan het onderwerp.]",
+        "comment": {
+          "nl": "Je hebt 1 van de 2 punten duidelijk genoemd.",
+          "en": "You clearly covered 1 of 2 points."
+        },
+        "next_step": {
+          "nl": "Vul dit punt aan: De zin heeft inversie na 'Daarom': eerst de persoonsvorm, dan het onderwerp.",
+          "en": "Add the missing information for this point: The sentence has inversion after 'Daarom': first the finite verb, then the subject."
+        },
+        "model": "gpt-6-luna"
+      },
+      "checks": {
+        "valid_response": true,
+        "expected_decisions": true,
+        "preserved_facts": true,
+        "no_forbidden_additions": false
+      },
+      "seconds": 3.57,
+      "usage": {
+        "input_tokens": 1193,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1190
+        },
+        "output_tokens": 290,
+        "output_tokens_details": {
+          "reasoning_tokens": 161
+        },
+        "total_tokens": 1483
+      },
+      "cost_usd": 0.0001572,
+      "raw_result": {
+        "on_task": true,
+        "criteria": [
+          {
+            "index": 0,
+            "met": true,
+            "uncertain": false,
+            "evidence": "ik blijf vandaag thuis",
+            "feedback": {
+              "nl": "Je zegt dat je vandaag thuisblijft.",
+              "en": "You say that you are staying home today."
+            }
+          },
+          {
+            "index": 1,
+            "met": false,
+            "uncertain": false,
+            "evidence": "",
+            "feedback": {
+              "nl": "Na ‘Daarom’ staat de persoonsvorm vóór het onderwerp.",
+              "en": "After ‘Daarom,’ the finite verb must come before the subject."
+            }
+          }
+        ],
+        "corrected_text": "Daarom blijf ik vandaag thuis."
+      },
+      "provider_error": null
+    }
+  ],
+  "cost_estimate_note": "Standard list rates at 7 October 2026; cache writes are 1.25 times uncached input, cached reads use the cached rate, reasoning is included in output. Before tax and account adjustments."
+}

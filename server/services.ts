@@ -91,7 +91,9 @@ export function feedbackSchemaFor(item: any) {
   };
 }
 export const feedbackVersion = createHash('sha256')
-  .update(instructions + JSON.stringify(feedbackSchema) + 'typescript-confirmed-v3-exact-criteria')
+  .update(
+    instructions + JSON.stringify(feedbackSchema) + 'typescript-confirmed-v4-sentence-corrections',
+  )
   .digest('hex')
   .slice(0, 16);
 // Missing points belong before the sign-off, so a suggested message still ends with its greeting.
@@ -231,6 +233,43 @@ export function exactEvidence(answer: string, evidence: string): string | null {
 const link = /https?:\/\/|www\./i;
 export const FEEDBACK_MAX = 500;
 export const correctedTextMax = (answer: string) => answer.length * 2 + 600;
+// Blueprint sentence tasks always score adequacy first and grammar second. Grammar
+// can be repaired using the supplied words; it does not need a missing-fact placeholder.
+const sentenceTask = (item: any) => item.taskType === 'zinstaak' && item.criteria.length === 2;
+const compact = (text: string) => text.replace(/\s+/g, ' ').trim().toLocaleLowerCase('nl');
+function gapCorrection(item: any, text: string) {
+  const body = item.scaffold?.body;
+  if (typeof body !== 'string' || body.split('___').length !== 2) return text;
+  const [before, after] = body.split('___'),
+    candidate = compact(text),
+    // A whole printed e-mail is not a gap completion. Request a fresh suggestion
+    // instead of presenting copied task facts as the learner's corrected answer.
+    sentences = (before + '\n' + after).match(/[^.!?\n]+[.!?](?=\s|$)/g) || [];
+  if (
+    sentences.filter((sentence) => {
+      const printed = compact(sentence);
+      return printed.length > 24 && candidate.includes(printed);
+    }).length >= 2
+  )
+    throw new FeedbackRejected('corrected-text-context');
+  const fragment = before.match(/(?:^|[.!?]\s+|\n)([^.!?\n]*)$/)?.[1].trim() || '',
+    connective = fragment.match(/\b(omdat|of|zodat|wanneer|dat|als|om|maar|dus|want)$/i)?.[0],
+    prefixes = [...new Set([fragment, connective].filter(Boolean))];
+  let corrected = text.trim();
+  for (const prefix of prefixes) {
+    // The longest printed prefix wins. Whitespace can differ in a model response.
+    const escaped = prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+'),
+      match = corrected.match(new RegExp('^' + escaped + '\\s+', 'i'));
+    if (match) {
+      corrected = corrected.slice(match[0].length).trim();
+      break;
+    }
+  }
+  const punctuation = after.trimStart()[0];
+  if (/[.!?]/.test(punctuation || '') && corrected.endsWith(punctuation))
+    corrected = corrected.slice(0, -1).trimEnd();
+  return corrected;
+}
 export function validateFeedback(result: any, item: any, answer: string, lenient = false) {
   const fail = (reason: string) => {
     throw new FeedbackRejected(reason);
@@ -294,29 +333,42 @@ export function validateFeedback(result: any, item: any, answer: string, lenient
     };
   const missing = result.criteria.filter((c) => !c.met),
     met = result.criteria.length - missing.length,
-    total = result.criteria.length;
-  const candidate = result.corrected_text.trim(),
+    total = result.criteria.length,
+    sentence = sentenceTask(item),
+    missingInformation = missing.filter((c) => !sentence || c.index !== 1);
+  const candidate = sentence
+      ? gapCorrection(item, result.corrected_text)
+      : result.corrected_text.trim(),
     blanks = candidate.match(/\[[^\[\]\n]{1,160}\]/g) || [];
+  if (sentence && !candidate) fail('corrected-text-empty');
+  if (sentence && blanks.length < missingInformation.length) fail('corrected-text-placeholders');
   const corrected_text =
-    !candidate || blanks.length < missing.length
+    !candidate || blanks.length < missingInformation.length
       ? withPlaceholders(
           answer,
-          missing.map((c) => item.criteria[c.index][0]),
+          missingInformation.map((c) => item.criteria[c.index][0]),
         )
       : placeholdersBeforeClosing(candidate);
-  const next = missing[0] ? item.criteria[missing[0].index] : null;
+  const next = missing[0] ? item.criteria[missing[0].index] : null,
+    grammarNext = sentence && missing[0]?.index === 1;
   return {
     ...result,
     ...(unlocated.length ? { unlocated } : {}),
     corrected_text,
     comment: {
-      nl: `Je hebt ${met} van de ${total} punten duidelijk genoemd.`,
-      en: `You clearly covered ${met} of ${total} points.`,
+      nl: sentence
+        ? `Je hebt ${met} van de ${total} punten gehaald.`
+        : `Je hebt ${met} van de ${total} punten duidelijk genoemd.`,
+      en: sentence
+        ? `You met ${met} of ${total} points.`
+        : `You clearly covered ${met} of ${total} points.`,
     },
     next_step: next
       ? {
-          nl: `Vul dit punt aan: ${next[0]}`,
-          en: `Add the missing information for this point: ${next[1]}`,
+          nl: grammarNext ? `Verbeter de grammatica: ${next[0]}` : `Vul dit punt aan: ${next[0]}`,
+          en: grammarNext
+            ? `Correct the grammar: ${next[1]}`
+            : `Add the missing information for this point: ${next[1]}`,
         }
       : { nl: 'Oefen nu een andere opdracht.', en: 'Practise another task next.' },
   };
@@ -359,7 +411,10 @@ function feedbackRetryNote(item: any, reason: string) {
   const evidence = ['evidence-not-in-answer', 'evidence-empty'].includes(reason)
     ? ' Evidence must be copied character for character from the learner answer (the user message) only, never from the task or the criteria. If you cannot quote the answer, set met:false with empty evidence.'
     : '';
-  return `\n\nRETRY: your previous judgment was rejected (${reason}). Return a complete response that follows the supplied JSON schema. ${coverage}${evidence}`;
+  const sentence = sentenceTask(item)
+    ? ' Return a nonempty corrected_text containing only the gap completion, without any printed context. Repair failed grammar using the supplied information; only missing content needs a Dutch square-bracket placeholder.'
+    : '';
+  return `\n\nRETRY: your previous judgment was rejected (${reason}). Return a complete response that follows the supplied JSON schema. ${coverage}${evidence}${sentence}`;
 }
 export type Usage = { input_tokens: number; output_tokens: number };
 export async function requestJudgment(
@@ -379,7 +434,11 @@ export async function requestJudgment(
     part: item.part,
     task: item.prompt,
     criteria_count: item.criteria.length,
-    criteria: item.criteria.map((c, index) => ({ index, criterion: c[0] })),
+    criteria: item.criteria.map((c, index) => ({
+      index,
+      criterion: c[0],
+      ...(sentenceTask(item) ? { kind: index === 1 ? 'grammar' : 'content' } : {}),
+    })),
     // Blueprint tasks carry printed material the judgment depends on: a gapped e-mail, a table, form labels.
     ...(item.taskType ? { task_type: item.taskType } : {}),
     ...(item.scaffold?.body ? { text_with_gap: item.scaffold.body } : {}),
@@ -413,7 +472,9 @@ export async function requestJudgment(
             schema: feedbackSchemaFor(item),
           },
         },
-        ...(model.startsWith('gpt-5') ? { reasoning: { effort: 'none' } } : {}),
+        ...(model.startsWith('gpt-5') || model === 'gpt-6-luna'
+          ? { reasoning: { effort: 'none' } }
+          : {}),
       }),
     });
   } catch {

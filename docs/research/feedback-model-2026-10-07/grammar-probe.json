@@ -1,0 +1,318 @@
+{
+  "created_at": "2026-10-07T10:33:59.650Z",
+  "production": false,
+  "model": "gpt-6-luna",
+  "feedback_version": "7975bdee1705d28c",
+  "calls": 4,
+  "runs": [
+    {
+      "name": "b1_cloze_correct_inversion_unchanged",
+      "item": "B1:writing:batch014-ziekmelding:1",
+      "answer": "blijf ik vandaag thuis",
+      "expected_met": [
+        true,
+        true
+      ],
+      "must_preserve": [
+        "blijf ik vandaag thuis"
+      ],
+      "forbidden_additions": [
+        "Daarom",
+        "Karim",
+        "koorts",
+        "morgen"
+      ],
+      "expectation": "Insert the answer after the printed 'Daarom'. It states a valid consequence of illness and uses verb-subject inversion. Both criteria pass. corrected_text must stay the gap completion 'blijf ik vandaag thuis'; do not reproduce the printed email, prepend Daarom or add facts.",
+      "expected_corrected_text": "blijf ik vandaag thuis",
+      "attempts": [
+        {
+          "status": 200,
+          "provider_model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1607,
+            "input_tokens_details": {
+              "cache_write_tokens": 1604,
+              "cached_tokens": 0
+            },
+            "output_tokens": 146,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1753
+          },
+          "raw_result": "{\"on_task\":true,\"criteria\":[{\"index\":0,\"met\":true,\"uncertain\":false,\"evidence\":\"blijf ik vandaag thuis\",\"feedback\":{\"nl\":\"Je geeft aan dat je vandaag thuisblijft.\",\"en\":\"You say that you are staying home today.\"}},{\"index\":1,\"met\":true,\"uncertain\":false,\"evidence\":\"blijf ik vandaag thuis\",\"feedback\":{\"nl\":\"Na ‘Daarom’ staat de persoonsvorm ‘blijf’ vóór het onderwerp ‘ik’.\",\"en\":\"After “Daarom,” the finite verb “blijf” comes before the subject “ik”.\"}}],\"corrected_text\":\"blijf ik vandaag thuis\"}"
+        }
+      ],
+      "result": {
+        "on_task": true,
+        "criteria": [
+          {
+            "index": 0,
+            "met": true,
+            "uncertain": false,
+            "evidence": "blijf ik vandaag thuis",
+            "feedback": {
+              "nl": "Je geeft aan dat je vandaag thuisblijft.",
+              "en": "You say that you are staying home today."
+            }
+          },
+          {
+            "index": 1,
+            "met": true,
+            "uncertain": false,
+            "evidence": "blijf ik vandaag thuis",
+            "feedback": {
+              "nl": "Na ‘Daarom’ staat de persoonsvorm ‘blijf’ vóór het onderwerp ‘ik’.",
+              "en": "After “Daarom,” the finite verb “blijf” comes before the subject “ik”."
+            }
+          }
+        ],
+        "corrected_text": "blijf ik vandaag thuis",
+        "comment": {
+          "nl": "Je hebt 2 van de 2 punten gehaald.",
+          "en": "You met 2 of 2 points."
+        },
+        "next_step": {
+          "nl": "Oefen nu een andere opdracht.",
+          "en": "Practise another task next."
+        },
+        "model": "gpt-6-luna"
+      },
+      "passed": true,
+      "seconds": 1.99
+    },
+    {
+      "name": "b1_cloze_meaning_met_inversion_wrong",
+      "item": "B1:writing:batch014-ziekmelding:1",
+      "answer": "ik blijf vandaag thuis",
+      "expected_met": [
+        true,
+        false
+      ],
+      "must_preserve": [
+        "vandaag",
+        "thuis"
+      ],
+      "forbidden_additions": [
+        "Daarom",
+        "Karim",
+        "koorts",
+        "morgen"
+      ],
+      "expectation": "The printed lead-in is 'Daarom', so the supplied subject-verb order fails the separate grammar criterion while its illness consequence remains adequate. Correct the gap to 'blijf ik vandaag thuis'. Missing grammar requires a word-order repair, not an invented factual placeholder or the whole email.",
+      "expected_corrected_text": "blijf ik vandaag thuis",
+      "attempts": [
+        {
+          "status": 200,
+          "provider_model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1606,
+            "input_tokens_details": {
+              "cache_write_tokens": 8,
+              "cached_tokens": 1595
+            },
+            "output_tokens": 155,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1761
+          },
+          "raw_result": "{\"on_task\":true,\"criteria\":[{\"index\":0,\"met\":true,\"uncertain\":false,\"evidence\":\"ik blijf vandaag thuis\",\"feedback\":{\"nl\":\"Je zegt dat je vandaag thuisblijft, dus het gevolg is duidelijk.\",\"en\":\"You say that you are staying home today, so the consequence is clear.\"}},{\"index\":1,\"met\":false,\"uncertain\":false,\"evidence\":\"\",\"feedback\":{\"nl\":\"Na ‘Daarom’ moet de persoonsvorm vóór het onderwerp staan: ‘Daarom blijf ik vandaag thuis.’\",\"en\":\"After ‘Daarom,’ the finite verb must come before the subject: ‘Daarom blijf ik vandaag thuis.’\"}}],\"corrected_text\":\"blijf ik vandaag thuis\"}"
+        }
+      ],
+      "result": {
+        "on_task": true,
+        "criteria": [
+          {
+            "index": 0,
+            "met": true,
+            "uncertain": false,
+            "evidence": "ik blijf vandaag thuis",
+            "feedback": {
+              "nl": "Je zegt dat je vandaag thuisblijft, dus het gevolg is duidelijk.",
+              "en": "You say that you are staying home today, so the consequence is clear."
+            }
+          },
+          {
+            "index": 1,
+            "met": false,
+            "uncertain": false,
+            "evidence": "",
+            "feedback": {
+              "nl": "Na ‘Daarom’ moet de persoonsvorm vóór het onderwerp staan: ‘Daarom blijf ik vandaag thuis.’",
+              "en": "After ‘Daarom,’ the finite verb must come before the subject: ‘Daarom blijf ik vandaag thuis.’"
+            }
+          }
+        ],
+        "corrected_text": "blijf ik vandaag thuis",
+        "comment": {
+          "nl": "Je hebt 1 van de 2 punten gehaald.",
+          "en": "You met 1 of 2 points."
+        },
+        "next_step": {
+          "nl": "Verbeter de grammatica: De zin heeft inversie na 'Daarom': eerst de persoonsvorm, dan het onderwerp.",
+          "en": "Correct the grammar: The sentence has inversion after 'Daarom': first the finite verb, then the subject."
+        },
+        "model": "gpt-6-luna"
+      },
+      "passed": true,
+      "seconds": 2.14
+    },
+    {
+      "name": "b1_dat_gap_repair_preserves_waiting",
+      "item": "B1:writing:batch028-ophalen:1",
+      "answer": "Jari kan in de klas wachten tot ik er ben",
+      "expected_met": [
+        true,
+        false
+      ],
+      "must_preserve": [
+        "Jari",
+        "klas",
+        "wachten"
+      ],
+      "forbidden_additions": [
+        "kwart voor drie",
+        "Beste meneer",
+        "Met vriendelijke groet",
+        "[",
+        "]"
+      ],
+      "expectation": "The printed gap follows 'Zou het mogelijk zijn dat'. The learner asks for Jari to wait in the classroom until the writer arrives, satisfying content. 'kan' precedes the intervening place phrase, so the dat-clause has incorrect verb order. Repair the completion, for example 'Jari in de klas kan wachten tot ik er ben', preserving Jari, the classroom, the ability to wait and the arrival condition. Return only the gap, with no dat, printed email, added pickup time or placeholder. Do not require the example's exact adjunct placement.",
+      "attempts": [
+        {
+          "status": 200,
+          "provider_model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1650,
+            "input_tokens_details": {
+              "cache_write_tokens": 1647,
+              "cached_tokens": 0
+            },
+            "output_tokens": 189,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1839
+          },
+          "raw_result": "{\"on_task\":true,\"criteria\":[{\"index\":0,\"met\":true,\"uncertain\":false,\"evidence\":\"Jari kan in de klas wachten tot ik er ben\",\"feedback\":{\"nl\":\"Je vraagt of Jari in de klas kan wachten tot je er bent.\",\"en\":\"You ask whether Jari can wait in the classroom until you arrive.\"}},{\"index\":1,\"met\":false,\"uncertain\":false,\"evidence\":\"\",\"feedback\":{\"nl\":\"Na het gedrukte 'dat' moet de persoonsvorm achteraan staan; verander 'kan' naar 'Jari in de klas tot ik er ben kan'.\",\"en\":\"After the printed 'dat,' the finite verb must be at the end; change 'kan' to 'Jari in de klas tot ik er ben kan'.\"}}],\"corrected_text\":\"Jari in de klas kan wachten tot ik er ben\"}"
+        }
+      ],
+      "result": {
+        "on_task": true,
+        "criteria": [
+          {
+            "index": 0,
+            "met": true,
+            "uncertain": false,
+            "evidence": "Jari kan in de klas wachten tot ik er ben",
+            "feedback": {
+              "nl": "Je vraagt of Jari in de klas kan wachten tot je er bent.",
+              "en": "You ask whether Jari can wait in the classroom until you arrive."
+            }
+          },
+          {
+            "index": 1,
+            "met": false,
+            "uncertain": false,
+            "evidence": "",
+            "feedback": {
+              "nl": "Na het gedrukte 'dat' moet de persoonsvorm achteraan staan; verander 'kan' naar 'Jari in de klas tot ik er ben kan'.",
+              "en": "After the printed 'dat,' the finite verb must be at the end; change 'kan' to 'Jari in de klas tot ik er ben kan'."
+            }
+          }
+        ],
+        "corrected_text": "Jari in de klas kan wachten tot ik er ben",
+        "comment": {
+          "nl": "Je hebt 1 van de 2 punten gehaald.",
+          "en": "You met 1 of 2 points."
+        },
+        "next_step": {
+          "nl": "Verbeter de grammatica: De zin is een correcte bijzin na 'dat': de persoonsvorm staat achteraan.",
+          "en": "Correct the grammar: The sentence is a correct subordinate clause after 'dat': the finite verb is at the end."
+        },
+        "model": "gpt-6-luna"
+      },
+      "passed": true,
+      "seconds": 2.34
+    },
+    {
+      "name": "b1_want_gap_repair_main_clause",
+      "item": "B1:writing:batch014-verjaardag:1",
+      "answer": "ik ziek was",
+      "expected_met": [
+        true,
+        false
+      ],
+      "must_preserve": [
+        "ziek"
+      ],
+      "forbidden_additions": [
+        "trein",
+        "storing",
+        "Utrecht",
+        "Groetjes",
+        "[",
+        "]"
+      ],
+      "expected_corrected_text": "ik was ziek",
+      "expectation": "The printed word immediately before the gap is want. Being ill explains missing the birthday, so content passes. 'ik ziek was' is subordinate-clause order, which is incorrect after want. The direct minimal repair is 'ik was ziek'. Return that gap only, without want, a new cause, punctuation already printed after the gap or a placeholder.",
+      "attempts": [
+        {
+          "status": 200,
+          "provider_model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1612,
+            "input_tokens_details": {
+              "cache_write_tokens": 1609,
+              "cached_tokens": 0
+            },
+            "output_tokens": 143,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1755
+          },
+          "raw_result": "{\"on_task\":true,\"criteria\":[{\"index\":0,\"met\":true,\"uncertain\":false,\"evidence\":\"ik ziek was\",\"feedback\":{\"nl\":\"De zin noemt ziekte als oorzaak.\",\"en\":\"The sentence gives illness as the reason.\"}},{\"index\":1,\"met\":false,\"uncertain\":false,\"evidence\":\"\",\"feedback\":{\"nl\":\"Na ‘want’ is de volgorde fout: ‘was’ staat achteraan; schrijf ‘want ik was ziek’.\",\"en\":\"The word order after ‘want’ is incorrect: ‘was’ is at the end; write ‘want ik was ziek’.\"}}],\"corrected_text\":\"ik was ziek\"}"
+        }
+      ],
+      "result": {
+        "on_task": true,
+        "criteria": [
+          {
+            "index": 0,
+            "met": true,
+            "uncertain": false,
+            "evidence": "ik ziek was",
+            "feedback": {
+              "nl": "De zin noemt ziekte als oorzaak.",
+              "en": "The sentence gives illness as the reason."
+            }
+          },
+          {
+            "index": 1,
+            "met": false,
+            "uncertain": false,
+            "evidence": "",
+            "feedback": {
+              "nl": "Na ‘want’ is de volgorde fout: ‘was’ staat achteraan; schrijf ‘want ik was ziek’.",
+              "en": "The word order after ‘want’ is incorrect: ‘was’ is at the end; write ‘want ik was ziek’."
+            }
+          }
+        ],
+        "corrected_text": "ik was ziek",
+        "comment": {
+          "nl": "Je hebt 1 van de 2 punten gehaald.",
+          "en": "You met 1 of 2 points."
+        },
+        "next_step": {
+          "nl": "Verbeter de grammatica: De zin is een correcte hoofdzin na 'want': de persoonsvorm staat op de tweede plaats (hoofdzinsvolgorde), niet achteraan zoals in een bijzin.",
+          "en": "Correct the grammar: The sentence is a correct main clause after 'want': the finite verb is in second position (main-clause order), not at the end as in a subordinate clause."
+        },
+        "model": "gpt-6-luna"
+      },
+      "passed": true,
+      "seconds": 2.33
+    }
+  ]
+}
