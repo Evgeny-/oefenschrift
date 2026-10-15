@@ -69,7 +69,7 @@ function provider(requests: any[], response: (attempt: number) => any): typeof f
   };
 }
 
-test('the configured Luna request explicitly disables reasoning', async () => {
+test('the configured Luna request reasons only about sentence-gap word order', async () => {
   await offline(async () => {
     const item = exercise('B1:writing:batch014-ziekmelding:1'),
       requests: any[] = [],
@@ -81,8 +81,21 @@ test('the configured Luna request explicitly disables reasoning', async () => {
     );
     assert.equal(configuration().feedback_model, 'gpt-6-luna');
     assert.equal(requests[0].model, 'gpt-6-luna');
-    assert.deepEqual(requests[0].reasoning, { effort: 'none' });
+    // Without reasoning, Luna marked most correct inversions after a printed lead-in as wrong.
+    assert.deepEqual(requests[0].reasoning, { effort: 'medium' });
+    assert.equal(requests[0].max_output_tokens, 4000);
     assert.equal(requests[0].store, false);
+    const email = exercise('A2:writing:batch008-meerijden:1'),
+      answer = 'Volgende week rijdt de bus niet. Mag ik met jou meerijden?';
+    await assess(
+      email,
+      answer,
+      provider(requests, () =>
+        marked(email, answer, [true, true, false, false], answer + '\n[tijd en plek]\n[bedankje]'),
+      ),
+    );
+    assert.deepEqual(requests[1].reasoning, { effort: 'none' });
+    assert.equal(requests[1].max_output_tokens, 1800);
   });
 });
 

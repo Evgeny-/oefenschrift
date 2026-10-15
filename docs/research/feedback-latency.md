@@ -1,8 +1,8 @@
 # Feedback speed and model check
 
-Historical experiments: 9 September 2026. Model decision updated on 7 October 2026.
+Historical experiments: 9 September 2026. Model decision updated on 7 October 2026; reasoning for sentence gaps on 14 October 2026.
 
-Use the direct OpenAI connection with `gpt-6-luna` and explicit `reasoning.effort: "none"`. The [7 October model comparison](feedback-model-2026-10-07.md) records the bounded synthetic evaluation, current prices and sentence-gap repair defects found during review. The bilingual response format and cache behavior are described in [the 10 September consistency work](feedback-consistency-2026-09-10.md).
+Use the direct OpenAI connection with `gpt-6-luna` and explicit `reasoning.effort: "none"`, except for B1 sentence gaps (`zinstaak`), which use `"medium"` and a 4,000-token output ceiling since 14 October 2026: without reasoning, Luna marked correct word order after a printed lead-in as wrong in about a third of runs, and with `medium` in none of 54 (see the [14 October audit](content-and-feedback-audit-2026-10-14.md)). The [7 October model comparison](feedback-model-2026-10-07.md) records the bounded synthetic evaluation, current prices and sentence-gap repair defects found during review. The bilingual response format and cache behavior are described in [the 10 September consistency work](feedback-consistency-2026-09-10.md).
 
 The experiments below used `gpt-5.4-nano`. At that time, the small GPT-4.1 mini sample was slower and more expensive. A candidate prompt intended to shorten feedback did not improve latency and introduced a semantic regression, so the production prompt and model configuration remained unchanged after that comparison. No model selection was exposed in the browser.
 

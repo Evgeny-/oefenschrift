@@ -92,7 +92,9 @@ export function feedbackSchemaFor(item: any) {
 }
 export const feedbackVersion = createHash('sha256')
   .update(
-    instructions + JSON.stringify(feedbackSchema) + 'typescript-confirmed-v4-sentence-corrections',
+    instructions +
+      JSON.stringify(feedbackSchema) +
+      'typescript-confirmed-v5-sentence-effort-pictures',
   )
   .digest('hex')
   .slice(0, 16);
@@ -236,6 +238,13 @@ export const correctedTextMax = (answer: string) => answer.length * 2 + 600;
 // Blueprint sentence tasks always score adequacy first and grammar second. Grammar
 // can be repaired using the supplied words; it does not need a missing-fact placeholder.
 const sentenceTask = (item: any) => item.taskType === 'zinstaak' && item.criteria.length === 2;
+// Word order after a printed lead-in ("Misschien ___", "omdat ___") needs reasoning: without it the
+// model marked correct inversions wrong in most runs (docs/research/content-and-feedback-audit-2026-10-14.md).
+// Every other task stays without reasoning, which is faster and was as accurate.
+export const reasoningEffort = (item: any) => (sentenceTask(item) ? 'medium' : 'none');
+// The Dutch alt text says what a picture shows. The English generation brief stays out: it names
+// cast members the learner never sees, and the judge's suggested wording could repeat them.
+const pictureFor = (image: any, index: number) => ({ number: index + 1, description: image.alt });
 const compact = (text: string) => text.replace(/\s+/g, ' ').trim().toLocaleLowerCase('nl');
 function gapCorrection(item: any, text: string) {
   const body = item.scaffold?.body;
@@ -446,9 +455,14 @@ export async function requestJudgment(
     ...(item.adequacyNote ? { sentence_must: item.adequacyNote } : {}),
     ...(item.table ? { table: item.table } : {}),
     ...(Array.isArray(item.formFields) ? { form_fields: item.formFields.map((f) => f.label) } : {}),
+    // The learner sees the pictures; without them the judge guesses which sentence describes which one.
+    ...(Array.isArray(item.images) && item.images.length
+      ? { pictures: item.images.map((image, index) => pictureFor(image, index)) }
+      : {}),
     speech_confirmed: true,
     speech_hypotheses: [],
   };
+  const effort = reasoningEffort(item);
   let response: Response;
   try {
     response = await fetcher('https://api.openai.com/v1/responses', {
@@ -458,7 +472,8 @@ export async function requestJudgment(
       body: JSON.stringify({
         model,
         store: false,
-        max_output_tokens: 1800,
+        // Reasoning tokens count towards the ceiling, so a reasoned judgment gets more room.
+        max_output_tokens: effort === 'none' ? 1800 : 4000,
         instructions: instructions + note,
         input: [
           { role: 'developer', content: JSON.stringify(task) },
@@ -472,9 +487,7 @@ export async function requestJudgment(
             schema: feedbackSchemaFor(item),
           },
         },
-        ...(model.startsWith('gpt-5') || model === 'gpt-6-luna'
-          ? { reasoning: { effort: 'none' } }
-          : {}),
+        ...(model.startsWith('gpt-5') || model === 'gpt-6-luna' ? { reasoning: { effort } } : {}),
       }),
     });
   } catch {

@@ -105,6 +105,19 @@ test('every published writing and speaking exercise constrains the provider to i
         indices,
         item.id,
       );
+      // Only a sentence gap is judged with reasoning; its word order needs it.
+      const sentence = item.taskType === 'zinstaak';
+      assert.deepEqual(request.reasoning, { effort: sentence ? 'medium' : 'none' }, item.id);
+      assert.equal(request.max_output_tokens, sentence ? 4000 : 1800, item.id);
+      // The judge reads what each picture shows, in the order the learner saw them.
+      assert.deepEqual(
+        task.pictures,
+        item.images?.map((image: any, index: number) => ({
+          number: index + 1,
+          description: image.alt,
+        })),
+        item.id,
+      );
     }
     assert.deepEqual(warnings, []);
   });
