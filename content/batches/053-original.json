@@ -1,0 +1,391 @@
+[
+  {
+    "id": "A2:reading:batch004-telefoon:1",
+    "level": "A2",
+    "part": "reading",
+    "exam": "duo-a2",
+    "taskType": "folder",
+    "domain": "winkels-diensten",
+    "title": "Reparatie van uw telefoon",
+    "situation": "Julio leest een folder van een telefoonwinkel.",
+    "text": "Telefoonwinkel De Knop\nMarkt 12, Westerhout\n\nIs uw telefoon kapot? Wij maken hem snel. U hoeft geen afspraak te maken. Kom gewoon langs in de winkel.\n\nReparatie – Prijs – Klaar\nNieuw scherm – 79 euro – dezelfde dag\nNieuwe batterij – 45 euro – in 1 uur\nNieuwe oplaadaansluiting – 35 euro – in 2 dagen\nOnderzoek bij waterschade – 15 euro – in 3 dagen\n\nBrengt u de telefoon vóór 12.00 uur? Dan is een nieuw scherm dezelfde dag klaar. Brengt u hem later? Dan is het scherm de volgende dag klaar.\n\nWij bellen u als de telefoon klaar is. U betaalt bij het ophalen. Neem dan uw bon mee. Op elke reparatie krijgt u 6 maanden garantie.\n\nOp zaterdag doen wij alleen batterijen. Andere reparaties nemen wij op zaterdag wel aan. Een nieuw scherm is dan op maandag klaar. Bij een oplaadaansluiting of waterschade bellen wij u als de telefoon klaar is.\n\nOpeningstijden: maandag tot en met zaterdag van 9.30 tot 17.30 uur.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "rule-application",
+        "prompt": "Julio brengt zijn telefoon op dinsdag om 14.00 uur. Hij wil een nieuw scherm. Wanneer is de telefoon klaar?",
+        "options": {
+          "A": "Op dinsdag.",
+          "B": "Op woensdag.",
+          "C": "Op donderdag.",
+          "D": "Op zaterdag."
+        },
+        "answer": "B",
+        "evidence": "Brengt u hem later? Dan is het scherm de volgende dag klaar.",
+        "explanation": "Een scherm is alleen dezelfde dag klaar als de telefoon vóór 12.00 uur wordt gebracht. Om 14.00 uur is dat te laat, dus de telefoon is de volgende dag klaar: woensdag."
+      },
+      {
+        "id": "q2",
+        "skill": "rule-application",
+        "prompt": "Roos brengt haar telefoon op zaterdag. Welke reparatie is dan dezelfde dag klaar?",
+        "options": {
+          "A": "Een nieuwe batterij.",
+          "B": "Een nieuw scherm.",
+          "C": "Een nieuwe oplaadaansluiting."
+        },
+        "answer": "A",
+        "evidence": "Op zaterdag doen wij alleen batterijen. Andere reparaties nemen wij op zaterdag wel aan. Een nieuw scherm is dan op maandag klaar. Bij een oplaadaansluiting of waterschade bellen wij u als de telefoon klaar is.",
+        "explanation": "Op zaterdag doet de winkel alleen batterijen. Een scherm of oplaadaansluiting neemt de winkel wel aan, maar die reparaties zijn niet dezelfde dag klaar: een nieuw scherm is pas maandag klaar, en bij een oplaadaansluiting belt de winkel als de telefoon klaar is."
+      },
+      {
+        "id": "q3",
+        "skill": "detail",
+        "prompt": "Wanneer betaalt Julio voor de reparatie?",
+        "options": {
+          "A": "Als hij de telefoon brengt.",
+          "B": "Als de winkel hem belt.",
+          "C": "Als hij de telefoon ophaalt."
+        },
+        "answer": "C",
+        "evidence": "U betaalt bij het ophalen.",
+        "explanation": "Betalen doet u bij het ophalen. Het telefoontje van de winkel betekent alleen dat de telefoon klaar is."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "A2:reading:batch001-pakketpunt:1",
+    "level": "A2",
+    "part": "reading",
+    "title": "Uw pakket ligt klaar",
+    "exam": "duo-a2",
+    "taskType": "bericht",
+    "domain": "winkels-diensten",
+    "situation": "Meneer El Amrani leest een bericht over zijn pakket.",
+    "text": "Beste meneer El Amrani,\n\nWe wilden uw pakket dinsdag bij u thuis bezorgen, maar u was niet thuis. Het ligt vanaf woensdag 13 mei in de winkel naast de supermarkt. U kunt het daar woensdag tussen 12.00 en 19.00 uur ophalen. De supermarkt is al om 8.00 uur open, maar het pakketpunt opent later.\n\nLaat bij het ophalen deze code zien: 6049. Neem ook uw identiteitsbewijs mee. De medewerker controleert uw naam en geeft u dan het pakket. U hoeft niets te betalen. Alleen voor het versturen van een nieuw pakket betaalt u aan de balie.\n\nUw pakket blijft tot en met maandag 18 mei liggen. Daarna gaat het terug naar de afzender. Kunt u niet op tijd komen? Vraag de winkel vóór maandag om het pakket langer te bewaren.",
+    "status": "draft",
+    "targetLevelValidated": false,
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "time-place",
+        "prompt": "Meneer El Amrani wil woensdag zijn pakket ophalen. Vanaf hoe laat kan dat?",
+        "options": {
+          "A": "Vanaf 8.00 uur.",
+          "B": "Vanaf 12.00 uur.",
+          "C": "Vanaf 19.00 uur."
+        },
+        "answer": "B",
+        "evidence": "U kunt het daar woensdag tussen 12.00 en 19.00 uur ophalen.",
+        "explanation": "Het pakketpunt opent om 12.00 uur. De supermarkt is eerder open, maar heeft andere tijden."
+      },
+      {
+        "id": "q2",
+        "skill": "rule-application",
+        "prompt": "Meneer El Amrani kan pas na 18 mei komen. Wat moet hij volgens het bericht doen?",
+        "options": {
+          "A": "Na maandag vragen of de afzender het bewaart.",
+          "B": "Woensdag betalen voor het versturen van een nieuw pakket.",
+          "C": "Vóór maandag vragen of de winkel het langer bewaart."
+        },
+        "answer": "C",
+        "evidence": "Kunt u niet op tijd komen? Vraag de winkel vóór maandag om het pakket langer te bewaren.",
+        "explanation": "Hij moet op tijd om langer bewaren vragen. Anders gaat het pakket na maandag terug."
+      }
+    ]
+  },
+  {
+    "id": "A2:reading:batch021-terugbrengen:1",
+    "level": "A2",
+    "part": "reading",
+    "exam": "duo-a2",
+    "taskType": "regels",
+    "domain": "winkels-diensten",
+    "title": "Ruilen en terugbrengen",
+    "situation": "Roos leest de regels van een kledingwinkel.",
+    "text": "Kledingwinkel Vlierbes\nRuilen en terugbrengen\n\nPast het kledingstuk niet? Of vindt u het thuis toch niet mooi? Dan kunt u het ruilen of terugbrengen. Dit zijn onze regels.\n\nBinnen 14 dagen\nBrengt u het kledingstuk binnen 14 dagen terug? Dan krijgt u uw geld terug. Het geld staat binnen vijf werkdagen op uw rekening. Ruilen kan natuurlijk ook.\n\nNa 14 dagen\nBrengt u het kledingstuk na 14 dagen terug? Dan krijgt u geen geld terug. U kunt het kledingstuk wel ruilen. Of u krijgt een tegoedbon. Met deze bon koopt u later iets anders in onze winkel. Na 30 dagen nemen wij niets meer terug.\n\nLet op\n- Neem altijd de kassabon mee. Zonder kassabon kunnen wij niets doen.\n- Het kledingstuk is niet gedragen en niet gewassen. Het prijskaartje zit er nog aan.\n- Ondergoed, sokken en zwemkleding nemen wij nooit terug. Ook niet met prijskaartje.\n- Hebt u online gekocht? Dan brengt u het kledingstuk gratis terug in de winkel. Opsturen kan ook. De verzendkosten betaalt u dan zelf.\n\nHebt u vragen? Vraag het aan een medewerker in de winkel.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "rule-application",
+        "prompt": "Roos heeft drie weken geleden een jas gekocht. Zij heeft de jas niet gedragen, het prijskaartje zit er nog aan en zij heeft de kassabon nog. Zij brengt de jas terug. Wat krijgt zij?",
+        "options": {
+          "A": "Haar geld terug op haar rekening.",
+          "B": "Een tegoedbon of een ander kledingstuk.",
+          "C": "Niets, de winkel neemt de jas niet meer terug."
+        },
+        "answer": "B",
+        "evidence": "Brengt u het kledingstuk na 14 dagen terug? Dan krijgt u geen geld terug. U kunt het kledingstuk wel ruilen. Of u krijgt een tegoedbon.",
+        "explanation": "Drie weken is meer dan 14 dagen, maar minder dan 30 dagen. Roos krijgt dan geen geld terug, maar zij kan de jas wel ruilen of een tegoedbon krijgen. Geld terug is er alleen binnen 14 dagen, en pas na 30 dagen neemt de winkel niets meer terug."
+      },
+      {
+        "id": "q2",
+        "skill": "rule-application",
+        "prompt": "Fatima heeft een zwembroek gekocht voor haar zoon. De zwembroek is te klein. Het prijskaartje zit er nog aan. Kan zij de zwembroek ruilen?",
+        "options": {
+          "A": "Ja, want het prijskaartje zit er nog aan.",
+          "B": "Nee, want ruilen kan alleen binnen 14 dagen.",
+          "C": "Nee, want zwemkleding neemt de winkel niet terug."
+        },
+        "answer": "C",
+        "evidence": "Ondergoed, sokken en zwemkleding nemen wij nooit terug. Ook niet met prijskaartje.",
+        "explanation": "Zwemkleding neemt de winkel nooit terug, ook niet met prijskaartje. De regel over het prijskaartje geldt alleen voor andere kleding. Andere kleding kunt u ook na 14 dagen nog ruilen; alleen geld terug krijgt u binnen 14 dagen."
+      },
+      {
+        "id": "q3",
+        "skill": "time-place",
+        "prompt": "Sem heeft een shirt gekocht. Een week later brengt hij het terug met de kassabon. Hij wil zijn geld terug. Wanneer staat het geld op zijn rekening?",
+        "options": {
+          "A": "Meteen, aan de kassa van de winkel.",
+          "B": "Binnen vijf werkdagen.",
+          "C": "Binnen 14 dagen.",
+          "D": "Binnen 30 dagen."
+        },
+        "answer": "B",
+        "evidence": "Het geld staat binnen vijf werkdagen op uw rekening.",
+        "explanation": "Sem brengt het shirt binnen 14 dagen terug, dus hij krijgt zijn geld terug. Dat geld staat binnen vijf werkdagen op zijn rekening. 14 dagen en 30 dagen zijn de termijnen voor terugbrengen, niet voor het geld."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "A2:reading:batch004-ramen:1",
+    "level": "A2",
+    "part": "reading",
+    "exam": "duo-a2",
+    "taskType": "krant",
+    "domain": "wonen-buurt",
+    "title": "Nieuwe ramen in de Bloemenbuurt",
+    "situation": "Fatima leest een bericht in de wijkkrant.",
+    "text": "Nieuwe ramen in de Bloemenbuurt\n\nIn oktober krijgen 120 huurwoningen in de Bloemenbuurt nieuwe ramen. De oude ramen hebben enkel glas. De nieuwe ramen krijgen dubbel glas. Daardoor blijft de warmte beter in huis. Bewoners betalen dan minder voor gas.\n\nHet werk begint op maandag 5 oktober in de Tulpstraat. Daarna volgen de Rozenstraat (vanaf 12 oktober) en de Irisstraat (vanaf 19 oktober). Per woning duurt het werk één dag. Bewoners moeten die dag thuis zijn van 8.00 tot 16.00 uur. Zij krijgen een week van tevoren een brief met de precieze dag.\n\n'De ramen zijn gratis voor de bewoners', zegt Els Mulder van Woningstichting Westerhout. 'De huur gaat niet omhoog.'\n\nHebt u vragen over het werk? Kom naar het spreekuur op donderdag 24 september. Dat is van 16.00 tot 18.00 uur in wijkcentrum Bloemenhof, Tulpstraat 1.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "time-place",
+        "prompt": "Fatima woont in de Rozenstraat. Wanneer begint het werk in haar straat?",
+        "options": {
+          "A": "Op 5 oktober.",
+          "B": "Op 12 oktober.",
+          "C": "Op 19 oktober."
+        },
+        "answer": "B",
+        "evidence": "Daarna volgen de Rozenstraat (vanaf 12 oktober)",
+        "explanation": "De Rozenstraat is aan de beurt vanaf 12 oktober. Op 5 oktober begint het werk in de Tulpstraat en op 19 oktober in de Irisstraat."
+      },
+      {
+        "id": "q2",
+        "skill": "purpose",
+        "prompt": "Waarom staat dit bericht in de wijkkrant?",
+        "options": {
+          "A": "Bewoners informeren over het werk aan de ramen.",
+          "B": "Bewoners vragen om nieuwe ramen te kopen.",
+          "C": "Bewoners vertellen dat de huur omhooggaat.",
+          "D": "Bewoners vragen om zelf een dag te kiezen."
+        },
+        "answer": "A",
+        "evidence": "In oktober krijgen 120 huurwoningen in de Bloemenbuurt nieuwe ramen.",
+        "explanation": "Het bericht legt uit wat er gaat gebeuren, wanneer, en wat bewoners moeten doen. De ramen zijn gratis, de huur gaat niet omhoog en de dag krijgen bewoners per brief; ze kiezen die niet zelf."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "A2:reading:batch004-verwarming:1",
+    "level": "A2",
+    "part": "reading",
+    "exam": "duo-a2",
+    "taskType": "regels",
+    "domain": "wonen-buurt",
+    "title": "De verwarming doet het niet",
+    "situation": "Karim leest een kaart van zijn woningstichting.",
+    "text": "Woningstichting De Berk\n\nDoet uw verwarming het niet? Controleer eerst deze drie dingen.\n\n1. Kijk op de thermostaat. Staat hij op 'uit'? Zet hem dan op 20 graden.\n2. Kijk naar de waterdruk op de cv-ketel. Die moet tussen 1 en 2 staan. Is de druk lager dan 1? Vul dan water bij. Op onze website staat een filmpje over water bijvullen.\n3. Druk één keer op de resetknop van de ketel. Wacht daarna tien minuten.\n\nDoet de verwarming het dan nog niet? Meld de storing op www.deberk.nl/storing. Dat kan de hele dag en de hele nacht. Een monteur komt binnen twee werkdagen. U krijgt van ons een sms met de dag en de tijd.\n\nHebt u ook geen warm water? Bel dan meteen 0299 66 77 88. Dit nummer is dag en nacht bereikbaar, ook in het weekend.\n\nLet op: repareer de ketel nooit zelf. Dat is gevaarlijk. Bel ook niet zelf een monteur. Die kosten betalen wij niet terug.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "sequence",
+        "prompt": "Karim heeft geen verwarming. Wat moet hij eerst doen?",
+        "options": {
+          "A": "Op de resetknop drukken.",
+          "B": "De storing melden bij De Berk.",
+          "C": "Op de thermostaat kijken."
+        },
+        "answer": "C",
+        "evidence": "1. Kijk op de thermostaat.",
+        "explanation": "De kaart geeft drie stappen; stap 1 is kijken op de thermostaat. De resetknop is stap 3, en de storing melden doet u pas als de drie stappen niet helpen."
+      },
+      {
+        "id": "q2",
+        "skill": "rule-application",
+        "prompt": "Fatima heeft op zaterdag geen verwarming, maar wel warm water. De drie stappen helpen niet. Wat moet zij nu doen?",
+        "options": {
+          "A": "De storing melden op www.deberk.nl.",
+          "B": "Meteen 0299 66 77 88 bellen.",
+          "C": "Zelf een monteur bellen.",
+          "D": "Tot maandag wachten en dan bellen."
+        },
+        "answer": "A",
+        "evidence": "Meld de storing op www.deberk.nl/storing. Dat kan de hele dag en de hele nacht.",
+        "explanation": "Zonder verwarming meldt u de storing op de website; dat kan ook in het weekend. Het telefoonnummer is alleen voor wie ook geen warm water heeft, en zelf een monteur bellen mag niet."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "A2:reading:batch021-gezinskaart:1",
+    "level": "A2",
+    "part": "reading",
+    "exam": "duo-a2",
+    "taskType": "folder",
+    "domain": "vrije-tijd-familie",
+    "title": "Met het gezin naar het museum",
+    "situation": "Fatima leest een folder van een museum.",
+    "text": "Museum Het Blikken Paard\nSpeelgoed van vroeger en nu\n\nKom met het hele gezin naar ons museum. U ziet hier speelgoed van honderd jaar geleden tot nu. Met veel speelgoed mogen de kinderen zelf spelen.\n\nKaartjes\nVolwassenen – 12,50 euro\nKinderen van 4 tot en met 12 jaar – 6,00 euro\nKinderen tot en met 3 jaar – gratis\nGezinskaart – 36,00 euro\n\nDe gezinskaart is voor twee volwassenen en maximaal drie kinderen van 4 tot en met 12 jaar. Kinderen tot en met 3 jaar tellen niet mee: zij zijn altijd gratis. Bij de gezinskaart krijgt u een speurtocht. Uw kinderen zoeken dan dingen in het museum en winnen een klein cadeautje.\n\nWorkshop\nElke woensdag om 14.00 uur is er een workshop. Die is voor kinderen van 6 tot en met 12 jaar. Zij maken dan zelf een stuk speelgoed. De workshop is gratis voor kinderen met een kaartje. Er is plaats voor vijftien kinderen. Meld uw kind op de dag zelf aan bij de kassa.\n\nOpeningstijden\nDinsdag tot en met zondag van 10.00 tot 17.00 uur. Op maandag is het museum dicht.\n\nKomt u met de trein? Het museum is vijf minuten lopen van het station. Bij het museum kunt u niet parkeren. Komt u met de auto? Parkeer dan in de parkeergarage aan de Havenweg. Die kost 2,50 euro per uur.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "rule-application",
+        "prompt": "Karim gaat met zijn vrouw en hun vier kinderen van 3, 5, 8 en 11 jaar naar het museum. Kunnen zij een gezinskaart kopen?",
+        "options": {
+          "A": "Ja, want het kind van 3 jaar telt niet mee.",
+          "B": "Nee, want vier kinderen is te veel voor een gezinskaart.",
+          "C": "Nee, want een kind van 11 jaar is te oud voor een gezinskaart.",
+          "D": "Ja, maar het kind van 3 jaar kost 6,00 euro extra."
+        },
+        "answer": "A",
+        "evidence": "De gezinskaart is voor twee volwassenen en maximaal drie kinderen van 4 tot en met 12 jaar. Kinderen tot en met 3 jaar tellen niet mee: zij zijn altijd gratis.",
+        "explanation": "Het kind van 3 jaar is gratis en telt niet mee. Dan blijven er drie kinderen van 5, 8 en 11 jaar over, en dat past precies bij een gezinskaart: maximaal drie kinderen van 4 tot en met 12 jaar. Voor het kind van 3 jaar betaalt het gezin niets extra."
+      },
+      {
+        "id": "q2",
+        "skill": "rule-application",
+        "prompt": "Amina is 10 jaar. Zij wil meedoen aan de workshop. Wat moet Fatima doen?",
+        "options": {
+          "A": "Een extra kaartje voor de workshop kopen.",
+          "B": "Amina op maandag om 14.00 uur naar het museum brengen.",
+          "C": "Amina op woensdag bij de kassa aanmelden.",
+          "D": "Een gezinskaart voor het hele gezin kopen."
+        },
+        "answer": "C",
+        "evidence": "Meld uw kind op de dag zelf aan bij de kassa.",
+        "explanation": "De workshop is elke woensdag om 14.00 uur; Fatima meldt Amina op die dag aan bij de kassa. De workshop is gratis voor kinderen met een kaartje, een gezinskaart is niet nodig, en op maandag is het museum dicht."
+      },
+      {
+        "id": "q3",
+        "skill": "time-place",
+        "prompt": "Meneer De Vries komt met de auto naar het museum. Waar kan hij parkeren?",
+        "options": {
+          "A": "Op de parkeerplaats van het museum.",
+          "B": "In de parkeergarage aan de Havenweg.",
+          "C": "Naast het station, vijf minuten lopen."
+        },
+        "answer": "B",
+        "evidence": "Bij het museum kunt u niet parkeren. Komt u met de auto? Parkeer dan in de parkeergarage aan de Havenweg.",
+        "explanation": "Bij het museum zelf kan niemand parkeren; met de auto parkeert u in de parkeergarage aan de Havenweg. Het station wordt alleen genoemd voor wie met de trein komt."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "A2:reading:batch020-spoorwerk:1",
+    "level": "A2",
+    "part": "reading",
+    "exam": "duo-a2",
+    "taskType": "bericht",
+    "domain": "vervoer",
+    "title": "Geen treinen naar Zuidstad",
+    "situation": "Roos ziet een bericht op het station.",
+    "text": "Let op! Dit weekend geen treinen naar Zuidstad.\n\nEr is werk aan het spoor. Daarom rijden er dit weekend geen treinen tussen Westerhout en Zuidstad. Dat is van vrijdag 16 oktober 22.00 uur tot maandag 19 oktober 5.00 uur.\n\nIn plaats van de trein rijden er bussen. De bussen vertrekken aan de achterkant van het station, bij bushalte D. Er gaat elk kwartier een bus. De bus stopt ook bij station Westerhout-Noord.\n\nDe reis met de bus duurt 40 minuten. Met de trein is dat 15 minuten. Vertrek dus op tijd. Uw treinkaartje is ook geldig in de bus. U hoeft geen nieuw kaartje te kopen.\n\nFietsen mogen niet mee in de bus. Een vouwfiets mag wel. Reist u met een rolstoel? Zeg dat tegen de chauffeur. Hij helpt u bij het instappen.\n\nDe treinen naar Noorddorp rijden gewoon. Die vertrekken van spoor 2.\n\nHebt u vragen? Vraag het aan onze medewerkers op het station. Zij dragen een gele jas.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "rule-application",
+        "prompt": "Roos wil op zaterdag 17 oktober naar Zuidstad. Wat moet zij doen?",
+        "options": {
+          "A": "De bus nemen bij bushalte D.",
+          "B": "De trein nemen van spoor 2.",
+          "C": "Een nieuw kaartje kopen voor de bus."
+        },
+        "answer": "A",
+        "evidence": "In plaats van de trein rijden er bussen. De bussen vertrekken aan de achterkant van het station, bij bushalte D.",
+        "explanation": "Op zaterdag rijden er geen treinen naar Zuidstad; Roos neemt de bus bij bushalte D. Spoor 2 is voor de treinen naar Noorddorp, en haar treinkaartje is ook in de bus geldig."
+      },
+      {
+        "id": "q2",
+        "skill": "rule-application",
+        "prompt": "Roos wil haar gewone fiets meenemen in de bus. Kan dat?",
+        "options": {
+          "A": "Ja, als zij een treinkaartje heeft.",
+          "B": "Ja, als zij het tegen de chauffeur zegt.",
+          "C": "Nee, alleen een vouwfiets mag mee.",
+          "D": "Nee, alleen een rolstoel mag mee."
+        },
+        "answer": "C",
+        "evidence": "Fietsen mogen niet mee in de bus. Een vouwfiets mag wel.",
+        "explanation": "Een gewone fiets mag niet mee in de bus; alleen een vouwfiets mag. Het treinkaartje gaat over betalen, niet over fietsen. De zin over de rolstoel gaat over hulp bij het instappen: een rolstoel is geen fiets. Ook als Roos het tegen de chauffeur zegt, mag haar fiets niet mee."
+      },
+      {
+        "id": "q3",
+        "skill": "purpose",
+        "prompt": "Waarom hangt dit bericht op het station?",
+        "options": {
+          "A": "Het station is het hele weekend gesloten.",
+          "B": "De bussen naar Zuidstad rijden dit weekend niet.",
+          "C": "Reizigers moeten een nieuw kaartje kopen voor de trein.",
+          "D": "Er rijden dit weekend geen treinen naar Zuidstad."
+        },
+        "answer": "D",
+        "evidence": "Er is werk aan het spoor. Daarom rijden er dit weekend geen treinen tussen Westerhout en Zuidstad.",
+        "explanation": "Het bericht waarschuwt dat er door werk aan het spoor geen treinen naar Zuidstad rijden, en legt uit hoe u dan reist. Het station blijft open, de bussen rijden juist wel, en een nieuw kaartje is niet nodig."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "A2:reading:batch020-politiebureau:1",
+    "level": "A2",
+    "part": "reading",
+    "exam": "duo-a2",
+    "taskType": "rooster",
+    "domain": "instanties",
+    "title": "Openingstijden van het politiebureau",
+    "situation": "Meneer De Vries leest de openingstijden van het politiebureau.",
+    "text": "Politiebureau Westerhout\nStationsplein 6\n\nOpeningstijden\nMaandag tot en met vrijdag: 9.00 tot 17.00 uur.\nDonderdag ook 's avonds: 17.00 tot 21.00 uur.\nZaterdag: 10.00 tot 14.00 uur.\nZondag: gesloten.\n\nAangifte doen\nIs uw fiets gestolen? Of uw portemonnee? Dan doet u aangifte bij de politie. Dat kan op drie manieren.\n- Op internet, dag en nacht, op de website van de politie. U logt in met uw DigiD.\n- Op het bureau, met een afspraak. Bel voor een afspraak: 0299 60 60 60.\n- Op het bureau, zonder afspraak. Dat kan alleen op dinsdag en donderdag tussen 9.00 en 12.00 uur.\n\nNeem uw identiteitsbewijs mee. Doet u aangifte van een gestolen fiets? Neem dan ook de sleutel van het slot mee.\n\nIets kwijt?\nBent u iets kwijt, bijvoorbeeld uw sleutels of uw tas? Dan gaat u niet naar de politie. Kijk op www.westerhout.nl/gevonden, de website van de gemeente. Daar staan alle gevonden voorwerpen.\n\nSpoed? Bel 112.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "rule-application",
+        "prompt": "De fiets van meneer De Vries is gestolen. Hij wil zonder afspraak aangifte doen op het bureau. Wanneer kan dat?",
+        "options": {
+          "A": "Op maandag om 10.00 uur.",
+          "B": "Op dinsdag om 10.00 uur.",
+          "C": "Op donderdag om 19.00 uur.",
+          "D": "Op zaterdag om 11.00 uur."
+        },
+        "answer": "B",
+        "evidence": "Dat kan alleen op dinsdag en donderdag tussen 9.00 en 12.00 uur.",
+        "explanation": "Zonder afspraak kan aangifte alleen op dinsdag en donderdag tussen 9.00 en 12.00 uur; dinsdag om 10.00 uur past. Op maandag en zaterdag is het bureau wel open, maar alleen voor aangifte met een afspraak, en donderdag om 19.00 uur is na 12.00 uur."
+      },
+      {
+        "id": "q2",
+        "skill": "time-place",
+        "prompt": "Mevrouw Bakker is haar sleutels kwijt. Waar moet zij kijken?",
+        "options": {
+          "A": "Op het politiebureau, zonder afspraak.",
+          "B": "Op de website van de gemeente.",
+          "C": "Op de website van de politie."
+        },
+        "answer": "B",
+        "evidence": "Kijk op www.westerhout.nl/gevonden, de website van de gemeente. Daar staan alle gevonden voorwerpen.",
+        "explanation": "Gevonden voorwerpen staan op de website van de gemeente, niet bij de politie. De website van de politie is voor aangifte van diefstal."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  }
+]

@@ -1,0 +1,339 @@
+{
+  "review_id": "053-review",
+  "source": "content/batches/053-original.json",
+  "source_sha256": "53001109b836b101d6ff75dc686829542d579cc3cde66691fc01f1ed774bdfac",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-14",
+  "reviewer": "Independent AI reviewer (Claude Opus 5.5) in a separate context from the author; did not write batch 053; no Smithers",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:reading:batch004-telefoon:1",
+    "A2:reading:batch001-pakketpunt:1",
+    "A2:reading:batch021-terugbrengen:1",
+    "A2:reading:batch004-ramen:1",
+    "A2:reading:batch004-verwarming:1",
+    "A2:reading:batch021-gezinskaart:1",
+    "A2:reading:batch020-spoorwerk:1",
+    "A2:reading:batch020-politiebureau:1"
+  ],
+  "item_count": 8,
+  "edits": [],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/053-proposed.json: 8 items, 20 questions; keys A5 B8 C6 D1 (B 40%, at the maximum, not above); options 11 three-option and 9 four-option (45%); info line: 8 of 8 items already in the catalogue (expected for a replacement); 2 warnings (telefoon 48 and gezinskaart 45 words, the splitter reading header and table lines as one sentence); no failures.",
+    "proposed_equals_original": "content/batches/053-proposed.json is a byte-for-byte copy of content/batches/053-original.json (cmp); no reviewer edits.",
+    "full_final_source_read": true,
+    "base_diff": "Field-by-field diff against tmp/content-fix-2026-10-14/base/053-base.json: 11 changed fields, all on the 053 fix list or direct consequences of it (telefoon text, q2 evidence, q2 explanation; pakketpunt text; terugbrengen q1 prompt, q2 option A; ramen q2 option C; verwarming q1 prompt; gezinskaart text; spoorwerk q2 explanation; politiebureau q2 prompt). Item order, field order and answer keys unchanged.",
+    "base_equals_catalogue": "The base records equal the live content/catalogue.json records except status and revision; the catalogue holds no media fields for these items.",
+    "no_retired_or_derived_fields": "No type, revision, audio, questionAudio or images fields in any item.",
+    "evidence_verbatim": "20 of 20 evidence quotes are verbatim substrings of their item text.",
+    "keys_proven_distractors_tested": "All 20 keys proven from their evidence; every distractor tested as a competing answer; every explanation agrees with key and text (per-question audit under items).",
+    "key_signals": "No prompt word recurs only in a key. Yes/no polarity: terugbrengen q2 Ja/Nee/Nee*, gezinskaart q1 Ja*/Nee/Nee/Ja, spoorwerk q2 Ja/Ja/Nee*/Nee, so no key is the odd polarity out. The longest option is the key in 4 of 20 questions (telefoon q3 and verwarming q2 by 1 character; ramen q2 and terugbrengen q2 by 5); chance would give about 6.",
+    "weekday_date_pairs": "All correct for 2026: dinsdag 12, woensdag 13 and maandag 18 May (pakketpunt); donderdag 24 September and maandag 5 October (ramen); vrijdag 16, zaterdag 17 and maandag 19 October (spoorwerk).",
+    "a2_language_heuristics": "Prose sentences only (header and table lines excluded): averages 6.3–9.7 words, longest 17 (gezinskaart); the only subordinator is 'als' (telefoon); every 'dat' and 'die' is a demonstrative. New text sentences have 8 and 13 words; the new terugbrengen q1 prompt sentence has 17. Word counts 130–224.",
+    "invented_names_web": "WebSearch on 2026-10-14 for the batch-004 names never checked before: 'Woningstichting De Berk', 'deberk.nl' and 'Telefoonwinkel De Knop' (no real business found); 'westerhout.nl' (not an indexed site; Westerhout is a surname and the project's fictional town). Vlierbes, Het Blikken Paard, Zuidstad and Noorddorp were checked in the 020 and 021 reviews. The fixes add no new names.",
+    "knm": "No KNM items; no official-source verification needed.",
+    "other_copies_of_changed_text": "The old strings occur only in content/catalogue.json (replaced at integration). content/evidence/001-existing.json holds the historical batch-001 pakketpunt overlay, which cannot overwrite a rewritten item. Cross-part neighbour A2:listening:batch005-scherm is an unnamed shop with other prices and rules, so it does not contradict the new Saturday rule.",
+    "set_membership": "IDs unchanged: a2-reading-01 (pakketpunt), a2-reading-05 (telefoon, verwarming), a2-reading-06 (ramen), a2-reading-07 (terugbrengen), a2-reading-08 (gezinskaart), a2-reading-10 (spoorwerk, politiebureau). No key letter moved."
+  },
+  "doubt_decisions": [
+    {
+      "doubt": "telefoon: the new sentence repeats the general 'Wij bellen u als de telefoon klaar is.'",
+      "decision": "Keep. The repetition tells a Saturday customer that the slower repairs get no fixed day, unlike the screen's Monday. Naming a weekday would mean counting 2 or 3 days across the closed Sunday, which a learner could contest. The paragraph follows the spec's suggested fix, and 'Bij een oplaadaansluiting' is clipped but in the folder's register and maps onto the table row."
+    },
+    {
+      "doubt": "terugbrengen q1: add 'niet gewassen' so every condition is entailed literally?",
+      "decision": "Do not add. The price tag is a condition a reader cannot infer, so it had to be stated; an unworn jacket has not been washed. No option turns on washing (option C's 'niet meer' is the 30-day limit), and adding it would stretch the prompt to 38 words."
+    },
+    {
+      "doubt": "terugbrengen q2: key C is now the longest option by characters (49 against 44 and 41).",
+      "decision": "Keep. All three options have eight words in the same 'Ja/Nee, want …' frame, and the checker's per-text threshold is not reached. Batch-wide the key is the longest option in 4 of 20 questions, below chance, so length gives no strategy. The prescribed option A copies the rule sentence and is a strong lure; padding B or rewording the key would change fields outside the fix list for no gain to the learner. The 021 review's 'no key longest by words or characters' no longer holds by characters for this one question; I accept that."
+    },
+    {
+      "doubt": "ramen q2: key A was already the longest option by characters.",
+      "decision": "Keep (predates the fix, outside the fix list). A ties with D at eight words, and the fix only shortened C by one character."
+    },
+    {
+      "doubt": "politiebureau q2: 'Waar moet zij kijken?' instead of the spec's example 'Waar kan zij kijken?'.",
+      "decision": "Keep 'moet'. It mirrors the instruction 'Kijk op …', fits all three options as places to look, and asks what the text tells her to do, so option A (going to the police station anyway) cannot be argued the way it could be under 'kan'."
+    },
+    {
+      "doubt": "Checker 'longest sentence' warnings for telefoon (48) and gezinskaart (45).",
+      "decision": "Accept. These are artefacts of the splitter reading header and table lines as one sentence; the longest real sentences are 13 and 17 words."
+    }
+  ],
+  "items": [
+    {
+      "id": "A2:reading:batch004-telefoon:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Repair folder with a four-row table, 166 words, prose average 7.0 and longest sentence 13. q1 combines the 12.00 cut-off with a one-day step and q2 applies the Saturday exception: two details per question, typical of the exam. The fix adds one rule sentence and does not change the level (004–005 level check: comparable).",
+      "fix_verified": "'U kunt de telefoon dan op maandag ophalen.' (every repair on Monday, which contradicted 'in 2 dagen' and 'in 3 dagen') is replaced by 'Een nieuw scherm is dan op maandag klaar. Bij een oplaadaansluiting of waterschade bellen wij u als de telefoon klaar is.' A Saturday screen is now ready on Monday, the next opening day after the closed Sunday, which is consistent with 'de volgende dag'; the 2- and 3-day repairs get no fixed day. The q2 evidence and explanation follow the new text.",
+      "evidence": [
+        {
+          "question_id": "q1",
+          "answer": "B",
+          "quote": "Brengt u hem later? Dan is het scherm de volgende dag klaar.",
+          "distractors": {
+            "A": "Dinsdag needs a drop-off before 12.00 ('Brengt u de telefoon vóór 12.00 uur? Dan is een nieuw scherm dezelfde dag klaar.'); 14.00 is later.",
+            "C": "Donderdag is 'in 2 dagen', the oplaadaansluiting row of the table, not the screen.",
+            "D": "Zaterdag borrows the Saturday paragraph; Julio comes on Tuesday."
+          }
+        },
+        {
+          "question_id": "q2",
+          "answer": "A",
+          "quote": "Op zaterdag doen wij alleen batterijen. Andere reparaties nemen wij op zaterdag wel aan. Een nieuw scherm is dan op maandag klaar. Bij een oplaadaansluiting of waterschade bellen wij u als de telefoon klaar is.",
+          "distractors": {
+            "B": "Tempting through the table's 'dezelfde dag' and the before-12.00 rule, but on Saturday 'Een nieuw scherm is dan op maandag klaar.'",
+            "C": "Accepted on Saturday but not repaired that day ('alleen batterijen'); the table gives 2 days and the shop calls when it is ready."
+          }
+        },
+        {
+          "question_id": "q3",
+          "answer": "C",
+          "quote": "U betaalt bij het ophalen.",
+          "distractors": {
+            "A": "Reverses the moment of payment.",
+            "B": "The call only says the phone is ready ('Wij bellen u als de telefoon klaar is.')."
+          }
+        }
+      ]
+    },
+    {
+      "id": "A2:reading:batch001-pakketpunt:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Pick-up notice, 130 words, prose average 9.7 and longest sentence 14 (the corrected first sentence). A time locate with a nearby competing time, and a deadline rule with an actor and timing. Level unchanged by the one-sentence fix.",
+      "fix_verified": "'We wilden uw pakket dinsdag bij u thuis bezorgen, maar u was niet thuis.' now describes a failed delivery, consistent with the pick-up from woensdag 13 mei and the return after maandag 18 mei. Neither evidence quote contains the sentence.",
+      "evidence": [
+        {
+          "question_id": "q1",
+          "answer": "B",
+          "quote": "U kunt het daar woensdag tussen 12.00 en 19.00 uur ophalen.",
+          "distractors": {
+            "A": "8.00 is the supermarket ('De supermarkt is al om 8.00 uur open, maar het pakketpunt opent later.').",
+            "C": "19.00 is the end of the pick-up window, not the start."
+          }
+        },
+        {
+          "question_id": "q2",
+          "answer": "C",
+          "quote": "Kunt u niet op tijd komen? Vraag de winkel vóór maandag om het pakket langer te bewaren.",
+          "distractors": {
+            "A": "Reverses both the timing (na maandag) and the party asked (the sender, not the shop); after Monday the parcel is already on its way back.",
+            "B": "Misapplies 'Alleen voor het versturen van een nieuw pakket betaalt u aan de balie.'"
+          }
+        }
+      ]
+    },
+    {
+      "id": "A2:reading:batch021-terugbrengen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Shop rules with headed sections, 182 words, prose average 6.5 and longest sentence 11. Three threshold rules (14 days, 30 days, product exclusion) applied to personas. Stating the price tag makes q1 fair without giving away the time window, which is still the operation tested.",
+      "fix_verified": "The q1 prompt now reads 'Zij heeft de jas niet gedragen, het prijskaartje zit er nog aan en zij heeft de kassabon nog.', so the conditions 'Neem altijd de kassabon mee.' and 'Het kledingstuk is niet gedragen en niet gewassen. Het prijskaartje zit er nog aan.' are met ('niet gewassen' follows from an unworn jacket, and no option turns on it). q2 option A is now 'Ja, want het prijskaartje zit er nog aan.', with no doubled object.",
+      "evidence": [
+        {
+          "question_id": "q1",
+          "answer": "B",
+          "quote": "Brengt u het kledingstuk na 14 dagen terug? Dan krijgt u geen geld terug. U kunt het kledingstuk wel ruilen. Of u krijgt een tegoedbon.",
+          "distractors": {
+            "A": "Money back only 'binnen 14 dagen'; three weeks is 21 days.",
+            "C": "'niet meer' is the 30-day limit ('Na 30 dagen nemen wij niets meer terug.'), which has not been reached."
+          }
+        },
+        {
+          "question_id": "q2",
+          "answer": "C",
+          "quote": "Ondergoed, sokken en zwemkleding nemen wij nooit terug. Ook niet met prijskaartje.",
+          "distractors": {
+            "A": "Treats the general price-tag condition as enough; 'Ook niet met prijskaartje' excludes swimwear.",
+            "B": "States a false rule: exchanging is still possible after 14 days ('U kunt het kledingstuk wel ruilen')."
+          }
+        },
+        {
+          "question_id": "q3",
+          "answer": "B",
+          "quote": "Het geld staat binnen vijf werkdagen op uw rekening.",
+          "distractors": {
+            "A": "An instant refund at the till is not what the text offers; the money is transferred.",
+            "C": "14 days is the deadline for bringing an item back, not the payment term.",
+            "D": "30 days is the last deadline for exchanging, not the payment term."
+          }
+        }
+      ]
+    },
+    {
+      "id": "A2:reading:batch004-ramen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Wijkkrant piece, 137 words, prose average 8.8 and longest sentence 13, with a quoted source and dates in parentheses. At the easy end: q1 is a single locate next to two competing dates, and q2 (purpose) is largely answerable from the options, as the 004–005 level check noted. Not off-level.",
+      "fix_verified": "q2 option C now reads 'Bewoners vertellen dat de huur omhooggaat.', correct spelling of the separable verb in a subordinate clause. The text's main clause 'De huur gaat niet omhoog.' is unchanged and correct.",
+      "evidence": [
+        {
+          "question_id": "q1",
+          "answer": "B",
+          "quote": "Daarna volgen de Rozenstraat (vanaf 12 oktober)",
+          "distractors": {
+            "A": "5 oktober is the start in the Tulpstraat ('Het werk begint op maandag 5 oktober in de Tulpstraat.').",
+            "C": "19 oktober is the Irisstraat."
+          }
+        },
+        {
+          "question_id": "q2",
+          "answer": "A",
+          "quote": "In oktober krijgen 120 huurwoningen in de Bloemenbuurt nieuwe ramen.",
+          "distractors": {
+            "B": "Contradicted by 'De ramen zijn gratis voor de bewoners'.",
+            "C": "Contradicted by 'De huur gaat niet omhoog.'",
+            "D": "Contradicted by 'Zij krijgen een week van tevoren een brief met de precieze dag.'"
+          }
+        }
+      ]
+    },
+    {
+      "id": "A2:reading:batch004-verwarming:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Instruction card, 161 words, prose average 6.5 and longest sentence 12. Household vocabulary at the top of A2, each word explained by its step (004–005 level check: comparable, borderline on vocabulary). q1 tests order; q2 applies a condition with a negation.",
+      "fix_verified": "The q1 prompt now reads 'Karim heeft geen verwarming. Wat moet hij eerst doen?', standard and unambiguous. The official DUO form recorded in docs/research/exam-blueprints-2026-09-10.md is 'Wat moet hij het eerste doen?'; 'eerst' is just as clear, so exam-likeness is not reduced.",
+      "evidence": [
+        {
+          "question_id": "q1",
+          "answer": "C",
+          "quote": "1. Kijk op de thermostaat.",
+          "distractors": {
+            "A": "The reset button is step 3.",
+            "B": "Reporting comes only after the three steps fail ('Doet de verwarming het dan nog niet? Meld de storing …')."
+          }
+        },
+        {
+          "question_id": "q2",
+          "answer": "A",
+          "quote": "Meld de storing op www.deberk.nl/storing. Dat kan de hele dag en de hele nacht.",
+          "distractors": {
+            "B": "The number is for no hot water ('Hebt u ook geen warm water? Bel dan meteen 0299 66 77 88.'); Fatima has hot water.",
+            "C": "Forbidden: 'Bel ook niet zelf een monteur.'",
+            "D": "The card has no wait-until-Monday rule; reporting online is possible at any time."
+          }
+        }
+      ]
+    },
+    {
+      "id": "A2:reading:batch021-gezinskaart:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Museum folder with a price list, 224 words, prose average 8.8 and longest sentence 17. Upper end of comparable: a membership rule with an exemption (q1), a day and place combination (q2), and a parking rule (q3). The price change does not affect any question.",
+      "fix_verified": "'Gezinskaart – 36,00 euro' is now more than two adult tickets (25,00). It is cheaper than single tickets for two adults with two children (37,00) or three children (43,00) and dearer with one child (31,00), which is plausible. No question, option or explanation uses the family-card price (q1 option D uses the 6,00 child price).",
+      "evidence": [
+        {
+          "question_id": "q1",
+          "answer": "A",
+          "quote": "De gezinskaart is voor twee volwassenen en maximaal drie kinderen van 4 tot en met 12 jaar. Kinderen tot en met 3 jaar tellen niet mee: zij zijn altijd gratis.",
+          "distractors": {
+            "B": "Ignores the exemption: the 3-year-old does not count, which leaves three children.",
+            "C": "Misreads the upper bound: 11 is within '4 tot en met 12 jaar'.",
+            "D": "Contradicted by 'zij zijn altijd gratis'."
+          }
+        },
+        {
+          "question_id": "q2",
+          "answer": "C",
+          "quote": "Meld uw kind op de dag zelf aan bij de kassa.",
+          "distractors": {
+            "A": "No separate workshop ticket: 'De workshop is gratis voor kinderen met een kaartje.'",
+            "B": "'Op maandag is het museum dicht.'; the workshop is on Wednesday.",
+            "D": "Any ticket gives access to the workshop; a family card is not required."
+          }
+        },
+        {
+          "question_id": "q3",
+          "answer": "B",
+          "quote": "Bij het museum kunt u niet parkeren. Komt u met de auto? Parkeer dan in de parkeergarage aan de Havenweg.",
+          "distractors": {
+            "A": "Contradicted by 'Bij het museum kunt u niet parkeren.'",
+            "C": "The station is the directions for visitors coming by train."
+          }
+        }
+      ]
+    },
+    {
+      "id": "A2:reading:batch020-spoorwerk:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Station notice, 160 words, prose average 6.7 and longest sentence 14. Replacement bus, a bike rule with an exception, and purpose. Explanation-only fix; level unchanged.",
+      "fix_verified": "The unsupported 'de chauffeur helpt alleen mensen met een rolstoel' is removed. The new last sentence, 'Ook als Roos het tegen de chauffeur zegt, mag haar fiets niet mee.', follows from the unconditional 'Fietsen mogen niet mee in de bus.' and refutes option B. Options A and D are still addressed.",
+      "evidence": [
+        {
+          "question_id": "q1",
+          "answer": "A",
+          "quote": "In plaats van de trein rijden er bussen. De bussen vertrekken aan de achterkant van het station, bij bushalte D.",
+          "distractors": {
+            "B": "Spoor 2 is for the trains to Noorddorp ('De treinen naar Noorddorp rijden gewoon. Die vertrekken van spoor 2.').",
+            "C": "'Uw treinkaartje is ook geldig in de bus. U hoeft geen nieuw kaartje te kopen.'"
+          }
+        },
+        {
+          "question_id": "q2",
+          "answer": "C",
+          "quote": "Fietsen mogen niet mee in de bus. Een vouwfiets mag wel.",
+          "distractors": {
+            "A": "The ticket rule is about paying, not about bikes.",
+            "B": "'Zeg dat tegen de chauffeur' belongs to the wheelchair sentence and does not lift the bike ban.",
+            "D": "A folding bike may also come along, and the wheelchair sentence is about help with boarding."
+          }
+        },
+        {
+          "question_id": "q3",
+          "answer": "D",
+          "quote": "Er is werk aan het spoor. Daarom rijden er dit weekend geen treinen tussen Westerhout en Zuidstad.",
+          "distractors": {
+            "A": "The station stays open (staff on the station answer questions).",
+            "B": "Reversed: buses replace the trains.",
+            "C": "No new ticket is needed."
+          }
+        }
+      ]
+    },
+    {
+      "id": "A2:reading:batch020-politiebureau:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Opening hours with sections, 156 words, prose average 6.3 and longest sentence 12. q1 matches walk-in hours against opening hours (three distractors are opening hours that are not walk-in hours). q2 still requires telling the gemeente website from the police website.",
+      "fix_verified": "The q2 prompt now reads 'Mevrouw Bakker is haar sleutels kwijt. Waar moet zij kijken?', clear A2 that mirrors the instruction 'Kijk op …' and fits all three options. The key, evidence and explanation are unchanged and consistent.",
+      "evidence": [
+        {
+          "question_id": "q1",
+          "answer": "B",
+          "quote": "Dat kan alleen op dinsdag en donderdag tussen 9.00 en 12.00 uur.",
+          "distractors": {
+            "A": "Monday is an opening day but not a walk-in day.",
+            "C": "Thursday evening is opening time, after the 12.00 walk-in limit.",
+            "D": "Saturday is an opening day but not a walk-in day."
+          }
+        },
+        {
+          "question_id": "q2",
+          "answer": "B",
+          "quote": "Kijk op www.westerhout.nl/gevonden, de website van de gemeente. Daar staan alle gevonden voorwerpen.",
+          "distractors": {
+            "A": "Excluded by 'Dan gaat u niet naar de politie.'",
+            "C": "The police website is for aangifte ('Op internet, dag en nacht, op de website van de politie.')."
+          }
+        }
+      ]
+    }
+  ],
+  "media_notes": "None. A2 reading items have no question, intro or prompt audio, and these items have no images or other media fields. Three question prompts changed (terugbrengen q1, verwarming q1, politiebureau q2), but no clip exists for them or needs generating. Integration assigns new revisions.",
+  "coordinator_actions": "Run npm run batch:adopt 053 (the proposed file is identical to the original; adoption verifies the hash and normalises the review source), then npm run content:integrate. No audio, illustration or starter step.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence. targetLevelValidated stays false.",
+    "No content/exemplars directory exists; level verdicts compare each text with the official A2 Lezen description in docs/research/exam-blueprints-2026-09-10.md and the 004–005 level check.",
+    "No listening scripts or spoken prompts are involved: the changed reading question prompts have no audio, so no new audio or transcription round trip is needed.",
+    "Web searches for invented names cover indexed pages only; the domain registration of deberk.nl and westerhout.nl was not checked.",
+    "Optional notes from the 004 review are still unapplied: 'ook in het weekend' on the verwarming website line, and the telefoon q3 concept repeat. They are outside this fix list and not defects."
+  ]
+}

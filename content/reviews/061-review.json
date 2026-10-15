@@ -1,0 +1,389 @@
+{
+  "review_id": "061-review",
+  "source": "content/batches/061-original.json",
+  "source_sha256": "67510aea4cc0943717f60eb5feb2bd9fe8835eb76fb6e679119b0b584afb7cdd",
+  "proposed": "content/batches/061-proposed.json",
+  "proposed_identical_to_author_file": false,
+  "author_source_sha256": "a5e178e1e57907b6f14ea6ce65b43a846844646c8f457a77ed4d0268225139d4",
+  "starters_source": "content/batches/061-starters.json",
+  "starters_sha256": "012804d8be51cc930a59423741b3a8f239a603600213bcc52285dfe7ef24e1c4",
+  "starters_verdict": "pass",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-14",
+  "reviewer": "Independent AI reviewer (Claude Opus 5.5) in a fresh context; did not author batch 061 and did not edit the author's files.",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "B1:speaking:batch016-pensioen:1",
+    "B1:speaking:batch016-open-dag:1",
+    "B1:speaking:batch017-cursusverzoek:1",
+    "B1:speaking:batch031-verwarming-verhuurder:1",
+    "B1:speaking:batch017-examentips:1",
+    "B1:speaking:batch031-sollicitatietips:1",
+    "B1:speaking:batch016-slaapkamerraam:1",
+    "B1:speaking:batch017-glasbak:1",
+    "B1:speaking:batch031-afvalcontainers:1",
+    "B1:speaking:batch031-brandalarm:1",
+    "B1:speaking:batch017-fietskeuze:1",
+    "B1:speaking:batch017-sportabonnement:1",
+    "B1:speaking:batch031-werktelefoon:1",
+    "B1:speaking:batch031-cursus-engels:1",
+    "B1:speaking:batch017-eerste-schooldag:1",
+    "B1:speaking:batch031-taalcafe-avond:1"
+  ],
+  "item_count": 16,
+  "edits": [
+    {
+      "id": "B1:speaking:batch017-cursusverzoek:1",
+      "field": "prompt",
+      "before": "U werkt in een grote winkel. De winkel krijgt een nieuw kassasysteem en er is een cursus van twee dagen. U wilt die cursus graag volgen, maar uw leidinggevende wil alleen de teamleiders sturen. U hoort eerst uw leidinggevende. Overtuig haar dat u de cursus ook moet volgen. Noem twee redenen en reageer op haar bezwaar. Sluit af met een vraag of een voorstel.",
+      "after": "U werkt in een grote winkel. De winkel krijgt een nieuw kassasysteem en er is een cursus van twee dagen. U wilt die cursus graag volgen, maar uw leidinggevende wil alleen de teamleiders sturen. U hoort eerst uw leidinggevende. Overtuig haar dat u de cursus ook moet volgen. Noem twee redenen en reageer op haar bezwaar.",
+      "reason": "Doubt 1, spec option \"or drop C2/C3\": the official middellang act is \"convince with two reasons\"; C0-C2 realise it and answer the cue. A fixed closing question or proposal is a generic extra the official content score does not reward, so feedback would call an answer incomplete that the exam scores in full. Dropping it removes a third narrated instruction sentence. Three criteria remain (checker minimum); time was not the reason (a four-criterion minimal answer is about 33 words)."
+    },
+    {
+      "id": "B1:speaking:batch017-cursusverzoek:1",
+      "field": "criteria[3]",
+      "before": [
+        "Sluit af met een vraag of een voorstel, bijvoorbeeld of u zich mag inschrijven.",
+        "End with a question or a proposal, for example whether you may register."
+      ],
+      "after": null,
+      "reason": "Criterion dropped with the prompt sentence (doubt 1)."
+    },
+    {
+      "id": "B1:speaking:batch017-cursusverzoek:1",
+      "field": "quotes[3]",
+      "before": "Mag ik alstublieft toch meedoen?",
+      "after": null,
+      "reason": "Quote of the dropped criterion; quotes stay one per criterion with exactly one null (C1)."
+    },
+    {
+      "id": "B1:speaking:batch017-cursusverzoek:1",
+      "field": "starters[3]",
+      "before": "Zou ik me … mogen …?",
+      "after": null,
+      "reason": "Starter of the dropped criterion (content/batches/061-proposed-starters.json)."
+    },
+    {
+      "id": "B1:speaking:batch031-verwarming-verhuurder:1",
+      "field": "prompt",
+      "before": "U huurt een appartement. Sinds vier dagen doet de verwarming het niet en er is ook geen warm water. Het is november en u hebt een kind van twee jaar. U belt uw verhuurder. U hoort eerst uw verhuurder. Overtuig hem dat de verwarming deze week gerepareerd moet worden. Noem twee redenen en reageer op zijn voorstel. Sluit af met een vraag of een eigen voorstel.",
+      "after": "U huurt een appartement. Sinds vier dagen doet de verwarming het niet en er is ook geen warm water. Het is november en u hebt een kind van twee jaar. U belt uw verhuurder. U hoort eerst uw verhuurder. Overtuig hem dat de verwarming deze week gerepareerd moet worden. Noem twee redenen en reageer op zijn voorstel.",
+      "reason": "Doubt 1, spec option \"or drop C2/C3\": the official middellang act is \"convince with two reasons\"; C0-C2 realise it and answer the cue. A fixed closing question or proposal is a generic extra the official content score does not reward, so feedback would call an answer incomplete that the exam scores in full. Dropping it removes a third narrated instruction sentence. Three criteria remain (checker minimum); time was not the reason (a four-criterion minimal answer is about 33 words). Here it also removes \"reageer op zijn voorstel … een eigen voorstel\", two proposals in consecutive narrated sentences."
+    },
+    {
+      "id": "B1:speaking:batch031-verwarming-verhuurder:1",
+      "field": "criteria[3]",
+      "before": [
+        "Sluit af met een vraag of een voorstel, bijvoorbeeld of hij een ander bedrijf kan bellen.",
+        "End with a question or a proposal, for example whether he can call another company."
+      ],
+      "after": null,
+      "reason": "Criterion dropped with the prompt sentence (doubt 1)."
+    },
+    {
+      "id": "B1:speaking:batch031-verwarming-verhuurder:1",
+      "field": "quotes[3]",
+      "before": "Kunt u alstublieft een andere monteur bellen?",
+      "after": null,
+      "reason": "Quote of the dropped criterion; quotes stay one per criterion with exactly one null (C2)."
+    },
+    {
+      "id": "B1:speaking:batch031-verwarming-verhuurder:1",
+      "field": "starters[3]",
+      "before": "Zou u misschien … kunnen …?",
+      "after": null,
+      "reason": "Starter of the dropped criterion (content/batches/061-proposed-starters.json)."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "read_in_full": "tmp/content-fix-2026-10-14/spec/review-common.md, spec/common.md, spec/061.md, docs/briefs/review.md, docs/briefs/author.md, content/reviews/rubric.md, content/blueprint.md §1-§3 and §4.9-§13, the Spreken I paragraph of docs/research/exam-blueprints-2026-09-10.md, docs/research/content-and-feedback-audit-2026-10-14.md §3.2-§3.6, app/components/OpenExercise.tsx lines 270-320, the author batch, starters and notes in full, and the 017/031 author notes for these IDs.",
+    "base_diff": "Field-level diff of every item against tmp/content-fix-2026-10-14/base/061-base.json. The IDs, item order and key order are the same, and no field was added or removed. The changed leaves are exactly the author's table: 16 prompts, examentips quotes[1], glasbak criteria[2], afvalcontainers criteria[1], brandalarm criteria[0-2] and fietskeuze criteria[3]. Cues, image briefs, alts, samples, models, tables and timing are byte-identical; among the quotes only examentips quotes[1] changed. No revision, audio, image file or other generated field is present, and there is no type field.",
+    "base_provenance": "The base equals the published catalogue records with media removed, differing only in status \"draft\" (16 of 16). The starters base equals content/hints/sentence-starters.json for all 16 IDs.",
+    "proposed_diff": "The proposed file differs from the author's only in the eight edits listed. It is canonical JSON.stringify(..., 2) with a trailing newline, as the author's file is.",
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/061-proposed.json -> \"Checked 16 items, 0 questions. Keys: {}. Options: {}.\" plus info \"16 of 16 items are already in the catalogue …\"; \"No failures, no warnings.\"",
+    "contract_script": "For both files: one null quote per sample; every other quote is a verbatim substring; quotes and starters number one per criterion; every starter contains \"…\"; no prompt sentence occurs in a sample or model (punctuation-insensitive). Model words: kort 43-44 (25-45), middellang 58-69 (40-70).",
+    "hidden_criteria": "Each criterion was mapped to the prompt phrase that announces it (review md). The seven cued items (criteria and starters hidden until review) are fully announced. The nine others are announced too, apart from the situation-link criteria, which are visible and carried by the situation facts.",
+    "timing": "For each item, a minimal answer that meets every criterion: kort 18-22 words, middellang 24-39 words, i.e. at most about 26 s at 1.5 words per second. The author's four-criterion convince versions would need about 33 words, so time did not drive any edit.",
+    "narration": "Every changed prompt was read as narrated text. Each added sentence has at most 19 words and no digits. Prompts are 36-70 words; cursus-engels (70) exceeds the bank's previous maximum of 63 by its seven-word clause.",
+    "pictures_viewed": "public/images/52ab51e9fcb86aa6.webp and 7627c6c638e94e60.webp (afvalcontainers) and 81a3e6440b7c7d5a.webp (brandalarm) were converted locally and viewed.",
+    "judge_input": "Working-tree server/services.ts sends the prompt, criteria, table and, for pictures, only the Dutch alt (pictureFor uses image.alt), never the brief. The author notes say otherwise.",
+    "audit_runs": "tmp/feedback-audit-2026-10-14/models-new-both.json (gpt-6-luna, pre-fix criteria) holds 32 runs for these IDs: all 16 models met every criterion, and 13 of 16 samples matched their quotes. The three sample disagreements (fietskeuze C2, cursus-engels C3, werktelefoon C1) were analysed and judged to be judge leniency.",
+    "web": "https://www.denhaag.nl/nl/afval/huishoudelijk-afval/huisvuil-aanbieden/ (accessed 2026-10-14) confirms both the evening-before and the early-collection-day timing for afvalcontainers C1. No KNM claim is in scope. No new names or organisations were introduced, so no name check was needed.",
+    "starters": "The proposed starters file has 16 keys in batch order. It equals the author's file minus the two fourth fragments of the dropped criteria. Every changed criterion's fragment was re-read in context.",
+    "set_membership": "content/practice-sets.json: b1-speaking-03, -04, -05, -06, -09 and -10 hold all 16 IDs. Membership is unchanged."
+  },
+  "items": [
+    {
+      "id": "B1:speaking:batch016-pensioen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Kort reaction to news with opinion, reason and a question or wish: the same act and density as B1:speaking:batch030-rijexamen:1. Model 43 words, mean sentence 10.8, longest 15, with omdat and want.",
+      "evidence": {
+        "spec_fix": "Prompt now ends \"Reageer op het nieuws: zeg wat u ervan vindt en waarom. Stel ook een vraag over haar plannen of wens haar iets toe.\" (29 -> 48 words), worded as rijexamen does.",
+        "learner_following_prompt": "Yes (criteria hidden, cue): \"zeg wat u ervan vindt\" -> C0, \"en waarom\" -> C1, \"Stel ook een vraag over haar plannen of wens haar iets toe\" -> C2. Minimal answer 22 words (about 11-15 s of 20).",
+        "sample": "Unchanged, 29 words. Null at C1: \"wat jammer voor ons\" and \"blij voor jou\" are feelings without a reason. Quotes for C0 and C2 are verbatim. The 14 Oct audit run agreed.",
+        "model": "\"Ik vind het jammer voor ons\" (C0), \"omdat jij altijd iedereen helpt als een machine vastloopt\" (C1), \"Heb je al plannen voor daarna?\" (C2).",
+        "narration": "Natural spoken Dutch; the colon gives the narrator a pause. The phrase \"haar plannen\" before the cue is fine, as in rijexamen.",
+        "starters": "Unchanged and aligned."
+      }
+    },
+    {
+      "id": "B1:speaking:batch016-open-dag:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Kort declined invitation with a reason and a thank-you or alternative, as B1:speaking:batch030-voetbalavond:1. Model 44 words, mean 11.0, longest 15.",
+      "evidence": {
+        "spec_fix": "Prompt adds \"Bedank hem ook of stel iets anders voor.\" (32 -> 40 words).",
+        "learner_following_prompt": "Yes (hidden): \"Sla de uitnodiging af\" -> C0, \"en zeg waarom\" -> C1, \"Bedank hem ook of stel iets anders voor\" -> C2. Minimal answer 18 words.",
+        "sample": "Unchanged. Null at C2: \"sorry\" is not thanks and no alternative is offered. Audit run agreed.",
+        "model": "\"Bedankt dat je het vraagt\" plus \"Kun je me maandag vertellen wat je hebt gehoord?\" (C2); reason \"omdat een collega op vakantie is\" (C1).",
+        "narration": "Natural; \"hem\" refers back to Hasan, named two sentences earlier.",
+        "starters": "Unchanged and aligned."
+      }
+    },
+    {
+      "id": "B1:speaking:batch017-cursusverzoek:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Official \"convince with two reasons\" plus answering the cue objection, after the edit. Model 68 words, mean 13.6, longest 20, with ten eerste/ten tweede, dus, zodat and omdat. With the dropped closing criterion it would have asked one move more than the official act.",
+      "evidence": {
+        "spec_fix": "Author announced C2 and C3. Reviewer kept C2 (\"reageer op haar bezwaar\") and dropped C3 with its prompt sentence, quote and starter (doubt 1). The prompt is now 56 words.",
+        "learner_following_prompt": "Yes (hidden): \"Overtuig haar dat u de cursus ook moet volgen\" plus the situation's \"U wilt die cursus graag volgen\" -> C0, \"Noem twee redenen\" -> C1, \"reageer op haar bezwaar\" -> C2 (the cue: only team leaders, two working days). Minimal answer 28 words.",
+        "sample": "40 words. Null at C1: one reason, called \"de belangrijkste reden\". quotes[2] \"Twee dagen is niet lang, daarna ik ben gewoon weer in de winkel.\" is a pure rebuttal, as the 017 design intended. \"Mag ik alstublieft toch meedoen?\" is now unquoted extra text.",
+        "model": "C0 \"ik wil hem toch graag volgen\"; C1 \"Ten eerste … Ten tweede …\"; C2 \"Ik weet dat de cursus voor teamleiders is, maar …\" and \"Die twee dagen verdienen we snel terug\". The closing \"Mag ik mij inschrijven?\" is a natural extra.",
+        "narration": "Ends on \"Noem twee redenen en reageer op haar bezwaar.\": two instruction sentences after the cue announcement.",
+        "starters": "Three fragments: \"Ik wil de cursus graag volgen, omdat …\", \"Ten eerste …, ten tweede …\", \"Die twee dagen zijn …, want …\"."
+      }
+    },
+    {
+      "id": "B1:speaking:batch031-verwarming-verhuurder:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Convince with two reasons plus answering the landlord counter-proposal, after the edit. Model 63 words, mean 10.5, longest 18, with ten eerste/ten tweede and dus.",
+      "evidence": {
+        "spec_fix": "Author announced C2 and C3. Reviewer kept C2 (\"reageer op zijn voorstel\") and dropped C3 (doubt 1). The prompt is now 57 words, and the \"voorstel … eigen voorstel\" repetition is gone.",
+        "learner_following_prompt": "Yes (hidden): \"Overtuig hem dat de verwarming deze week gerepareerd moet worden\" -> C0, \"Noem twee redenen\" -> C1, \"reageer op zijn voorstel\" -> C2. The cue's only proposal is \"Kunt u niet zolang een elektrisch kacheltje gebruiken?\". Minimal answer 27 words.",
+        "sample": "56 words. Null at C2: no heater is mentioned. \"Drie weken is echt te lang\" answers the waiting time, a fact rather than a proposal. Audit run agreed. quotes[0] and quotes[1] are verbatim.",
+        "model": "C0 \"De verwarming moet deze week gemaakt worden\"; C1 child plus cold, and no hot water; C2 \"Een elektrisch kacheltje verwarmt maar één kamer en kost veel stroom\". The closing question is an extra.",
+        "narration": "Natural; it ends on one instruction sentence after \"Overtuig hem …\".",
+        "starters": "Three fragments: \"Ik wil graag dat de verwarming …, want …\", \"De eerste reden is dat …; de tweede reden is dat …\", \"Een elektrisch kacheltje is geen oplossing, omdat …\"."
+      }
+    },
+    {
+      "id": "B1:speaking:batch017-examentips:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Advise with at least two points plus reasons and one cue response; C0 and C1 overlap. Model 69 words, mean 13.8, longest 17, with dat, als, daarnaast and omdat. It is at the top of 40-70 words.",
+      "evidence": {
+        "spec_fix": "Prompt adds \"Stel hem ook gerust of vertel hoe het bij u ging.\" quotes[1] is extended verbatim to \"Je moet eerst een planning maken voor de twee weken. Elke dag je leert één hoofdstuk, dan is het niet te veel. Ook is het goed om oude examens te maken\": two distinct tips.",
+        "learner_following_prompt": "Yes (hidden): \"Geef hem advies\" -> C0, \"Noem minstens twee tips\" -> C1, \"leg uit waarom die helpen\" -> C2 (needs one), and the new sentence -> C3. Minimal answer 26 words.",
+        "sample": "Null at C3: no reassurance and no own experience. The quotes[0]/quotes[1] overlap is allowed and quotes are not learner-facing (doubt 3). The audit run agreed with the old quotes.",
+        "model": "Reassurance \"Ik snap dat je zenuwachtig bent, maar …\"; tips \"een schema\" and \"oude examens\"; why \"Dan hoef je …\" and \"omdat je dan ziet …\"; experience \"Vorig jaar heb ik dat ook gedaan en het hielp.\"",
+        "narration": "Natural; \"vertel hoe het bij u ging\" gives a plain alternative to \"geruststellen\".",
+        "starters": "\"Maak je niet te druk: vorig jaar …\" fits both branches of C3."
+      }
+    },
+    {
+      "id": "B1:speaking:batch031-sollicitatietips:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Same act as examentips with a different subject. Model 62 words, mean 12.4, longest 19, with zodat and want.",
+      "evidence": {
+        "spec_fix": "Prompt adds \"Stel haar ook gerust of bied hulp aan.\" (50 -> 58 words).",
+        "learner_following_prompt": "Yes (hidden): advice -> C0, \"Noem minstens twee tips\" -> C1, \"leg uit waarom die helpen\" -> C2, the new sentence -> C3. Minimal answer 27 words.",
+        "sample": "Null at C2: no tip is explained. The reassurance is quoted for C3. Audit run agreed.",
+        "model": "\"Rustig maar …\" (C3), \"zodat je weet hoe ze werken\" and \"want dan zien ze …\" (C2), \"Zullen we het gesprek dit weekend samen oefenen?\" (C3, offering help).",
+        "narration": "Natural; \"bied hulp aan\" is a correct separable imperative.",
+        "starters": "Unchanged and aligned."
+      }
+    },
+    {
+      "id": "B1:speaking:batch016-slaapkamerraam:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Kort: two questions plus a short description, the same density as B1:speaking:batch030-uitlaat:1. Model 44 words, mean 11.0, longest 15, with waardoor.",
+      "evidence": {
+        "spec_fix": "Prompt adds \"Zeg kort wat er mis is met het raam.\" before \"Stel ook twee vragen: …\". It is split so that no narrated sentence exceeds 16 words.",
+        "learner_following_prompt": "Yes (hidden): the named questions -> C0 and C1, \"Zeg kort wat er mis is met het raam\" plus the picture (a loose handle, a gap) -> C2. Minimal answer 22 words (about 11-15 s of 20).",
+        "sample": "Null at C0: no when-question. Audit run agreed.",
+        "model": "\"De hendel zit los, waardoor het raam niet dicht kan\" (C2), \"Weet u wanneer …\" (C0), \"moet ik die reparatie zelf betalen\" (C1).",
+        "narration": "Natural; \"Gebruik het plaatje\" now has a job (C2).",
+        "starters": "Unchanged; the order differs from the prompt, which is harmless because starters are hidden until review for cued items."
+      }
+    },
+    {
+      "id": "B1:speaking:batch017-glasbak:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Advise/explain from one picture with named points. Model 68 words, mean 13.6, longest 22, with omdat and bovendien. Reporting to the gemeente is everyday knowledge.",
+      "evidence": {
+        "spec_fix": "Prompt replaces \"… wat ze het beste kan doen. Noem minstens twee punten.\" with \"Leg haar uit wat de regel is en waarom. Zeg ook wat ze nu het beste kan doen en waar ze de volle glasbak kan melden.\" C2 is loosened to \"Zeg waar of hoe ze de volle glasbak kan melden, bijvoorbeeld bij de gemeente.\"",
+        "learner_following_prompt": "Yes (visible): rule -> C0, \"en waarom\" -> C3, \"wat ze nu het beste kan doen\" -> C1, \"waar ze … kan melden\" -> C2. Minimal answer 31 words.",
+        "sample": "Null at C2: no reporting is mentioned. The other quotes are verbatim and meet their criteria. Audit run agreed.",
+        "model": "\"Meld de volle container ook bij de gemeente, via de website of telefonisch.\" (C2); the rule, the reason and the alternative are all present.",
+        "narration": "Natural, two instruction sentences.",
+        "starters": "\"U kunt de volle glasbak melden bij …\" fits the loosened C2."
+      }
+    },
+    {
+      "id": "B1:speaking:batch031-afvalcontainers:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Instruct from two pictures with a warning, like B1:speaking:batch017-machinestoring:1. Model 59 words, mean 11.8, longest 15, with omdat and anders.",
+      "evidence": {
+        "spec_fix": "Prompt: \"Leg haar uit wat ze moet doen: welke container ze gebruikt en wanneer ze die aan de straat zet. Geef ook een waarschuwing.\" C1 accepts \"de avond vóór het legen (zondagavond) of maandagochtend vroeg\".",
+        "learner_following_prompt": "Yes (visible): \"welke container\" -> C0, \"wanneer …\" -> C1, \"wat ze moet doen\" -> C2 (instruction form), \"Geef ook een waarschuwing\" -> C3 (reason or warning). Minimal answer 29 words.",
+        "real_world": "Both timings are municipal practice. https://www.denhaag.nl/nl/afval/huishoudelijk-afval/huisvuil-aanbieden/ (accessed 2026-10-14): \"U mag uw huishoudelijk afval vanaf 22.00 uur de avond voor de ophaaldag aanbieden.\" and \"Zorg dat uw vuilniszak of minicontainer op de ophaaldag uiterlijk om 7.45 uur aan de weg staat.\"",
+        "picture_and_alt": "The published drawing (public/images/7627c6c638e94e60.webp) shows a dark sky, a lit lamp and lit windows, so it reads as evening. The alt is kept (doubt 5). The judge also receives C1, which names both times.",
+        "sample": "Null at C1: \"op tijd\" names no time. Audit run agreed on the old wording.",
+        "model": "\"zet u hem zondagavond aan de straat\" (C1); instructions throughout; \"Zet geen zakken naast de container, want dat trekt ratten aan\" (C3).",
+        "starters": "\"De grijze container zet u … aan de straat, omdat hij … wordt geleegd.\" accepts both times."
+      }
+    },
+    {
+      "id": "B1:speaking:batch031-brandalarm:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Instruct from a floor plan with a warning. Model 58 words, mean 11.6, longest 15, with zodra and omdat.",
+      "evidence": {
+        "spec_fix": "Prompt: \"Leg hem uit wat hij eerst moet doen, welke route hij neemt en waar hij buiten naartoe gaat. Geef ook een waarschuwing.\" C0 becomes \"bijvoorbeeld … of …\", C1 is reduced to the route, and C2 names \"(de boom op het plan)\".",
+        "learner_following_prompt": "Yes (visible): the four named points -> C0 to C3. Minimal answer 29 words.",
+        "picture": "The published plan (public/images/81a3e6440b7c7d5a.webp) shows the tree in a green circle with an arrow from the exit, arrows along the corridor to both stairs, and the lift crossed out.",
+        "sample": "quotes[0] \"… je moet meteen stoppen met werken. …\" now meets C0, which resolves spec fix 5. Null at C2: \"Loop dan naar buiten.\" names no place. Quotes for C1 and C3 are verbatim.",
+        "model": "\"stop je meteen met werken\" (C0), \"volg de pijlen naar de dichtstbijzijnde trap\" (C1), \"naar de verzamelplaats bij de boom\" (C2), \"Gebruik nooit de lift, omdat …\" (C3).",
+        "starters": "C0-C3 fit. The lift invitation in C1 now also serves C3, which is harmless."
+      }
+    },
+    {
+      "id": "B1:speaking:batch017-fietskeuze:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Advise from a table, linked to the person. Model 68 words, mean 13.6, longest 24, with ook al, dus, bovendien and zodat.",
+      "evidence": {
+        "spec_fix": "Prompt ends \"Noem minstens twee punten uit de tabel en ook een nadeel van uw keuze.\" C3 becomes \"Noem ook een nadeel van uw keuze of een voordeel van de andere fiets.\" (no tip).",
+        "learner_following_prompt": "Yes (visible): \"Adviseer Roos welke fiets\" -> C0, two table points -> C1, the situation facts plus \"en waarom\" and the visible list -> C2, the drawback -> C3. Minimal answer 33 words.",
+        "sample": "Kept (doubt 7). Null at C2: no stairs, money or timing of Roos is named. The audit-run judge cited \"fiets één is goedkoper\" (a point against the recommended bike), which is judge leniency.",
+        "model": "\"Je woont driehoog zonder lift\" (C2), weight and warranty (C1), \"Het nadeel is dat je drie weken moet wachten\" (C3).",
+        "starters": "\"Het nadeel is …, maar je kunt …\"; the tip is optional."
+      }
+    },
+    {
+      "id": "B1:speaking:batch017-sportabonnement:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Compare and choose from a table with two reasons and a drawback. Model 65 words, mean 16.3, longest 25, with terwijl and zodat.",
+      "evidence": {
+        "spec_fix": "Prompt ends \"Noem twee redenen en ook een nadeel van uw keuze.\"",
+        "learner_following_prompt": "Yes (visible): choice -> C0, two reasons from the table -> C1, drawback -> C2 (drawback or advantage of the other). Minimal answer 24 words.",
+        "sample": "Null at C2: only advantages of Zuid. Audit run agreed.",
+        "model": "Kept (doubt 6). \"De Brug is wel vijftien euro goedkoper, maar …\" states Zuid's price drawback in comparative form. The audit run marked C2 met.",
+        "starters": "\"Het nadeel is wel dat …\" fits."
+      }
+    },
+    {
+      "id": "B1:speaking:batch031-werktelefoon:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Compare and choose from a table with a work link and a drawback. Model 63 words, mean 15.8, longest 22.",
+      "evidence": {
+        "spec_fix": "Prompt ends \"Noem twee redenen en ook een nadeel van uw keuze.\"",
+        "learner_following_prompt": "Yes (visible): C0, C1, the work link via the situation (\"U belt veel voor uw werk en gebruikt onderweg de navigatie\") -> C2, the drawback -> C3. Minimal answer 29 words.",
+        "sample": "Null at C1: one reason (calls), restated. The audit-run judge counted it twice, which is judge leniency.",
+        "model": "Calls and navigation (C1, C2), \"die zeven euro per maand betaal ik graag zelf\" (C3).",
+        "starters": "Unchanged and aligned."
+      }
+    },
+    {
+      "id": "B1:speaking:batch031-cursus-engels:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Advise from a table, linked to the person. Model 63 words, mean 12.6, longest 20, with zodat and bovendien. The prompt (70 words) is the longest B1 speaking prompt; its situation is unchanged.",
+      "evidence": {
+        "spec_fix": "Prompt ends \"Noem minstens twee punten uit de tabel en ook een nadeel van uw keuze.\" (63 -> 70 words).",
+        "learner_following_prompt": "Yes (visible): C0-C3 as fietskeuze; money, children and job are given in the situation. Minimal answer 32 words.",
+        "sample": "Null at C3: no drawback. The audit-run judge read \"Die duurt maar tien weken\" (offered as an advantage) as a drawback, which is a misreading.",
+        "model": "\"Het nadeel is dat je alleen een bewijs van deelname krijgt.\" (C3); money and children (C2).",
+        "starters": "Unchanged and aligned."
+      }
+    },
+    {
+      "id": "B1:speaking:batch017-eerste-schooldag:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Narrate three pictures with feelings and a reason, like B1:speaking:batch031-portemonnee-tram:1. Model 67 words, mean 13.4, longest 16, with omdat and want.",
+      "evidence": {
+        "spec_fix": "Prompt: \"Vertel wat er gebeurt, hoe Amina zich voelt en waarom.\" (35 -> 36 words).",
+        "learner_following_prompt": "Yes (visible): pictures 1-3 -> C0-C2, \"hoe Amina zich voelt en waarom\" -> C3. Minimal answer 38 words.",
+        "sample": "Null at C2: the break scene is missing. The C3 quote \"Ze is een beetje bang, want ze kent nog niemand.\" has a reason.",
+        "model": "\"Ze vindt het spannend, omdat ze nog niemand kent\" and \"blij, want ze heeft nieuwe vriendinnen\" (C3).",
+        "starters": "\"Ze voelt zich eerst …, omdat …\" fits."
+      }
+    },
+    {
+      "id": "B1:speaking:batch031-taalcafe-avond:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Narrate three pictures with feelings and a reason. Model 64 words, mean 12.8, longest 19, with omdat.",
+      "evidence": {
+        "spec_fix": "Prompt: \"Vertel wat er gebeurt, hoe Karim zich voelt en waarom.\" (49 -> 50 words).",
+        "learner_following_prompt": "Yes (visible): pictures 1-3 -> C0-C2, feeling and reason -> C3. Minimal answer 39 words (about 20-26 s of 30).",
+        "sample": "Null at C1: the table scene is missing. The C3 quote has \"want hij is bang om fouten te maken\".",
+        "model": "\"omdat hij bang is dat zijn Nederlands niet goed genoeg is\" and \"voelt hij zich op zijn gemak\" (C3).",
+        "starters": "\"Hij voelt zich eerst …, omdat …\" fits."
+      }
+    }
+  ],
+  "author_doubts_decisions": {
+    "1_announce_or_drop": "Dropped C3 (the closing question or proposal) in cursusverzoek and verwarming-verhuurder, and kept C2. These tasks did not ask too much for the time; the reasons are exam shape and narration. Each cued middellang task keeps one criterion that answers the cue, so examentips and sollicitatietips keep their C3.",
+    "2_either_or_announcements": "Kept: they mirror the criteria and offer a plain route for learners who do not know \"geruststellen\".",
+    "3_examentips_overlapping_quotes": "Kept the author's quotes[1]: it shows two distinct tips, overlap is allowed and quotes are not learner-facing.",
+    "4_brandalarm_C0_quote": "Accepted: the loosened C0 is the required fix, and quotes[0] meets it.",
+    "5_afvalcontainers_alt": "Kept \"'s avonds\": the drawing reads as evening, and C1, which the judge also receives, names both times.",
+    "6_sportabonnement_model": "Kept: \"De Brug is wel vijftien euro goedkoper\" is Zuid's drawback in comparative form, which matches the prompt and its \"Vergelijk\".",
+    "7_situation_links_and_fietskeuze_sample": "Kept both. The criteria are visible and the situation supplies the facts. The sample never names Roos's circumstances; the audit run's disagreement is judge leniency of the same kind as on cursus-engels and werktelefoon. A robust alternative, should future runs keep disagreeing, is to rebuild the sample with the null at C3.",
+    "8_prompt_length": "Acceptable. The longest is cursus-engels at 70 words, plus seven words over the base.",
+    "9_noem_minstens_twee_punten_removed": "Accepted: the prompts now name their points, so the visible criteria and the narrated prompt say the same thing."
+  },
+  "diversity": "Topics, acts and IDs are unchanged. The near neighbours named in the 031 notes (glasbak/afvalcontainers, examentips/sollicitatietips, sportabonnement/werktelefoon, fietskeuze/cursus-engels, slaapkamerraam/verwarming-verhuurder) stay in separate drills.",
+  "set_assembly": "Membership unchanged: b1-speaking-03 (cursusverzoek, fietskeuze), -04 (examentips, glasbak, sportabonnement, eerste-schooldag), -05 (slaapkamerraam), -06 (pensioen, open-dag), -09 (verwarming-verhuurder, cursus-engels, taalcafe-avond), -10 (sollicitatietips, afvalcontainers, brandalarm, werktelefoon).",
+  "media_notes": {
+    "prompt_audio_needed": [
+      "B1:speaking:batch016-pensioen:1",
+      "B1:speaking:batch016-open-dag:1",
+      "B1:speaking:batch017-cursusverzoek:1",
+      "B1:speaking:batch031-verwarming-verhuurder:1",
+      "B1:speaking:batch017-examentips:1",
+      "B1:speaking:batch031-sollicitatietips:1",
+      "B1:speaking:batch016-slaapkamerraam:1",
+      "B1:speaking:batch017-glasbak:1",
+      "B1:speaking:batch031-afvalcontainers:1",
+      "B1:speaking:batch031-brandalarm:1",
+      "B1:speaking:batch017-fietskeuze:1",
+      "B1:speaking:batch017-sportabonnement:1",
+      "B1:speaking:batch031-werktelefoon:1",
+      "B1:speaking:batch031-cursus-engels:1",
+      "B1:speaking:batch017-eerste-schooldag:1",
+      "B1:speaking:batch031-taalcafe-avond:1"
+    ],
+    "prompt_audio_reason": "All 16 prompts differ from the published text. Generate cursusverzoek and verwarming-verhuurder from the proposed, shorter prompts.",
+    "cue_audio_needed": [],
+    "cue_audio_reason": "All seven cue texts are byte-identical to the base.",
+    "pictures_needed": [],
+    "pictures_reason": "No image brief or alt changed."
+  },
+  "coordinator_actions": [
+    "npm run batch:adopt 061: moves 061-proposed.json and 061-proposed-starters.json over the author's files and verifies source_sha256 and starters_sha256.",
+    "Generate the 16 prompt clips (narrator) from the adopted text and pass the transcription round trip. Then run npm run content:integrate -- --refresh-hints \"<reason>\", which merges the two shortened starter lists, and npm run media:prune.",
+    "Optional, outside this batch: B1:speaking:batch017-machinestoring:1 has a visible C3 (\"Geef een reden of een waarschuwing …\") that its prompt does not announce."
+  ],
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "All sixteen speaking prompts changed. New prompt audio still needs generation from the adopted text, with a transcription round trip; none was generated in this review.",
+    "No feedback calls were made, so judge behaviour was not measured in this review. Sample/judge comparisons cite the 14 October audit run (one run per text, gpt-6-luna, pre-fix criteria). What the judge receives was read from the working-tree server/services.ts, which has uncommitted changes.",
+    "content/exemplars/ does not exist. Level comparisons use project items of the same task type and do not calibrate difficulty.",
+    "Timing estimates assume 1.5-2 words per second for a B1 speaker. They are not measured."
+  ]
+}

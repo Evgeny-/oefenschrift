@@ -1,0 +1,168 @@
+{
+  "review_id": "058-review",
+  "source": "content/batches/058-original.json",
+  "source_sha256": "a1013359351af41416514924322573ce4805f9ce4b13e90e87e0add1378fc668",
+  "starters_source": "content/batches/058-starters.json",
+  "starters_sha256": "01db13af389d922274ac82fb07c3a9c6df09c4afc926a86a6d32da8975e8aa5e",
+  "starters_verdict": "pass",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-14",
+  "reviewer": "Independent AI reviewer: Claude Opus 5.5 (claude-opus-5-5), fresh context separate from the author",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:writing:batch008-meerijden:1",
+    "A2:writing:batch008-sportclub:1",
+    "A2:writing:batch008-kast:1",
+    "A2:writing:batch008-restaurant:1",
+    "A2:writing:batch008-supermarkt:1",
+    "A2:writing:batch008-bezorging:1",
+    "A2:writing:batch008-lantaarnpaal:1",
+    "A2:writing:batch008-huur:1",
+    "A2:writing:batch008-reizen:1",
+    "A2:writing:batch008-gezond:1",
+    "A2:writing:batch008-boodschappen:1"
+  ],
+  "item_count": 11,
+  "edits": [],
+  "rejected": [],
+  "checks": {
+    "full_final_source_read": "Read all eleven final records in full, the author's notes, the starters, the base and starters base, spec common.md and 058.md, review-common.md, docs/briefs/review.md, the rubric, blueprint §1, §3, §4.4, §5, §8, §10 and §12, exam-blueprints §3.1 (Schrijven A2), the author brief, the 14 October 2026 audit, the batch 008 review and level check, OpenExercise.tsx around lines 290–302, and the judge payload and placeholder fallback in server/services.ts.",
+    "diff_against_base": "Field-level diff of every item against tmp/content-fix-2026-10-14/base/058-base.json. Only the spec fields changed: meerijden criteria 0, 2 and 3; sportclub formFields[9].label, criteria[2] and model; kast criteria[2]; restaurant criteria 0–2 and model; supermarkt criteria 0–2 and model; bezorging prompt, criteria[0], sample, quotes[1] and model; lantaarnpaal model; huur quotes[1]; reizen, gezond and boodschappen models. Item order and key order are unchanged. No revision, audio or images[].file fields. Image briefs and alt texts are byte-identical.",
+    "base_against_catalogue": "The base equals content/catalogue.json apart from status, revision and images[].file. The starters base equals content/hints/sentence-starters.json for all eleven IDs.",
+    "starters_diff": "Two starters changed, both as consequences of changed criteria: sportclub[2] 'Hij heeft deze sport eerder gedaan bij …' → 'Hij heeft deze sport … gedaan.' and bezorging[0] 'Op dinsdag 13 oktober ben ik niet thuis, want …' → 'Volgende week dinsdag ben ik niet thuis, want …'. Every fragment contains '…', one per criterion in order, with no complete answer and no invented task fact. Natural completions were tested for every starter whose criterion changed.",
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/058-proposed.json: 'Checked 11 items, 0 questions.' Info: 11 of 11 items already in the catalogue. 'No failures, no warnings.'",
+    "proposed_identical_to_original": "cmp: content/batches/058-proposed.json is byte-identical to content/batches/058-original.json (SHA-256 a1013359…fc668, matching the hash in the author's notes).",
+    "quotes_and_samples": "Every non-null quote is a verbatim substring of its sample, and each sample has exactly one null quote (meerijden 2, sportclub 2, kast 2, restaurant 1, supermarkt 2, bezorging 3, lantaarnpaal 2, huur 3, reizen 1, gezond 2, boodschappen 1). Each sample has exactly one deliberate learner error.",
+    "models": "Every model meets every criterion. E-mails: meerijden 59/7, kast 54/8, bezorging 63/7, huur 57/7 (words/sentences; target 45–70 words, 4–8 sentences). Forms: sportclub 43/4, lantaarnpaal 41/5 (one short sentence per field). Picture notes: restaurant 33/5, supermarkt 40/5 (target 20–40 words). Wijkkrant: reizen 42/5, gezond 42/4, boodschappen 39/4 (target 25–45 words, 3–5 sentences). No sentence is over 16 words, and none has more than one subordinate clause.",
+    "prompt_copy_check": "No sample or model sentence equals a prompt sentence or form label, normalised for case, spacing and final punctuation.",
+    "dates": "The only absolute date left is huur's learner-chosen '1 december', which has no year and is still in the future. Bezorging uses 'volgende week dinsdag/donderdag' consistently in prompt, criteria[0], sample, quotes[1], model and starter 0. The scaffold has no date.",
+    "display_rules": "OpenExercise.tsx hides the criteria for picture-note, zinstaak, cued tasks and deelschrijftaak with images, and hides starters for picture-note until review. E-mail, form and wijkkrant criteria are shown before writing. Form answers start with one 'label: ' line per field, so 'Nee' is read beside 'Heeft uw kind deze sport eerder gedaan? Zo ja, waar?'.",
+    "pictures": "All six drawings were looked at (restaurant fc341b0c3d622a84, 51af5c21acfdba1b, 60e39c9b51a48a49; supermarkt 388314fc29e2b990, ae99a2f9501fcedf, 7e50a337167355a7). Each shows one clear action matching criteria 0–2.",
+    "judge_evidence": "From the coordinator's runs on gpt-6-luna. Scratch catalogue variant A2:writing:batch008-meerijden:v1 equals the batch record apart from id, status and revision; mr-v1.log gives 35/36 correct decision vectors, with one miss (adres_apart#2, criterion 2). Variant restaurant:v1 has the batch criteria; rest.log gives 15/15 for the new wording and 15/15 for the old 'zij' wording. The reviewer did not call the judge.",
+    "name_checks": {
+      "accessed_at": "2026-10-14",
+      "findings": "No business trades under 'Woonstichting De Brug', 'Elektrowinkel Van Dam' or 'sportclub De Sprong'. Similar names exist: Elektrik van Dam (electrical shop, Gouda), Sportcomplex De Sprong (Optisport, Middelburg), Woonvoorziening De Brug (care provider, Alkmaar) and the Woonzorg complex De Brug (Veendam). elektrovandam.nl is free according to the SIDN whois. woonstichtingdebrug.nl does not resolve (NXDOMAIN). The names are kept as generic invented names that predate this batch.",
+      "urls": [
+        "http://www.elektrikvandam.nl/newpage.php?id=53",
+        "https://www.optisport.nl/de-sprong-middelburg",
+        "https://woonvoorzieningdebrug.nl/",
+        "https://www.woonzorg.nl/de_brug_veendam"
+      ]
+    },
+    "knm_sources": "Not applicable: the batch has no KNM facts.",
+    "spoken_text": "Not applicable: A2 writing has no scripts, prompt audio or cues."
+  },
+  "items": [
+    {
+      "id": "A2:writing:batch008-meerijden:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Informal four-bullet e-mail to a colleague with two invented elements. Model 59 words, average 8.4 words per sentence, longest 14, one omdat clause. Comparable to the official informal e-mails and to catalogue batch008-oppassen and batch008-cadeau (four bullets, 59-word models). The example in bullet 1 restates the prompt's own fact.",
+      "evidence": "Criteria use the spec wording verbatim and equal the judge-tested variant v1 (35/36). Quote 0 'Volgende week rijdt mijn bus niet, omdat er werk aan de weg is.' gives the reason. Quote 1 'Mag ik volgende week met jou mee rijden?' asks for the lift (learner error 'mee rijden'). Quote 2 is null: the sample has no time or place. Quote 3 'Ik betaal graag mee aan de benzine.' meets 'als bedankje'; petrol answers met it in 18/18 runs, and the 'Dank je wel!' control failed 3/3. Model: 'Mag ik volgende week met jou meerijden?', 'Je kunt mij ophalen bij de bushalte op de Meerweg, om kwart voor acht.' and the petrol sentence; all four met. Starters unchanged and aligned: 'Je kunt mij ophalen bij … om …', 'Als dank wil ik graag …'.",
+      "starters_verdict": "pass"
+    },
+    {
+      "id": "A2:writing:batch008-sportclub:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Registration form with personal data, one choice and three open fields, one short sentence each. Comparable to the official registration forms and to batch008-nieuwe-patient and batch002-sleutel. The longest model sentence is 16 words, at the §10 limit.",
+      "evidence": "Label 'Heeft uw kind deze sport eerder gedaan? Zo ja, waar?' and criterion 'Schrijf of uw kind deze sport eerder heeft gedaan. Zo ja: schrijf waar.' make 'Nee' a complete answer. Sample: 'Sem wil graag voetballen.', 'Hij kan trainen op maandag en woensdag na school, en op zaterdag.', null for earlier experience, 'Sem wil bij de club, want zijn vrienden zitten ook bij De Sprong.' (error 'Hij vind'). Model, 43 words: 'Sem heeft twee jaar gevoetbald bij een club in onze oude stad.' answers yes and where. The 'Waarom' field is now one sentence. Starter 'Hij heeft deze sport … gedaan.' completes to 'nog nooit gedaan' or 'twee jaar bij een club in … gedaan'.",
+      "starters_verdict": "pass"
+    },
+    {
+      "id": "A2:writing:batch008-kast:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-bullet informal e-mail in which two bullets restate the prompt, so the learner adds one day-and-time phrase. Comparable at the light end. Compare batch001-ladder (four bullets with two times) and batch008-oppassen. Model 54 words in 8 sentences, longest 12.",
+      "evidence": "Criterion 2 'Schrijf op welke dag en hoe laat Karim kan komen helpen. Bedenk zelf een dag en een tijd.' uses the prompt's neighbour and replaces 'dragen' without an object. Quote 0 'De kast is heel zwaar. Ik woon op de derde verdieping en ik kan de kast niet alleen dragen.' Quote 1 'Kun je mij helpen?'. Quote 2 is null: 'Het duurt ongeveer een half uur.' is a duration (error 'drink we'). Model: 'Kun je mij helpen met dragen? Kan het zaterdag om tien uur?' names a day and a time for the help. Starter 'Kan het op … om …?' matches.",
+      "starters_verdict": "pass"
+    },
+    {
+      "id": "A2:writing:batch008-restaurant:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Picture note whose requirements and starters stay hidden until review, so the learner must find 'tafels dekken', 'ramen schoonmaken' and 'glazen afwassen'. The 2026-09-10 'easier as displayed' flag no longer applies. Comparable to the official note to a colleague, and the easier of the two picture notes (household verbs). Model 33 words, longest sentence 10.",
+      "evidence": "Criteria verbatim from the spec ('Schrijf dat Roos …' / 'Tell Roos to …'), tested 15/15. The prompt says 'Kijk naar de plaatjes. … Vertel wat zij moet doen. Schrijf drie dingen op.' and the three drawings show the three actions. Quote 0 'Kun je vandaag de tafels dekken?'. Quote 1 is null: the windows are missing. Quote 2 'Ook moet je de glazen afwassen, want er zijn niet genoeg schone glazen.' (error 'staat'). Model, one sentence per picture: 'Wil je eerst de tafels dekken? Daarna moet je de ramen schoonmaken, want ze zijn vies. Wil je ook de glazen afwassen?'. The sentences removed added facts that no picture shows.",
+      "starters_verdict": "pass"
+    },
+    {
+      "id": "A2:writing:batch008-supermarkt:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Same frame as restaurant, with shop vocabulary (koeling, winkelwagens, parkeerplaats) and hidden requirements. Comparable to the official picture note and slightly harder than restaurant. Model 40 words, longest sentence 15.",
+      "evidence": "Criteria name Sem: 'Schrijf dat Sem de melk in de koeling moet zetten.', '… de winkelwagens van de parkeerplaats moet halen.', '… de vloer moet vegen.'; English 'Tell Sem to …'. Quote 0 'Zet jij de melk in de koeling?'. Quote 1 'Daarna moet je de winkelwagens ophalen op de parkeerplaats.'. Quote 2 is null: no floor (error 'de magazijn'). Model: 'Wil je de melk in de koeling zetten?', '… winkelwagens ophalen van de parkeerplaats …', 'Als laatste moet je de vloer vegen bij de ingang.'. 'bij de ingang' does not contradict picture 3 (sweeping beside shelves).",
+      "starters_verdict": "pass"
+    },
+    {
+      "id": "A2:writing:batch008-bezorging:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Formal e-mail with four bullets that carry six elements, five of them invented: the upper end of the official e-mail. The 2026-09-10 level check gave a mild 'harder' flag for this load. The bullets are unchanged and the model is now within 45–70 words and 4–8 sentences, so I judge it on-level. Compare batch008-groep and batch008-contract. Model 63 words in 7 sentences, longest 16.",
+      "evidence": "Prompt 'De winkel bezorgt de wasmachine volgende week dinsdag tussen 9 en 12 uur.' Criterion 0, sample, quote 1, model and starter 0 use the same relative dates. Quote 0 'dan ben ik niet thuis, want ik moet werken'. Quote 1 'Kunt u de wasmachine volgende week donderdag om 10 uur bezorgt? Dan ben ik de hele dag thuis.' now gives a day and a clock time and keeps the error 'bezorgt'. Quote 2 gives the address and phone number. Quote 3 is null: no call request. Model: 'volgende week donderdag bezorgen, na twee uur ’s middags?', address and phone, 'Kan de bezorger mij eerst bellen?'.",
+      "starters_verdict": "pass"
+    },
+    {
+      "id": "A2:writing:batch008-lantaarnpaal:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Municipal report form with three open fields and one choice. Comparable to the official municipal complaint form and to batch008-nieuwe-patient and bibliotheekpas. Model 41 words in 5 sentences, longest 11.",
+      "evidence": "Model: 'De lantaarnpaal voor mijn huis is kapot. Het licht gaat 's avonds niet aan.' (the problem in two sentences); 'De paal staat voor Meidoornstraat 12 in Hoorn, naast de bushalte.'; 'Het licht doet het sinds vorige week maandag niet meer.' (consistent with 'al een week', no calendar date); 'Ik wil graag antwoord per e-mail.'. The removed 'Daardoor is het heel donker op straat.' nearly repeated a prompt sentence. The sample is unchanged: quotes verbatim, quote 2 null, error 'bus halte'.",
+      "starters_verdict": "pass"
+    },
+    {
+      "id": "A2:writing:batch008-huur:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Formal four-bullet e-mail with two invented facts. Comparable to the official formal e-mails and to batch008-contract and batch008-groep. Model 57 words in 7 sentences, longest 12.",
+      "evidence": "Quote 1 is now the full sample sentence 'Ik ga verhuizen naar Utrecht, omdat ik daar een nieuwe baan heb.' (verbatim): the move is the reason for ending the tenancy. Quotes 0 and 2 are verbatim. Quote 3 is null: 'Kunt u mij een bevestiging sturen?' is not the keys question (error 'opzegen'). The model is unchanged and meets all four, including 'Wanneer moet ik de sleutels inleveren?'.",
+      "starters_verdict": "pass"
+    },
+    {
+      "id": "A2:writing:batch008-reizen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Wijkkrant with three concrete guiding questions. Model 42 words in 5 sentences, average 8.4, within the 25–45 words and 3–5 sentences target. Comparable to the official wijkkrant pieces.",
+      "evidence": "Model: 'Ik ga meestal met de fiets naar mijn werk.', 'De reis duurt ongeveer twintig minuten.', 'Ik vind fietsen fijn, want het is gezond en het kost niets.'. The sample omits the duration (quote 1 null). Error 'met fiets'.",
+      "starters_verdict": "pass"
+    },
+    {
+      "id": "A2:writing:batch008-gezond:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "The densest of the three wijkkrant models (average 10.5 words, longest 14), but within §10. Model 42 words in 4 sentences. Comparable to the official wijkkrant pieces.",
+      "evidence": "Model: 'Ik wandel elke dag een half uur in het park, ook als het regent.', 'Op zondag ga ik zwemmen met mijn kinderen.', 'Het moeilijkste vind ik snoep, want ik houd heel veel van chocolade.'. The sample omits the difficulty (quote 2 null). Error 'fruits'.",
+      "starters_verdict": "pass"
+    },
+    {
+      "id": "A2:writing:batch008-boodschappen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "The most concrete wijkkrant topic. Model 39 words in 4 sentences, longest 11. Comparable to the official wijkkrant pieces.",
+      "evidence": "Model: 'Ik doe mijn boodschappen meestal bij de supermarkt op het plein.', 'Ik ga meestal op zaterdagochtend, want dan heb ik vrij.', 'De winkels in de buurt vind ik goed. Alles is dichtbij, maar de supermarkt is een beetje duur.'. The sample omits when (quote 1 null). Error 'op de plein'.",
+      "starters_verdict": "pass"
+    }
+  ],
+  "author_doubts_decisions": [
+    "1. meerijden criterion 2 residue: no content change. The miss is a judge-side edge case (address in a separate sentence, 1 of 36 runs). The starter 'Je kunt mij ophalen bij … om …' already steers learners towards an explicit pick-up sentence.",
+    "2. Petrol money as 'bedankje': keep. It is the usual way to repay a lift and fits the English criterion and the starter 'Als dank wil ik graag …'. It met the criterion in 18/18 runs, while 'Dank je wel!' failed 3/3.",
+    "3. kast 'Kan het zaterdag om tien uur?': keep. It follows 'Kun je mij helpen met dragen?', names a day and a time, and matches the starter.",
+    "4. bezorging 'om 10 uur' beside 'de hele dag thuis': keep (plausible learner text). The starter 'Kunt u de wasmachine bezorgen op …?' also stays, because natural completions ('op donderdag om tien uur') do not need 'volgende week'.",
+    "5. lantaarnpaal 'sinds vorige week maandag': keep. It is idiomatic and consistent with 'al een week'.",
+    "6. supermarkt at 40 words with 'bij de ingang': keep. It is within the limit, and the place does not contradict picture 3.",
+    "7. Wijkkrant trims: all three accepted. The repeated 'meestal' in boodschappen mirrors two guiding questions.",
+    "8. sportclub starter 'Hij heeft deze sport … gedaan.': accepted. Completions for both yes and no are grammatical.",
+    "9. Left unchanged: huur '1 december' has no year and stays in the future; the sportclub sample may answer a field in two sentences."
+  ],
+  "diversity": "The replacement keeps all eleven IDs, topics and set memberships (a2-writing-04 to a2-writing-07). The two picture notes share their frame, as the task type requires, and both sit in a2-writing-07. That membership predates this batch. A mock form should hold only one of them.",
+  "media_notes": "No audio: A2 writing has no prompt, cue or question audio, so no clip needs generation or a transcription round trip. No images redrawn: briefs and alt texts are unchanged. All eleven items change a revision-core field (huur only through quotes), so they get new revisions and saved answers start fresh. Two starters changed (sportclub 3, bezorging 1); merge them through content:integrate with --refresh-hints.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "No audio is involved: A2 writing has no prompt, cue or question audio, so no new audio or transcription round trip is needed. The changed bezorging prompt is printed only.",
+    "The reviewer did not call the production judge. Judge evidence for meerijden and restaurant comes from the coordinator's synthetic runs on gpt-6-luna. The reworded criteria of sportclub, kast, supermarkt and bezorging were judged editorially only.",
+    "content/exemplars/ does not exist. Level verdicts compare against official task descriptions and catalogue items and do not calibrate difficulty.",
+    "The drawings were looked at only to confirm that they match the criteria. This is not a media approval.",
+    "Browser, integration and app checks were not run."
+  ]
+}

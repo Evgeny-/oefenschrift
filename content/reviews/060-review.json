@@ -1,0 +1,162 @@
+{
+  "review_id": "060-review",
+  "source": "content/batches/060-original.json",
+  "source_sha256": "f62629ee16036fefde96013a2d830fb7af442d0ba930ef85ad6729f3f49b9119",
+  "proposed": "content/batches/060-proposed.json",
+  "proposed_identical_to_author_file": true,
+  "starters_source": "content/batches/060-starters.json",
+  "starters_sha256": "92de1dacd481b7ef962d50e3414bc614f1211caad06400f363f62b8e1ff886ab",
+  "starters_verdict": "pass",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-14",
+  "reviewer": "Independent AI reviewer (Claude Opus 5.5) in a fresh context; did not author batch 060 and did not edit the author's files.",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "B1:writing:batch015-gemiste-werkdag:1",
+    "B1:writing:batch029-kustweekend:1",
+    "B1:writing:batch015-avondcursus:1",
+    "B1:writing:batch002-rooster:1",
+    "B1:writing:batch003-reparatie:1",
+    "B1:writing:batch038-inhalen:1"
+  ],
+  "item_count": 6,
+  "edits": [],
+  "rejected": [],
+  "checks": {
+    "read_in_full": "tmp/content-fix-2026-10-14/spec/review-common.md, spec/common.md, spec/060.md, docs/briefs/review.md, docs/briefs/author.md, content/reviews/rubric.md, content/blueprint.md §1-§5 and §7-§13 (§4.8 in full), the Schrijven I paragraph of docs/research/exam-blueprints-2026-09-10.md, docs/research/content-and-feedback-audit-2026-10-14.md §3.3, §3.5 and §4, docs/research/content-workflow.md, app/components/OpenExercise.tsx lines 18-120 and 270-320, the 015, 029, 038 and 049 review entries for these IDs, and the full author batch, starters and notes.",
+    "base_diff": "Field-level diff of every item against tmp/content-fix-2026-10-14/base/060-base.json. Same IDs, same order and same key order; no field added or removed. The changed leaves are exactly the author's table: gemiste-werkdag prompt, criteria[2] (nl, en), sample, quotes[1], quotes[2] and model; kustweekend criteria[1] (nl, en), criteria[2] (nl, en) and model; avondcursus criteria[1] (nl, en); rooster prompt; reparatie model; inhalen model. Every image brief, alt, kind and size is byte-identical. No revision, image file or other generated field is present.",
+    "base_provenance": "The base equals the published catalogue records with media fields removed (6 of 6), and the starters base equals content/hints/sentence-starters.json for all six IDs.",
+    "starters_diff": "Three fragments differ from tmp/content-fix-2026-10-14/base/060-starters-base.json: gemiste-werkdag[2], kustweekend[2] and avondcursus[1], each because its criterion changed. All fragments contain '…', match their criteria count and order, and were completed in context. None is a complete answer or states an invented task fact.",
+    "open_task_audit": "Each item has exactly one null quote. All 12 non-null quotes are verbatim substrings of their sample and meet their criterion. Each model meets every criterion. Model words: 134, 124 and 116 (deelschrijftaak, 50-150) and 9, 9 and 14 (zinstaak, 5-25). Picture models have 10 sentences each (mean 13.4 and 12.4 words, longest 22). The form model has 6 sentences (mean 19.3, longest 25). No prompt sentence appears in any sample or model; the one shared phrase is noted under doubt 6. No brief-only name (Sabrina, Modibo, Karim, Roos) appears in any prompt, criterion, sample, quote or model.",
+    "zinstaak_insertions": "Every model and sample was inserted into scaffold.body at ___ after the printed lead-in. See items[].evidence.gap for the full sentences. All six read as grammatical Dutch; the only error is the inhalen sample's tolerated gender error 'een latere moment'. Each sample fails adequacy only.",
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/060-proposed.json -> 'Checked 6 items, 0 questions. Keys: {}. Options: {}.', info '6 of 6 items are already in the catalogue', 'No failures, no warnings.'",
+    "judge_input": "Read in the working-tree server/services.ts (uncommitted changes). requestJudgment sends prompt, criteria, task_type, text_with_gap, grammar_target, sentence_must (adequacyNote) and form_fields (labels). For pictures it sends only {number, description: image.alt}; the English brief is never sent. Two-criterion zinstaken use reasoning effort 'medium'. The PICTURES rule in server/feedback-instructions.json judges whether a stated action fits the numbered picture. It meets a picture criterion by a sentence that clearly describes that picture and requires no picture detail the criterion does not name.",
+    "visibility": "Per OpenExercise.tsx, criteria are hidden before answering for zinstaak and for deelschrijftaak with images, and visible for the avondcursus form. Starters are hidden before answering for picture deelschrijftaken and shown for zinstaken and the form. Pictures carry visible numbers 1-3 (figcaption), so 'bij het tweede plaatje' is unambiguous.",
+    "names_and_domains": "No new names were introduced. Re-checked on 2026-10-14: web searches for \"Volksuniversiteit Oostwaard\" and \"Taalschool Zonnedreef\" / taalschoolzonnedreef.nl found no such institution. DNS returns NXDOMAIN for taalschoolzonnedreef.nl and volksuniversiteitoostwaard.nl.",
+    "dates": "The scaffold's 'maandag 14 september' is correct: 14 September 2026 is a Monday. 'nog deze week' points to Wednesday 16 and Friday 18 September 2026, which match 'Ik kan op woensdag en vrijdag de hele dag.'",
+    "knm": "Not applicable: no KNM item in this batch.",
+    "audio": "Not applicable: B1 writing has no prompt audio, and none of the six catalogue records has an audio field.",
+    "pictures": "No brief changed, and scripts/content.ts keeps a picture file whose brief is unchanged, so the six existing drawings stay. The alts are unchanged and remain accurate for the new criteria."
+  },
+  "items": [
+    {
+      "id": "B1:writing:batch015-gemiste-werkdag:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Official picture-deelschrijftaak shape: three numbered pictures, 'Gebruik alle plaatjes', an invented meeting topic and a closing question to an informal addressee. The model has 134 words, mean 13.4 words per sentence and longest 22, with zodat, die, dat, omdat, voordat and want clauses. Announcing the topic and narrowing C2 make the task fairer without lowering its language demand. Compared with B1:writing:batch029-kustweekend:1 and the documented official task.",
+      "evidence": {
+        "spec_fixes": "C1's topic is now announced: 'Vertel bij het tweede plaatje ook waar het overleg over ging. Bedenk zelf een onderwerp.' C2 is one requirement, 'Schrijf wat er in het magazijn gebeurde.' It fits picture 3's alt ('Een vrouw geeft een jonge man een hand in een magazijn en wijst naar de stellingen.') and no longer presumes a new colleague. Sabrina and Modibo are gone from the sample, quotes and model, replaced by 'een collega', 'een nieuwe medewerker' and 'dezelfde collega'.",
+        "learner_following_prompt": "Yes. Picture 1 (alt: 'Een monteur repareert een koffieapparaat') gives C0. Picture 2 plus the new prompt sentence gives C1. Picture 3 gives C2. 'Vraag Julio ook hoe het met hem gaat of wanneer hij weer komt werken.' gives C3. Residual risk on C0: see doubt 2.",
+        "sample": "77 words. Quote 0 is the broken machine and the technician's repair. Quote 1 is the meeting plus its topic (the new telephone system). Quote 2, '… dus een collega heeft hem vanmiddag het magazijn laten zien', is what happened in the warehouse. C3 is null: 'Tot snel!' asks nothing. The learner errors 'gerepareert' and 'dat hij is een aardige jongen' are kept.",
+        "model": "C0: 'Vanmorgen was het koffieapparaat in de keuken kapot …' and '… een monteur, die het apparaat binnen een uur heeft gerepareerd.' C1: 'Om elf uur hadden we een teamoverleg …' plus the telephone system. C2: '… heeft dezelfde collega hem daar vanmiddag alles laten zien, van de stellingen tot de heftruck.' C3: 'Hoe gaat het nu met je?' 'dezelfde collega' points back to the meeting's speaker, and the pictures show the same woman.",
+        "starters": "[2] 'Daarna heeft … in het magazijn …' completes to 'Daarna heeft een collega de nieuwe medewerker in het magazijn rondgeleid.' or 'Daarna heeft de nieuwe collega in het magazijn een rondleiding gekregen.' 'Daarna' follows the picture order. Fragments 0, 1 and 3 are unchanged and still aligned."
+      }
+    },
+    {
+      "id": "B1:writing:batch029-kustweekend:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Same shape and weight as gemiste-werkdag: three pictures narrated in order plus a closing question. The model has 124 words, mean 12.4 words per sentence and longest 22, with terwijl, zodat, tot and toen clauses. The looser C1 and C2 drop incidental details, not narrative demand. Compared with B1:writing:batch015-gemiste-werkdag:1 and the documented official task.",
+      "evidence": {
+        "spec_fixes": "C2 is now 'Schrijf hoe de dag in de haven eindigde.', which fits picture 3 (sun, harbour bench, fries). C1 is now 'Schrijf wat u deed toen het begon te regenen.', a single requirement that picture 2 answers (waiting in a bus shelter in heavy rain). The model no longer says there was no repairer and then has a village repairer patch the tyre after the harbour scene.",
+        "learner_following_prompt": "Yes. Picture 1 gives C0 (flat tyre on the dyke; the prompt also names the dyke). Picture 2 gives C1, picture 3 gives C2, and 'Sluit af met een vraag aan Ricardo …' gives C3.",
+        "sample": "82 words, unchanged. Quotes 0, 2 and 3 are verbatim. C1 is null because the sample never mentions rain or a shelter. Quote 2, 'Later kwam ik in de haven en toen scheen de zon weer. Daar heb ik patat geëten bij de boten, dat was heel lekker.', meets the new C2.",
+        "model": "The story runs in order. A flat tyre mid-dyke with no repair kit; the bike pushed the rest of the way to the harbour; rain on the way, so a wait in a bus shelter until dry; sun on arrival at the harbour, fries on a bench, happy again; two questions; then the callback 'Dan neem ik wel een reparatiesetje mee!'. Nothing contradicts itself or the briefs (the shelter is at the foot of the dyke; the bike leans against the bench).",
+        "starters": "[2] 'Uiteindelijk kwam ik aan in de haven, waar …' completes to '… waar ik in de zon patat heb gegeten.' [1] 'Toen het begon te regenen, …' is unchanged and matches the new C1 word for word."
+      }
+    },
+    {
+      "id": "B1:writing:batch015-avondcursus:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Lighter end, as in the 015 review: three scored open fields (the official form has six), each answered in one or two B1 sentences. The model has 116 words, mean 19.3 words per sentence and longest 25. Accepting 'no experience yet' removes a forced invention, not a language demand. Compared with B1:writing:batch029-uitzendwerk:1 and B1:writing:batch003-opleiding:1.",
+      "evidence": {
+        "spec_fix": "C1 is now 'Schrijf of u al ervaring hebt met boekhouden en, zo ja, welke.' (EN: 'Say whether you already have experience with bookkeeping and, if so, what experience.'). 'Ik heb nog geen ervaring met boekhouden.' now passes, as it should for a 'Boekhouden voor beginners' course.",
+        "learner_following_prompt": "Yes. The criteria are visible for this form. Open fields 4, 5 and 6 map one-to-one to C0, C1 and C2, with the same demands.",
+        "sample": "72 words, unchanged. C0 is null: one reason, which 'Ik wil dat goed leren' only restates. Quote 1 meets the 'yes, which' branch of C1 (no course, but three years of shop administration and the daily till count). Quote 2 meets C2.",
+        "model": "Unchanged. C0: two reasons (work, and 'Bovendien' a future shop). C1: no course, but three years of administration and the daily till. C2: 'Op dinsdagavond kan ik niet, omdat …'.",
+        "starters": "[1] 'Met boekhouden heb ik … ervaring, want …' works for both branches: 'Met boekhouden heb ik nog geen ervaring, want ik heb altijd in de bouw gewerkt.' and 'Met boekhouden heb ik al wat ervaring, want ik heb drie jaar de administratie van een winkel gedaan.'",
+        "form_label": "Field 5, 'Welke ervaring heeft u al met dit onderwerp?', is kept (doubt 7)."
+      }
+    },
+    {
+      "id": "B1:writing:batch002-rooster:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "One subordinate clause after printed 'omdat', with the reason fixed by the prompt; model 9 words. Same demand as B1:writing:batch014-vacature:1 and B1:writing:batch038-receptie:1. The prompt change is wording only.",
+      "evidence": {
+        "spec_fix": "The prompt is now 'U kunt woensdagavond niet werken door uw opleiding. Maak de zin op de open plek af met deze reden.' It uses the correct preposition ('op de open plek'), drops the repeated instruction and still names the reason C0 requires.",
+        "gap": {
+          "model_sentence": "Ik kan die dienst niet doen, omdat ik op woensdagavond altijd les voor mijn opleiding volg.",
+          "model_verdict": "Bijzin with the finite verb last; meets C0 and C1.",
+          "sample_sentence": "Ik kan die dienst niet doen, omdat ik die avond een verjaardag van mijn neef vier.",
+          "sample_verdict": "Grammatical bijzin, but the reason is wrong: C0 null, C1 quoted."
+        },
+        "starters": "Unchanged. 'ik op … les …' gives 'omdat ik op woensdagavond les heb.' and 'ik … volg' gives 'omdat ik op woensdagavond een opleiding volg.'"
+      }
+    },
+    {
+      "id": "B1:writing:batch003-reparatie:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "om + te-infinitive carrying a remedy and a self-chosen deadline; model 9 words. Comparable to B1:writing:batch028-vrije-dag:1 and B1:writing:batch014-groepsverslag:1.",
+      "evidence": {
+        "spec_fix": "The model is now 'mij uiterlijk op 17 april een leenlaptop te geven'. 'lenen' (borrow) no longer stands for 'lend'. A loan laptop is the adequacyNote's own example of a solution, and 'een leenlaptop geven/krijgen' is idiomatic, like 'een leenauto'.",
+        "gap": {
+          "model_sentence": "Ik verzoek u om mij uiterlijk op 17 april een leenlaptop te geven.",
+          "model_verdict": "Correct om + te + infinitive; a solution with a deadline after 15 April. Meets C0 and C1.",
+          "sample_sentence": "Ik verzoek u om mij een overzicht van uw openingstijden te sturen.",
+          "sample_verdict": "Correct te-infinitive, but no solution and no deadline: C0 null, C1 quoted."
+        },
+        "starters": "Unchanged. 'mij uiterlijk op … te …' completes to the model; '… te …' gives 'om mijn laptop uiterlijk 18 april te repareren.'"
+      }
+    },
+    {
+      "id": "B1:writing:batch038-inhalen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "om + te-infinitive with a separable verb ('in te halen'), its function fixed by the e-mail context; model 14 words. Comparable to B1:writing:batch028-vrije-dag:1 ('op te halen') and B1:writing:batch014-groepsverslag:1.",
+      "evidence": {
+        "spec_fix": "The model is now 'de les van maandag nog deze week bij een andere groep in te halen'. 'nog deze week' is an adverbial meaning before the week is out, so 'maandag deze week' can no longer be read as this week's Monday. It fits the printed 'Ik kan op woensdag en vrijdag de hele dag.'",
+        "learner_following_prompt": "Yes. The bare exam instruction plus the body ('Ik wil de uitleg van die les niet missen … Is het mogelijk om ___? Ik kan op woensdag en vrijdag de hele dag.') fixes the function. C0 accepts making up the lesson or getting the material in any form.",
+        "gap": {
+          "model_sentence": "Is het mogelijk om de les van maandag nog deze week bij een andere groep in te halen?",
+          "model_verdict": "'te' inside the separable verb; the request matches the context. Meets C0 and C1.",
+          "sample_sentence": "Is het mogelijk om de toets op een latere moment te maken?",
+          "sample_verdict": "Correct te-infinitive, with the gender error 'een latere moment' tolerated. It asks to move the test instead: C0 null, C1 quoted."
+        },
+        "starters": "Unchanged. 'de les van maandag bij … in te halen' and 'de uitleg van die les op … te krijgen' both complete to correct te-infinitives."
+      }
+    }
+  ],
+  "author_doubts_decisions": [
+    "1 (gemiste-werkdag: announce the topic or drop it): keep the announcement. It is the spec's first option. 'het overleg' names only what picture 2 plainly shows, and dropping the topic would remove the item's only invention demand.",
+    "2 (gemiste-werkdag C0 compound): keep it. Both halves are drawn in picture 1, and a repair entails a defect, so a learner who describes the picture meets the criterion's meaning. The audit's compound-criteria sweep (§3.5) flagged C2 of this item, not C0, and C0 is not on the fix list. Residual risk: a strictly literal judge could ask for 'kapot' when an answer only says that a technician repaired the machine. Put one such case in the feedback evaluation. If it fails, reword C0 in a later revision as 'Schrijf wat er met het koffieapparaat gebeurde.'",
+    "3 (picture 3 and 'dezelfde collega'): accept. 'dezelfde collega' reads naturally, matches the pictures and avoids a third 'een collega'. The 'new employee' reading belongs to the sample and model; no criterion requires it.",
+    "4 (kustweekend C1 now open): keep 'Schrijf wat u deed toen het begon te regenen.' The judge's PICTURES rule checks that the stated action fits picture 2, which covers answers that contradict it. The tighter 'Schrijf waar u wachtte …' would fail 'Ik heb gewacht tot het droog was', a fair description of picture 2, and bring back an incidental-detail demand.",
+    "5 (kustweekend model: repair sentence removed, 'terwijl'): accept both. 'een lekke band krijgen terwijl je geen plakspullen bij je hebt' is everyday temporal 'terwijl'. The clause sets up the closing joke, and the tyre staying flat contradicts nothing.",
+    "6 (kustweekend model sentence 2 restates a prompt clause): keep. It is first-person scene-setting, not a copied prompt sentence; the shared run is 'over de dijk naar de haven fietsen'. It passed the 029 review, is not on the fix list, and no criterion depends on it.",
+    "7 (avondcursus form label): keep 'Welke ervaring heeft u al met dit onderwerp?'. 'al' invites the natural answer 'nog geen', and every answer to the label meets the widened C1. The label is not wider than the criterion, which was the failure the 015 review repaired for field 6. The criteria are visible for this form. The similar batch029-uitzendwerk C1 is out of scope and less of a problem in a job registration; leave it for a later sweep if wanted.",
+    "8 (reparatie model wording): accept 'een leenlaptop te geven'. It is idiomatic, reuses the adequacyNote's example and is unambiguously a solution.",
+    "9 (judge input): settled by the coordinator. The working-tree services.ts sends only the Dutch alt per picture, so brief-only names never reach the judge. No content change.",
+    "10 (inhalen dates): keep. 14 September 2026 is a Monday; a past date in a practice e-mail is not a defect, and it is out of scope."
+  ],
+  "diversity": "This replacement keeps all six topics and IDs: a wholesale workday and a coastal weekend (picture e-mails), an evening course form, and three zinstaken with different targets (bijzin after omdat; om + te with a remedy; om + te with a separable verb). The two picture tasks share the official shape but differ in setting, register purpose and storyline. No duplicate concept was introduced.",
+  "set_assembly": "Set membership is unchanged: b1-writing-01 (rooster), b1-writing-02 (reparatie), b1-writing-03 (gemiste-werkdag, avondcursus), b1-writing-09 (kustweekend) and b1-writing-11 (inhalen).",
+  "media_notes": "No clips need new audio: B1 writing has none, and no listening script, speaking prompt, cue or KNM option changed. No picture needs redrawing because every brief is unchanged. The existing drawings and alts still match the new criteria.",
+  "coordinator_actions": [
+    "Run npm run batch:adopt 060. The proposed file is byte-identical to the author's original.",
+    "Then run npm run content:integrate -- --refresh-hints \"batch 060 replacement\". This review carries starters_source and starters_sha256 with a passing verdict for all six IDs, so the three changed starters merge into the overlay. The six items get new revisions, and saved progress on them restarts, as for any rewrite.",
+    "No audio or illustration generation is needed for this batch.",
+    "Optional, for the feedback evaluation (not content): add a gemiste-werkdag answer that mentions only the repair, without 'kapot' (doubt 2), and a kustweekend answer with 'geschuild' and no place named."
+  ],
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "No new audio is needed: no listening script, speaking prompt, cue or KNM option changed, and B1 writing has no prompt audio. No transcription round trip is pending for this batch.",
+    "Judge behaviour was not measured: no feedback calls were made. What the judge receives was read from the working-tree server/services.ts and server/feedback-instructions.json, which have uncommitted changes.",
+    "Level comparisons use project items of the same task type because content/exemplars/ does not exist. They do not calibrate difficulty.",
+    "The name checks (web search and DNS on 2026-10-14) show only that nothing was found, not that no such organisation exists."
+  ]
+}

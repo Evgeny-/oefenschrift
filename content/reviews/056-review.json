@@ -1,0 +1,164 @@
+{
+  "review_id": "056-review",
+  "source": "content/batches/056-original.json",
+  "source_sha256": "4594603fe1bf395753031e2d3c8504605afab0897af72b8d0f23779bb4f8de14",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-14",
+  "reviewer": "Independent AI reviewer: Claude Opus 5.5 (claude-opus-5-5), fresh context separate from the author",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:listening:batch023-spoor:1",
+    "A2:listening:batch023-bloedonderzoek:1",
+    "A2:listening:batch005-voetbal:1",
+    "A2:listening:batch022-paspoort-klaar:1",
+    "A2:listening:batch001-markt:1",
+    "A2:listening:batch005-speelplaats:1",
+    "A2:listening:batch022-koffiegeld:1",
+    "A2:listening:batch023-bezorgservice:1",
+    "A2:listening:buurthuis:1",
+    "A2:listening:batch001-schoolreis:1",
+    "A2:listening:batch002-trein:1",
+    "A2:listening:batch005-tabletten:1"
+  ],
+  "item_count": 12,
+  "edits": [
+    {
+      "id": "A2:listening:batch022-paspoort-klaar:1",
+      "field": "questions[q3].explanation",
+      "before": "Na drie maanden moet Modibo een nieuw paspoort aanvragen en opnieuw betalen. Gewoon ophalen zonder afspraak kan alleen binnen drie maanden, en iemand anders mag het paspoort niet voor hem halen.",
+      "after": "Na drie maanden moet Modibo een nieuw paspoort aanvragen en opnieuw betalen. Ophalen kan alleen binnen drie maanden, en iemand anders mag het paspoort niet voor hem halen.",
+      "reason": "The restrictive 'zonder afspraak' implied that collection with an appointment might still work after three months, the same misreading the author wanted to avoid in the spec's suggestion. The script only says \"Haalt u het paspoort binnen drie maanden op? Anders moet u een nieuw paspoort aanvragen\", and no option mentions an appointment any more. The new sentence rules out distractor A directly. Explanation only, no media effect."
+    },
+    {
+      "id": "A2:listening:batch023-bezorgservice:1",
+      "field": "questions[q2].explanation",
+      "before": "De dag voor de bezorging krijgt de klant een berichtje met de tijd. Bij het bestellen hoort hij de tijd nog niet, en het berichtje komt al de dag ervoor, niet op de dag zelf.",
+      "after": "De dag voor de bezorging krijgt de klant een berichtje met de tijd. De reclame zegt niet dat Karim de tijd hoort als hij bestelt, en het berichtje komt al de dag ervoor, niet op de dag zelf.",
+      "reason": "Author doubt 5: 'Bij het bestellen hoort hij de tijd nog niet' states as fact something the advertisement only implies (\"De dag voor de bezorging krijgt u een berichtje op uw telefoon. Daarin staat hoe laat wij komen.\"). The new clause says only what the script supports, follows the koffiegeld fix pattern, and names Karim so that 'hij' cannot be read as 'de reclame'. Explanation only, no media effect."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "full_final_source_read": "Read all twelve final records in full, including every script as heard, the author's notes, the base, spec common.md and 056-057.md (056 part), review-common.md, docs/briefs/review.md, the rubric, blueprint §1–§6, §8–§10 and §12, the Luisteren A2 paragraph of docs/research/exam-blueprints-2026-09-10.md, docs/briefs/author.md, section 4 of the 14 October 2026 audit, and config/voices.json.",
+    "diff_against_base": "Field-level and text diff of every item against tmp/content-fix-2026-10-14/base/056-base.json. Changes: spoor script (sentences 2 and 4), text, q1–q2 prompt/evidence/explanation, q3 prompt; bloedonderzoek q2 options/answer/explanation; voetbal q2 prompt/options (four to three)/answer/explanation; paspoort-klaar q1 option order and answer, q3 option A and explanation; markt script, text, q1 option C and explanation, q2 option C and explanation; speelplaats q2 option order, answer and explanation; koffiegeld q3 explanation; bezorgservice q2 explanation; buurthuis q2, schoolreis q1, trein q2 and tabletten q1 option order and answer. Nothing else changed: IDs, item order, field order, titles, situations, notes, roles, image briefs and alts are identical. No revision, media or type fields.",
+    "base_against_catalogue": "The base equals content/catalogue.json for all twelve IDs apart from status and the media fields (revision, audio, duration, peaks, questionAudio, images[].file).",
+    "scripts_and_text": "For all twelve items, text equals the script joined as 'Speaker: text' lines. No digits in any script; numbers and times are in words. Spoken words 79–158 (checker range 60–210). A2 sentence heuristics: averages 5.7–9.0, longest sentence 18 (spoor, at the limit).",
+    "keys_and_distractors": "All 28 keys follow from their verbatim evidence, and every evidence quote is a substring of text. Each distractor was tested as a competing answer: anchored in the script and clearly false. No key is the longest option by more than two characters. No prompt word recurs only in the key (tabletten q1 shares 'tablet' with option D's 'tabletten'). No explanation names an option letter.",
+    "checker": "npx tsx scripts/batch-check.ts content/batches/056-proposed.json → 'Checked 12 items, 28 questions. Keys: {\"C\":10,\"B\":7,\"A\":11}. Options: {\"3\":18,\"4\":10}.' plus the revision info line, then 'No failures, no warnings.'",
+    "key_balance": "Batch shares: A 11 (39.3%), B 7 (25.0%), C 10 (35.7%), D 0; at least one C. Four-option keys in the batch: A4 B1 C5. All seven D-keyed four-option questions named in the spec now have A or C as the key; voetbal q2 has three options. In batch order no letter repeats more than twice. Catalogue four-option keys go from A2 B10 C5 D15 to A5 B10 C9 D7.",
+    "media_hashes": "Hashed every script and listening question prompt and compared them with content/audio-manifest.json (script_sha256). Exactly six clips differ: spoor #fragment, #q1, #q2 and #q3, voetbal #q2 and markt #fragment. Every other clip of the twelve items matches, and its file exists in public/audio.",
+    "option_count_precedent": "The official A2 Luisteren uses three or four options. In the catalogue, 62 of 94 A2 listening questions have three options, 31 of 37 items mix three- and four-option questions, and six items have only three-option questions.",
+    "real_world_fact": "https://www.rijksoverheid.nl/onderwerpen/paspoort-en-identiteitskaart/vraag-en-antwoord/waar-en-hoe-kan-ik-een-paspoort-of-identiteitskaart-aanvragen (accessed 2026-10-14): 'U heeft na het aanvragen van het document maximaal 3 maanden de tijd om het op te halen. Daarna wordt het vernietigd.' This is consistent with the paspoort-klaar script and q3. It is not a KNM item; gemeente Rietburg is fictional.",
+    "sets": "Recomputed drill-set keys from content/practice-sets.json. The results match the author's table; a2-listening-03 becomes A5 B4 C3."
+  },
+  "items": [
+    {
+      "id": "A2:listening:batch023-spoor:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Single-voice station announcement, 116 spoken words (about 50–55 s at the current narrator rate), 13 sentences, average 8.9, longest 18 (the q1 evidence sentence, at the A2 limit). Three trains, three platforms and three times are each said once in the NS pattern. Comparable to the official station and school announcements; denser than batch002-trein (89 words), as at its first review.",
+      "evidence": "The script is now coherent: “De sprinter naar Den Haag van kwart over drie vertrekt niet van spoor twee, maar van spoor vijf.” and “Deze trein rijdt vandaag niet verder dan Leiden. Reizigers naar Den Haag stappen in Leiden over.” q1 C 'Van spoor vijf.' follows from the first sentence. A is the usual platform with the broken train (“Op spoor twee staat vandaag een kapotte trein.”); B is the Amsterdam intercity's platform (“De intercity naar Amsterdam vertrekt gewoon om kwart voor vier van spoor drie.”). q2 B 'Om half vier.' follows from “De sprinter naar Den Haag vertrekt ook later dan normaal: om half vier.” A is the normal time named in “van kwart over drie”; C is the intercity's time. q3 A 'In Leiden overstappen.' follows from “Reizigers naar Den Haag stappen in Leiden over.” B is another train; C applies only if she has questions (“Hebt u vragen? Ga dan naar de servicebalie in de hal”); D is the broken train's platform. q1 and q3 both use Farah, as in the situation line. 'sprinter' in q2 points to the announced train, not the unannounced connection from Leiden. The explanations match the new script."
+    },
+    {
+      "id": "A2:listening:batch023-bloedonderzoek:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Ten-turn phone conversation (f-adult/m-older), 147 words, average 5.7, longest 10, like the official practice and workplace conversations. The script is unchanged.",
+      "evidence": "q1 B 'Donderdagmiddag.' follows from “De dokter belt u donderdag, tussen twee en drie uur.” A is ruled out by “Vanmiddag lukt niet, want dan heeft ze spreekuur.”; C is only the visit option (“Dan kan dat pas volgende week woensdag.”). q2 C 'Wachten tot de dokter belt.' follows from “De dokter wil de uitslag zelf met u bespreken. Ze belt u daarvoor op.” The new A 'Vanmiddag zelf de dokter bellen.' is anchored on the spreekuur sentence and clearly false, because the doctor calls him. B is ruled out by “Nee, dat is nu niet nodig.”; D by “Dat mag ik niet zeggen.” The old A, which the assistant offered as a route, is gone, and no remaining option names the visit, so C is the only defensible key. The options are parallel (27–35 characters). q3 A follows from “Ik heb vorige week bloed laten prikken. Is de uitslag al binnen?” The q2 explanation matches the script."
+    },
+    {
+      "id": "A2:listening:batch005-voetbal:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Single-voice voicemail from a club trainer, 127 words, average 7.9, longest 12, like the official voicemail from a friend. q2 now has three options, which is allowed at A2 (62 of 94 catalogue A2 listening questions have three). The guessing rate rises from 25% to 33%, but the learner still has to catch “niet het blauwe” against the later “ook in het blauw”.",
+      "evidence": "q1 A 'De wedstrijd is op een andere dag.' follows from “De wedstrijd is niet op zaterdag, maar op zondag om tien uur.” B is false (“haar witte shirt”); C is ruled out by “De training van woensdag gaat gewoon door.” q2 B 'Het witte shirt.' follows from “Amina moet haar witte shirt aan, niet het blauwe.” A is explicitly negated, and blue is the other team's colour (“De andere ploeg speelt ook in het blauw.”). C is ruled out by “Het wordt droog weer, dus een regenjas is niet nodig.” The prompt 'Wat moet Amina zondag aan?' now asks about clothing, which is what the key is. The dropped 'Een fles water.' could not answer it. The explanation matches the script."
+    },
+    {
+      "id": "A2:listening:batch022-paspoort-klaar:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Institutional voicemail at the fuller end: 153 words, average 9.0, longest 16, all within the A2 targets, like batch005-parkeervergunning. q3 asks the learner to set four months against the three-month limit.",
+      "evidence": "q1 A 'Het paspoort van Modibo is klaar.' follows from “Ik bel over uw nieuwe paspoort. Twee weken geleden hebt u dat paspoort aangevraagd. Het is nu klaar.” B is ruled out by “Betalen hoeft u ook niet meer”, C by “Een nieuwe pasfoto is niet nodig, die hebben wij al.” and D by “Daarvoor hebt u geen afspraak nodig.” The key is not the longest option. q2 A follows from “Neem uw oude paspoort mee, want dat nemen wij in.” q3 C 'Hij vraagt een nieuw paspoort aan.' follows from “Haalt u het paspoort binnen drie maanden op? Anders moet u een nieuw paspoort aanvragen, en dan betaalt u opnieuw.” The new A 'Hij kan het paspoort nog gewoon ophalen.' is the natural misreading of the limit and clearly false. B is ruled out by “Iemand anders mag dat niet voor u doen.” I edited the explanation (see edits). The three-month rule matches Rijksoverheid ('maximaal 3 maanden de tijd om het op te halen. Daarna wordt het vernietigd.'), accessed 14 October 2026."
+    },
+    {
+      "id": "A2:listening:batch001-markt:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Single-voice market announcement, short end: 79 words (about 32–36 s at the current narrator rate of 2.2–2.5 words per second), 9 sentences, average 8.8, longest 11, inside 30–90 s. The q1 distractor is now closer to the key ('drie uur' against 'kwart over drie'), a fair A2 time contrast.",
+      "evidence": "The implausible lines are gone: there is no more sitting under the bloemenkraam roof in the wind. The bus now leaves at a plausible time, “De bus naar het centrum vertrekt om kwart over drie.”, a quarter of an hour after the early closing. q1 B 'Om drie uur.' follows from “Daarom sluit de markt vandaag al om drie uur.” A is the usual time (“Gewoonlijk kunt u hier tot vier uur terecht.”); C 'Om kwart over drie.' is the bus departure. q2 A 'Bij de zijingang.' follows from “De halte is vandaag bij de zijingang.” B is ruled out by “Bij de hoofdingang staan vrachtwagens voor de spullen van de markt.” and C by “De taxi's staan vandaag bij het parkeerterrein.” Both distractors are anchored and clearly false. 'vandaag' occurs in both the key sentence and the taxi sentence, so it does not signal the key. Both evidence quotes and both keys are unchanged, and the explanations match the new script."
+    },
+    {
+      "id": "A2:listening:batch005-speelplaats:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Local radio news item (presenter), 125 words, average 8.3, longest 15, like the official news items. The script is unchanged.",
+      "evidence": "q1 A 'De gemeente.' follows from “De gemeente betaalt de nieuwe speelplaats.” q2 C 'Bij het wijkcentrum.' follows from “Meld u dan bij het wijkcentrum aan de Vijverlaan.” A is wrong because the gemeente asks for help (“De gemeente zoekt ook hulp van bewoners.”) but people sign up at the wijkcentrum. B: the school's children take part in the opening (“De wethouder opent de speelplaats samen met kinderen van basisschool De Vlinder.”). D: the playground is what must be kept clean (“Wilt u helpen om de speelplaats schoon te houden?”). The explanation now says exactly this and no longer places the opening at the school."
+    },
+    {
+      "id": "A2:listening:batch022-koffiegeld:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "A colleague's explanation of a workplace rule (uitleg), 156 words, average 7.8, longest 13, like the official first-day and teacher explanations. The script is unchanged.",
+      "evidence": "q1 C 'Vijf euro.' follows from “Iedereen die koffie of thee drinkt, betaalt vijf euro per maand.” A applies only to water drinkers, B is the old price and D is the cost of the koek. q2 A follows from “Het geld doe je in de pot, aan het begin van de maand.” q3 B 'Nieuwe koffie zetten.' follows from “Dan zet je nieuwe koffie.” A is not in the script; Ruud only says “Heb je vragen? Ik zit daar, bij het raam.”, and the explanation now says that he does not ask to be told. C: the money goes in at the start of the month."
+    },
+    {
+      "id": "A2:listening:batch023-bezorgservice:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Company presentation (reclame), 158 words, average 8.8, longest 17, like the official company promotion. One distance rule is applied to a persona, plus one timing detail. The script is unchanged.",
+      "evidence": "q1 B 'Twintig euro.' follows from “Woont u verder weg? Dan betaalt u twintig euro.” Karim lives 40 km away, beyond the 25 km in “Woont u binnen vijfentwintig kilometer van de winkel? Dan is bezorgen gratis.” C uses the kilometre figure; D is assembly (“Dat kost dertig euro extra.”). q2 C 'De dag voor de bezorging.' follows from “De dag voor de bezorging krijgt u een berichtje op uw telefoon. Daarin staat hoe laat wij komen.” A: the ad gives no time at ordering (“Bestellen kan in de winkel of op onze website.”). B: the message comes the day before. I edited the explanation (see edits) so that it no longer states an inference as fact."
+    },
+    {
+      "id": "A2:listening:buurthuis:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Eight-turn conversation between a student and a teacher (f-young/m-adult), short end: 107 words, average 6.3, longest 11. Only the option order changed.",
+      "evidence": "q2 A 'Haar eigen schrift.' follows from “Neem morgen je schrift mee.” B is ruled out by “Je krijgt een pen van mij.”, C by “Je kunt eerst beneden koffie drinken.” and D by “Dat boek gebruiken we pas volgende week.” The explanation names no letter. q1 C is unchanged and follows from “Deze week zitten we in lokaal drie, op de eerste verdieping.”"
+    },
+    {
+      "id": "A2:listening:batch001-schoolreis:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "School voicemail, short end: 90 words, average 7.5, longest 9. Only the option order changed.",
+      "evidence": "q1 C 'Om acht uur.' follows from “De kinderen moeten om acht uur op school zijn.” A is ruled out by “De bus vertrekt om kwart over acht.”, B by “Om half negen komt de andere groep naar school.” and D by “Om drie uur zijn we terug.” q2 C follows from “Geef uw kind brood en drinken mee.” The explanations name no letter."
+    },
+    {
+      "id": "A2:listening:batch002-trein:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Station announcement, short end: 89 words, average 7.4, longest 10. Only the option order changed.",
+      "evidence": "q2 C 'Naast de boekwinkel.' follows from “De lift vindt u naast de boekwinkel.” A is ruled out by “De trap is tegenover de bakker.”, B by “Er staat een medewerker bij de koffiebar.” and D by “Op spoor vier staat een kapotte trein.” q1 A follows from “Uw trein vertrekt vandaag van spoor zeven.” The explanations name no letter."
+    },
+    {
+      "id": "A2:listening:batch005-tabletten:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Ten-turn pharmacy conversation (f-adult/f-older), 125 words, average 5.7, longest 12. Only the option order changed.",
+      "evidence": "q1 A 'De tablet later op de dag innemen.' follows from “Neem de tablet dan later op de dag, met wat eten.” B is ruled out by “Nee, dan belt u de huisarts voor een nieuw recept.” (only when the tablets run out), C by “De rest ligt donderdag voor u klaar.” and D by “Maar neem nooit twee tabletten tegelijk.” The key is not the longest option (D is). q2 B follows from “De rest ligt donderdag voor u klaar.”"
+    }
+  ],
+  "author_doubts_decisions": [
+    "1. markt bus at 'kwart over drie': keep. The spec counts 'a bus an hour after closing' as part of the implausibility, and the sentence lies inside its quoted span. Without the move, the announcement would send people to wait 75 minutes in strong wind. q1-C is still the bus time and clearly false, and q2 does not depend on the time. The q1 prompt is unchanged, so the q1 clip stays.",
+    "2. voetbal q2 with three options: accept. Three options are official at A2 and the majority in the catalogue (62 of 94), and the checker accepts A–C. Only a white and a blue shirt are named, and 'Een fles water' cannot answer 'Wat moet … aan?'. 'Wat moet Amina zondag aan?' is natural spoken Dutch, and skill 'advice' fits the trainer's instruction. The q1-B presupposition predates this batch and is harmless.",
+    "3. spoor q1 'Farah wil naar Den Haag' and 'sprinter' in q2: accept. This is a necessary consequence of the q3 persona fix and the new destination. 'Farah wil naar Leiden' would contradict q3. 'de sprinter naar Den Haag' excludes the unannounced connection from Leiden. The longest sentence (18 words) is at the A2 limit and accepted.",
+    "4. paspoort-klaar explanation: edited. I agree that the spec's 'maar na drie maanden kan dat niet meer' is ambiguous. The author's 'Gewoon ophalen zonder afspraak kan alleen binnen drie maanden' keeps a similar implicature, so the appointment reference was removed: 'Ophalen kan alleen binnen drie maanden'.",
+    "5. bezorgservice clause 'Bij het bestellen hoort hij de tijd nog niet': softened. It is an inference stated as fact. It now reads 'De reclame zegt niet dat Karim de tijd hoort als hij bestelt'.",
+    "6. Key balance: accept. A is 39.3% (within the limit), and D at 0% is the spec's aim. The three forced positions are verified. The free choices raise A, the rarest four-option key. a2-listening-03 (A5 of 12) is a drill set, not a mock form, and is noted for a later sweep. The seven remaining D-keyed four-option questions are outside this batch.",
+    "7. bloedonderzoek 'vanmiddag' in q1-A and q2-A: accept. Both rest on 'Vanmiddag lukt niet, want dan heeft ze spreekuur', and neither reveals the other's key."
+  ],
+  "observations_unchanged": [
+    "bloedonderzoek: the q1 prompt 'Wanneer belt de dokter meneer De Vries?' presupposes the call, which is the q2 key. This predates the batch, and fixing it would change the q1 prompt and its audio outside the spec. Candidate for a later sweep.",
+    "paspoort-klaar: read literally, the q3 premise 'Modibo haalt het paspoort pas na vier maanden op' resembles option A. The natural persona-scenario reading ('goes to collect only after four months') and the evidence decide clearly, so it is left unchanged. Optional later wording: 'Modibo gaat pas na vier maanden naar het stadhuis.'"
+  ],
+  "diversity": "IDs, settings, task types, domains and set memberships are unchanged. spoor (a2-listening-08) and trein (a2-listening-02) share the concept of a station announcement with a broken train on another platform and lift or stairs; this predates the batch, and a mock form should hold only one of them. Drill-set keys after adoption: 01 A3 B2 C3, 02 A2 B2 C2, 03 A5 B4 C3, 04 A1 B4 C3 D1, 05 A2 B1 C3 D1, 06 unchanged, 07 A4 B4 C4 D2, 08 A3 B3 C4 D1.",
+  "media_notes": "Six clips need new audio, 1,279 characters in total; generate them after adoption with the Scribe round trip: A2:listening:batch023-spoor:1#fragment, A2:listening:batch023-spoor:1#q1, A2:listening:batch023-spoor:1#q2, A2:listening:batch023-spoor:1#q3, A2:listening:batch005-voetbal:1#q2 and A2:listening:batch001-markt:1#fragment. Both fragments are narrator only. Every other fragment and question clip matches its manifest hash. A2 listening question audio reads only the prompt. Integration drops questionAudio where the options changed but the prompt did not: bloedonderzoek q2, paspoort-klaar q1 and q3, markt q1 and q2, speelplaats q2, buurthuis q2, schoolreis q1, trein q2 and tabletten q1. 'npm run audio:generate -- --apply' re-attaches these from the manifest without synthesis. All twelve items get new revisions, because questions are part of the revision core. No image brief changed, so the five drawings stay. Voice roles are unchanged. The reviewer's two edits are explanation-only and have no media effect.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "The spoor and markt scripts and four listening question prompts changed (spoor q1–q3, voetbal q2). New audio for these six clips still needs generation and a transcription round trip (Scribe, character error rate at most 4%) before the published items are unblocked. The reviewer did not listen to any audio.",
+    "content/exemplars/ does not exist. The level verdicts compare against the official A2 Luisteren description, earlier reviews of these items and catalogue items of the same type; difficulty is not calibrated.",
+    "The station, the market and gemeente Rietburg are fictional. Only the passport collection window was checked on the web.",
+    "Browser, integration and app checks were not run."
+  ]
+}

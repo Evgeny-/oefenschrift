@@ -1,0 +1,462 @@
+{
+  "review_id": "055-review",
+  "source": "content/batches/055-original.json",
+  "source_sha256": "7aa9394d526b37cd941c2aadab4cde0499c6d7ee873fc63b4b8fecaa5ba39f96",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-14",
+  "reviewer": "Independent AI reviewer (Claude Opus 5.5) in a separate context from the author; did not write batch 055",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:knm:batch006-eigenrisico:1",
+    "A2:knm:batch033-schoolvakantie:1",
+    "A2:knm:batch032-direct-nee:1",
+    "A2:knm:batch019-scholing:1",
+    "A2:knm:batch006-stroomstoring:1",
+    "A2:knm:batch007-kinderopvangtoeslag:1",
+    "A2:knm:batch007-bezwaar:1",
+    "A2:knm:batch006-huisartsenpost:1",
+    "A2:knm:batch032-jeugdfonds:1"
+  ],
+  "item_count": 9,
+  "edits": [
+    {
+      "id": "A2:knm:batch006-eigenrisico:1",
+      "field": "questions.0.options.C",
+      "before": "Ja, maar alleen bij een bezoek 's avonds.",
+      "after": "Nee, maar bij een bezoek 's avonds wel.",
+      "reason": "The author's new C ('Ja, maar alleen …') made the key the only 'Nee' option against two 'Ja' options, the odd polarity out that docs/briefs/review.md forbids (the base had Ja/Nee/Nee). The same misconception (an evening or huisartsenpost visit costs eigen risico) is now worded 'Nee, maar … wel', so the polarity reads Ja/Nee/Nee. The card's unconditional 'Voor de huisarts geldt geen eigen risico' and the source (huisartsenzorg 'waaronder de huisartsenpost') still make it false in every case. The clip is regenerated anyway because C changed."
+    },
+    {
+      "id": "A2:knm:batch033-schoolvakantie:1",
+      "field": "questions.0.prompt",
+      "before": "Fatima wil in oktober met Amina op vakantie, buiten de schoolvakanties. Mag Amina dan vrij van school?",
+      "after": "Fatima wil in oktober met haar dochter Amina op vakantie, buiten de schoolvakanties. Mag Amina dan vrij van school?",
+      "reason": "Option C now names Fatima (the spec's fix), so the key applies the card's exception for 'ouders' to Fatima. Neither the prompt nor the card said that Fatima is Amina's parent; only the cast note in config/illustration.json, which learners never see, said so. 'haar dochter' closes that step in the key's proof. The prompt has 19 words; the clip is regenerated anyway."
+    },
+    {
+      "id": "A2:knm:batch033-schoolvakantie:1",
+      "field": "questions.0.options.A",
+      "before": "Ja, ouders bepalen zelf wanneer hun kind vrij is.",
+      "after": "Ja, Fatima bepaalt zelf wanneer Amina vrij is.",
+      "reason": "After the spec's fix, the prompt word 'Fatima' recurred only in the key, a key signal the review brief forbids. The distractor now names both personas and keeps its misconception (the parents decide). The card ('Vakantie buiten de schoolvakanties mag niet; ouders riskeren een boete.') makes it false. Lengths are 46/71/71, so the key ties with B."
+    },
+    {
+      "id": "A2:knm:batch032-direct-nee:1",
+      "field": "questions.0.options.B",
+      "before": "De buurvrouw is boos op haar.",
+      "after": "De buurvrouw wil wel, maar zegt eerst nee.",
+      "reason": "The rewrite moved this item closer to A2:knm:batch018-directheid:1. Both now ask for the usual meaning ('Wat betekent dat meestal?' and 'Hoe is dat … meestal bedoeld?'), both make directness the key and both use the same 'boos' distractor. The 14 October audit flagged this as a low near-duplicate finding. The new distractor tests the misconception that belongs to a refused invitation: a first 'no' given out of politeness that hides a yes. It was the author's own suggestion in doubt 3, reworded. The card ('zeggen direct wat zij willen … een uitnodiging duidelijk weigeren') makes it false. The clip is regenerated anyway; lengths are 44/42/44."
+    },
+    {
+      "id": "A2:knm:batch032-direct-nee:1",
+      "field": "questions.0.explanation",
+      "before": "De buurvrouw wil nu niet op de koffie komen en zegt dat duidelijk. Dat past bij de directe manier van praten die veel mensen gebruiken. Deze woorden bewijzen niet dat zij boos is of al het contact wil stoppen.",
+      "after": "De buurvrouw wil nu niet op de koffie komen en zegt dat duidelijk. Dat past bij de directe manier van praten die veel mensen gebruiken. Zij bedoelt dus echt nee. Het betekent ook niet dat zij al het contact wil stoppen.",
+      "reason": "This follows from the new B. The explanation now says why B fails ('Zij bedoelt dus echt nee.') and why C fails, and it no longer mentions an anger option that is gone. No option letters are named."
+    },
+    {
+      "id": "A2:knm:batch032-direct-nee:1",
+      "field": "sourceNote",
+      "before": "Regeling inburgering 2021, bijlage 2, consolidated version 'Geldend van 07-10-2026 t/m heden' (the previously cited version of 2026-04-18 was valid until 06-10-2026; Bijlage 2 itself has been in force since 2025-07-01), opened 2026-10-14 with WebFetch and retrieved in full by HTTP. Eindterm 2.1.2: 'Weet dat veel mensen in Nederland zich direct kunnen uiten.' Refusing an invitation explicitly is an authored example of directness. The item does not infer the speaker’s private emotions or future relationship. Distractors add unsupported emotional or permanent intentions. Stable objective; re-check after KNM revisions.",
+      "after": "Regeling inburgering 2021, bijlage 2, consolidated version 'Geldend van 07-10-2026 t/m heden' (the previously cited version of 2026-04-18 was valid until 06-10-2026; Bijlage 2 itself has been in force since 2025-07-01), opened 2026-10-14 with WebFetch and retrieved in full by HTTP. Eindterm 2.1.2: 'Weet dat veel mensen in Nederland zich direct kunnen uiten.' Refusing an invitation explicitly is an authored example of directness. The item does not infer the speaker’s private emotions or future relationship. Distractors add an unsupported hidden wish (a polite first 'no') or a permanent intention. Stable objective; re-check after KNM revisions.",
+      "reason": "This follows from the new B. The note's description of the distractors ('emotional … intentions') no longer fit them. Only that sentence changed."
+    },
+    {
+      "id": "A2:knm:batch006-huisartsenpost:1",
+      "field": "questions.0.options.A",
+      "before": "Huisartsenzorg als de eigen praktijk dicht is.",
+      "after": "Een dokter als de praktijk dicht is.",
+      "reason": "This defect was inherited, and the author raised it in doubt 5. The key was the longest option by 10 characters (46/36/35), and it was the only option that repeated the prompt's 'huisarts(enpost)', two key signals the review brief forbids. The new key defines the service in A2 words without that echo. Lengths are now 36/36/35. 'dokter' does not single the key out, because the hospital's emergency department also has doctors. The clip is regenerated anyway because of the apostrophe fix and the reordering."
+    },
+    {
+      "id": "A2:knm:batch006-huisartsenpost:1",
+      "field": "questions.0.evidence",
+      "before": "Dan kunt u voor spoed terecht bij de huisartsenpost.",
+      "after": "Is de huisartsenpraktijk dicht, bijvoorbeeld 's avonds, 's nachts of in het weekend? Dan kunt u voor spoed terecht bij de huisartsenpost.",
+      "reason": "The old evidence began with 'Dan …' and left out the condition 'Is de huisartsenpraktijk dicht …'. The key rests on that condition, the same class of gap that the spec fixed in the bezwaar evidence. The evidence is now the full card, verbatim."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/055-proposed.json: Checked 9 items, 9 questions. Keys: {\"B\":3,\"C\":3,\"A\":3}. Options: {\"3\":9}. Info line: 9 of 9 items are already in the catalogue (expected for a replacement). No failures, no warnings. Rerun after the last edit, with the same result.",
+    "full_final_source_read": true,
+    "base_equals_catalogue": "tmp/content-fix-2026-10-14/base/055-base.json equals the live content/catalogue.json records once revision, questionAudio and images[].file are removed, except for status (\"draft\" instead of \"ai-editorially-reviewed\").",
+    "author_diff_vs_base": "Field-by-field diff: every author change is on the 055 spec list or follows from it (options, prompts, evidence, explanations, card texts, item 3 sourceUrl, sourceNotes, sourceReviewedAt and item 8 alt). Item order, field order, IDs, titles, themes, eindtermen, domains and image briefs are unchanged. There are no media or derived fields and no retired type field.",
+    "proposed_diff_vs_original": "8 field edits in 4 items (eigenrisico C; schoolvakantie prompt and A; direct-nee B, explanation and sourceNote; huisartsenpost A and evidence). Nothing else differs. The file is canonical JSON.stringify(…, null, 2) with a trailing newline.",
+    "audio_locked_items": "Items 4 (scholing), 5 (stroomstoring) and 9 (jeugdfonds) have prompt, options and answer byte-identical to the base. The text built as in scripts/audio.ts (the prompt plus 'A. …' lines) equals the manifest text of their current clips.",
+    "word_limits": "Fact cards have 16–30 words (30 in items 2 and 9). Prompts have 9–20 words (20 in item 6). Every item has exactly three options.",
+    "evidence_verbatim": "9 of 9 evidence quotes are verbatim substrings of the card, and each entails its key.",
+    "key_distribution": "Answer order B C A C B A B A C, so A 3, B 3, C 3. No key repeats in adjacent items. Items 4, 5 and 9 keep their base keys (C, B, C). No explanation names an option letter (checked by regex and by reading).",
+    "key_signals": "Yes/no polarity: item 1 is Ja/Nee*/Nee and item 2 is Ja/Nee/Alleen*, so no key is the odd polarity out. In item 2 the qualified key is the KNM form the blueprint sanctions (§4.5); B ties it for length, and in items 1 and 3 the hedged option is a distractor. Item 6's key ('Kinderopvangtoeslag', 19 characters) is longer than the other options (13 and 11), because the options are single official names; this is inherited and accepted. Item 7's key is 2 characters longer than the next option (39/37/35), within the checker's 2-character tolerance. No other key is the longest. After the edits, no prompt word recurs only in a key.",
+    "apostrophes": "No curly apostrophe or quote in any learner-facing field (prompt, options, card, evidence, explanation, alt). The only ones left are inside English sourceNote texts ('speaker’s', a verbatim 'zorgprogramma’s').",
+    "a2_language": "Card sentences have at most 16 words (item 6). New prompt sentences have 13 words (item 2) and 7, 9 and 3 words (item 3). The new options and explanation sentences use only common words.",
+    "knm_sources": "On 2026-10-14 every cited page was opened with WebFetch and also downloaded by HTTP, so the exact quotes could be checked with grep: 18 Rijksoverheid and wetten.overheid.nl pages plus the Jeugdfonds FAQ. The SZW FAQ PDF could not be decoded by WebFetch, so it was read with pdftotext. Every quote in the nine sourceNotes is verbatim on the current page. All nine eindtermen were read in the current Regeling version, and their mappings are unchanged. Per-item URLs and access dates are under items[].evidence.sources.",
+    "sourceUrl_move_item_3": "https://wetten.overheid.nl/BWBR0045574/2026-10-07#Bijlage2 is the current version (\"Geldend van 07-10-2026 t/m heden\"). The old URL ends at 06-10-2026. Bijlage 2 text is identical in both (diffed) and in force since 2025-07-01 (data-iwt-datum). Correct.",
+    "images": "No image brief changed. Only the alt of batch006-huisartsenpost changed, to match the prompt. No alt gives away a key.",
+    "set_membership": "IDs unchanged. Practice sets: knm-knm-05 (eigenrisico, huisartsenpost), knm-knm-06 (bezwaar), knm-knm-08 (kinderopvangtoeslag), knm-knm-13 (direct-nee, with direct-betekenis), knm-knm-16 (schoolvakantie). In knm-knm-05, neither card nor explanation gives away the other item's key."
+  },
+  "doubt_decisions": [
+    {
+      "doubt": "1. Bezwaar distractor: 'Hij mag bij de politie bezwaar maken.' instead of the spec's 'Hij kan de politie vragen het besluit te veranderen.'",
+      "decision": "Keep the author's wording. The spec wording is trivially true ('kan … vragen'), like the removed aangifte option. The card makes the author's wording false, and so does Awb 6:4. Awb 6:15 forwards a misdirected bezwaarschrift; it does not create a right to object at the police."
+    },
+    {
+      "doubt": "2. Scholing card leaves out 'De cursus telt als werktijd'.",
+      "decision": "Agree. The sentence is true under BW 7:611a lid 2, but the cited FAQ does not say it, and the spec allows only what the cited source supports. It is not needed for the key or the distractors. 'Als het kan, volgt u de cursus in werktijd.' is supported by the FAQ and by lid 2. The simplification 'verplichte cursus' is acceptable at A2."
+    },
+    {
+      "doubt": "3. Direct nee: 'direct' can mean 'straight away'; the item is close to batch018-directheid.",
+      "decision": "Keep 'direct'. It is the card's and the eindterm's word, and both readings lead to the same key. The closeness is real, so the shared 'boos' distractor is replaced by the polite-first-no misconception (reviewer edit). batch018 keeps the anger and complaint misconceptions."
+    },
+    {
+      "doubt": "4. Kinderopvangtoeslag: 'de kosten' versus kinderbijslag; the key is the longest option.",
+      "decision": "Keep. Coming right after 'gaat naar het kinderdagverblijf', 'de kosten' refers to the daycare costs. The card says kinderbijslag is 'een andere regeling'. The spec's longer wording would exceed 20 words and echo 'opvang'. The length difference comes from single-word official names and is accepted."
+    },
+    {
+      "doubt": "5. Huisartsenpost key is the longest option and repeats 'huisarts'.",
+      "decision": "Fixed (reviewer edit). The key is now 'Een dokter als de praktijk dicht is.' (36/36/35 characters), and the evidence is extended to the full card."
+    },
+    {
+      "doubt": "6. Schoolvakantie: hedged key; the sourceNote still mentions a 5-to-18 sentence.",
+      "decision": "Keep the qualified key: it is the KNM yes/no-with-qualification form, B ties it for length, and other items in the batch counter the pattern. Fixed the cues that naming Fatima created: 'haar dochter' in the prompt and Fatima in option A (reviewer edits). Leave the sourceNote: its quote is still verbatim on the cited page and supports eindterm 8.1.3. The wording 'The 5-to-18 sentence' is only a stale label."
+    },
+    {
+      "doubt": "7. Stroomstoring: the 112 page and eindterm 3.2.1 speak of the 'elektriciteitsmaatschappij' / 'leverancier van de nutsvoorziening'.",
+      "decision": "Keep the explanation. The item's own source names the netbeheerder. 'Elektriciteitsmaatschappij' and the eindterm's 'leverancier van de nutsvoorziening' are generic terms, and no option names the supplier. The Rijksoverheid energierekening page confirms that the supplier issues the bill. Prompt and options are audio-locked and stay unchanged."
+    },
+    {
+      "doubt": "8. Jeugdfonds hedge 'kan dan de contributie betalen'.",
+      "decision": "Accept. The fund works with 'veel' gemeenten, reviews each application and 'meestal' pays a large part or all of the fee. The card is exactly 30 words."
+    },
+    {
+      "doubt": "9. Eigen risico: the card does not mention the huisartsenpost; medicines are hedged with \"meestal\".",
+      "decision": "Accept the card: its exemption has no conditions, which rules out the evening distractor, and the explanation names the huisartsenpost. Keep 'meestal'. Fixed the polarity cue that the new C created (reviewer edit)."
+    },
+    {
+      "doubt": "10. Source notes.",
+      "decision": "Accept. The notes were checked against today's pages. Only the distractor sentence of the direct-nee note was updated, as a consequence of the new B."
+    }
+  ],
+  "items": [
+    {
+      "id": "A2:knm:batch006-eigenrisico:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "A persona yes/no question with a qualification, as in the official KNM form. The card has 20 words in sentences of 13 and 7, the prompt has 12 words and the options use common words.",
+      "evidence": {
+        "quote": "Voor de huisarts geldt geen eigen risico",
+        "key": "B 'Nee, voor de huisarts geldt het niet.' restates the card's unconditional exemption.",
+        "distractors": {
+          "A": "'Ja, elk bezoek aan de huisarts kost eigen risico.' reverses the card.",
+          "C": "'Nee, maar bij een bezoek 's avonds wel.' adds a time condition that the card does not have. Per the source, the exemption covers huisartsenzorg 'waaronder de huisartsenpost', so C is false at any hour. The explanation says 'Ook 's avonds bij de huisartsenpost betaalt u geen eigen risico.'"
+        },
+        "spec_fix": "Fixed: the old medicines option, which the card did not rule out and which is not false in every case, is gone. The explanation hedges medicines with \"meestal\", because insurers may exclude some.",
+        "sources": [
+          {
+            "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/eigen-risico-zorgverzekering",
+            "accessed": "2026-10-14",
+            "confirms": "'huisartsenzorg (waaronder de huisartsenpost);' has no eigen risico; 'Het verplichte eigen risico voor 2026 is € 385.' (not tested); 'De zorgverzekeraar kan ook bepaalde zorgaanbieders, zorgprogramma’s, medicijnen en hulpmiddelen uitsluiten van het eigen risico.'"
+          },
+          {
+            "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/huisartskosten-op-zorgnota",
+            "accessed": "2026-10-14",
+            "confirms": "'En een bezoek aan de huisarts gaat niet ten koste van uw verplichte eigen risico.'; extra tests such as bloedprikken fall under the eigen risico, 'Net als de geneesmiddelen die een huisarts voorschrijft.'; 'De zorg op de huisartsenpost wordt volledig vergoed.'; 'Uw zorgverzekeraar betaalt rechtstreeks de rekening van uw huisarts.'"
+          },
+          {
+            "url": "https://wetten.overheid.nl/BWBR0045574/2026-10-07#Bijlage2",
+            "accessed": "2026-10-14",
+            "confirms": "Indicator of eindterm 4.4.1: 'weet dat een bezoek aan de huisarts niet ten koste gaat van het eigen risico'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:knm:batch033-schoolvakantie:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "A persona rule-application item in the KNM qualified-answer form. The card has 30 words in sentences of 10, 12 and 8; the prompt has 19 words. Options B and C have 71 characters, on the long side for KNM, but use plain words.",
+      "evidence": {
+        "quote": "als ouders door hun werk in geen enkele schoolvakantie weg kunnen",
+        "key": "The prompt now states that Amina is Fatima's daughter, so the card's single exception for the parents' work entails C, 'Alleen als Fatima door haar werk in geen enkele schoolvakantie weg kan.'",
+        "distractors": {
+          "A": "'Ja, Fatima bepaalt zelf wanneer Amina vrij is.' contradicts 'Vakantie buiten de schoolvakanties mag niet; ouders riskeren een boete.'",
+          "B": "'… nooit vrij …' contradicts the exception and 'De directeur kan maximaal tien dagen vrij geven.'"
+        },
+        "spec_fix": "Fixed: C names Fatima, so 'zij' can no longer be read as Amina. The reviewer edits remove the cues this fix created; see the edits.",
+        "sources": [
+          {
+            "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/leerplicht/leerplicht-schoolvakanties",
+            "accessed": "2026-10-14",
+            "confirms": "'U mag uw kind niet meenemen op vakantie buiten de schoolvakanties wanneer deze leerplichtig is. U kunt een boete krijgen als u dit wel doet.'; the work exception, with seizoensgebonden werk as an example; 'De directeur mag uw kind vrij geven voor maximaal 10 dagen. Dit mag 1 keer in een schooljaar.'; 'dit niet in de eerste 2 weken na de zomervakantie is'. Every quote in the sourceNote is verbatim."
+          },
+          {
+            "url": "https://www.rijksoverheid.nl/themas/onderwijs/leerplicht/geoorloofd-schoolverzuim-en-spijbelen",
+            "accessed": "2026-10-14",
+            "confirms": "'Jongeren tussen de 5 en 18 jaar moeten onderwijs volgen.'"
+          },
+          {
+            "url": "https://wetten.overheid.nl/BWBR0045574/2026-10-07#Bijlage2",
+            "accessed": "2026-10-14",
+            "confirms": "Eindterm 8.1.3, indicator 'weet dat de door de school vastgestelde vakantietijden bindend zijn'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:knm:batch032-direct-nee:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Applying a social norm to a short scene. The card has 16 words, the prompt 19 and the options 42–44 characters in everyday words. The same demand as the official items on directness.",
+      "evidence": {
+        "quote": "Veel mensen in Nederland zeggen direct wat zij willen. Zij kunnen bijvoorbeeld een uitnodiging duidelijk weigeren.",
+        "key": "The neighbour refuses an invitation in plain words, which is the card's example. So A, 'De buurvrouw wil nu niet en zegt dat direct.', is the usual meaning.",
+        "distractors": {
+          "B": "'De buurvrouw wil wel, maar zegt eerst nee.' contradicts 'zeggen direct wat zij willen': her 'nee' means no.",
+          "C": "'De buurvrouw wil helemaal geen contact meer.' turns the refusal of one invitation into ending the relationship, which the card does not support."
+        },
+        "spec_fix": "Fixed: the prompt now says what Sabrina asked, 'op de koffie', and asks a question that the options answer. The new sourceUrl was checked: the 2026-10-07 version shows 'Geldend van 07-10-2026 t/m heden'; the old 2026-04-18 version shows 'Geldend van 18-04-2026 t/m 06-10-2026'. Bijlage 2 is word-for-word identical in both versions and in force since 2025-07-01. Both id=\"Bijlage2\" anchors point to the Eindtermen annex.",
+        "sources": [
+          {
+            "url": "https://wetten.overheid.nl/BWBR0045574/2026-10-07#Bijlage2",
+            "accessed": "2026-10-14",
+            "confirms": "Eindterm 2.1.2: 'Weet dat veel mensen in Nederland zich direct kunnen uiten.'"
+          },
+          {
+            "url": "https://wetten.overheid.nl/BWBR0045574/2026-04-18",
+            "accessed": "2026-10-14",
+            "confirms": "The superseded version is 'Geldend van 18-04-2026 t/m 06-10-2026'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:knm:batch019-scholing:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "A persona question about who pays. The card has 24 words in sentences of 9, 6 and 9; the prompt has 18 words and the options 33–35 characters.",
+      "evidence": {
+        "quote": "Moet u voor uw werk een verplichte cursus volgen? Dan betaalt de werkgever die cursus.",
+        "key": "Julio 'moet daarvoor een cursus volgen' for his work, so by the card 'Zijn werkgever betaalt de cursus.' (C).",
+        "distractors": {
+          "A": "Reverses the rule: Julio pays himself.",
+          "B": "Names the wrong institution: the UWV."
+        },
+        "spec_fix": "Fixed: the card now states the general rule instead of Julio's case. 'Als het kan, volgt u de cursus in werktijd.' is supported by the FAQ.",
+        "audio": "Prompt, options and key are byte-identical to the base and to the manifest clip audio/8e45f096eb359778.mp3, so the clip stays valid.",
+        "sources": [
+          {
+            "url": "https://www.rijksoverheid.nl/documenten/2022/08/02/faq-transparante-arbeidsvoorwaarden",
+            "accessed": "2026-10-14",
+            "confirms": "A brochure of 02-08-2022 with no withdrawal notice. It links the 3-page SZW FAQ PDF."
+          },
+          {
+            "url": "https://open.overheid.nl/repository/ronl-ca958cf89d600038ed4b243754af202a74e183dc/1/pdf/FAQ%20Transparante%20arbeidsvoorwaarden.pdf",
+            "accessed": "2026-10-14",
+            "confirms": "Downloaded and read with pdftotext, because WebFetch cannot decode it (modified 22 May 2025). §2 'Kosteloze scholing' says: 'Opleidingen die de werkgever op grond van de wet of cao verplicht aan de werknemer moet verstrekken, moeten, kosteloos worden aangeboden.' and 'Als dat redelijkerwijs mogelijk is, moet de werknemer de mogelijkheid krijgen de opleiding tijdens werktijd te volgen.' Its example is a new computer system that the employer introduces. Diplomas legally required before starting are 'niet per definitie' covered."
+          },
+          {
+            "url": "https://wetten.overheid.nl/BWBR0005290/2026-10-08/#Boek7_Titeldeel10_Afdeling1_Artikel611a",
+            "accessed": "2026-10-14",
+            "confirms": "Background only, not cited in the record. BW 7:611a lid 2 (Geldend van 08-10-2026 t/m heden) says such training is 'kosteloos aangeboden …, beschouwd als arbeidstijd en, indien mogelijk, vindt deze plaats tijdens de tijdstippen waarop arbeid verricht moet worden.' A future change is scheduled for 01-01-2028."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:knm:batch006-stroomstoring:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "A short persona question with three institution options, the typical KNM form. The card has 24 words in sentences of 11 and 13.",
+      "evidence": {
+        "quote": "Een storing van gas of stroom meldt u bij de netbeheerder.",
+        "key": "The card names the netbeheerder, so B.",
+        "distractors": {
+          "A": "The gemeente is the wrong institution.",
+          "C": "112: the 112 page lists 'De elektriciteit is uitgevallen, de hele straat zit zonder stroom.' as a non-112 case, unless the outage causes a life-threatening situation."
+        },
+        "spec_fix": "Fixed: the explanation now reads '112 is alleen voor spoed, zoals levensgevaar, brand of een misdrijf dat nu gebeurt.', which matches 'Bel 112 in levensbedreigende en heterdaad situaties.' The key logic still holds.",
+        "audio": "Prompt, options and key are byte-identical to the base and to the manifest clip audio/a28279c95d3c6821.mp3 (112 is spoken as \"één één twee\"), so the clip stays valid.",
+        "sources": [
+          {
+            "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/energie-thuis/vragen-over-gas-of-stroomstoringen",
+            "accessed": "2026-10-14",
+            "confirms": "'Bij vragen over gas- of stroomstoringen moet u bij de netbeheerder zijn.'; 'De netbeheerders hebben 1 landelijk storingsnummer: 0800-9009.'; the netbeheerder is responsible for cables, pipes and transport."
+          },
+          {
+            "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/alarmnummer-112/wanneer-112-bellen",
+            "accessed": "2026-10-14",
+            "confirms": "'U belt het alarmnummer 112 voor spoedeisende hulp.' with 'Bij brand.' and 'Of als u getuige bent van een misdrijf.'; 'Bel 112 in levensbedreigende en heterdaad situaties.'; the street-wide outage example with 'Bel uw elektriciteitsmaatschappij om de stroomstoring te melden.'"
+          },
+          {
+            "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/energie-thuis/opbouw-energierekening",
+            "accessed": "2026-10-14",
+            "confirms": "The energieleverancier issues the energierekening, which includes the 'nettarieven'. This supports the kept sentence 'De energieleverancier stuurt de rekening'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:knm:batch007-kinderopvangtoeslag:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "A persona question naming a regeling, with three single-word official names. The card has 29 words in sentences of 3, 16 and 10; the prompt has exactly 20 words.",
+      "evidence": {
+        "quote": "kunnen kinderopvangtoeslag krijgen: een bijdrage in de kosten van de kinderopvang",
+        "key": "Both parents work and the child goes to a kinderdagverblijf, so the contribution to its costs is kinderopvangtoeslag (A).",
+        "distractors": {
+          "B": "'Kinderbijslag is een andere regeling en komt van de SVB' (card).",
+          "C": "Zorgtoeslag is another toeslag, for health-insurance costs; the explanation says it is not meant for opvangkosten."
+        },
+        "spec_fix": "Fixed: 'Welke regeling helpt bij de kosten?' is natural, and all three options are regelingen. 'opvang' is kept out of the prompt, so no prompt word echoes only the key.",
+        "sources": [
+          {
+            "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/kinderopvangtoeslag/wanneer-heb-ik-recht-op-kinderopvangtoeslag",
+            "accessed": "2026-10-14",
+            "confirms": "'Kinderopvangtoeslag is een tegemoetkoming voor ouders in de kosten van de kinderopvang.'; the condition 'U werkt, studeert of volgt een traject om werk te vinden. Of u volgt verplicht een inburgeringscursus …'."
+          },
+          {
+            "url": "https://www.rijksoverheid.nl/onderwerpen/kinderbijslag/vraag-en-antwoord/hoe-vraag-ik-kinderbijslag-aan",
+            "accessed": "2026-10-14",
+            "confirms": "'Kinderbijslag vraagt u aan bij de Sociale Verzekeringsbank (SVB).'"
+          },
+          {
+            "url": "https://www.rijksoverheid.nl/actueel/nieuws/2026/09/21/kabinet-zet-belangrijke-stap-naar-nieuwe-financieringsstelsel-kinderopvang",
+            "accessed": "2026-10-14",
+            "confirms": "The news of 21-09-2026: the bill went to the Raad van State; 'In plaats van de kinderopvangtoeslag komt er vanaf 2029 een inkomensonafhankelijke subsidie …'; 'De kinderopvangtoeslag is in 2027 hoger dan in 2026.' The toeslag is current; retire the item when it is abolished."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:knm:batch007-bezwaar:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "A persona question about a right, with three parallel options of the form \"Hij mag …\". The card has 29 words in sentences of 11, 13 and 5.",
+      "evidence": {
+        "quote": "Dan kunt u bezwaar maken bij de organisatie die het besluit heeft genomen. Dat moet binnen zes weken.",
+        "key": "Both parts of B, 'Hij mag binnen zes weken bezwaar maken.', are in the evidence.",
+        "distractors": {
+          "A": "'Hij mag bij de politie bezwaar maken.': the card says to object at the organisation that made the decision, here the gemeente; Awb 6:4 says the same.",
+          "C": "'Hij mag het besluit gewoon negeren.': not a right; the explanation says 'een besluit negeren mag niet'."
+        },
+        "spec_fix": "Fixed: the evidence now contains the six weeks, and the old 'aangifte' option, a right everyone has, is gone.",
+        "sources": [
+          {
+            "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/bezwaar-en-beroep/bezwaar-tegen-beslissing-overheid",
+            "accessed": "2026-10-14",
+            "confirms": "'U kunt een bezwaar opsturen naar de overheidsorganisatie die de beslissing heeft genomen.'; 'U moet uw bezwaar indienen binnen 6 weken na bekendmaking van het besluit.' The page does not mention the police."
+          },
+          {
+            "url": "https://wetten.overheid.nl/BWBR0005537/2026-08-15",
+            "accessed": "2026-10-14",
+            "confirms": "Background, Awb, Geldend van 15-08-2026 t/m heden. Art. 6:4 lid 1: the bezwaarschrift goes to 'het bestuursorgaan dat het besluit heeft genomen'. Art. 6:7: 'zes weken'. Art. 6:15 has a bezwaarschrift sent to an 'onbevoegd bestuursorgaan' forwarded; that rule repairs a mistake and creates no right to object at the police."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:knm:batch006-huisartsenpost:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "A 'Wat is …?' question with three short options of equal length. Before the edit, the word echo made the item easier than the official form; after it, the item is comparable.",
+      "evidence": {
+        "quote": "Is de huisartsenpraktijk dicht, bijvoorbeeld 's avonds, 's nachts of in het weekend? Dan kunt u voor spoed terecht bij de huisartsenpost.",
+        "key": "When the practice is closed, you go to the huisartsenpost, so A, 'Een dokter als de praktijk dicht is.'",
+        "distractors": {
+          "B": "'De spoedafdeling van het ziekenhuis.' is a different service; the explanation says you go there only after contacting the huisartsenpost, or call 112 in a life-threatening situation.",
+          "C": "'Een apotheek die 's nachts open is.' is a pharmacy, not doctor's care; it is anchored on the prompt's 's nachts."
+        },
+        "spec_fix": "Fixed: the prompt has a straight apostrophe, and the alt says 's nachts like the prompt. The brief is unchanged, so the drawing stays valid.",
+        "sources": [
+          {
+            "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/huisartsenpost-spoedeisende-hulp",
+            "accessed": "2026-10-14",
+            "confirms": "'Is uw huisartsenpraktijk dicht? Dan verwijst de huisarts u door naar de huisartsenpost.'; 'Neem altijd eerst contact op met uw huisartsenpost voordat u naar de spoedeisende hulppost gaat. Behalve bij een levensbedreigende situatie. Dan kunt u het beste direct 112 bellen.'"
+          },
+          {
+            "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+            "accessed": "2026-10-14",
+            "confirms": "'in de avond, nacht of in het weekend kunt u gebruikmaken van een huisartsenpost'"
+          },
+          {
+            "url": "https://wetten.overheid.nl/BWBR0045574/2026-10-07#Bijlage2",
+            "accessed": "2026-10-14",
+            "confirms": "Eindterm 4.3.1 with 'Weet dat voor spoedgevallen avond- en weekenddiensten zijn geregeld'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:knm:batch032-jeugdfonds:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "A persona 'who can help' question with parallel 'X of Y' options of 28–30 characters. The card has 30 words in sentences of 5, 6, 10 and 9.",
+      "evidence": {
+        "quote": "Het Jeugdfonds Sport en Cultuur kan dan de contributie betalen. Ook de gemeente helpt gezinnen met een laag inkomen",
+        "key": "Both bodies the card names are in C, 'De gemeente of een jeugdfonds.'",
+        "distractors": {
+          "A": "The Belastingdienst and the UWV do not pay a club contributie.",
+          "B": "The school or the sportleraar does not pay. A teacher can forward a Jeugdfonds application as an intermediary, but that is not paying or financial help, so C remains clearly the best answer."
+        },
+        "spec_fix": "Fixed: 'kan dan de contributie betalen' and 'na een aanvraag kan het fonds …' match the fund's own FAQ.",
+        "audio": "Prompt, options and key are byte-identical to the base and to the manifest clip audio/7613891600bfbfdd.mp3, so the clip stays valid.",
+        "sources": [
+          {
+            "url": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/sport-en-bewegen/sporten-en-bewegen-voor-kinderen",
+            "accessed": "2026-10-14",
+            "confirms": "'Om hiervoor te zorgen, ondersteunt de overheid het Jeugdfonds voor Sport en Cultuur. Dit fonds betaalt het lesgeld voor kinderen van wie de ouders het lidmaatschap niet kunnen betalen.'"
+          },
+          {
+            "url": "https://jeugdfondssportencultuur.nl/veelgestelde-vragen/",
+            "accessed": "2026-10-14",
+            "confirms": "'We werken samen met veel Nederlandse gemeenten.'; 'Aanvragen gaan via een fonds bij jou in de buurt.'; 'Het Jeugdfonds bekijkt de aanvraag en laat weten of je kind mee kan doen.'; 'Meestal betalen we een groot deel of het hele bedrag van de contributie of het lesgeld.'"
+          },
+          {
+            "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/armoedebestrijding/kan-ik-ondersteuning-voor-mijn-kinderen-krijgen",
+            "accessed": "2026-10-14",
+            "confirms": "'Elke gemeente ondersteunt huishoudens met een laag inkomen. Bijvoorbeeld met een kindpakket.'; participatieregelingen, such as 'Of lid worden bij een sportclub.'"
+          }
+        ]
+      }
+    }
+  ],
+  "media_notes": {
+    "new_question_audio_needed": [
+      "A2:knm:batch006-eigenrisico:1#q1",
+      "A2:knm:batch033-schoolvakantie:1#q1",
+      "A2:knm:batch032-direct-nee:1#q1",
+      "A2:knm:batch007-kinderopvangtoeslag:1#q1",
+      "A2:knm:batch007-bezwaar:1#q1",
+      "A2:knm:batch006-huisartsenpost:1#q1"
+    ],
+    "clips_that_become_stale": [
+      "audio/4f3aec5e518cf3eb.mp3",
+      "audio/76fb1dbe352b3f5e.mp3",
+      "audio/110f086e255689f7.mp3",
+      "audio/2de91818093413ee.mp3",
+      "audio/3637f6ea9d51027b.mp3",
+      "audio/55c80917c581655e.mp3"
+    ],
+    "question_audio_still_valid": [
+      "A2:knm:batch019-scholing:1#q1 (audio/8e45f096eb359778.mp3)",
+      "A2:knm:batch006-stroomstoring:1#q1 (audio/a28279c95d3c6821.mp3)",
+      "A2:knm:batch032-jeugdfonds:1#q1 (audio/7613891600bfbfdd.mp3)"
+    ],
+    "note": "These are the same six clips the author listed; the reviewer edits touch only items that need new audio anyway. Each clip is one narrator reading of the prompt plus the options 'A. …', 'B. …', 'C. …'. The new texts contain \"'s avonds\" and \"'s nachts\", which the round trip should confirm. No image brief changed, so no new drawings are needed."
+  },
+  "coordinator_actions": [
+    "Adopt with npm run batch:adopt 055. It verifies source_sha256 7aa9394d526b37cd941c2aadab4cde0499c6d7ee873fc63b4b8fecaa5ba39f96 against content/batches/055-proposed.json. The batch has no starters file.",
+    "After adoption and integration, generate the six question clips listed in media_notes with the transcription round trip, then prune the six stale clips (npm run media:prune).",
+    "Optional later clean-up: the schoolvakantie sourceNote still labels a quote \"The 5-to-18 sentence\", but the card no longer has that sentence (metadata only).",
+    "Recheck the time-sensitive items: kinderopvangtoeslag (retire when the toeslag is replaced, planned for 2029 and subject to parliament), Jeugdfonds conditions (yearly) and the scholing source (BW 7:611a has a change scheduled for 01-01-2028)."
+  ],
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Prompts or options changed in six items, so new question audio still needs generation and a transcription round trip before those clips pass media review.",
+    "Facts were verified against the pages as published on 14 October 2026. WebFetch could not decode the SZW FAQ PDF, so its text was read from the downloaded file with pdftotext.",
+    "Level verdicts compare each item with the official KNM item form described in content/blueprint.md and docs/research/exam-blueprints-2026-09-10.md. There is no calibrated item bank or learner data behind them.",
+    "Spoken naturalness was judged from the text. The round trip checks transcription accuracy, not prosody."
+  ]
+}

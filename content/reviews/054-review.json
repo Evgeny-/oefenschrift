@@ -1,0 +1,1189 @@
+{
+  "review_id": "054-review",
+  "source": "content/batches/054-original.json",
+  "source_sha256": "7072fb25d5f092f0d2ca8c0db5de5b67389d6ef48464fe33c2203727aacb970e",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-14",
+  "reviewer": "Independent AI reviewer (Claude Opus 5.5) in a separate context from the author; no Smithers",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "B1:reading:batch034-bewonersvergunning:1",
+    "B1:reading:batch010-ploegendienst:1",
+    "B1:reading:batch024-gratis-zwemles:1",
+    "B1:reading:batch011-verlofregeling:1",
+    "B1:reading:batch002-cursusfonds:1",
+    "B1:reading:batch010-deelexamens:1",
+    "B1:reading:batch034-zelfroosteren:1",
+    "B1:reading:batch035-mediatheek:1"
+  ],
+  "item_count": 8,
+  "edits": [
+    {
+      "id": "B1:reading:batch002-cursusfonds:1",
+      "field": "questions[q1].options.C",
+      "before": "Op de afdeling waar de lessen plaatsvinden.",
+      "after": "Op de vraag of de medewerker op kantoor werkt.",
+      "reason": "The old option had no anchor in the text (no department or place of lessons is mentioned) and the explanation refuted 'werkplek', which the option did not say. The batch-040 rationale shows the option was meant to test 'ook als u niet op kantoor werkt'; the new option is anchored there and clearly false (rubric 7, 12)."
+    },
+    {
+      "id": "B1:reading:batch002-cursusfonds:1",
+      "field": "questions[q1].explanation",
+      "before": "U bespreekt met uw leidinggevende wat u wilt leren en hoe u dat tijdens het werk kunt gebruiken; daarna beoordeelt die uw aanvraag. Het gaat dus om de bruikbaarheid voor het werk; de cursusnaam of werkplek alleen bepaalt dit niet.",
+      "after": "U bespreekt met uw leidinggevende wat u wilt leren en hoe u dat tijdens het werk kunt gebruiken; daarna beoordeelt die uw aanvraag. Het gaat dus om de bruikbaarheid voor het werk. Over de bekendheid van de cursusaanbieder zegt de tekst niets, en een cursus kan ook passen als u niet op kantoor werkt.",
+      "reason": "Consequential: the last clause now refutes options A and C with the text; 'alleen bepaalt dit niet' implied that name or workplace partly decide (rubric 9, 12)."
+    },
+    {
+      "id": "B1:reading:batch010-deelexamens:1",
+      "field": "text",
+      "before": "Wie een deel niet haalt, verliest een maand en geen jaar.",
+      "after": "Wie een deel niet haalt, verliest een maand en geen half jaar.",
+      "reason": "Timing consistency, the same kind of defect as fix 6: after 'aan het einde van de opleiding' there is no yearly exam that would cost a year, and the writer's own example says Modibo waited half a year for his resit. No question or evidence quote contains the sentence; q2 option B stays clearly false."
+    }
+  ],
+  "rejected": [],
+  "decisions_on_author_doubts": [
+    {
+      "doubt": "bewonersvergunning: smallest rewrite, four-sentence q4 evidence, 642 words",
+      "decision": "Accepted. The stop rule is explicit for every move out of the zone; the evidence is the shortest contiguous verbatim span that entails the key; A is contradicted directly and the month calculation remains."
+    },
+    {
+      "doubt": "ploegendienst q4 option A says 'doorgegeven', the text 'in de app staan'",
+      "decision": "Accepted unchanged. Same meaning; the option fails on the rest rule, not on the wording."
+    },
+    {
+      "doubt": "gratis-zwemles q5 option C still partly supported?",
+      "decision": "No. The 'keuze' sentence diagnoses the cause; the closing call now asks for free lessons, the thesis and the Westerhout model describe free lessons via the municipality, and nothing calls for school swimming at all primary schools. B is clearly the best summary; C stays as an anchored, false distractor. The repeated 'gratis zwemles' and 'alle gemeenten' (including Westerhout) are rhetorical and acceptable."
+    },
+    {
+      "doubt": "gratis-zwemles q5/q6 keys overlap",
+      "decision": "Acceptable. q5 asks for the content of the opinion, q6 for the communicative function; on a persuasive text the purpose key necessarily names the thesis, as the spec required, and the official exam pairs opinion and purpose items on such texts. Neither key is guessable without reading the thesis, and both distractor sets are clearly false."
+    },
+    {
+      "doubt": "gratis-zwemles q6 warning-like sentences",
+      "decision": "No competition: the warning option is limited to currents in recreational lakes (one anecdote), and the text's structure is thesis, arguments, rebuttal and call."
+    },
+    {
+      "doubt": "cursusfonds q1 evidence and option C",
+      "decision": "The new evidence entails the key (the discussion of how you can use the course at work precedes the manager's assessment). Option C was edited: see edits."
+    },
+    {
+      "doubt": "historical evidence overlay content/evidence/001-existing.json",
+      "decision": "Verified in scripts/content.ts: overlays are skipped for IDs owned by a reviewed batch ('if (owners.has(id)) continue;'); this review lists all eight IDs in replaces, so ownership passes to batch 054."
+    },
+    {
+      "doubt": "deelexamens: Jari Postma kept in zelfroosteren; Jari as mediatheek student; 'einde van de opleiding' twice",
+      "decision": "Accepted. Jari Postma now names only the nurse; first-name reuse is ordinary persona reuse; the two end-of-programme mentions are consistent."
+    },
+    {
+      "doubt": "deelexamens 'verliest een maand en geen jaar'",
+      "decision": "Edited to 'geen half jaar' (see edits)."
+    },
+    {
+      "doubt": "verlofregeling q2 option lengths",
+      "decision": "Accepted: parallel indirect questions; the key (62 characters) is not the longest."
+    }
+  ],
+  "checks": {
+    "full_final_source_read": "All 8 texts and 51 questions (prompts, options, keys, evidence, explanations) read in full in the proposed file; every key proved from its quote and every distractor tested as a competing answer.",
+    "spec_and_instructions_read": [
+      "tmp/content-fix-2026-10-14/spec/review-common.md",
+      "tmp/content-fix-2026-10-14/spec/common.md",
+      "tmp/content-fix-2026-10-14/spec/053-054.md (054 section)",
+      "docs/briefs/review.md",
+      "docs/briefs/author.md",
+      "content/reviews/rubric.md",
+      "content/blueprint.md (sections 1, 3, 4.6, 5, 8, 9, 10, 12)",
+      "docs/research/exam-blueprints-2026-09-10.md section 3.2",
+      "docs/research/content-workflow.md sections 3-4",
+      "docs/research/content-and-feedback-audit-2026-10-14.md B1 reading findings",
+      "content/batches/054-notes.md"
+    ],
+    "base_vs_catalogue": "tmp/content-fix-2026-10-14/base/054-base.json equals the catalogue records except revision (absent) and status (draft).",
+    "author_diff_vs_base": "Field-by-field diff of content/batches/054-original.json against the base: only the fields in the notes' tables changed; every change is one of spec fixes 1-8 or a direct consequence (evidence, explanation); item, question and field order unchanged; no media or derived fields, no type field, status draft, targetLevelValidated false.",
+    "author_file_sha256": "0d89ea0d51bce1051b35f51dc1adec931d69ed0c10872988d8aa25298af603cc",
+    "fixes_verified": {
+      "bewonersvergunning": "Stop rule now explicit for a move to another zone; refund conditional on a move ending the permit; q4 evidence verbatim.",
+      "ploegendienst": "q4 prompt asks whether the swap is allowed; options fit; q2 explanation no longer claims sleeping is new.",
+      "gratis-zwemles": "Self-label removed; closing call asks for free lessons; 'je redden' fixed in text, q3 evidence and explanation; q6 options overtuigen/waarschuwen/informeren with key A, evidence and explanation rewritten.",
+      "verlofregeling": "q2 option C replaced by a clearly unsupported, anchored distractor; explanation refutes it.",
+      "cursusfonds": "'Ga er niet van uit', 'kosten maken' (text and q2 evidence), q1 evidence quotes the manager-assessment sentences verbatim.",
+      "deelexamens": "'aan het einde van de opleiding'; byline renamed to Thijs Veenstra.",
+      "zelfroosteren": "q7 option C reads 'pas laat invullen'.",
+      "mediatheek": "q3 explanation no longer claims the current borrower gets no message."
+    },
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/054-proposed.json: 'Checked 8 items, 51 questions. Keys: {\"B\":17,\"A\":17,\"C\":17}. Options: {\"3\":51}.' plus the expected info line that all 8 items are already in the catalogue; no failures, no warnings.",
+    "evidence_verbatim": "All 51 evidence quotes are verbatim substrings of their item text.",
+    "keys": "A 17, B 17, C 17 of 51 (33% each); unchanged from the published items; no letter more than twice in a row within a text; no key is the longest option by more than two characters.",
+    "length_and_sentences": "All texts 459-657 words (B1 range 400-700); mean sentence length 13.3-16.7 words; longest sentence 29 words (none over 30).",
+    "structure": "Every text has 5-7 three-option questions and ends with 'Wat is het doel van deze tekst?'; each non-look-up text has at least one opinion, inference or summary item; the look-up text has a two-figure quantity item and four rule applications; taskType, textType and domain fit each text.",
+    "name_checks": "Thijs Veenstra: no occurrence of 'Thijs' or 'Veenstra' in content/catalogue.json, content/batches, content/hints, content/practice-sets.json or the fix bases (the only repository hit for 'Thijs' is an ElevenLabs voice name in docs/research/voice-audition-2026-09-17.md, not content); not on the English or Dutch Wikipedia 'Veenstra' lists; web search on 14 October 2026 found no public figure of that name. Jari Postma remains only in zelfroosteren. Unchanged full names (Farah Benali, Thérèse Vermeulen, Thérèse Kool, Hilde Brandsma) and invented organisations (Broodfabriek De Korenaar, Transportbedrijf Noordhaven, Hoogmeer College, Streekziekenhuis Bronwaard, Wierdam, Westerhout) spot-checked on the web: no public figure, business or municipality found.",
+    "integration_mechanics": "scripts/content.ts requires replaces for IDs owned by earlier reviewed batches and skips historical evidence overlays for owned IDs; a proposed file whose hash matches source_sha256 is skipped until npm run batch:adopt 054.",
+    "knm_sources": "Not applicable: no KNM items.",
+    "media": "B1 reading items carry no audio or images; no media field in the proposed file."
+  },
+  "items": [
+    {
+      "id": "B1:reading:batch034-bewonersvergunning:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Look-up text with persona scanning, one quantity item that combines two figures (216 + 432) and four rule applications; the explicit stop rule turns q4 into a rule-plus-month calculation instead of an ambiguity. Comparable to catalogue opzoektekst items batch024-examenreglement and batch010-busabonnement.",
+      "off_target_level": false,
+      "taskType": "opzoektekst",
+      "textType": "instructief",
+      "domain": "overig",
+      "words": 642,
+      "sentence_statistics": {
+        "count": 39,
+        "mean": 16.1,
+        "maximum": 29
+      },
+      "keys": "BBACCAB",
+      "comparators": [
+        "B1:reading:batch024-examenreglement:1",
+        "B1:reading:batch010-busabonnement:1"
+      ],
+      "evidence": [
+        {
+          "question": "q1",
+          "skill": "rule-application",
+          "answer": "B",
+          "quote": "Hoort bij uw woning een eigen parkeerplaats of een garage, dan komt u niet in aanmerking voor een vergunning.",
+          "key": "A garage at the home excludes her from a permit.",
+          "distractors": {
+            "A": {
+              "text": "Zij komt op de wachtlijst en krijgt bericht zodra er in zone C weer plaats is.",
+              "reason": "The waiting list applies to a second permit in a full zone."
+            },
+            "C": {
+              "text": "Zij krijgt een vergunning, maar betaalt daarvoor het dubbele tarief.",
+              "reason": "Double the tariff is the price of a second permit, not a garage exception."
+            }
+          }
+        },
+        {
+          "question": "q2",
+          "skill": "quantity",
+          "answer": "B",
+          "quote": "Een eerste vergunning kost in zone A 216 euro per jaar en in de zones B tot en met F 132 euro per jaar. Een tweede vergunning kost het dubbele van het tarief van uw zone.",
+          "key": "Zone A: 216 for the first permit plus 2 x 216 = 432 for the second, 648 in total.",
+          "distractors": {
+            "A": {
+              "text": "432 euro",
+              "reason": "432 counts the first-permit tariff twice."
+            },
+            "C": {
+              "text": "864 euro",
+              "reason": "864 counts the doubled tariff twice."
+            }
+          }
+        },
+        {
+          "question": "q3",
+          "skill": "rule-application",
+          "answer": "A",
+          "quote": "De bezoekersregeling is er voor alle bewoners van een vergunningzone, dus ook als u zelf geen auto en geen vergunning hebt.",
+          "key": "The visitor scheme (scratch cards or app) is for all residents of a zone, also without car or permit.",
+          "distractors": {
+            "B": {
+              "text": "Hij kan alleen kraskaarten kopen, omdat hij geen vergunning heeft.",
+              "reason": "'Alleen kraskaarten' is contradicted: the scheme applies even without a permit."
+            },
+            "C": {
+              "text": "Hij kan een vergunning aanvragen op het kenteken van zijn dochter.",
+              "reason": "The car must be registered to the applicant, not to the daughter."
+            }
+          }
+        },
+        {
+          "question": "q4",
+          "skill": "rule-application",
+          "answer": "C",
+          "quote": "Verhuist u naar een andere zone, dan vraagt u een nieuwe vergunning aan; uw oude vergunning stopt op de dag van de verhuizing. Verhuist u naar een adres buiten de vergunningzones of naar een andere gemeente, dan hebt u geen vergunning meer nodig. Ook dan stopt uw vergunning op de dag van de verhuizing. Stopt uw vergunning door een verhuizing, dan krijgt u het geld terug voor de volle maanden die nog niet begonnen zijn.",
+          "key": "A move to another zone: new application, the old permit stops on the day of the move (12 May); refund for the full months not yet begun, so from June.",
+          "distractors": {
+            "A": {
+              "text": "Die blijft na 12 mei geldig tot zijn nieuwe vergunning voor zone A ingaat.",
+              "reason": "Contradicted in so many words by 'uw oude vergunning stopt op de dag van de verhuizing' in the other-zone sentence."
+            },
+            "B": {
+              "text": "Die gaat op 12 mei automatisch over naar zone A, zodra hij de verhuizing meldt.",
+              "reason": "Automatic transfer applies only to a move within the same zone."
+            }
+          }
+        },
+        {
+          "question": "q5",
+          "skill": "rule-application",
+          "answer": "C",
+          "quote": "Aanvragen met de DigiD van iemand anders is niet toegestaan. Hebt u zelf geen DigiD, maak dan een afspraak bij de balie in het gemeentehuis en neem uw identiteitsbewijs en uw kentekenbewijs mee.",
+          "key": "Without DigiD: appointment at the desk with ID and vehicle registration certificate ('zijn papieren').",
+          "distractors": {
+            "A": {
+              "text": "Hij laat de aanvraag doen door zijn zoon Sem, met de DigiD van Sem.",
+              "reason": "Applying with someone else's DigiD is not allowed."
+            },
+            "B": {
+              "text": "Hij gaat zonder afspraak naar de balie en laat daar zijn identiteitsbewijs zien.",
+              "reason": "Without appointment and with only an ID does not follow the rule."
+            }
+          }
+        },
+        {
+          "question": "q6",
+          "skill": "inference",
+          "answer": "A",
+          "quote": "De vergunning is digitaal en gekoppeld aan uw kenteken; de parkeercontroleur ziet in het systeem dat u mag parkeren. U ontvangt dus geen kaart of sticker.",
+          "key": "The permit is digital and linked to the licence plate; the controller sees it in the system.",
+          "distractors": {
+            "B": {
+              "text": "Karim laat het bericht van de gemeente op zijn telefoon zien.",
+              "reason": "The controller checks the system; the message is not shown."
+            },
+            "C": {
+              "text": "Achter de voorruit van Karim ligt een kraskaart met de datum.",
+              "reason": "Scratch cards are for visitors, not for a resident's permit."
+            }
+          }
+        },
+        {
+          "question": "q7",
+          "skill": "purpose",
+          "answer": "B",
+          "quote": "Op deze pagina leest u voor wie de vergunning is, wat die kost en hoe u die aanvraagt.",
+          "key": "The page sets out the rules: who, what it costs, how to apply (uitleggen/informeren).",
+          "distractors": {
+            "A": {
+              "text": "De lezer overtuigen dat de bezoekersapp handiger is dan de bezoekerskraskaarten.",
+              "reason": "Both visitor options are presented side by side without preference."
+            },
+            "C": {
+              "text": "De lezer waarschuwen voor de hoge kosten van een tweede auto in het centrum van Wierdam.",
+              "reason": "The second-permit price is one neutral sentence, not a warning."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "B1:reading:batch010-ploegendienst:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Interview with an opinion item, an inference item about the function of an anecdote and a rule application that needs a rest-time calculation (22.00 to 6.00). Comparable to interviews batch034-deeltijd-hbo and batch002-volkstuin.",
+      "off_target_level": false,
+      "taskType": "interview",
+      "textType": "beschouwend",
+      "domain": "werk",
+      "words": 588,
+      "sentence_statistics": {
+        "count": 44,
+        "mean": 13.4,
+        "maximum": 27
+      },
+      "keys": "ACBCAB",
+      "comparators": [
+        "B1:reading:batch034-deeltijd-hbo:1",
+        "B1:reading:batch002-volkstuin:1"
+      ],
+      "evidence": [
+        {
+          "question": "q1",
+          "skill": "detail",
+          "answer": "A",
+          "quote": "Vroeger draaiden we precies de andere kant op: van nacht naar middag naar ochtend. Daar werden veel mensen moe van, omdat het lichaam makkelijker went aan later naar bed gaan dan aan eerder naar bed gaan. Sinds we voorwaarts draaien, zijn er duidelijk minder ziekmeldingen.",
+          "key": "The old backward rotation tired people because the body adapts more easily to going to bed later; forward rotation means each shift starts later.",
+          "distractors": {
+            "B": {
+              "text": "Medewerkers wilden hun vrije dagen liever achter elkaar hebben.",
+              "reason": "The four free days are a feature of the rota, not the reason for the change."
+            },
+            "C": {
+              "text": "In de nachtploeg meldden te veel medewerkers zich elke week ziek.",
+              "reason": "Fewer sick reports are the result; a weekly night-shift sick wave is not stated."
+            }
+          }
+        },
+        {
+          "question": "q2",
+          "skill": "detail",
+          "answer": "C",
+          "quote": "Daarom werkt niemand meer dan drie nachten achter elkaar. In de nachtdienst is de pauze even lang als overdag, maar er is een rustruimte waar je twintig minuten mag slapen. Wie dat probeert, is daarna meestal scherper. Verder serveert de kantine 's nachts lichte maaltijden, want een zware maaltijd om drie uur 's nachts ligt urenlang op je maag. Medewerkers van 55 jaar en ouder kunnen vragen om minder nachten.",
+          "key": "'niemand werkt meer dan drie nachten achter elkaar'.",
+          "distractors": {
+            "A": {
+              "text": "Nachtwerkers krijgen een langere pauze dan collega's overdag.",
+              "reason": "The night break is as long as the day break."
+            },
+            "B": {
+              "text": "Medewerkers boven de 55 werken niet meer in de nacht.",
+              "reason": "Staff of 55+ may ask for fewer nights, not none."
+            }
+          }
+        },
+        {
+          "question": "q3",
+          "skill": "opinion",
+          "answer": "B",
+          "quote": "Veel mensen denken dat de nachtdienst het slechtst is voor een gezin. Volgens mij is dat de middagdienst. Je vertrekt als de kinderen uit school komen en je bent thuis als ze al slapen.",
+          "key": "Farah: not the night shift but the afternoon shift is worst for a family.",
+          "distractors": {
+            "A": {
+              "text": "Die is voor gezinnen het makkelijkst te combineren met school.",
+              "reason": "Reverses her opinion."
+            },
+            "C": {
+              "text": "Die geeft de meeste problemen met slapen.",
+              "reason": "Sleep problems belong to the night shift, not the afternoon shift."
+            }
+          }
+        },
+        {
+          "question": "q4",
+          "skill": "rule-application",
+          "answer": "C",
+          "quote": "Er gelden wel drie regels: een ruil moet uiterlijk 48 uur van tevoren in de app staan, en tussen twee diensten moet minstens elf uur rust zitten. Verder mag je alleen ruilen met een collega die dezelfde machines mag bedienen; in welke ploeg die collega zit, maakt niet uit.",
+          "key": "Monday's afternoon shift ends 22.00, Tuesday's morning shift starts 6.00: 8 hours rest against a minimum of 11, so the swap is not allowed.",
+          "distractors": {
+            "A": {
+              "text": "Ja, want de ruil wordt meer dan 48 uur van tevoren doorgegeven.",
+              "reason": "The 48-hour condition is met, but the rest rule is broken, so 'Ja' is wrong."
+            },
+            "B": {
+              "text": "Nee, want de collega werkt in een andere ploeg dan Julio.",
+              "reason": "'in welke ploeg die collega zit, maakt niet uit'."
+            }
+          }
+        },
+        {
+          "question": "q5",
+          "skill": "inference",
+          "answer": "A",
+          "quote": "Vroeger liep elke ruil via mijn bureau. Ik zocht dan zelf een vervanger, en meestal was er wel iemand ontevreden over mijn keuze. Nu zetten collega's een ruil zelf in de roosterapp, en ik hoor veel minder klachten.",
+          "key": "She contrasts her own choices (someone always unhappy) with colleagues arranging swaps themselves (fewer complaints).",
+          "distractors": {
+            "B": {
+              "text": "Om uit te leggen waarom er nu strenge regels voor ruilen zijn.",
+              "reason": "The three rules follow separately; the anecdote does not justify them and they are not called strict."
+            },
+            "C": {
+              "text": "Om duidelijk te maken dat het ruilen haar vroeger te veel werk kostte.",
+              "reason": "She mentions dissatisfaction, not that it was too much work."
+            }
+          }
+        },
+        {
+          "question": "q6",
+          "skill": "purpose",
+          "answer": "B",
+          "quote": "In dit nummer vertelt zij hoe het bedrijf omgaat met slaap, tijd voor het gezin en het ruilen van diensten.",
+          "key": "The interview lets a planner explain how the company handles sleep, family and swapping.",
+          "distractors": {
+            "A": {
+              "text": "De lezer waarschuwen voor de gevolgen van nachtdiensten voor de gezondheid.",
+              "reason": "Health effects are discussed, but the text does not warn."
+            },
+            "C": {
+              "text": "De lezer overtuigen dat diensten ruilen via een app het beste werkt.",
+              "reason": "The app is one of several topics; no persuasion."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "B1:reading:batch024-gratis-zwemles:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Persuasive opinion piece; without the planted self-label the purpose item now requires recognising thesis, arguments, rebuttal and call, which restores the intended B1 demand (slightly harder than the published version, comparable to the type). Comparable to batch035-te-voet and batch003-warmtefonds.",
+      "off_target_level": false,
+      "taskType": "artikel",
+      "textType": "persuasief",
+      "domain": "overig",
+      "words": 623,
+      "sentence_statistics": {
+        "count": 41,
+        "mean": 15.2,
+        "maximum": 27
+      },
+      "keys": "BCACBA",
+      "comparators": [
+        "B1:reading:batch035-te-voet:1",
+        "B1:reading:batch003-warmtefonds:1"
+      ],
+      "evidence": [
+        {
+          "question": "q1",
+          "skill": "detail",
+          "answer": "B",
+          "quote": "Vroeger leerde bijna ieder kind zwemmen op school. Dat schoolzwemmen is in de meeste gemeenten verdwenen, en de rekening ligt nu bij de ouders.",
+          "key": "School swimming disappeared in most municipalities, so the bill now lies with the parents.",
+          "distractors": {
+            "A": {
+              "text": "Omdat de regeling voor gezinnen met een laag inkomen is afgeschaft.",
+              "reason": "The low-income scheme still exists ('Er bestaat een regeling')."
+            },
+            "C": {
+              "text": "Omdat de zwembaden de prijs van zwemlessen sterk hebben verhoogd.",
+              "reason": "No price rise by pools is mentioned; only diploma costs."
+            }
+          }
+        },
+        {
+          "question": "q2",
+          "skill": "detail",
+          "answer": "C",
+          "quote": "Er bestaat een regeling voor gezinnen met een laag inkomen, maar die helpt alleen wie onder een bepaalde grens zit. Het gezin dat net iets meer verdient, krijgt niets en moet kiezen: zwemles, of de nieuwe fiets en de schoolreis. Precies die gezinnen zie ik afhaken.",
+          "key": "Families just above the income limit get nothing and drop out.",
+          "distractors": {
+            "A": {
+              "text": "Gezinnen met een laag inkomen die de regeling niet kennen.",
+              "reason": "Awareness of the scheme is not mentioned."
+            },
+            "B": {
+              "text": "Gezinnen met één kind dat alleen diploma A wil halen.",
+              "reason": "Not mentioned; more children make costs higher, the drop-out group is defined by income."
+            }
+          }
+        },
+        {
+          "question": "q3",
+          "skill": "inference",
+          "answer": "A",
+          "quote": "Met alleen diploma A kun je je in een zwembad redden, maar in open water, met wind en stroming, is dat niet genoeg. Haar moeder vertelde mij later dat ze die middag geen moment rustig was geweest. Amina is geen uitzondering; in mijn lessen zie ik elk jaar meer kinderen die na A verdwijnen.",
+          "key": "Diploma A is enough to manage in a pool ('je redden'), not in open water with wind and currents.",
+          "distractors": {
+            "B": {
+              "text": "Dat ouders bij een tweede kind vaak stoppen met de lessen van het eerste.",
+              "reason": "The brother explains why her lessons stopped; the writer generalises about children leaving after A, not about second children."
+            },
+            "C": {
+              "text": "Dat een school met jonge kinderen beter niet naar een recreatieplas gaat.",
+              "reason": "The writer does not criticise the school trip."
+            }
+          }
+        },
+        {
+          "question": "q4",
+          "skill": "detail",
+          "answer": "C",
+          "quote": "En de meeste ouders willen niets liever dan dat hun kind leert zwemmen; het probleem is niet hun verantwoordelijkheid, maar hun portemonnee. Bovendien vinden we het heel gewoon dat de gemeente de gymzaal, de speeltuin en de bibliotheekpas voor kinderen betaalt.",
+          "key": "Parents want their child to learn to swim; the problem is their purse, not their responsibility.",
+          "distractors": {
+            "A": {
+              "text": "Ouders hoeven niets te regelen, omdat de school de zwemles al betaalt.",
+              "reason": "School swimming has disappeared, so schools do not pay."
+            },
+            "B": {
+              "text": "Ouders vergeten de lessen als de gemeente ze niet verplicht stelt.",
+              "reason": "The Westerhout rule concerns absences from free lessons, not a municipal obligation."
+            }
+          }
+        },
+        {
+          "question": "q5",
+          "skill": "summary",
+          "answer": "B",
+          "quote": "Daarom vind ik dat elke gemeente gratis zwemles moet aanbieden aan alle kinderen.",
+          "key": "Thesis: every municipality should offer free swimming lessons to all children, because a child who cannot swim costs far more.",
+          "distractors": {
+            "A": {
+              "text": "Ouders moeten hun kind na diploma A op les houden, ook als dat hun veel geld kost.",
+              "reason": "Puts the cost on parents, the opposite of her view."
+            },
+            "C": {
+              "text": "Gemeenten moeten het schoolzwemmen weer invoeren op alle basisscholen in het land.",
+              "reason": "She names the past choice as the cause, but her call (now 'gratis zwemles aan te bieden') and the Westerhout model are free lessons via the municipality, not reintroducing school swimming at all primary schools."
+            }
+          }
+        },
+        {
+          "question": "q6",
+          "skill": "purpose",
+          "answer": "A",
+          "quote": "Als zwemles een luxe wordt, betalen we daar als land een hoge prijs voor. Daarom vind ik dat elke gemeente gratis zwemles moet aanbieden aan alle kinderen.",
+          "key": "Thesis with reason, arguments, rebuttal of two objections and a closing call: overtuigen.",
+          "distractors": {
+            "B": {
+              "text": "De lezer waarschuwen voor de gevaren van stroming in recreatieplassen.",
+              "reason": "Wind and currents occur only in the Amina anecdote; one example is not the purpose."
+            },
+            "C": {
+              "text": "De lezer informeren over de kosten van een zwemdiploma in verschillende gemeenten.",
+              "reason": "Costs are given only for 'onze regio', as an argument."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "B1:reading:batch011-verlofregeling:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Regulation with conditional rules, a date calculation, a two-figure leave count and an inference from the introduction; the new q2 distractor is anchored in sections 4-5 and clearly false. Comparable to batch035-mediatheek and batch024-examenreglement.",
+      "off_target_level": false,
+      "taskType": "voorwaarden",
+      "textType": "instructief",
+      "domain": "werk",
+      "words": 550,
+      "sentence_statistics": {
+        "count": 36,
+        "mean": 14.8,
+        "maximum": 26
+      },
+      "keys": "CABABCA",
+      "comparators": [
+        "B1:reading:batch035-mediatheek:1",
+        "B1:reading:batch024-examenreglement:1"
+      ],
+      "evidence": [
+        {
+          "question": "q1",
+          "skill": "rule-application",
+          "answer": "C",
+          "quote": "Bent u ziek, dan belt u vóór 8.30 uur uw teamleider. Begint uw dienst vóór 8.30 uur, dan meldt u zich uiterlijk een uur vóór het begin van uw dienst.",
+          "key": "A shift before 8.30: report at the latest one hour before, so before 6.00 for a 7.00 shift, by phone.",
+          "distractors": {
+            "A": {
+              "text": "Vóór 8.30 uur zijn teamleider bellen.",
+              "reason": "The 8.30 limit applies to later shifts."
+            },
+            "B": {
+              "text": "Vóór 7.00 uur een bericht sturen via de app.",
+              "reason": "An app message does not count as a sick report."
+            }
+          }
+        },
+        {
+          "question": "q2",
+          "skill": "detail",
+          "answer": "A",
+          "quote": "Geef bij de melding door hoe lang u verwacht afwezig te zijn, op welk adres en telefoonnummer u bereikbaar bent en welk werk moet worden overgenomen. U hoeft niet te vertellen wat u mankeert; die informatie deelt u alleen met de bedrijfsarts.",
+          "key": "The report gives the expected duration and the address and phone number where the employee can be reached.",
+          "distractors": {
+            "B": {
+              "text": "Welke klachten hij heeft en welke medicijnen hij daarvoor gebruikt.",
+              "reason": "What you suffer from is shared only with the company doctor."
+            },
+            "C": {
+              "text": "Hoeveel vakantiedagen hij nog heeft en wanneer hij die wil opnemen.",
+              "reason": "Holiday days are a separate procedure (sections 4 and 5), not part of the sick report."
+            }
+          }
+        },
+        {
+          "question": "q3",
+          "skill": "detail",
+          "answer": "B",
+          "quote": "De bedrijfsarts beoordeelt wat u wel en niet kunt en adviseert het bedrijf over aangepast werk. Medische gegevens blijven bij de bedrijfsarts; het bedrijf krijgt alleen het advies.",
+          "key": "The company receives only the advice about adapted work.",
+          "distractors": {
+            "A": {
+              "text": "De medische gegevens van de medewerker.",
+              "reason": "Medical data stay with the company doctor."
+            },
+            "C": {
+              "text": "Hoe lang de medewerker nog thuis moet blijven.",
+              "reason": "The expected duration comes from the employee at the report; the doctor's advice concerns work."
+            }
+          }
+        },
+        {
+          "question": "q4",
+          "skill": "rule-application",
+          "answer": "A",
+          "quote": "Krijgt u binnen twee weken na uw aanvraag geen antwoord, dan is uw verlof goedgekeurd.",
+          "key": "No answer within two weeks means approved; two weeks after 3 March is 17 March.",
+          "distractors": {
+            "B": {
+              "text": "Hij moet zijn teamleider om een beslissing vragen.",
+              "reason": "Nothing has to be asked; silence means approval."
+            },
+            "C": {
+              "text": "Zijn vakantie is afgewezen vanwege de bezetting.",
+              "reason": "Occupancy is weighed in a decision; there was no refusal."
+            }
+          }
+        },
+        {
+          "question": "q5",
+          "skill": "inference",
+          "answer": "B",
+          "quote": "In de weken vóór Sinterklaas en Kerst vervoeren wij bijna twee keer zo veel pakketten als anders; daarmee houdt deze regeling rekening.",
+          "key": "Almost twice as many parcels in the weeks before Sinterklaas and Christmas; the regulation takes this into account.",
+          "distractors": {
+            "A": {
+              "text": "Omdat aanvragen voor die weken te laat worden ingediend.",
+              "reason": "The application term is a different rule."
+            },
+            "C": {
+              "text": "Omdat een aaneengesloten vakantie maximaal drie weken duurt.",
+              "reason": "The three-week maximum is a different rule."
+            }
+          }
+        },
+        {
+          "question": "q6",
+          "skill": "quantity",
+          "answer": "C",
+          "quote": "Bij het overlijden van een broer, zus, grootouder of schoonouder krijgt u de dag van de uitvaart vrij. Voor uw verhuizing krijgt u één dag per kalenderjaar en voor uw eigen huwelijk of geregistreerd partnerschap één dag.",
+          "key": "Moving: one day; funeral of a grandparent: the funeral day; two days.",
+          "distractors": {
+            "A": {
+              "text": "Eén dag.",
+              "reason": "Counts only one of the two events."
+            },
+            "B": {
+              "text": "Vijf dagen.",
+              "reason": "Adds the four days that apply to partner, child or parent."
+            }
+          }
+        },
+        {
+          "question": "q7",
+          "skill": "purpose",
+          "answer": "A",
+          "quote": "Hierin staat wat u doet als u ziek bent en hoe u verlof aanvraagt.",
+          "key": "The regulation explains what to do when ill and how to request leave.",
+          "distractors": {
+            "B": {
+              "text": "De lezer overtuigen dat hij zich minder vaak ziek moet melden.",
+              "reason": "No appeal to report sick less often."
+            },
+            "C": {
+              "text": "De lezer waarschuwen voor de drukte in de weken voor Kerst.",
+              "reason": "The December peak is the reason for one rule only."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "B1:reading:batch002-cursusfonds:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Shorter end of the range (459 words, five questions): approval, enrolment proof and reimbursement are separate steps with distinct conditions; q1 now rests on the manager-assessment sentences and its option C is anchored. Comparable to website items batch003-stage and batch011-deeltijdopleiding.",
+      "off_target_level": false,
+      "taskType": "website",
+      "textType": "instructief",
+      "domain": "werk",
+      "words": 459,
+      "sentence_statistics": {
+        "count": 27,
+        "mean": 16.7,
+        "maximum": 20
+      },
+      "keys": "BCABC",
+      "comparators": [
+        "B1:reading:batch003-stage:1",
+        "B1:reading:batch011-deeltijdopleiding:1"
+      ],
+      "evidence": [
+        {
+          "question": "q1",
+          "skill": "detail",
+          "answer": "B",
+          "quote": "Bespreek met uw leidinggevende wat u wilt leren en op welke manier u dit tijdens het werk kunt gebruiken. Die beoordeelt uw aanvraag voordat u zich inschrijft, zodat u vooraf weet of een bijdrage mogelijk is.",
+          "key": "You discuss with your manager what you want to learn and how you can use it at work; the manager then assesses the application: usefulness for the work.",
+          "distractors": {
+            "A": {
+              "text": "Op de bekendheid van de gekozen cursusaanbieder.",
+              "reason": "The provider's reputation is not mentioned."
+            },
+            "C": {
+              "text": "Op de vraag of de medewerker op kantoor werkt.",
+              "reason": "Edited option: a course can fit 'ook als u niet op kantoor werkt'."
+            }
+          }
+        },
+        {
+          "question": "q2",
+          "skill": "inference",
+          "answer": "C",
+          "quote": "Wie zich eerst inschrijft, kan de kosten niet achteraf alsnog bij het fonds neerleggen, ook wanneer de cursus goed past. Deze volgorde voorkomt dat medewerkers kosten maken terwijl het beschikbare geld misschien al is verdeeld.",
+          "key": "Whoever enrols first cannot claim the costs afterwards; the order prevents employees from incurring costs ('kosten maken') while the money may be allocated.",
+          "distractors": {
+            "A": {
+              "text": "Anders ontvangt de werkgever het certificaat te vroeg.",
+              "reason": "The certificate comes after completion."
+            },
+            "B": {
+              "text": "Anders begint de termijn van drie maanden opnieuw.",
+              "reason": "No restart of the three-month term is stated."
+            }
+          }
+        },
+        {
+          "question": "q3",
+          "skill": "rule-application",
+          "answer": "A",
+          "quote": "Stuur het bewijs van inschrijving binnen drie maanden na de goedkeuring naar de medewerker die het fonds beheert. Zonder dat bewijs vervalt de reservering na die termijn en komt het bedrag beschikbaar voor andere aanvragen. Begint de cursus later, dan is dat geen probleem, zolang u uw inschrijving maar op tijd heeft bevestigd.",
+          "key": "Send proof of enrolment within three months of approval; a later start is no problem.",
+          "distractors": {
+            "B": {
+              "text": "Het certificaat van de afgeronde cursus opsturen.",
+              "reason": "The certificate follows completion."
+            },
+            "C": {
+              "text": "Het volledige cursusbedrag opnieuw aanvragen.",
+              "reason": "No new application is needed with timely proof."
+            }
+          }
+        },
+        {
+          "question": "q4",
+          "skill": "detail",
+          "answer": "B",
+          "quote": "Beide documenten zijn nodig: het certificaat toont deelname aan en het betaalbewijs laat zien wat u zelf heeft betaald. De organisatie vergoedt nooit meer dan het toegezegde bedrag, ook wanneer u tijdens de cursus extra materiaal koopt.",
+          "key": "The certificate shows participation and the payment proof shows the costs paid.",
+          "distractors": {
+            "A": {
+              "text": "De beheerder vergelijkt de lesdata met de inschrijfdatum.",
+              "reason": "No comparison of lesson dates with the enrolment date."
+            },
+            "C": {
+              "text": "De beheerder bepaalt daarmee de prijs van extra materiaal.",
+              "reason": "Extra material is never reimbursed beyond the promised amount."
+            }
+          }
+        },
+        {
+          "question": "q5",
+          "skill": "purpose",
+          "answer": "C",
+          "quote": "Op deze pagina staat hoe u een aanvraag voorbereidt en welke stappen daarna nodig zijn.",
+          "key": "The page explains how to prepare an application and the next steps (how the fund works).",
+          "distractors": {
+            "A": {
+              "text": "de lezer overtuigen dat een computercursus de beste keuze is",
+              "reason": "The computer course is one example."
+            },
+            "B": {
+              "text": "de lezer informeren over het lesprogramma van een zorgopleiding",
+              "reason": "No lesson programme is described."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "B1:reading:batch010-deelexamens:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Persuasive article with an example-function item, a rebuttal item, a summary item and the writer's proposal; timing is now internally consistent (end-of-programme exam, half-year resit wait). Comparable to batch035-te-voet and batch003-warmtefonds.",
+      "off_target_level": false,
+      "taskType": "artikel",
+      "textType": "persuasief",
+      "domain": "educatie",
+      "words": 551,
+      "sentence_statistics": {
+        "count": 41,
+        "mean": 13.3,
+        "maximum": 24
+      },
+      "keys": "CABACB",
+      "comparators": [
+        "B1:reading:batch035-te-voet:1",
+        "B1:reading:batch003-warmtefonds:1"
+      ],
+      "evidence": [
+        {
+          "question": "q1",
+          "skill": "detail",
+          "answer": "C",
+          "quote": "Wie in september een hoofdstuk over elektriciteit heeft geleerd, weet daar in juni vaak weinig meer van. Een jongere student kan in de weken voor het examen alles nog eens doornemen. Een volwassene met een baan en een gezin heeft die weken niet. Een deelexamen na elk blok toetst de stof terwijl die nog vers is.",
+          "key": "Material learned in September is largely forgotten by June; a partial exam tests it while it is fresh.",
+          "distractors": {
+            "A": {
+              "text": "Volwassenen hebben minder lesuren en dus minder stof per examen.",
+              "reason": "One evening a week is context; less material per exam is not the argument."
+            },
+            "B": {
+              "text": "Volwassenen kunnen bij een deelexamen zelf het moment kiezen.",
+              "reason": "Choosing the moment is not mentioned; the choice offered is about the exam format."
+            }
+          }
+        },
+        {
+          "question": "q2",
+          "skill": "inference",
+          "answer": "A",
+          "quote": "Uiteindelijk haalde hij het, maar zijn verhaal laat precies zien wat ik bedoel. Niet zijn kennis was het probleem, maar de vorm van het examen. Op een slechte dag kan één toets twee jaar werk doorstrepen.",
+          "key": "Not his knowledge but the exam form was the problem; one test can wipe out two years of work.",
+          "distractors": {
+            "B": {
+              "text": "Herkansingen moeten sneller na het examen worden aangeboden.",
+              "reason": "The half-year wait is part of his story; the writer pleads for partial exams, not faster resits of the big exam."
+            },
+            "C": {
+              "text": "Volwassen cursisten bereiden zich vaak te weinig voor.",
+              "reason": "He studied every evening."
+            }
+          }
+        },
+        {
+          "question": "q3",
+          "skill": "detail",
+          "answer": "B",
+          "quote": "Hoewel het eerste argument sterk klinkt, klopt het niet. Of iemand zijn vak beheerst, blijkt in de praktijk: tijdens de stage en in de praktijktoets aan het einde van de opleiding. Daar laat een cursist zien dat hij alles kan combineren. De theorie kan prima in delen worden getoetst.",
+          "key": "Whether someone masters the trade shows in the internship and the practical test; there one combines everything, so theory can be tested in parts.",
+          "distractors": {
+            "A": {
+              "text": "In de praktijk hoeft een monteur zelden alle kennis tegelijk te gebruiken.",
+              "reason": "He does not deny that a mechanic must combine knowledge."
+            },
+            "C": {
+              "text": "De examencommissie controleert of de losse delen goed bij elkaar passen.",
+              "reason": "The exam committee appears only in the second objection and the closing."
+            }
+          }
+        },
+        {
+          "question": "q4",
+          "skill": "summary",
+          "answer": "A",
+          "quote": "Volwassenen die naast hun werk een vak leren, verdienen een examen dat past bij de manier waarop zij leren.",
+          "key": "Adults who learn a trade next to their work deserve an exam that fits how they learn.",
+          "distractors": {
+            "B": {
+              "text": "Volwassenen moeten minder vaak aan een opleiding naast hun werk beginnen.",
+              "reason": "He wants fewer drop-outs, not fewer starters."
+            },
+            "C": {
+              "text": "Docenten moeten meer tijd krijgen voor het nakijken van deelexamens.",
+              "reason": "Extra work for teachers is an objection he rejects."
+            }
+          }
+        },
+        {
+          "question": "q5",
+          "skill": "detail",
+          "answer": "C",
+          "quote": "Dat moet andersom. Ik roep opleidingen op om deelexamens standaard aan te bieden aan volwassen cursisten. Wie liever één groot examen doet, kan daar dan zelf voor kiezen.",
+          "key": "Partial exams as standard; whoever prefers one big exam can choose it.",
+          "distractors": {
+            "A": {
+              "text": "Het grote eindexamen afschaffen bij alle opleidingen voor volwassenen.",
+              "reason": "The big exam stays available as a choice."
+            },
+            "B": {
+              "text": "Deelexamens alleen toestaan na een verzoek aan de examencommissie.",
+              "reason": "Partial exams on request is the current situation he wants reversed."
+            }
+          }
+        },
+        {
+          "question": "q6",
+          "skill": "purpose",
+          "answer": "B",
+          "quote": "Ik pleit ervoor dat volwassen cursisten hun examen in delen mogen doen, na elk blok van de opleiding.",
+          "key": "'Ik pleit ervoor dat ...', rebuttal and call: overtuigen.",
+          "distractors": {
+            "A": {
+              "text": "De lezer informeren over de manier waarop volwassenen naast hun werk leren.",
+              "reason": "How adults learn is an argument within the plea."
+            },
+            "C": {
+              "text": "De lezer waarschuwen voor het grote aantal volwassen cursisten dat stopt.",
+              "reason": "The drop-out number is an argument within the plea."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "B1:reading:batch034-zelfroosteren:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "News report with a three-step procedure, two opinion items, an example-function item and figures; paraphrase between questions and text throughout. Comparable to batch011-huisartsenpost-drukte and batch002-buurtbus.",
+      "off_target_level": false,
+      "taskType": "nieuwsbericht",
+      "textType": "beschouwend",
+      "domain": "werk",
+      "words": 654,
+      "sentence_statistics": {
+        "count": 48,
+        "mean": 13.6,
+        "maximum": 25
+      },
+      "keys": "CABACBA",
+      "comparators": [
+        "B1:reading:batch011-huisartsenpost-drukte:1",
+        "B1:reading:batch002-buurtbus:1"
+      ],
+      "evidence": [
+        {
+          "question": "q1",
+          "skill": "detail",
+          "answer": "C",
+          "quote": "In de tweede week laat de app zien waar te veel en waar te weinig collega's staan. Een dienst met te veel mensen kleurt rood, en wie daar staat, kan zichzelf naar een andere dienst verplaatsen.",
+          "key": "Week two: the app shows over- and understaffing; whoever is in an overfull shift can move themselves.",
+          "distractors": {
+            "A": {
+              "text": "De verpleegkundigen geven door op welke dagen zij vrij willen zijn.",
+              "reason": "Days off are entered in week one."
+            },
+            "B": {
+              "text": "De planner vult zelf de diensten in die nog leeg zijn.",
+              "reason": "The planner fills open shifts only in week three."
+            }
+          }
+        },
+        {
+          "question": "q2",
+          "skill": "opinion",
+          "answer": "A",
+          "quote": "Vroeger kreeg ik het rooster en moest ik mijn leven daaromheen bouwen. Nu is het andersom. Ik houd mijn trainingsavonden vrij en werk in ruil daarvoor liever een weekend extra.",
+          "key": "Before, he built his life around the roster; now it is the other way round.",
+          "distractors": {
+            "B": {
+              "text": "Hij hoeft minder weekenden te werken dan vroeger.",
+              "reason": "He works an extra weekend in return."
+            },
+            "C": {
+              "text": "Hij kan makkelijker een dienst ruilen met een collega.",
+              "reason": "He hardly needs to swap any more."
+            }
+          }
+        },
+        {
+          "question": "q3",
+          "skill": "detail",
+          "answer": "B",
+          "quote": "Ik maak het rooster niet meer, ik bewaak het. Ik controleer of de regels worden gevolgd en ik vul de gaten die de collega's zelf niet gevuld krijgen. Dat zijn er verrassend weinig.",
+          "key": "She no longer makes the roster but guards it: checks the rules and fills the remaining gaps.",
+          "distractors": {
+            "A": {
+              "text": "Zij beslist nu zelf wie er vrij krijgt als te veel collega's dezelfde week vrij willen.",
+              "reason": "Deciding who gets leave is what she did before."
+            },
+            "C": {
+              "text": "Zij vult de wensen in voor collega's die weinig met hun telefoon doen.",
+              "reason": "After a short explanation those colleagues manage themselves."
+            }
+          }
+        },
+        {
+          "question": "q4",
+          "skill": "inference",
+          "answer": "A",
+          "quote": "In april wilden vijf verpleegkundigen dezelfde week vrij, in de meivakantie. Vroeger had zij dan zelf moeten beslissen wie er pech had. \"Nu zagen ze in de app dat het niet paste. Twee collega's zonder schoolgaande kinderen hebben toen hun vakantie een week opgeschoven, zonder dat ik iets hoefde te zeggen.\"",
+          "key": "Colleagues saw the clash in the app and two moved their holiday without her saying anything.",
+          "distractors": {
+            "B": {
+              "text": "Dat ouders met schoolgaande kinderen voorrang krijgen in vakanties.",
+              "reason": "Their choice, not a priority rule."
+            },
+            "C": {
+              "text": "Dat de planner in drukke weken nog steeds moet beslissen wie vrij krijgt.",
+              "reason": "She did not have to decide."
+            }
+          }
+        },
+        {
+          "question": "q5",
+          "skill": "detail",
+          "answer": "C",
+          "quote": "Op de drie afdelingen daalde het ziekteverzuim in een half jaar van 7,2 naar 5,8 procent, terwijl het op de andere afdelingen gelijk bleef. Het aantal verzoeken om een dienst te ruilen is meer dan gehalveerd. Bovendien hoeft het ziekenhuis minder vaak dure uitzendkrachten in te huren, omdat open diensten nu vaker door eigen medewerkers worden gevuld.",
+          "key": "Requests to swap a shift more than halved.",
+          "distractors": {
+            "A": {
+              "text": "Ook op de andere afdelingen is het ziekteverzuim gedaald.",
+              "reason": "Sick leave stayed equal on the other wards."
+            },
+            "B": {
+              "text": "Het ziekenhuis huurt geen uitzendkrachten meer in.",
+              "reason": "Fewer temporary staff, not none."
+            }
+          }
+        },
+        {
+          "question": "q6",
+          "skill": "opinion",
+          "answer": "B",
+          "quote": "De ondernemingsraad wijst erop dat populaire diensten, zoals de dagdienst op een doordeweekse dag, snel bezet zijn door collega's die als eerste hun wensen invullen. Wie later invult, houdt de avonden en de weekenden over.",
+          "key": "Popular shifts go to the colleagues who fill in their wishes first.",
+          "distractors": {
+            "A": {
+              "text": "Dat collega's die weinig met hun telefoon doen, de app niet leren gebruiken.",
+              "reason": "The phone issue is raised by the planner and was solved."
+            },
+            "C": {
+              "text": "Dat de app het tekort aan personeel op de afdelingen groter maakt.",
+              "reason": "The council says the system does not solve the shortage, not that it worsens it."
+            }
+          }
+        },
+        {
+          "question": "q7",
+          "skill": "purpose",
+          "answer": "A",
+          "quote": "De verpleegkundigen daar maken hun rooster zelf, met een app op hun telefoon. Het ziekenhuis hoopt zo het werk aantrekkelijker te maken en het aantal ziekmeldingen te verlagen. Na een half jaar zijn de eerste cijfers bekend.",
+          "key": "A news report on a new way of rostering, voices, figures and one critical paragraph: informeren.",
+          "distractors": {
+            "B": {
+              "text": "De lezer overtuigen dat ieder ziekenhuis het rooster door de verpleegkundigen zelf moet laten maken.",
+              "reason": "The writer takes no position for all hospitals."
+            },
+            "C": {
+              "text": "De lezer waarschuwen voor de nadelen van zelfroosteren voor collega's die hun wensen pas laat invullen.",
+              "reason": "The council's doubt is one paragraph; 'pas laat invullen' now unambiguously means filling in late."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "B1:reading:batch035-mediatheek:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "House rules and lending conditions with four rule applications, threshold reasoning (one week, four weeks) and an inference about the reason for a rule. Comparable to batch011-verlofregeling and batch024-examenreglement.",
+      "off_target_level": false,
+      "taskType": "voorwaarden",
+      "textType": "instructief",
+      "domain": "educatie",
+      "words": 657,
+      "sentence_statistics": {
+        "count": 43,
+        "mean": 14.8,
+        "maximum": 29
+      },
+      "keys": "BCACBCA",
+      "comparators": [
+        "B1:reading:batch011-verlofregeling:1",
+        "B1:reading:batch024-examenreglement:1"
+      ],
+      "evidence": [
+        {
+          "question": "q1",
+          "skill": "rule-application",
+          "answer": "B",
+          "quote": "Ben je geen student of medewerker meer, bijvoorbeeld omdat je je diploma hebt gehaald, dan kun je aan de balie een gastpas aanvragen. Die kost 15 euro per jaar. Met een gastpas mag je twee boeken tegelijk lenen; reserveren en printen zijn met een gastpas niet mogelijk.",
+          "key": "After graduating he can get a guest pass and borrow two books at a time.",
+          "distractors": {
+            "A": {
+              "text": "Hij kan met zijn oude schoolpas tot het einde van het jaar boeken blijven lenen.",
+              "reason": "The school pass is for students and staff only."
+            },
+            "C": {
+              "text": "Hij kan een gastpas nemen en daarmee ook boeken reserveren.",
+              "reason": "Reserving is not possible with a guest pass."
+            }
+          }
+        },
+        {
+          "question": "q2",
+          "skill": "rule-application",
+          "answer": "C",
+          "quote": "Verlengen kan twee keer, via de catalogus op de website of aan de balie, zolang niemand anders het boek heeft gereserveerd. Een gereserveerd boek kun je niet verlengen; je levert het dan uiterlijk op de inleverdatum in.",
+          "key": "A reserved book cannot be renewed; return it by the due date.",
+          "distractors": {
+            "A": {
+              "text": "Zij kan het boek twee keer verlengen, omdat zij het als eerste had.",
+              "reason": "No renewal when reserved; being first is irrelevant."
+            },
+            "B": {
+              "text": "Zij moet het morgen inleveren, tenzij zij het aan de balie verlengt.",
+              "reason": "Not at the desk either."
+            }
+          }
+        },
+        {
+          "question": "q3",
+          "skill": "detail",
+          "answer": "A",
+          "quote": "Je krijgt een e-mail zodra het boek terug is. Het ligt dan vijf schooldagen voor je klaar aan de balie. Haal je het in die tijd niet op, dan gaat het naar de volgende student op de lijst of terug in de kast.",
+          "key": "E-mail when the book is back; it waits five school days at the desk.",
+          "distractors": {
+            "B": {
+              "text": "De student die het boek nu heeft, krijgt een e-mail dat hij het binnen een week moet terugbrengen.",
+              "reason": "The text mentions no message to the current borrower, who returns the book by the due date, not within a week."
+            },
+            "C": {
+              "text": "Hij haalt het boek binnen vijf schooldagen op bij de student die het nu heeft.",
+              "reason": "The book is collected at the desk."
+            }
+          }
+        },
+        {
+          "question": "q4",
+          "skill": "rule-application",
+          "answer": "C",
+          "quote": "De mediatheek rekent geen boetes. Lever je een boek te laat in, dan krijg je een herinnering per e-mail. Is het boek een week na de inleverdatum nog niet terug, dan wordt je account geblokkeerd: je kunt dan niets lenen, verlengen of reserveren totdat alles is ingeleverd.",
+          "key": "A week late blocks the account until everything is returned.",
+          "distractors": {
+            "A": {
+              "text": "Hij mag lenen, maar hij betaalt een boete voor elke dag dat hij te laat is.",
+              "reason": "No fines."
+            },
+            "B": {
+              "text": "Hij mag lenen zodra hij de nieuwprijs van het boek heeft betaald.",
+              "reason": "The replacement price applies only after four weeks (lost), not as a condition for borrowing."
+            }
+          }
+        },
+        {
+          "question": "q5",
+          "skill": "inference",
+          "answer": "B",
+          "quote": "Controleer een boek daarom bij het lenen op schade en meld die meteen aan de balie. Schade die bij het inleveren wordt ontdekt en niet eerder is gemeld, betaalt de laatste lener.",
+          "key": "Unreported damage found on return is paid by the last borrower.",
+          "distractors": {
+            "A": {
+              "text": "Omdat een beschadigd boek alleen in de mediatheek gelezen mag worden.",
+              "reason": "Reading only in the library applies to current magazines and the exam shelf."
+            },
+            "C": {
+              "text": "Omdat een boek met schade niet meer aan andere studenten mag worden uitgeleend.",
+              "reason": "A badly damaged book is charged like a lost one; that is not given as the reason for the check."
+            }
+          }
+        },
+        {
+          "question": "q6",
+          "skill": "detail",
+          "answer": "C",
+          "quote": "Op de begane grond staan tafels voor groepswerk; overleggen mag hier op normale gesprekstoon. De eerste verdieping is de stilteruimte: je praat er niet, je telefoon staat op stil en bellen doe je op de gang.",
+          "key": "Ground floor: talking at normal volume; first floor: silence.",
+          "distractors": {
+            "A": {
+              "text": "Beneden mag je eten en drinken, boven alleen drinken.",
+              "reason": "Eating is banned in the whole library."
+            },
+            "B": {
+              "text": "Beneden staan de printers, boven zijn de groepsruimtes.",
+              "reason": "Printers and group rooms are both on the ground floor."
+            }
+          }
+        },
+        {
+          "question": "q7",
+          "skill": "purpose",
+          "answer": "A",
+          "quote": "In deze regels lees je hoe lenen, reserveren, studeren en printen in de mediatheek werken en wat er gebeurt als een boek te laat of beschadigd terugkomt.",
+          "key": "The text sets out the rules of the library.",
+          "distractors": {
+            "B": {
+              "text": "De lezer overtuigen dat hij geleende boeken op tijd moet inleveren.",
+              "reason": "Returning on time is one rule."
+            },
+            "C": {
+              "text": "De lezer waarschuwen voor de kosten van een boek dat kwijt is geraakt.",
+              "reason": "The cost of a lost book is one rule."
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "media_notes": [
+    "None. B1 reading has no audio or pictures; no clip or image needs to be generated. Integration assigns new revision values, so saved progress on these eight exercises restarts."
+  ],
+  "set_assembly": "Existing set membership is preserved. Persona first names recur across texts (Julio in bewonersvergunning q4, ploegendienst q4 and mediatheek q3; Hasan, Fatima, Karim, Modibo, Amina, Jari and Thérèse twice each) as different people; harmless, but avoid placing several Julio texts in one mock form where possible.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "No new audio is needed: B1 reading items carry no audio, and no script, spoken prompt or cue changed.",
+    "content/exemplars/ does not exist; level comparisons use catalogue items of the same task type.",
+    "Web searches show only that no public figure or business of a given name was found; they cannot prove that no private person or small firm uses it."
+  ]
+}

@@ -1,0 +1,793 @@
+[
+  {
+    "id": "B1:reading:batch034-bewonersvergunning:1",
+    "level": "B1",
+    "part": "reading",
+    "exam": "nt2-i",
+    "taskType": "opzoektekst",
+    "textType": "instructief",
+    "domain": "overig",
+    "title": "Parkeervergunning voor bewoners",
+    "situation": "U zoekt informatie op de website van uw gemeente.",
+    "text": "Parkeervergunning voor bewoners\n\nIn het centrum van Wierdam en in de wijken eromheen geldt betaald parkeren. Woont u in zo'n gebied, dan kunt u een parkeervergunning voor bewoners aanvragen. Met deze vergunning parkeert u in uw eigen zone zonder bij de automaat te betalen. Op deze pagina leest u voor wie de vergunning is, wat die kost en hoe u die aanvraagt.\n\nVoor wie\n\nU kunt een vergunning aanvragen als u bij de gemeente staat ingeschreven op een adres in een vergunningzone. De auto moet op uw naam staan. Rijdt u in een auto van uw werkgever of in een leaseauto, dan stuurt u een verklaring van het bedrijf mee waarin staat dat u de vaste bestuurder bent. Hoort bij uw woning een eigen parkeerplaats of een garage, dan komt u niet in aanmerking voor een vergunning. Per adres geeft de gemeente maximaal twee vergunningen af.\n\nZones en kosten\n\nZone A is het centrum; de zones B tot en met F zijn de wijken daaromheen. Een vergunning geldt alleen in de zone waarin u woont. Een eerste vergunning kost in zone A 216 euro per jaar en in de zones B tot en met F 132 euro per jaar. Een tweede vergunning kost het dubbele van het tarief van uw zone. U betaalt het bedrag voor een jaar vooruit. De vergunning gaat in op de datum die u bij de aanvraag kiest en wordt elk jaar automatisch verlengd, zolang u aan de voorwaarden voldoet.\n\nTweede auto\n\nHebt u een tweede auto, dan kunt u voor hetzelfde adres een tweede vergunning aanvragen. De gemeente geeft die alleen af als er in uw zone genoeg ruimte is. Is de zone vol, dan komt u op een wachtlijst en krijgt u bericht zodra er plaats is. Een auto zonder vergunning parkeert u in de tussentijd buiten de vergunningzones, of u betaalt bij de automaat.\n\nBezoek\n\nVoor bezoek zijn er twee mogelijkheden. Met bezoekerskraskaarten kan uw bezoek een hele dag in uw zone parkeren. U krast de datum open en legt de kaart achter de voorruit van de auto van uw bezoek. Een set van tien kaarten kost 20 euro en is te koop aan de balie van het gemeentehuis. Met de bezoekersapp meldt u het kenteken van uw bezoek aan op uw telefoon; u betaalt dan 0,50 euro per uur en kunt per jaar maximaal 300 uur aanmelden. De bezoekersregeling is er voor alle bewoners van een vergunningzone, dus ook als u zelf geen auto en geen vergunning hebt.\n\nVerhuizen\n\nDe vergunning hoort bij uw adres. Verhuist u binnen dezelfde zone, dan blijft de vergunning geldig; die gaat automatisch mee zodra u uw verhuizing bij de gemeente hebt gemeld. Verhuist u naar een andere zone, dan vraagt u een nieuwe vergunning aan; uw oude vergunning stopt op de dag van de verhuizing. Verhuist u naar een adres buiten de vergunningzones of naar een andere gemeente, dan hebt u geen vergunning meer nodig. Ook dan stopt uw vergunning op de dag van de verhuizing. Stopt uw vergunning door een verhuizing, dan krijgt u het geld terug voor de volle maanden die nog niet begonnen zijn.\n\nAanvragen\n\nU vraagt de vergunning aan via deze website. Log in met uw DigiD en vul het kenteken van uw auto in. Wij controleren uw inschrijving en het kenteken; binnen vijf werkdagen ontvangt u bericht. De vergunning is digitaal en gekoppeld aan uw kenteken; de parkeercontroleur ziet in het systeem dat u mag parkeren. U ontvangt dus geen kaart of sticker. Aanvragen met de DigiD van iemand anders is niet toegestaan. Hebt u zelf geen DigiD, maak dan een afspraak bij de balie in het gemeentehuis en neem uw identiteitsbewijs en uw kentekenbewijs mee. Koopt u een andere auto, geef dan het nieuwe kenteken zo snel mogelijk door via de website; de vergunning gaat dan automatisch over op de nieuwe auto.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mevrouw Bakker woont in zone C, in een huis met een garage. Zij wil toch een vergunning om op straat te parkeren. Wat zegt de gemeente?",
+        "options": {
+          "A": "Zij komt op de wachtlijst en krijgt bericht zodra er in zone C weer plaats is.",
+          "B": "Zij krijgt geen vergunning, omdat zij een eigen plek voor haar auto heeft.",
+          "C": "Zij krijgt een vergunning, maar betaalt daarvoor het dubbele tarief."
+        },
+        "answer": "B",
+        "evidence": "Hoort bij uw woning een eigen parkeerplaats of een garage, dan komt u niet in aanmerking voor een vergunning.",
+        "explanation": "Wie bij zijn woning een eigen parkeerplaats of garage heeft, komt niet in aanmerking voor een vergunning; de garage bij het huis sluit mevrouw Bakker dus uit. De wachtlijst geldt voor een tweede vergunning in een volle zone, en het dubbele tarief is de prijs van een tweede vergunning, geen uitzondering voor wie een garage heeft.",
+        "skill": "rule-application"
+      },
+      {
+        "id": "q2",
+        "prompt": "Fatima woont in het centrum. Het gezin heeft twee auto's, allebei op haar naam, en in haar zone is genoeg ruimte. Zij vraagt voor beide auto's een vergunning aan. Wat betaalt zij per jaar in totaal?",
+        "options": {
+          "A": "432 euro",
+          "B": "648 euro",
+          "C": "864 euro"
+        },
+        "answer": "B",
+        "evidence": "Een eerste vergunning kost in zone A 216 euro per jaar en in de zones B tot en met F 132 euro per jaar. Een tweede vergunning kost het dubbele van het tarief van uw zone.",
+        "explanation": "Het centrum is zone A; de eerste vergunning kost daar 216 euro en de tweede het dubbele, 432 euro. Samen is dat 648 euro per jaar. Wie 432 euro rekent, telt twee keer het eerste tarief; wie 864 euro rekent, telt twee keer het dubbele tarief.",
+        "skill": "quantity"
+      },
+      {
+        "id": "q3",
+        "prompt": "Meneer De Vries woont in zone B. Hij heeft zelf geen auto, maar zijn dochter komt elke week met de auto op bezoek. Wat kan hij doen?",
+        "options": {
+          "A": "Hij kan kraskaarten kopen of de bezoekersapp gebruiken.",
+          "B": "Hij kan alleen kraskaarten kopen, omdat hij geen vergunning heeft.",
+          "C": "Hij kan een vergunning aanvragen op het kenteken van zijn dochter."
+        },
+        "answer": "A",
+        "evidence": "De bezoekersregeling is er voor alle bewoners van een vergunningzone, dus ook als u zelf geen auto en geen vergunning hebt.",
+        "explanation": "De bezoekersregeling, met kraskaarten of met de app, is er voor alle bewoners van een vergunningzone, ook zonder auto of vergunning; meneer De Vries kan dus allebei de mogelijkheden gebruiken. Ook zonder vergunning mag hij de app gebruiken, en een vergunning op het kenteken van zijn dochter kan niet, omdat de auto op naam van de aanvrager moet staan.",
+        "skill": "rule-application"
+      },
+      {
+        "id": "q4",
+        "prompt": "Julio verhuist op 12 mei van een adres in zone D naar een adres in zone A. Wat gebeurt er met zijn vergunning voor zone D?",
+        "options": {
+          "A": "Die blijft na 12 mei geldig tot zijn nieuwe vergunning voor zone A ingaat.",
+          "B": "Die gaat op 12 mei automatisch over naar zone A, zodra hij de verhuizing meldt.",
+          "C": "Die stopt op 12 mei; voor de maanden vanaf juni krijgt hij geld terug."
+        },
+        "answer": "C",
+        "evidence": "Verhuist u naar een andere zone, dan vraagt u een nieuwe vergunning aan; uw oude vergunning stopt op de dag van de verhuizing. Verhuist u naar een adres buiten de vergunningzones of naar een andere gemeente, dan hebt u geen vergunning meer nodig. Ook dan stopt uw vergunning op de dag van de verhuizing. Stopt uw vergunning door een verhuizing, dan krijgt u het geld terug voor de volle maanden die nog niet begonnen zijn.",
+        "explanation": "Julio verhuist naar een andere zone, dus hij vraagt een nieuwe vergunning aan; zijn oude vergunning stopt op de dag van de verhuizing, 12 mei, en hij krijgt het geld terug voor de volle maanden die nog niet begonnen zijn, dus vanaf juni. Automatisch meegaan doet een vergunning alleen bij een verhuizing binnen dezelfde zone, en de oude vergunning loopt niet door tot de nieuwe ingaat.",
+        "skill": "rule-application"
+      },
+      {
+        "id": "q5",
+        "prompt": "Hasan heeft geen DigiD. Hoe kan hij een vergunning aanvragen?",
+        "options": {
+          "A": "Hij laat de aanvraag doen door zijn zoon Sem, met de DigiD van Sem.",
+          "B": "Hij gaat zonder afspraak naar de balie en laat daar zijn identiteitsbewijs zien.",
+          "C": "Hij gaat op afspraak naar de balie met zijn papieren."
+        },
+        "answer": "C",
+        "evidence": "Aanvragen met de DigiD van iemand anders is niet toegestaan. Hebt u zelf geen DigiD, maak dan een afspraak bij de balie in het gemeentehuis en neem uw identiteitsbewijs en uw kentekenbewijs mee.",
+        "explanation": "Wie geen DigiD heeft, maakt een afspraak bij de balie in het gemeentehuis en neemt zijn identiteitsbewijs en kentekenbewijs mee. Aanvragen met de DigiD van iemand anders is niet toegestaan, en de pagina vraagt om een afspraak en om beide papieren; wie zonder afspraak en met alleen een identiteitsbewijs langsgaat, volgt de regels niet.",
+        "skill": "rule-application"
+      },
+      {
+        "id": "q6",
+        "prompt": "Karim heeft bericht gekregen dat zijn vergunning is verleend, maar hij heeft geen kaart of sticker ontvangen. Hoe weet de parkeercontroleur dat Karim mag parkeren?",
+        "options": {
+          "A": "Het kenteken van Karim staat in het systeem van de gemeente.",
+          "B": "Karim laat het bericht van de gemeente op zijn telefoon zien.",
+          "C": "Achter de voorruit van Karim ligt een kraskaart met de datum."
+        },
+        "answer": "A",
+        "evidence": "De vergunning is digitaal en gekoppeld aan uw kenteken; de parkeercontroleur ziet in het systeem dat u mag parkeren. U ontvangt dus geen kaart of sticker.",
+        "explanation": "De vergunning is digitaal en gekoppeld aan het kenteken; de parkeercontroleur ziet in het systeem dat de auto mag staan, en daarom krijgt Karim geen kaart of sticker. Het bericht van de gemeente hoeft hij niet te laten zien, en een kraskaart hoort bij bezoek, niet bij de vergunning van een bewoner.",
+        "skill": "inference"
+      },
+      {
+        "id": "q7",
+        "prompt": "Wat is het doel van deze tekst?",
+        "options": {
+          "A": "De lezer overtuigen dat de bezoekersapp handiger is dan de bezoekerskraskaarten.",
+          "B": "De lezer uitleggen welke regels gelden voor de parkeervergunning voor bewoners.",
+          "C": "De lezer waarschuwen voor de hoge kosten van een tweede auto in het centrum van Wierdam."
+        },
+        "answer": "B",
+        "evidence": "Op deze pagina leest u voor wie de vergunning is, wat die kost en hoe u die aanvraagt.",
+        "explanation": "De pagina zet de regels op een rij: voor wie de vergunning is, wat die kost, hoe het zit met een tweede auto, bezoek en verhuizen, en hoe u aanvraagt; dat is uitleggen. De twee mogelijkheden voor bezoek staan naast elkaar zonder voorkeur, en de prijs van een tweede vergunning is één zin, geen waarschuwing.",
+        "skill": "purpose"
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "B1:reading:batch010-ploegendienst:1",
+    "level": "B1",
+    "part": "reading",
+    "exam": "nt2-i",
+    "taskType": "interview",
+    "textType": "beschouwend",
+    "domain": "werk",
+    "title": "Werken als de stad slaapt",
+    "situation": "U leest een interview uit een personeelsblad.",
+    "text": "Werken als de stad slaapt\n\nBij Broodfabriek De Korenaar draait de productie dag en nacht. Ruim tweehonderd medewerkers werken er in drie ploegen. Farah Benali (38) maakt al zes jaar de roosters voor de afdeling Productie. In dit nummer vertelt zij hoe het bedrijf omgaat met slaap, tijd voor het gezin en het ruilen van diensten.\n\nHoe ziet de ploegendienst er bij De Korenaar uit?\n\n\"We werken met drie diensten: de ochtenddienst van 6.00 tot 14.00 uur, de middagdienst van 14.00 tot 22.00 uur en de nachtdienst van 22.00 tot 6.00 uur. Iedereen draait een week ochtend, daarna een week middag en dan een korte nachtweek van drie nachten. Na de nachtweek volgen vier vrije dagen. Vroeger draaiden we precies de andere kant op: van nacht naar middag naar ochtend. Daar werden veel mensen moe van, omdat het lichaam makkelijker went aan later naar bed gaan dan aan eerder naar bed gaan. Sinds we voorwaarts draaien, zijn er duidelijk minder ziekmeldingen.\"\n\nNachtdiensten blijven zwaar; wat doet het bedrijf daaraan?\n\n\"Ik vind dat een werkgever slaap serieus moet nemen; het is geen privéprobleem van de medewerker. Daarom werkt niemand meer dan drie nachten achter elkaar. In de nachtdienst is de pauze even lang als overdag, maar er is een rustruimte waar je twintig minuten mag slapen. Wie dat probeert, is daarna meestal scherper. Verder serveert de kantine 's nachts lichte maaltijden, want een zware maaltijd om drie uur 's nachts ligt urenlang op je maag. Medewerkers van 55 jaar en ouder kunnen vragen om minder nachten. De fout die ik het vaakst zie, is dat mensen na een nachtdienst eerst nog boodschappen doen en pas rond het middaguur naar bed gaan. Dan slaap je te kort, dus ga meteen naar huis, maak de kamer donker en vertel je gezin dat je slaapt.\"\n\nVeel collega's hebben kinderen. Hoe past ploegendienst bij een gezin?\n\n\"Het rooster wordt zes weken van tevoren bekendgemaakt. Daarna verander ik het alleen als het echt niet anders kan, want een gezin moet kunnen plannen. Ouders van jonge kinderen kunnen kiezen voor een vast patroon zonder nachten. De toeslag is dan lager, maar sommige mensen hebben dat er graag voor over. Veel mensen denken dat de nachtdienst het slechtst is voor een gezin. Volgens mij is dat de middagdienst. Je vertrekt als de kinderen uit school komen en je bent thuis als ze al slapen. Een week lang zie je ze eigenlijk alleen aan het ontbijt.\"\n\nKunnen medewerkers onderling diensten ruilen?\n\n\"Ja, en daar ben ik een groot voorstander van. Vroeger liep elke ruil via mijn bureau. Ik zocht dan zelf een vervanger, en meestal was er wel iemand ontevreden over mijn keuze. Nu zetten collega's een ruil zelf in de roosterapp, en ik hoor veel minder klachten. Er gelden wel drie regels: een ruil moet uiterlijk 48 uur van tevoren in de app staan, en tussen twee diensten moet minstens elf uur rust zitten. Verder mag je alleen ruilen met een collega die dezelfde machines mag bedienen; in welke ploeg die collega zit, maakt niet uit.\"\n\nIs ploegendienst iets voor iedereen?\n\n\"Nee, zeker niet: sommige mensen bloeien op in de nacht, terwijl anderen er stil en somber van worden. Daarom draaien nieuwe collega's de eerste drie maanden in alle drie de diensten mee. Daarna bespreken we eerlijk of het bevalt. Wie merkt dat het niet gaat, kan meestal overstappen naar de dagdienst in het magazijn. Ik zeg altijd: ploegendienst is niet voor iedereen, maar met een goed rooster en eerlijke regels houden mensen het jaren vol.\"",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "detail",
+        "prompt": "Waarom is de volgorde van de diensten bij De Korenaar veranderd?",
+        "options": {
+          "A": "Het lichaam past zich makkelijker aan als een dienst later begint.",
+          "B": "Medewerkers wilden hun vrije dagen liever achter elkaar hebben.",
+          "C": "In de nachtploeg meldden te veel medewerkers zich elke week ziek."
+        },
+        "answer": "A",
+        "evidence": "Vroeger draaiden we precies de andere kant op: van nacht naar middag naar ochtend. Daar werden veel mensen moe van, omdat het lichaam makkelijker went aan later naar bed gaan dan aan eerder naar bed gaan. Sinds we voorwaarts draaien, zijn er duidelijk minder ziekmeldingen.",
+        "explanation": "De oude volgorde maakte mensen moe, omdat het lichaam makkelijker went aan later naar bed gaan dan aan eerder naar bed gaan; daarom draait het bedrijf nu voorwaarts. Minder ziekmeldingen zijn het gevolg van de verandering, niet de reden ervoor."
+      },
+      {
+        "id": "q2",
+        "skill": "detail",
+        "prompt": "Welke maatregel neemt De Korenaar tegen vermoeidheid door nachtwerk?",
+        "options": {
+          "A": "Nachtwerkers krijgen een langere pauze dan collega's overdag.",
+          "B": "Medewerkers boven de 55 werken niet meer in de nacht.",
+          "C": "Een medewerker draait hoogstens drie nachten op rij."
+        },
+        "answer": "C",
+        "evidence": "Daarom werkt niemand meer dan drie nachten achter elkaar. In de nachtdienst is de pauze even lang als overdag, maar er is een rustruimte waar je twintig minuten mag slapen. Wie dat probeert, is daarna meestal scherper. Verder serveert de kantine 's nachts lichte maaltijden, want een zware maaltijd om drie uur 's nachts ligt urenlang op je maag. Medewerkers van 55 jaar en ouder kunnen vragen om minder nachten.",
+        "explanation": "Niemand werkt meer dan drie nachten achter elkaar. De pauze in de nacht is even lang als overdag, en medewerkers van 55 en ouder kunnen om minder nachten vragen, maar zij werken nog wel 's nachts."
+      },
+      {
+        "id": "q3",
+        "skill": "opinion",
+        "prompt": "Wat vindt Farah van de middagdienst?",
+        "options": {
+          "A": "Die is voor gezinnen het makkelijkst te combineren met school.",
+          "B": "Die is voor ouders lastiger dan de nachtdienst.",
+          "C": "Die geeft de meeste problemen met slapen."
+        },
+        "answer": "B",
+        "evidence": "Veel mensen denken dat de nachtdienst het slechtst is voor een gezin. Volgens mij is dat de middagdienst. Je vertrekt als de kinderen uit school komen en je bent thuis als ze al slapen.",
+        "explanation": "Volgens Farah is niet de nachtdienst maar de middagdienst het slechtst voor een gezin: je vertrekt als de kinderen thuiskomen en bent terug als ze slapen. Problemen met slapen horen bij de nachtdienst, niet bij de middagdienst."
+      },
+      {
+        "id": "q4",
+        "skill": "rule-application",
+        "prompt": "Het is vrijdag. Julio draait volgende week middagdiensten. Een collega uit een andere ploeg wil ruilen: Julio neemt dinsdag de ochtenddienst van die collega over, en de collega neemt Julio's middagdienst van dinsdag. Is deze ruil volgens de regels toegestaan?",
+        "options": {
+          "A": "Ja, want de ruil wordt meer dan 48 uur van tevoren doorgegeven.",
+          "B": "Nee, want de collega werkt in een andere ploeg dan Julio.",
+          "C": "Nee, want Julio zou te weinig rust tussen de diensten hebben."
+        },
+        "answer": "C",
+        "evidence": "Er gelden wel drie regels: een ruil moet uiterlijk 48 uur van tevoren in de app staan, en tussen twee diensten moet minstens elf uur rust zitten. Verder mag je alleen ruilen met een collega die dezelfde machines mag bedienen; in welke ploeg die collega zit, maakt niet uit.",
+        "explanation": "De middagdienst eindigt om 22.00 uur en de ochtenddienst begint om 6.00 uur: dat is acht uur rust, terwijl er minstens elf uur tussen twee diensten moet zitten. Dat de ruil op tijd is doorgegeven, verandert daar niets aan, en een andere ploeg is volgens Farah geen bezwaar."
+      },
+      {
+        "id": "q5",
+        "skill": "inference",
+        "prompt": "Waarom vertelt Farah hoe het ruilen van diensten vroeger ging?",
+        "options": {
+          "A": "Om te laten zien dat collega's het onderling beter oplossen dan zij.",
+          "B": "Om uit te leggen waarom er nu strenge regels voor ruilen zijn.",
+          "C": "Om duidelijk te maken dat het ruilen haar vroeger te veel werk kostte."
+        },
+        "answer": "A",
+        "evidence": "Vroeger liep elke ruil via mijn bureau. Ik zocht dan zelf een vervanger, en meestal was er wel iemand ontevreden over mijn keuze. Nu zetten collega's een ruil zelf in de roosterapp, en ik hoor veel minder klachten.",
+        "explanation": "Farah vergelijkt vroeger (zij koos zelf een vervanger en er was altijd iemand ontevreden) met nu (collega's regelen het zelf en er zijn minder klachten); dat onderbouwt waarom zij voorstander van ruilen is. Zij zegt niet dat het haar te veel werk kostte, en de drie regels noemt zij pas daarna, los van dit verhaal."
+      },
+      {
+        "id": "q6",
+        "skill": "purpose",
+        "prompt": "Wat is het doel van deze tekst?",
+        "options": {
+          "A": "De lezer waarschuwen voor de gevolgen van nachtdiensten voor de gezondheid.",
+          "B": "De lezer informeren over hoe een planner de ploegendienst ervaart en regelt.",
+          "C": "De lezer overtuigen dat diensten ruilen via een app het beste werkt."
+        },
+        "answer": "B",
+        "evidence": "In dit nummer vertelt zij hoe het bedrijf omgaat met slaap, tijd voor het gezin en het ruilen van diensten.",
+        "explanation": "Het interview laat een planner vertellen hoe het bedrijf met slaap, gezin en ruilen omgaat en wat zij daarvan vindt. Slaapproblemen komen wel aan bod, maar de tekst is geen waarschuwing, en de app is maar één van de onderwerpen."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "B1:reading:batch024-gratis-zwemles:1",
+    "level": "B1",
+    "part": "reading",
+    "exam": "nt2-i",
+    "taskType": "artikel",
+    "textType": "persuasief",
+    "domain": "overig",
+    "title": "Zwemles mag geen luxe worden",
+    "situation": "U leest een opiniestuk op de website van een regionale krant.",
+    "text": "Zwemles mag geen luxe worden\n\nNederland is een land van sloten, grachten en meren. Bijna elk kind speelt weleens aan het water, en bijna elke school gaat een keer per jaar naar het strand. Toch groeit er een groep kinderen op die niet kan zwemmen. In het zwembad waar ik lesgeef, zie ik het elk jaar duidelijker: kinderen beginnen later met les, stoppen na diploma A of komen helemaal niet. Als zwemles een luxe wordt, betalen we daar als land een hoge prijs voor. Daarom vind ik dat elke gemeente gratis zwemles moet aanbieden aan alle kinderen.\n\nWat een diploma kost\n\nVroeger leerde bijna ieder kind zwemmen op school. Dat schoolzwemmen is in de meeste gemeenten verdwenen, en de rekening ligt nu bij de ouders. Een zwemdiploma A kost in onze regio al snel 600 euro; wie ook B en C wil halen, is meer dan 1.000 euro kwijt. Voor een gezin met twee of drie kinderen is dat een bedrag dat je niet zomaar hebt liggen. Er bestaat een regeling voor gezinnen met een laag inkomen, maar die helpt alleen wie onder een bepaalde grens zit. Het gezin dat net iets meer verdient, krijgt niets en moet kiezen: zwemles, of de nieuwe fiets en de schoolreis. Precies die gezinnen zie ik afhaken.\n\nHet verhaal van Amina\n\nAmina (10) haalde vier jaar geleden haar A-diploma. Daarna stopten haar ouders met de lessen, omdat er een jonger broertje was dat ook les nodig had. Vorige zomer ging Amina met haar klas naar een recreatieplas. Terwijl haar vriendinnen naar de steiger zwommen, bleef zij op het strandje staan. Met alleen diploma A kun je je in een zwembad redden, maar in open water, met wind en stroming, is dat niet genoeg. Haar moeder vertelde mij later dat ze die middag geen moment rustig was geweest. Amina is geen uitzondering; in mijn lessen zie ik elk jaar meer kinderen die na A verdwijnen.\n\n'Dat is de taak van ouders'\n\nTegenstanders van gratis zwemles zeggen dat de gemeente al te weinig geld heeft en dat zwemles de verantwoordelijkheid van ouders is, niet van de overheid. Dat klinkt redelijk, maar het is te makkelijk. Gemeenten betalen nu al voor het onderhoud van zwembaden, voor de toezichthouders op stranden en voor de brandweer die te water gaat als er iets misgaat. Een gemeente die op zwemles bezuinigt, betaalt daar later dubbel voor. En de meeste ouders willen niets liever dan dat hun kind leert zwemmen; het probleem is niet hun verantwoordelijkheid, maar hun portemonnee. Bovendien vinden we het heel gewoon dat de gemeente de gymzaal, de speeltuin en de bibliotheekpas voor kinderen betaalt. Waarom zou juist de les die een kind veilig houdt, iets zijn wat ouders zelf maar moeten regelen?\n\nEen tweede bezwaar is dat ouders iets wat gratis is minder serieus nemen: zij zouden hun kind dan sneller thuis laten. In de gemeente Westerhout, die twee jaar geleden met gratis zwemles begon, blijkt het tegendeel. Ouders zetten daar hun handtekening onder één regel: wie drie keer zonder bericht wegblijft, verliest de plaats aan het volgende kind op de wachtlijst. Het aantal kinderen dat na A doorgaat naar B, is er in twee jaar bijna verdubbeld.\n\nWacht niet op de volgende zomer\n\nElke zomer staan er weer berichten in de krant over ongelukken in het water, en steeds vaker gaat het om kinderen die nooit goed hebben leren zwemmen. Dat is geen pech, maar het gevolg van een keuze die gemeenten jaren geleden hebben gemaakt. Ik roep alle gemeenten op om gratis zwemles aan te bieden voordat de volgende zomer begint. Gratis zwemles voor elk kind kost geld, maar een kind dat niet kan zwemmen, kost ons uiteindelijk veel meer.\n\nThérèse Vermeulen geeft zwemles in een gemeentelijk zwembad.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "detail",
+        "prompt": "Waarom betalen ouders volgens de schrijver tegenwoordig zelf voor de zwemles van hun kind?",
+        "options": {
+          "A": "Omdat de regeling voor gezinnen met een laag inkomen is afgeschaft.",
+          "B": "Omdat kinderen op de meeste scholen geen zwemles meer krijgen.",
+          "C": "Omdat de zwembaden de prijs van zwemlessen sterk hebben verhoogd."
+        },
+        "answer": "B",
+        "evidence": "Vroeger leerde bijna ieder kind zwemmen op school. Dat schoolzwemmen is in de meeste gemeenten verdwenen, en de rekening ligt nu bij de ouders.",
+        "explanation": "Vroeger leerden kinderen zwemmen op school; dat schoolzwemmen is in de meeste gemeenten verdwenen, en daarom ligt de rekening nu bij de ouders. De regeling voor lage inkomens bestaat nog steeds, en over een prijsverhoging door zwembaden zegt de tekst niets; de schrijver noemt alleen wat een diploma kost."
+      },
+      {
+        "id": "q2",
+        "skill": "detail",
+        "prompt": "Welke gezinnen haken volgens de schrijver af?",
+        "options": {
+          "A": "Gezinnen met een laag inkomen die de regeling niet kennen.",
+          "B": "Gezinnen met één kind dat alleen diploma A wil halen.",
+          "C": "Gezinnen die net te veel verdienen voor de regeling."
+        },
+        "answer": "C",
+        "evidence": "Er bestaat een regeling voor gezinnen met een laag inkomen, maar die helpt alleen wie onder een bepaalde grens zit. Het gezin dat net iets meer verdient, krijgt niets en moet kiezen: zwemles, of de nieuwe fiets en de schoolreis. Precies die gezinnen zie ik afhaken.",
+        "explanation": "De regeling helpt alleen gezinnen onder een inkomensgrens; het gezin dat net iets meer verdient, krijgt niets en moet kiezen. Precies die gezinnen haken af. Of gezinnen de regeling kennen, zegt de tekst niet, en meer kinderen maakt de kosten juist hoger, niet lager."
+      },
+      {
+        "id": "q3",
+        "skill": "inference",
+        "prompt": "Wat wil de schrijver duidelijk maken met het verhaal van Amina?",
+        "options": {
+          "A": "Dat een kind met alleen diploma A in open water niet veilig is.",
+          "B": "Dat ouders bij een tweede kind vaak stoppen met de lessen van het eerste.",
+          "C": "Dat een school met jonge kinderen beter niet naar een recreatieplas gaat."
+        },
+        "answer": "A",
+        "evidence": "Met alleen diploma A kun je je in een zwembad redden, maar in open water, met wind en stroming, is dat niet genoeg. Haar moeder vertelde mij later dat ze die middag geen moment rustig was geweest. Amina is geen uitzondering; in mijn lessen zie ik elk jaar meer kinderen die na A verdwijnen.",
+        "explanation": "Amina heeft alleen diploma A en kan zich daarmee in een zwembad redden, maar in open water is dat niet genoeg; daarom bleef zij op het strandje en was haar moeder bang. Dat de lessen stopten toen haar broertje kwam, verklaart alleen waarom zij geen B heeft, en de schrijver zegt niet dat de school er niet heen had moeten gaan."
+      },
+      {
+        "id": "q4",
+        "skill": "detail",
+        "prompt": "Hoe reageert de schrijver op het argument dat zwemles de taak van ouders is?",
+        "options": {
+          "A": "Ouders hoeven niets te regelen, omdat de school de zwemles al betaalt.",
+          "B": "Ouders vergeten de lessen als de gemeente ze niet verplicht stelt.",
+          "C": "Ouders willen het wel, maar hebben het geld er vaak niet voor."
+        },
+        "answer": "C",
+        "evidence": "En de meeste ouders willen niets liever dan dat hun kind leert zwemmen; het probleem is niet hun verantwoordelijkheid, maar hun portemonnee. Bovendien vinden we het heel gewoon dat de gemeente de gymzaal, de speeltuin en de bibliotheekpas voor kinderen betaalt.",
+        "explanation": "Volgens de schrijver willen de meeste ouders niets liever dan dat hun kind leert zwemmen; het probleem is hun portemonnee, niet hun verantwoordelijkheid. Het schoolzwemmen is juist verdwenen, en de afspraak in Westerhout gaat over wegblijven van lessen die al gratis zijn, niet over een verplichting van de gemeente."
+      },
+      {
+        "id": "q5",
+        "skill": "summary",
+        "prompt": "Welke zin vat de mening van de schrijver het beste samen?",
+        "options": {
+          "A": "Ouders moeten hun kind na diploma A op les houden, ook als dat hun veel geld kost.",
+          "B": "Leren zwemmen is zo belangrijk dat de gemeente het voor elk kind moet betalen.",
+          "C": "Gemeenten moeten het schoolzwemmen weer invoeren op alle basisscholen in het land."
+        },
+        "answer": "B",
+        "evidence": "Daarom vind ik dat elke gemeente gratis zwemles moet aanbieden aan alle kinderen.",
+        "explanation": "De schrijver vindt dat elke gemeente gratis zwemles moet aanbieden, omdat een kind dat niet kan zwemmen uiteindelijk veel meer kost. Zij legt de rekening niet bij de ouders, die het geld vaak niet hebben, en zij pleit voor lessen via de gemeente, niet voor de terugkeer van het schoolzwemmen."
+      },
+      {
+        "id": "q6",
+        "skill": "purpose",
+        "prompt": "Wat is het doel van deze tekst?",
+        "options": {
+          "A": "De lezer overtuigen dat gemeenten zwemles voor alle kinderen gratis moeten maken.",
+          "B": "De lezer waarschuwen voor de gevaren van stroming in recreatieplassen.",
+          "C": "De lezer informeren over de kosten van een zwemdiploma in verschillende gemeenten."
+        },
+        "answer": "A",
+        "evidence": "Als zwemles een luxe wordt, betalen we daar als land een hoge prijs voor. Daarom vind ik dat elke gemeente gratis zwemles moet aanbieden aan alle kinderen.",
+        "explanation": "De schrijver vindt dat elke gemeente gratis zwemles moet aanbieden aan alle kinderen. Zij onderbouwt die mening met argumenten, weerlegt de bezwaren van tegenstanders en roept aan het einde alle gemeenten op om gratis zwemles aan te bieden; dat is overtuigen. Wind en stroming in open water komen alleen voor in het verhaal van Amina, en de kosten van een diploma noemt zij alleen voor haar eigen regio, als argument voor gratis zwemles."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "B1:reading:batch011-verlofregeling:1",
+    "level": "B1",
+    "part": "reading",
+    "exam": "nt2-i",
+    "taskType": "voorwaarden",
+    "textType": "instructief",
+    "domain": "werk",
+    "title": "Ziek melden en verlof aanvragen",
+    "situation": "U leest de ziekte- en verlofregeling van een transportbedrijf.",
+    "text": "Ziekte- en verlofregeling Transportbedrijf Noordhaven\n\nDeze regeling geldt voor alle medewerkers van Transportbedrijf Noordhaven. Hierin staat wat u doet als u ziek bent en hoe u verlof aanvraagt. In de weken vóór Sinterklaas en Kerst vervoeren wij bijna twee keer zo veel pakketten als anders; daarmee houdt deze regeling rekening.\n\n1. Ziek melden\n\nBent u ziek, dan belt u vóór 8.30 uur uw teamleider. Begint uw dienst vóór 8.30 uur, dan meldt u zich uiterlijk een uur vóór het begin van uw dienst. Ziek melden gaat altijd telefonisch; een bericht via de app of een e-mail geldt niet als ziekmelding. Is uw teamleider niet bereikbaar, dan belt u de planning. Geef bij de melding door hoe lang u verwacht afwezig te zijn, op welk adres en telefoonnummer u bereikbaar bent en welk werk moet worden overgenomen. U hoeft niet te vertellen wat u mankeert; die informatie deelt u alleen met de bedrijfsarts.\n\n2. De eerste dagen\n\nIn de eerste twee ziektedagen belt uw teamleider u om te vragen hoe het gaat. U bent daarvoor bereikbaar tussen 10.00 en 12.00 uur. Moet u in die tijd naar de huisarts, dan geeft u dat van tevoren door. Bent u weer beter, dan meldt u dat uiterlijk de dag vóór uw eerste werkdag bij uw teamleider, zodat de planning u weer kan inroosteren.\n\n3. De bedrijfsarts\n\nBent u langer dan twee weken ziek, dan ontvangt u een uitnodiging voor een gesprek met de bedrijfsarts. De bedrijfsarts beoordeelt wat u wel en niet kunt en adviseert het bedrijf over aangepast werk. Medische gegevens blijven bij de bedrijfsarts; het bedrijf krijgt alleen het advies. Een afspraak met de bedrijfsarts is verplicht. Kunt u niet komen, dan verzet u de afspraak minstens een werkdag van tevoren via de arbodienst.\n\n4. Loon en vakantiedagen tijdens ziekte\n\nIn het eerste ziektejaar betaalt het bedrijf uw volledige loon door; in het tweede jaar 70 procent. Tijdens uw ziekte bouwt u gewoon vakantiedagen op, net als wanneer u werkt. Wilt u tijdens uw ziekte op vakantie, dan vraagt u dat aan bij uw teamleider en hebt u toestemming van de bedrijfsarts nodig. Die dagen worden dan van uw vakantiesaldo afgeschreven.\n\n5. Vakantie aanvragen\n\nVakantie vraagt u aan in het roostersysteem. Voor een vakantie van vijf werkdagen of meer doet u dat minstens zes weken van tevoren; voor een kortere vakantie minstens twee weken. Uw teamleider beslist en houdt daarbij rekening met de bezetting van de afdeling. Krijgt u binnen twee weken na uw aanvraag geen antwoord, dan is uw verlof goedgekeurd. In de weken 47 tot en met 52, de weken vóór Sinterklaas en Kerst, wordt geen vakantie verleend. Een aaneengesloten vakantie duurt maximaal drie weken.\n\n6. Bijzonder verlof\n\nVoor bepaalde gebeurtenissen krijgt u betaald verlof, zonder dat dit van uw vakantiedagen afgaat. Bij het overlijden van uw partner, kind of ouder krijgt u verlof vanaf de dag van overlijden tot en met de dag van de uitvaart. Dit verlof duurt maximaal vier dagen. Bij het overlijden van een broer, zus, grootouder of schoonouder krijgt u de dag van de uitvaart vrij. Voor uw verhuizing krijgt u één dag per kalenderjaar en voor uw eigen huwelijk of geregistreerd partnerschap één dag.\n\nBijzonder verlof meldt u zo snel mogelijk bij uw teamleider; een verhuizing meldt u minstens twee weken van tevoren.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "rule-application",
+        "prompt": "Modibo werkt in het magazijn en begint op maandag om 7.00 uur. In de nacht van zondag op maandag wordt hij ziek. Wat moet hij doen?",
+        "options": {
+          "A": "Vóór 8.30 uur zijn teamleider bellen.",
+          "B": "Vóór 7.00 uur een bericht sturen via de app.",
+          "C": "Vóór 6.00 uur zijn teamleider bellen."
+        },
+        "answer": "C",
+        "evidence": "Bent u ziek, dan belt u vóór 8.30 uur uw teamleider. Begint uw dienst vóór 8.30 uur, dan meldt u zich uiterlijk een uur vóór het begin van uw dienst.",
+        "explanation": "Wie vóór 8.30 uur begint, meldt zich uiterlijk een uur vóór het begin van de dienst; bij een dienst om 7.00 uur is dat 6.00 uur. De grens van 8.30 uur geldt alleen voor diensten die later beginnen, en een bericht via de app telt niet als ziekmelding."
+      },
+      {
+        "id": "q2",
+        "skill": "detail",
+        "prompt": "Welke informatie wil het bedrijf van een zieke medewerker horen?",
+        "options": {
+          "A": "Hoe lang hij denkt thuis te blijven en waar hij bereikbaar is.",
+          "B": "Welke klachten hij heeft en welke medicijnen hij daarvoor gebruikt.",
+          "C": "Hoeveel vakantiedagen hij nog heeft en wanneer hij die wil opnemen."
+        },
+        "answer": "A",
+        "evidence": "Geef bij de melding door hoe lang u verwacht afwezig te zijn, op welk adres en telefoonnummer u bereikbaar bent en welk werk moet worden overgenomen. U hoeft niet te vertellen wat u mankeert; die informatie deelt u alleen met de bedrijfsarts.",
+        "explanation": "Bij de ziekmelding gaat het om de verwachte duur, het adres en telefoonnummer waar de medewerker te bereiken is en het werk dat moet worden overgenomen. Wat iemand mankeert, hoeft hij niet te vertellen; dat is alleen voor de bedrijfsarts. Over vakantiedagen gaat de ziekmelding niet: wie tijdens zijn ziekte op vakantie wil, vraagt dat apart aan bij zijn teamleider."
+      },
+      {
+        "id": "q3",
+        "skill": "detail",
+        "prompt": "Welke informatie ontvangt de werkgever van de bedrijfsarts?",
+        "options": {
+          "A": "De medische gegevens van de medewerker.",
+          "B": "Alleen een advies over welk werk mogelijk is.",
+          "C": "Hoe lang de medewerker nog thuis moet blijven."
+        },
+        "answer": "B",
+        "evidence": "De bedrijfsarts beoordeelt wat u wel en niet kunt en adviseert het bedrijf over aangepast werk. Medische gegevens blijven bij de bedrijfsarts; het bedrijf krijgt alleen het advies.",
+        "explanation": "De bedrijfsarts beoordeelt wat de medewerker kan en geeft het bedrijf alleen een advies over aangepast werk; medische gegevens blijven bij de arts. Hoe lang iemand afwezig blijft, schat de medewerker zelf in bij de ziekmelding."
+      },
+      {
+        "id": "q4",
+        "skill": "rule-application",
+        "prompt": "Hasan heeft op 3 maart drie weken vakantie aangevraagd voor juli. Op 20 maart heeft hij nog geen antwoord. Wat betekent dat?",
+        "options": {
+          "A": "Zijn vakantie is goedgekeurd.",
+          "B": "Hij moet zijn teamleider om een beslissing vragen.",
+          "C": "Zijn vakantie is afgewezen vanwege de bezetting."
+        },
+        "answer": "A",
+        "evidence": "Krijgt u binnen twee weken na uw aanvraag geen antwoord, dan is uw verlof goedgekeurd.",
+        "explanation": "Wie binnen twee weken na de aanvraag geen antwoord krijgt, heeft zijn verlof goedgekeurd gekregen; twee weken na 3 maart is 17 maart, dus op 20 maart is de vakantie zeker. De bezetting is iets waarmee de teamleider rekening houdt bij een beslissing, maar zonder antwoord is er geen afwijzing."
+      },
+      {
+        "id": "q5",
+        "skill": "inference",
+        "prompt": "Waarom krijgen medewerkers in de weken 47 tot en met 52 geen vakantie?",
+        "options": {
+          "A": "Omdat aanvragen voor die weken te laat worden ingediend.",
+          "B": "Omdat het bedrijf dan veel meer werk heeft dan anders.",
+          "C": "Omdat een aaneengesloten vakantie maximaal drie weken duurt."
+        },
+        "answer": "B",
+        "evidence": "In de weken vóór Sinterklaas en Kerst vervoeren wij bijna twee keer zo veel pakketten als anders; daarmee houdt deze regeling rekening.",
+        "explanation": "De inleiding zegt dat het bedrijf in de weken vóór Sinterklaas en Kerst bijna twee keer zo veel pakketten vervoert en dat de regeling daarmee rekening houdt; de weken 47 tot en met 52 zijn precies die periode. De termijn voor aanvragen en het maximum van drie weken zijn andere regels, geen reden voor dit verbod."
+      },
+      {
+        "id": "q6",
+        "skill": "quantity",
+        "prompt": "Fatima verhuist in mei. In dezelfde maand overlijdt haar grootmoeder en gaat zij naar de uitvaart. Hoeveel dagen bijzonder verlof krijgt zij in totaal?",
+        "options": {
+          "A": "Eén dag.",
+          "B": "Vijf dagen.",
+          "C": "Twee dagen."
+        },
+        "answer": "C",
+        "evidence": "Bij het overlijden van een broer, zus, grootouder of schoonouder krijgt u de dag van de uitvaart vrij. Voor uw verhuizing krijgt u één dag per kalenderjaar en voor uw eigen huwelijk of geregistreerd partnerschap één dag.",
+        "explanation": "Voor de verhuizing krijgt Fatima één dag en voor de uitvaart van een grootouder de dag van de uitvaart, samen twee dagen. Vier dagen gelden alleen bij het overlijden van een partner, kind of ouder; wie dat bij de verhuisdag optelt, komt ten onrechte op vijf."
+      },
+      {
+        "id": "q7",
+        "skill": "purpose",
+        "prompt": "Wat is het doel van deze tekst?",
+        "options": {
+          "A": "De lezer uitleggen wat hij moet doen bij ziekte en verlof.",
+          "B": "De lezer overtuigen dat hij zich minder vaak ziek moet melden.",
+          "C": "De lezer waarschuwen voor de drukte in de weken voor Kerst."
+        },
+        "answer": "A",
+        "evidence": "Hierin staat wat u doet als u ziek bent en hoe u verlof aanvraagt.",
+        "explanation": "De regeling beschrijft stap voor stap wat een medewerker doet bij ziekte en hoe hij verlof aanvraagt. De drukte in december is alleen de reden voor één regel, en nergens wordt de lezer gevraagd zich minder vaak ziek te melden."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "B1:reading:batch002-cursusfonds:1",
+    "level": "B1",
+    "part": "reading",
+    "title": "Bijdrage voor een cursus",
+    "exam": "nt2-i",
+    "taskType": "website",
+    "domain": "werk",
+    "textType": "instructief",
+    "situation": "U leest op het intranet van uw werkgever hoe u een bijdrage voor een cursus aanvraagt.",
+    "status": "draft",
+    "targetLevelValidated": false,
+    "text": "Leren naast uw werk\n\nOnze zorgorganisatie heeft een cursusfonds voor medewerkers die kennis willen opdoen die bruikbaar is in hun huidige of toekomstige functie. Per kalenderjaar kan iedere medewerker maximaal driehonderd euro ontvangen, zolang er geld beschikbaar is in het fonds. Een korte cursus omgaan met een nieuw computerprogramma kan bijvoorbeeld passen, ook als u niet op kantoor werkt. Het gaat om de verbinding met uw werk en uw ontwikkeling, niet alleen om de naam van de cursus. Op deze pagina staat hoe u een aanvraag voorbereidt en welke stappen daarna nodig zijn.\n\nEerst bespreken\n\nZoek een cursusbeschrijving waarin de inhoud, het aantal lessen en de totale prijs duidelijk vermeld staan. Bespreek met uw leidinggevende wat u wilt leren en op welke manier u dit tijdens het werk kunt gebruiken. Die beoordeelt uw aanvraag voordat u zich inschrijft, zodat u vooraf weet of een bijdrage mogelijk is. Wie zich eerst inschrijft, kan de kosten niet achteraf alsnog bij het fonds neerleggen, ook wanneer de cursus goed past. Deze volgorde voorkomt dat medewerkers kosten maken terwijl het beschikbare geld misschien al is verdeeld.\n\nNa de goedkeuring\n\nU ontvangt een bericht waarin staat welk bedrag voor u is gereserveerd en tot welke datum de reservering geldt. Daarna schrijft u zich zelf in bij de cursusaanbieder en betaalt u de rekening uit eigen middelen. Stuur het bewijs van inschrijving binnen drie maanden na de goedkeuring naar de medewerker die het fonds beheert. Zonder dat bewijs vervalt de reservering na die termijn en komt het bedrag beschikbaar voor andere aanvragen. Begint de cursus later, dan is dat geen probleem, zolang u uw inschrijving maar op tijd heeft bevestigd.\n\nAfronden en declareren\n\nNa afloop stuurt u het certificaat en een betaalbewijs mee met het formulier waarmee u vergoeding aanvraagt. Beide documenten zijn nodig: het certificaat toont deelname aan en het betaalbewijs laat zien wat u zelf heeft betaald. De organisatie vergoedt nooit meer dan het toegezegde bedrag, ook wanneer u tijdens de cursus extra materiaal koopt. Bewaar de documenten daarom op één plek, zodat u na de laatste les niet opnieuw informatie hoeft op te vragen. De beheerder controleert uw stukken en meldt het als er nog iets ontbreekt.\n\nAls de planning verandert\n\nWie zonder geldige reden stopt met de cursus, ontvangt geen vergoeding en betaalt de gemaakte kosten zelf. Bij ziekte kunt u uitstel aanvragen; neem daarvoor contact op met uw leidinggevende zodra duidelijk is dat verdergaan niet lukt. Samen bespreekt u of hervatten bij een volgende groep mogelijk is en of de reservering moet worden aangepast. Ga er niet van uit dat een gewijzigde planning vanzelf bekend wordt doordat de cursusaanbieder daarvan op de hoogte is. U blijft verantwoordelijk voor het doorgeven van veranderingen aan de organisatie die uw bijdrage heeft toegezegd.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "detail",
+        "prompt": "Waarop beoordeelt de leidinggevende of een cursus past?",
+        "options": {
+          "A": "Op de bekendheid van de gekozen cursusaanbieder.",
+          "B": "Op de bruikbaarheid voor het werk.",
+          "C": "Op de vraag of de medewerker op kantoor werkt."
+        },
+        "answer": "B",
+        "evidence": "Bespreek met uw leidinggevende wat u wilt leren en op welke manier u dit tijdens het werk kunt gebruiken. Die beoordeelt uw aanvraag voordat u zich inschrijft, zodat u vooraf weet of een bijdrage mogelijk is.",
+        "explanation": "U bespreekt met uw leidinggevende wat u wilt leren en hoe u dat tijdens het werk kunt gebruiken; daarna beoordeelt die uw aanvraag. Het gaat dus om de bruikbaarheid voor het werk. Over de bekendheid van de cursusaanbieder zegt de tekst niets, en een cursus kan ook passen als u niet op kantoor werkt."
+      },
+      {
+        "id": "q2",
+        "skill": "inference",
+        "prompt": "Waarom moet goedkeuring vóór de inschrijving komen?",
+        "options": {
+          "A": "Anders ontvangt de werkgever het certificaat te vroeg.",
+          "B": "Anders begint de termijn van drie maanden opnieuw.",
+          "C": "Anders loopt de werknemer risico op eigen kosten."
+        },
+        "answer": "C",
+        "evidence": "Wie zich eerst inschrijft, kan de kosten niet achteraf alsnog bij het fonds neerleggen, ook wanneer de cursus goed past. Deze volgorde voorkomt dat medewerkers kosten maken terwijl het beschikbare geld misschien al is verdeeld.",
+        "explanation": "Eerst goedkeuring voorkomt een financieel risico binnen deze regeling. Het certificaat komt na afloop; opnieuw starten van de termijn staat er niet."
+      },
+      {
+        "id": "q3",
+        "skill": "rule-application",
+        "prompt": "Sabrina’s cursus begint pas over vijf maanden. Wat moet zij binnen drie maanden na goedkeuring doen?",
+        "options": {
+          "A": "Haar bewijs van inschrijving opsturen.",
+          "B": "Het certificaat van de afgeronde cursus opsturen.",
+          "C": "Het volledige cursusbedrag opnieuw aanvragen."
+        },
+        "answer": "A",
+        "evidence": "Stuur het bewijs van inschrijving binnen drie maanden na de goedkeuring naar de medewerker die het fonds beheert. Zonder dat bewijs vervalt de reservering na die termijn en komt het bedrag beschikbaar voor andere aanvragen. Begint de cursus later, dan is dat geen probleem, zolang u uw inschrijving maar op tijd heeft bevestigd.",
+        "explanation": "De inschrijving moet tijdig bevestigd zijn; afronden hoeft nog niet. Een nieuwe aanvraag is niet nodig bij tijdig bewijs."
+      },
+      {
+        "id": "q4",
+        "skill": "detail",
+        "prompt": "Waarom zijn bij de vergoeding twee documenten nodig?",
+        "options": {
+          "A": "De beheerder vergelijkt de lesdata met de inschrijfdatum.",
+          "B": "De beheerder controleert zowel deelname als betaalde kosten.",
+          "C": "De beheerder bepaalt daarmee de prijs van extra materiaal."
+        },
+        "answer": "B",
+        "evidence": "Beide documenten zijn nodig: het certificaat toont deelname aan en het betaalbewijs laat zien wat u zelf heeft betaald. De organisatie vergoedt nooit meer dan het toegezegde bedrag, ook wanneer u tijdens de cursus extra materiaal koopt.",
+        "explanation": "De documenten tonen verschillende zaken aan. De vergoeding wordt niet door lesdata of extra materiaal verhoogd."
+      },
+      {
+        "id": "q5",
+        "skill": "purpose",
+        "prompt": "Wat is het doel van deze tekst?",
+        "options": {
+          "A": "de lezer overtuigen dat een computercursus de beste keuze is",
+          "B": "de lezer informeren over het lesprogramma van een zorgopleiding",
+          "C": "de lezer uitleggen hoe het cursusfonds werkt"
+        },
+        "answer": "C",
+        "evidence": "Op deze pagina staat hoe u een aanvraag voorbereidt en welke stappen daarna nodig zijn.",
+        "explanation": "De pagina geeft de aanvraag- en betalingsprocedure. De computercursus is slechts een voorbeeld; een lesprogramma ontbreekt."
+      }
+    ]
+  },
+  {
+    "id": "B1:reading:batch010-deelexamens:1",
+    "level": "B1",
+    "part": "reading",
+    "exam": "nt2-i",
+    "taskType": "artikel",
+    "textType": "persuasief",
+    "domain": "educatie",
+    "title": "Laat volwassenen hun examen in delen doen",
+    "situation": "U leest een opiniestuk uit een tijdschrift over onderwijs voor volwassenen.",
+    "text": "Laat volwassenen hun examen in delen doen\n\nElk jaar beginnen duizenden volwassenen aan een mbo-opleiding naast hun baan en hun gezin. Ze volgen les op één avond per week en leren de rest in de uren die overblijven. Toch stopt een flink deel van hen voordat het diploma binnen is. Uit gesprekken met mijn eigen cursisten weet ik dat één oorzaak steeds terugkomt: het grote eindexamen. Bij veel opleidingen voor volwassenen wordt de theorie nog altijd getoetst in één examen aan het einde van de opleiding. Ik pleit ervoor dat volwassen cursisten hun examen in delen mogen doen, na elk blok van de opleiding.\n\nLeren in stukjes\n\nVolwassenen leren anders dan jongeren, niet omdat ze minder kunnen, maar omdat hun tijd anders is verdeeld. Een cursist van mij leert een uur nadat de kinderen slapen; een ander leest een hoofdstuk in de trein naar het werk. Zo wordt de stof in kleine stukken opgenomen, en zo verdwijnt die ook weer. Wie in september een hoofdstuk over elektriciteit heeft geleerd, weet daar in juni vaak weinig meer van. Een jongere student kan in de weken voor het examen alles nog eens doornemen. Een volwassene met een baan en een gezin heeft die weken niet. Een deelexamen na elk blok toetst de stof terwijl die nog vers is. Wie een deel niet haalt, verliest een maand en geen half jaar.\n\nHet verhaal van Modibo\n\nModibo (29) volgde bij ons de opleiding tot installatiemonteur. Twee jaar lang leerde hij elke avond, en in de praktijklessen deed hij het goed. Voor het theorie-examen kwam hij twee punten tekort. Hij moest een half jaar wachten op de herkansing en dacht in die maanden serieus aan stoppen. Uiteindelijk haalde hij het, maar zijn verhaal laat precies zien wat ik bedoel. Niet zijn kennis was het probleem, maar de vorm van het examen. Op een slechte dag kan één toets twee jaar werk doorstrepen.\n\nHet bezwaar van de tegenstanders\n\nTegenstanders van deelexamens zeggen dat een opleiding zo in losse stukjes uiteenvalt. Een goede monteur moet alle kennis tegelijk kunnen toepassen, en niet alleen per onderdeel. Bovendien zouden deelexamens extra werk opleveren voor docenten en examencommissies. Hoewel het eerste argument sterk klinkt, klopt het niet. Of iemand zijn vak beheerst, blijkt in de praktijk: tijdens de stage en in de praktijktoets aan het einde van de opleiding. Daar laat een cursist zien dat hij alles kan combineren. De theorie kan prima in delen worden getoetst. Het tweede argument is nog zwakker. De meeste opleidingen geven nu al na elk blok een toets in de les; die toetsen hoeven alleen nog een officiële status te krijgen. En wie de kosten van herkansingen en van cursisten die afhaken meetelt, ziet dat deelexamens uiteindelijk goedkoper zijn.\n\nMaak van de uitzondering de regel\n\nSommige opleidingen bieden deelexamens al aan, maar alleen op verzoek en alleen aan wie de weg naar de examencommissie kent. Dat moet andersom. Ik roep opleidingen op om deelexamens standaard aan te bieden aan volwassen cursisten. Wie liever één groot examen doet, kan daar dan zelf voor kiezen. Volwassenen die naast hun werk een vak leren, verdienen een examen dat past bij de manier waarop zij leren. Anders verliezen we precies de mensen die de techniek en de zorg zo hard nodig hebben.\n\nThijs Veenstra is docent bij een ROC.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "detail",
+        "prompt": "Waarom passen deelexamens volgens de schrijver beter bij volwassen cursisten?",
+        "options": {
+          "A": "Volwassenen hebben minder lesuren en dus minder stof per examen.",
+          "B": "Volwassenen kunnen bij een deelexamen zelf het moment kiezen.",
+          "C": "De stof wordt getoetst voordat cursisten die weer vergeten zijn."
+        },
+        "answer": "C",
+        "evidence": "Wie in september een hoofdstuk over elektriciteit heeft geleerd, weet daar in juni vaak weinig meer van. Een jongere student kan in de weken voor het examen alles nog eens doornemen. Een volwassene met een baan en een gezin heeft die weken niet. Een deelexamen na elk blok toetst de stof terwijl die nog vers is.",
+        "explanation": "Volwassenen leren in kleine stukken en zijn de stof van september in juni weer kwijt; een deelexamen toetst de stof terwijl die nog vers is. Dat zij één avond per week les hebben, noemt de schrijver niet als reden, en over het kiezen van een moment zegt de tekst niets."
+      },
+      {
+        "id": "q2",
+        "skill": "inference",
+        "prompt": "Wat wil de schrijver duidelijk maken met het voorbeeld van Modibo?",
+        "options": {
+          "A": "Door één slecht examen kan een goede cursist toch afhaken.",
+          "B": "Herkansingen moeten sneller na het examen worden aangeboden.",
+          "C": "Volwassen cursisten bereiden zich vaak te weinig voor."
+        },
+        "answer": "A",
+        "evidence": "Uiteindelijk haalde hij het, maar zijn verhaal laat precies zien wat ik bedoel. Niet zijn kennis was het probleem, maar de vorm van het examen. Op een slechte dag kan één toets twee jaar werk doorstrepen.",
+        "explanation": "Modibo kende zijn vak, maar één slecht examen bracht hem bijna tot stoppen: de vorm van het examen was het probleem. Het halve jaar wachten is een detail uit zijn verhaal, geen pleidooi voor snellere herkansingen, en hij leerde juist elke avond."
+      },
+      {
+        "id": "q3",
+        "skill": "detail",
+        "prompt": "Waarom vindt de schrijver het eerste bezwaar van de tegenstanders onjuist?",
+        "options": {
+          "A": "In de praktijk hoeft een monteur zelden alle kennis tegelijk te gebruiken.",
+          "B": "Bij de stage en de praktijktoets blijkt al of iemand alles kan combineren.",
+          "C": "De examencommissie controleert of de losse delen goed bij elkaar passen."
+        },
+        "answer": "B",
+        "evidence": "Hoewel het eerste argument sterk klinkt, klopt het niet. Of iemand zijn vak beheerst, blijkt in de praktijk: tijdens de stage en in de praktijktoets aan het einde van de opleiding. Daar laat een cursist zien dat hij alles kan combineren. De theorie kan prima in delen worden getoetst.",
+        "explanation": "Volgens de schrijver laat een cursist tijdens de stage en de praktijktoets al zien dat hij alles kan combineren; daarom mag de theorie in delen worden getoetst. Hij ontkent niet dat een monteur alles tegelijk moet kunnen, en de examencommissie noemt hij alleen bij het tweede bezwaar en in het slot."
+      },
+      {
+        "id": "q4",
+        "skill": "summary",
+        "prompt": "Welke zin vat de mening van de schrijver het beste samen?",
+        "options": {
+          "A": "De toetsing moet aansluiten bij hoe volwassenen naast hun werk leren.",
+          "B": "Volwassenen moeten minder vaak aan een opleiding naast hun werk beginnen.",
+          "C": "Docenten moeten meer tijd krijgen voor het nakijken van deelexamens."
+        },
+        "answer": "A",
+        "evidence": "Volwassenen die naast hun werk een vak leren, verdienen een examen dat past bij de manier waarop zij leren.",
+        "explanation": "De hele tekst werkt toe naar de zin dat volwassenen een examen verdienen dat past bij hun manier van leren. Het extra werk voor docenten is een bezwaar van tegenstanders dat de schrijver juist afwijst, en hij wil dat minder volwassenen stoppen, niet dat minder volwassenen beginnen."
+      },
+      {
+        "id": "q5",
+        "skill": "detail",
+        "prompt": "Wat stelt de schrijver aan het einde van de tekst voor?",
+        "options": {
+          "A": "Het grote eindexamen afschaffen bij alle opleidingen voor volwassenen.",
+          "B": "Deelexamens alleen toestaan na een verzoek aan de examencommissie.",
+          "C": "Deelexamens voor iedereen aanbieden en het eindexamen als keuze houden."
+        },
+        "answer": "C",
+        "evidence": "Dat moet andersom. Ik roep opleidingen op om deelexamens standaard aan te bieden aan volwassen cursisten. Wie liever één groot examen doet, kan daar dan zelf voor kiezen.",
+        "explanation": "De schrijver wil dat deelexamens standaard worden aangeboden en dat wie dat wil, nog steeds voor één groot examen kan kiezen. Het eindexamen wordt dus niet afgeschaft, en deelexamens alleen op verzoek is precies de situatie die hij wil veranderen."
+      },
+      {
+        "id": "q6",
+        "skill": "purpose",
+        "prompt": "Wat is het doel van deze tekst?",
+        "options": {
+          "A": "De lezer informeren over de manier waarop volwassenen naast hun werk leren.",
+          "B": "De lezer overtuigen dat volwassenen examen in delen moeten kunnen doen.",
+          "C": "De lezer waarschuwen voor het grote aantal volwassen cursisten dat stopt."
+        },
+        "answer": "B",
+        "evidence": "Ik pleit ervoor dat volwassen cursisten hun examen in delen mogen doen, na elk blok van de opleiding.",
+        "explanation": "De schrijver pleit voor deelexamens, weerlegt de bezwaren en roept opleidingen op: dat is overtuigen. De manier waarop volwassenen leren en het aantal cursisten dat stopt, zijn argumenten in dat pleidooi, niet het doel van de tekst."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "B1:reading:batch034-zelfroosteren:1",
+    "level": "B1",
+    "part": "reading",
+    "exam": "nt2-i",
+    "taskType": "nieuwsbericht",
+    "textType": "beschouwend",
+    "domain": "werk",
+    "title": "Verpleegkundigen maken hun eigen rooster",
+    "situation": "U leest een nieuwsbericht op de website van een regionale krant.",
+    "text": "Verpleegkundigen in Bronwaard maken hun eigen rooster\n\nBRONWAARD – Wie in een ziekenhuis werkt, hoort meestal pas een paar weken van tevoren wanneer hij moet werken. Op drie afdelingen van Streekziekenhuis Bronwaard gaat dat sinds februari anders. De verpleegkundigen daar maken hun rooster zelf, met een app op hun telefoon. Het ziekenhuis hoopt zo het werk aantrekkelijker te maken en het aantal ziekmeldingen te verlagen. Na een half jaar zijn de eerste cijfers bekend.\n\nDrie weken, drie stappen\n\nHet roosteren gaat in drie stappen. Vooraf bepaalt de planner hoeveel verpleegkundigen er per dienst nodig zijn, bijvoorbeeld zes overdag, vier in de avond en twee in de nacht. Dat schema zet zij in de app. In de eerste week vullen de verpleegkundigen hun wensen in: welke diensten zij willen draaien en op welke dagen zij vrij willen zijn. Daarbij zien zij meteen hoeveel collega's er al op een dienst staan. In de tweede week laat de app zien waar te veel en waar te weinig collega's staan. Een dienst met te veel mensen kleurt rood, en wie daar staat, kan zichzelf naar een andere dienst verplaatsen. Pas in de derde week kijkt de planner naar de diensten die nog open zijn en maakt zij het rooster definitief. De oude regels blijven gelden: niemand werkt meer dan vijf dagen achter elkaar, en niemand draait meer dan twee weekenden per maand.\n\nHet leven eerst, het rooster daarna\n\nVerpleegkundige Jari Postma (31) werkt op de afdeling Chirurgie en traint twee avonden per week bij een roeivereniging. \"Vroeger kreeg ik het rooster en moest ik mijn leven daaromheen bouwen. Nu is het andersom. Ik houd mijn trainingsavonden vrij en werk in ruil daarvoor liever een weekend extra.\" Het invullen kost hem elke maand ongeveer een uur, en dat uur heeft hij er graag voor over. \"Ik hoef bijna nooit meer te ruilen, want ik heb de diensten zelf gekozen.\"\n\nPlanner Thérèse Kool (49) maakte twaalf jaar lang de roosters van de afdeling. Haar werk is veranderd. \"Ik maak het rooster niet meer, ik bewaak het. Ik controleer of de regels worden gevolgd en ik vul de gaten die de collega's zelf niet gevuld krijgen. Dat zijn er verrassend weinig.\" In april wilden vijf verpleegkundigen dezelfde week vrij, in de meivakantie. Vroeger had zij dan zelf moeten beslissen wie er pech had. \"Nu zagen ze in de app dat het niet paste. Twee collega's zonder schoolgaande kinderen hebben toen hun vakantie een week opgeschoven, zonder dat ik iets hoefde te zeggen.\" De eerste maanden waren wel wennen, vooral voor collega's die weinig met hun telefoon doen. Na een korte uitleg op de afdeling ging het ook bij hen goed.\n\nDe eerste cijfers\n\nHet ziekenhuis is tevreden over de eerste resultaten. Op de drie afdelingen daalde het ziekteverzuim in een half jaar van 7,2 naar 5,8 procent, terwijl het op de andere afdelingen gelijk bleef. Het aantal verzoeken om een dienst te ruilen is meer dan gehalveerd. Bovendien hoeft het ziekenhuis minder vaak dure uitzendkrachten in te huren, omdat open diensten nu vaker door eigen medewerkers worden gevuld. In een enquête zeiden acht van de tien verpleegkundigen dat zij niet terug willen naar het oude rooster.\n\nNiet iedereen is overtuigd\n\nToch is er ook twijfel. De ondernemingsraad wijst erop dat populaire diensten, zoals de dagdienst op een doordeweekse dag, snel bezet zijn door collega's die als eerste hun wensen invullen. Wie later invult, houdt de avonden en de weekenden over. \"Zelfroosteren geeft vrijheid, maar niet aan iedereen evenveel\", zegt voorzitter Hilde Brandsma. Zij wil dat de app de wensen pas laat zien als iedereen ze heeft ingevuld, zodat snelheid geen rol meer speelt. Bovendien lost het systeem het tekort aan personeel niet op: als er te weinig mensen zijn, valt er weinig te kiezen.\n\nHet ziekenhuis beslist na een jaar of ook de andere afdelingen overstappen. Tot die tijd blijft de app beperkt tot de drie afdelingen die ermee zijn begonnen.",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Wat gebeurt er in de tweede week van het roosteren?",
+        "options": {
+          "A": "De verpleegkundigen geven door op welke dagen zij vrij willen zijn.",
+          "B": "De planner vult zelf de diensten in die nog leeg zijn.",
+          "C": "Wie in een te volle dienst staat, kiest zelf een andere dienst."
+        },
+        "answer": "C",
+        "evidence": "In de tweede week laat de app zien waar te veel en waar te weinig collega's staan. Een dienst met te veel mensen kleurt rood, en wie daar staat, kan zichzelf naar een andere dienst verplaatsen.",
+        "explanation": "In de tweede week laat de app zien waar te veel en waar te weinig collega's staan; wie in een dienst met te veel mensen staat, kan zichzelf naar een andere dienst verplaatsen. Vrije dagen doorgeven hoort bij de eerste week, en de open diensten vult de planner pas in de derde week.",
+        "skill": "detail"
+      },
+      {
+        "id": "q2",
+        "prompt": "Wat is voor Jari het grootste voordeel van het zelfroosteren?",
+        "options": {
+          "A": "Hij kan zijn werk nu om zijn privéleven heen plannen.",
+          "B": "Hij hoeft minder weekenden te werken dan vroeger.",
+          "C": "Hij kan makkelijker een dienst ruilen met een collega."
+        },
+        "answer": "A",
+        "evidence": "Vroeger kreeg ik het rooster en moest ik mijn leven daaromheen bouwen. Nu is het andersom. Ik houd mijn trainingsavonden vrij en werk in ruil daarvoor liever een weekend extra.",
+        "explanation": "Vroeger moest Jari zijn leven om het rooster heen bouwen; nu is het andersom: hij houdt zijn trainingsavonden vrij en plant zijn diensten daaromheen. Daarvoor werkt hij juist een weekend extra, en ruilen hoeft hij bijna nooit meer, omdat hij de diensten zelf heeft gekozen.",
+        "skill": "opinion"
+      },
+      {
+        "id": "q3",
+        "prompt": "Hoe is het werk van planner Thérèse Kool veranderd?",
+        "options": {
+          "A": "Zij beslist nu zelf wie er vrij krijgt als te veel collega's dezelfde week vrij willen.",
+          "B": "Zij controleert het rooster en vult alleen nog de gaten die overblijven.",
+          "C": "Zij vult de wensen in voor collega's die weinig met hun telefoon doen."
+        },
+        "answer": "B",
+        "evidence": "Ik maak het rooster niet meer, ik bewaak het. Ik controleer of de regels worden gevolgd en ik vul de gaten die de collega's zelf niet gevuld krijgen. Dat zijn er verrassend weinig.",
+        "explanation": "Zij maakt het rooster niet meer, maar bewaakt het: zij controleert of de regels worden gevolgd en vult de gaten die overblijven, en dat zijn er weinig. Beslissen wie vrij krijgt, deed zij vroeger; nu lossen de collega's dat zelf op, en collega's die de app lastig vonden, doen het na een korte uitleg ook zelf.",
+        "skill": "detail"
+      },
+      {
+        "id": "q4",
+        "prompt": "Wat wil de schrijver duidelijk maken met het voorbeeld van de meivakantie?",
+        "options": {
+          "A": "Dat collega's een probleem in het rooster nu zelf oplossen.",
+          "B": "Dat ouders met schoolgaande kinderen voorrang krijgen in vakanties.",
+          "C": "Dat de planner in drukke weken nog steeds moet beslissen wie vrij krijgt."
+        },
+        "answer": "A",
+        "evidence": "In april wilden vijf verpleegkundigen dezelfde week vrij, in de meivakantie. Vroeger had zij dan zelf moeten beslissen wie er pech had. \"Nu zagen ze in de app dat het niet paste. Twee collega's zonder schoolgaande kinderen hebben toen hun vakantie een week opgeschoven, zonder dat ik iets hoefde te zeggen.\"",
+        "explanation": "Vijf collega's wilden dezelfde week vrij; vroeger besliste de planner wie pech had, nu zagen de collega's in de app dat het niet paste en schoven twee van hen hun vakantie zelf op, zonder dat de planner iets hoefde te zeggen. Dat juist twee collega's zonder schoolgaande kinderen dat deden, was hun eigen keuze, geen regel over voorrang, en de planner hoefde niets te beslissen.",
+        "skill": "inference"
+      },
+      {
+        "id": "q5",
+        "prompt": "Welk resultaat noemt het ziekenhuis na een half jaar?",
+        "options": {
+          "A": "Ook op de andere afdelingen is het ziekteverzuim gedaald.",
+          "B": "Het ziekenhuis huurt geen uitzendkrachten meer in.",
+          "C": "Er wordt minder vaak gevraagd om een dienst te ruilen."
+        },
+        "answer": "C",
+        "evidence": "Op de drie afdelingen daalde het ziekteverzuim in een half jaar van 7,2 naar 5,8 procent, terwijl het op de andere afdelingen gelijk bleef. Het aantal verzoeken om een dienst te ruilen is meer dan gehalveerd. Bovendien hoeft het ziekenhuis minder vaak dure uitzendkrachten in te huren, omdat open diensten nu vaker door eigen medewerkers worden gevuld.",
+        "explanation": "Het aantal verzoeken om een dienst te ruilen is meer dan gehalveerd. Het ziekteverzuim daalde alleen op de drie afdelingen met de app en bleef op de andere afdelingen gelijk, en het ziekenhuis huurt minder vaak uitzendkrachten in, maar nog wel.",
+        "skill": "detail"
+      },
+      {
+        "id": "q6",
+        "prompt": "Waar maakt de ondernemingsraad zich zorgen over?",
+        "options": {
+          "A": "Dat collega's die weinig met hun telefoon doen, de app niet leren gebruiken.",
+          "B": "Dat de snelste collega's de prettigste diensten krijgen.",
+          "C": "Dat de app het tekort aan personeel op de afdelingen groter maakt."
+        },
+        "answer": "B",
+        "evidence": "De ondernemingsraad wijst erop dat populaire diensten, zoals de dagdienst op een doordeweekse dag, snel bezet zijn door collega's die als eerste hun wensen invullen. Wie later invult, houdt de avonden en de weekenden over.",
+        "explanation": "Volgens de ondernemingsraad zijn de populaire diensten snel weg bij collega's die als eerste hun wensen invullen, zodat wie later invult de avonden en de weekenden overhoudt; de vrijheid is dus niet eerlijk verdeeld. Het wennen aan de telefoon noemt de planner, en dat was na een korte uitleg opgelost; over het personeelstekort zegt de raad alleen dat de app het niet oplost, niet dat het groter wordt.",
+        "skill": "opinion"
+      },
+      {
+        "id": "q7",
+        "prompt": "Wat is het doel van deze tekst?",
+        "options": {
+          "A": "De lezer informeren over een nieuwe manier van roosteren en de eerste ervaringen ermee.",
+          "B": "De lezer overtuigen dat ieder ziekenhuis het rooster door de verpleegkundigen zelf moet laten maken.",
+          "C": "De lezer waarschuwen voor de nadelen van zelfroosteren voor collega's die hun wensen pas laat invullen."
+        },
+        "answer": "A",
+        "evidence": "De verpleegkundigen daar maken hun rooster zelf, met een app op hun telefoon. Het ziekenhuis hoopt zo het werk aantrekkelijker te maken en het aantal ziekmeldingen te verlagen. Na een half jaar zijn de eerste cijfers bekend.",
+        "explanation": "Het bericht beschrijft hoe het zelfroosteren werkt, laat een verpleegkundige en een planner aan het woord en geeft de eerste cijfers en een kritische kanttekening; dat is informeren. De schrijver spreekt zich niet uit vóór het systeem, en de twijfel van de ondernemingsraad is één alinea, geen waarschuwing die de hele tekst draagt.",
+        "skill": "purpose"
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  },
+  {
+    "id": "B1:reading:batch035-mediatheek:1",
+    "level": "B1",
+    "part": "reading",
+    "exam": "nt2-i",
+    "taskType": "voorwaarden",
+    "textType": "instructief",
+    "domain": "educatie",
+    "title": "Huisregels en leenvoorwaarden van de mediatheek",
+    "situation": "U leest de huisregels en leenvoorwaarden van de mediatheek van een mbo-college.",
+    "text": "Mediatheek Hoogmeer College: huisregels en leenvoorwaarden\n\nDe mediatheek is de bibliotheek van het Hoogmeer College. Hier leen je boeken, werk je alleen of met een groep en print je verslagen. In deze regels lees je hoe lenen, reserveren, studeren en printen in de mediatheek werken en wat er gebeurt als een boek te laat of beschadigd terugkomt. De regels gelden voor iedereen die de mediatheek gebruikt. Zij zorgen ervoor dat de boeken en de studieplekken voor alle studenten beschikbaar blijven.\n\n1. Lidmaatschap\n\nStudenten en medewerkers van het college zijn automatisch lid. Je schoolpas is je bibliotheekpas: je hebt hem nodig om te lenen, te reserveren en te printen. Ben je geen student of medewerker meer, bijvoorbeeld omdat je je diploma hebt gehaald, dan kun je aan de balie een gastpas aanvragen. Die kost 15 euro per jaar. Met een gastpas mag je twee boeken tegelijk lenen; reserveren en printen zijn met een gastpas niet mogelijk. Wie het college verlaat, levert eerst alle geleende boeken in; daarna wordt het account gesloten.\n\n2. Lenen en verlengen\n\nMet je schoolpas leen je maximaal zes boeken tegelijk, voor drie weken. Tijdschriften van de lopende maand en boeken uit de examenkast leen je niet; die lees je in de mediatheek. Verlengen kan twee keer, via de catalogus op de website of aan de balie, zolang niemand anders het boek heeft gereserveerd. Een gereserveerd boek kun je niet verlengen; je levert het dan uiterlijk op de inleverdatum in.\n\n3. Reserveren\n\nIs een boek uitgeleend, dan kun je het reserveren via de catalogus. Je krijgt een e-mail zodra het boek terug is. Het ligt dan vijf schooldagen voor je klaar aan de balie. Haal je het in die tijd niet op, dan gaat het naar de volgende student op de lijst of terug in de kast. Je kunt maximaal drie boeken tegelijk gereserveerd hebben.\n\n4. Te laat, kwijt of beschadigd\n\nDe mediatheek rekent geen boetes. Lever je een boek te laat in, dan krijg je een herinnering per e-mail. Is het boek een week na de inleverdatum nog niet terug, dan wordt je account geblokkeerd: je kunt dan niets lenen, verlengen of reserveren totdat alles is ingeleverd. Is het boek na vier weken nog steeds niet terug, dan beschouwt de mediatheek het als kwijt en betaal je de nieuwprijs van het boek plus 7,50 euro administratiekosten. Hetzelfde geldt voor een boek dat zo beschadigd is dat het niet meer kan worden uitgeleend. Controleer een boek daarom bij het lenen op schade en meld die meteen aan de balie. Schade die bij het inleveren wordt ontdekt en niet eerder is gemeld, betaalt de laatste lener.\n\n5. Studieplekken\n\nDe mediatheek heeft twee verdiepingen. Op de begane grond staan tafels voor groepswerk; overleggen mag hier op normale gesprekstoon. De eerste verdieping is de stilteruimte: je praat er niet, je telefoon staat op stil en bellen doe je op de gang. Eten is in de hele mediatheek niet toegestaan; drinken mag alleen uit een fles of beker met een deksel. De vier groepsruimtes op de begane grond reserveer je via de app, voor maximaal twee uur per dag en met minimaal drie personen. In de toetsweken zijn de studieplekken vaak allemaal bezet. Een gereserveerde groepsruimte die een kwartier na de begintijd nog leeg is, wordt daarom vrijgegeven voor andere studenten.\n\n6. Printen en kopiëren\n\nPrinten en kopiëren doe je met je schoolpas bij de printers op de begane grond. Elke student krijgt aan het begin van het schooljaar een printtegoed van 10 euro. Een pagina in zwart-wit kost 5 cent, een pagina in kleur 20 cent; scannen naar je e-mail is gratis. Is je tegoed op, dan kun je het aan de balie of via de website opwaarderen.\n\n7. Openingstijden en vragen\n\nDe mediatheek is op schooldagen open van 8.00 tot 17.00 uur, op vrijdag tot 16.00 uur. Vragen stel je aan de balie. Wie zich niet aan deze regels houdt, kan worden gevraagd de mediatheek te verlaten.",
+    "questions": [
+      {
+        "id": "q1",
+        "skill": "rule-application",
+        "prompt": "Karim heeft in juli zijn diploma gehaald aan het Hoogmeer College. In september wil hij een boek uit de mediatheek lenen. Wat geldt voor hem?",
+        "options": {
+          "A": "Hij kan met zijn oude schoolpas tot het einde van het jaar boeken blijven lenen.",
+          "B": "Hij kan een gastpas nemen en daarmee twee boeken tegelijk lenen.",
+          "C": "Hij kan een gastpas nemen en daarmee ook boeken reserveren."
+        },
+        "answer": "B",
+        "evidence": "Ben je geen student of medewerker meer, bijvoorbeeld omdat je je diploma hebt gehaald, dan kun je aan de balie een gastpas aanvragen. Die kost 15 euro per jaar. Met een gastpas mag je twee boeken tegelijk lenen; reserveren en printen zijn met een gastpas niet mogelijk.",
+        "explanation": "Karim is geen student meer, dus zijn account wordt gesloten en zijn schoolpas geldt niet meer als bibliotheekpas. Wie zijn diploma heeft gehaald, kan voor 15 euro per jaar een gastpas aanvragen en daarmee twee boeken tegelijk lenen; reserveren en printen zijn met een gastpas niet mogelijk."
+      },
+      {
+        "id": "q2",
+        "skill": "rule-application",
+        "prompt": "Amina heeft een boek geleend. Morgen is de inleverdatum, maar zij is nog niet klaar. Een andere student heeft het boek gereserveerd. Wat kan Amina doen?",
+        "options": {
+          "A": "Zij kan het boek twee keer verlengen, omdat zij het als eerste had.",
+          "B": "Zij moet het morgen inleveren, tenzij zij het aan de balie verlengt.",
+          "C": "Zij moet het morgen inleveren; verlengen kan nu niet."
+        },
+        "answer": "C",
+        "evidence": "Verlengen kan twee keer, via de catalogus op de website of aan de balie, zolang niemand anders het boek heeft gereserveerd. Een gereserveerd boek kun je niet verlengen; je levert het dan uiterlijk op de inleverdatum in.",
+        "explanation": "Verlengen kan alleen zolang niemand anders het boek heeft gereserveerd. Het boek van Amina is gereserveerd, dus zij kan het niet verlengen, ook niet aan de balie, en levert het uiterlijk op de inleverdatum in. Wie het boek als eerste had, speelt geen rol."
+      },
+      {
+        "id": "q3",
+        "skill": "detail",
+        "prompt": "Wat gebeurt er nadat Julio een uitgeleend boek heeft gereserveerd?",
+        "options": {
+          "A": "Hij krijgt een e-mail zodra het terug is en heeft dan vijf schooldagen om het op te halen.",
+          "B": "De student die het boek nu heeft, krijgt een e-mail dat hij het binnen een week moet terugbrengen.",
+          "C": "Hij haalt het boek binnen vijf schooldagen op bij de student die het nu heeft."
+        },
+        "answer": "A",
+        "evidence": "Je krijgt een e-mail zodra het boek terug is. Het ligt dan vijf schooldagen voor je klaar aan de balie. Haal je het in die tijd niet op, dan gaat het naar de volgende student op de lijst of terug in de kast.",
+        "explanation": "Wie een boek reserveert, krijgt een e-mail zodra het terug is; het ligt dan vijf schooldagen klaar aan de balie en gaat daarna naar de volgende student of terug in de kast. Over een bericht aan de student die het boek nog heeft, zegt de tekst niets; die kan het boek alleen niet meer verlengen en levert het uiterlijk op de inleverdatum in. En het boek wordt aan de balie opgehaald, niet bij een andere student."
+      },
+      {
+        "id": "q4",
+        "skill": "rule-application",
+        "prompt": "Jari heeft een boek dat tien dagen na de inleverdatum nog bij hem thuis ligt. Hij wil een ander boek lenen. Wat gebeurt er?",
+        "options": {
+          "A": "Hij mag lenen, maar hij betaalt een boete voor elke dag dat hij te laat is.",
+          "B": "Hij mag lenen zodra hij de nieuwprijs van het boek heeft betaald.",
+          "C": "Hij kan pas weer lenen als hij het boek heeft ingeleverd."
+        },
+        "answer": "C",
+        "evidence": "De mediatheek rekent geen boetes. Lever je een boek te laat in, dan krijg je een herinnering per e-mail. Is het boek een week na de inleverdatum nog niet terug, dan wordt je account geblokkeerd: je kunt dan niets lenen, verlengen of reserveren totdat alles is ingeleverd.",
+        "explanation": "Het boek is meer dan een week te laat, dus het account van Jari is geblokkeerd: hij kan niets lenen totdat alles is ingeleverd. De mediatheek rekent geen boetes, en de nieuwprijs betaalt een student pas als een boek na vier weken nog niet terug is; ook dan gaat het om het boek dat kwijt is, niet om een voorwaarde om weer te lenen."
+      },
+      {
+        "id": "q5",
+        "skill": "inference",
+        "prompt": "Waarom raadt de mediatheek aan om een boek bij het lenen te controleren?",
+        "options": {
+          "A": "Omdat een beschadigd boek alleen in de mediatheek gelezen mag worden.",
+          "B": "Omdat een student anders betaalt voor schade van een vorige lener.",
+          "C": "Omdat een boek met schade niet meer aan andere studenten mag worden uitgeleend."
+        },
+        "answer": "B",
+        "evidence": "Controleer een boek daarom bij het lenen op schade en meld die meteen aan de balie. Schade die bij het inleveren wordt ontdekt en niet eerder is gemeld, betaalt de laatste lener.",
+        "explanation": "Schade die bij het inleveren wordt ontdekt en niet is gemeld, betaalt de laatste lener. Wie een boek bij het lenen controleert en schade meteen meldt, voorkomt dus dat hij betaalt voor schade van een vorige lener. Dat een beschadigd boek alleen in de mediatheek gelezen mag worden, staat niet in de tekst; dat geldt voor tijdschriften en de examenkast. En dat een boek zo beschadigd is dat het niet meer kan worden uitgeleend, is de regel voor een boek dat als kwijt geldt, niet de reden voor de controle."
+      },
+      {
+        "id": "q6",
+        "skill": "detail",
+        "prompt": "Wat is het verschil tussen de begane grond en de eerste verdieping?",
+        "options": {
+          "A": "Beneden mag je eten en drinken, boven alleen drinken.",
+          "B": "Beneden staan de printers, boven zijn de groepsruimtes.",
+          "C": "Beneden mag je overleggen, boven moet het stil zijn."
+        },
+        "answer": "C",
+        "evidence": "Op de begane grond staan tafels voor groepswerk; overleggen mag hier op normale gesprekstoon. De eerste verdieping is de stilteruimte: je praat er niet, je telefoon staat op stil en bellen doe je op de gang.",
+        "explanation": "Op de begane grond staan de tafels voor groepswerk en mag je overleggen; de eerste verdieping is stilteruimte, waar je niet praat en niet belt. Eten is in de hele mediatheek verboden, ook beneden, en de printers én de groepsruimtes staan allebei op de begane grond."
+      },
+      {
+        "id": "q7",
+        "skill": "purpose",
+        "prompt": "Wat is het doel van deze tekst?",
+        "options": {
+          "A": "De lezer uitleggen welke regels in de mediatheek gelden.",
+          "B": "De lezer overtuigen dat hij geleende boeken op tijd moet inleveren.",
+          "C": "De lezer waarschuwen voor de kosten van een boek dat kwijt is geraakt."
+        },
+        "answer": "A",
+        "evidence": "In deze regels lees je hoe lenen, reserveren, studeren en printen in de mediatheek werken en wat er gebeurt als een boek te laat of beschadigd terugkomt.",
+        "explanation": "De tekst zet de regels van de mediatheek op een rij: lidmaatschap, lenen, reserveren, te laat inleveren, studieplekken, printen en openingstijden. Op tijd inleveren en de kosten van een kwijtgeraakt boek zijn twee van die regels, niet het doel van de hele tekst."
+      }
+    ],
+    "status": "draft",
+    "targetLevelValidated": false
+  }
+]

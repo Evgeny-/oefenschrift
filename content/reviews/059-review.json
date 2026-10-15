@@ -1,0 +1,282 @@
+{
+  "review_id": "059-review",
+  "source": "content/batches/059-original.json",
+  "source_sha256": "f0b28b476b9c4cebd26f77a9dff63ff8b720a2df26719e1514266632a15d5d9f",
+  "starters_source": "content/batches/059-starters.json",
+  "starters_sha256": "dd73079676c79f6f0107c89de285803b1e89a325dcc637e49f731f7d86927dbc",
+  "starters_verdict": "pass",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-14",
+  "reviewer": "Independent AI reviewer: Claude Opus 5.5 (claude-opus-5-5), fresh context separate from the author",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:speaking:batch009-ochtenddienst:1",
+    "A2:speaking:batch009-thuis-oefenen:1",
+    "A2:speaking:batch009-nieuwe-buurvrouw:1",
+    "A2:speaking:batch009-slaap:1",
+    "A2:speaking:batch009-abonnement:1",
+    "A2:speaking:batch009-bushalte:1",
+    "A2:speaking:batch026-lunchpauze:1",
+    "A2:speaking:batch026-woorden-leren:1",
+    "A2:speaking:batch026-huisarts-afspraak:1",
+    "A2:speaking:batch027-ziekmelden:1",
+    "A2:speaking:batch027-taalcafe-oefenen:1",
+    "A2:speaking:batch027-cursuskeuze:1",
+    "A2:speaking:batch003-monteur:1",
+    "A2:speaking:batch009-kleermaker:1",
+    "A2:speaking:batch009-flat-dorp:1",
+    "A2:speaking:batch026-online-winkel:1",
+    "A2:speaking:batch027-contant-pinnen:1",
+    "A2:speaking:batch026-fiets-lopen:1",
+    "A2:speaking:batch027-bakkerij:1",
+    "A2:speaking:batch027-keuken:1",
+    "A2:speaking:batch027-bus-fiets:1",
+    "A2:speaking:batch026-feest-thuis:1"
+  ],
+  "item_count": 22,
+  "edits": [
+    {
+      "id": "A2:speaking:batch009-nieuwe-buurvrouw:1",
+      "field": "quotes[2]",
+      "before": "De buren zijn vriendelijk en er is een park dichtbij.",
+      "after": "er is een park dichtbij.",
+      "reason": "The new C2 asks what is nearby. 'De buren zijn vriendelijk' is an opinion about the neighbourhood (C1 evidence), so the old quote blurred which words meet which criterion."
+    },
+    {
+      "id": "A2:speaking:batch009-abonnement:1",
+      "field": "quotes[2]",
+      "before": "Ik bel vooral en ik stuur berichten. Thuis heb ik wifi.",
+      "after": "Ik bel vooral en ik stuur berichten.",
+      "reason": "The new C2 asks what the phone is used for. 'Thuis heb ik wifi.' is about internet use, which is C1 material."
+    },
+    {
+      "id": "A2:speaking:batch026-fiets-lopen:1",
+      "field": "sample",
+      "before": "Ik kies plaatje één, de fiets. Met de fiets ik ben sneller op mijn werk. En fietsen is goed voor de gezondheid.",
+      "after": "Ik kies plaatje één, de fiets. Met de fiets ik ben snel op mijn werk. En fietsen is goed voor de gezondheid.",
+      "reason": "The comparative 'sneller' implicitly says something about walking while C2 (other picture) is the null criterion: the pattern fix 6 removed from bus-fiets, where the judge credited it as C2. Precautionary (the audit's two runs did not credit 'sneller'); the reason and the word-order error stay."
+    },
+    {
+      "id": "A2:speaking:batch026-fiets-lopen:1",
+      "field": "quotes[1]",
+      "before": "Met de fiets ik ben sneller op mijn werk.",
+      "after": "Met de fiets ik ben snel op mijn werk.",
+      "reason": "Follows the sample."
+    },
+    {
+      "id": "A2:speaking:batch027-bakkerij:1",
+      "field": "sample",
+      "before": "Ik kies plaatje één. Ik werk liever vroeg in de ochtend, want dan ik ben 's middags vrij. Ik vind brood bakken ook leuke werk.",
+      "after": "Ik kies plaatje één. Ik werk liever vroeg in de ochtend, want dan ik ben 's middags vrij.",
+      "reason": "In the audit run without picture descriptions (tmp/feedback-audit-2026-10-14/pic-new.log) the judge credited 'Ik vind brood bakken ook leuke werk.' as the null C2 ('You also mention the other picture…'). Both pictures show bread baking, so the sentence can be read as covering the other picture: the same kind of leak fix 5 removed from feest-thuis. The quotes stay verbatim; the error 'dan ik ben' remains."
+    },
+    {
+      "id": "A2:speaking:batch026-feest-thuis:1",
+      "field": "sample",
+      "before": "Ik kies het restaurant, plaatje twee. Thuis, op het eerste plaatje, ze zitten ook gezellig aan tafel.",
+      "after": "Ik kies het restaurant, plaatje twee. Thuis, op het eerste plaatje, ze zitten gezellig aan tafel.",
+      "reason": "After fix 5 removed 'Ik vind een restaurant meer leuk.', 'ook' refers only back to the chosen restaurant, so the sentence implies that the restaurant is gezellig too: the only merit the sample gives the choice, while the reason (C1) is the null criterion. The sentence stays a remark about the other picture with its word-order error."
+    },
+    {
+      "id": "A2:speaking:batch026-feest-thuis:1",
+      "field": "quotes[2]",
+      "before": "Thuis, op het eerste plaatje, ze zitten ook gezellig aan tafel.",
+      "after": "Thuis, op het eerste plaatje, ze zitten gezellig aan tafel.",
+      "reason": "Follows the sample."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "full_final_source_read": "Read all 22 final records in full, plus the author's notes and starters, the base and starters base, spec common.md, 059.md and review-common.md, docs/briefs/review.md and author.md, the rubric, the whole of content/blueprint.md, the A2 Spreken paragraph of exam-blueprints-2026-09-10.md, audit §3.2–3.6 and §4, OpenExercise.tsx lines 280–330, and the judge payload in server/services.ts (committed and working tree).",
+    "diff_against_base": "Leaf-level diff of every item against tmp/content-fix-2026-10-14/base/059-base.json. The author changed 62 leaves, all spec fixes 1–7 or their consequences: 13 prompts, 12 × criteria[2] (nl and en), slaap sample and quotes[2], and the kleermaker, flat-dorp, online-winkel, contant-pinnen, fiets-lopen, bakkerij, keuken, bus-fiets and feest-thuis fields listed in the notes. Item order and key order unchanged; cues, briefs and alts byte-identical; no revision, audio or images[].file; status draft, targetLevelValidated false. The proposed file adds my 7 leaves (68 in total against the base).",
+    "base_against_catalogue": "The base equals content/catalogue.json apart from status, revision and media fields (0 other differences). The starters base equals content/hints/sentence-starters.json for all 22 IDs.",
+    "starters_diff": "Four fragments changed, each because its criterion or a name changed: ochtenddienst[2] 'Ik begin meestal om …' → 'Ik begin graag om …'; woorden-leren[2] 'Dat betekent …' → 'Mijn manier werkt goed, want …'; taalcafe-oefenen[2] 'Dat is voor mij het beste, want …' → 'Oefenen is belangrijk voor mij, want …'; keuken[1] 'Fatima …, Sem … en Amina …' → 'Fatima …, haar zoon … en haar dochter …'. Every fragment contains '…', one per criterion in order, with no complete answer and no invented fact. No starter changes in the proposed batch.",
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/059-proposed.json: 'Checked 22 items, 0 questions. Keys: {}. Options: {}.', 22 of 22 already in the catalogue, 'No failures, no warnings.' The author's original also passes.",
+    "quotes_and_samples": "Every sample has exactly one null quote and every other quote is a verbatim substring. Each sample was read in full for sentences that could meet the null criterion by implication; four were found and fixed (fiets-lopen 'sneller', bakkerij 'Ik vind brood bakken ook leuke werk.', feest-thuis 'ook') or narrowed (nieuwe-buurvrouw and abonnement quotes holding C1 material).",
+    "models": "All 22 models are 27–44 words, longest sentence 14 words, at most one subordinate clause per sentence. Each meets every criterion; the 12 fix-1 models were checked against the new C2. No sample or model sentence copies a prompt sentence.",
+    "spoken_text": "All 13 changed prompts were read as the narrator reads them, before the cue. The new sentences are 5–9-word imperatives with one question word in common A2 words, and each makes sense before the cue. Prompts and cues contain no digits or abbreviations. Cues are unchanged.",
+    "learner_who_follows_prompt": "For every cued item, answering the two parts of the spoken cue plus the final prompt sentence meets C0–C2. Criteria and starters of cued tasks stay hidden until review (OpenExercise.tsx), so the prompt sentence is the only announcement; each matches its C2 word for word, minus 'ook'.",
+    "pictures": "Viewed all 18 drawings of the nine picture tasks plus the monteur, bushalte and woorden-leren stills (from public/images). Samples, quotes and models describe what is drawn: kleermaker shows no payment; the flat-dorp bicycle is at the fence; keuken shows a boy and a girl; the monteur still shows a telephone.",
+    "judge_evidence": "Did not call the judge. Audit runs on the base samples with the old criteria: pic-new.log (no picture descriptions) has 5 disagreements in this batch (kleermaker, online-winkel, feest-thuis, bakkerij, contant-pinnen); pic-new-f.log (with descriptions) has 3 (online-winkel, contant-pinnen, bus-fiets). Fiets-lopen was consistent in both runs. Bakkerij's leak is not covered by the spec and is fixed here.",
+    "not_applicable": "No KNM facts, closed questions or listening scripts. No invented organisation or business names, so no web check was needed."
+  },
+  "items": [
+    {
+      "id": "A2:speaking:batch009-ochtenddienst:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Video answer, prompt 28 words in six short sentences; three spoken elements in 40 s as blueprint §4.3 prescribes. Model 33 words, longest sentence 12. Comparable to the catalogue's te-laat and buurvrouw items.",
+      "evidence": "New sentence 'Zeg ook hoe laat u wilt beginnen.' = C2 'Zeg hoe laat u wilt beginnen.' Cue asks morning or evening and why (C0, C1). Sample quotes 'Ik werk liever in de avond.' (C0) and 'Dan is het rustig op het werk.' (C1); C2 null, since 'in de avond' is not a clock time. Model: 'Ik begin graag om zeven uur.' Starter C2 'Ik begin graag om …'."
+    },
+    {
+      "id": "A2:speaking:batch009-thuis-oefenen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Prompt 24 words; model 36 words, longest sentence 11. Comparable.",
+      "evidence": "'Zeg ook waarom thuis oefenen u helpt.' is grammatical and clear when heard. Cue: how and how often (C0, C1). Quotes 'Ik lees thuis de krant en ik kijk naar Nederlandse tv.' (C0), null (no frequency), 'Zo leer ik nieuwe woorden.' (C2). Model: 'Dat doe ik bijna elke dag, een half uur. Zo leer ik nieuwe woorden en ik versta de mensen beter.'"
+    },
+    {
+      "id": "A2:speaking:batch009-nieuwe-buurvrouw:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Prompt 24 words; model 33 words in six sentences. Comparable.",
+      "evidence": "'Zeg ook wat er dichtbij is.' = C2. Quotes: null (no duration), 'Ik vind de buurt heel prettig.' (C1), C2 narrowed to 'er is een park dichtbij.' Model: 'Ik woon hier al drie jaar.', 'Ik vind de buurt fijn.', 'De supermarkt en de bushalte zijn dichtbij.'"
+    },
+    {
+      "id": "A2:speaking:batch009-slaap:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Prompt 22 words; model 33 words, longest 12. Comparable.",
+      "evidence": "'Vertel ook hoe u slaapt.' = C2. Added sample sentence 'Ik slaap niet goed.' is quote 2 and meets C2; the old quote (phone habit) did not. C1 (wake-up time) is the only gap: the sample gives no time of getting up. Model: 'Ik word 's nachts ook vaak wakker.'"
+    },
+    {
+      "id": "A2:speaking:batch009-abonnement:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Prompt 24 words; model 34 words, longest 14. Comparable.",
+      "evidence": "'Zeg ook waarvoor u uw telefoon gebruikt.' = C2. Quotes: null (no subscription or prepaid choice), 'Ik gebruik niet zo veel internet.' (C1), C2 narrowed to 'Ik bel vooral en ik stuur berichten.' Model: 'Ik wil graag een abonnement.', 'ik bel elke dag met mijn familie via video. Ik luister ook veel naar muziek op mijn telefoon.'"
+    },
+    {
+      "id": "A2:speaking:batch009-bushalte:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Prompt 24 words; model 27 words. Comparable.",
+      "evidence": "'Zeg ook waar hij moet wachten.' becomes concrete once the man asks which bus goes to the hospital. The still shows him at a bus stop, so 'hier' or 'aan de overkant' both meet C2 'Zeg waar de man moet wachten.' Quotes 'U moet lijn vier nemen.' (C0), null (no frequency), 'De halte is hier aan de overkant van de straat.' (C2). Model: 'U moet aan de overkant wachten, bij die halte daar.'"
+    },
+    {
+      "id": "A2:speaking:batch026-lunchpauze:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Prompt 28 words; model 39 words. Comparable.",
+      "evidence": "'Zeg ook met wie u eet.' = C2. Quotes 'Ik eet meestal broodje met kaas en een appel.' (C0), null ('Ik neem mijn eten mee van thuis' says where the food comes from, not where the learner eats), 'Ik eet samen met twee collega's en we praten over de weekend.' (C2; the extra clause concerns no other criterion). Model: 'Daar zit ik samen met twee collega's.'"
+    },
+    {
+      "id": "A2:speaking:batch026-woorden-leren:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Prompt 31 words (new sentence 9 words, the longest); model 43 words, longest 9. Comparable.",
+      "evidence": "'Zeg ook waarom uw manier van leren goed werkt.' becomes concrete when Modibo asks how the learner remembers words. Quotes: C0 (notebook, reading every evening), null (no word named), 'Dat help goed, want dan vergeet ik ze niet.' (C2). The model's 'Zo onthoud ik het beter.' is a natural answer to why the method works. Starter C2 'Mijn manier werkt goed, want …'."
+    },
+    {
+      "id": "A2:speaking:batch026-huisarts-afspraak:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Prompt 33 words; model 39 words, longest 13. Comparable.",
+      "evidence": "'Zeg ook op welke dag u kunt komen.' keeps C2 separate from C0 (morning or afternoon). Quotes: null (no part of day), 'Ik kom voor mijn rug.' (C1), 'Kan ik donderdag komen? Dan ik ben vrij.' (C2; the second sentence only supports the day). Model: 'Kan ik morgen om drie uur komen? Woensdag kan ik ook.'"
+    },
+    {
+      "id": "A2:speaking:batch027-ziekmelden:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Prompt 26 words; model 40 words in seven sentences, longest 9. Comparable.",
+      "evidence": "'Zeg ook wanneer u zich ziek moet melden.' = C2. Asked by a colleague about calling in sick, 'wanneer' reads as timing and accepts 'voor acht uur' and 's ochtends'. A conditional answer is judged against the same words. Quotes: null (no channel: 'Je zegt het tegen' names no phone, mail or message), 'Je zegt het tegen de teamleider.' (C1), 'Je moet dat voor acht uur doen, anders het is te laat.' (C2). Model: 'Je moet 's ochtends bellen, voor acht uur.'"
+    },
+    {
+      "id": "A2:speaking:batch027-taalcafe-oefenen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Prompt 29 words; model 39 words. Comparable.",
+      "evidence": "'Zeg ook waarom u wilt oefenen.' makes sense before the cue and accepts any reason. Quotes 'Ik wil graag oefenen praten.' (C0), null (no day), 'Ik versta veel, maar ik praat niet goed.' (C2). Model: 'Ik begrijp veel, maar praten vind ik moeilijk.' and 'Ik kan op dinsdag komen'. Starter C2 'Oefenen is belangrijk voor mij, want …' no longer reads as a reason for the day."
+    },
+    {
+      "id": "A2:speaking:batch027-cursuskeuze:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Prompt 32 words; model 40 words. Comparable.",
+      "evidence": "'Zeg ook op welke avonden u kunt komen.' = C2; naming a single evening also meets it. Quotes 'Ik wil graag de cursus computer doen.' (C0), null (no reason), 'Ik kan elke avond komen, alleen niet op vrijdag.' (C2). Model: 'Ik kan op maandag en op donderdag komen.'"
+    },
+    {
+      "id": "A2:speaking:batch003-monteur:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Prompt 48 words in nine sentences of at most 8 words: the longest A2 video-answer prompt (buurvrouw 40, te-laat 36, published monteur 42). Every sentence carries something the answer needs, and the text stays printed. Model 30 words. Comparable.",
+      "evidence": "'U belt het bedrijf van de monteur. Medewerker Sabrina neemt op.' fixes the missing phone-call and employer context. The still (Sabrina at a desk holding a telephone receiver) and the alt 'Sabrina praat aan de telefoon.' now match. Criteria, sample, quotes, model and cue unchanged; the sample gives no current time (C2 null)."
+    },
+    {
+      "id": "A2:speaking:batch009-kleermaker:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration; model 43 words, longest 12, one less common word ('spelden') supported by the picture. Comparable to the official 'Vertel wat X doet' sequence.",
+      "evidence": "Pictures: 1 Hasan looks in a mirror in trousers far too long; 2 a kneeling tailor pins the hem; 3 he receives a paper bag at the counter, no payment. Quotes 'Hasan kijkt in de spiegel en hij ziet dat de broek is te lang.' (C0 action), null (nothing about picture 2), 'Hij haalt de broek later op bij de winkel.' (C2). Model: 'kijkt Hasan thuis in de spiegel', 'staat hij bij de kleermaker. Zij zet spelden in de broek.', 'haalt hij de broek op aan de balie'. Error: 'dat de broek is te lang'."
+    },
+    {
+      "id": "A2:speaking:batch009-flat-dorp:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture choice; model 43 words. Comparable.",
+      "evidence": "Sample 'Ik kies de flat, plaatje één.' (C0), null (no reason: 'Op het andere plaatje is een klein huis in een dorp. Er staat een fiets bij de hek.' only describe the drawing, which shows the bicycle at the fence), quote 2 'Op het andere plaatje is een klein huis in een dorp.' (C2). Error: 'bij de hek'. The author's version is preferred to the spec example, whose 'maar je hebt een auto nodig' can read as the reason."
+    },
+    {
+      "id": "A2:speaking:batch026-online-winkel:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Model 41 words. Comparable.",
+      "evidence": "Quotes 'Ik kies plaatje één, online.' (C0; picture 1 is the man with the laptop and the parcel), 'Online is makkelijk, want de kleren komen naar mijn huis.' (C1), null (nothing mentions the shop). Error: 'Dat is voor mij belangrijke.'"
+    },
+    {
+      "id": "A2:speaking:batch027-contant-pinnen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Model 43 words. Comparable.",
+      "evidence": "Quotes 'Ik kies plaatje één. Ik betaal liever contant.' (C0), null ('liever contant' is a preference, not a reason), 'Op plaatje twee de vrouw betaalt met pinpas.' (C2; picture 2 shows her card against the terminal). Errors: verb-second and the missing article."
+    },
+    {
+      "id": "A2:speaking:batch026-fiets-lopen:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Model 41 words. Comparable.",
+      "evidence": "The model's 'Op het eerste plaatje fietst een man.' replaces 'Julio' (the picture shows a young man cycling). Sample edited: 'sneller' became 'snel'. Quotes 'Ik kies plaatje één, de fiets.' (C0), 'Met de fiets ik ben snel op mijn werk.' (C1), null (nothing about walking)."
+    },
+    {
+      "id": "A2:speaking:batch027-bakkerij:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Model 44 words. Comparable.",
+      "evidence": "The model's 'Op het eerste plaatje werkt een man heel vroeg.' replaces 'Julio'. Sample edited: removed 'Ik vind brood bakken ook leuke werk.', which the audit judge credited as the null C2. Quotes 'Ik kies plaatje één.' (C0), 'want dan ik ben 's middags vrij.' (C1), null (nothing about the evening picture)."
+    },
+    {
+      "id": "A2:speaking:batch027-keuken:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "One-picture description; model 42 words. Comparable to the official 'Gebruik het plaatje' task.",
+      "evidence": "The picture shows the mother stirring a pot, a boy cutting vegetables and a girl putting plates on the table; the prompt names only Fatima and 'haar kinderen'. Quotes 'Ik zie Fatima in de keuken met haar kinderen.' (C0), 'Haar zoon snijdt groente en haar dochter zetten de borden op tafel.' (C1, error 'zetten'), null (no opinion). Model and starter C1 use 'haar zoon' and 'haar dochter'."
+    },
+    {
+      "id": "A2:speaking:batch027-bus-fiets:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Model 43 words. Comparable.",
+      "evidence": "Quotes 'Ik ga liever met de fiets, plaatje twee.' (C0), 'Fietsen is gezond en ik ben graag buiten.' (C1; nothing implies the bus), null (nothing about the bus picture). Error 'gekopen' kept."
+    },
+    {
+      "id": "A2:speaking:batch026-feest-thuis:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Model 39 words. Comparable.",
+      "evidence": "Fix 5 removed 'Ik vind een restaurant meer leuk.' (credited as a reason in the audit run without pictures); I removed 'ook'. Quotes 'Ik kies het restaurant, plaatje twee.' (C0), null (no reason), 'Thuis, op het eerste plaatje, ze zitten gezellig aan tafel.' (C2; picture 1 shows Karim and two friends at his dining table)."
+    }
+  ],
+  "author_doubts_decisions": [
+    "1. flat-dorp: accept the author's descriptive sample instead of the spec example. 'maar je hebt een auto nodig' is a drawback of the village that can read as the reason for the flat, the leak fixes 5–6 remove. The descriptive sentences match the drawing.",
+    "2. Mixed gaps (flat-dorp and contant-pinnen miss the reason, online-winkel the other picture): accepted.",
+    "3. woorden-leren extra detail: accepted. It follows from Modibo's question, keeps the sample's single gap, and the model's 'Zo onthoud ik het beter.' is a natural answer to why the method works. A longer reason would push the model past 45 words.",
+    "4. taalcafe-oefenen 'waarom u wilt oefenen': accepted. It makes sense before the cue, accepts any reason, and the sample and model meet it.",
+    "5. ziekmelden 'wanneer': accepted. In context it reads as timing and accepts 's ochtends' and 'voor acht uur'. A conditional reading is judged against the same words, so the item can only be lenient, not unfair.",
+    "6. bushalte C2 'de man': accepted; the criterion reads on its own at review.",
+    "7. Wider quotes: nieuwe-buurvrouw and abonnement narrowed because the extra words were C1 evidence. huisarts-afspraak kept because 'Dan ik ben vrij' only supports the day; lunchpauze and ziekmelden kept by the same rule.",
+    "8. kleermaker 'spelden': accepted. It is one less common word, and both the picture and the alt ('speldt … op') support it.",
+    "9. fiets-lopen 'sneller' and feest-thuis 'ook gezellig': both fixed. Bakkerij's 'Ik vind brood bakken ook leuke werk.' is also fixed, on audit evidence.",
+    "10. monteur length (48 words): accepted. Nine sentences of at most 8 words, each needed for the answer, with the text printed. Cutting 'Medewerker' would save one word and depart from the spec wording.",
+    "11. Judge without the cue: left to the coordinator, as instructed. The uncommitted server/services.ts already adds spoken_cue and pictures. The edited samples no longer depend on the picture descriptions."
+  ],
+  "diversity": "All 22 IDs keep their topics and set memberships (a2-speaking-03, 04, 05, 09, 11, 12, 14, 16, 17, 18), and the new extra details differ within each video-answer set. In set a2-speaking-16, cursuskeuze's new 'op welke avonden' repeats the day question in taalcafe-oefenen's cue, next to ziekmelden's timing. The base example already pointed there and the main tasks differ, so this is accepted; a mock form should not pair those two items.",
+  "media_notes": "New narrator promptAudio is needed for 13 items: batch009-ochtenddienst, batch009-thuis-oefenen, batch009-nieuwe-buurvrouw, batch009-slaap, batch009-abonnement, batch009-bushalte, batch026-lunchpauze, batch026-woorden-leren, batch026-huisarts-afspraak, batch027-ziekmelden, batch027-taalcafe-oefenen, batch027-cursuskeuze, batch003-monteur. All 13 cueAudio clips stay, because the cues are unchanged. The nine picture tasks keep their prompt audio. No picture is redrawn, because briefs and alts are unchanged. The reviewer's edits touch only samples and quotes, which are not voiced. All 22 items change a revision-core field, so all get new revisions and saved answers start fresh.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "The 13 changed prompts still need new audio, generated from the reviewed text and checked with a transcription round trip; until then the published clips read the old prompts.",
+    "The reviewer did not call the feedback judge. The judge evidence comes from the audit's two runs on the base samples with the old criteria; the new C2 criteria and the edited samples have not been run.",
+    "content/exemplars/ does not exist. Level was compared against the official instruction patterns (blueprint §4.3, exam-blueprints-2026-09-10.md) and the catalogue's buurvrouw and te-laat items."
+  ]
+}

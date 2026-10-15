@@ -1,0 +1,660 @@
+{
+  "review_id": "057-review",
+  "source": "content/batches/057-original.json",
+  "source_sha256": "47fa99c3951839e9f55cc1f1ab1ab6d822cc9e76c91e986d53d2f244b9d54ea1",
+  "source_original_sha256": "df57d90cd18eb25107743ce913152069fe6db2a63b32b55715528bd7048618aa",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-14",
+  "reviewer": "Independent AI reviewer (Claude Opus 5.5) in a separate context from the author; did not write batch 057; no Smithers",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "B1:listening:batch036-afvalbeleid:1",
+    "B1:listening:batch037-hovenier:1",
+    "B1:listening:batch013-ziekenhuiskeuken:1",
+    "B1:listening:batch012-mantelzorg:1",
+    "B1:listening:batch002-lekkage:1",
+    "B1:listening:batch013-logistiek:1",
+    "B1:listening:batch036-functioneringsgesprek:1"
+  ],
+  "item_count": 7,
+  "question_count": 45,
+  "edits": [
+    {
+      "id": "B1:listening:batch013-ziekenhuiskeuken:1",
+      "field": "questions[q6].explanation",
+      "before": "Roos heeft in een restaurantkeuken gewerkt, waar het minder streng was; in het ziekenhuis zijn de regels strenger omdat de patiënten op de keuken vertrouwen. Ze heeft dus wel keukenervaring, alleen nog niet in een ziekenhuis, en de regels waren in het restaurant juist anders.",
+      "after": "Roos vergelijkt de regels in de ziekenhuiskeuken met het restaurant waar ze werkte: daar was het minder streng. Ze heeft dus wel keukenervaring, maar in het ziekenhuis zijn de regels strenger, omdat de patiënten op de keuken vertrouwen. De regels waren in het restaurant juist anders, en ze leert niet alles van Fatima: wat ze niet zeker weet, mag ze ook aan Hasan vragen.",
+      "reason": "The prompt now asks what this fragment shows about Roos, but the explanation stated the inference as a heard fact ('restaurantkeuken'), relied on a fact said only in fragment 1 ('alleen nog niet in een ziekenhuis') and left the tempting half of distractor B, Fatima (introduced in fragment 6), unanswered. The new text derives the kitchen experience from Roos's comparison in fragment 6, keeps why the hospital is stricter, and refutes both halves of B and option C from fragment 6. No audio effect."
+    },
+    {
+      "id": "B1:listening:batch013-logistiek:1",
+      "field": "questions[q6].explanation",
+      "before": "Mevrouw Jansen zegt dat Karim zich alvast moet aanmelden, omdat de aanmelding niets kost en de betaling pas na de intake wordt geregeld. Wachten tot januari is juist het probleem: dan is hij te laat voor februari.",
+      "after": "Mevrouw Jansen zegt dat Karim zich alvast moet aanmelden, omdat de aanmelding niets kost en de betaling pas na de intake wordt geregeld. Aanmelden kan via de website, uiterlijk vijftien december. Wachten tot januari is juist het probleem: dan is hij te laat voor februari en kan hij pas in september beginnen.",
+      "reason": "The key's deadline 'uiterlijk vijftien december' is not in the evidence quote, which must stay one string within one turn. The explanation now names the deadline from the same fragment ('Je meldt je aan via onze website, uiterlijk vijftien december.') and says why September (option C) is the consequence of waiting rather than the advice. No audio effect."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/057-proposed.json: 'Checked 7 items, 45 questions. Keys: {\"C\":15,\"B\":16,\"A\":14}. Options: {\"3\":45}.' Info: 7 of 7 items already in the catalogue (expected for a replacement). No failures, no warnings.",
+    "proposed_vs_original": "The proposed file differs from the author's file (sha256 df57d90cd18eb25107743ce913152069fe6db2a63b32b55715528bd7048618aa) in two fields only: ziekenhuiskeuken q6 explanation and logistiek q6 explanation. Both files round-trip byte for byte through JSON.stringify(…, null, 2) plus a trailing newline.",
+    "full_final_source_read": "Every item read in full (intro, situation, all 45 fragments, prompts, options, keys, evidence, explanations), not only the changed fields.",
+    "base_diff": "Deep diff of each item against tmp/content-fix-2026-10-14/base/057-base.json. Author changes: afvalbeleid 11 speaker labels plus the 6 question texts and the item text; hovenier q7 script turn 2, q7 text, item text, q7 explanation; ziekenhuiskeuken q6 prompt; mantelzorg q6 explanation; lekkage q3 evidence; logistiek q6 option A; functioneringsgesprek q3 prompt. All are on the spec list or rebuilt derived text. Item order, question order, option order, keys and the key order of every object equal the base.",
+    "derived_text": "Every questions[].text equals its script joined as 'Speaker: text' lines, and every item text equals the fragments joined by a blank line (script check on the proposed file, including the afvalbeleid 'Medewerker' label).",
+    "spoken_text": "afvalbeleid: every turn's text and role equal the base; only the speaker labels changed. The only changed spoken words in the batch are hovenier q7 'dertig' to 'veertig'.",
+    "no_retired_or_derived_fields": "No type, revision, audio, duration, peaks, voice, introAudio, promptAudio, cueAudio or questionAudio field; no images.",
+    "evidence_verbatim": "All 45 evidence quotes are verbatim substrings of their own fragment and lie inside a single turn (no speaker label, no line break). scripts/batch-validation.ts requires evidence to be one string from the question's own fragment.",
+    "keys_proven_distractors_tested": "All 45 keys proven from the quote in their own fragment; all 90 distractors tested as competing answers (items[].evidence).",
+    "key_signals": "No key is clearly the longest option (largest margin: logistiek q3, 72 characters against 68 and 61, unchanged); no prompt word recurs only in a key. The new functioneringsgesprek q3 prompt shares 'beschadigde dozen' with distractor A only.",
+    "whole_text_prompts": "Prompts that name the whole text were checked against their own fragment: functioneringsgesprek q7 ('het gesprek'; Modibo's own recap), mantelzorg q6 (the 'één ding onthoudt' line), logistiek q7 (Karim's choice) and afvalbeleid q6 (De Vries's closing remark) are each answerable from their fragment alone.",
+    "numbers_in_words": "All numbers, sums and times in the scripts are in words. The changed 'veertig jaar' agrees with hovenier q1 and q2. Sums verified: afvalbeleid q5 240 + 26 × 5 = 370; hovenier q4 8.00–16.00 = 8 hours; logistiek q4 1100 + 200 = 1300; functioneringsgesprek q4 2 + 1 = 3 days.",
+    "blueprint_shape": "7 texts of 6–7 questions, 3 options each; fragments 109–158 spoken words (50–190); texts 766–859 words, about 5.1–5.7 minutes at 2.5 words per second (4–7); intros 27–47 words (8–60); two voice roles per text plus the narrator.",
+    "b1_heuristics": "Mean/longest sentence per text: afvalbeleid 12.0/29, hovenier 13.2/26, ziekenhuiskeuken 10.4/20, mantelzorg 11.1/21, lekkage 13.9/27, logistiek 9.2/20, functioneringsgesprek 11.9/28; none over 30. The three conversations below 12 owe it to short question turns, as the earlier reviews noted.",
+    "key_balance": "Keys A 14 (31.1%), B 16 (35.6%), C 15 (33.3%), unchanged from the base; longest same-letter run two.",
+    "app_context": "app/components/Session.tsx keeps a B1 text's introduction in view with every fragment, so the intro may carry context for a fragment's inference (ziekenhuiskeuken q6).",
+    "media_pipeline": "scripts/audio.ts computes script_sha256 from turn texts only and the file token from spoken text, role-to-voice, model, settings, mode, loudness and pipeline: speaker labels are in neither. scripts/content.ts keeps a B1 fragment clip only when the full script JSON (labels included) is unchanged, and question audio only when prompt and options JSON are unchanged. The proposed scripts and prompts were compared with content/audio-manifest.json: only hovenier#q7-fragment, ziekenhuiskeuken#q6 and functioneringsgesprek#q3 lack a matching hash; every other clip of the seven texts (including the six afvalbeleid fragments and logistiek#q6) matches, and its file exists in assets/audio.",
+    "protected_wording": "'hun' (hovenier q2), 'W-M-O' (mantelzorg q2) and 'm-b-o' (hovenier intro, q1, q5) are untouched; 'van binnen' (bouwplaats) is not in this batch.",
+    "facts_spot_check": "Not a KNM batch; no cited pages. The unchanged mantelzorg facts were spot-checked on 14 October 2026: https://www.rijksoverheid.nl/onderwerpen/zorg-en-ondersteuning-thuis/vraag-en-antwoord/verpleging-en-verzorging-thuis confirms that verpleging en verzorging thuis is in the basispakket, has no eigen risico, needs no huisarts referral and is assessed by the wijkverpleegkundige. Respijtzorg paid via the Wmo, the Wlz or some aanvullende verzekeringen (secondary sources) fits 'Soms betaalt de gemeente dat, soms de zorgverzekeraar.'",
+    "names": "No new people, organisations or places; no invented-name search needed."
+  },
+  "author_doubts_decisions": [
+    {
+      "doubt": "1. ziekenhuiskeuken q6: is 'keukenwerk' entailed by fragment 6, or does it rest on fragment 1 or the intro? Should option A become the literal 'Roos heeft in een restaurant gewerkt, maar het ziekenhuis is strenger.'?",
+      "decision": "Keep the options and key A; reject the literal alternative; edit the explanation. 'Het ziekenhuis is strenger' is literal in 'In het restaurant waar ik werkte, was het minder streng, maar ik snap wel waarom het hier zo is.' 'Kent keukenwerk' is a one-step inference inside fragment 6: Roos compares the rules Hasan has explained, which the intro (in view with every fragment) calls the kitchen rules, with the restaurant where she worked, and Hasan answers by contrasting a restaurant guest with a hospital patient. Fragment 1 is not needed for the key; it only fed the explanation's 'alleen nog niet in een ziekenhuis'. The question is tagged inference and asks 'Wat blijkt', so this step is its point. A reader who refuses the step still finds one best answer: A's second half is literal, B fails on 'en anders aan mij', C fails on 'minder streng'. The literal option would turn q6 into a near-verbatim detail item and move the same inference into B, whose 'nog nooit in een keuken gewerkt' would then be refuted only by inference while its other half rests on the word 'alles'. The explanation is rewritten to argue from fragment 6 and to answer both halves of B (edit 1)."
+    },
+    {
+      "doubt": "2. logistiek q6: the evidence entails registering now but not the date in the key; a quote covering both would cross speaker turns.",
+      "decision": "Keep the evidence and the key; add the deadline to the explanation (edit 2). The evidence must be one string from one fragment and should not cross Karim's turn. It entails what the prompt asks: register despite the open payment question. The date in the key is verbatim from the same speaker in the same fragment ('Je meldt je aan via onze website, uiterlijk vijftien december.'), recorded here as a supporting quote, and the explanation now says it."
+    },
+    {
+      "doubt": "3. functioneringsgesprek q3: the corrected prompt shares 'beschadigde dozen' with distractor A.",
+      "decision": "Accept. The overlap is in a distractor, not the key, so it signals nothing; A stays clearly false ('Slim opgelost, daar gaat het niet om')."
+    },
+    {
+      "doubt": "4. afvalbeleid label: 'Medewerker' or 'Medewerker gemeente'.",
+      "decision": "Keep 'Medewerker'. It matches the intro and the q4 prompt, is the label lekkage already uses for an organisation's employee, and keeps all audio."
+    },
+    {
+      "doubt": "5. mantelzorg q6 explanation and quote style (colon, no quotation marks).",
+      "decision": "Pass as written. No catalogue explanation uses quotation marks (0 found). Distractor A is answered with his verbatim fragment-6 words 'wacht niet tot u het niet meer volhoudt' after the summary 'vraag op tijd hulp'; 'precies het omgekeerde' is fair because A delays help until things fail. B's rationale is supported: fragment 6 names the gemeente and the insurer for particular help, and he tells carers to look after themselves as well as their parent."
+    }
+  ],
+  "items": [
+    {
+      "id": "B1:listening:batch036-afvalbeleid:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Voorlichting at a gemeente evening with questions from the floor: a persona rule over even and odd weeks (q3), a two-figure sum (q5), advice with a reason (q4) and an opinion that turns round (q6). Spoken sentences average 12.0 words, longest 29, with inverted conditionals, passives and signal words (daarom, dus, voortaan). The label change does not touch the language (036 review: comparable).",
+      "fix_verified": "All 11 'Presentator' labels are now 'Medewerker' (q1 turn 1; q2–q6 turns 1 and 3), matching the intro ('Een medewerker van de gemeente vertelt…') and the q4 prompt ('de medewerker van de gemeente'). Role stays presenter and every spoken word equals the base; the six question texts and the item text are rebuilt exactly. No prompt, option, evidence or explanation mentioned 'Presentator'.",
+      "evidence": [
+        {
+          "question_id": "q1",
+          "skill": "detail",
+          "answer": "C",
+          "quote": "Wij hebben dat afval laten onderzoeken, en meer dan de helft hoorde er niet in: groente- en fruitresten, papier, plastic verpakkingen.",
+          "distractors": {
+            "A": "Burning is not banned: restafval 'wordt verbrand, en dat is duur'; cost is the problem.",
+            "B": "Reverses the cost relation: 'Wat u scheidt, wordt opnieuw gebruikt, en dat kost de gemeente veel minder.'"
+          }
+        },
+        {
+          "question_id": "q2",
+          "skill": "detail",
+          "answer": "B",
+          "quote": "Nieuw is de blauwe container voor papier en karton. De bundels aan de straat verdwijnen, want bij regen was het papier onbruikbaar.",
+          "distractors": {
+            "A": "The transparent bags are for 'Plastic verpakkingen, blik en drankpakken'.",
+            "C": "The supermarket bin is only for residents who decline the blue container, 'zoals nu': no change."
+          }
+        },
+        {
+          "question_id": "q3",
+          "skill": "rule-application",
+          "answer": "A",
+          "quote": "De groene container legen wij elke week, want etensresten gaan snel stinken. De grijze container legen wij alleen in de even weken; in de oneven weken blijft hij dus binnen.",
+          "distractors": {
+            "B": "Green and grey together only on a Tuesday in an even week.",
+            "C": "In an odd week the grey container 'blijft hij dus binnen', and green is emptied every week."
+          }
+        },
+        {
+          "question_id": "q4",
+          "skill": "advice",
+          "answer": "B",
+          "quote": "Op zaterdag staat er vaak een rij tot op de weg. Kunt u doordeweeks komen, doe dat dan; op een dinsdagochtend rijdt u zo door.",
+          "distractors": {
+            "A": "Reverses the advice: 'Op zaterdag staat er vaak een rij tot op de weg.'",
+            "C": "'op maandag is hij dicht'."
+          }
+        },
+        {
+          "question_id": "q5",
+          "skill": "quantity",
+          "answer": "C",
+          "quote": "Het vaste deel is tweehonderdveertig euro per jaar. Daarvoor legen wij de groene en de blauwe container en halen wij de zakken op. Het tweede deel betaalt u per keer dat de grijze container wordt geleegd: vijf euro per keer. Zet u hem elke twee weken buiten, dan is dat zesentwintig keer, dus honderddertig euro.",
+          "distractors": {
+            "A": "Only the variable part (zesentwintig keer vijf euro).",
+            "B": "Only the fixed part."
+          }
+        },
+        {
+          "question_id": "q6",
+          "skill": "opinion",
+          "answer": "B",
+          "quote": "Dat denk ik nu niet meer, want als ik goed scheid, betaal ik minder. Alleen die even en oneven weken, daar ga ik fouten mee maken, dat weet ik nu al.",
+          "distractors": {
+            "A": "What he thought before the evening: 'Dat denk ik nu niet meer'.",
+            "C": "He will use the app: 'de app laat ik door mijn dochter installeren'."
+          }
+        }
+      ]
+    },
+    {
+      "id": "B1:listening:batch037-hovenier:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Radio interview, the densest B1 listening text in the bank: 13.2 words per sentence overall (Hanna 15.4 in the 037 review), longest 26; an inference about the function of a comparison (q7), a cause (q2), an opinion (q3) and advice with a reversed distractor (q6). Upper range of comparable; the number fix changes no structure (037 review: comparable, upper range).",
+      "fix_verified": "q7 'Op kantoor deed ik veertig jaar hetzelfde werk' now agrees with q1 ('Ik heb veertig jaar op een kantoor gewerkt') and q2 ('veertig jaar in mijn eigen tuin'); the q7 explanation follows; q7 text and item text are rebuilt. The q7 evidence has no number and is unchanged. The fragment keeps 113 spoken words. 'hun' (q2) and 'm-b-o' are untouched.",
+      "evidence": [
+        {
+          "question_id": "q1",
+          "skill": "detail",
+          "answer": "B",
+          "quote": "Dat wilde ik leren van mensen die het vak kennen.",
+          "distractors": {
+            "A": "She has a garden: 'mijn eigen tuin kende ik'.",
+            "C": "The neighbour asked 'voor de grap'; she never wanted to come along."
+          }
+        },
+        {
+          "question_id": "q2",
+          "skill": "detail",
+          "answer": "A",
+          "quote": "Dat veranderde bij de eerste praktijkles. We moesten een border beplanten, en ik wist welke planten in de schaduw kunnen staan, omdat ik dat veertig jaar in mijn eigen tuin had uitgeprobeerd. Sindsdien vragen ze mij om advies",
+          "distractors": {
+            "B": "Reverses who helps whom: 'ik vraag hun om hulp met de computer'.",
+            "C": "She still misses half of their jokes in the break."
+          }
+        },
+        {
+          "question_id": "q3",
+          "skill": "opinion",
+          "answer": "C",
+          "quote": "Nee, het zwaarste is het lichamelijke werk. In een praktijkles tillen we de hele ochtend tegels van twintig kilo",
+          "distractors": {
+            "A": "'Niet de theorie'; the Latin names go well with cards at home.",
+            "B": "The precise work is what she does extra in exchange for less lifting."
+          }
+        },
+        {
+          "question_id": "q4",
+          "skill": "quantity",
+          "answer": "B",
+          "quote": "In die acht uur leg ik een pad van tegels, plant ik een border volgens de tekening en snoei ik een heg.",
+          "distractors": {
+            "A": "One hour is how much faster she must become.",
+            "C": "Nine hours was her practice time last week."
+          }
+        },
+        {
+          "question_id": "q5",
+          "skill": "detail",
+          "answer": "C",
+          "quote": "Mijn man dacht in het begin dat het een bevlieging was, iets wat na een maand over zou zijn.",
+          "distractors": {
+            "A": "The distance is why he drives her now, not his view of the plan.",
+            "B": "The worry about her back was her daughter's."
+          }
+        },
+        {
+          "question_id": "q6",
+          "skill": "advice",
+          "answer": "A",
+          "quote": "Kies een vak dat je al een beetje kent, want dan heb je in de klas iets te bieden en voel je je minder een vreemde.",
+          "distractors": {
+            "B": "She works two days, the young students four; she gives no such advice.",
+            "C": "Reverses her advice: 'Wat ik niet zou doen, is wachten tot je zeker weet dat je het kunt.'"
+          }
+        },
+        {
+          "question_id": "q7",
+          "skill": "inference",
+          "answer": "B",
+          "quote": "Nu ben ik weer iemand die fouten maakt en dingen voor het eerst doet, en dat vind ik veel minder erg dan ik had gedacht.",
+          "key_note": "'veel minder erg dan ik had gedacht' = it is easier than expected to be a beginner again ('weer iemand die fouten maakt en dingen voor het eerst doet').",
+          "distractors": {
+            "A": "She does not compare how heavy the office work was (fragment 3 calls the physical garden work the hardest).",
+            "C": "Reverses her point: she learnt 'dat ik op mijn leeftijd nog kan veranderen' and minds being a beginner less than expected."
+          }
+        }
+      ]
+    },
+    {
+      "id": "B1:listening:batch013-ziekenhuiskeuken:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Instructief conversation with two sequence items, two persona rules and an opinion; Hasan's turns use conditionals with inversion and purpose clauses; 10.4 words per sentence because of Roos's short questions, longest 20. q6 is now a single-fragment inference instead of the whole-text inference of the 013 design: slightly easier, still a B1 inference step (013 level check: comparable).",
+      "fix_verified": "The q6 prompt 'Wat blijkt uit dit gesprek over Roos?' no longer asks about the whole conversation, reads naturally aloud and shares no word with the key alone. Key A is entailed by fragment 6 with the intro in view (see the doubt decision). Reviewer edit: the explanation now rests on fragment 6.",
+      "evidence": [
+        {
+          "question_id": "q1",
+          "skill": "sequence",
+          "answer": "B",
+          "quote": "Na het inklokken ga je naar de kleedkamer. Je werkkleding ligt daar in je kastje: kleding aan, haarnetje op, sieraden uit.",
+          "distractors": {
+            "A": "Hand washing comes after the changing room: 'Pas daarna ga je de keuken in, en bij de deur was je eerst je handen.'",
+            "C": "Reporting to Hasan is only for a forgotten clock-in."
+          }
+        },
+        {
+          "question_id": "q2",
+          "skill": "rule-application",
+          "answer": "A",
+          "quote": "Dan meld je het bij mij en plak je een blauwe pleister uit de verbanddoos. Blauw, zodat je hem ziet als hij in het eten valt. Daaroverheen draag je een handschoen zolang de wond open is.",
+          "distractors": {
+            "B": "'Doorwerken met een gewone pleister mag niet.'",
+            "C": "Going home is not mentioned; the glove is worn 'zolang de wond open is'."
+          }
+        },
+        {
+          "question_id": "q3",
+          "skill": "rule-application",
+          "answer": "C",
+          "quote": "Bij buikgriep blijf je thuis, en je mag pas twee dagen nadat je beter bent weer in de keuken werken.",
+          "distractors": {
+            "A": "Calling before six is the rule for reporting sick, not for returning.",
+            "B": "The dishwashing is the rule for a cold."
+          }
+        },
+        {
+          "question_id": "q4",
+          "skill": "opinion",
+          "answer": "B",
+          "quote": "Een kwartier is wel kort, vind ik. Net genoeg voor een kop koffie.",
+          "distractors": {
+            "A": "She may go outside: 'Ja, maar als je terugkomt, was je eerst weer je handen.'",
+            "C": "The free soup belongs to the lunch, not to the morning break the prompt asks about."
+          }
+        },
+        {
+          "question_id": "q5",
+          "skill": "sequence",
+          "answer": "C",
+          "quote": "Dan zet je hem uit en hang je het rode kaartje eraan, dat naast elke machine hangt. Daarna schrijf je het op het tablet bij mijn bureau",
+          "distractors": {
+            "A": "The tablet comes after: 'Daarna schrijf je het op het tablet'.",
+            "B": "'Zelf bellen doe je nooit'."
+          }
+        },
+        {
+          "question_id": "q6",
+          "skill": "inference",
+          "answer": "A",
+          "quote": "In het restaurant waar ik werkte, was het minder streng, maar ik snap wel waarom het hier zo is.",
+          "supporting_quotes": [
+            "Wat je niet zeker weet, vraag je aan haar, en anders aan mij.",
+            "Hier ligt iemand met een allergie of een dieet in bed en vertrouwt erop dat wij het goed doen."
+          ],
+          "key_note": "The key's 'het ziekenhuis is strenger' is literal in the quote. 'Kent keukenwerk uit een restaurant' is a one-step inference inside fragment 6: Roos compares the rules Hasan has explained (the kitchen rules, as the intro states; the app keeps the intro in view with every fragment) with the restaurant where she worked, and Hasan answers by contrasting a restaurant guest with a hospital patient. Fragment 1 is not needed.",
+          "distractors": {
+            "B": "Her comparison with the restaurant where she worked contradicts 'nog nooit in een keuken gewerkt', and 'Wat je niet zeker weet, vraag je aan haar, en anders aan mij.' contradicts 'leert alles van Fatima'.",
+            "C": "'was het minder streng' and 'het zijn veel regels in één keer' contradict 'kende de regels al' and 'hetzelfde'."
+          }
+        }
+      ]
+    },
+    {
+      "id": "B1:listening:batch012-mantelzorg:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Voorlichting with questions from the floor, like the official texts: the function of an example (q1), a rule applied to an unnamed case (q3), an opinion with a concession (q5); q4 and q6 restate spoken advice and sit on the easier side. 11.1 words per sentence, longest 21 (012 review: comparable).",
+      "fix_verified": "The q6 explanation no longer rejects a claim no option makes ('Alles zelf regelen'); distractor A is answered with his verbatim words from fragment 6, 'wacht niet tot u het niet meer volhoudt', and the rationale for B is kept. Script and options unchanged; 'W-M-O' untouched.",
+      "evidence": [
+        {
+          "question_id": "q1",
+          "skill": "inference",
+          "answer": "A",
+          "quote": "Wat ik vaak zie, is dat families pas hulp zoeken als het echt niet meer gaat. Als moeder is gevallen, bijvoorbeeld, of als vader zijn medicijnen door elkaar haalt. Dan moet alles ineens snel, en juist dan gaat het mis.",
+          "distractors": {
+            "B": "The gemeente's role comes later in the talk and is not tied to a fall.",
+            "C": "The evening is about a parent who 'thuis wil blijven wonen'; he does not warn against living alone."
+          }
+        },
+        {
+          "question_id": "q2",
+          "skill": "sequence",
+          "answer": "C",
+          "quote": "Daarna komt een medewerker van de gemeente bij uw moeder thuis voor een gesprek; dat noemen we het keukentafelgesprek.",
+          "distractors": {
+            "A": "Help is decided only after the visit: 'Pas daarna kijkt de gemeente welke hulp ze zelf geeft.'",
+            "B": "The eigen bijdrage belongs to help granted later."
+          }
+        },
+        {
+          "question_id": "q3",
+          "skill": "rule-application",
+          "answer": "B",
+          "quote": "Onthoud het zo: gaat het om het huis, dan is het de gemeente. Gaat het om het lichaam, dan is het de zorgverzekeraar.",
+          "distractors": {
+            "A": "Steunkousen concern 'het lichaam': wijkverpleging via the zorgverzekeraar.",
+            "C": "Washing and dressing concern 'het lichaam': wijkverpleging via the zorgverzekeraar."
+          }
+        },
+        {
+          "question_id": "q4",
+          "skill": "advice",
+          "answer": "C",
+          "quote": "Daarom is mijn advies: regel op tijd iemand die de zorg af en toe van u overneemt. Dat heet respijtzorg.",
+          "distractors": {
+            "A": "Reverses 'Doe niet alles zelf'.",
+            "B": "The logeerhuis is for 'een paar dagen', not a permanent place."
+          }
+        },
+        {
+          "question_id": "q5",
+          "skill": "opinion",
+          "answer": "A",
+          "quote": "Ik vind eigenlijk dat ik het zelf hoor te doen, zolang ik het kan. Maar ik merk ook dat ik moe ben.",
+          "distractors": {
+            "B": "About her brother she only says he lives far away.",
+            "C": "In this fragment she feels guilty at the thought of a logeerhuis."
+          }
+        },
+        {
+          "question_id": "q6",
+          "skill": "summary",
+          "answer": "C",
+          "quote": "Vraag op tijd hulp, en zorg net zo goed voor uzelf als voor uw vader of moeder. Een mantelzorger die omvalt, helpt niemand.",
+          "key_note": "Near-verbatim summary key, typical for the closing 'één ding onthoudt' line.",
+          "distractors": {
+            "A": "The opposite of 'wacht niet tot u het niet meer volhoudt. Vraag op tijd hulp'.",
+            "B": "The gemeente and the insurer are whom you call for particular help; he tells carers to look after themselves as well as their parent, not to hand the care over."
+          }
+        }
+      ]
+    },
+    {
+      "id": "B1:listening:batch002-lekkage:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Telephone conversation built on conditions and purpose: an inference about the cause (q1), a purpose question (q2), a rule applied to a choice of photos (q3), a sequence condition (q4) and an inference about compensation (q5). 13.9 words per sentence, longest 27; options paraphrase rather than repeat (043 review: comparable).",
+      "fix_verified": "The q3 evidence is now one sentence of the employee's turn in fragment 3, without speaker labels or a line break, and it entails C.",
+      "evidence": [
+        {
+          "question_id": "q1",
+          "skill": "inference",
+          "answer": "B",
+          "quote": "De monteur moet onderzoeken waar het precies vandaan komt, voordat we weten welke reparatie nodig is.",
+          "distractors": {
+            "A": "The main tap only closes his own water; the water may come from upstairs.",
+            "C": "'noem die machine nog niet als oorzaak'."
+          }
+        },
+        {
+          "question_id": "q2",
+          "skill": "purpose",
+          "answer": "A",
+          "quote": "Dan kan de monteur hem bereiken wanneer u niet opendoet, zonder opnieuw een afspraak te hoeven plannen.",
+          "distractors": {
+            "B": "Reverses the purpose: 'zonder opnieuw een afspraak te hoeven plannen'.",
+            "C": "'Ik zet uw beschrijving bij de melding'; the neighbour only gives access."
+          }
+        },
+        {
+          "question_id": "q3",
+          "skill": "rule-application",
+          "answer": "C",
+          "quote": "Als u de foto vanaf een droge plek op afstand kunt maken, is dat voldoende.",
+          "key_note": "A doorway photo on a dry floor is a photo 'vanaf een droge plek op afstand'; the doorway is Ricardo's own proposal in the same fragment.",
+          "distractors": {
+            "A": "Needs the cover removed: 'Laat de lamp zoals hij is'; 'Een scherpe foto van binnen in de lamp hebben we niet nodig.'",
+            "B": "Standing next to the lamp contradicts 'op afstand' and 'blijf uit de buurt van die natte plek'."
+          }
+        },
+        {
+          "question_id": "q4",
+          "skill": "sequence",
+          "answer": "A",
+          "quote": "Eerst moet de oorzaak verholpen zijn en moet het plafond voldoende drogen. Pas daarna kunnen we beoordelen welk herstel nodig is.",
+          "distractors": {
+            "B": "Buying paint is Ricardo's proposal, which she turns down ('Wacht daarmee').",
+            "C": "The sister's visit is Ricardo's reason to hurry, not a condition she sets."
+          }
+        },
+        {
+          "question_id": "q5",
+          "skill": "inference",
+          "answer": "B",
+          "quote": "We leggen nu de schade vast; de beoordeling van een eventuele vergoeding gebeurt apart.",
+          "distractors": {
+            "A": "The mechanic is given no financial role.",
+            "C": "Contradicts the permission to move things 'naar een droge plek'."
+          }
+        },
+        {
+          "question_id": "q6",
+          "skill": "advice",
+          "answer": "C",
+          "quote": "Bel dan opnieuw en noem het meldingsnummer uit de bevestiging, zodat we uw eerdere gegevens kunnen terugvinden. Vertel vooral wat er sinds uw eerste telefoontje is veranderd.",
+          "distractors": {
+            "A": "A photo alone is not the route: 'bij duidelijk meer water belt u ons'.",
+            "B": "The number is there to link the call to the existing report."
+          }
+        }
+      ]
+    },
+    {
+      "id": "B1:listening:batch013-logistiek:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Study-choice conversation, an official 2025 text type: a two-figure sum (q4), a rule for a third person (q5), advice against the speaker's own plan (q6) and an inference whose key word 'zekerheid' is never said (q7); 9.2 words per sentence because of many short question turns, longest 20; q1 on the easy side (013 level check: comparable). The option and explanation edits do not change the demand.",
+      "fix_verified": "q6 option A now says 'uiterlijk vijftien december', exactly as the adviser does, and remains the shortest option. Reviewer edit: the explanation carries the deadline that the single-turn evidence quote cannot.",
+      "evidence": [
+        {
+          "question_id": "q1",
+          "skill": "detail",
+          "answer": "A",
+          "quote": "mijn manager heeft gevraagd of ik zijn werk wil overnemen. Dat wil ik graag, maar daarvoor heb ik een diploma op niveau drie nodig.",
+          "distractors": {
+            "B": "He says the diploma is ten years old, not that it is invalid.",
+            "C": "'En je wilt bij je eigen bedrijf blijven? Ja, graag.'"
+          }
+        },
+        {
+          "question_id": "q2",
+          "skill": "detail",
+          "answer": "B",
+          "quote": "De rest leer je op je werk. Je krijgt opdrachten die je met je eigen team uitvoert",
+          "distractors": {
+            "A": "The stage place is only for someone without a logistics job: 'voor jou is dat niet nodig'.",
+            "C": "One evening a week at school, not only the tests."
+          }
+        },
+        {
+          "question_id": "q3",
+          "skill": "opinion",
+          "answer": "C",
+          "quote": "Drie maanden klinkt aantrekkelijk, want dan ben ik snel klaar. Maar mijn manager heeft duidelijk gezegd dat hij een diploma wil.",
+          "distractors": {
+            "A": "The exemption is Mevrouw Jansen's information; Karim doubts.",
+            "B": "He does not call it uninteresting; planning is one of two topics."
+          }
+        },
+        {
+          "question_id": "q4",
+          "skill": "quantity",
+          "answer": "B",
+          "quote": "Het lesgeld voor de opleiding van een jaar is elfhonderd euro. Daar komt nog ongeveer tweehonderd euro bij, voor de boeken en het examen.",
+          "distractors": {
+            "A": "Tuition only.",
+            "C": "Adds the certificate's zeshonderd euro."
+          }
+        },
+        {
+          "question_id": "q5",
+          "skill": "rule-application",
+          "answer": "C",
+          "quote": "Dan maakt hij bij de intake een korte taaltoets, een uurtje op de computer.",
+          "distractors": {
+            "A": "'Dus hij hoeft niet eerst zelf een examen te halen? Nee, de toets bij ons is genoeg.'",
+            "B": "The module only follows a low result."
+          }
+        },
+        {
+          "question_id": "q6",
+          "skill": "advice",
+          "answer": "A",
+          "quote": "Nee, meld je juist alvast aan. De aanmelding kost niets en je zit nergens aan vast.",
+          "supporting_quotes": [
+            "Je meldt je aan via onze website, uiterlijk vijftien december.",
+            "Als je wacht tot januari, ben je te laat voor februari, en dan is de volgende start pas in september."
+          ],
+          "key_note": "The quote entails the advice the prompt asks for (register now despite the open payment question). The key's date is verbatim from the same speaker in the same fragment, two turns earlier (first supporting quote); a single evidence string cannot cover both without crossing Karim's turn.",
+          "distractors": {
+            "B": "The opposite of 'Nee, meld je juist alvast aan.'",
+            "C": "September is the consequence of waiting ('Als je wacht tot januari, ben je te laat voor februari, en dan is de volgende start pas in september.'), not her advice."
+          }
+        },
+        {
+          "question_id": "q7",
+          "skill": "inference",
+          "answer": "B",
+          "quote": "Hoewel die langer duurt en meer kost, heb ik dan een diploma dat overal geldig is. Met het certificaat ben ik bang dat ik over een jaar toch weer hier zit.",
+          "distractors": {
+            "A": "Reverses his choice of the longer course.",
+            "C": "He will talk to his manager about the costs, but he chooses himself: 'Ik denk de opleiding van een jaar.'"
+          }
+        }
+      ]
+    },
+    {
+      "id": "B1:listening:batch036-functioneringsgesprek:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Performance review, an official 2025 text type: the function of an example (q3), a sum with a gap distractor (q4), a date rule (q5) and a summary (q7); Sabrina's turns are long chains of clauses (11.9 words per sentence overall, longest 28). Upper range of comparable; the prompt fix makes q3 more precise, not easier (036 review: comparable, upper range).",
+      "fix_verified": "The q3 prompt now says 'de pallet met beschadigde dozen', matching 'een pallet binnen met beschadigde dozen', and reads naturally aloud.",
+      "evidence": [
+        {
+          "question_id": "q1",
+          "skill": "opinion",
+          "answer": "B",
+          "quote": "Goed, denk ik. In het begin was alles nieuw, maar nu haal ik mijn aantal orders per uur bijna elke dag. Alleen de avonddienst op dinsdag is lastig; daar kom ik straks op terug.",
+          "distractors": {
+            "A": "Reverses 'nu haal ik mijn aantal orders per uur bijna elke dag'.",
+            "C": "He says it goes well; 'alles nieuw' is not 'veel fouten'."
+          }
+        },
+        {
+          "question_id": "q2",
+          "skill": "detail",
+          "answer": "A",
+          "quote": "want snel zijn kan iedereen leren; zorgvuldig werken en oog hebben voor anderen, dat is zeldzamer.",
+          "distractors": {
+            "B": "She says he reaches his numbers, not more than the rest; 'één op de driehonderd' is about errors.",
+            "C": "Julio understood the scanner thanks to Modibo; he is not the only one."
+          }
+        },
+        {
+          "question_id": "q3",
+          "skill": "inference",
+          "answer": "C",
+          "quote": "je lost iets zelf op en zegt het tegen niemand. Dat lijkt handig, maar ik kan de leverancier pas bellen als ik het weet, en de klant wachtte intussen op zijn spullen.",
+          "key_note": "Sabrina's point is the late report, not the solution; the later line 'Een melding kost je één minuut in de app, ook als je het al hebt opgelost.' confirms the key.",
+          "distractors": {
+            "A": "'Slim opgelost, daar gaat het niet om': setting the damaged boxes aside was right. The new prompt shares 'beschadigde dozen' with this distractor only, so it signals nothing.",
+            "B": "The driver is the one who told her."
+          }
+        },
+        {
+          "question_id": "q4",
+          "skill": "quantity",
+          "answer": "A",
+          "quote": "De cursus duurt twee dagen, bij een opleider hier in de buurt. Het examen is een week later, op een aparte dag",
+          "distractors": {
+            "B": "The course only.",
+            "C": "The week is the gap between course and exam."
+          }
+        },
+        {
+          "question_id": "q5",
+          "skill": "rule-application",
+          "answer": "B",
+          "quote": "Ik maak het rooster altijd op de vijftiende van de maand ervoor, dus geef vóór die dag in de app aan op welke avonden je liever niet werkt.",
+          "distractors": {
+            "A": "The fifteenth of May is too late, and the channel is the app.",
+            "C": "Swapping is only the fallback when his Tuesday is still in the roster."
+          }
+        },
+        {
+          "question_id": "q6",
+          "skill": "sequence",
+          "answer": "C",
+          "quote": "zodra je het certificaat hebt, werk je één dag per week bij de goederenontvangst, waar de vrachtwagens worden gelost",
+          "distractors": {
+            "A": "Modibo's own proposal, which Sabrina turns down.",
+            "B": "June is the next review conversation."
+          }
+        },
+        {
+          "question_id": "q7",
+          "skill": "summary",
+          "answer": "A",
+          "quote": "Je noemde eerst wat goed gaat, en het punt over het melden begrijp ik nu; ik dacht altijd dat ik je daarmee stoorde. En ik heb concrete dingen om aan te werken: de app, de cursus, de ontvangst.",
+          "distractors": {
+            "B": "The course is his own wish; nothing says he makes too many errors.",
+            "C": "'Ik heb nu meer zin in mijn werk dan vanochtend.'"
+          }
+        }
+      ]
+    }
+  ],
+  "diversity": "Replacement batch: the seven texts keep their settings, task types (2 voorlichting, 3 gesprek, 1 interview, 1 instructie), text types, domains (werk 2, educatie 2, overig 3) and set membership. No new topic is introduced.",
+  "media_notes": {
+    "new_audio_required": [
+      {
+        "clip": "B1:listening:batch037-hovenier:1#q7-fragment",
+        "kind": "fragment, 3 turns (presenter, f-older), stitched",
+        "reason": "spoken text changed: 'dertig' to 'veertig'",
+        "characters": 579
+      },
+      {
+        "clip": "B1:listening:batch013-ziekenhuiskeuken:1#q6",
+        "kind": "question prompt (narrator)",
+        "reason": "prompt changed",
+        "characters": 37
+      },
+      {
+        "clip": "B1:listening:batch036-functioneringsgesprek:1#q3",
+        "kind": "question prompt (narrator)",
+        "reason": "prompt changed",
+        "characters": 86
+      }
+    ],
+    "new_audio_characters": 702,
+    "reattach_without_synthesis": {
+      "clips": [
+        "B1:listening:batch036-afvalbeleid:1#q1-fragment",
+        "B1:listening:batch036-afvalbeleid:1#q2-fragment",
+        "B1:listening:batch036-afvalbeleid:1#q3-fragment",
+        "B1:listening:batch036-afvalbeleid:1#q4-fragment",
+        "B1:listening:batch036-afvalbeleid:1#q5-fragment",
+        "B1:listening:batch036-afvalbeleid:1#q6-fragment",
+        "B1:listening:batch013-logistiek:1#q6"
+      ],
+      "why": "content:integrate drops these media fields (afvalbeleid: the script JSON changed through the speaker label; logistiek q6: the options JSON changed), but the spoken-text hash and the token inputs are unchanged, so audio:generate --apply re-attaches the existing files from content/audio-manifest.json without synthesis, provided config/voices.json and the pipeline are unchanged since they were made."
+    },
+    "unchanged": "All seven introductions and every other fragment and question clip. The evidence and explanation changes (lekkage q3, mantelzorg q6, ziekenhuiskeuken q6, logistiek q6) have no media effect.",
+    "voices": "Two roles per text, unchanged: presenter + m-older (afvalbeleid), presenter + f-older (hovenier), m-older + f-young (ziekenhuiskeuken), m-adult + f-older (mantelzorg), m-adult + f-adult (lekkage), f-adult + m-adult (logistiek), f-adult + m-young (functioneringsgesprek)."
+  },
+  "coordinator_actions": "Run npm run batch:adopt 057 (it verifies 47fa99c3951839e9f55cc1f1ab1ab6d822cc9e76c91e986d53d2f244b9d54ea1 and reruns the checker), then npm run content:integrate. Then npm run audio:generate -- --apply: it synthesises the three new clips with a Scribe round trip and re-attaches the seven unchanged clips listed under media_notes without synthesis; it needs the API key even for re-attachment because it chooses the PCM format first. Listen to hovenier q7 if its round trip is near the limit, rerun content:integrate with --refresh-hints as blueprint §12 describes, and run npm run media:prune for the three superseded clips. No illustration or starter step.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence. targetLevelValidated stays false.",
+    "New audio still needs generation and a Scribe transcription round trip for the hovenier q7 fragment and the ziekenhuiskeuken q6 and functioneringsgesprek q3 question prompts; those items stay blocked on media review until then.",
+    "Script-based judgement: no audio was heard. No content/exemplars directory exists, so level verdicts compare the scripts with the official B1 Luisteren I description in docs/research/exam-blueprints-2026-09-10.md and the earlier reviews (002/043, 012, 013, 036, 037).",
+    "Clip reuse was checked against the manifest's spoken-text hashes and the files on disk, not by recomputing each voice token, which also depends on the current config/voices.json and pipeline.",
+    "Unchanged fields outside the fix list were read and pass but were not restyled: the lekkage explanations keep their terse letter references (still correct, since no options moved), and 'ik vraag hun om hulp' (hovenier q2) stays by instruction.",
+    "The mantelzorg facts were spot-checked on rijksoverheid.nl on 14 October 2026; the respijtzorg funding line was confirmed from secondary sources only."
+  ]
+}
