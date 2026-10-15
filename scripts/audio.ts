@@ -536,6 +536,20 @@ function jobs(items: Item[]): Job[] {
   return list;
 }
 
+// A clip made from the same script, voices and settings stays valid at either source rate:
+// a key that falls back to 24 kHz must not resynthesise every 44.1 kHz clip.
+export function reusableClip(
+  existing: Clip | undefined,
+  script_sha256: string,
+  tokenAt: (rate: number) => string,
+): existing is Clip {
+  return Boolean(
+    existing &&
+      existing.script_sha256 === script_sha256 &&
+      [44100, 24000].some((rate) => existing.file === `audio/${tokenAt(rate)}.mp3`),
+  );
+}
+
 async function run() {
   const source = option('--file', '');
   if (GENERATE) await requireReviewedMedia(source);
@@ -573,28 +587,28 @@ async function run() {
     const roles = Object.fromEntries(job.turns.map((t) => [t.role, voiceFor(t.role)]));
     const text = job.turns.map((t) => spoken(t.text)).join('\n');
     const script_sha256 = sha(job.turns.map((t) => t.text).join('\n'));
-    const token = sha(
-      JSON.stringify({
-        text,
-        roles,
-        model: job.mode === 'dialogue' ? voices.dialogueModel : voices.model,
-        settings:
-          job.mode === 'dialogue' && job.turns.length > 1
-            ? voices.settings
-            : Object.fromEntries(job.turns.map((t) => [t.role, settingsFor(t.role)])),
-        mode: job.mode,
-        loudness: voices.loudness,
-        pipeline: `${PIPELINE}-${PCM_RATE}`,
-      }),
-    ).slice(0, 16);
-    const file = `audio/${token}.mp3`,
+    const tokenAt = (rate: number) =>
+      sha(
+        JSON.stringify({
+          text,
+          roles,
+          model: job.mode === 'dialogue' ? voices.dialogueModel : voices.model,
+          settings:
+            job.mode === 'dialogue' && job.turns.length > 1
+              ? voices.settings
+              : Object.fromEntries(job.turns.map((t) => [t.role, settingsFor(t.role)])),
+          mode: job.mode,
+          loudness: voices.loudness,
+          pipeline: `${PIPELINE}-${rate}`,
+        }),
+      ).slice(0, 16);
+    const token = tokenAt(PCM_RATE),
+      file = `audio/${token}.mp3`,
       target = resolve(OUT, `${token}.mp3`);
     const existing = manifest[job.key];
     if (
-      existing &&
-      existing.script_sha256 === script_sha256 &&
-      existing.file === file &&
-      existsSync(target)
+      reusableClip(existing, script_sha256, tokenAt) &&
+      existsSync(resolve(OUT, existing.file.replace(/^audio\//, '')))
     ) {
       job.target?.(existing);
       return;

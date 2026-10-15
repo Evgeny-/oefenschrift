@@ -17,3 +17,15 @@ test('opposite stereo phase preserves the same energy as mono', () => {
   assert.deepEqual(waveformPeaks([left, right], 3), waveformPeaks([left], 3));
   assert.equal(waveformPeaks([left], 64).length, left.length);
 });
+
+test('a clip with an unchanged script is reused at either source sample rate', async () => {
+  const { reusableClip } = await import('../scripts/audio.ts');
+  const tokenAt = (rate) => `token-${rate}`,
+    clip = (file, script_sha256 = 'script') => ({ file, script_sha256 });
+  assert.equal(reusableClip(clip('audio/token-44100.mp3'), 'script', tokenAt), true);
+  assert.equal(reusableClip(clip('audio/token-24000.mp3'), 'script', tokenAt), true);
+  // A changed script, voice or setting gives another token and still needs a new clip.
+  assert.equal(reusableClip(clip('audio/token-44100.mp3', 'old'), 'script', tokenAt), false);
+  assert.equal(reusableClip(clip('audio/other-voice.mp3'), 'script', tokenAt), false);
+  assert.equal(reusableClip(undefined, 'script', tokenAt), false);
+});
