@@ -220,7 +220,7 @@ No reviewer found a wrong answer key. All evidence quotes are verbatim. KNM fact
 
 ### Content
 
-Nine replacement batches, each written by one AI author and checked by a separate AI reviewer, adopted by hash and integrated. 99 exercises have new revisions, so saved progress on them restarts.
+Ten replacement batches (nine on 14 October and the one-item batch 062 on 15 October), each written by one AI author and checked by a separate AI reviewer, adopted by hash and integrated. 100 exercises have new revisions, so saved progress on them restarts.
 
 | Batch | Part | Items | Reviewer edits |
 | --- | --- | ---: | --- |
@@ -233,17 +233,17 @@ Nine replacement batches, each written by one AI author and checked by a separat
 | 059 | A2 speaking | 22 | five samples or quotes; the 12 cued prompts now announce their third requirement |
 | 060 | B1 writing | 6 | none |
 | 061 | B1 speaking | 16 | cursusverzoek and verwarming-verhuurder lost the "sluit af met een vraag" criterion |
+| 062 | B1 speaking | 1 | none; on 15 October the machinestoring prompt gained "Geef ook een waarschuwing." for its fourth criterion, as in brandalarm |
 
 After integration, the 55 changed open tasks were judged twice each with the production setup: every model answer met all its criteria, and 7 of 220 sample runs differed from their quotes, all in the lenient direction (fietskeuze, sportabonnement, werktelefoon, avondcursus). Samples and quotes are authoring calibration and are not shown to learners.
 
 ### Audio
 
-44 clips with changed text were regenerated with the transcription round trip: 6 KNM questions, 6 A2 listening clips, 3 B1 listening clips, 13 A2 and 16 B1 speaking prompts. The ElevenLabs key is on the Creator tier, which refuses 44.1 kHz PCM, so new clips come from 24 kHz source audio. `scripts/audio.ts` used to treat every 44.1 kHz clip as stale on such a key, because the sample rate is part of the file token; it now reuses a clip whose script, voices and settings are unchanged at either rate. An earlier run without that fix synthesised about 15,000 characters of unchanged clips before it was stopped; nothing from it was recorded.
+44 clips with changed text (and the machinestoring prompt from batch 062) were regenerated with the transcription round trip: 6 KNM questions, 6 A2 listening clips, 3 B1 listening clips, 13 A2 and 16 B1 speaking prompts. The ElevenLabs key is on the Creator tier, which refuses 44.1 kHz PCM, so new clips come from 24 kHz source audio. `scripts/audio.ts` used to treat every 44.1 kHz clip as stale on such a key, because the sample rate is part of the file token; it now reuses a clip whose script, voices and settings are unchanged at either rate. An earlier run without that fix synthesised about 15,000 characters of unchanged clips before it was stopped; nothing from it was recorded.
 
 ### Left for later
 
 - The low-severity items of section 4 that the batches did not touch.
-- `B1:speaking:batch017-machinestoring:1`: the visible criterion "Geef een reden of een waarschuwing" is not announced in the prompt.
 - A2 listening: the bloedonderzoek q1 prompt presupposes the q2 answer; drill set a2-listening-03 has key A in 5 of 12 questions; spoor and trein are near-duplicate announcements.
 - KNM rechecks: kinderopvangtoeslag (replacement planned for 2029), Jeugdfonds conditions (yearly), scholing (BW 7:611a changes on 1 January 2028).
 - Unreferenced media files were not pruned.

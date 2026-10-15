@@ -1,0 +1,74 @@
+{
+  "review_id": "062-review",
+  "source": "content/batches/062-original.json",
+  "source_sha256": "868e159d174366ab33d55ed714a0ec5183f15de2730293973c5ef07ec12d42e2",
+  "proposed": "content/batches/062-proposed.json",
+  "proposed_identical_to_author_file": true,
+  "author_source_sha256": "868e159d174366ab33d55ed714a0ec5183f15de2730293973c5ef07ec12d42e2",
+  "starters_source": "content/batches/062-starters.json",
+  "starters_sha256": "6829677bbc41e9af0107cf5bfbea115d55d5b5e5e6c5b4dff2839d64e9fe6704",
+  "starters_verdict": "pass",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-15",
+  "reviewer": "Independent AI reviewer (Claude Opus 5.5) in a fresh context; did not author batch 062 and did not edit the author's files.",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "B1:speaking:batch017-machinestoring:1"
+  ],
+  "item_count": 1,
+  "edits": [],
+  "rejected": [],
+  "checks": {
+    "read_in_full": "tmp/content-fix-2026-10-14/spec/review-common.md, docs/briefs/review.md, content/reviews/rubric.md, content/blueprint.md §1-§3 and §4.9-§13, app/components/OpenExercise.tsx lines 270-320, the author batch, starters and notes in full, the catalogue records of this ID and of B1:speaking:batch031-brandalarm:1, and the brandalarm entry of content/reviews/061-review.json.",
+    "base_diff": "Field-level diff against tmp/content-fix-2026-10-15/062-base.json: the only changed leaf is prompt, which gains the final sentence \"Geef ook een waarschuwing.\" (52 -> 56 words). Key order is identical; criteria, sample, quotes, model, image briefs and alts are byte-identical. No revision, promptAudio, images[].file or other generated field, and no type field.",
+    "base_provenance": "The base equals the published catalogue record with promptAudio, revision and images[].file removed (programmatic comparison). The author's starters equal the entry for this ID in content/hints/sentence-starters.json.",
+    "proposed_diff": "content/batches/062-proposed.json is a byte-identical copy of the author's file (cmp).",
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/062-proposed.json -> \"Checked 1 items, 0 questions.\" plus info \"1 of 1 items are already in the catalogue …\"; \"No failures, no warnings.\"",
+    "contract_script": "Exactly one null quote (index 1); quotes[0], [2] and [3] are verbatim substrings of the sample; quotes and starters number one per criterion; every starter contains \"…\"; no prompt sentence occurs in the sample or model. Model 68 words (40-70), six sentences of 9-17 words, mean 11.3. Sample 44 words.",
+    "criteria_visibility": "Middellang without a cue: OpenExercise.tsx shows criteria and starters before answering. The narrated prompt now also names all four graded points (\"wat hij eerst moet doen\" C0, \"wie hij daarna moet bellen\" C1, \"Leg hem stap voor stap uit wat hij … moet doen\" C2, \"Geef ook een waarschuwing.\" C3).",
+    "timing": "Minimal four-criterion answer of 27 words (\"Eerst druk je op de rode knop, dan stopt de machine. Daarna bel je de monteur. Maak de machine niet zelf open, want dat is gevaarlijk.\"), about 14-18 s of 30 at 1.5-2 words per second.",
+    "narration": "Prompt read as narrated text: six sentences of 9, 12, 10, 4, 17 and 4 words, no digits. The new sentence is identical to brandalarm's closing sentence. Prompt 56 words vs brandalarm 53; published B1 middellang prompts range 32-70.",
+    "pictures_viewed": "public/images/9a4223167db7585a.webp and 2a1fc29ab5c48175.webp converted locally and viewed: red button pressed with the crooked box (panel 1), phone call beside the stopped machine with a technician holding a toolbox in the bubble (panel 2). Fixed traits consistent; clothing differs between panels (minor, not task-relevant).",
+    "web": "No KNM claim, new name or organisation in scope, so no web check was needed.",
+    "set_membership": "content/practice-sets.json: b1-speaking-03 holds this ID; brandalarm is in b1-speaking-10. Membership unchanged."
+  },
+  "items": [
+    {
+      "id": "B1:speaking:batch017-machinestoring:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture step-by-step instruction with a warning, the same act and density as B1:speaking:batch031-brandalarm:1. Model 68 words, mean sentence 11.3, longest 17, with als, zodat, want and tot.",
+      "evidence": {
+        "spec_fix": "Prompt now ends \"Leg hem stap voor stap uit wat hij eerst moet doen en wie hij daarna moet bellen. Geef ook een waarschuwing.\", announcing C3 the way brandalarm does.",
+        "learner_following_prompt": "Yes (visible criteria): \"wat hij eerst moet doen\" -> C0, \"wie hij daarna moet bellen\" -> C1, \"stap voor stap uit wat hij … moet doen\" -> C2, \"Geef ook een waarschuwing\" -> C3 (the prompt asks for the warning half of \"een reden of een waarschuwing\"). Minimal answer 27 words.",
+        "sample": "Unchanged, 44 words. Null at C1: \"meteen bellen\" and \"tot er iemand komt\" name no callee. quotes[0] \"… moet je eerst op rode knop drukken.\" meets C0; quotes[2] \"Daarna je moet meteen bellen …\" is an ordered instruction (C2); quotes[3] \"Je mag de machine niet zelf openmaken, want dat is gevaarlijk.\" is a warning with a reason (C3). Two deliberate learner errors (missing article, no inversion).",
+        "model": "\"moet je hem eerst stopzetten. Druk op de grote rode knop\" (C0), \"Daarna bel je de technische dienst … tot de monteur er is\" (C1), imperatives and je-instructions in order (C2), \"Probeer de machine nooit zelf te repareren, want dat is gevaarlijk.\" (C3).",
+        "pictures": "Both panels match their briefs and alts; the alts describe the drawings and the judge receives them. \"tekstwolk\" is less usual than \"tekstballon\" but clear; no edit.",
+        "narration": "Natural spoken B1 Dutch; the added four-word imperative sentence closes the instruction as in brandalarm.",
+        "starters": "Unchanged and aligned: C0 \"Als de machine kapotgaat, moet je eerst …\", C1 \"Daarna bel je …\", C2 \"Het is belangrijk dat je eerst … en pas daarna …\", C3 \"Doe dat niet zelf, want …\". All partial, no complete answers or invented facts."
+      }
+    }
+  ],
+  "author_doubts_decisions": [
+    "The notes number criteria from 0 (\"criterion 1 (whom to call)\", \"criterion 3\" for the warning); with that numbering their claims about the sample and model are correct."
+  ],
+  "diversity": "Close in concept to brandalarm (a colleague asks what to do in a workplace emergency; step-by-step instruction with a warning), but different in setting, stimulus and content. They are in different sets; a mock form should not hold both.",
+  "set_assembly": "Membership unchanged (b1-speaking-03).",
+  "media_notes": [
+    "New audio needed: B1:speaking:batch017-machinestoring:1#prompt (narrator), because the prompt text changed. No cue clip exists for this item.",
+    "No picture changes: the briefs are unchanged, so both images stay."
+  ],
+  "coordinator_actions": [
+    "Adopt with npm run batch:adopt 062 (proposed file identical to the author's; no proposed starters file).",
+    "After integration, regenerate the #prompt clip with the transcription round trip."
+  ],
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "The prompt changed. New prompt audio still needs generation from the adopted text, with a transcription round trip; none was generated in this review.",
+    "No feedback calls were made, so judge behaviour on the changed prompt was not measured in this review.",
+    "content/exemplars/ does not exist. The level comparison uses brandalarm and other middellang instruction items in the bank and does not calibrate difficulty.",
+    "Timing estimates assume 1.5-2 words per second for a B1 speaker. They are not measured."
+  ]
+}
