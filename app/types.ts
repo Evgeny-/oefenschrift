@@ -51,6 +51,8 @@ export interface Session {
   setId?: string;
   questions?: string[];
   revisions?: Record<string, string>;
+  // Question keys (closed sets) or exercise IDs (open sets) passed over without an answer.
+  skipped?: string[];
 }
 export interface ExerciseRecord {
   completed: boolean;

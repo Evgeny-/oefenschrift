@@ -1,0 +1,211 @@
+{
+  "review_id": "064-review",
+  "source": "content/batches/064-original.json",
+  "source_sha256": "2179436e2dc5ce5fe3b3efff1eba12d480f83d7c477ed09b55fab4d80f303d4e",
+  "proposed": "content/batches/064-proposed.json",
+  "proposed_identical_to_author_file": false,
+  "author_source_sha256": "baad2e7776fabf5c2bb05abbfdb0881297f9788aeab0550942794a1b742076b1",
+  "starters_source": "content/batches/064-starters.json",
+  "starters_sha256": "26144a201b4f575b4edf880cedea264144f08523c0818ea1987b6b72f5857319",
+  "starters_verdict": "pass",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-19",
+  "reviewer": "Independent AI reviewer (Claude Opus 5.5) in a fresh context; did not author batch 064 and did not edit the author's files.",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:writing:batch008-lantaarnpaal:1",
+    "A2:writing:bibliotheekpas:1",
+    "A2:writing:batch008-kast:1",
+    "A2:writing:batch008-oppassen:1",
+    "A2:writing:batch008-huur:1",
+    "A2:writing:batch008-groep:1",
+    "A2:writing:batch001-ladder:1",
+    "A2:writing:batch002-schoenen:1",
+    "A2:writing:batch002-sleutel:1",
+    "A2:writing:batch003-loonstrook:1"
+  ],
+  "item_count": 10,
+  "edits": [
+    {
+      "id": "A2:writing:batch008-lantaarnpaal:1",
+      "field": "criteria[1]",
+      "before": [
+        "Schrijf waar het probleem precies is.",
+        "Say exactly where the problem is."
+      ],
+      "after": [
+        "Schrijf waar het probleem precies is. Bedenk dit zelf.",
+        "Say exactly where the problem is. Make this up yourself."
+      ],
+      "reason": "With \"Bedenk dit zelf.\" on c0 and c2 only, the visible criteria imply the location comes from the prompt, whose only location is \"in uw straat\"; that invites the copy \"In mijn straat.\", which is neither precise nor the learner's own. The spec says the learner invents the location too; the same pattern is used on the sportclub and nieuwe-patient forms. Quote 1 and starter 1 still fit."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "read_in_full": "tmp/content-fix-2026-10-19/spec/review-common.md, common.md and 064.md; audit/writing.md; docs/briefs/review.md; content/reviews/rubric.md; content/blueprint.md §1-§4.4 and §8-§12; the author batch, starters and notes in full; app/components/OpenExercise.tsx lines 280-330 (criteria and starters visible for email and form); server/services.ts judge payload (prompt, criteria, form_fields, adequacyNote as sentence_must) and server/feedback-instructions.json (GROUNDING rule); content/reviews/062-review.json for format.",
+    "base_provenance": "Programmatic comparison: each base record equals its content/catalogue.json record minus revision (no audio, cue or image fields exist on these ten items). The starters base equals the ten entries in content/hints/sentence-starters.json.",
+    "base_diff": "Field-level diff of the author file against base/064-base.json: key and item order identical; status ai-editorially-reviewed -> draft on all ten; other changes exactly as the author notes list (lantaarnpaal title, prompt, c0, c2; bibliotheekpas prompt, c0, c1, sample, quotes[1], model, adequacyNote, formFields[2].label, formFields[3].label; kast title, prompt, c0; oppassen prompt, c1; huur prompt, c1; groep prompt, c1; ladder prompt, c1; schoenen prompt, c0; sleutel prompt, c0; loonstrook prompt). Every change is a spec fix or its necessary consequence (the two titles under the spec/common.md title rule). No media, revision or type field; no images.",
+    "proposed_diff": "content/batches/064-proposed.json differs from the author file only in lantaarnpaal criteria[1] (nl and en). Written with JSON.stringify(…, null, 2) + newline after confirming that round-trips the author file byte-for-byte; prettier --check passes.",
+    "starters_diff": "Author starters differ from the base in three fragments: lantaarnpaal 2 \"Het probleem is er sinds …\", bibliotheekpas 0 \"Mijn oude pas is ….\", bibliotheekpas 1 \"Hoeveel kost …?\". All ten entries have one fragment per criterion, each with \"…\", none a complete answer or invented fact. Unchanged by the review.",
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/064-proposed.json -> \"Checked 10 items, 0 questions.\" plus info \"10 of 10 items are already in the catalogue …\"; \"No failures, no warnings.\"",
+    "contract_script": "Per item: status draft; exactly one null quote; every other quote a verbatim substring of the sample; quotes and starters one per criterion; no sample or model sentence equal to a normalised prompt sentence. A person-shifted fuzzy comparison (u->ik, uw->mijn) flagged only framing sentences (kast \"Ik heb een nieuwe kast gekocht.\", huur \"Daarom wil ik de huur opzeggen.\", groep \"Daarom kan ik niet meer 's avonds naar de les komen.\") and indirect-to-direct question forms; none is a criterion's evidence.",
+    "language_figures": "Prompts (words / sentences / longest / mean): lantaarnpaal 26/4/10/6.5, bibliotheekpas 61/9/9/6.8, kast 28/5/8/5.6, oppassen 32/6/8/5.3, huur 27/5/8/5.4, groep 38/6/10/6.3, ladder 64/8/12/8.0, schoenen 61/9/11/6.8, sleutel 66/11/9/6.0, loonstrook 78/10/13/7.8. All within A2 (mean < 12, none > 16). Models: e-mails 47-59 words (45-70 target), forms 41, 22 and 32 words; no model sentence over 14 words.",
+    "criteria_visibility": "All ten are taskType email or form without cue or images, so criteria, title and (on request) starters are visible while writing. Each was read for giveaways: none now contains the reason, day, place or problem a criterion asks the learner to invent.",
+    "judge_checkability": "The added \"Bedenk zelf …\" / \"Bedenk dit zelf.\" sentences leave the checked information unchanged (a reason, a day, a place, a problem), which the judge can verify from the answer alone. The bibliotheekpas adequacyNote now names what happened to the old card, a price question and a pick-up moment, matching the three criteria.",
+    "web": "No new names, organisations or KNM claims were introduced; no web check was needed.",
+    "set_membership": "content/practice-sets.json: lantaarnpaal a2-writing-04; bibliotheekpas and ladder a2-writing-01; kast and huur a2-writing-06; oppassen a2-writing-07; groep a2-writing-05; schoenen and sleutel a2-writing-02; loonstrook a2-writing-03. Unchanged."
+  },
+  "items": [
+    {
+      "id": "A2:writing:batch008-lantaarnpaal:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Same shape as the sportclub and nieuwe-patient forms: a four-sentence situation ending \"Sommige gegevens moet u zelf bedenken.\", three invented open answers and a choice. Model 41 words, longest sentence 11.",
+      "evidence": {
+        "spec_fix": "Prompt \"Er is een probleem met een lantaarnpaal in uw straat. …\" no longer answers what (kapot, donker), where (voor uw huis) or since when (al een week). c0 and c2 say \"Bedenk dit zelf.\"; the review adds it to c1.",
+        "visible_text": "Title \"Melding over een lantaarnpaal\" (was \"Melding: kapotte lantaarnpaal\", which gave c0). Starter 2 \"Het probleem is er sinds …\" no longer says the light is broken.",
+        "learner_following_prompt": "Fields \"Wat is het probleem?\", \"Waar is het probleem precies?\", \"Sinds wanneer is het probleem er?\" and the choice map one-to-one to c0-c3.",
+        "sample": "quotes[0] \"De lantaarnpaal voor mijn huis is kapot. Het licht doet het niet en het is 's avonds heel donker.\" (now invented, not copied), quotes[1] \"De paal staat voor de Meidoornstraat 12, naast de bus halte.\" (precise spot; error \"bus halte\"), quotes[2] null (no time), quotes[3] \"Ik wil antwoord per e-mail.\"",
+        "model": "Meets all four; \"sinds vorige week maandag\" is now an invented date, removing the old mismatch with \"al een week\"."
+      }
+    },
+    {
+      "id": "A2:writing:bibliotheekpas:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three open fields of one short sentence each, like the official counter forms. c1 is an easy direct question, but the official \"Vraag …\" bullets work the same way; c0 and c2 are invented. Model 22 words, longest 9.",
+      "evidence": {
+        "spec_fix": "Prompt opens \"U hebt een nieuwe bibliotheekpas nodig.\" (no longer says the card is gone); \"Bedenk dit zelf.\" after field 1; \"Vraag hoeveel een nieuwe pas kost.\" replaces the pointless \"Vraag om een nieuwe pas.\"",
+        "form_and_criteria": "Labels \"Wat is er met uw oude pas gebeurd?\", \"Hebt u een vraag voor de bibliotheek?\" and \"Op welke dag en hoe laat kunt u de nieuwe pas ophalen?\" match c0-c2 and the prompt.",
+        "adequacyNote": "\"… vertellen wat er met de oude pas is gebeurd, vragen wat een nieuwe pas kost en noemen een ophaalmoment.\" accepts theft or damage as well as loss, and drops the old c1.",
+        "sample": "\"Ik ben mijn pas van de bibliotheek verloren. Hoeveel kost een nieuw pas?\": quotes[0] and [1] verbatim, error \"een nieuw pas\" (de-word), quotes[2] null (no pick-up moment).",
+        "model": "\"Ik ben mijn pas van de bibliotheek verloren. Hoeveel kost een nieuwe pas? Ik kan de pas woensdag om twee uur ophalen.\" meets all three.",
+        "starters": "\"Mijn oude pas is ….\", \"Hoeveel kost …?\", \"Ik kan de pas op … om … ophalen.\": partial and aligned."
+      }
+    },
+    {
+      "id": "A2:writing:batch008-kast:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Informal three-bullet e-mail with two invented points, like the other batch 008 e-mails. Model 54 words in 8 sentences, longest 12.",
+      "evidence": {
+        "spec_fix": "Prompt \"U hebt een nieuwe kast gekocht. U hebt hulp nodig met de kast. …\" no longer gives the reason; c0 adds \"Bedenk zelf een reden.\" The author's wording replaces the audit's copyable \"U kunt de kast niet alleen naar uw woning brengen.\"",
+        "visible_text": "Title \"Hulp bij een nieuwe kast\" (was \"zware kast\", the c0 answer). Starters unchanged and neutral.",
+        "sample": "quotes[0] \"De kast is heel zwaar. Ik woon op de derde verdieping en ik kan de kast niet alleen dragen.\" is now the learner's own reason; quotes[1] \"Kun je mij helpen?\"; quotes[2] null (no day or time; \"ongeveer een half uur\" is a duration). Error \"drink we\".",
+        "model": "Reason, request and \"Kan het zaterdag om tien uur?\" meet c0-c2."
+      }
+    },
+    {
+      "id": "A2:writing:batch008-oppassen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Four-bullet informal e-mail, three invented. Model 59 words in 8 sentences, longest 14.",
+      "evidence": {
+        "spec_fix": "Prompt \"Donderdagavond moet u weg.\" gives neither the reason (c1) nor the return time (c2); c1 adds \"Bedenk zelf een reden.\"",
+        "sample": "quotes \"Kun jij donderdagavond op Amina passen?\", \"Ik moet dan werken tot tien uur.\" (invented reason), \"Ik ga om half zeven weg en ik ben om half elf weer thuis.\", null (no bedtime). Error \"pannekoeken\".",
+        "model": "Meets all four, including \"Om half negen moet ze naar bed.\"",
+        "starters": "Unchanged; \"Ik moet dan …\" leaves the reason open."
+      }
+    },
+    {
+      "id": "A2:writing:batch008-huur:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Formal four-bullet e-mail, all four invented. Model 57 words in 7 sentences, longest 12.",
+      "evidence": {
+        "spec_fix": "Prompt drops \"U gaat verhuizen naar een andere stad.\"; c1 adds \"Bedenk zelf een reden.\"",
+        "sample": "quotes \"Ik huur de woning aan de Lindehof 18 in Zwolle.\", \"Ik ga verhuizen naar Utrecht, omdat ik daar een nieuwe baan heb.\" (now invented), \"Vanaf 1 december huur ik de woning niet meer.\", null (asks for confirmation, not about keys). Error \"opzegen\".",
+        "model": "\"Wanneer moet ik de sleutels inleveren?\" meets c3; the others as in the sample."
+      }
+    },
+    {
+      "id": "A2:writing:batch008-groep:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Formal four-bullet e-mail. Model 59 words in 7 sentences, longest 11.",
+      "evidence": {
+        "spec_fix": "Prompt \"U kunt niet meer 's avonds naar de les.\" replaces the work sentence; c1 adds \"Bedenk zelf een reden.\" \"op dinsdagavond\" stays as the fact the teacher needs (c0).",
+        "sample": "quotes \"Ik zit nu in de groep op dinsdagavond.\", \"Daar werk ik elke avond tot tien uur. Daarom kan ik niet meer naar de les komen.\" (invented reason), null (no day or time for the new group), \"Kan dat?\". Error \"een nieuw werk\".",
+        "model": "\"de groep op donderdagochtend om negen uur\" meets c2."
+      }
+    },
+    {
+      "id": "A2:writing:batch001-ladder:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Informal e-mail with printed bullets in the prompt, four criteria. Model 48 words in 6 sentences, longest 10.",
+      "evidence": {
+        "spec_fix": "Prompt opens \"U wilt thuis iets doen en u hebt daarvoor een ladder nodig.\" and adds \"Bedenk zelf wat u wilt doen.\"; c1 matches.",
+        "sample": "quotes \"Mag ik je ladder lenen?\", \"Ik wil de kapotte lamp vervangen.\" (now an invented purpose), \"Ik kom de ladder graag om zes uur haal.\" (error), null (no return time).",
+        "model": "Meets all four (\"Om acht uur breng ik hem weer bij je terug.\").",
+        "starters": "\"Ik heb de ladder nodig om ….\" leaves the purpose open."
+      }
+    },
+    {
+      "id": "A2:writing:batch002-schoenen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Formal e-mail with printed bullets, four criteria. Model 47 words in 6 sentences, longest 10.",
+      "evidence": {
+        "spec_fix": "Prompt \"U hebt deze week schoenen gekocht. Thuis merkt u dat ze niet goed passen.\" no longer gives \"gisteren\" or \"te klein\"; c0 adds \"Bedenk zelf een dag.\"",
+        "residual": "\"niet goed passen\" plus \"grotere maat\" constrains c1 (the problem) to \"too small\", but the learner still has to say it. Accepted per audit and coordinator.",
+        "sample": "quotes \"Gisteren heb ik bij u een paar schoenen gekocht.\" (invented day), \"Ze is te klein voor mijn voeten.\" (error), \"Kan ik ze bij u ruilen voor een groter paar?\", null (no size).",
+        "model": "\"Ik wil graag maat 39 proberen.\" meets c3; \"Ze zitten te strak en mijn voeten doen pijn.\" meets c1."
+      }
+    },
+    {
+      "id": "A2:writing:batch002-sleutel:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Form with three one-sentence open fields. Model 32 words in 3 sentences, longest 12.",
+      "evidence": {
+        "spec_fix": "\"U vindt een sleutel in uw flatgebouw. De beheerder heeft een formulier voor gevonden spullen.\" fixes the unclear sentence and no longer gives \"in de hal\"; \"Bedenk zelf een plek.\" added to the prompt and c0.",
+        "sample": "quotes \"Ik heb de sleutel in de hal van mijn flat gevonden.\" (now an invented place), \"Er zit een rood ring aan de sleutel.\" (error), null (no contact route).",
+        "model": "Meets all three.",
+        "starters": "\"Ik heb de sleutel in … gevonden.\" kept; \"in\" fits the likely places in a flat building."
+      }
+    },
+    {
+      "id": "A2:writing:batch003-loonstrook:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Formal e-mail transferring two numbers plus a request and an invented moment. The prompt is the longest in the batch (78 words, 10 sentences) but plain: mean 7.8, longest 13. Model 54 words in 7 sentences, longest 10.",
+      "evidence": {
+        "spec_fix": "\"maar op de loonstrook staat 72 uur\", \"Schrijf hoeveel uur u in augustus hebt gewerkt. Schrijf ook hoeveel uur er op de loonstrook staat.\" and \"Vraag of uw werkgever de uren wil controleren.\" replace \"vermeldt\", \"Noem de maand en beide aantallen uren\" and \"Vraag om controle\". Facts (augustus, 80, 72) are unchanged.",
+        "sample": "Unchanged; quotes for 80 uur, 72 uur and \"Kunt u de uren voor mij nakijken?\" verbatim; null at the talk moment. Error \"Ik heeft\".",
+        "model": "Unchanged; \"Op de loonstrook zie ik maar 72 uur.\" is not a copy of the new prompt clause."
+      }
+    }
+  ],
+  "author_doubts_decisions": [
+    "1 lantaarnpaal c1: \"Bedenk dit zelf.\" added (the only edit).",
+    "2 Title changes (lantaarnpaal, kast): kept; each old title named a c0 answer on the visible page heading.",
+    "3 kast prompt deviating from the audit: accepted; the audit sentence was itself a copyable reason, and a copied \"hulp nodig met de kast\" gives no reason under the judge's GROUNDING rule.",
+    "4 bibliotheekpas c1 close to dictation: accepted; the indirect-to-direct question transformation is the official \"Vraag …\" pattern.",
+    "5 schoenen \"Gisteren\" against \"deze week\": accepted; c1 residue accepted per audit.",
+    "6 loonstrook split into two 9-word sentences: accepted.",
+    "7 sleutel starter with \"in\": kept.",
+    "8 No judge runs: not a blocker; a spot check of bibliotheekpas c1 and adequacyNote is recommended before release."
+  ],
+  "diversity": "Settings, domains, registers and task concepts are unchanged from the published items. Three forms and seven e-mails; formal and informal registers both present.",
+  "set_assembly": "Membership unchanged (see checks.set_membership).",
+  "media_notes": [
+    "No audio needed: these A2 writing items have no promptAudio or cue, so no <id>#prompt or <id>#cue clip is affected.",
+    "No images in this batch.",
+    "All ten items get new revisions on integration; saved answers to them restart."
+  ],
+  "coordinator_actions": [
+    "Adopt with npm run batch:adopt 064 (proposed file differs from the author file only in lantaarnpaal criteria[1]; no proposed starters file).",
+    "Integrate with npm run content:integrate -- --refresh-hints \"<reason>\" so the three changed starter fragments are merged.",
+    "Recommended: a small judge spot check of bibliotheekpas c1 (\"Hoeveel kost een nieuwe pas?\", \"Wat kost dat?\", control \"Mag ik een nieuwe pas?\") before release."
+  ],
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "No feedback (judge) calls were made, so judge behaviour on the changed criteria and adequacyNote was not measured.",
+    "content/exemplars/ does not exist; level verdicts compare with the other A2 forms and e-mails in the bank and are not calibrated.",
+    "Unchanged invented names (Woonstichting De Brug, Meidoornstraat, Taalschool West) were not re-checked on the web.",
+    "No prompt or cue with audio changed, so no new audio is needed."
+  ]
+}

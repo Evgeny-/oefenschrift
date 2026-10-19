@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useStudyContext } from '../StudyContext';
-import { addElapsed, reviewOpen } from '../domain/study';
+import { addElapsed, reviewOpen, skipOpen, previousOpen, reviewedInSession } from '../domain/study';
 import { track, visitorId } from '../domain/telemetry';
 import SpeakingRecorder from './SpeakingRecorder';
 import { AnswerDiff } from './TextEvidence';
@@ -12,6 +12,7 @@ import { postJson, type ApiFailure } from '../domain/request';
 import { ExerciseHeader, sessionTimer } from './ExerciseHeader';
 import { useEnterAction } from './keys';
 import { mediaUrl } from '../domain/base';
+import { AudioPlayback } from './AudioPlayer';
 
 // Blueprint task types carry the exam's printed material: an e-mail header, the wijkkrant opening
 // line, the fields of a form, or the pictures of a picture note. Shown with the task, above the answer.
@@ -43,28 +44,28 @@ function TaskStimulus({ item, t }) {
           <dd>{scaffold.subject}</dd>
         </dl>
       )}
-      {(item.promptAudio || item.cueAudio) && (
-        <div className="task-audio" lang="nl" translate="no">
-          {item.promptAudio && (
-            <ClipButton
-              src={item.promptAudio}
-              playLabel={t('Opdracht beluisteren', 'Listen to the instruction')}
-              pauseLabel={t('Opdracht pauzeren', 'Pause instruction')}
-              caption={t('Opdracht', 'Instruction')}
-            />
-          )}
-          {item.cueAudio && (
-            <ClipButton
-              src={item.cueAudio}
-              playLabel={t('Vraag beluisteren', 'Listen to the question')}
-              pauseLabel={t('Vraag pauzeren', 'Pause question')}
-              caption={
-                item.cue?.speaker
-                  ? `${t('U hoort', 'You hear')}: ${item.cue.speaker}`
-                  : t('Vraag', 'Question')
-              }
-            />
-          )}
+      {item.cueAudio && (
+        // The spoken cue is the one part of the task the learner cannot read, so it gets the
+        // full player; the printed instruction keeps only a small read-aloud button.
+        <div className="cue-player">
+          <p className="cue-label">
+            {item.cue?.speaker ? (
+              <>
+                {t('Luister naar', 'Listen to')}{' '}
+                <span lang="nl" translate="no">
+                  {item.cue.speaker}
+                </span>
+              </>
+            ) : (
+              t('Luister naar de vraag', 'Listen to the question')
+            )}
+          </p>
+          <AudioPlayback
+            key={item.cueAudio}
+            src={mediaUrl(item.cueAudio)}
+            t={t}
+            label={t('Gesproken vraag', 'Spoken question')}
+          />
         </div>
       )}
       {scaffold.salutation && (
@@ -284,14 +285,24 @@ export function OpenExercise({ item }) {
           <span className="sheet-label">{t('Opdracht', 'Task')}</span>
           <p className="passage" lang="nl" translate="no">
             {item.prompt}
+            {item.promptAudio && (
+              <ClipButton
+                key={item.promptAudio}
+                src={item.promptAudio}
+                playLabel={t('Opdracht voorlezen', 'Read the instruction aloud')}
+                pauseLabel={t('Voorlezen pauzeren', 'Pause reading aloud')}
+              />
+            )}
           </p>
           <TaskStimulus item={item} t={t} />
-          {/* A picture task gives only the pictures and a cued task only the spoken question; their
-              requirements would give the words away, so they appear at review time. */}
+          {/* The exam's speaking tasks show only the instruction with its pictures, table or spoken
+              question, and a picture note or zinstaak only its material; the requirements would
+              give the words away, so they appear at review time. The prompt itself must name
+              everything they check. */}
           {(!(
+            item.part === 'speaking' ||
             item.taskType === 'picture-note' ||
             item.taskType === 'zinstaak' ||
-            item.cue ||
             (item.taskType === 'deelschrijftaak' && item.images?.length)
           ) ||
             reviewing) && (
@@ -450,6 +461,37 @@ export function OpenExercise({ item }) {
                   ) : null}
                 </div>
               </>
+            )}
+            {practiceSet && (
+              // A set can be walked back and forth; the result lists what was skipped.
+              <div className="set-navigation">
+                {state.active.index > 0 && (
+                  <button
+                    className="text-button"
+                    data-action="previous"
+                    disabled={captureBusy}
+                    onClick={() => {
+                      request.current?.abort();
+                      setState((s) => previousOpen(s, item.id));
+                    }}
+                  >
+                    {t('Vorige', 'Previous')}
+                  </button>
+                )}
+                <button
+                  className="text-button"
+                  data-action="skip"
+                  disabled={captureBusy}
+                  onClick={() => {
+                    request.current?.abort();
+                    setState((s) => skipOpen(s, item.id));
+                  }}
+                >
+                  {reviewedInSession(state, item.id)
+                    ? t('Volgende', 'Next')
+                    : t('Overslaan', 'Skip')}
+                </button>
+              </div>
             )}
           </div>
           {reviewing && (

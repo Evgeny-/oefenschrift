@@ -1,0 +1,270 @@
+{
+  "review_id": "066-review",
+  "source": "content/batches/066-original.json",
+  "source_sha256": "a6f37902d9720bea4e45ff578bf9962569b0b0e48475214a005688813c02539d",
+  "proposed": "content/batches/066-proposed.json",
+  "proposed_identical_to_author_file": false,
+  "author_source_sha256": "257111555af47997dfe72fc2ce8400eb6a40501cf516ac561d6352f0f587caa1",
+  "starters_source": "content/batches/066-starters.json",
+  "starters_sha256": "7171ac007b35d904e06c56dc10943d90344778582331431ff4b6f8d5c71cb811",
+  "author_starters_sha256": "92ee0e9eb64fde0f5918f7650253f1199d0c4369d3a167bde2592beb24f083da",
+  "starters_verdict": "pass",
+  "starters_note": "One fragment edited: portemonnee-tram starter 3 (see edits). The other lists equal the author file; inwerken [1] and machinestoring [0] are the author changes and fit the reworded criteria and prompt.",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-19",
+  "reviewer": "Independent AI reviewer (Claude Opus 5.5) in a fresh context; did not author batch 066 and did not edit the author's files.",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "B1:speaking:batch016-slaapkamerraam:1",
+    "B1:speaking:batch031-portemonnee-tram:1",
+    "B1:speaking:batch017-trein-gemist:1",
+    "B1:speaking:batch002-teamtaak:1",
+    "B1:speaking:batch003-werkdruk:1",
+    "B1:speaking:batch002-cursusgemist:1",
+    "B1:speaking:batch003-inwerken:1",
+    "B1:speaking:batch003-cursuslocatie:1",
+    "B1:speaking:batch017-fietskeuze:1",
+    "B1:speaking:batch031-cursus-engels:1",
+    "B1:speaking:batch016-pensioen:1",
+    "B1:speaking:batch030-rijexamen:1",
+    "B1:speaking:batch030-uitlaat:1",
+    "B1:speaking:batch016-medicijn-school:1",
+    "B1:speaking:batch017-machinestoring:1"
+  ],
+  "item_count": 15,
+  "edits": [
+    {
+      "id": "B1:speaking:batch030-rijexamen:1",
+      "field": "prompt",
+      "before": "Uw vriendin Farah zit bij u in de taalcursus. Naast de cursus heeft ze de laatste maanden rijles gehad. Vandaag komt ze voor de les blij naar u toe. U hoort eerst uw vriendin. Reageer op het nieuws. Stel ook een vraag over het rijexamen en stel voor om het samen te vieren.",
+      "after": "Uw vriendin Farah zit bij u in de taalcursus. Naast de cursus heeft ze de laatste maanden rijles gehad. Vandaag komt ze voor de les blij naar u toe. U hoort eerst uw vriendin. Reageer op het nieuws. Stel ook een vraag over het examen en stel voor om het samen te vieren.",
+      "reason": "Reverted to the published prompt (author doubt 2). With \"rijles\" and \"blij\", \"het rijexamen\" tells the learner the news before the cue plays, which is the leak spec item 12 removed from the title. The instruction follows \"U hoort eerst uw vriendin\", and the cue (\"geslaagd voor mijn rijexamen\") makes \"het examen\" unambiguous, matching the hidden C1. The existing prompt clip stays valid, so one regeneration is saved."
+    },
+    {
+      "id": "B1:speaking:batch031-portemonnee-tram:1",
+      "field": "starters[2]",
+      "before": "De volgende dag kon ze … bij …",
+      "after": "Uiteindelijk kon ze … bij …",
+      "reason": "The criterion this starter serves (C2) changed in this batch. Neither the pictures nor the prompt say when Roos got the wallet back, so \"De volgende dag\" was an invented task fact, which starters may not contain. The fragment stays partial and still points to the third picture."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "read_in_full": "tmp/content-fix-2026-10-19/spec/review-common.md, common.md, 066.md and audit/b1-speaking.md; docs/briefs/review.md and author.md; content/reviews/rubric.md; content/blueprint.md §1-§3, §4.9, §5-§13; the B1 Spreken paragraph of docs/research/exam-blueprints-2026-09-10.md; the author batch, starters and notes; app/components/OpenExercise.tsx lines 280-345 (visibility); server/services.ts pictureFor (the judge receives only the Dutch alt); content/reviews/062-review.json as format example.",
+    "base_diff": "Scripted field-level diff against tmp/content-fix-2026-10-19/base/066-base.json and 066-starters-base.json. The author changed only the fields listed in the notes plus status \"draft\". Key order and item order are identical. No cue text, image brief, sample, quotes, model, table or timing changed. The proposed file differs from the author file only in the rijexamen prompt (now equal to the base), and the proposed starters only in portemonnee-tram [2].",
+    "base_provenance": "The base equals the published catalogue records with media fields and images[].file removed (programmatic comparison). The base starters equal content/hints/sentence-starters.json for all 15 IDs.",
+    "media_fields": "No revision, audio, duration, peaks, voice, introAudio, promptAudio, cueAudio, questionAudio or images[].file field, and no retired type field. Status is \"draft\" on all 15.",
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/066-proposed.json -> \"Checked 15 items, 0 questions.\" plus info \"15 of 15 items are already in the catalogue …\"; \"No failures, no warnings.\"",
+    "contract_script": "Per item, by script: exactly one null quote; every other quote is a verbatim substring of the sample; one quote and one starter per criterion; every starter contains \"…\"; no prompt sentence of four or more words occurs (normalised) in the sample or the model. Kort models 32-44 words, middellang models 51-68.",
+    "narration": "Every changed prompt read as narrated text. No semicolons and no digits. The longest sentence is 24 words (cursusgemist); the others are at most 20. \"U hoort eerst …\" stands as its own sentence in every cued prompt that changed.",
+    "criteria_visibility": "Cued items (slaapkamerraam, teamtaak, werkdruk, cursusgemist, pensioen, rijexamen, uitlaat, medicijn-school) hide criteria and starters until review. Each of their criteria is asked for by the prompt or the cue. The seven uncued items show criteria, starters and the title. None of these names what a criterion asks the learner to say, except machinestoring C0/C3 (see author_doubts_decisions 7).",
+    "pictures_viewed": "Converted to PNG and viewed: slaapkamerraam f1dd1f197b28bf46 (casement a little open, ordinary attached handle pointing down, blue curtain); portemonnee-tram c9969c703ed86ad0 (Roos walks to the tram door, wallet on the seat), 0321a5dc60fc5368 (Roos searches her bag at the bakery counter, baker holds out his hand), f18417217d231e55 (lost-property employee hands over the wallet); trein-gemist 8d66647248546070 (train leaving, hand on forehead), efc32dd7684eb15a (boarding a bus in front of the station), a5b01e07e1a63938 (handshake in an office); machinestoring 9a4223167db7585a (red button, box jammed crooked in the opening), 2a1fc29ab5c48175 (phone call, technician with toolbox in the bubble, box still jammed). Every alt matches its drawing.",
+    "timing": "Minimal kort answers that follow the prompt need about 20-25 words, for example teamtaak \"Ik heb de zaal geboekt en de koffie besteld. Kun jij de flyers maken? Zullen we donderdag bespreken hoe ver we zijn?\" That is about 11-16 s of 20 at 1.5-2 words per second.",
+    "web": "No KNM claim and no new name or organisation in scope, so no web check was needed.",
+    "set_membership": "content/practice-sets.json: b1-speaking-01 (teamtaak, werkdruk, cursusgemist), -02 (inwerken, cursuslocatie), -03 (trein-gemist, fietskeuze, machinestoring), -05 (slaapkamerraam), -06 (pensioen, medicijn-school), -07 (uitlaat), -08 (rijexamen), -09 (portemonnee-tram, cursus-engels). Membership unchanged.",
+    "hashes": "source_sha256 and starters_sha256 computed with Node crypto (equal to shasum -a 256) after the last edit of the proposed files."
+  },
+  "items": [
+    {
+      "id": "B1:speaking:batch016-slaapkamerraam:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Kort: report a defect from a picture plus two questions, like uitlaat and the other kort role-plays. C2 now depends on reading the picture, as the exam intends. Model 44 words, longest sentence 15.",
+      "evidence": {
+        "spec_fix": "The situation now reads \"Sinds gisteren is er een probleem met het raam van uw slaapkamer.\" and the title \"Een probleem met het raam\". Neither states the defect any more.",
+        "learner_following_prompt": "Yes (hidden criteria): \"wanneer het raam wordt gerepareerd\" -> C0, \"of u de reparatie moet betalen\" -> C1, \"Zeg kort wat er mis is met het raam … Gebruik het plaatje\" -> C2.",
+        "picture_and_alt": "The drawing shows a casement a little open and an ordinary attached handle pointing down. The author alt \"staat op een kier, terwijl de hendel naar beneden wijst\" is accurate and replaces the inaccurate \"hangt los\". The judge receives only this alt.",
+        "sample": "Q0 null (no repair-date question). Q1 \"Moet ik zelf betalen …\" -> C1. Q2 \"… gaat niet meer dicht. Er komt koude lucht binnen, want hendel is kapot.\" -> C2. Not a copy of the new prompt sentence.",
+        "model": "\"De hendel zit los, waardoor het raam niet dicht kan\" (C2, consistent with the handle down while the window is open), \"Weet u wanneer iemand het kan komen repareren?\" (C0), \"moet ik die reparatie zelf betalen\" (C1).",
+        "starters": "Unchanged and hidden until review (cued item)."
+      }
+    },
+    {
+      "id": "B1:speaking:batch031-portemonnee-tram:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Narrate three pictures with a feeling, the same shape and density as trein-gemist. The learner now has to tell the story from the pictures, which matches the official form. Model 63 words, longest 15.",
+      "evidence": {
+        "spec_fix": "The prompt is \"Uw vriendin Roos had vorige week pech. … hoe alles weer goed kwam.\" and the title is \"Roos heeft pech\". The visible criteria are C1 \"Vertel wat Roos bij de bakker merkte\", C2 \"Vertel hoe het afliep\" and C3 \"… hoe Roos zich voelde bij de bakker\". None names the wallet or the ending.",
+        "learner_following_prompt": "Yes (visible criteria): \"Vertel wat er gebeurde\" plus \"Gebruik alle drie de plaatjes\" -> C0-C2, \"hoe Roos zich voelde\" -> C3, whose visible wording places the feeling at the bakery.",
+        "sample": "Q0 \"In de tram zij legde haar portemonnee … vergat ze hem.\" -> C0. Q1 \"Bij de bakker wilde ze betalen, maar haar portemonnee was weg.\" -> new C1. Q2 \"De volgende dag kon ze hem ophalen bij de balie voor gevonden voorwerpen.\" -> new C2. Q3 null (no feeling).",
+        "model": "\"Pas bij de bakker merkte ze dat haar portemonnee weg was, en ze schrok enorm\" (C1, C3), \"kon ze hem ophalen bij het bureau voor gevonden voorwerpen\" (C2).",
+        "starters": "Starter 3 edited to \"Uiteindelijk kon ze … bij …\" (it invented \"De volgende dag\"). The other three are unchanged and name no wallet."
+      }
+    },
+    {
+      "id": "B1:speaking:batch017-trein-gemist:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Unchanged task; three-picture narration of reference density. Model 62 words, longest 14.",
+      "evidence": {
+        "spec_fix": "Title \"Op weg naar een sollicitatiegesprek\". C3 \"… hoe Modibo zich voelde op het station …\". Neither gives away the train leaving any more.",
+        "sample": "Q3 \"hij was heel zenuwachtig\" follows \"Op het station hij zag dat zijn trein net wegreed\" and meets the new C3. Q1 null.",
+        "model": "\"Hij schrok, omdat hij niet te laat wilde komen\" meets C3.",
+        "audio": "Prompt unchanged, so its clip stays."
+      }
+    },
+    {
+      "id": "B1:speaking:batch002-teamtaak:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Kort with three speech acts (report, delegate, propose a day), comparable to werkdruk. Inventing the content is normal for the exam. Model 32 words.",
+      "evidence": {
+        "spec_fix": "The prompt now announces C0 (\"Vertel wat u al hebt geregeld\") and C1 (\"zeg welke taak dat is\"), and no longer supplies the finished work. The semicolon sentence is split. C0 says \"bedenk die zelf\".",
+        "learner_following_prompt": "Yes (hidden criteria): \"al twee dingen geregeld … Vertel wat u al hebt geregeld\" -> C0, \"Vraag uw collega om een taak over te nemen en zeg welke taak dat is\" -> C1, \"Stel ook een dag voor\" -> C2. The cue asks \"Wat heb je al geregeld en waarmee kan ik je helpen?\".",
+        "sample": "Q0 \"De zaal is geboekt en de uitnodigingen zijn verstuurd.\" (two invented things) -> C0. Q1 \"Kun jij de presentatie maken?\" -> C1. Q2 null.",
+        "model": "A zaal and invitations (C0), the presentation (C1), \"Laten we donderdag bespreken hoe ver we zijn\" (C2)."
+      }
+    },
+    {
+      "id": "B1:speaking:batch003-werkdruk:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Kort: name, consequence, question. Comparable to teamtaak. Model 34 words.",
+      "evidence": {
+        "spec_fix": "The prompt \"Voor vrijdag moet u twee taken afmaken … Zeg welke twee taken het zijn\" no longer names them. C0 says \"bedenk die zelf\". The semicolon sentence is split.",
+        "learner_following_prompt": "Yes: \"Zeg welke twee taken het zijn\" -> C0, \"beschrijf één mogelijk gevolg\" -> C1, \"vraag welke taak voorrang heeft\" -> C2.",
+        "sample": "Q0 \"Het rapport en de planning moet vrijdag af zijn.\" -> C0 (invented). Q1 -> C1. Q2 null.",
+        "model": "Rapport and planning (C0), \"kan ik belangrijke fouten missen\" (C1), \"Welke van deze taken wilt u dat ik eerst afrond?\" (C2)."
+      }
+    },
+    {
+      "id": "B1:speaking:batch002-cursusgemist:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Kort: explain, ask, propose a day and time. The learner now gives a reason of their own. Model 34 words.",
+      "evidence": {
+        "spec_fix": "\"door ziekte\" is removed and the sentence split. The new prompt has \"Leg uit waarom u er niet was\".",
+        "learner_following_prompt": "Yes: any reason -> C0, \"vraag naar de lesstof\" -> C1, \"stel een dag en tijd voor\" -> C2. The cue \"Is alles goed?\" fits any reason.",
+        "sample": "Q0 \"… omdat ik was ziek.\" is now an invented reason (C0). Q1 -> C1. Q2 null.",
+        "narration": "The longest sentence is 24 words, under the limit of 30."
+      }
+    },
+    {
+      "id": "B1:speaking:batch003-inwerken:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Middellang advice from a table with three points, comparable to fietskeuze and cursus-engels. Model 51 words, longest 15.",
+      "evidence": {
+        "spec_fix": "The prompt names the asker (\"Uw leidinggevende vraagt u om advies\") and uses plain wording (\"wie de nieuwe collega begeleidt\", \"het opschrijven van de werkwijze\"). C1 now says \"opgeschreven\" and starter 2 \"Schrijf de stappen op in …, zodat …\".",
+        "learner_following_prompt": "Yes (visible criteria): the three instructions map one to one to C0, C1 and C2.",
+        "sample": "Q0 -> C0. Q1 \"Zet de stappen op papier …\" -> C1. Q2 null.",
+        "model": "\"Laat één ervaren medewerker de nieuwe collega begeleiden\" (C0), \"Schrijf daarnaast samen de stappen op\" (C1), \"Na een week … Dan zien we …\" (C2). Imperatives to the manager are normal advice register."
+      }
+    },
+    {
+      "id": "B1:speaking:batch003-cursuslocatie:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Middellang: convince with two reasons from a table, comparable to buurtvergadering. The space reason works as \"lokaal B is groot genoeg\" (audit note 2). Model 52 words.",
+      "evidence": {
+        "spec_fix": "\"Uw avondcursus is verhuisd naar lokaal A. Nu moet u … Overtuig uw docent om de cursus naar lokaal B te verplaatsen. Geef twee redenen: …\" removes the ambiguous \"de verhuizing\". All sentences are short.",
+        "learner_following_prompt": "Yes (visible criteria): the proposal -> C0, \"één over de terugreis\" -> C1, \"één over de ruimte voor de groep\" -> C2.",
+        "sample": "Q0 \"Kunnen we volgende keer lokaal B gebruiken?\" -> C0. Q1 null. Q2 \"Er zijn genoeg stoel …\" -> C2.",
+        "model": "It meets all three: the bus a quarter of an hour after class; 16 learners and 20 seats."
+      }
+    },
+    {
+      "id": "B1:speaking:batch017-fietskeuze:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Unchanged task; advice with table points, situation link and drawback. Model 68 words.",
+      "evidence": {
+        "spec_fix": "\"Adviseer Roos welke fiets het beste bij haar situatie past.\" now announces the visible C2. The prompt is 63 words, one fewer than before.",
+        "learner_following_prompt": "Yes: choice -> C0, \"Noem minstens twee punten uit de tabel\" (plus the visible \"als reden\") -> C1, \"bij haar situatie past\" -> C2, \"ook een nadeel van uw keuze\" -> C3.",
+        "sample": "Unchanged. Q2 null: no explicit link to the stairs, money or time."
+      }
+    },
+    {
+      "id": "B1:speaking:batch031-cursus-engels:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "As fietskeuze. Model 63 words.",
+      "evidence": {
+        "spec_fix": "\"Adviseer Sabrina welke cursus het beste bij haar situatie past.\" announces C2.",
+        "sample": "Unchanged. Q2 \"dat is belangrijk als je volgend jaar gaat solliciteren\" -> C2. Q3 null."
+      }
+    },
+    {
+      "id": "B1:speaking:batch016-pensioen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Unchanged kort reaction to news. Model 43 words.",
+      "evidence": {
+        "spec_fix": "The title \"Nieuws van een collega\" no longer gives away the news, which the cue now delivers. The prompt is unchanged, so its clip stays."
+      }
+    },
+    {
+      "id": "B1:speaking:batch030-rijexamen:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Unchanged kort reaction to news. Model 44 words.",
+      "evidence": {
+        "spec_fix": "The title \"Farah heeft nieuws\" no longer gives away the news, which the cue now delivers.",
+        "reviewer_edit": "The prompt is reverted to the published \"een vraag over het examen\". After the cue, it is unambiguous, and it does not announce the cue's news. It matches the hidden C1. The existing prompt clip stays valid.",
+        "learner_following_prompt": "Yes: \"Reageer op het nieuws\" -> C0, \"een vraag over het examen\" (after hearing \"geslaagd voor mijn rijexamen\") -> C1, \"stel voor om het samen te vieren\" -> C2."
+      }
+    },
+    {
+      "id": "B1:speaking:batch030-uitlaat:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Unchanged kort: two questions and a reason. Model 44 words.",
+      "evidence": {
+        "spec_fix": "\"U belt de garage.\" replaces \"… en noemt uw naam\". The cue already identifies the caller (\"u bent de klant met de kapotte uitlaat\")."
+      }
+    },
+    {
+      "id": "B1:speaking:batch016-medicijn-school:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Unchanged kort instruction with two parts and an end date. Model 43 words.",
+      "evidence": {
+        "spec_fix": "\"moet een paar dagen een medicijn innemen\" no longer half-answers C2 (\"tot wanneer\"). The sample's Q2 \"Tot en met vrijdag …\" and the model's \"tot en met vrijdag\" remain the learner's own content."
+      }
+    },
+    {
+      "id": "B1:speaking:batch017-machinestoring:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture step-by-step instruction with a warning, comparable to brandalarm (batch 062 review). Model 68 words.",
+      "evidence": {
+        "spec_fix": "\"helpt vandaag bij uw inpakmachine\" and \"als de machine vastloopt\" now match the pictures, which show a box jammed crooked in a machine that is not broken. Starter 1 is now \"Als de machine vastloopt, moet je eerst …\". C3 and \"Geef ook een waarschuwing.\" are kept as batch 062 left them. No criterion or the model contains \"kapot\".",
+        "sample": "Unchanged. \"Als de machine kapot is\" is learner wording. Q1 null.",
+        "visibility_note": "The visible C0 \"de machine stoppen\" and C3 \"niet zelf mag repareren\" still name their content. This is left to the code-level decision in audit note 1, and the spec keeps C3."
+      }
+    }
+  ],
+  "author_doubts_decisions": [
+    "1 Slaapkamerraam alt: accepted. It describes the drawing. The notes are wrong that the judge also receives the English brief: server/services.ts pictureFor sends only the alt. The model's \"De hendel zit los\" stays as the tenant's explanation.",
+    "2 Rijexamen prompt: reverted to the published text (edit 1). rijexamen#prompt is dropped from the media list. C1 keeps \"het examen\".",
+    "3 \"en waarom\" dropped in fietskeuze and cursus-engels: accepted. The visible C1 \"als reden\" and \"Noem minstens twee punten\" carry the reasons.",
+    "4 Portemonnee C3 \"bij de bakker\": accepted. It is clearer than \"toen ze het merkte\" and parallels trein-gemist.",
+    "5 Cursuslocatie \"is verhuisd naar lokaal A\": accepted.",
+    "6 Machinestoring sample \"kapot\": kept as learner wording.",
+    "7 Visible criteria that name answers (machinestoring C0, C3): not edited. Left to the coordinator's code-level decision (audit note 1).",
+    "8 Inwerken model imperatives: accepted as advice register."
+  ],
+  "diversity": "There are no new concepts. Teamtaak, werkdruk and cursusgemist now share the \"invent the content yourself\" shape, but they realise different speech acts.",
+  "set_assembly": "Membership unchanged.",
+  "media_notes": [
+    "New narrator prompt audio is needed for exactly 12 clips: B1:speaking:batch016-slaapkamerraam:1#prompt, B1:speaking:batch031-portemonnee-tram:1#prompt, B1:speaking:batch002-teamtaak:1#prompt, B1:speaking:batch003-werkdruk:1#prompt, B1:speaking:batch002-cursusgemist:1#prompt, B1:speaking:batch003-inwerken:1#prompt, B1:speaking:batch003-cursuslocatie:1#prompt, B1:speaking:batch017-fietskeuze:1#prompt, B1:speaking:batch031-cursus-engels:1#prompt, B1:speaking:batch030-uitlaat:1#prompt, B1:speaking:batch016-medicijn-school:1#prompt, B1:speaking:batch017-machinestoring:1#prompt.",
+    "No cue clip is needed: all cue texts are unchanged.",
+    "The prompts of rijexamen (reverted), trein-gemist and pensioen equal their published text, so their prompt clips stay.",
+    "No pictures: no image brief changed. The slaapkamerraam alt change needs no redraw."
+  ],
+  "coordinator_actions": [
+    "Adopt with npm run batch:adopt 066. It moves 066-proposed.json and 066-proposed-starters.json and verifies both hashes.",
+    "Generate the 12 prompt clips with the transcription round trip. Then run npm run content:integrate -- --refresh-hints \"<reason>\" for the inwerken, machinestoring and portemonnee-tram starter changes, followed by npm run media:prune.",
+    "Optional, outside this batch: decide in code whether uncued speaking items with pictures hide their criteria until review (audit note 1)."
+  ],
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Twelve prompts changed. New prompt audio still needs generation from the adopted text, with a transcription round trip; none was generated in this review.",
+    "No feedback calls were made, so judge behaviour on the reworded criteria and the new slaapkamerraam alt was not measured.",
+    "content/exemplars/ does not exist. Level verdicts compare items with sister items in the bank and do not calibrate difficulty.",
+    "Timing estimates assume 1.5-2 words per second for a B1 speaker. They are not measured."
+  ]
+}

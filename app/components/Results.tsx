@@ -7,7 +7,7 @@ import { EvidenceText } from './TextEvidence';
 import { evidenceFor } from '../domain/text';
 import { Heading } from './ExerciseHeader';
 
-export function PracticeActions({ mistakes = 0 }) {
+export function PracticeActions({ mistakes = 0, skipped = 0 }) {
   const { state, setState, catalogue, practiceSet, practiceSets, startSet, start, open, go, t } =
       useStudyContext(),
     a = state.active;
@@ -37,9 +37,13 @@ export function PracticeActions({ mistakes = 0 }) {
           data-action="retry-mistakes"
           onClick={() => setState((s) => ({ ...s, active: retrySession(s.active, catalogue) }))}
         >
-          {mistakes === 1
-            ? t('Herhaal alleen de fout', 'Retry the mistake')
-            : t(`Herhaal alleen de ${mistakes} fouten`, `Retry only the ${mistakes} mistakes`)}
+          {skipped
+            ? mistakes === 1
+              ? t('Herhaal de overgeslagen vraag', 'Retry the skipped question')
+              : t(`Herhaal de ${mistakes} gemiste vragen`, `Retry the ${mistakes} missed questions`)
+            : mistakes === 1
+              ? t('Herhaal alleen de fout', 'Retry the mistake')
+              : t(`Herhaal alleen de ${mistakes} fouten`, `Retry only the ${mistakes} mistakes`)}
         </button>
       )}
       <button
@@ -71,7 +75,8 @@ export function PracticeActions({ mistakes = 0 }) {
 }
 export function OpenSetResults() {
   const { state, catalogue, t, practiceSet, go } = useStudyContext(),
-    a = state.active;
+    a = state.active,
+    skipped = (id) => !!a.skipped?.includes(id);
   return (
     <>
       <Heading
@@ -80,7 +85,7 @@ export function OpenSetResults() {
       />
       <div className="result-total">
         <strong>
-          {a.ids.length}
+          {a.ids.filter((id) => !skipped(id)).length}
           <span> / {a.ids.length}</span>
         </strong>
         <span>{t('oefeningen nagekeken', 'exercises reviewed')}</span>
@@ -92,7 +97,11 @@ export function OpenSetResults() {
               <span className="exercise-entry-copy" lang="nl" translate="no">
                 {catalogue.find((i) => i.id === id).title}
               </span>
-              <span className="exercise-status">✓</span>
+              {skipped(id) ? (
+                <span className="exercise-status small">{t('Overgeslagen', 'Skipped')}</span>
+              ) : (
+                <span className="exercise-status">✓</span>
+              )}
             </button>
           </li>
         ))}
@@ -106,16 +115,21 @@ export function OpenSetResults() {
 export function QuestionReview({ session, entry, index }) {
   const { t } = useStudyContext(),
     { item, q, key } = entry,
-    evidence = item.text ? evidenceFor(item, q) : [];
+    evidence = item.text ? evidenceFor(item, q) : [],
+    skipped = !Object.hasOwn(q.options, session.answers[key] ?? '');
   return (
     <details>
       <summary>
         <span
           aria-label={
-            session.answers[key] === q.answer ? t('Goed', 'Correct') : t('Onjuist', 'Incorrect')
+            session.answers[key] === q.answer
+              ? t('Goed', 'Correct')
+              : skipped
+                ? t('Overgeslagen', 'Skipped')
+                : t('Onjuist', 'Incorrect')
           }
         >
-          {session.answers[key] === q.answer ? '✓' : '×'}
+          {session.answers[key] === q.answer ? '✓' : skipped ? '–' : '×'}
         </span>
         <span lang="nl" translate="no">
           {index + 1}. {q.prompt}
@@ -124,9 +138,13 @@ export function QuestionReview({ session, entry, index }) {
       <div className="review-answer">
         <p>
           {t('Jouw antwoord', 'Your answer')}:{' '}
-          <span lang="nl" translate="no">
-            {q.options[session.answers[key]]}
-          </span>
+          {skipped ? (
+            t('overgeslagen', 'skipped')
+          ) : (
+            <span lang="nl" translate="no">
+              {q.options[session.answers[key]]}
+            </span>
+          )}
         </p>
         {session.answers[key] !== q.answer && (
           <p>
@@ -166,9 +184,13 @@ export function Mistake({ session, entry, source = null }) {
       </p>
       <dl className="mistake-answers">
         <dt>{t('Jouw antwoord', 'Your answer')}</dt>
-        <dd lang="nl" translate="no">
-          <del>{q.options[session.answers[key]]}</del>
-        </dd>
+        {Object.hasOwn(q.options, session.answers[key] ?? '') ? (
+          <dd lang="nl" translate="no">
+            <del>{q.options[session.answers[key]]}</del>
+          </dd>
+        ) : (
+          <dd>{t('Overgeslagen', 'Skipped')}</dd>
+        )}
         <dt>{t('Goed antwoord', 'Correct answer')}</dt>
         <dd lang="nl" translate="no">
           {q.options[q.answer]}
@@ -296,7 +318,12 @@ export function Results() {
           ))}
         </section>
         <div className="result-actions">
-          <PracticeActions mistakes={missed.length} />
+          <PracticeActions
+            mistakes={missed.length}
+            skipped={
+              missed.filter((x) => !Object.hasOwn(x.q.options, a.answers[x.key] ?? '')).length
+            }
+          />
           <details className="result-review">
             <summary>
               {t(

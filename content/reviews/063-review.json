@@ -1,0 +1,278 @@
+{
+  "review_id": "063-review",
+  "source": "content/batches/063-original.json",
+  "source_sha256": "4fa88d95360650df5c37a48b4aa0512f5fa6bb755d495e015a78ceae3a861d51",
+  "proposed": "content/batches/063-proposed.json",
+  "proposed_identical_to_author_file": false,
+  "author_source_sha256": "2bbf7203e5217267325f33b0c5139df35839e4d575100a523e6fd05541a6c4a4",
+  "starters_source": "content/batches/063-starters.json",
+  "starters_sha256": "9ffd1ff57c194d4e810874dcca23fa2ee849049da91e45283e59a5f02fd5f7f6",
+  "starters_verdict": "pass",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-19",
+  "reviewer": "Independent AI reviewer (Claude Opus 5.5) in a fresh context; did not author batch 063 and did not edit the author's files.",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:speaking:batch001-apotheek:1",
+    "A2:speaking:batch003-jas:1",
+    "A2:speaking:batch003-speeltuin:1",
+    "A2:speaking:batch003-monteur:1",
+    "A2:speaking:batch027-keuken:1",
+    "A2:speaking:batch026-regen:1",
+    "A2:speaking:buurvrouw:1",
+    "A2:speaking:te-laat:1",
+    "A2:speaking:batch001-koelkast:1",
+    "A2:speaking:batch009-bushalte:1",
+    "A2:speaking:batch027-ziekmelden:1",
+    "A2:speaking:batch027-cursuskeuze:1",
+    "A2:speaking:batch009-ochtenddienst:1",
+    "A2:speaking:batch002-burenpakket:1",
+    "A2:speaking:batch009-verjaardag:1",
+    "A2:speaking:batch003-tramkaart:1"
+  ],
+  "item_count": 16,
+  "edits": [
+    {
+      "id": "A2:speaking:batch003-jas:1",
+      "field": "images[0].alt",
+      "before": "Roos houdt een blauwe jas vast en kijkt er bezorgd naar. Naast haar ligt een telefoon op een tafeltje.",
+      "after": "Roos houdt een blauwe jas vast en kijkt bezorgd. Naast haar ligt een telefoon op een tafeltje.",
+      "reason": "In the picture Roos's eyes look sideways at about face height, not at the coat in her hands. The alt must state only what the picture shows, because the judge reads it as fact."
+    },
+    {
+      "id": "A2:speaking:batch003-jas:1",
+      "field": "sample",
+      "before": "Roos kijkt naar een jas. Ze heeft een blauw jas vast en er ligt een telefoon op tafel.",
+      "after": "Roos houdt een jas vast. Het is een blauw jas en er ligt een telefoon op tafel.",
+      "reason": "Quote 0 credited C0 ('Zeg wat Roos doet.') for an action the picture does not clearly show. It now credits the visible action. The second sentence is reworded so that 'vast' is not repeated, and the learner error 'een blauw jas' stays."
+    },
+    {
+      "id": "A2:speaking:batch003-jas:1",
+      "field": "quotes",
+      "before": [
+        "Roos kijkt naar een jas.",
+        "Ze heeft een blauw jas vast en er ligt een telefoon op tafel.",
+        null
+      ],
+      "after": [
+        "Roos houdt een jas vast.",
+        "Het is een blauw jas en er ligt een telefoon op tafel.",
+        null
+      ],
+      "reason": "Both quotes are verbatim in the new sample. Quote 0 meets C0. Quote 1 names the coat, the phone and the table (C1). The null stays on C2."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "read_in_full": "tmp/content-fix-2026-10-19/spec/review-common.md, common.md and 063.md; docs/briefs/review.md; content/reviews/rubric.md; content/blueprint.md §1, §3, §4.3, §5-§13; the audit tmp/content-fix-2026-10-19/audit/a2-speaking.md; the author batch, starters and notes in full; app/components/OpenExercise.tsx lines 290-345; server/services.ts requestJudgment and pictureFor; content/reviews/062-review.json as the format example.",
+    "base_provenance": "Each base record equals the published catalogue record with revision, promptAudio, cueAudio and images[].file removed (programmatic comparison). The starters base equals the 16 entries in content/hints/sentence-starters.json.",
+    "base_diff": "Field-level diff of the author's file against tmp/content-fix-2026-10-19/base/063-base.json. Item order and key order are identical. status is 'draft' in all 16. Every changed field is a spec fix or its consequence (see the notes table). Every image brief, every cue and all metadata are byte-identical. There are no media or derived fields and no type field. Starters change only for apotheek[2], jas[0], monteur[2], koelkast[2] and verjaardag[1].",
+    "proposed_diff": "content/batches/063-proposed.json differs from the author's file only in A2:speaking:batch003-jas:1 images[0].alt, sample and quotes. It was written with 2-space indentation and a trailing newline, and every other item is byte-identical.",
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/063-proposed.json -> \"Checked 16 items, 0 questions.\" plus info \"16 of 16 items are already in the catalogue …\"; \"No failures, no warnings.\"",
+    "contract_script": "For all 16 items: exactly one null quote; the other quotes are verbatim substrings of the sample; quotes and starters number one per criterion; every starter contains \"…\"; no prompt sentence occurs in the sample or the model; models are 27-44 words with no sentence over 13 words; no digits in any prompt or cue.",
+    "criteria_visibility": "OpenExercise.tsx hides criteria and starters until review only for cued tasks here (monteur, buurvrouw, te-laat, bushalte, ziekmelden, cursuskeuze, ochtenddienst). For the nine picture items the criteria, the title (h1) and the starters on request are visible. None of these names the place or action that a criterion asks for.",
+    "judge_input": "server/services.ts sends the judge the prompt, the criteria and the numbered alts. It does not send the title, the brief or the cue text, so the alts carry the scene facts the criteria need.",
+    "pictures_viewed": "All 17 published pictures of the 16 items were converted from public/images/*.webp and viewed. Every changed alt was checked against its picture: apotheek, jas (with a crop of the face), speeltuin, the three burenpakket panels and verjaardag. The prompt-changed items keuken, regen, monteur, buurvrouw, te-laat, koelkast and tramkaart were viewed as well.",
+    "narration": "Each changed prompt was read as narrated text. The sentences have 2-11 words, there are no digits or abbreviations, and the Dutch is natural. Cues are unchanged.",
+    "titles": "All 59 A2 speaking titles are unique after the change (catalogue plus proposed).",
+    "set_membership": "content/practice-sets.json: a2-speaking-01 (buurvrouw, te-laat, apotheek, koelkast), -02 (burenpakket, tramkaart), -03 (jas, monteur, speeltuin), -04 (ochtenddienst, bushalte), -07 (verjaardag), -13 (regen), -16 (ziekmelden, cursuskeuze), -17 (keuken). Membership unchanged.",
+    "web": "No KNM claim, new name or new organisation in scope, so no web check was needed."
+  },
+  "items": [
+    {
+      "id": "A2:speaking:batch001-apotheek:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "One-picture describe task in the official pattern (scene, two actions, opinion). The opinion needs a reason as well, which is still within 40 s. Model 33 words, longest sentence 13.",
+      "evidence": {
+        "report_6": "Title 'Roos heeft medicijnen nodig', prompt situation 'Roos heeft medicijnen nodig.', visible criteria and starters name no place. The opinion question 'Vindt u het zelf makkelijk om medicijnen te halen? Vertel ook waarom.' is concrete and about the learner's own life.",
+        "picture": "Counter, a man in a white shirt, shelves with medicine boxes and bottles; Roos hands over a paper and he takes a box. The alt 'Roos staat bij de balie van een apotheek. Ze geeft een papier aan een medewerker. Hij pakt een doosje.' matches.",
+        "sample": "Quote 0 'Roos staat in een apotheek.' meets C0; quote 1 'Ze geeft een papier aan de medewerker. De medewerker pak een doosje.' meets C1; null on C2.",
+        "model": "'aan de balie van een apotheek' (C0), 'geeft een papier … Hij pakt een doosje' (C1), 'Ik vind medicijnen halen makkelijk, want de apotheek is dicht bij mijn huis' (C2).",
+        "starters": "'Roos is bij …', 'Roos … en de medewerker …', 'Medicijnen halen vind ik …, want …' are partial and aligned, and none names the place."
+      }
+    },
+    {
+      "id": "A2:speaking:batch003-jas:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Describe task with an action, two things and an opinion, as in the other one-picture items. Model 28 words.",
+      "evidence": {
+        "spec_fix": "'Nu is zij thuis.' is removed; C0 is now 'Zeg wat Roos doet.', answered from the picture.",
+        "edit": "The alt no longer claims that Roos looks at the coat (her gaze is sideways). Sample quote 0 is now 'Roos houdt een jas vast.' and quote 1 'Het is een blauw jas en er ligt een telefoon op tafel.'",
+        "model": "'Roos houdt een blauwe jas vast.' (C0), 'blauwe jas … telefoon' (C1), 'Ik vind dit vervelend.' (C2).",
+        "starters": "'Roos houdt …' aligns with C0; the others are unchanged."
+      }
+    },
+    {
+      "id": "A2:speaking:batch003-speeltuin:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Same shape as the official one-picture task. The place must now come from the picture, as it should. Model 31 words.",
+      "evidence": {
+        "spec_fix": "Situation 'Fatima maakt een wandeling.' and title 'Fatima maakt een wandeling'. The author's deviation from 'in haar buurt' is accepted, because that phrase would itself answer C0.",
+        "picture": "Fatima on the pavement by the playground entrance, a broken fence section, a yellow slide. The new alt states all three.",
+        "sample": "Quote 0 'Fatima staat naast de speeltuin.' meets C0; quote 1 names the broken fence and the slide; null on C2."
+      }
+    },
+    {
+      "id": "A2:speaking:batch003-monteur:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Video answer: two cue parts plus one extra move, as in blueprint §4.3. The learner invents the time window as in the official items. Model 35 words.",
+      "evidence": {
+        "spec_fix": "The prompt no longer gives the time window or the current time. 'Sabrina van de klantenservice neemt op.' C2 is now 'Vraag wanneer de monteur nu komt.'",
+        "decision": "'Hij is te laat.' is kept. It gives the reason for the call, not C1's wording, and C1 is hidden until review and asked by the cue.",
+        "sample": "Quote 0 'De afspraak is tussen negen en elf uur.' (C0), quote 1 'De monteur zijn er nog niet.' (C1), null on C2.",
+        "model": "'Ik had een afspraak tussen negen en elf uur.' (C0), 'de monteur is er nog niet' (C1), 'Wanneer kan hij nu komen?' (C2)."
+      }
+    },
+    {
+      "id": "A2:speaking:batch027-keuken:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Describe task with three visible actions. Model 42 words.",
+      "evidence": {
+        "spec_fix": "'Fatima is thuis met haar kinderen.' no longer names the cooking action that C1 asks for.",
+        "picture": "Stirring a pot, cutting vegetables and setting plates are all visible and match the alt."
+      }
+    },
+    {
+      "id": "A2:speaking:batch026-regen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Describe task with two visible actions plus an approaching bus. Model 44 words.",
+      "evidence": {
+        "spec_fix": "Situation 'Sabrina gaat naar haar werk.' and title 'Regen bij de bushalte' no longer give 'wacht op de bus'.",
+        "picture": "Sabrina under a yellow umbrella, an older woman on the shelter bench, a bus approaching. This matches the alt."
+      }
+    },
+    {
+      "id": "A2:speaking:buurvrouw:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Video answer: two cue parts plus a time. Model 33 words.",
+      "evidence": {
+        "spec_fix": "'Bedenk zelf een reden en een andere dag.' is removed. 'U kunt morgen niet op bezoek bij uw buurvrouw, mevrouw Bakker.' merges the stiff second sentence. The trailing apposition is accepted as easier when heard.",
+        "cue": "Unchanged; C0 and C1 come only from the cue, and C2 from 'Geef ook een tijd voor uw bezoek.'"
+      }
+    },
+    {
+      "id": "A2:speaking:te-laat:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Video answer: two cue parts plus how the learner travels. Model 31 words.",
+      "evidence": {
+        "spec_fix": "'Bedenk zelf de reden en de tijd.' is removed. C2 comes from 'Vertel ook hoe u nu naar uw werk gaat.'"
+      }
+    },
+    {
+      "id": "A2:speaking:batch001-koelkast:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture choice, reason and other picture, as in the official pattern. Model 32 words.",
+      "evidence": {
+        "spec_fix": "'U koopt een nieuwe.', 'Zeg ook iets over het andere plaatje.', C2 'Zeg iets over het andere plaatje.', title 'Een nieuwe koelkast kiezen', starter 'Op het andere plaatje …'.",
+        "model": "'De grote koelkast op het tweede plaatje heeft veel meer ruimte.' meets C2."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-bushalte:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Unchanged role-play video answer.",
+      "evidence": {
+        "spec_fix": "The title 'Een vraag bij de bushalte' replaces the printed cue question; it is consistent with 'U staat bij een bushalte.'"
+      }
+    },
+    {
+      "id": "A2:speaking:batch027-ziekmelden:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Unchanged video answer.",
+      "evidence": {
+        "spec_fix": "The title 'Een nieuwe collega' replaces 'Hoe meld je je ziek?'; it is consistent with 'Een nieuwe collega stelt u een vraag.'"
+      }
+    },
+    {
+      "id": "A2:speaking:batch027-cursuskeuze:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Unchanged video answer.",
+      "evidence": {
+        "spec_fix": "The title 'Avondcursussen op school' replaces 'Welke avondcursus?'. 'op school' agrees with 'de adviseur van de school' and does not name the courses."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-ochtenddienst:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Unchanged video answer.",
+      "evidence": {
+        "spec_fix": "The title 'Het rooster voor volgende maand' replaces 'Ochtend of avond werken' and names the situation, not the either/or question."
+      }
+    },
+    {
+      "id": "A2:speaking:batch002-burenpakket:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration, one criterion per panel. Model 29 words.",
+      "evidence": {
+        "spec_fix": "The situation 'De buurvrouw van Karim is niet thuis. Er komt een pakket voor haar.' narrates no panel. Sample quote 0 no longer copies the prompt.",
+        "pictures": "Panel 1: the courier hands Karim a box at his door. Panel 2: Karim puts it on a small table inside by the open door. Panel 3: Karim hands it to his neighbour outside. All three new alts match."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-verjaardag:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Describe task now with two distinct, concrete criteria plus an opinion. Model 37 words.",
+      "evidence": {
+        "spec_fix": "The prompt now asks 'Vertel wie er op het feest zijn.' (C0) and 'Noem twee dingen die u op de tafel ziet.' (C1).",
+        "picture": "Amina and two friends at a table with a cake with lit candles and three wrapped presents; balloons above the table. This matches the new alt.",
+        "sample": "Quote 0 'Amina zit aan tafel met haar vrienden.' (C0); quote 1 'Op de tafel ik zie een taart en cadeaus.' (C1, with a deliberate inversion error); null on C2.",
+        "model": "'Op het feest zijn Amina en twee vrienden.' (C0), 'taart met kaarsjes … cadeaus' (C1), 'Ik vind kinderfeestjes gezellig, maar ook druk.' (C2)."
+      }
+    },
+    {
+      "id": "A2:speaking:batch003-tramkaart:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Unchanged two-picture choice task. Model 30 words.",
+      "evidence": {
+        "spec_fix": "C2 is now 'Zeg ook iets over het andere plaatje.' The prompt is unchanged, so no audio is needed."
+      }
+    }
+  ],
+  "author_doubts_decisions": [
+    "1 Apotheek opinion question: keep the concrete yes/no question with 'Vertel ook waarom'. The prompt asks both parts, so C2 is no trap.",
+    "2 Apotheek judge check: agreed. Run a bounded judge check before release ('apotheek' passes C0, 'huisarts' fails). Not run in this review.",
+    "3 Speeltuin: accept 'Fatima maakt een wandeling.' as situation and title.",
+    "4 Extra alt edits: speeltuin kept; jas kept but corrected (gaze claim removed).",
+    "5 Jas gaze: resolved by the edit. The alt and the sample now say only what is visible. The starter is kept.",
+    "6 Monteur 'Hij is te laat.': keep.",
+    "7 Verjaardag balloons: the alt places them above the table, so the judge can tell.",
+    "8 Keuken and regen titles, and koelkast vs tramkaart 'ook': no change."
+  ],
+  "diversity": "Changes in this batch do not alter task concepts. Two titles now share 'bij de bushalte' ('Een vraag bij de bushalte' in set 04, 'Regen bij de bushalte' in set 13). They are in different sets and task types, so no edit is needed.",
+  "set_assembly": "Membership unchanged.",
+  "media_notes": [
+    "New narrator audio is needed for exactly these 11 clips: A2:speaking:batch001-apotheek:1#prompt, A2:speaking:batch003-jas:1#prompt, A2:speaking:batch003-speeltuin:1#prompt, A2:speaking:batch003-monteur:1#prompt, A2:speaking:batch027-keuken:1#prompt, A2:speaking:batch026-regen:1#prompt, A2:speaking:buurvrouw:1#prompt, A2:speaking:te-laat:1#prompt, A2:speaking:batch001-koelkast:1#prompt, A2:speaking:batch002-burenpakket:1#prompt, A2:speaking:batch009-verjaardag:1#prompt.",
+    "No #cue clip needs new audio: no cue text, speaker or role changed.",
+    "Title-only items (bushalte, ziekmelden, cursuskeuze, ochtenddienst) and tramkaart (criterion only) keep their audio.",
+    "No image brief changed, so no picture needs redrawing. Alt edits need no media."
+  ],
+  "coordinator_actions": [
+    "Adopt with npm run batch:adopt 063. There is no proposed starters file; the starters source is content/batches/063-starters.json.",
+    "After integration, regenerate the 11 #prompt clips listed in media_notes with the transcription round trip, and refresh hints with content:integrate -- --refresh-hints.",
+    "Before release, run a bounded judge check on A2:speaking:batch001-apotheek:1 C0: 'Roos is bij de apotheek.' should pass and 'Roos is bij de huisarts.' should fail."
+  ],
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Eleven prompts changed. New audio still needs generation from the adopted text, with a transcription round trip; none was generated in this review.",
+    "No feedback calls were made, so judge behaviour on the changed prompts and alts was not measured.",
+    "content/exemplars/ does not exist. The level verdicts compare each item with the blueprint §4.3 patterns and with bank items of the same type, and do not calibrate difficulty."
+  ]
+}

@@ -448,7 +448,7 @@ export function ReasonIcon({ kind }) {
 }
 
 // A small play/pause button for one short clip: a question read aloud, a spoken cue, an instruction.
-export function ClipButton({ src, playLabel, pauseLabel, caption = '' }) {
+export function ClipButton({ src, playLabel, pauseLabel }) {
   const audio = useRef<HTMLAudioElement>(null),
     [playing, setPlaying] = useState(false);
   useEffect(() => {
@@ -476,12 +476,11 @@ export function ClipButton({ src, playLabel, pauseLabel, caption = '' }) {
       />
       <button
         type="button"
-        className={caption ? 'secondary clip-button' : 'play-button play-button-small'}
+        className="play-button play-button-small"
         onClick={toggle}
         aria-label={playing ? pauseLabel : playLabel}
       >
         <PlayIcon playing={playing} />
-        {caption && <span className="clip-caption">{caption}</span>}
       </button>
     </span>
   );

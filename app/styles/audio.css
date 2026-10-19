@@ -261,22 +261,16 @@ summary {
   margin-top: 0.2rem;
 }
 
-.task-audio {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  align-items: center;
-  margin: 0.5rem 0;
+/* A spoken cue (the person who asks the learner something) cannot be read, so it is the
+   task's player: a label naming the speaker over the standard player, set in the paper
+   inside the white task sheet rather than as a second white card. */
+.cue-player {
+  margin-top: 1.25rem;
 }
-.clip-button {
-  max-width: 100%;
-  justify-content: flex-start;
-  font-weight: 400;
-  text-align: left;
+.cue-label {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
 }
-.clip-button svg {
-  display: block;
-  flex: none;
-  width: 12px;
-  height: 12px;
+.cue-player .audio-player {
+  background: var(--paper);
 }

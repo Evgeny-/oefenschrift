@@ -1,0 +1,101 @@
+{
+  "review_id": "065-review",
+  "source": "content/batches/065-original.json",
+  "source_sha256": "1eda197b148455572e2ca555210d2107dc3f5d41b4aa480fffbdaa8117f5789d",
+  "proposed": "content/batches/065-proposed.json",
+  "proposed_identical_to_author_file": true,
+  "author_source_sha256": "1eda197b148455572e2ca555210d2107dc3f5d41b4aa480fffbdaa8117f5789d",
+  "starters_source": "content/batches/065-starters.json",
+  "starters_sha256": "d235ced3cd643a4524857c9dc8376397b23bb175810af309bd8e895b65eeca1a",
+  "starters_verdict": "pass",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-19",
+  "reviewer": "Independent AI reviewer (Claude Opus 5.5) working in a fresh context; did not author batch 065 and did not edit the author's files.",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "B1:writing:batch015-kledingkast:1",
+    "B1:writing:batch029-groepsresultaten:1",
+    "B1:writing:batch015-avondcursus:1"
+  ],
+  "item_count": 3,
+  "edits": [],
+  "rejected": [],
+  "checks": {
+    "read_in_full": "Read in full: tmp/content-fix-2026-10-19/spec/review-common.md, common.md and 065.md; docs/briefs/review.md; content/reviews/rubric.md; content/blueprint.md §1-§3, §4.8 and §8-§12; the writing audit; the base and starters base; the author's batch, starters and notes; app/components/OpenExercise.tsx lines 270-340; content/reviews/062-review.json, used as the format example.",
+    "base_diff": "A field-level diff against tmp/content-fix-2026-10-19/base/065-base.json changes only these leaves: status -> draft on all three items; kledingkast prompt (fourth sentence only); groepsresultaten prompt (coordinator sentence only, split into three); avondcursus formFields[4].label. Item order and key order are unchanged. There is no revision, media field, type field or image.",
+    "base_provenance": "The base equals each content/catalogue.json record minus revision (programmatic comparison). The author's starters file is byte-identical to the starters base (cmp) and equals the entries in content/hints/sentence-starters.json.",
+    "proposed_diff": "content/batches/065-proposed.json is a byte-identical copy of the author's file (cmp).",
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/065-proposed.json -> \"Checked 3 items, 0 questions.\" plus info \"3 of 3 items are already in the catalogue …\"; \"No failures, no warnings.\"",
+    "contract_script": "Exactly one null quote per item (kledingkast index 2, groepsresultaten index 3, avondcursus index 0). Every other quote is a verbatim substring of its sample. Each item has one starter per criterion, and every starter contains \"…\". No sample or model shares a 4-word sequence with its prompt or form labels. Model lengths: kledingkast 179, groepsresultaten 178, avondcursus 116 words. Longest prompt sentences: 19, 17 and 18 words (B1 limit 30).",
+    "criteria_visibility": "None of the three items has a cue, images or the zinstaak type, so OpenExercise.tsx shows their criteria and starters while the learner answers. I checked the title, criteria and starters against each changed prompt. None of them supplies content that a criterion asks the learner to invent.",
+    "dates": "All weekdays verified: 25 Aug 2026 is a dinsdag, 4 Sep a vrijdag, 9 Sep a woensdag, 18 Sep a vrijdag, 13 Nov a vrijdag and 11 Dec 2026 a vrijdag. \"vijf dagen te laat\" (4 -> 9 Sep) is correct.",
+    "level_comparison": "content/exemplars/ does not exist. I compared the items with the bank's B1 korte schrijftaken (magnetron, pauzerooster) and form deelschrijftaken (uitzendwerk, opleiding).",
+    "set_membership": "content/practice-sets.json: avondcursus is in b1-writing-03, kledingkast in b1-writing-04 and groepsresultaten in b1-writing-10. Membership is unchanged.",
+    "web": "No new names, organisations or KNM claims, so no web check was needed."
+  },
+  "items": [
+    {
+      "id": "B1:writing:batch015-kledingkast:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "This is a B1 complaint e-mail with a table, as in the official korte schrijftaak. The learner must combine table facts (late delivery, damaged door) with an invented earlier action and a demand with a deadline. Model: 179 words, mean sentence length 16.3, with terwijl, daarom, bovendien and a conditional.",
+      "evidence": {
+        "spec_fix": "The prompt sentence \"U hebt al contact gehad met de klantenservice, maar er is nog niets opgelost.\" is now \"U hebt al geprobeerd het probleem op te lossen, maar dat is niet gelukt.\" The new sentence says only that an attempt failed, not what the attempt was, so C2 (\"Schrijf wat u zelf al hebt gedaan … Bedenk dit zelf.\") must be invented. Copying the sentence does not meet C2.",
+        "learner_following_prompt": "Yes, with visible criteria. C0 and C1 come from the table, C2 is invented as the criterion says, C3 follows from \"u wilt dat de winkel het probleem oplost\", and C4 is the closing request.",
+        "sample": "The sample is unchanged at 102 words and leaves C2 null: it never says what the writer already did. quotes[0] gives the order and date (C0). quotes[1] gives the late delivery and the damaged door (C1). quotes[3] is \"binnen twee weken een nieuwe deur\" (C3). quotes[4] is the polite request for a reply by 18 September (C4).",
+        "model": "\"Ik heb dit dezelfde dag gemeld bij uw klantenservice en foto's van de schade gestuurd … tot nu toe heb ik niets gehoord.\" now reads as the writer's own invention and agrees with \"dat is niet gelukt\". The other criteria are met as before.",
+        "starters": "Unchanged. The C2 starter, \"Ik heb inmiddels al …\", is partial and states no fact."
+      }
+    },
+    {
+      "id": "B1:writing:batch029-groepsresultaten:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "This is a B1 informing e-mail from a four-row table. The learner must derive the number who failed (4 of 12 passed, so 8 failed) and interpret attendance. Model: 178 words, mean sentence length 16.2, longest 27, with echter, terwijl, daarom and bovendien. The prompt's longest sentence fell from 40 to 17 words.",
+      "evidence": {
+        "spec_fix": "The new prompt reads: \"… vraagt u per e-mail hoe de groep het heeft gedaan. Hij wil ook weten hoe de aanwezigheid bij de lessen was en wat u daarbij opvalt. Ten slotte vraagt hij wat u voorstelt voor de laatste weken van de cursus.\" The three sentences have 17, 16 and 14 words, and each request follows criteria order (C1/C2, C3, C4).",
+        "learner_following_prompt": "Yes, with visible criteria. The group and the mock exam come from the prompt (C0). Passes and marks come from the table (C1). The failures in schrijven must be derived (C2). Attendance comes from the table plus the writer's own observation (C3). The proposal is invented (C4).",
+        "sample": "The sample is unchanged at 111 words and leaves C3 null: it says nothing about attendance. quotes[0] is \"U vroeg mij hoe groep E2 het proefexamen van 13 november heeft gemaakt.\" and still fits the per-e-mail request. quotes[1] gives the numbers for luisteren, lezen and spreken. quotes[2] is \"acht cursisten gezakt\". quotes[4] is the proposal.",
+        "model": "Unchanged. It meets all five criteria, including the attendance figures (\"negentig procent of meer\" on Monday against 55 procent at the Wednesday 20.30 lesson). All figures match the table.",
+        "starters": "Unchanged. \"Zoals u vroeg, …\" still matches \"vraagt u per e-mail\"."
+      }
+    },
+    {
+      "id": "B1:writing:batch015-avondcursus:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "This is a B1 enrolment form with three open fields: two reasons, experience and an unavailable evening with a reason. It has the same shape and demand as uitzendwerk and opleiding. Model: 116 words, with omdat, terwijl, bovendien and dus.",
+      "evidence": {
+        "spec_fix": "The label \"Welke ervaring heeft u al met dit onderwerp?\" is now \"Heeft u al ervaring met dit onderwerp? Zo ja, welke?\". It matches C1, \"Schrijf of u al ervaring hebt met boekhouden en, zo ja, welke.\", so the answer \"no experience\" is now valid on a beginners' course. \"Heeft u\" is accepted: it is standard form register and matches \"Welke werkervaring heeft u?\" in uitzendwerk.",
+        "learner_following_prompt": "Yes. Each open label asks for exactly what its criterion checks: the reasons label for C0, the experience label for C1, and the evening-plus-reason label for C2.",
+        "sample": "The sample is unchanged at 72 words and leaves C0 null. It gives one reason, work, and \"Ik wil dat goed leren\" only restates it. quotes[1] answers the new label: no course yet, but three years of administration in the uncle's shop. quotes[2] gives Tuesday plus a reason.",
+        "model": "\"Een cursus boekhouden heb ik nog niet gevolgd, maar … drie jaar de administratie gedaan …\" answers both parts of the new label. C0 gives two reasons and C2 gives Tuesday with a reason.",
+        "starters": "Unchanged. \"Met boekhouden heb ik … ervaring, want …\" works for a yes or a no answer."
+      }
+    }
+  ],
+  "author_doubts_decisions": [
+    "kledingkast singular \"het probleem\": kept. It echoes C2 and the next prompt sentence, and in context it means the matter as a whole.",
+    "kledingkast without \"Bedenk zelf\" in the prompt: kept. C2 is visible and says \"Bedenk dit zelf\", as in the official bullets.",
+    "groepsresultaten second sentence joining two questions: kept. Both belong to one criterion (C3), and the sentence is 16 words long.",
+    "avondcursus \"Heeft u\" instead of \"Hebt u\": accepted. Both are correct, and \"heeft u\" matches the other B1 form label in the bank.",
+    "kledingkast title naming the damage: kept, because the table states the same fact (fact transfer)."
+  ],
+  "diversity": "The settings are unchanged and distinct: a webshop complaint, a teacher's mock-exam report and a course enrolment form.",
+  "set_assembly": "Membership is unchanged: b1-writing-03 (avondcursus), b1-writing-04 (kledingkast) and b1-writing-10 (groepsresultaten).",
+  "media_notes": [
+    "None. B1 writing has no audio, and these items have no images, so no #prompt or #cue clip needs generation."
+  ],
+  "coordinator_actions": [
+    "Adopt with npm run batch:adopt 065. The proposed file is identical to the author's, and there is no proposed starters file.",
+    "Integrate with npm run content:integrate -- --refresh-hints \"<reason>\" so that the starter-review hash is re-recorded."
+  ],
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "No feedback-judge calls were made, so judge behaviour on the changed prompts and label was not measured.",
+    "content/exemplars/ does not exist, so the level verdicts compare these items with similar items in the bank and do not calibrate difficulty.",
+    "Prompts and a form label changed, so integration gives the items new revisions and saved progress on them restarts. No audio needs generation, because writing items have none."
+  ]
+}

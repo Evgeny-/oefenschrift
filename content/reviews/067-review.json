@@ -1,0 +1,846 @@
+{
+  "review_id": "067-review",
+  "source": "content/batches/067-original.json",
+  "source_sha256": "d9d59950a0a0517aa3ea40268124e5d396b3a7b6f977339ec02e38bf5b01d654",
+  "proposed": "content/batches/067-proposed.json",
+  "proposed_identical_to_author_file": false,
+  "author_source_sha256": "acb69f19f678a1b9ded8bfc3a33299ea209b72b40c8408c172ebb02a7312ed52",
+  "starters_source": "content/batches/067-starters.json",
+  "starters_sha256": "5709d449cb24eda46f51c4749f0923fa1849aa8b126f860be1925d187c2dda7d",
+  "starters_verdict": "pass",
+  "starters_note": "The author's starters are adopted unchanged: 38 records, one fragment per criterion, each with \"…\". The 15 changed starter sets (14 picture-sequence plus jas) no longer name the action each picture supplies. No proposed-starters file was written because no starter changed in review.",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-19",
+  "reviewer": "Independent AI reviewer (Claude Opus 5.5) in a fresh context; did not author batch 067 and did not edit the author's files.",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:speaking:batch002-kapper:1",
+    "A2:speaking:batch002-portemonnee:1",
+    "A2:speaking:batch003-jas:1",
+    "A2:speaking:batch009-schoonmaak:1",
+    "A2:speaking:batch009-gymles:1",
+    "A2:speaking:batch009-afval:1",
+    "A2:speaking:batch009-ehbo:1",
+    "A2:speaking:batch009-kringloop:1",
+    "A2:speaking:batch009-alleen-samen:1",
+    "A2:speaking:batch009-klas-thuis:1",
+    "A2:speaking:batch009-gemeente-bellen:1",
+    "A2:speaking:batch009-trein-auto:1",
+    "A2:speaking:batch009-flat-dorp:1",
+    "A2:speaking:batch009-sportschool-park:1",
+    "A2:speaking:batch009-paspoort:1",
+    "A2:speaking:batch009-brief-gemeente:1",
+    "A2:speaking:batch009-vakantie:1",
+    "A2:speaking:batch009-bioscoop:1",
+    "A2:speaking:batch009-rijbewijs:1",
+    "A2:speaking:batch009-kleermaker:1",
+    "A2:speaking:batch026-marktkraam:1",
+    "A2:speaking:batch026-regen:1",
+    "A2:speaking:batch026-schoolplein:1",
+    "A2:speaking:batch026-online-winkel:1",
+    "A2:speaking:batch026-fiets-lopen:1",
+    "A2:speaking:batch026-feest-thuis:1",
+    "A2:speaking:batch026-treinkaartje:1",
+    "A2:speaking:batch026-bibliotheekboek:1",
+    "A2:speaking:batch026-koken-buurvrouw:1",
+    "A2:speaking:batch027-wachtkamer:1",
+    "A2:speaking:batch027-keuken:1",
+    "A2:speaking:batch027-kassa:1",
+    "A2:speaking:batch027-bakkerij:1",
+    "A2:speaking:batch027-contant-pinnen:1",
+    "A2:speaking:batch027-bus-fiets:1",
+    "A2:speaking:batch027-sollicitatiegesprek:1",
+    "A2:speaking:batch027-verhuizen:1",
+    "A2:speaking:batch027-tandartsbezoek:1"
+  ],
+  "item_count": 38,
+  "edits": [
+    {
+      "id": "A2:speaking:batch009-schoonmaak:1",
+      "field": "prompt",
+      "before": "Julio werkt bij een schoonmaakbedrijf. Hij maakt een kantoor schoon. Noem twee dingen die Julio bij zich heeft. Vertel ook wat u van dit werk vindt. Gebruik het plaatje.",
+      "after": "Julio werkt bij een schoonmaakbedrijf. Hij maakt een kantoor schoon. Vertel wat u ziet. Noem twee dingen die Julio bij zich heeft. Vertel ook wat u van dit werk vindt. Gebruik het plaatje.",
+      "reason": "Author doubt 1. C0 \"Vertel wat u op het plaatje ziet.\" is a separate scene criterion (every sample credits a separate scene sentence for it), but the author's prompt asked only for the two things (C1) and the opinion (C2). With the criteria hidden until review, a learner who names two things and gives an opinion has no way to know a scene description is scored, and crediting the C1 sentence for C0 depends on judge leniency. \"Vertel wat u ziet.\" names the act, not the content, keeps every sentence under 16 words, matches the 063 pattern of one prompt sentence per criterion (apotheek, jas, speeltuin, verjaardag) and the existing C0 starters (\"Ik zie …\"). The prompt clip is regenerated anyway, so no extra audio."
+    },
+    {
+      "id": "A2:speaking:batch009-gymles:1",
+      "field": "prompt",
+      "before": "Sem heeft gymles op school. Noem twee dingen die de leerlingen doen. Vertel ook wat u van sport op school vindt. Gebruik het plaatje.",
+      "after": "Sem heeft gymles op school. Vertel wat u ziet. Noem twee dingen die de leerlingen doen. Vertel ook wat u van sport op school vindt. Gebruik het plaatje.",
+      "reason": "Author doubt 1. C0 \"Vertel wat u op het plaatje ziet.\" is a separate scene criterion (every sample credits a separate scene sentence for it), but the author's prompt asked only for the two things (C1) and the opinion (C2). With the criteria hidden until review, a learner who names two things and gives an opinion has no way to know a scene description is scored, and crediting the C1 sentence for C0 depends on judge leniency. \"Vertel wat u ziet.\" names the act, not the content, keeps every sentence under 16 words, matches the 063 pattern of one prompt sentence per criterion (apotheek, jas, speeltuin, verjaardag) and the existing C0 starters (\"Ik zie …\"). The prompt clip is regenerated anyway, so no extra audio."
+    },
+    {
+      "id": "A2:speaking:batch009-afval:1",
+      "field": "prompt",
+      "before": "Karim brengt afval weg. Noem twee soorten afval die Karim weggooit. Vertel ook wat u van afval scheiden vindt. Gebruik het plaatje.",
+      "after": "Karim brengt afval weg. Vertel wat u ziet. Noem twee soorten afval die Karim weggooit. Vertel ook wat u van afval scheiden vindt. Gebruik het plaatje.",
+      "reason": "Author doubt 1. C0 \"Vertel wat u op het plaatje ziet.\" is a separate scene criterion (every sample credits a separate scene sentence for it), but the author's prompt asked only for the two things (C1) and the opinion (C2). With the criteria hidden until review, a learner who names two things and gives an opinion has no way to know a scene description is scored, and crediting the C1 sentence for C0 depends on judge leniency. \"Vertel wat u ziet.\" names the act, not the content, keeps every sentence under 16 words, matches the 063 pattern of one prompt sentence per criterion (apotheek, jas, speeltuin, verjaardag) and the existing C0 starters (\"Ik zie …\"). The prompt clip is regenerated anyway, so no extra audio."
+    },
+    {
+      "id": "A2:speaking:batch009-ehbo:1",
+      "field": "prompt",
+      "before": "Roos heeft thuis een EHBO-doos. Noem twee dingen uit de doos. Vertel ook wat u van zo'n doos vindt. Gebruik het plaatje.",
+      "after": "Roos heeft thuis een EHBO-doos. Vertel wat u ziet. Noem twee dingen uit de doos. Vertel ook wat u van zo'n doos vindt. Gebruik het plaatje.",
+      "reason": "Author doubt 1. C0 \"Vertel wat u op het plaatje ziet.\" is a separate scene criterion (every sample credits a separate scene sentence for it), but the author's prompt asked only for the two things (C1) and the opinion (C2). With the criteria hidden until review, a learner who names two things and gives an opinion has no way to know a scene description is scored, and crediting the C1 sentence for C0 depends on judge leniency. \"Vertel wat u ziet.\" names the act, not the content, keeps every sentence under 16 words, matches the 063 pattern of one prompt sentence per criterion (apotheek, jas, speeltuin, verjaardag) and the existing C0 starters (\"Ik zie …\"). The prompt clip is regenerated anyway, so no extra audio."
+    },
+    {
+      "id": "A2:speaking:batch009-kringloop:1",
+      "field": "prompt",
+      "before": "Fatima is in een kringloopwinkel. Noem twee dingen die Fatima daar kan kopen. Vertel ook wat u van tweedehands spullen vindt. Gebruik het plaatje.",
+      "after": "Fatima is in een kringloopwinkel. Vertel wat u ziet. Noem twee dingen die Fatima daar kan kopen. Vertel ook wat u van tweedehands spullen vindt. Gebruik het plaatje.",
+      "reason": "Author doubt 1. C0 \"Vertel wat u op het plaatje ziet.\" is a separate scene criterion (every sample credits a separate scene sentence for it), but the author's prompt asked only for the two things (C1) and the opinion (C2). With the criteria hidden until review, a learner who names two things and gives an opinion has no way to know a scene description is scored, and crediting the C1 sentence for C0 depends on judge leniency. \"Vertel wat u ziet.\" names the act, not the content, keeps every sentence under 16 words, matches the 063 pattern of one prompt sentence per criterion (apotheek, jas, speeltuin, verjaardag) and the existing C0 starters (\"Ik zie …\"). The prompt clip is regenerated anyway, so no extra audio."
+    },
+    {
+      "id": "A2:speaking:batch026-marktkraam:1",
+      "field": "prompt",
+      "before": "Hasan doet boodschappen op de markt. Noem twee dingen die Hasan bij deze kraam kan kopen. Vertel ook wat u van de markt vindt. Gebruik het plaatje.",
+      "after": "Hasan doet boodschappen op de markt. Vertel wat u ziet. Noem twee dingen die Hasan bij deze kraam kan kopen. Vertel ook wat u van de markt vindt. Gebruik het plaatje.",
+      "reason": "Author doubt 1. C0 \"Vertel wat u op het plaatje ziet.\" is a separate scene criterion (every sample credits a separate scene sentence for it), but the author's prompt asked only for the two things (C1) and the opinion (C2). With the criteria hidden until review, a learner who names two things and gives an opinion has no way to know a scene description is scored, and crediting the C1 sentence for C0 depends on judge leniency. \"Vertel wat u ziet.\" names the act, not the content, keeps every sentence under 16 words, matches the 063 pattern of one prompt sentence per criterion (apotheek, jas, speeltuin, verjaardag) and the existing C0 starters (\"Ik zie …\"). The prompt clip is regenerated anyway, so no extra audio."
+    },
+    {
+      "id": "A2:speaking:batch026-regen:1",
+      "field": "prompt",
+      "before": "Sabrina gaat naar haar werk. Het regent. Noem twee dingen die de mensen bij de halte doen. Vertel ook wat u van reizen met de bus vindt. Gebruik het plaatje.",
+      "after": "Sabrina gaat naar haar werk. Het regent. Vertel wat u ziet. Noem twee dingen die de mensen bij de halte doen. Vertel ook wat u van reizen met de bus vindt. Gebruik het plaatje.",
+      "reason": "Author doubt 1. C0 \"Vertel wat u op het plaatje ziet.\" is a separate scene criterion (every sample credits a separate scene sentence for it), but the author's prompt asked only for the two things (C1) and the opinion (C2). With the criteria hidden until review, a learner who names two things and gives an opinion has no way to know a scene description is scored, and crediting the C1 sentence for C0 depends on judge leniency. \"Vertel wat u ziet.\" names the act, not the content, keeps every sentence under 16 words, matches the 063 pattern of one prompt sentence per criterion (apotheek, jas, speeltuin, verjaardag) and the existing C0 starters (\"Ik zie …\"). The prompt clip is regenerated anyway, so no extra audio."
+    },
+    {
+      "id": "A2:speaking:batch026-schoolplein:1",
+      "field": "prompt",
+      "before": "De school is uit. Amina is nog op het schoolplein. Noem twee dingen die de kinderen doen. Vertel ook wat u van buiten spelen vindt. Gebruik het plaatje.",
+      "after": "De school is uit. Amina is nog op het schoolplein. Vertel wat u ziet. Noem twee dingen die de kinderen doen. Vertel ook wat u van buiten spelen vindt. Gebruik het plaatje.",
+      "reason": "Author doubt 1. C0 \"Vertel wat u op het plaatje ziet.\" is a separate scene criterion (every sample credits a separate scene sentence for it), but the author's prompt asked only for the two things (C1) and the opinion (C2). With the criteria hidden until review, a learner who names two things and gives an opinion has no way to know a scene description is scored, and crediting the C1 sentence for C0 depends on judge leniency. \"Vertel wat u ziet.\" names the act, not the content, keeps every sentence under 16 words, matches the 063 pattern of one prompt sentence per criterion (apotheek, jas, speeltuin, verjaardag) and the existing C0 starters (\"Ik zie …\"). The prompt clip is regenerated anyway, so no extra audio."
+    },
+    {
+      "id": "A2:speaking:batch027-wachtkamer:1",
+      "field": "prompt",
+      "before": "Hasan zit in de wachtkamer van de huisarts. Noem twee dingen die de mensen doen. Vertel ook wat u van deze wachtkamer vindt. Gebruik het plaatje.",
+      "after": "Hasan zit in de wachtkamer van de huisarts. Vertel wat u ziet. Noem twee dingen die de mensen doen. Vertel ook wat u van deze wachtkamer vindt. Gebruik het plaatje.",
+      "reason": "Author doubt 1. C0 \"Vertel wat u op het plaatje ziet.\" is a separate scene criterion (every sample credits a separate scene sentence for it), but the author's prompt asked only for the two things (C1) and the opinion (C2). With the criteria hidden until review, a learner who names two things and gives an opinion has no way to know a scene description is scored, and crediting the C1 sentence for C0 depends on judge leniency. \"Vertel wat u ziet.\" names the act, not the content, keeps every sentence under 16 words, matches the 063 pattern of one prompt sentence per criterion (apotheek, jas, speeltuin, verjaardag) and the existing C0 starters (\"Ik zie …\"). The prompt clip is regenerated anyway, so no extra audio."
+    },
+    {
+      "id": "A2:speaking:batch027-keuken:1",
+      "field": "prompt",
+      "before": "Fatima is thuis met haar kinderen. Het is druk in de keuken. Noem twee dingen die de mensen doen. Vertel ook wat u van samen koken vindt. Gebruik het plaatje.",
+      "after": "Fatima is thuis met haar kinderen. Het is druk in de keuken. Vertel wat u ziet. Noem twee dingen die de mensen doen. Vertel ook wat u van samen koken vindt. Gebruik het plaatje.",
+      "reason": "Author doubt 1. C0 \"Vertel wat u op het plaatje ziet.\" is a separate scene criterion (every sample credits a separate scene sentence for it), but the author's prompt asked only for the two things (C1) and the opinion (C2). With the criteria hidden until review, a learner who names two things and gives an opinion has no way to know a scene description is scored, and crediting the C1 sentence for C0 depends on judge leniency. \"Vertel wat u ziet.\" names the act, not the content, keeps every sentence under 16 words, matches the 063 pattern of one prompt sentence per criterion (apotheek, jas, speeltuin, verjaardag) and the existing C0 starters (\"Ik zie …\"). The prompt clip is regenerated anyway, so no extra audio."
+    },
+    {
+      "id": "A2:speaking:batch027-kassa:1",
+      "field": "prompt",
+      "before": "Karim staat in de rij bij de kassa van de supermarkt. Noem twee dingen die Karim gaat kopen. Vertel ook wat u van wachten in de rij vindt. Gebruik het plaatje.",
+      "after": "Karim staat in de rij bij de kassa van de supermarkt. Vertel wat u ziet. Noem twee dingen die Karim gaat kopen. Vertel ook wat u van wachten in de rij vindt. Gebruik het plaatje.",
+      "reason": "Author doubt 1. C0 \"Vertel wat u op het plaatje ziet.\" is a separate scene criterion (every sample credits a separate scene sentence for it), but the author's prompt asked only for the two things (C1) and the opinion (C2). With the criteria hidden until review, a learner who names two things and gives an opinion has no way to know a scene description is scored, and crediting the C1 sentence for C0 depends on judge leniency. \"Vertel wat u ziet.\" names the act, not the content, keeps every sentence under 16 words, matches the 063 pattern of one prompt sentence per criterion (apotheek, jas, speeltuin, verjaardag) and the existing C0 starters (\"Ik zie …\"). The prompt clip is regenerated anyway, so no extra audio."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "read_in_full": "tmp/content-fix-2026-10-19/spec/review-common.md, review-hidden-criteria.md, hidden-criteria.md, common.md and audit/a2-speaking.md; docs/briefs/review.md; content/reviews/rubric.md; content/blueprint.md §1-§3, §4.3, §7, §10; the author batch, starters and notes; app/components/OpenExercise.tsx (speaking criteria hidden until review: \"The prompt itself must name everything they check\"); server/feedback-instructions.json and server/services.ts (the judge receives the prompt as task and only the Dutch alts); scripts/content.ts (revision fields and starter merge); content/reviews/066-review.json as format example.",
+    "base_provenance": "All 44 base records equal the catalogue records with media fields and images[].file removed, and all 44 base starter sets equal content/hints/sentence-starters.json (scripted comparison). The 44 base tasks are all A2 speaking items without a cue.",
+    "all_44_base_tasks": "Mapped every criterion of all 44 base tasks to a prompt sentence, read every starter and title. The six tasks the author left out (apotheek, koelkast, burenpakket, tramkaart, speeltuin, verjaardag) pass: each criterion has its own prompt sentence, and no starter or title names content the learner must supply. The 11 official-pattern picture-describe tasks failed on C0 (not asked) as well as C1; fixed in the proposed file.",
+    "base_diff": "Scripted field-level diff against the base: the author changed only status, prompt (23) and images[0].alt (5), as listed in the notes. Key order and item order match the base; no brief, kind, size, criterion, sample, quote, model or title changed. The proposed file differs from the author's file only in the 11 picture-describe prompts.",
+    "media_fields": "No revision, audio, duration, peaks, voice, introAudio, promptAudio, cueAudio, questionAudio or images[].file field, and no retired type field. status is \"draft\" on all 38.",
+    "open_task_checks": "Per item: exactly one null quote; every other quote a verbatim substring of the sample; no prompt sentence inside the sample or model; models 28-44 words with no sentence over 16; prompt sentences at most 16 words (flat-dorp's unchanged question is exactly 16); one starter per criterion, each with \"…\".",
+    "pictures": "Opened the drawings for every item whose alt changed (schoonmaak, gymles, ehbo, kringloop, marktkraam) and for afval; each alt matches the drawing and lists what C1 needs the judge to verify.",
+    "spoken_text": "Read every new prompt aloud: short imperative sentences in the official order (situation, scene, two things, opinion, \"Gebruik het plaatje.\"; or question, reason, choice, other picture). No numbers or times.",
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/067-proposed.json -> \"Checked 38 items, 0 questions. … 38 of 38 items are already in the catalogue … No failures, no warnings.\""
+  },
+  "items": [
+    {
+      "id": "A2:speaking:batch002-kapper:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration, one criterion per picture, as in the official form. Model 33 words, longest sentence 14. Only the opt-in starters changed.",
+      "evidence": {
+        "record": "Identical to the base except status \"draft\"; in the batch only so content:integrate merges its starters. status is not part of the revision hash (scripts/content.ts), so the revision and prompt audio stay valid.",
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat … doet/gebeurt. Vertel iets over alle (drie de) plaatjes.\" -> C0-C2, one per picture.",
+        "starters_before": [
+          "Eerst hangt Roos …",
+          "Daarna knipt de kapper …",
+          "Aan het einde betaalt Roos …"
+        ],
+        "starters_after": [
+          "Eerst …",
+          "Daarna …",
+          "Aan het einde …"
+        ],
+        "starters_verdict": "Accepted (doubt 2). The old starters supplied the action verb (and sometimes the object or place) that each criterion asks the picture to supply. The new ones keep one partial fragment per criterion, in order, with \"…\" and the sequence word that sets up verb-second order, as burenpakket already does.",
+        "sample": "Exactly one null (C1); other quotes verbatim; unchanged."
+      }
+    },
+    {
+      "id": "A2:speaking:batch002-portemonnee:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration, one criterion per picture, as in the official form. Model 33 words, longest sentence 11. Only the opt-in starters changed.",
+      "evidence": {
+        "record": "Identical to the base except status \"draft\"; in the batch only so content:integrate merges its starters. status is not part of the revision hash (scripts/content.ts), so the revision and prompt audio stay valid.",
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat … doet/gebeurt. Vertel iets over alle (drie de) plaatjes.\" -> C0-C2, one per picture.",
+        "starters_before": [
+          "Eerst kijkt Modibo …",
+          "Daarna praat Modibo met …",
+          "Op het laatste plaatje krijgt hij …"
+        ],
+        "starters_after": [
+          "Eerst …",
+          "Daarna …",
+          "Op het laatste plaatje …"
+        ],
+        "starters_verdict": "Accepted (doubt 2). The old starters supplied the action verb (and sometimes the object or place) that each criterion asks the picture to supply. The new ones keep one partial fragment per criterion, in order, with \"…\" and the sequence word that sets up verb-second order, as burenpakket already does.",
+        "sample": "Exactly one null (C1); other quotes verbatim; unchanged."
+      }
+    },
+    {
+      "id": "A2:speaking:batch003-jas:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "One-picture task from batch 063. Model 28 words, longest sentence 8. Only the opt-in starter changed.",
+      "evidence": {
+        "record": "Identical to the base except status \"draft\"; in the batch only so content:integrate merges its starters. status is not part of the revision hash (scripts/content.ts), so the revision and prompt audio stay valid.",
+        "learner_following_prompt": "Yes: \"Vertel wat Roos doet.\" -> C0, \"Noem twee dingen die u op het plaatje ziet.\" -> C1, \"Wat vindt u van deze situatie?\" -> C2.",
+        "starters_before": [
+          "Roos houdt …",
+          "Ik zie … en …",
+          "Ik vind deze situatie …"
+        ],
+        "starters_after": [
+          "Roos …",
+          "Ik zie … en …",
+          "Ik vind deze situatie …"
+        ],
+        "starters_verdict": "Accepted (doubt 3). \"Roos houdt …\" supplied the C0 verb; \"Roos …\" leaves the action to the learner and does not restore the old \"Roos is …\" lead into \"thuis\".",
+        "sample": "Exactly one null (C2); other quotes verbatim; unchanged."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-schoonmaak:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One-picture task like the official \"Vertel wat X kan eten … Gebruik het plaatje\" form, with the scene, two named things and an opinion asked one by one. Model 41 words, longest sentence 10; longest prompt sentence 8.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat u ziet.\" -> C0, \"Noem twee dingen die Julio bij zich heeft.\" -> C1 (\"minstens twee\" is met by two), \"Vertel ook wat u van dit werk vindt.\" -> C2.",
+        "author_fix": "Accepted: \"Vertel wat …\" became \"Noem twee …\", so the prompt now asks for the number C1 checks.",
+        "reviewer_fix": "Added \"Vertel wat u ziet.\" before the C1 sentence (doubt 1).",
+        "picture_and_alt": "Opened public/images/7bd9e89df26eb531.webp: Julio with a mop in a bucket, a yellow vacuum cleaner, a spray bottle and a cloth, desk and office chair. The new alt lists exactly these.",
+        "sample": "Q0 \"Julio staat in een kantoor.\" -> C0; Q1 \"Hij heeft een emmer en een stofzuiger bij zich.\" -> C1; Q2 null (no opinion). Exactly one null; other quotes verbatim.",
+        "model": "\"Ik zie Julio in een kantoor\" (C0), emmer met dweil, stofzuiger, spuitfles, doek (C1), \"Ik vind schoonmaken zwaar werk, maar het is belangrijk\" (C2). No prompt sentence copied.",
+        "starters": "Unchanged from base: [\"Ik zie Julio in …\",\"Hij heeft een … en een … bij zich.\",\"Ik vind dit werk …, want …\"]. The C0 starter gives at most the person, a posture or the prompt's own setting and leaves the scene to the learner; the C1 starter leaves both things or actions open. Nothing a criterion asks for is supplied."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-gymles:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One-picture task like the official \"Vertel wat X kan eten … Gebruik het plaatje\" form, with the scene, two named things and an opinion asked one by one. Model 38 words, longest sentence 9; longest prompt sentence 9.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat u ziet.\" -> C0, \"Noem twee dingen die de leerlingen doen.\" -> C1 (\"minstens twee\" is met by two), \"Vertel ook wat u van sport op school vindt.\" -> C2.",
+        "author_fix": "Accepted: \"Vertel wat …\" became \"Noem twee …\", so the prompt now asks for the number C1 checks.",
+        "reviewer_fix": "Added \"Vertel wat u ziet.\" before the C1 sentence (doubt 1).",
+        "picture_and_alt": "Opened public/images/300bb2dd5eb8ce29.webp: boy climbing a rope, two pupils throwing a ball to each other, a girl jumping beside a blue mat, wall bars. The new alt (\"springt bij een mat\") is accurate.",
+        "sample": "Q0 \"Ik zie een gymzaal.\" -> C0; Q1 null (one action only, now plainly short of \"Noem twee dingen\"); Q2 opinion -> C2. Exactly one null; other quotes verbatim.",
+        "model": "Gymzaal (C0), klimt / spelen met een bal / springt (C1), \"Ik vind sport op school goed\" plus reason (C2). \"springt op een mat\" vs picture beside the mat is a harmless model nuance. No prompt sentence copied.",
+        "starters": "Unchanged from base: [\"Ik zie een … op school.\",\"De leerlingen … en …\",\"Sport op school vind ik …, want …\"]. The C0 starter gives at most the person, a posture or the prompt's own setting and leaves the scene to the learner; the C1 starter leaves both things or actions open. Nothing a criterion asks for is supplied."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-afval:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One-picture task like the official \"Vertel wat X kan eten … Gebruik het plaatje\" form, with the scene, two named things and an opinion asked one by one. Model 41 words, longest sentence 13; longest prompt sentence 8.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat u ziet.\" -> C0, \"Noem twee soorten afval die Karim weggooit.\" -> C1 (\"minstens twee\" is met by two), \"Vertel ook wat u van afval scheiden vindt.\" -> C2.",
+        "author_fix": "Accepted: \"Vertel wat …\" became \"Noem twee …\", so the prompt now asks for the number C1 checks.",
+        "reviewer_fix": "Added \"Vertel wat u ziet.\" before the C1 sentence (doubt 1).",
+        "picture_and_alt": "Opened public/images/9b5a42fe94507f78.webp: Karim with a bag of glass bottles and flattened cardboard in front of a green, a blue and a grey container. The unchanged alt names bottles and cardboard.",
+        "sample": "Q0 \"Karim staat bij de containers.\" -> C0; Q1 flessen + karton -> C1; Q2 null (no opinion). Exactly one null; other quotes verbatim.",
+        "model": "Three containers (C0), flessen and karton (C1), opinion with \"maar het kost wel tijd\" (C2). No prompt sentence copied.",
+        "starters": "Unchanged from base: [\"Karim staat bij …\",\"Hij gooit … in de …\",\"Afval scheiden vind ik …, omdat …\"]. The C0 starter gives at most the person, a posture or the prompt's own setting and leaves the scene to the learner; the C1 starter leaves both things or actions open. Nothing a criterion asks for is supplied."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-ehbo:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One-picture task like the official \"Vertel wat X kan eten … Gebruik het plaatje\" form, with the scene, two named things and an opinion asked one by one. Model 42 words, longest sentence 12; longest prompt sentence 8.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat u ziet.\" -> C0, \"Noem twee dingen uit de doos.\" -> C1 (\"minstens twee\" is met by two), \"Vertel ook wat u van zo'n doos vindt.\" -> C2.",
+        "author_fix": "Accepted: \"Vertel wat …\" became \"Noem twee …\", so the prompt now asks for the number C1 checks.",
+        "reviewer_fix": "Added \"Vertel wat u ziet.\" before the C1 sentence (doubt 1).",
+        "picture_and_alt": "Opened public/images/236e5a93b0221cac.webp: Roos opens a white box; on the table lie a bandage roll, a strip of plasters, scissors and a thermometer. The new alt is accurate, and \"uit de doos\" fits items lying beside the box.",
+        "sample": "Q0 \"Ik zie Roos met een doos op tafel.\" -> C0; Q1 null (only verband); Q2 \"Ik vind zo'n doos handig voor thuis.\" -> C2. Exactly one null; other quotes verbatim.",
+        "model": "Roos with open EHBO-doos (C0), pleisters, verband, schaar, thermometer (C1), \"heel handig\" plus example (C2). No prompt sentence copied.",
+        "starters": "Unchanged from base: [\"Roos zit aan tafel met …\",\"In de doos zitten … en …\",\"Zo'n doos vind ik …, want …\"]. The C0 starter gives at most the person, a posture or the prompt's own setting and leaves the scene to the learner; the C1 starter leaves both things or actions open. Nothing a criterion asks for is supplied."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-kringloop:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One-picture task like the official \"Vertel wat X kan eten … Gebruik het plaatje\" form, with the scene, two named things and an opinion asked one by one. Model 39 words, longest sentence 12; longest prompt sentence 8.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat u ziet.\" -> C0, \"Noem twee dingen die Fatima daar kan kopen.\" -> C1 (\"minstens twee\" is met by two), \"Vertel ook wat u van tweedehands spullen vindt.\" -> C2.",
+        "author_fix": "Accepted: \"Vertel wat …\" became \"Noem twee …\", so the prompt now asks for the number C1 checks.",
+        "reviewer_fix": "Added \"Vertel wat u ziet.\" before the C1 sentence (doubt 1).",
+        "picture_and_alt": "Opened public/images/fb6b22afb0544f53.webp: Fatima looks at a green sofa; a floor lamp, a shelf with cups and plates, a stack of books on a small table and a bicycle. The new alt is accurate.",
+        "sample": "Q0 scene -> C0; Q1 null (only the sofa); Q2 opinion -> C2. Exactly one null; other quotes verbatim.",
+        "model": "Kringloopwinkel (C0), bank, lamp, kast met borden en kopjes (C1), opinion with two reasons (C2). No prompt sentence copied.",
+        "starters": "Unchanged from base: [\"Fatima is in een winkel met …\",\"Ze kan daar een … en een … kopen.\",\"Tweedehands spullen vind ik …, want …\"]. The C0 starter gives at most the person, a posture or the prompt's own setting and leaves the scene to the learner; the C1 starter leaves both things or actions open. Nothing a criterion asks for is supplied."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-alleen-samen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture choice with reason and a word on the other picture, as in the official form and koelkast/tramkaart. Model 44 words, longest sentence 11.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): the \"liever … of …?\" question -> C0, \"Vertel ook waarom.\" -> C1, new \"Zeg ook iets over het andere plaatje.\" -> C2 (previously not asked).",
+        "placement": "The new sentence follows \"Kies een van de plaatjes.\" (as tramkaart); accepted (doubt 4). It reads naturally aloud and has 7 words.",
+        "sample_and_model": "Sample null C2. Model: \"Alleen werken, zoals op het eerste plaatje, vind ik te stil.\" (C2). Exactly one null; other quotes verbatim.",
+        "starters": "Unchanged from base: [\"Ik kies plaatje …\",\"Ik werk liever …, omdat …\",\"Het andere plaatje vind ik …\"]. No leak; the choice is the learner's."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-klas-thuis:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture choice with reason and a word on the other picture, as in the official form and koelkast/tramkaart. Model 41 words, longest sentence 11.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): the \"liever … of …?\" question -> C0, \"Vertel ook waarom.\" -> C1, new \"Zeg ook iets over het andere plaatje.\" -> C2 (previously not asked).",
+        "placement": "The new sentence follows \"Kies een van de plaatjes.\" (as tramkaart); accepted (doubt 4). It reads naturally aloud and has 7 words.",
+        "sample_and_model": "Sample null C1 (\"niets voor mij\" is no reason). Model: \"Thuis achter de computer, op het tweede plaatje, ben je alleen.\" (C2). Exactly one null; other quotes verbatim.",
+        "starters": "Unchanged from base: [\"Ik leer liever …\",\"Dat vind ik beter, omdat …\",\"Op het andere plaatje zie ik …\"]. No leak; the choice is the learner's."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-gemeente-bellen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture choice with reason and a word on the other picture, as in the official form and koelkast/tramkaart. Model 39 words, longest sentence 12.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): the \"liever … of …?\" question -> C0, \"Vertel ook waarom.\" -> C1, new \"Zeg ook iets over het andere plaatje.\" -> C2 (previously not asked).",
+        "placement": "The new sentence follows \"Kies een van de plaatjes.\" (as tramkaart); accepted (doubt 4). It reads naturally aloud and has 7 words.",
+        "sample_and_model": "Sample null C2. Model: \"Bellen, zoals op het eerste plaatje, vind ik lastig.\" (C2). Exactly one null; other quotes verbatim.",
+        "starters": "Unchanged from base: [\"Ik kies plaatje …\",\"Dat is beter voor mij, want …\",\"Het andere plaatje vind ik …, omdat …\"]. No leak; the choice is the learner's."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-trein-auto:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture choice with reason and a word on the other picture, as in the official form and koelkast/tramkaart. Model 40 words, longest sentence 13.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): the \"liever … of …?\" question -> C0, \"Vertel ook waarom.\" -> C1, new \"Zeg ook iets over het andere plaatje.\" -> C2 (previously not asked).",
+        "placement": "The new sentence follows \"Kies een van de plaatjes.\" (as tramkaart); accepted (doubt 4). It reads naturally aloud and has 7 words.",
+        "sample_and_model": "Sample null C2. Model: \"Met de auto, op het tweede plaatje, sta je vaak in de file.\" (C2). Exactly one null; other quotes verbatim.",
+        "starters": "Unchanged from base: [\"Ik ga liever met de …\",\"Dat is handig, want …\",\"Met de … moet je …\"]. No leak; the choice is the learner's."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-flat-dorp:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture choice with reason and a word on the other picture, as in the official form and koelkast/tramkaart. Model 43 words, longest sentence 13.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): the \"liever … of …?\" question -> C0, \"Vertel ook waarom.\" -> C1, new \"Zeg ook iets over het andere plaatje.\" -> C2 (previously not asked).",
+        "placement": "The new sentence follows \"Kies een van de plaatjes.\" (as tramkaart); accepted (doubt 4). It reads naturally aloud and has 7 words.",
+        "sample_and_model": "Sample null C1. Model: \"Een flat in de stad, op plaatje één, is dicht bij de winkels.\" (C2). The 16-word question sentence is unchanged base text, at the limit. Exactly one null; other quotes verbatim.",
+        "starters": "Unchanged from base: [\"Ik woon liever in …\",\"Daar is het …\",\"Op het andere plaatje …\"]. No leak; the choice is the learner's."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-sportschool-park:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture choice with reason and a word on the other picture, as in the official form and koelkast/tramkaart. Model 41 words, longest sentence 16.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): the \"liever … of …?\" question -> C0, \"Vertel ook waarom.\" -> C1, new \"Zeg ook iets over het andere plaatje.\" -> C2 (previously not asked).",
+        "placement": "The new sentence follows \"Kies een van de plaatjes.\" (as tramkaart); accepted (doubt 4). It reads naturally aloud and has 7 words.",
+        "sample_and_model": "Sample null C2. Model: \"In een sportschool, zoals op het eerste plaatje, is het vaak druk\" (C2). Exactly one null; other quotes verbatim.",
+        "starters": "Unchanged from base: [\"Ik kies …\",\"Daar kan ik …, want …\",\"Op het andere plaatje …\"]. No leak; the choice is the learner's."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-paspoort:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration, one criterion per picture, as in the official form. Model 44 words, longest sentence 12. Only the opt-in starters changed.",
+      "evidence": {
+        "record": "Identical to the base except status \"draft\"; in the batch only so content:integrate merges its starters. status is not part of the revision hash (scripts/content.ts), so the revision and prompt audio stay valid.",
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat … doet/gebeurt. Vertel iets over alle (drie de) plaatjes.\" -> C0-C2, one per picture.",
+        "starters_before": [
+          "Op het eerste plaatje laat Fatima …",
+          "Op het tweede plaatje geeft ze …",
+          "Op het derde plaatje krijgt ze …"
+        ],
+        "starters_after": [
+          "Op het eerste plaatje …",
+          "Op het tweede plaatje …",
+          "Op het derde plaatje …"
+        ],
+        "starters_verdict": "Accepted (doubt 2). The old starters supplied the action verb (and sometimes the object or place) that each criterion asks the picture to supply. The new ones keep one partial fragment per criterion, in order, with \"…\" and the sequence word that sets up verb-second order, as burenpakket already does.",
+        "sample": "Exactly one null (C1); other quotes verbatim; unchanged."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-brief-gemeente:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration, one criterion per picture, as in the official form. Model 40 words, longest sentence 8. Only the opt-in starters changed.",
+      "evidence": {
+        "record": "Identical to the base except status \"draft\"; in the batch only so content:integrate merges its starters. status is not part of the revision hash (scripts/content.ts), so the revision and prompt audio stay valid.",
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat … doet/gebeurt. Vertel iets over alle (drie de) plaatjes.\" -> C0-C2, one per picture.",
+        "starters_before": [
+          "Eerst leest Julio …",
+          "Daarna belt hij …",
+          "Op het laatste plaatje praat hij met …"
+        ],
+        "starters_after": [
+          "Eerst …",
+          "Daarna …",
+          "Op het laatste plaatje …"
+        ],
+        "starters_verdict": "Accepted (doubt 2). The old starters supplied the action verb (and sometimes the object or place) that each criterion asks the picture to supply. The new ones keep one partial fragment per criterion, in order, with \"…\" and the sequence word that sets up verb-second order, as burenpakket already does.",
+        "sample": "Exactly one null (C2); other quotes verbatim; unchanged."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-vakantie:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration, one criterion per picture, as in the official form. Model 43 words, longest sentence 11. Only the opt-in starters changed.",
+      "evidence": {
+        "record": "Identical to the base except status \"draft\"; in the batch only so content:integrate merges its starters. status is not part of the revision hash (scripts/content.ts), so the revision and prompt audio stay valid.",
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat … doet/gebeurt. Vertel iets over alle (drie de) plaatjes.\" -> C0-C2, one per picture.",
+        "starters_before": [
+          "Eerst doet Karim … in zijn koffer.",
+          "Daarna zet hij … in de auto.",
+          "Op het derde plaatje zit hij …"
+        ],
+        "starters_after": [
+          "Eerst …",
+          "Daarna …",
+          "Op het derde plaatje …"
+        ],
+        "starters_verdict": "Accepted (doubt 2). The old starters supplied the action verb (and sometimes the object or place) that each criterion asks the picture to supply. The new ones keep one partial fragment per criterion, in order, with \"…\" and the sequence word that sets up verb-second order, as burenpakket already does.",
+        "sample": "Exactly one null (C0); other quotes verbatim; unchanged."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-bioscoop:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration, one criterion per picture, as in the official form. Model 42 words, longest sentence 15. Only the opt-in starters changed.",
+      "evidence": {
+        "record": "Identical to the base except status \"draft\"; in the batch only so content:integrate merges its starters. status is not part of the revision hash (scripts/content.ts), so the revision and prompt audio stay valid.",
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat … doet/gebeurt. Vertel iets over alle (drie de) plaatjes.\" -> C0-C2, one per picture.",
+        "starters_before": [
+          "Eerst koopt mevrouw Bakker …",
+          "Daarna haalt ze …",
+          "Op het derde plaatje zitten ze …"
+        ],
+        "starters_after": [
+          "Eerst …",
+          "Daarna …",
+          "Op het derde plaatje …"
+        ],
+        "starters_verdict": "Accepted (doubt 2). The old starters supplied the action verb (and sometimes the object or place) that each criterion asks the picture to supply. The new ones keep one partial fragment per criterion, in order, with \"…\" and the sequence word that sets up verb-second order, as burenpakket already does.",
+        "sample": "Exactly one null (C1); other quotes verbatim; unchanged."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-rijbewijs:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration, one criterion per picture, as in the official form. Model 43 words, longest sentence 11. Only the opt-in starters changed.",
+      "evidence": {
+        "record": "Identical to the base except status \"draft\"; in the batch only so content:integrate merges its starters. status is not part of the revision hash (scripts/content.ts), so the revision and prompt audio stay valid.",
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat … doet/gebeurt. Vertel iets over alle (drie de) plaatjes.\" -> C0-C2, one per picture.",
+        "starters_before": [
+          "Op het eerste plaatje heeft Modibo …",
+          "Daarna oefent hij …",
+          "Op het derde plaatje …"
+        ],
+        "starters_after": [
+          "Op het eerste plaatje …",
+          "Daarna …",
+          "Op het derde plaatje …"
+        ],
+        "starters_verdict": "Accepted (doubt 2). The old starters supplied the action verb (and sometimes the object or place) that each criterion asks the picture to supply. The new ones keep one partial fragment per criterion, in order, with \"…\" and the sequence word that sets up verb-second order, as burenpakket already does.",
+        "sample": "Exactly one null (C2); other quotes verbatim; unchanged."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-kleermaker:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration, one criterion per picture, as in the official form. Model 43 words, longest sentence 12. Only the opt-in starters changed.",
+      "evidence": {
+        "record": "Identical to the base except status \"draft\"; in the batch only so content:integrate merges its starters. status is not part of the revision hash (scripts/content.ts), so the revision and prompt audio stay valid.",
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat … doet/gebeurt. Vertel iets over alle (drie de) plaatjes.\" -> C0-C2, one per picture.",
+        "starters_before": [
+          "Eerst staat Hasan …",
+          "Bij de kleermaker …",
+          "Daarna haalt hij …"
+        ],
+        "starters_after": [
+          "Eerst …",
+          "Daarna …",
+          "Op het laatste plaatje …"
+        ],
+        "starters_verdict": "Accepted (doubt 2). The old starters supplied the action verb (and sometimes the object or place) that each criterion asks the picture to supply. The new ones keep one partial fragment per criterion, in order, with \"…\" and the sequence word that sets up verb-second order, as burenpakket already does.",
+        "sample": "Exactly one null (C1); other quotes verbatim; unchanged."
+      }
+    },
+    {
+      "id": "A2:speaking:batch026-marktkraam:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One-picture task like the official \"Vertel wat X kan eten … Gebruik het plaatje\" form, with the scene, two named things and an opinion asked one by one. Model 40 words, longest sentence 12; longest prompt sentence 10.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat u ziet.\" -> C0, \"Noem twee dingen die Hasan bij deze kraam kan kopen.\" -> C1 (\"minstens twee\" is met by two), \"Vertel ook wat u van de markt vindt.\" -> C2.",
+        "author_fix": "Accepted: \"Vertel wat …\" became \"Noem twee …\", so the prompt now asks for the number C1 checks.",
+        "reviewer_fix": "Added \"Vertel wat u ziet.\" before the C1 sentence (doubt 1).",
+        "picture_and_alt": "Opened public/images/55c8c4b89f47f99f.webp: apples, tomatoes and carrots on the stall; the stallholder holds out a paper bag. The new alt is accurate.",
+        "sample": "Q0 \"Hasan staat op de markt bij een kraam.\" -> C0; Q1 \"Hij kan kopen appels en tomaten.\" -> C1; Q2 null. Exactly one null; other quotes verbatim.",
+        "model": "Hasan at the stall (C0), appels, tomaten, wortels (C1), \"gezellig\" plus reason (C2). No prompt sentence copied.",
+        "starters": "Unchanged from base: [\"Ik zie Hasan bij …\",\"Hij kan … en … kopen.\",\"De markt vind ik …, want …\"]. The C0 starter gives at most the person, a posture or the prompt's own setting and leaves the scene to the learner; the C1 starter leaves both things or actions open. Nothing a criterion asks for is supplied."
+      }
+    },
+    {
+      "id": "A2:speaking:batch026-regen:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One-picture task like the official \"Vertel wat X kan eten … Gebruik het plaatje\" form, with the scene, two named things and an opinion asked one by one. Model 44 words, longest sentence 11; longest prompt sentence 10.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat u ziet.\" -> C0, \"Noem twee dingen die de mensen bij de halte doen.\" -> C1 (\"minstens twee\" is met by two), \"Vertel ook wat u van reizen met de bus vindt.\" -> C2.",
+        "author_fix": "Accepted: \"Vertel wat …\" became \"Noem twee …\", so the prompt now asks for the number C1 checks.",
+        "reviewer_fix": "Added \"Vertel wat u ziet.\" before the C1 sentence (doubt 1).",
+        "picture_and_alt": "Alt unchanged and not re-opened; it names the umbrella, the seated older woman and the approaching bus, which covers C1.",
+        "sample": "Q0 \"Ik zie een bushalte. Het regent veel.\" -> C0; Q1 two actions -> C1; Q2 null. Exactly one null; other quotes verbatim.",
+        "model": "Bushalte in de regen (C0), staat onder een paraplu / zit op het bankje (C1), opinion (C2). No prompt sentence copied.",
+        "starters": "Unchanged from base: [\"Ik zie een … in de regen.\",\"Sabrina … en een vrouw …\",\"Reizen met de bus vind ik …, want …\"]. The C0 starter gives at most the person, a posture or the prompt's own setting and leaves the scene to the learner; the C1 starter leaves both things or actions open. Nothing a criterion asks for is supplied."
+      }
+    },
+    {
+      "id": "A2:speaking:batch026-schoolplein:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One-picture task like the official \"Vertel wat X kan eten … Gebruik het plaatje\" form, with the scene, two named things and an opinion asked one by one. Model 44 words, longest sentence 9; longest prompt sentence 8.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat u ziet.\" -> C0, \"Noem twee dingen die de kinderen doen.\" -> C1 (\"minstens twee\" is met by two), \"Vertel ook wat u van buiten spelen vindt.\" -> C2.",
+        "author_fix": "Accepted: \"Vertel wat …\" became \"Noem twee …\", so the prompt now asks for the number C1 checks.",
+        "reviewer_fix": "Added \"Vertel wat u ziet.\" before the C1 sentence (doubt 1).",
+        "picture_and_alt": "Alt unchanged; it names the skipping girl, two children with a ball and the waiting mother.",
+        "sample": "Q0 scene -> C0; Q1 null (one action); Q2 opinion -> C2. Exactly one null; other quotes verbatim.",
+        "model": "Schoolplein (C0), springt touwtje / spelen met een bal / wacht (C1), opinion with reason (C2). No prompt sentence copied.",
+        "starters": "Unchanged from base: [\"Ik zie een schoolplein met …\",\"Amina … en twee kinderen …\",\"Buiten spelen vind ik …, want …\"]. The C0 starter gives at most the person, a posture or the prompt's own setting and leaves the scene to the learner; the C1 starter leaves both things or actions open. Nothing a criterion asks for is supplied."
+      }
+    },
+    {
+      "id": "A2:speaking:batch026-online-winkel:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture choice with reason and a word on the other picture, as in the official form and koelkast/tramkaart. Model 41 words, longest sentence 9.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): the \"liever … of …?\" question -> C0, \"Vertel ook waarom.\" -> C1, new \"Zeg ook iets over het andere plaatje.\" -> C2 (previously not asked).",
+        "placement": "The new sentence follows \"Kies een van de plaatjes.\" (as tramkaart); accepted (doubt 4). It reads naturally aloud and has 7 words.",
+        "sample_and_model": "Sample null C2. Model: \"Online kopen, zoals op het eerste plaatje, is makkelijk.\" (C2). Exactly one null; other quotes verbatim.",
+        "starters": "Unchanged from base: [\"Ik koop liever …\",\"Dan kan ik …\",\"Het andere plaatje vind ik …, omdat …\"]. No leak; the choice is the learner's."
+      }
+    },
+    {
+      "id": "A2:speaking:batch026-fiets-lopen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture choice with reason and a word on the other picture, as in the official form and koelkast/tramkaart. Model 41 words, longest sentence 13.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): the \"liever … of …?\" question -> C0, \"Vertel ook waarom.\" -> C1, new \"Zeg ook iets over het andere plaatje.\" -> C2 (previously not asked).",
+        "placement": "The new sentence follows \"Kies een van de plaatjes.\" (as tramkaart); accepted (doubt 4). It reads naturally aloud and has 7 words.",
+        "sample_and_model": "Sample null C2. Model: \"Op het eerste plaatje fietst een man.\" (C2). Exactly one null; other quotes verbatim.",
+        "starters": "Unchanged from base: [\"Ik ga liever … naar mijn werk.\",\"Dat is beter, want …\",\"Op het andere plaatje zie ik …\"]. No leak; the choice is the learner's."
+      }
+    },
+    {
+      "id": "A2:speaking:batch026-feest-thuis:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture choice with reason and a word on the other picture, as in the official form and koelkast/tramkaart. Model 39 words, longest sentence 12.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): the \"liever … of …?\" question -> C0, \"Vertel ook waarom.\" -> C1, new \"Zeg ook iets over het andere plaatje.\" -> C2 (previously not asked).",
+        "placement": "The new sentence follows \"Kies een van de plaatjes.\" (as tramkaart); accepted (doubt 4). It reads naturally aloud and has 7 words.",
+        "sample_and_model": "Sample null C1. Model: \"Een restaurant, zoals op het tweede plaatje, is duur en vaak druk.\" (C2). Exactly one null; other quotes verbatim.",
+        "starters": "Unchanged from base: [\"Ik vier het liever …\",\"Dat is fijner, omdat …\",\"Het andere plaatje vind ik …\"]. No leak; the choice is the learner's."
+      }
+    },
+    {
+      "id": "A2:speaking:batch026-treinkaartje:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration, one criterion per picture, as in the official form. Model 41 words, longest sentence 12. Only the opt-in starters changed.",
+      "evidence": {
+        "record": "Identical to the base except status \"draft\"; in the batch only so content:integrate merges its starters. status is not part of the revision hash (scripts/content.ts), so the revision and prompt audio stay valid.",
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat … doet/gebeurt. Vertel iets over alle (drie de) plaatjes.\" -> C0-C2, one per picture.",
+        "starters_before": [
+          "Op het eerste plaatje koopt Sem …",
+          "Daarna staat hij op …",
+          "Op het derde plaatje zit hij …"
+        ],
+        "starters_after": [
+          "Op het eerste plaatje …",
+          "Daarna …",
+          "Op het derde plaatje …"
+        ],
+        "starters_verdict": "Accepted (doubt 2). The old starters supplied the action verb (and sometimes the object or place) that each criterion asks the picture to supply. The new ones keep one partial fragment per criterion, in order, with \"…\" and the sequence word that sets up verb-second order, as burenpakket already does.",
+        "sample": "Exactly one null (C0); other quotes verbatim; unchanged."
+      }
+    },
+    {
+      "id": "A2:speaking:batch026-bibliotheekboek:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration, one criterion per picture, as in the official form. Model 43 words, longest sentence 12. Only the opt-in starters changed.",
+      "evidence": {
+        "record": "Identical to the base except status \"draft\"; in the batch only so content:integrate merges its starters. status is not part of the revision hash (scripts/content.ts), so the revision and prompt audio stay valid.",
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat … doet/gebeurt. Vertel iets over alle (drie de) plaatjes.\" -> C0-C2, one per picture.",
+        "starters_before": [
+          "Op het eerste plaatje vindt Modibo …",
+          "Daarna brengt hij …",
+          "Op het derde plaatje pakt hij …"
+        ],
+        "starters_after": [
+          "Op het eerste plaatje …",
+          "Daarna …",
+          "Op het derde plaatje …"
+        ],
+        "starters_verdict": "Accepted (doubt 2). The old starters supplied the action verb (and sometimes the object or place) that each criterion asks the picture to supply. The new ones keep one partial fragment per criterion, in order, with \"…\" and the sequence word that sets up verb-second order, as burenpakket already does.",
+        "sample": "Exactly one null (C1); other quotes verbatim; unchanged."
+      }
+    },
+    {
+      "id": "A2:speaking:batch026-koken-buurvrouw:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration, one criterion per picture, as in the official form. Model 43 words, longest sentence 11. Only the opt-in starters changed.",
+      "evidence": {
+        "record": "Identical to the base except status \"draft\"; in the batch only so content:integrate merges its starters. status is not part of the revision hash (scripts/content.ts), so the revision and prompt audio stay valid.",
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat … doet/gebeurt. Vertel iets over alle (drie de) plaatjes.\" -> C0-C2, one per picture.",
+        "starters_before": [
+          "Op het eerste plaatje kookt Fatima …",
+          "Daarna brengt ze …",
+          "Op het derde plaatje eten ze …"
+        ],
+        "starters_after": [
+          "Op het eerste plaatje …",
+          "Daarna …",
+          "Op het derde plaatje …"
+        ],
+        "starters_verdict": "Accepted (doubt 2). The old starters supplied the action verb (and sometimes the object or place) that each criterion asks the picture to supply. The new ones keep one partial fragment per criterion, in order, with \"…\" and the sequence word that sets up verb-second order, as burenpakket already does.",
+        "sample": "Exactly one null (C2); other quotes verbatim; unchanged."
+      }
+    },
+    {
+      "id": "A2:speaking:batch027-wachtkamer:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One-picture task like the official \"Vertel wat X kan eten … Gebruik het plaatje\" form, with the scene, two named things and an opinion asked one by one. Model 44 words, longest sentence 10; longest prompt sentence 8.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat u ziet.\" -> C0, \"Noem twee dingen die de mensen doen.\" -> C1 (\"minstens twee\" is met by two), \"Vertel ook wat u van deze wachtkamer vindt.\" -> C2.",
+        "author_fix": "Accepted: \"Vertel wat …\" became \"Noem twee …\", so the prompt now asks for the number C1 checks.",
+        "reviewer_fix": "Added \"Vertel wat u ziet.\" before the C1 sentence (doubt 1).",
+        "picture_and_alt": "Alt unchanged; it names phone, blocks and the water cup.",
+        "sample": "Q0 scene -> C0; Q1 \"Een kind speelt met blokken en een vrouw drink water.\" -> C1; Q2 null. Exactly one null; other quotes verbatim.",
+        "model": "Wachtkamer (C0), kijkt op telefoon / speelt met blokken / drinkt water (C1), opinion with reason (C2). No prompt sentence copied.",
+        "starters": "Unchanged from base: [\"Ik zie Hasan in …\",\"Een kind … en een vrouw …\",\"Deze wachtkamer vind ik …, want …\"]. The C0 starter gives at most the person, a posture or the prompt's own setting and leaves the scene to the learner; the C1 starter leaves both things or actions open. Nothing a criterion asks for is supplied."
+      }
+    },
+    {
+      "id": "A2:speaking:batch027-keuken:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One-picture task like the official \"Vertel wat X kan eten … Gebruik het plaatje\" form, with the scene, two named things and an opinion asked one by one. Model 42 words, longest sentence 11; longest prompt sentence 8.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat u ziet.\" -> C0, \"Noem twee dingen die de mensen doen.\" -> C1 (\"minstens twee\" is met by two), \"Vertel ook wat u van samen koken vindt.\" -> C2.",
+        "author_fix": "Accepted: \"Vertel wat …\" became \"Noem twee …\", so the prompt now asks for the number C1 checks.",
+        "reviewer_fix": "Added \"Vertel wat u ziet.\" before the C1 sentence (doubt 1).",
+        "picture_and_alt": "Alt unchanged; it names stirring, cutting vegetables and setting plates.",
+        "sample": "Q0 scene -> C0; Q1 zoon snijdt / dochter zet borden -> C1; Q2 null. Exactly one null; other quotes verbatim.",
+        "model": "Keuken (C0), roert / snijdt / zet borden (C1), opinion with two reasons (C2). No prompt sentence copied.",
+        "starters": "Unchanged from base: [\"Ik zie Fatima en haar kinderen in …\",\"Fatima …, haar zoon … en haar dochter …\",\"Samen koken vind ik …, want …\"]. The C0 starter gives at most the person, a posture or the prompt's own setting and leaves the scene to the learner; the C1 starter leaves both things or actions open. Nothing a criterion asks for is supplied."
+      }
+    },
+    {
+      "id": "A2:speaking:batch027-kassa:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One-picture task like the official \"Vertel wat X kan eten … Gebruik het plaatje\" form, with the scene, two named things and an opinion asked one by one. Model 40 words, longest sentence 11; longest prompt sentence 11.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat u ziet.\" -> C0, \"Noem twee dingen die Karim gaat kopen.\" -> C1 (\"minstens twee\" is met by two), \"Vertel ook wat u van wachten in de rij vindt.\" -> C2.",
+        "author_fix": "Accepted: \"Vertel wat …\" became \"Noem twee …\", so the prompt now asks for the number C1 checks.",
+        "reviewer_fix": "Added \"Vertel wat u ziet.\" before the C1 sentence (doubt 1).",
+        "picture_and_alt": "Alt unchanged; it names bread, milk and bananas in the basket.",
+        "sample": "Q0 \"Karim staat in rij bij de kassa.\" -> C0; Q1 null (only brood); Q2 opinion -> C2. Exactly one null; other quotes verbatim.",
+        "model": "Supermarket queue (C0), brood, melk, bananen (C1), \"vervelend\" plus coping reason (C2). No prompt sentence copied.",
+        "starters": "Unchanged from base: [\"Karim staat in de rij bij …\",\"In zijn mandje zitten … en …\",\"Wachten in de rij vind ik …, want …\"]. The C0 starter gives at most the person, a posture or the prompt's own setting and leaves the scene to the learner; the C1 starter leaves both things or actions open. Nothing a criterion asks for is supplied."
+      }
+    },
+    {
+      "id": "A2:speaking:batch027-bakkerij:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture choice with reason and a word on the other picture, as in the official form and koelkast/tramkaart. Model 44 words, longest sentence 9.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): the \"liever … of …?\" question -> C0, \"Vertel ook waarom.\" -> C1, new \"Zeg ook iets over het andere plaatje.\" -> C2 (previously not asked).",
+        "placement": "The new sentence follows \"Kies een van de plaatjes.\" (as tramkaart); accepted (doubt 4). It reads naturally aloud and has 7 words.",
+        "sample_and_model": "Sample null C2. Model: \"Op het eerste plaatje werkt een man heel vroeg.\" (C2). Exactly one null; other quotes verbatim.",
+        "starters": "Unchanged from base: [\"Ik kies plaatje …\",\"Ik werk liever …, want …\",\"Op het andere plaatje zie ik …\"]. No leak; the choice is the learner's."
+      }
+    },
+    {
+      "id": "A2:speaking:batch027-contant-pinnen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture choice with reason and a word on the other picture, as in the official form and koelkast/tramkaart. Model 43 words, longest sentence 10.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): the \"liever … of …?\" question -> C0, \"Vertel ook waarom.\" -> C1, new \"Zeg ook iets over het andere plaatje.\" -> C2 (previously not asked).",
+        "placement": "The new sentence follows \"Kies een van de plaatjes.\" (as tramkaart); accepted (doubt 4). It reads naturally aloud and has 7 words.",
+        "sample_and_model": "Sample null C1. Model: \"Pinnen, op het tweede plaatje, is wel makkelijk en snel.\" (C2). Exactly one null; other quotes verbatim.",
+        "starters": "Unchanged from base: [\"Ik betaal liever …\",\"Dat vind ik beter, omdat …\",\"Op het andere plaatje zie ik …\"]. No leak; the choice is the learner's."
+      }
+    },
+    {
+      "id": "A2:speaking:batch027-bus-fiets:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture choice with reason and a word on the other picture, as in the official form and koelkast/tramkaart. Model 43 words, longest sentence 10.",
+      "evidence": {
+        "learner_following_prompt": "Yes (hidden criteria): the \"liever … of …?\" question -> C0, \"Vertel ook waarom.\" -> C1, new \"Zeg ook iets over het andere plaatje.\" -> C2 (previously not asked).",
+        "placement": "The new sentence follows \"Kies een van de plaatjes.\" (as tramkaart); accepted (doubt 4). It reads naturally aloud and has 7 words.",
+        "sample_and_model": "Sample null C2. Model: \"Fietsen, op het tweede plaatje, is gezond en goedkoop.\" (C2). Exactly one null; other quotes verbatim.",
+        "starters": "Unchanged from base: [\"Ik ga liever met de …\",\"Dat is beter voor mij, want …\",\"Op het andere plaatje zie ik …\"]. No leak; the choice is the learner's."
+      }
+    },
+    {
+      "id": "A2:speaking:batch027-sollicitatiegesprek:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration, one criterion per picture, as in the official form. Model 44 words, longest sentence 14. Only the opt-in starters changed.",
+      "evidence": {
+        "record": "Identical to the base except status \"draft\"; in the batch only so content:integrate merges its starters. status is not part of the revision hash (scripts/content.ts), so the revision and prompt audio stay valid.",
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat … doet/gebeurt. Vertel iets over alle (drie de) plaatjes.\" -> C0-C2, one per picture.",
+        "starters_before": [
+          "Op het eerste plaatje schrijft Sabrina …",
+          "Op het tweede plaatje praat ze met …",
+          "Op het derde plaatje geeft ze …"
+        ],
+        "starters_after": [
+          "Op het eerste plaatje …",
+          "Op het tweede plaatje …",
+          "Op het derde plaatje …"
+        ],
+        "starters_verdict": "Accepted (doubt 2). The old starters supplied the action verb (and sometimes the object or place) that each criterion asks the picture to supply. The new ones keep one partial fragment per criterion, in order, with \"…\" and the sequence word that sets up verb-second order, as burenpakket already does.",
+        "sample": "Exactly one null (C0); other quotes verbatim; unchanged."
+      }
+    },
+    {
+      "id": "A2:speaking:batch027-verhuizen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration, one criterion per picture, as in the official form. Model 43 words, longest sentence 12. Only the opt-in starters changed.",
+      "evidence": {
+        "record": "Identical to the base except status \"draft\"; in the batch only so content:integrate merges its starters. status is not part of the revision hash (scripts/content.ts), so the revision and prompt audio stay valid.",
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat … doet/gebeurt. Vertel iets over alle (drie de) plaatjes.\" -> C0-C2, one per picture.",
+        "starters_before": [
+          "Op het eerste plaatje doet Modibo … in dozen.",
+          "Daarna draagt hij … naar …",
+          "Op het derde plaatje zit hij …"
+        ],
+        "starters_after": [
+          "Op het eerste plaatje …",
+          "Daarna …",
+          "Op het derde plaatje …"
+        ],
+        "starters_verdict": "Accepted (doubt 2). The old starters supplied the action verb (and sometimes the object or place) that each criterion asks the picture to supply. The new ones keep one partial fragment per criterion, in order, with \"…\" and the sequence word that sets up verb-second order, as burenpakket already does.",
+        "sample": "Exactly one null (C1); other quotes verbatim; unchanged."
+      }
+    },
+    {
+      "id": "A2:speaking:batch027-tandartsbezoek:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration, one criterion per picture, as in the official form. Model 44 words, longest sentence 12. Only the opt-in starters changed.",
+      "evidence": {
+        "record": "Identical to the base except status \"draft\"; in the batch only so content:integrate merges its starters. status is not part of the revision hash (scripts/content.ts), so the revision and prompt audio stay valid.",
+        "learner_following_prompt": "Yes (hidden criteria): \"Vertel wat … doet/gebeurt. Vertel iets over alle (drie de) plaatjes.\" -> C0-C2, one per picture.",
+        "starters_before": [
+          "Op het eerste plaatje heeft Karim … en hij belt …",
+          "Op het tweede plaatje ligt hij …",
+          "Op het derde plaatje krijgt hij …"
+        ],
+        "starters_after": [
+          "Op het eerste plaatje …",
+          "Op het tweede plaatje …",
+          "Op het derde plaatje …"
+        ],
+        "starters_verdict": "Accepted (doubt 2). The old starters supplied the action verb (and sometimes the object or place) that each criterion asks the picture to supply. The new ones keep one partial fragment per criterion, in order, with \"…\" and the sequence word that sets up verb-second order, as burenpakket already does.",
+        "sample": "Exactly one null (C2); other quotes verbatim; unchanged."
+      }
+    }
+  ],
+  "author_doubts_decisions": [
+    {
+      "doubt": 1,
+      "decision": "Changed. The prompt must ask for the scene. Added \"Vertel wat u ziet.\" to all 11 picture-describe prompts whose C0 is \"Vertel wat u op het plaatje ziet.\". Reason: with hidden criteria the learner cannot know a separate scene sentence is scored; the samples show C0 is meant as a distinct scene sentence; OpenExercise.tsx states the prompt must name everything the criteria check; the 063 items already ask one sentence per criterion; the clips are regenerated anyway. The overlap with C1 is harmless: a scene sentence that also names the things meets both."
+    },
+    {
+      "doubt": 2,
+      "decision": "Accepted. A starter that supplies the verb of the action a criterion asks the picture to show is the same leak as naming the place. The 15 starter-only records stay."
+    },
+    {
+      "doubt": 3,
+      "decision": "Accepted. \"Roos …\" removes the C0 verb and does not restore the 063 \"thuis\" lead."
+    },
+    {
+      "doubt": 4,
+      "decision": "Accepted as written (sentence after \"Kies een van de plaatjes.\", like tramkaart). Koelkast's order is also natural; no bank-wide reordering needed."
+    },
+    {
+      "doubt": 5,
+      "decision": "Noted. Regen and keuken need prompt audio again; listed in media_notes."
+    },
+    {
+      "doubt": 6,
+      "decision": "Accepted. \"minstens twee\" in the hidden criterion and \"twee\" in the prompt agree."
+    },
+    {
+      "doubt": 7,
+      "decision": "Accepted. Situation lines and titles that frame the story (bibliotheekboek, koken-buurvrouw, tandartsbezoek) follow the official \"Ricardo werkt als kapper\" pattern; the learner still describes each panel. Wachtkamer and kassa notes are minor and need no change."
+    },
+    {
+      "doubt": 8,
+      "decision": "Accepted. Typing on a laptop is writing a letter; the judge receives the alt and can accept either wording."
+    }
+  ],
+  "diversity": "Unchanged by this batch: same 38 scenarios, settings and task types. The added sentences make the picture-describe instructions uniform with the four 063 items.",
+  "set_assembly": "IDs and set membership unchanged.",
+  "media_notes": [
+    "New narrator prompt audio is needed for exactly 23 clips: A2:speaking:batch009-schoonmaak:1#prompt, A2:speaking:batch009-gymles:1#prompt, A2:speaking:batch009-afval:1#prompt, A2:speaking:batch009-ehbo:1#prompt, A2:speaking:batch009-kringloop:1#prompt, A2:speaking:batch009-alleen-samen:1#prompt, A2:speaking:batch009-klas-thuis:1#prompt, A2:speaking:batch009-gemeente-bellen:1#prompt, A2:speaking:batch009-trein-auto:1#prompt, A2:speaking:batch009-flat-dorp:1#prompt, A2:speaking:batch009-sportschool-park:1#prompt, A2:speaking:batch026-marktkraam:1#prompt, A2:speaking:batch026-regen:1#prompt, A2:speaking:batch026-schoolplein:1#prompt, A2:speaking:batch026-online-winkel:1#prompt, A2:speaking:batch026-fiets-lopen:1#prompt, A2:speaking:batch026-feest-thuis:1#prompt, A2:speaking:batch027-wachtkamer:1#prompt, A2:speaking:batch027-keuken:1#prompt, A2:speaking:batch027-kassa:1#prompt, A2:speaking:batch027-bakkerij:1#prompt, A2:speaking:batch027-contant-pinnen:1#prompt, A2:speaking:batch027-bus-fiets:1#prompt.",
+    "No #cue clip is affected; these items have no cue.",
+    "The 15 starter-only items (kapper, portemonnee, jas, paspoort, brief-gemeente, vakantie, bioscoop, rijbewijs, kleermaker, treinkaartje, bibliotheekboek, koken-buurvrouw, sollicitatiegesprek, verhuizen, tandartsbezoek) keep their prompt audio and revision.",
+    "No image brief changed, so no new drawing is needed. Five alts changed (schoonmaak, gymles, ehbo, kringloop, marktkraam); alts need no media but do change the revision of those items."
+  ],
+  "coordinator_actions": [
+    "Adopt with npm run batch:adopt 067 (verifies source_sha256 against content/batches/067-proposed.json), then integrate.",
+    "Generate the 23 prompt clips listed in media_notes from the adopted text and run the transcription round trip.",
+    "Optional: run a bounded judge check before release, for example gymles answered with \"Ik zie een gymzaal. Sem klimt in een touw en twee kinderen gooien een bal. Ik vind sport op school goed.\" should pass all three criteria.",
+    "Optional: update the picture-describe instruction pattern in content/blueprint.md §4.3 so future items ask for the scene (\"Vertel wat u ziet.\") as well as the two things."
+  ],
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "23 prompts changed. New prompt audio still needs generation from the adopted text, with a transcription round trip; none was generated in this review.",
+    "No feedback calls were made, so judge behaviour on the new prompts and alts was not measured.",
+    "content/exemplars/ does not exist. Level verdicts compare items with sister items in the bank and do not calibrate difficulty.",
+    "Only the drawings whose alt changed (plus afval) were re-opened; the other alts were accepted from the base, where earlier reviews checked them."
+  ]
+}

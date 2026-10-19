@@ -110,6 +110,64 @@ const CASES: Case[] = [
     expectation:
       'A replacement laptop is a solution, but the latest date is missing. The te-infinitive is correct; use a date placeholder.',
   },
+  // Report 6 (19 Oct 2026): the prompt no longer names the pharmacy, so the place comes from
+  // the picture, which the judge knows only through its Dutch alt.
+  {
+    name: 'pharmacy_place_from_picture',
+    item: 'A2:speaking:batch001-apotheek:1',
+    answer:
+      'Roos is bij de apotheek. Ze geeft een papier aan de man en hij pakt een doosje. Ik vind medicijnen halen makkelijk, want het is dichtbij.',
+    met: [true, true, true],
+    expectation: 'The place is seen in the picture, two actions and an opinion with a reason.',
+  },
+  {
+    name: 'pharmacy_wrong_place',
+    item: 'A2:speaking:batch001-apotheek:1',
+    answer:
+      'Roos is bij de huisarts. Ze geeft een papier aan de man en hij pakt een doosje. Ik vind medicijnen halen makkelijk, want het is dichtbij.',
+    met: [false, true, true],
+    expectation: 'The picture shows a pharmacy counter, not a doctor: only the place is wrong.',
+  },
+  {
+    name: 'pharmacy_opinion_without_reason',
+    item: 'A2:speaking:batch001-apotheek:1',
+    answer:
+      'Roos staat in een apotheek. Ze geeft een recept aan de medewerker. Hij pakt een doosje. Ik vind medicijnen halen makkelijk.',
+    met: [true, true, false],
+    expectation: 'The opinion is given but the asked reason is missing.',
+  },
+  {
+    name: 'library_card_price_question',
+    item: 'A2:writing:bibliotheekpas:1',
+    answer:
+      'Naam (verzonnen): Sara de Wit\nE-mailadres (verzonnen): sara@voorbeeld.nl\nWat is er met uw oude pas gebeurd? Mijn pas is in de wasmachine kapotgegaan.\nHebt u een vraag voor de bibliotheek? Wat kost een nieuwe pas?\nOp welke dag en hoe laat kunt u de nieuwe pas ophalen? Ik kan donderdag om vier uur komen.',
+    met: [true, true, true],
+    expectation: 'A broken card is a valid invented answer; "Wat kost" asks the price.',
+  },
+  {
+    name: 'library_card_request_not_price',
+    item: 'A2:writing:bibliotheekpas:1',
+    answer:
+      'Naam (verzonnen): Sara de Wit\nE-mailadres (verzonnen): sara@voorbeeld.nl\nWat is er met uw oude pas gebeurd? Ik ben mijn pas kwijt.\nHebt u een vraag voor de bibliotheek? Mag ik een nieuwe pas?\nOp welke dag en hoe laat kunt u de nieuwe pas ophalen? Ik kan donderdag om vier uur komen.',
+    met: [true, false, true],
+    expectation: 'Asking for a card is not asking what it costs.',
+  },
+  // Speaking criteria are hidden until review since 19 Oct 2026; the prompt now asks for each one.
+  {
+    name: 'gym_scene_two_actions_opinion',
+    item: 'A2:speaking:batch009-gymles:1',
+    answer:
+      'Ik zie een gymzaal. Sem klimt in een touw en twee kinderen gooien een bal. Ik vind sport op school goed.',
+    met: [true, true, true],
+    expectation: 'Scene, two actions and an opinion, each in its own sentence.',
+  },
+  {
+    name: 'gym_one_action_only',
+    item: 'A2:speaking:batch009-gymles:1',
+    answer: 'Ik zie een gymzaal. Een jongen klimt in een touw. Ik vind sport op school leuk.',
+    met: [true, false, true],
+    expectation: 'Only one action is named where the prompt asks for two.',
+  },
   {
     name: 'picture_sequence_without_first_picture',
     item: 'A2:speaking:batch009-vakantie:1',

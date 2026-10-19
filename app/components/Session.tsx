@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useStudyContext } from '../StudyContext';
-import { flatten, complete } from '../domain/study';
+import { flatten, complete, skipQuestion } from '../domain/study';
 import { typeLabel } from '../domain/labels';
 import { track } from '../domain/telemetry';
 import AudioPlayer from './AudioPlayer';
@@ -100,6 +100,15 @@ export function Session({ onComplete = undefined }: { onComplete?: () => void })
         check={check}
         next={next}
         previous={() => updateSession((s) => ({ ...s, index: s.index - 1 }))}
+        skip={
+          a.mode === 'practice'
+            ? () => {
+                const last = a.index === questions.length - 1;
+                setState((s) => skipQuestion(s, catalogue));
+                if (last) onComplete?.();
+              }
+            : undefined
+        }
       />
     </>
   );
@@ -139,6 +148,7 @@ export function QuestionColumns({
   check,
   next,
   previous,
+  skip = undefined,
   shortcuts = true,
   finishLabel = undefined,
 }) {
@@ -347,6 +357,11 @@ export function QuestionColumns({
             <button className="primary" disabled={!chosen} onClick={next}>
               {last ? finishLabel || t('Afronden', 'Finish') : t('Volgende', 'Next')}
               {shortcuts && <KeyHint />}
+            </button>
+          )}
+          {skip && !checked && (
+            <button className="text-button skip-button" data-action="skip" onClick={skip}>
+              {t('Overslaan', 'Skip')}
             </button>
           )}
         </div>

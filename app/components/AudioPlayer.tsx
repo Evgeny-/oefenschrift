@@ -28,6 +28,9 @@ export function AudioPlayback({
   };
   useEffect(() => {
     const el = audio.current;
+    // A server-rendered <audio> can load its metadata before hydration attaches the
+    // handlers, so the event is never seen; read what the element already knows.
+    if (el && el.readyState >= 1) updateDuration();
     return () => el?.pause();
   }, []);
   useEffect(() => {
@@ -61,7 +64,10 @@ export function AudioPlayback({
         preload="metadata"
         onLoadedMetadata={updateDuration}
         onDurationChange={updateDuration}
-        onTimeUpdate={() => setTime(audio.current.currentTime)}
+        onTimeUpdate={() => {
+          setTime(audio.current.currentTime);
+          if (!mediaDuration) updateDuration();
+        }}
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
         onEnded={() => setPlaying(false)}

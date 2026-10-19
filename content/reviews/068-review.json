@@ -1,0 +1,158 @@
+{
+  "review_id": "068-review",
+  "source": "content/batches/068-original.json",
+  "source_sha256": "5d3f49e797c094230876341e201f7cefbd18bf9062e1ff2a2e6375a5fde05f3f",
+  "proposed": "content/batches/068-proposed.json",
+  "proposed_identical_to_author_file": true,
+  "author_source_sha256": "5d3f49e797c094230876341e201f7cefbd18bf9062e1ff2a2e6375a5fde05f3f",
+  "starters_source": "content/batches/068-starters.json",
+  "starters_sha256": "4711eb9ee103b9cdf8367c615b369d2b1054eef94a72047fc7c9cf881624c0cd",
+  "starters_verdict": "pass",
+  "starters_note": "No proposed starters file. Of the base starters, only eerste-schooldag [1] and machinestoring [3] differ. Both remove a leak, and both stay partial and aligned with their criteria. The other lists equal tmp/content-fix-2026-10-19/base/068-starters-base.json and content/hints/sentence-starters.json.",
+  "review_type": "independent-ai-editorial-replacement",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-19",
+  "reviewer": "Independent AI reviewer (Claude Opus 5.5) in a fresh context. It did not author batch 068 and did not edit the author's files.",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "B1:speaking:batch017-trein-gemist:1",
+    "B1:speaking:batch017-eerste-schooldag:1",
+    "B1:speaking:batch017-machinestoring:1",
+    "B1:speaking:batch031-portemonnee-tram:1",
+    "B1:speaking:batch031-werktelefoon:1"
+  ],
+  "item_count": 5,
+  "edits": [],
+  "rejected": [],
+  "checks": {
+    "read_in_full": "tmp/content-fix-2026-10-19/spec/review-common.md, review-hidden-criteria.md, hidden-criteria.md, common.md and audit/b1-speaking.md; docs/briefs/review.md; content/reviews/rubric.md; content/blueprint.md §1-§3, §4.9, §6-§10; the B1 Spreken paragraph of docs/research/exam-blueprints-2026-09-10.md; the author batch, starters and notes; all 16 records of tmp/content-fix-2026-10-19/base/068-base.json and 068-starters-base.json; app/components/OpenExercise.tsx lines 280-330; server/services.ts pictureFor; scripts/content.ts (starter merge by owner, the replaces rule, the c1 revision fields); scripts/batch-adopt.ts; content/reviews/062-review.json and 066-review.json as format examples.",
+    "base_diff": "A scripted field-level diff against the base and the starters base matches the author notes exactly. trein-gemist criteria[3], portemonnee-tram criteria[3] and werktelefoon prompt changed; eerste-schooldag starters[1] and machinestoring starters[3] changed; status is \"draft\" on all 5. Key order and base item order are kept. No cue, image brief or alt, sample, quotes, model, table, title, domain or timing changed.",
+    "base_provenance": "All 16 base records equal the published catalogue records with media fields and images[].file removed (programmatic comparison). All 16 base starter lists equal content/hints/sentence-starters.json.",
+    "media_fields": "No revision, audio, duration, peaks, voice, introAudio, promptAudio, cueAudio, questionAudio or images[].file field, and no retired type field.",
+    "proposed_diff": "content/batches/068-proposed.json is a byte-identical copy of the author file (cmp).",
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/068-proposed.json printed \"Checked 5 items, 0 questions.\", the info line \"5 of 5 items are already in the catalogue …\" and \"No failures, no warnings.\"",
+    "contract_script": "A script ran over all 16 tasks with the batch applied. Every sample has exactly one null quote, and every other quote is a verbatim substring. There is one quote and one starter per criterion, and every starter contains \"…\". No prompt sentence of four or more words, and no five-word prompt run other than the proposal phrase \"de cursus naar lokaal B\", occurs (normalised) in a sample or model. Models are 47-68 words (target 40-70). The longest prompt sentence has 22 words (B1 limit 30).",
+    "criteria_visibility": "OpenExercise.tsx hides the criteria of every speaking item until review. Starters stay available on request for these 16 uncued middellang tasks, and the title is the heading. Every criterion of all 16 tasks was mapped to a prompt phrase, including the 11 the author marked ok. No title or visible starter supplies criterion content.",
+    "narration": "The werktelefoon prompt, read as narrated text, has 7 sentences, 70 words and a longest sentence of 14 words. It has no digits and no semicolons. The repeated \"welk abonnement u kiest\" (audit note 6) is gone.",
+    "pictures_viewed": "Viewed: trein-gemist 8d66647248546070, efc32dd7684eb15a, a5b01e07e1a63938 (Modibo smiles at the handshake); portemonnee-tram c9969c703ed86ad0, 0321a5dc60fc5368 (worried at the bakery), f18417217d231e55 (smiles at the counter); eerste-schooldag 9384608ba805301d, 2710f7fb96de3761 (Amina stands at the front beside the teacher), c71ad4583e125c14; machinestoring 9a4223167db7585a, 2a1fc29ab5c48175; afvalcontainers 52ab51e9fcb86aa6, 7627c6c638e94e60; brandalarm 81a3e6440b7c7d5a; glasbak d16159c692aff726; taalcafe-avond 4d8db2f9aabca006. Every alt matches its drawing, and every answer a hidden criterion names is visible.",
+    "timing": "A minimal werktelefoon answer that follows the prompt runs about 35 words: \"Ik kies abonnement twee, want ik bel veel met cliënten en onbeperkt bellen past bij mijn werk. Ik heb ook 25 GB nodig voor de navigatie. Het nadeel is dat ik zeven euro zelf betaal.\" That is about 18-23 s of 30 at 1.5-2 words per second.",
+    "revisions": "scripts/content.ts computes the c1 revision from content fields that exclude status. The starter-only records eerste-schooldag and machinestoring therefore keep their revision and stored answers. trein-gemist, portemonnee-tram and werktelefoon get new revisions.",
+    "web": "No KNM claim, new name or organisation is in scope, so no web check was needed.",
+    "set_membership": "content/practice-sets.json: trein-gemist and machinestoring in b1-speaking-03, eerste-schooldag in -04, portemonnee-tram in -09, werktelefoon in -10. Membership is unchanged.",
+    "hashes": "source_sha256 and starters_sha256 were computed with Node crypto (equal to shasum -a 256) after the proposed file was written. The proposed file was not touched afterwards."
+  },
+  "items": [
+    {
+      "id": "B1:speaking:batch017-trein-gemist:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration with a feeling, the same act and density as eerste-schooldag, taalcafe-avond and portemonnee-tram. The model has 62 words in short connected sentences with toen, omdat, daarom and maar.",
+      "evidence": {
+        "spec_fix": "C4 is now \"Zeg hoe Modibo zich voelde, bijvoorbeeld geschrokken of zenuwachtig op het station, of opgelucht bij het bedrijf.\" The old \"op het station\" was stricter than the prompt's \"hoe Modibo zich voelde\". The criterion still does not mention the train leaving (batch 066 fix kept).",
+        "learner_following_prompt": "Yes. \"Vertel wat er gebeurde\" plus \"Gebruik alle drie de plaatjes\" covers C1-C3, \"hoe hij toch bij het gesprek kwam\" covers C2-C3, and \"hoe Modibo zich voelde\" covers C4.",
+        "sample": "Unchanged. The null is at C2, because \"Toen ging hij snel naar het bedrijf\" names no means of transport. quotes[3] \"hij was heel zenuwachtig\" meets the loosened C4.",
+        "model": "\"reed zijn trein net weg\" (C1), \"nam hij de bus\" (C2), \"gaf de mevrouw van het bedrijf een hand en het gesprek verliep goed\" (C3), \"Hij schrok\" (C4).",
+        "pictures": "Panel 3 shows Modibo smiling at the handshake, so \"opgelucht\" fits. The alts are unchanged and accurate.",
+        "starters": "Unchanged. \"Modibo was heel …, want …\" fits the loosened C4. \"Daarom nam hij … naar …\" leaves the bus to the learner."
+      }
+    },
+    {
+      "id": "B1:speaking:batch017-eerste-schooldag:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration with feeling and reason, comparable to taalcafe-avond. The model has 67 words with omdat and want.",
+      "evidence": {
+        "spec_fix": "Starter-only record: starters[1] changes from \"In de klas stelt de juf … voor en …\" to \"In de klas staat Amina … en …\". The old frame was panel 2's whole event, so one obvious word (\"Amina\") met C2. The record equals the base apart from status.",
+        "learner_following_prompt": "Yes. \"Vertel wat er gebeurt … Gebruik alle drie de plaatjes\" covers C1-C3, and \"hoe Amina zich voelt en waarom\" covers C4.",
+        "sample": "Unchanged. The null is at C3 (no break). quotes[0], [1] and [3] are verbatim and meet C1, C2 and C4.",
+        "model": "It meets all four criteria: the entrance with her mother, the teacher introducing her, skipping in the break, nervous and then happy.",
+        "pictures": "Panel 2 (2710f7fb96de3761) shows Amina standing at the front beside the teacher, so the new starter invents nothing.",
+        "starters": "The new fragment is partial, aligned with C2 and natural (\"In de klas staat Amina voor het bord en …\"). The other three are unchanged and need learner content."
+      }
+    },
+    {
+      "id": "B1:speaking:batch017-machinestoring:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Two-picture step-by-step instruction with a warning, like brandalarm. The model has 68 words with als, zodat, want and tot.",
+      "evidence": {
+        "spec_fix": "Starter-only record: starters[3] changes from \"Doe dat niet zelf, want …\" to \"Je mag nooit …, want …\". The old fragment supplied the warning (C4's example content) and had an unclear \"dat\". The record equals the base apart from status.",
+        "learner_following_prompt": "Yes. \"wat hij eerst moet doen\" covers C1, \"wie hij daarna moet bellen\" C2, \"Leg hem stap voor stap uit\" C3 and \"Geef ook een waarschuwing\" C4.",
+        "sample": "Unchanged. The null is at C2 (no callee). Quotes [0], [2] and [3] meet C1, C3 and C4.",
+        "model": "Unchanged and it meets all criteria: stop with the red button, call the technical service, instructions in order, \"Probeer de machine nooit zelf te repareren, want dat is gevaarlijk.\"",
+        "pictures": "Panel 1 shows the red button pressed with the box stuck. Panel 2 shows the call and a technician with a toolbox in the bubble. The hidden C1 answer \"de machine stoppen\" is in the picture.",
+        "starters": "The new fragment is a frame only and matches brandalarm (\"Neem nooit …, want …\") and afvalcontainers (\"Zet nooit …, want …\"). Starter 1 keeps batch 066's \"vastloopt\"."
+      }
+    },
+    {
+      "id": "B1:speaking:batch031-portemonnee-tram:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Three-picture narration with a feeling, comparable to trein-gemist. The model has 63 words with toen, pas … merkte and gelukkig.",
+      "evidence": {
+        "spec_fix": "C4 is now \"Zeg hoe Roos zich voelde, bijvoorbeeld geschrokken of in paniek bij de bakker, of opgelucht bij de balie.\" The old \"bij de bakker\" was stricter than the prompt's \"hoe Roos zich voelde\". The criterion still does not name the wallet (batch 066 fix kept).",
+        "learner_following_prompt": "Yes. \"Vertel wat er gebeurde … Gebruik alle drie de plaatjes\" covers C1-C3, \"hoe alles weer goed kwam\" C3, and \"hoe Roos zich voelde\" C4.",
+        "sample": "Unchanged. It names no feeling, so the single null stays at C4. quotes[0]-[2] are verbatim and meet C1-C3.",
+        "model": "\"ze schrok enorm\" meets C4. Tram, bakery and lost-property office meet C1-C3.",
+        "pictures": "Panel 2 shows Roos looking worried. Panel 3 shows her smiling as the wallet is handed over at a counter, which matches \"opgelucht bij de balie\". The alts are unchanged and accurate.",
+        "starters": "Unchanged. \"Roos voelde zich …, omdat …\" fits C4. Starter 1 is kept (doubt 3)."
+      }
+    },
+    {
+      "id": "B1:speaking:batch031-werktelefoon:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Table comparison with a choice, two reasons, a work link and a drawback, the same act as sportabonnement, fietskeuze and cursus-engels. The model has 63 words with ten eerste/ten tweede, en dan and maar.",
+      "evidence": {
+        "spec_fix": "The prompt now says \"Vergelijk de twee abonnementen en zeg welk abonnement het beste bij uw werk past.\" It asks for the hidden C3 (\"Verbind een reden met uw werk\"), which nothing asked for before. This is the same form as the batch 066 fix of fietskeuze and cursus-engels, and it also removes the repeated \"welk abonnement u kiest\".",
+        "learner_following_prompt": "Yes. \"Uw leidinggevende vraagt welk abonnement u kiest\" and \"zeg welk abonnement …\" cover C1, \"Bekijk de tabel. Vergelijk … Noem twee redenen\" C2, \"het beste bij uw werk past\" C3, and \"ook een nadeel van uw keuze\" C4.",
+        "sample": "Unchanged. The null is at C2, because only one table reason is given (unlimited calls). quotes[0] \"Ik kies voor abonnement twee\" meets C1, quotes[2] \"omdat ik bel elke dag met veel cliënten\" C3, and quotes[3] the drawback C4. No prompt sentence is copied.",
+        "model": "\"Ik kies abonnement twee\" (C1). Unlimited calls and 25 GB versus 5 GB (C2). Calls with clients and navigation on the road (C3). \"Abonnement één is wel goedkoper … zeven euro per maand betaal ik graag zelf\" (C4).",
+        "narration": "Seven sentences, 70 words, longest 14. No digits, natural spoken B1.",
+        "starters": "Unchanged. \"Voor mijn werk is dat belangrijk, omdat ik …\" now matches the prompt wording."
+      }
+    }
+  ],
+  "base_tasks_ok_confirmed": [
+    "B1:speaking:batch002-fietsroute:1",
+    "B1:speaking:batch003-buurtvergadering:1",
+    "B1:speaking:batch003-inwerken:1",
+    "B1:speaking:batch003-cursuslocatie:1",
+    "B1:speaking:batch017-fietskeuze:1",
+    "B1:speaking:batch017-sportabonnement:1",
+    "B1:speaking:batch017-glasbak:1",
+    "B1:speaking:batch031-taalcafe-avond:1",
+    "B1:speaking:batch031-cursus-engels:1",
+    "B1:speaking:batch031-afvalcontainers:1",
+    "B1:speaking:batch031-brandalarm:1"
+  ],
+  "base_tasks_note": "All 11 \"ok\" verdicts were checked criterion by criterion against the prompt, title and visible starters (see 068-review.md). None needed a fix. The stated position in fietsroute, buurtvergadering and cursuslocatie is the official convince or advise form, and their C1 scores the learner's own speech act.",
+  "author_doubts_decisions": [
+    "1 Starter-only records: accepted. They are intended by the review notes and needed because content:integrate merges starters only for IDs the batch owns. Their revisions and prompt clips stay valid.",
+    "2 Feeling criteria loosened instead of changing two prompts: accepted. The prompt lists three things to tell and does not tie the feeling to the mishap. No audio is needed.",
+    "3 portemonnee-tram starter 1: kept. The learner must still supply the wallet on the seat and the forgetting. The frame agrees with panel 1.",
+    "4 afvalcontainers \"de grijze\" in the prompt: kept. The prompt does not say which container takes restafval, panel 1 shows it, and the B1 work is the Sunday-evening inference and the instruction form. Optional: \"het restafval wordt elke maandagochtend opgehaald\" with starter 2 \"Die container zet u …\" whenever this prompt is re-voiced for another reason.",
+    "5 werktelefoon C1 wording: kept. The leidinggevende's question still asks for the choice.",
+    "6 \"gebruik daarbij de tabel\" (sportabonnement and werktelefoon C2): sufficient, because \"Bekijk de tabel. Vergelijk de twee abonnementen\" asks for a comparison of the table rows."
+  ],
+  "diversity": "No new concepts. The batch only aligns criteria, starters and one prompt.",
+  "set_assembly": "Membership unchanged (b1-speaking-03, -04, -09, -10).",
+  "media_notes": [
+    "New narrator prompt audio is needed for exactly 1 clip: B1:speaking:batch031-werktelefoon:1#prompt.",
+    "No cue clips: none of the 16 tasks has a cue.",
+    "The prompts of trein-gemist, eerste-schooldag, machinestoring and portemonnee-tram are byte-identical to the published text, so their prompt clips stay.",
+    "No pictures: no image brief or alt changed."
+  ],
+  "coordinator_actions": [
+    "Adopt with npm run batch:adopt 068. The proposed file is identical to the author file, and there is no proposed starters file.",
+    "Generate the werktelefoon #prompt clip with the transcription round trip, then run npm run content:integrate so that the eerste-schooldag and machinestoring starters merge, then run npm run media:prune."
+  ],
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "The werktelefoon prompt changed. New prompt audio still needs generation from the adopted text, with a transcription round trip; none was generated in this review.",
+    "No feedback calls were made, so judge behaviour on the loosened feeling criteria and the new werktelefoon prompt was not measured.",
+    "content/exemplars/ does not exist. Level verdicts compare items with sister middellang items in the bank and do not calibrate difficulty.",
+    "Timing estimates assume 1.5-2 words per second for a B1 speaker. They are not measured."
+  ]
+}

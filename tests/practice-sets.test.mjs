@@ -12,6 +12,10 @@ import {
   matchesSet,
   savedSetSession,
   keepSetSessions,
+  skipQuestion,
+  skipOpen,
+  previousOpen,
+  retrySession,
 } from '../app/domain/study.ts';
 import { routePath, readRoute, sessionRoute } from '../app/domain/routes.ts';
 const catalogue = JSON.parse(
@@ -93,4 +97,63 @@ test('switching subjects preserves each unfinished set independently', () => {
   assert.equal(savedSetSession(state, reading).answers[answer.key], 'A');
   assert.equal(savedSetSession(state, writing).index, 1);
   assert.equal(savedSetSession(state, { ...reading, ids: reading.ids.slice(1) }), null);
+});
+test('a skipped question scores as unanswered, survives a reload and returns in the retry', () => {
+  const set = sets.find((s) => s.part === 'reading' && s.level === 'A2');
+  let state = { ...defaults(), active: make(set) };
+  const questions = flatten(state.active, catalogue);
+  const [first, second] = questions;
+  // A chosen but unchecked option is dropped when the question is skipped.
+  state.active.answers[first.key] = first.q.answer;
+  state = skipQuestion(state, catalogue, 2000);
+  assert.equal(state.active.index, 1);
+  assert.equal(state.active.answers[first.key], undefined);
+  assert.deepEqual(state.active.skipped, [first.key]);
+  state.active.answers[second.key] = second.q.answer;
+  state.active.checked[second.key] = true;
+  assert.equal(skipQuestion(state, catalogue), state, 'a checked question cannot be skipped');
+  state = restoreState(state);
+  assert.deepEqual(state.active.skipped, [first.key]);
+  for (let n = 2; n < questions.length; n++) {
+    state.active.index = n;
+    state = skipQuestion(state, catalogue, 3000 + n);
+  }
+  assert.ok(state.active.endedAt);
+  const record = state.records[first.item.id];
+  assert.equal(record.correct, 1);
+  assert.equal(record.responses[first.q.id], undefined);
+  assert.equal(record.responses[second.q.id].selected, second.q.answer);
+  const retry = retrySession(state.active, catalogue, 9000);
+  assert.ok(retry.questions.includes(first.key));
+  assert.ok(!retry.questions.includes(second.key));
+});
+test('skipping an open task moves the set on without a review and can end it', () => {
+  const set = sets.find((s) => s.part === 'speaking' && s.level === 'A2');
+  let state = { ...defaults(), active: make(set) };
+  state = skipOpen(state, set.ids[0], 2000);
+  assert.equal(state.active.index, 1);
+  assert.equal(state.records[set.ids[0]], undefined);
+  assert.equal(skipOpen(state, set.ids[0], 2100), state, 'only the current task can be skipped');
+  state = reviewOpen(state, set.ids[1], 'self', true, 2200);
+  for (let n = 2; n < set.ids.length; n++) state = skipOpen(state, set.ids[n], 3000 + n);
+  assert.ok(state.active.endedAt);
+  assert.deepEqual(state.active.skipped, [set.ids[0], ...set.ids.slice(2)]);
+  assert.equal(state.records[set.ids[1]].kind, 'self');
+});
+test('going back in an open set keeps drafts, and a reviewed task passed again is not skipped', () => {
+  const set = sets.find((s) => s.part === 'writing' && s.level === 'A2');
+  let state = { ...defaults(), active: make(set) };
+  assert.equal(previousOpen(state, set.ids[0]), state, 'the first task has nothing before it');
+  state = skipOpen(state, set.ids[0], 2000);
+  state.drafts[set.ids[1]] = 'Mijn concept.';
+  state = previousOpen(state, set.ids[1]);
+  assert.equal(state.active.index, 0);
+  assert.equal(state.drafts[set.ids[1]], 'Mijn concept.');
+  // Reviewing the skipped task after all takes it off the skipped list.
+  state = reviewOpen(state, set.ids[0], 'self', true, 3000);
+  assert.deepEqual(state.active.skipped, []);
+  state = previousOpen(state, set.ids[1]);
+  state = skipOpen(state, set.ids[0], 4000);
+  assert.equal(state.active.index, 1);
+  assert.deepEqual(state.active.skipped, [], 'passing a reviewed task again is not a skip');
 });

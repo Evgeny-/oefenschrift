@@ -228,6 +228,10 @@ try {
     `!document.body.innerText.includes('Upload audio')&&!document.querySelector('input[type="file"]')`,
     'Speaking removes the upload control and file input',
   );
+  await check(
+    `!document.querySelector('.task-brief .requirements')&&!!document.querySelector('.task-brief .sentence-starters')`,
+    'A picture speaking task hides its criteria until review and keeps the starters on request',
+  );
   await click('.type-toggle');
   await check(`!document.querySelector('#open-answer')`, 'A revealed text form can be hidden');
   await click('.type-toggle');
@@ -584,6 +588,35 @@ try {
   await check(
     `document.querySelector('.home [data-check]')&&!document.querySelector('[data-action="level-check"]')&&document.querySelector('.home-hero .primary')`,
     'The start page lists the check result and keeps one primary action',
+  );
+  // A speaking set: the spoken cue is the full player and learns its length even when the clip
+  // loaded before hydration; the instruction keeps a small read-aloud button. Tasks can be
+  // skipped and revisited, and the result says which were skipped.
+  await navigate('/sets/a2-speaking-01');
+  await wait(
+    `!!document.querySelector('.cue-player .audio-seek')&&!document.querySelector('.cue-player .audio-seek').disabled`,
+  );
+  await check(
+    `/\\d:\\d\\d \\/ \\d:\\d\\d/.test(document.querySelector('.cue-player .audio-time').textContent)&&!!document.querySelector('.task-brief .passage .play-button-small')&&!document.querySelector('[data-action="previous"]')`,
+    'A spoken cue gets the full player with its length; the instruction keeps a small read-aloud button',
+  );
+  const firstTask = await evaluate(`document.querySelector('h1').textContent`);
+  await click('[data-action="skip"]');
+  await wait(`document.querySelector('h1').textContent!==${JSON.stringify(firstTask)}`);
+  await click('[data-action="previous"]');
+  await wait(`document.querySelector('h1').textContent===${JSON.stringify(firstTask)}`);
+  await check(
+    `document.querySelector('[data-action="skip"]').textContent==='Skip'&&!document.querySelector('[data-action="previous"]')`,
+    'An open-task set goes back to the previous task',
+  );
+  for (let n = 0; n < 4; n++) {
+    const title = await evaluate(`document.querySelector('h1').textContent`);
+    await click('[data-action="skip"]');
+    await wait(`document.querySelector('h1').textContent!==${JSON.stringify(title)}`);
+  }
+  await check(
+    `document.querySelector('.result-total strong').textContent.replace(/\\s/g,'')==='0/4'&&[...document.querySelectorAll('.exercise-status')].filter((e)=>e.textContent==='Skipped').length===4`,
+    'Skipping every task ends the set with each one listed as skipped',
   );
   await navigate('/a2/progress');
   await check(

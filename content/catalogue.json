@@ -789,30 +789,30 @@
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-schrijven",
-    "prompt": "Uw bibliotheekpas is weg. Bij de balie krijgt u een formulier voor een nieuwe pas. Vul bij naam en e-mailadres verzonnen gegevens in. Beantwoord elke open vraag met één hele zin. Schrijf wat er met uw pas is gebeurd. Vraag om een nieuwe pas. Schrijf wanneer u de nieuwe pas kunt ophalen. Bedenk zelf een dag en tijd.",
+    "prompt": "U hebt een nieuwe bibliotheekpas nodig. Bij de balie krijgt u een formulier. Vul bij naam en e-mailadres verzonnen gegevens in. Beantwoord elke open vraag met één hele zin. Schrijf wat er met uw oude pas is gebeurd. Bedenk dit zelf. Vraag hoeveel een nieuwe pas kost. Schrijf wanneer u de nieuwe pas kunt ophalen. Bedenk zelf een dag en tijd.",
     "criteria": [
       [
-        "Schrijf wat er met uw bibliotheekpas is gebeurd.",
-        "Say what happened to your library card."
+        "Schrijf wat er met uw oude bibliotheekpas is gebeurd. Bedenk dit zelf.",
+        "Say what happened to your old library card. Make this up yourself."
       ],
       [
-        "Vraag om een nieuwe bibliotheekpas.",
-        "Ask for a new library card."
+        "Vraag hoeveel een nieuwe pas kost.",
+        "Ask how much a new card costs."
       ],
       [
         "Schrijf op welke dag en hoe laat u de pas kunt ophalen.",
         "Say on which day and at what time you can collect the card."
       ]
     ],
-    "sample": "Ik ben mijn pas van de bibliotheek verloren. Mag ik een nieuwe pas krijg?",
+    "sample": "Ik ben mijn pas van de bibliotheek verloren. Hoeveel kost een nieuw pas?",
     "quotes": [
       "Ik ben mijn pas van de bibliotheek verloren.",
-      "Mag ik een nieuwe pas krijg?",
+      "Hoeveel kost een nieuw pas?",
       null
     ],
-    "model": "Ik ben mijn pas van de bibliotheek verloren. Kunt u een nieuwe bibliotheekpas voor mij maken? Ik kan de pas woensdag om twee uur ophalen.",
+    "model": "Ik ben mijn pas van de bibliotheek verloren. Hoeveel kost een nieuwe pas? Ik kan de pas woensdag om twee uur ophalen.",
     "grammarTarget": "hoofdzin",
-    "adequacyNote": "De tekst moet de gevraagde informatie duidelijk geven. De drie open antwoorden melden verlies, vragen een vervangende pas en noemen een ophaalmoment.",
+    "adequacyNote": "De tekst moet de gevraagde informatie duidelijk geven. De drie open antwoorden vertellen wat er met de oude pas is gebeurd, vragen wat een nieuwe pas kost en noemen een ophaalmoment.",
     "formFields": [
       {
         "label": "Naam (verzonnen)",
@@ -823,11 +823,11 @@
         "kind": "short"
       },
       {
-        "label": "Wat is er met uw pas gebeurd?",
+        "label": "Wat is er met uw oude pas gebeurd?",
         "kind": "open"
       },
       {
-        "label": "Wat vraagt u aan de bibliotheek?",
+        "label": "Hebt u een vraag voor de bibliotheek?",
         "kind": "open"
       },
       {
@@ -835,7 +835,7 @@
         "kind": "open"
       }
     ],
-    "revision": "c1:1c8efa96a94fcf22"
+    "revision": "c1:e8f8935ce9bbb371"
   },
   {
     "id": "A2:speaking:buurvrouw:1",
@@ -850,7 +850,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "U kunt morgen niet bij uw buurvrouw op bezoek. Uw buurvrouw is mevrouw Bakker. Zij stelt u een vraag. U hoort de vraag. Geef antwoord. Bedenk zelf een reden en een andere dag. Geef ook een tijd voor uw bezoek.",
+    "prompt": "U kunt morgen niet op bezoek bij uw buurvrouw, mevrouw Bakker. Zij stelt u een vraag. U hoort de vraag. Geef antwoord. Geef ook een tijd voor uw bezoek.",
     "criteria": [
       [
         "Vertel waarom u morgen niet kunt komen.",
@@ -886,9 +886,9 @@
       "role": "f-older",
       "text": "Waarom kun je morgen niet komen, en op welke andere dag kun je wel?"
     },
-    "promptAudio": "audio/9b5edca640079631.mp3",
+    "promptAudio": "audio/7acc78ee0cbb6640.mp3",
     "cueAudio": "audio/78592a8f4169f839.mp3",
-    "revision": "c1:9bc0dcf825991351"
+    "revision": "c1:c64366ce3456e51a"
   },
   {
     "id": "A2:speaking:te-laat:1",
@@ -903,7 +903,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "U komt vandaag later op uw werk. Uw collega Sabrina stelt u een vraag. U hoort de vraag. Geef antwoord. Bedenk zelf de reden en de tijd. Vertel ook hoe u nu naar uw werk gaat.",
+    "prompt": "U komt vandaag later op uw werk. Uw collega Sabrina stelt u een vraag. U hoort de vraag. Geef antwoord. Vertel ook hoe u nu naar uw werk gaat.",
     "criteria": [
       [
         "Vertel waarom u later komt.",
@@ -939,9 +939,9 @@
       "role": "f-adult",
       "text": "Waarom kom je vandaag later, en hoe laat ben je hier?"
     },
-    "promptAudio": "audio/c3394324bfc3775f.mp3",
+    "promptAudio": "audio/3f115e30401b4f3a.mp3",
     "cueAudio": "audio/f2a4435bcb4e6903.mp3",
-    "revision": "c1:dbba6d82911ab977"
+    "revision": "c1:e5df75bc3310cbe1"
   },
   {
     "id": "A2:reading:batch001-pakketpunt:1",
@@ -1293,15 +1293,15 @@
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-schrijven",
-    "prompt": "Een lamp aan uw plafond is kapot. U wilt de lamp vervangen. Uw buurman Tom heeft een ladder. Schrijf hem een e-mail van vier tot acht zinnen. Vraag of u zijn ladder mag lenen. Leg uit waarvoor u de ladder nodig hebt. Schrijf wanneer u de ladder wilt ophalen en wanneer u hem terugbrengt. Bedenk zelf twee tijden.",
+    "prompt": "U wilt thuis iets doen en u hebt daarvoor een ladder nodig. Uw buurman Tom heeft een ladder. Schrijf hem een e-mail van vier tot acht zinnen. Vraag of u zijn ladder mag lenen. Leg uit waarvoor u de ladder nodig hebt. Bedenk zelf wat u wilt doen. Schrijf wanneer u de ladder wilt ophalen en wanneer u hem terugbrengt. Bedenk zelf twee tijden.",
     "criteria": [
       [
         "Vraag of u de ladder mag lenen.",
         "Ask whether you may borrow the ladder."
       ],
       [
-        "Vertel waarvoor u de ladder nodig hebt.",
-        "Say what you need the ladder for."
+        "Vertel waarvoor u de ladder nodig hebt. Bedenk zelf wat u wilt doen.",
+        "Say what you need the ladder for. Decide yourself what you want to do."
       ],
       [
         "Schrijf wanneer u de ladder wilt ophalen. Bedenk zelf een tijd.",
@@ -1329,7 +1329,7 @@
       "salutation": "Hoi Tom,",
       "closing": "Groetjes,"
     },
-    "revision": "c1:c8bc6291a06f3d04"
+    "revision": "c1:2e61e9098e59f91f"
   },
   {
     "id": "A2:writing:batch001-cursus:1",
@@ -1388,25 +1388,25 @@
     "exam": "duo-a2",
     "taskType": "picture-describe",
     "domain": "gezondheid",
-    "title": "Bij de apotheek",
+    "title": "Roos heeft medicijnen nodig",
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Roos is bij de apotheek. Vertel waar Roos is. Noem twee dingen die de mensen doen. Vertel ook wat u van hulp bij de apotheek vindt. Gebruik het plaatje.",
+    "prompt": "Roos heeft medicijnen nodig. Vertel waar Roos is. Noem twee dingen die de mensen doen. Vindt u het zelf makkelijk om medicijnen te halen? Vertel ook waarom. Gebruik het plaatje.",
     "criteria": [
       [
         "Zeg waar Roos is.",
         "Say where Roos is."
       ],
       [
-        "Noem twee handelingen op het plaatje.",
-        "Name two actions in the picture."
+        "Noem twee dingen die de mensen doen.",
+        "Name two things the people are doing."
       ],
       [
-        "Geef uw mening over hulp bij de apotheek.",
-        "Give your opinion of help at the pharmacy."
+        "Zeg of u medicijnen halen makkelijk vindt, en waarom.",
+        "Say whether you find collecting medicine easy, and why."
       ]
     ],
     "sample": "Roos staat in een apotheek. Ze geeft een papier aan de medewerker. De medewerker pak een doosje.",
@@ -1415,18 +1415,18 @@
       "Ze geeft een papier aan de medewerker. De medewerker pak een doosje.",
       null
     ],
-    "model": "Ik zie Roos aan de balie van een apotheek. Ze geeft een papier aan de medewerker. Hij pakt een doosje. Ik vind hulp daar fijn, omdat ik soms een vraag over mijn medicijnen heb.",
+    "model": "Ik zie Roos aan de balie van een apotheek. Ze geeft een papier aan de medewerker. Hij pakt een doosje. Ik vind medicijnen halen makkelijk, want de apotheek is dicht bij mijn huis.",
     "images": [
       {
         "brief": "Roos (young woman, dark hair in a bun, yellow scarf) stands at a pharmacy counter, extending a blank paper towards Modibo (young man, short black hair, light shirt). He is reaching for a single plain medicine box on the counter. Keep both actions clearly visible No text.",
-        "alt": "Roos geeft een papier aan een medewerker bij een balie. Hij pakt een doosje.",
+        "alt": "Roos staat bij de balie van een apotheek. Ze geeft een papier aan een medewerker. Hij pakt een doosje.",
         "kind": "drawing",
         "size": "single",
         "file": "images/275fdacae480526d.webp"
       }
     ],
-    "promptAudio": "audio/11003ae5037c8853.mp3",
-    "revision": "c1:a043680fb23696a3"
+    "promptAudio": "audio/60b2c031076760c7.mp3",
+    "revision": "c1:e3fc285cf2d6256f"
   },
   {
     "id": "A2:speaking:batch001-koelkast:1",
@@ -1435,13 +1435,13 @@
     "exam": "duo-a2",
     "taskType": "picture-choose",
     "domain": "winkels-diensten",
-    "title": "Een andere koelkast kiezen",
+    "title": "Een nieuwe koelkast kiezen",
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Uw koelkast is kapot. U koopt een andere koelkast. Kiest u een kleine of een grote koelkast? Vertel waarom. Zeg ook iets over de andere koelkast. Kies een van de plaatjes.",
+    "prompt": "Uw koelkast is kapot. U koopt een nieuwe. Kiest u een kleine of een grote koelkast? Vertel waarom. Zeg ook iets over het andere plaatje. Kies een van de plaatjes.",
     "criteria": [
       [
         "Kies de kleine of de grote koelkast.",
@@ -1452,8 +1452,8 @@
         "Give a reason for your choice."
       ],
       [
-        "Zeg iets over de andere koelkast.",
-        "Say something about the other fridge."
+        "Zeg iets over het andere plaatje.",
+        "Say something about the other picture."
       ]
     ],
     "sample": "Ik kies de kleine koelkast. Hij past goed in mijn klein keuken.",
@@ -1479,8 +1479,8 @@
         "file": "images/5e92c91c18ecf16a.webp"
       }
     ],
-    "promptAudio": "audio/c0cca8c50d3426d7.mp3",
-    "revision": "c1:2b851d78fca8beae"
+    "promptAudio": "audio/8a73aef01520432b.mp3",
+    "revision": "c1:f383dfba820e19ad"
   },
   {
     "id": "A2:reading:batch002-wasserette:1",
@@ -4188,11 +4188,11 @@
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-schrijven",
-    "prompt": "U vindt een sleutel in de hal van uw flat. De beheerder verzamelt berichten over gevonden spullen voor de buren. Vul het formulier in. Gebruik een verzonnen naam en e-mailadres. Beantwoord elke open vraag met één hele zin. Schrijf waar u de sleutel hebt gevonden. Beschrijf hoe de sleutel eruitziet. Bedenk zelf een kenmerk. Schrijf hoe de eigenaar contact met u kan opnemen. Gebruik geen echte contactgegevens.",
+    "prompt": "U vindt een sleutel in uw flatgebouw. De beheerder heeft een formulier voor gevonden spullen. Vul het formulier in. Gebruik een verzonnen naam en e-mailadres. Beantwoord elke open vraag met één hele zin. Schrijf waar u de sleutel hebt gevonden. Bedenk zelf een plek. Beschrijf hoe de sleutel eruitziet. Bedenk zelf een kenmerk. Schrijf hoe de eigenaar contact met u kan opnemen. Gebruik geen echte contactgegevens.",
     "criteria": [
       [
-        "Zeg waar u de sleutel hebt gevonden.",
-        "Say where you found the key."
+        "Zeg waar u de sleutel hebt gevonden. Bedenk zelf een plek.",
+        "Say where you found the key. Choose a place yourself."
       ],
       [
         "Beschrijf een kenmerk van de sleutel.",
@@ -4234,7 +4234,7 @@
         "kind": "open"
       }
     ],
-    "revision": "c1:c5ece7d73524bc2d"
+    "revision": "c1:a234f3e6a442a2d2"
   },
   {
     "id": "A2:writing:batch002-schoenen:1",
@@ -4248,11 +4248,11 @@
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-schrijven",
-    "prompt": "U hebt gisteren schoenen gekocht. Thuis merkt u dat ze te klein zijn. Schrijf de winkel een e-mail van vier tot acht zinnen. Zeg wanneer u de schoenen hebt gekocht. Leg uit wat het probleem is. Vraag of u de schoenen kunt ruilen voor een grotere maat. Schrijf welke maat u wilt. Bedenk zelf een maat.",
+    "prompt": "U hebt deze week schoenen gekocht. Thuis merkt u dat ze niet goed passen. Schrijf de winkel een e-mail van vier tot acht zinnen. Zeg wanneer u de schoenen hebt gekocht. Bedenk zelf een dag. Leg uit wat het probleem is. Vraag of u de schoenen kunt ruilen voor een grotere maat. Schrijf welke maat u wilt. Bedenk zelf een maat.",
     "criteria": [
       [
-        "Zeg wanneer u de schoenen hebt gekocht.",
-        "Say when you bought the shoes."
+        "Zeg wanneer u de schoenen hebt gekocht. Bedenk zelf een dag.",
+        "Say when you bought the shoes. Choose a day yourself."
       ],
       [
         "Leg uit wat het probleem met de schoenen is.",
@@ -4284,7 +4284,7 @@
       "salutation": "Beste medewerker,",
       "closing": "Met vriendelijke groet,"
     },
-    "revision": "c1:bffd717038bac0df"
+    "revision": "c1:b50702cb6ee8880c"
   },
   {
     "id": "A2:writing:batch002-plant:1",
@@ -4613,7 +4613,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Karim neemt een pakket voor zijn buurvrouw aan. Kijk naar de plaatjes. Vertel wat Karim doet. Vertel iets over alle plaatjes.",
+    "prompt": "De buurvrouw van Karim is niet thuis. Er komt een pakket voor haar. Kijk naar de plaatjes. Vertel wat Karim doet. Vertel iets over alle plaatjes.",
     "criteria": [
       [
         "Vertel wat Karim op het eerste plaatje doet.",
@@ -4638,28 +4638,28 @@
     "images": [
       {
         "brief": "Karim (man in his thirties, short black hair and beard, grey jacket) at his home doorway accepts a plain cardboard parcel from a delivery worker (young woman, short brown hair, mustard jacket). Show the parcel passing into Karim's hands. Only the doorway and essential figures. No text, captions or logos. The open front door is mustard yellow with one narrow vertical window and sits on the right of the frame, as in the companion picture. View the doorway from inside the house. Karim stands just inside his own doorway, and the delivery worker stands outside. The door and viewpoint match the later panels.",
-        "alt": "Karim bij zijn voordeur op het eerste plaatje.",
+        "alt": "Karim staat in zijn voordeur. Een bezorger geeft hem een pakket.",
         "kind": "drawing",
         "size": "single",
         "file": "images/a438d8f5a8f63da6.webp"
       },
       {
         "brief": "Karim (man in his thirties, short black hair and beard, grey jacket) in the same home doorway setting places the same plain cardboard parcel on a small table just inside the open door. His hands still touch the box. Only the doorway, table and figure. No text, captions or logos.",
-        "alt": "Karim thuis op het tweede plaatje.",
+        "alt": "Karim zet het pakket binnen op een tafeltje bij de open voordeur.",
         "kind": "drawing",
         "size": "single",
         "file": "images/f2a5e6b978ef2d97.webp"
       },
       {
         "brief": "Karim (man in his thirties, short black hair and beard, grey jacket) at the same home doorway passes the same plain cardboard parcel to his neighbour Sabrina (woman in her thirties, long dark hair, green jumper). Only the doorway and essential figures. No text, captions or logos. The open front door is mustard yellow with one narrow vertical window and sits on the right of the frame, as in the companion picture. View the doorway from inside the house. Karim stands just inside his own doorway and extends the parcel outward. Sabrina stands outside and receives it. Do not place Sabrina inside the house.",
-        "alt": "Karim met Sabrina op het derde plaatje.",
+        "alt": "Karim geeft het pakket bij de voordeur aan zijn buurvrouw.",
         "kind": "drawing",
         "size": "single",
         "file": "images/45695498ade39876.webp"
       }
     ],
-    "promptAudio": "audio/c9ce30aea8207523.mp3",
-    "revision": "c1:3d80c5b06d1fdeed"
+    "promptAudio": "audio/3813a65962f22208.mp3",
+    "revision": "c1:f66d17ee7c11cc19"
   },
   {
     "id": "B1:speaking:batch002-fietsroute:1",
@@ -4734,7 +4734,7 @@
     "targetLevelValidated": false,
     "rubric": "b1-spreken",
     "speakingSeconds": 20,
-    "prompt": "U hebt gisteren door ziekte een cursusavond gemist; u hoort eerst uw medecursist. Leg uit waarom u afwezig was, vraag naar de lesstof en stel een dag en tijd voor om samen de aantekeningen te bekijken.",
+    "prompt": "U hebt gisteren een cursusavond gemist. U hoort eerst uw medecursist. Leg uit waarom u er niet was, vraag naar de lesstof en stel een dag en tijd voor om samen de aantekeningen te bekijken.",
     "criteria": [
       [
         "Leg uit waarom u de cursusavond hebt gemist.",
@@ -4761,9 +4761,9 @@
       "role": "m-young",
       "text": "Ik heb je gisteren niet bij de cursus gezien. Is alles goed? Als je iets wilt weten over de les, help ik je graag."
     },
-    "promptAudio": "audio/0cbae811f1795204.mp3",
+    "promptAudio": "audio/3a989b13354d9253.mp3",
     "cueAudio": "audio/1f546a3fd9fb47b3.mp3",
-    "revision": "c1:4cdd38139c495574"
+    "revision": "c1:1c48aed048817810"
   },
   {
     "id": "B1:speaking:batch002-teamtaak:1",
@@ -4777,11 +4777,11 @@
     "targetLevelValidated": false,
     "rubric": "b1-spreken",
     "speakingSeconds": 20,
-    "prompt": "U organiseert een informatieavond en hebt de zaal geboekt en de uitnodigingen verstuurd; u hoort eerst uw collega. Noem het afgeronde werk, vraag uw collega één andere taak over te nemen en stel een dag voor om de voortgang te bespreken.",
+    "prompt": "U organiseert een informatieavond en hebt al twee dingen geregeld. U hoort eerst uw collega. Vertel wat u al hebt geregeld. Vraag uw collega om een taak over te nemen en zeg welke taak dat is. Stel ook een dag voor om de voortgang te bespreken.",
     "criteria": [
       [
-        "Noem de twee taken die u al hebt afgerond.",
-        "Name the two tasks you have already completed."
+        "Noem twee dingen die u al hebt geregeld; bedenk die zelf.",
+        "Name two things you have already arranged; invent them yourself."
       ],
       [
         "Vraag uw collega één concrete andere taak over te nemen; bedenk die zelf.",
@@ -4804,9 +4804,9 @@
       "role": "f-adult",
       "text": "Je bent druk met de informatieavond. Wat heb je al geregeld en waarmee kan ik je helpen?"
     },
-    "promptAudio": "audio/17589cdbd886267e.mp3",
+    "promptAudio": "audio/ba502803b0c3317c.mp3",
     "cueAudio": "audio/a2eaa2b5b69a6238.mp3",
-    "revision": "c1:fbedf8998a030feb"
+    "revision": "c1:4bc99a723655a3e2"
   },
   {
     "id": "A2:knm:batch003-inschrijven:1",
@@ -5828,7 +5828,7 @@
     "rubric": "a2-schrijven",
     "grammarTarget": "vrij",
     "adequacyNote": "De werkgever kan augustus en beide aantallen vergelijken, begrijpt het controleverzoek en krijgt een moment voor overleg.",
-    "prompt": "U bekijkt uw loonstrook van augustus. Dat is het overzicht van uw loon en uw uren. U werkte die maand 80 uur, maar het overzicht vermeldt 72 uur. Schrijf een e-mail aan uw werkgever. Noem de maand en beide aantallen uren. Vraag om controle. Vertel ook wanneer u hierover kunt praten. Bedenk zelf een dag en een tijd. Schrijf in hele zinnen.",
+    "prompt": "U bekijkt uw loonstrook van augustus. Dat is het overzicht van uw loon en uw uren. U werkte die maand 80 uur, maar op de loonstrook staat 72 uur. Schrijf een e-mail aan uw werkgever. Schrijf hoeveel uur u in augustus hebt gewerkt. Schrijf ook hoeveel uur er op de loonstrook staat. Vraag of uw werkgever de uren wil controleren. Vertel ook wanneer u hierover kunt praten. Bedenk zelf een dag en een tijd. Schrijf in hele zinnen.",
     "scaffold": {
       "to": "werkgever@example.invalid",
       "from": "oefenpersoon@example.invalid",
@@ -5862,7 +5862,7 @@
       null
     ],
     "model": "Volgens mijn agenda heb ik in augustus 80 uur gewerkt. Op de loonstrook zie ik maar 72 uur. Dat is acht uur te weinig. Kunt u de uren voor mij nakijken? Ik kan woensdag om drie uur met u praten. Dan neem ik mijn agenda mee. Daarin heb ik alle dagen en tijden geschreven.",
-    "revision": "c1:c97f6cea01668529"
+    "revision": "c1:a416e4d50ccabf30"
   },
   {
     "id": "B1:writing:batch003-verkeerssituatie:1",
@@ -6158,8 +6158,8 @@
         "Give a reason for your choice."
       ],
       [
-        "Vertel ook iets over de andere manier op het andere plaatje.",
-        "Also say something about the other method in the other picture."
+        "Zeg ook iets over het andere plaatje.",
+        "Say something about the other picture too."
       ]
     ],
     "sample": "Ik koopt liever een kaartje bij de medewerker. Dan kan ik om hulp vragen.",
@@ -6186,7 +6186,7 @@
       }
     ],
     "promptAudio": "audio/5dcd89de20598962.mp3",
-    "revision": "c1:5f6388524b836b74"
+    "revision": "c1:74b59307d9e403e6"
   },
   {
     "id": "A2:speaking:batch003-jas:1",
@@ -6201,11 +6201,11 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Roos heeft na een feest de verkeerde jas meegenomen. Nu is zij thuis. Vertel waar Roos is. Noem twee dingen die u op het plaatje ziet. Wat vindt u van deze situatie? Gebruik het plaatje.",
+    "prompt": "Roos heeft na een feest de verkeerde jas meegenomen. Vertel wat Roos doet. Noem twee dingen die u op het plaatje ziet. Wat vindt u van deze situatie? Gebruik het plaatje.",
     "criteria": [
       [
-        "Zeg waar Roos is.",
-        "Say where Roos is."
+        "Zeg wat Roos doet.",
+        "Say what Roos is doing."
       ],
       [
         "Noem twee dingen die u op het plaatje ziet.",
@@ -6216,24 +6216,24 @@
         "Say what you think of this situation."
       ]
     ],
-    "sample": "Roos is thuis. Ze heeft een blauw jas vast en er ligt een telefoon op tafel.",
+    "sample": "Roos houdt een jas vast. Het is een blauw jas en er ligt een telefoon op tafel.",
     "quotes": [
-      "Roos is thuis.",
-      "Ze heeft een blauw jas vast en er ligt een telefoon op tafel.",
+      "Roos houdt een jas vast.",
+      "Het is een blauw jas en er ligt een telefoon op tafel.",
       null
     ],
-    "model": "Roos staat thuis bij de tafel. Ze houdt een blauwe jas vast. Op de tafel ligt een telefoon. Ik vind dit vervelend. Ze moet nu haar eigen jas gaan zoeken.",
+    "model": "Roos houdt een blauwe jas vast. Ze kijkt niet blij. Op de tafel ligt een telefoon. Ik vind dit vervelend. Ze moet nu haar eigen jas gaan zoeken.",
     "images": [
       {
         "brief": "Roos (young woman, dark hair in a bun, yellow scarf) stands inside her home holding a plain dusty blue coat in both hands with a puzzled expression. A phone with a blank screen lies on a small table beside her. Only Roos, coat and table with phone. No text, captions or logos.",
-        "alt": "Roos met een jas bij een tafel.",
+        "alt": "Roos houdt een blauwe jas vast en kijkt bezorgd. Naast haar ligt een telefoon op een tafeltje.",
         "kind": "drawing",
         "size": "single",
         "file": "images/a789653285ebaee5.webp"
       }
     ],
-    "promptAudio": "audio/ab004e3d4f733e82.mp3",
-    "revision": "c1:ecea1f68cbeaa37d"
+    "promptAudio": "audio/74378a6c510f719c.mp3",
+    "revision": "c1:5a7f017c95c3e306"
   },
   {
     "id": "A2:speaking:batch003-monteur:1",
@@ -6248,7 +6248,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "U wacht thuis op een monteur. Hij zou tussen negen en elf uur komen. Het is nu half twaalf. U belt het bedrijf van de monteur. Medewerker Sabrina neemt op. Zij stelt u een vraag. U hoort de vraag. Geef antwoord. Zeg ook hoe laat het nu is.",
+    "prompt": "U wacht thuis op een monteur. Hij is te laat. U belt het bedrijf van de monteur. Sabrina van de klantenservice neemt op. Zij stelt u een vraag. U hoort de vraag. Geef antwoord. Vraag ook wanneer de monteur nu komt.",
     "criteria": [
       [
         "Zeg wanneer de monteur zou komen.",
@@ -6259,8 +6259,8 @@
         "Say that the technician has not arrived yet."
       ],
       [
-        "Zeg hoe laat het nu is.",
-        "Say what time it is now."
+        "Vraag wanneer de monteur nu komt.",
+        "Ask when the technician will come now."
       ]
     ],
     "sample": "De afspraak is tussen negen en elf uur. De monteur zijn er nog niet.",
@@ -6269,7 +6269,7 @@
       "De monteur zijn er nog niet.",
       null
     ],
-    "model": "Ik heb een afspraak tussen negen en elf uur. De monteur is nog steeds niet hier. Nu is het half twaalf. Ik zit al de hele ochtend thuis te wachten.",
+    "model": "Ik had een afspraak tussen negen en elf uur. Het is nu half twaalf en de monteur is er nog niet. Ik zit al de hele ochtend thuis te wachten. Wanneer kan hij nu komen?",
     "images": [
       {
         "brief": "Sabrina (woman in her thirties, long dark hair, green jumper) works at the customer service desk of a repair company. She sits at a small desk with a phone held to her ear, facing the viewer. Only Sabrina, phone and desk. No text, captions or logos.",
@@ -6285,9 +6285,9 @@
       "text": "Voor welke tijd had u een afspraak en is de monteur al bij u?"
     },
     "notes": "Original practice using a spoken question and a still illustration in place of video.",
-    "promptAudio": "audio/bb5e0cf5ff1adb26.mp3",
+    "promptAudio": "audio/9db0f5180072589d.mp3",
     "cueAudio": "audio/3052bc6a98bb0853.mp3",
-    "revision": "c1:baeab6265ea032f2"
+    "revision": "c1:ac94ee05163af151"
   },
   {
     "id": "A2:speaking:batch003-speeltuin:1",
@@ -6296,13 +6296,13 @@
     "exam": "duo-a2",
     "taskType": "picture-describe",
     "domain": "wonen-buurt",
-    "title": "Een kapot hek bij de speeltuin",
+    "title": "Fatima maakt een wandeling",
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Fatima staat bij een speeltuin. Vertel waar Fatima is. Noem twee dingen die u op het plaatje ziet. Wat vindt u van deze situatie? Gebruik het plaatje.",
+    "prompt": "Fatima maakt een wandeling. Vertel waar Fatima is. Noem twee dingen die u op het plaatje ziet. Wat vindt u van deze situatie? Gebruik het plaatje.",
     "criteria": [
       [
         "Zeg waar Fatima is.",
@@ -6327,14 +6327,14 @@
     "images": [
       {
         "brief": "Fatima (woman in her forties, headscarf, blue coat) stands just outside a playground entrance beside a short fence with one clearly broken section hanging down and a wide gap. A small slide is visible immediately inside. A simple edge of pavement outside indicates the street side. No children, vehicles or injuries. Only essential scene objects. No text, captions or logos.",
-        "alt": "Fatima bij de ingang van een speeltuin.",
+        "alt": "Fatima staat op de stoep bij de ingang van een speeltuin. Een stuk van het hek is kapot. In de speeltuin staat een glijbaan.",
         "kind": "drawing",
         "size": "single",
         "file": "images/22ab7c9ac35aab9b.webp"
       }
     ],
-    "promptAudio": "audio/9e1360903f74fbc0.mp3",
-    "revision": "c1:95deaf9929fb661c"
+    "promptAudio": "audio/fbe9f17ea694a318.mp3",
+    "revision": "c1:e65c5a9c68aa0054"
   },
   {
     "id": "B1:speaking:batch003-werkdruk:1",
@@ -6348,11 +6348,11 @@
     "targetLevelValidated": false,
     "rubric": "b1-spreken",
     "speakingSeconds": 20,
-    "prompt": "U moet vrijdag een rapport en een planning inleveren, maar u hebt te weinig tijd; u hoort eerst uw leidinggevende. Noem beide taken, beschrijf één mogelijk gevolg van de tijdsdruk en vraag welke taak voorrang heeft.",
+    "prompt": "Voor vrijdag moet u twee taken afmaken, maar u hebt te weinig tijd. U hoort eerst uw leidinggevende. Zeg welke twee taken het zijn, beschrijf één mogelijk gevolg van de tijdsdruk en vraag welke taak voorrang heeft.",
     "criteria": [
       [
-        "Noem beide taken die vrijdag klaar moeten zijn.",
-        "Name both tasks that must be finished on Friday."
+        "Noem de twee taken die vrijdag klaar moeten zijn; bedenk die zelf.",
+        "Name the two tasks that must be finished on Friday; invent them yourself."
       ],
       [
         "Beschrijf één mogelijk gevolg van de tijdsdruk voor uw werk; bedenk dit zelf.",
@@ -6375,9 +6375,9 @@
       "role": "f-adult",
       "text": "Je zei dat het deze week te veel wordt. Wat moet er nog af en waar maak je je zorgen over?"
     },
-    "promptAudio": "audio/9bba04b27b85af88.mp3",
+    "promptAudio": "audio/20fe09175719d1d8.mp3",
     "cueAudio": "audio/7eaeac03a851dfe1.mp3",
-    "revision": "c1:cf4bd78f3f6affc6"
+    "revision": "c1:26c2c9ec8166f62f"
   },
   {
     "id": "B1:speaking:batch003-buurtvergadering:1",
@@ -6450,15 +6450,15 @@
     "rubric": "b1-spreken",
     "speakingSeconds": 30,
     "prepSeconds": 15,
-    "prompt": "Een nieuwe collega maakt fouten doordat iedereen andere uitleg geeft; bekijk de tabel. Geef één advies over de begeleider en één over het vastleggen van de werkwijze, en beschrijf hoe u later controleert of dit helpt.",
+    "prompt": "Een nieuwe collega maakt fouten, omdat iedereen het werk anders uitlegt. Uw leidinggevende vraagt u om advies. Bekijk de tabel. Geef één advies over wie de nieuwe collega begeleidt en één advies over het opschrijven van de werkwijze. Vertel ook hoe u later controleert of het helpt.",
     "criteria": [
       [
         "Geef één concreet advies over wie de nieuwe collega begeleidt.",
         "Give one specific recommendation about who supports the new colleague."
       ],
       [
-        "Geef één concreet advies over hoe de werkwijze wordt vastgelegd.",
-        "Give one specific recommendation about how the procedure is recorded."
+        "Geef één concreet advies over hoe de werkwijze wordt opgeschreven.",
+        "Give one specific recommendation about how the procedure is written down."
       ],
       [
         "Beschrijf hoe u later controleert of de begeleiding helpt.",
@@ -6493,8 +6493,8 @@
         ]
       ]
     },
-    "promptAudio": "audio/d64e24de232c01c3.mp3",
-    "revision": "c1:2a57b2cea5f0b3d1"
+    "promptAudio": "audio/156e2f196ad52040.mp3",
+    "revision": "c1:56642141ad90d551"
   },
   {
     "id": "B1:speaking:batch003-cursuslocatie:1",
@@ -6509,7 +6509,7 @@
     "rubric": "b1-spreken",
     "speakingSeconds": 30,
     "prepSeconds": 15,
-    "prompt": "Uw avondcursus is verhuisd en u moet na de les lang op de bus wachten; bekijk de tabel. Overtuig uw docent om lokaal B te gebruiken: stel de verhuizing voor en geef twee redenen, één over de terugreis en één over de ruimte voor de groep.",
+    "prompt": "Uw avondcursus is verhuisd naar lokaal A. Nu moet u na de les lang op de bus wachten. Bekijk de tabel. Overtuig uw docent om de cursus naar lokaal B te verplaatsen. Geef twee redenen: één over de terugreis en één over de ruimte voor de groep.",
     "criteria": [
       [
         "Stel voor om de cursus naar lokaal B te verplaatsen.",
@@ -6556,8 +6556,8 @@
         ]
       ]
     },
-    "promptAudio": "audio/a991c983e2db02be.mp3",
-    "revision": "c1:e20c2fd5e05a2975"
+    "promptAudio": "audio/a2cd2b5eabf63649.mp3",
+    "revision": "c1:9233c78db1148286"
   },
   {
     "id": "A2:listening:batch005-training:1",
@@ -8991,7 +8991,7 @@
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-schrijven",
-    "prompt": "U volgt een taalcursus op dinsdagavond. U hebt nieuw werk en u werkt nu elke avond. U wilt naar een groep overdag. U schrijft een e-mail aan uw docent, meneer Van Dijk. Schrijf de e-mail. Schrijf in hele zinnen.",
+    "prompt": "U volgt een taalcursus op dinsdagavond. U kunt niet meer 's avonds naar de les. U wilt naar een groep overdag. U schrijft een e-mail aan uw docent, meneer Van Dijk. Schrijf de e-mail. Schrijf in hele zinnen.",
     "scaffold": {
       "to": "r.vandijk@taalschoolwest.nl",
       "from": "kandidaat@mail.nl",
@@ -9005,8 +9005,8 @@
         "Say which group you are in now."
       ],
       [
-        "Schrijf waarom u niet meer 's avonds naar de les kunt.",
-        "Say why you can no longer come to the lesson in the evening."
+        "Schrijf waarom u niet meer 's avonds naar de les kunt. Bedenk zelf een reden.",
+        "Say why you can no longer come to the lesson in the evening. Think of a reason yourself."
       ],
       [
         "Schrijf naar welke groep u wilt. Bedenk zelf een dag en een tijd.",
@@ -9025,7 +9025,7 @@
       "Kan dat?"
     ],
     "model": "Ik zit nu in de groep op dinsdagavond. Sinds vorige week heb ik nieuw werk in een restaurant. Ik werk daar elke avond tot tien uur. Daarom kan ik niet meer 's avonds naar de les komen. Ik wil graag naar de groep op donderdagochtend om negen uur. Kan ik in die groep komen? Ik hoor graag van u.",
-    "revision": "c1:ffbc9f515f0ad5e5"
+    "revision": "c1:5c3ac355c1acfe6b"
   },
   {
     "id": "A2:writing:batch008-huur:1",
@@ -9038,7 +9038,7 @@
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-schrijven",
-    "prompt": "U huurt een woning van Woonstichting De Brug. U gaat verhuizen naar een andere stad. U wilt de huur opzeggen. U schrijft een e-mail aan de woonstichting. Schrijf de e-mail. Schrijf in hele zinnen.",
+    "prompt": "U huurt een woning van Woonstichting De Brug. U wilt de huur opzeggen. U schrijft een e-mail aan de woonstichting. Schrijf de e-mail. Schrijf in hele zinnen.",
     "scaffold": {
       "to": "info@woonstichtingdebrug.nl",
       "from": "kandidaat@mail.nl",
@@ -9052,8 +9052,8 @@
         "Say which home you rent. Invent an address."
       ],
       [
-        "Schrijf waarom u de huur opzegt.",
-        "Say why you are ending the rental."
+        "Schrijf waarom u de huur opzegt. Bedenk zelf een reden.",
+        "Say why you are ending the rental. Think of a reason yourself."
       ],
       [
         "Schrijf vanaf welke datum u de woning niet meer huurt. Bedenk zelf een datum.",
@@ -9072,7 +9072,7 @@
       null
     ],
     "model": "Ik huur de woning aan de Lindehof 18 in Zwolle. Ik ga verhuizen naar Utrecht, omdat ik daar een nieuwe baan heb. Daarom wil ik de huur opzeggen. Vanaf 1 december huur ik de woning niet meer. Wanneer moet ik de sleutels inleveren? Mijn telefoonnummer is 06 12 34 56 78. Ik hoor het graag van u.",
-    "revision": "c1:72212d2a527edf67"
+    "revision": "c1:257784280e8f73ec"
   },
   {
     "id": "A2:writing:batch008-bezorging:1",
@@ -9222,11 +9222,11 @@
     "exam": "duo-a2",
     "taskType": "email",
     "domain": "wonen-buurt",
-    "title": "Hulp bij een zware kast",
+    "title": "Hulp bij een nieuwe kast",
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-schrijven",
-    "prompt": "U hebt een nieuwe kast gekocht. De kast is zwaar en u woont op de derde verdieping. U kunt de kast niet alleen naar boven dragen. U schrijft een e-mail aan uw buurman Karim. Schrijf de e-mail. Schrijf in hele zinnen.",
+    "prompt": "U hebt een nieuwe kast gekocht. U hebt hulp nodig met de kast. U schrijft een e-mail aan uw buurman Karim. Schrijf de e-mail. Schrijf in hele zinnen.",
     "scaffold": {
       "to": "karim@mail.nl",
       "from": "kandidaat@mail.nl",
@@ -9236,8 +9236,8 @@
     },
     "criteria": [
       [
-        "Schrijf waarom u hulp nodig hebt.",
-        "Say why you need help."
+        "Schrijf waarom u hulp nodig hebt. Bedenk zelf een reden.",
+        "Say why you need help. Think of a reason yourself."
       ],
       [
         "Vraag of Karim u wil helpen.",
@@ -9255,7 +9255,7 @@
       null
     ],
     "model": "Ik heb een nieuwe kast gekocht. De kast is heel zwaar en ik woon op de derde verdieping. Alleen krijg ik de kast niet naar boven. Kun je mij helpen met dragen? Kan het zaterdag om tien uur? Het duurt ongeveer een half uur. Daarna drinken we samen koffie met wat lekkers. Alvast bedankt!",
-    "revision": "c1:5938d309ad4adab0"
+    "revision": "c1:0158dcec4692c719"
   },
   {
     "id": "A2:writing:batch008-oppassen:1",
@@ -9268,7 +9268,7 @@
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-schrijven",
-    "prompt": "Donderdagavond moet u werken tot tien uur. Uw dochter Amina is tien jaar. Zij kan nog niet alleen thuis blijven. U schrijft een e-mail aan uw vriendin Mila. Schrijf de e-mail. Schrijf in hele zinnen.",
+    "prompt": "Donderdagavond moet u weg. Uw dochter Amina is tien jaar. Zij kan nog niet alleen thuis blijven. U schrijft een e-mail aan uw vriendin Mila. Schrijf de e-mail. Schrijf in hele zinnen.",
     "scaffold": {
       "to": "mila@mail.nl",
       "from": "kandidaat@mail.nl",
@@ -9282,8 +9282,8 @@
         "Ask whether Mila will look after Amina on Thursday evening."
       ],
       [
-        "Schrijf waarom u weg moet.",
-        "Say why you have to be away."
+        "Schrijf waarom u weg moet. Bedenk zelf een reden.",
+        "Say why you have to go out. Think of a reason yourself."
       ],
       [
         "Schrijf hoe laat u weggaat en hoe laat u thuiskomt. Bedenk dit zelf.",
@@ -9302,7 +9302,7 @@
       null
     ],
     "model": "Kun jij donderdagavond op Amina passen? Ik moet die avond werken tot tien uur. Amina is nog te jong om alleen thuis te blijven. Ik ga om half zeven weg en ik ben om half elf weer thuis. Amina eet graag pannenkoeken. Om half negen moet ze naar bed. Ik hoop dat je kunt. Laat je het even weten?",
-    "revision": "c1:21d58cd9489858af"
+    "revision": "c1:866f76f6f8382657"
   },
   {
     "id": "A2:writing:batch008-reizen:1",
@@ -9422,11 +9422,11 @@
     "exam": "duo-a2",
     "taskType": "form",
     "domain": "instanties",
-    "title": "Melding: kapotte lantaarnpaal",
+    "title": "Melding over een lantaarnpaal",
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-schrijven",
-    "prompt": "De lantaarnpaal voor uw huis is kapot. Het licht doet het al een week niet. 's Avonds is het heel donker op straat. U meldt dit bij de gemeente. Vul het formulier in. Sommige gegevens moet u zelf bedenken.",
+    "prompt": "Er is een probleem met een lantaarnpaal in uw straat. U meldt dit bij de gemeente. Vul het formulier in. Sommige gegevens moet u zelf bedenken.",
     "formFields": [
       {
         "label": "Voor- en achternaam",
@@ -9476,16 +9476,16 @@
     ],
     "criteria": [
       [
-        "Schrijf wat het probleem is.",
-        "Say what the problem is."
+        "Schrijf wat het probleem is. Bedenk dit zelf.",
+        "Say what the problem is. Make this up yourself."
       ],
       [
-        "Schrijf waar het probleem precies is.",
-        "Say exactly where the problem is."
+        "Schrijf waar het probleem precies is. Bedenk dit zelf.",
+        "Say exactly where the problem is. Make this up yourself."
       ],
       [
-        "Schrijf sinds wanneer het probleem er is.",
-        "Say since when the problem has existed."
+        "Schrijf sinds wanneer het probleem er is. Bedenk dit zelf.",
+        "Say since when the problem has existed. Make this up yourself."
       ],
       [
         "Kies hoe u antwoord wilt.",
@@ -9500,7 +9500,7 @@
       "Ik wil antwoord per e-mail."
     ],
     "model": "De lantaarnpaal voor mijn huis is kapot. Het licht gaat 's avonds niet aan. De paal staat voor Meidoornstraat 12 in Hoorn, naast de bushalte. Het licht doet het sinds vorige week maandag niet meer. Ik wil graag antwoord per e-mail.",
-    "revision": "c1:b4816edb547e8677"
+    "revision": "c1:5e2c4d50111f0646"
   },
   {
     "id": "A2:writing:batch008-sportclub:1",
@@ -11817,7 +11817,7 @@
     "exam": "duo-a2",
     "taskType": "video-answer",
     "domain": "werk",
-    "title": "Ochtend of avond werken",
+    "title": "Het rooster voor volgende maand",
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-spreken",
@@ -11861,7 +11861,7 @@
     "model": "Ik werk liever in de ochtend. Dan ben ik nog fris en ik werk sneller. 's Middags ben ik dan thuis als mijn kinderen uit school komen. Ik begin graag om zeven uur.",
     "promptAudio": "audio/8cc7eb60069a7a27.mp3",
     "cueAudio": "audio/110ad1d9048460eb.mp3",
-    "revision": "c1:97da2786e478032b"
+    "revision": "c1:564ea994a3671f35"
   },
   {
     "id": "A2:speaking:batch009-thuis-oefenen:1",
@@ -12082,7 +12082,7 @@
     "exam": "duo-a2",
     "taskType": "video-answer",
     "domain": "vervoer",
-    "title": "Welke bus naar het ziekenhuis?",
+    "title": "Een vraag bij de bushalte",
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-spreken",
@@ -12126,7 +12126,7 @@
     "model": "Lijn vier gaat naar het ziekenhuis. Die bus rijdt elk kwartier. U moet aan de overkant wachten, bij die halte daar. De rit duurt ongeveer tien minuten.",
     "promptAudio": "audio/d4b9d6873fc39a09.mp3",
     "cueAudio": "audio/ce81ffd62dc20643.mp3",
-    "revision": "c1:34714db6613df759"
+    "revision": "c1:e02e443a4e0943db"
   },
   {
     "id": "A2:speaking:batch009-schoonmaak:1",
@@ -12141,11 +12141,11 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Julio werkt bij een schoonmaakbedrijf. Hij maakt een kantoor schoon. Vertel wat Julio bij zich heeft. Vertel ook wat u van dit werk vindt. Gebruik het plaatje.",
+    "prompt": "Julio werkt bij een schoonmaakbedrijf. Hij maakt een kantoor schoon. Vertel wat u ziet. Noem twee dingen die Julio bij zich heeft. Vertel ook wat u van dit werk vindt. Gebruik het plaatje.",
     "images": [
       {
         "brief": "Julio (young man, curly hair, striped shirt) stands in an empty office room next to a desk, holding a mop that stands in a bucket; beside him a vacuum cleaner, a spray bottle and a cloth. No text.",
-        "alt": "Een jonge man staat met schoonmaakspullen in een kantoor.",
+        "alt": "Een jonge man staat met schoonmaakspullen in een kantoor: een dweil in een emmer, een stofzuiger, een spuitfles en een doek.",
         "kind": "drawing",
         "file": "images/7bd9e89df26eb531.webp"
       }
@@ -12171,8 +12171,8 @@
       null
     ],
     "model": "Ik zie Julio in een kantoor. Hij heeft een emmer met een dweil bij zich. Ik zie ook een stofzuiger, een spuitfles en een doek. Ik vind schoonmaken zwaar werk, maar het is belangrijk. Een schoon kantoor is fijn voor iedereen.",
-    "promptAudio": "audio/0d0c48a620ffeb4e.mp3",
-    "revision": "c1:a007307ab25c59ac"
+    "promptAudio": "audio/533c0d88158fd7dd.mp3",
+    "revision": "c1:9321b7ce1e6bf69e"
   },
   {
     "id": "A2:speaking:batch009-gymles:1",
@@ -12187,11 +12187,11 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Sem heeft gymles op school. Vertel wat de leerlingen doen. Vertel ook wat u van sport op school vindt. Gebruik het plaatje.",
+    "prompt": "Sem heeft gymles op school. Vertel wat u ziet. Noem twee dingen die de leerlingen doen. Vertel ook wat u van sport op school vindt. Gebruik het plaatje.",
     "images": [
       {
         "brief": "A school gym hall: Sem (teenage boy, short brown hair, green sweater) climbs a thick rope; two other teenagers throw a ball to each other; a girl jumps on a blue mat. No text.",
-        "alt": "Leerlingen sporten in een gymzaal: een jongen klimt in een touw, anderen spelen met een bal.",
+        "alt": "Leerlingen sporten in een gymzaal: een jongen klimt in een touw, twee leerlingen gooien een bal naar elkaar en een meisje springt bij een mat.",
         "kind": "drawing",
         "file": "images/300bb2dd5eb8ce29.webp"
       }
@@ -12217,8 +12217,8 @@
       "Ik vind gym op school belangrijk, want kinderen zitten al veel."
     ],
     "model": "Ik zie een gymzaal op school. Sem klimt in een touw. Twee leerlingen spelen met een bal. Een meisje springt op een mat. Ik vind sport op school goed. Kinderen bewegen dan elke week en dat is gezond.",
-    "promptAudio": "audio/f7932f8cfe8a9d37.mp3",
-    "revision": "c1:add387b14eb92c8a"
+    "promptAudio": "audio/e2cc836f6ab6f603.mp3",
+    "revision": "c1:dae18d1bb7c1c361"
   },
   {
     "id": "A2:speaking:batch009-afval:1",
@@ -12233,7 +12233,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Karim brengt afval weg. Vertel wat Karim weggooit. Vertel ook wat u van afval scheiden vindt. Gebruik het plaatje.",
+    "prompt": "Karim brengt afval weg. Vertel wat u ziet. Noem twee soorten afval die Karim weggooit. Vertel ook wat u van afval scheiden vindt. Gebruik het plaatje.",
     "images": [
       {
         "brief": "Karim (man in his thirties, short black hair and beard, grey jacket) stands on a pavement in front of three large waste containers: a green one with a round opening, a blue one and a plain grey one. He holds a bag of empty glass bottles in one hand and a stack of flattened cardboard boxes under his other arm. No text.",
@@ -12263,8 +12263,8 @@
       null
     ],
     "model": "Ik zie Karim bij drie containers op straat. Hij heeft een tas met lege flessen. Die gaan in de glasbak. Hij heeft ook oud karton voor de papierbak. Ik vind afval scheiden goed voor het milieu, maar het kost wel tijd.",
-    "promptAudio": "audio/be5235f735c86cb8.mp3",
-    "revision": "c1:5b1fb2404e3eaf62"
+    "promptAudio": "audio/c6b1859c858c94e9.mp3",
+    "revision": "c1:092dae866638f569"
   },
   {
     "id": "A2:speaking:batch009-ehbo:1",
@@ -12279,11 +12279,11 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Roos heeft thuis een EHBO-doos. Vertel wat er in de doos zit. Vertel ook wat u van zo'n doos vindt. Gebruik het plaatje.",
+    "prompt": "Roos heeft thuis een EHBO-doos. Vertel wat u ziet. Noem twee dingen uit de doos. Vertel ook wat u van zo'n doos vindt. Gebruik het plaatje.",
     "images": [
       {
         "brief": "Roos (young woman, dark hair in a bun, yellow scarf) sits at a kitchen table with an open plain white first-aid box; laid out in front of her are a roll of bandage, a strip of plasters, small scissors and a thermometer. No text, no symbols.",
-        "alt": "Een vrouw zit aan tafel met een open doos met verband en pleisters.",
+        "alt": "Een vrouw zit aan tafel met een open doos. Voor haar op tafel liggen een rol verband, pleisters, een schaar en een thermometer.",
         "kind": "drawing",
         "file": "images/236e5a93b0221cac.webp"
       }
@@ -12309,8 +12309,8 @@
       "Ik vind zo'n doos handig voor thuis."
     ],
     "model": "Ik zie Roos aan de tafel met een open EHBO-doos. In de doos zitten pleisters, een rol verband en een kleine schaar. Er is ook een thermometer. Ik vind zo'n doos heel handig. Als een kind valt, heb je snel een pleister.",
-    "promptAudio": "audio/b4924ea5ceeb8c9b.mp3",
-    "revision": "c1:59d7c5d422c6919c"
+    "promptAudio": "audio/eefb8235b6a47cd6.mp3",
+    "revision": "c1:72f532f892050686"
   },
   {
     "id": "A2:speaking:batch009-kringloop:1",
@@ -12325,11 +12325,11 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Fatima is in een kringloopwinkel. Vertel wat Fatima daar kan kopen. Vertel ook wat u van tweedehands spullen vindt. Gebruik het plaatje.",
+    "prompt": "Fatima is in een kringloopwinkel. Vertel wat u ziet. Noem twee dingen die Fatima daar kan kopen. Vertel ook wat u van tweedehands spullen vindt. Gebruik het plaatje.",
     "images": [
       {
         "brief": "Fatima (woman in her forties, headscarf, blue coat) stands in a second-hand shop and looks at a green sofa; around her a floor lamp, a shelf with cups and plates, a small table with a stack of books and a bicycle leaning against the wall. No text, no price tags.",
-        "alt": "Een vrouw kijkt in een winkel naar een bank, een lamp en een fiets.",
+        "alt": "Een vrouw kijkt in een winkel naar een bank. Er zijn ook een lamp, een kast met kopjes en borden, een stapel boeken en een fiets.",
         "kind": "drawing",
         "file": "images/fb6b22afb0544f53.webp"
       }
@@ -12355,8 +12355,8 @@
       "Ik vind tweedehands spullen prima, want ze zijn goedkoop."
     ],
     "model": "Ik zie Fatima in een kringloopwinkel. Ze kijkt naar een groene bank. Er staan ook een lamp en een kast met borden en kopjes. Ik vind tweedehands spullen een goed idee. Ze zijn goedkoop en je gooit minder weg.",
-    "promptAudio": "audio/32afc95172c40e02.mp3",
-    "revision": "c1:1ac8b7cafb962133"
+    "promptAudio": "audio/12825900704a6594.mp3",
+    "revision": "c1:c219c54b7935b756"
   },
   {
     "id": "A2:speaking:batch009-verjaardag:1",
@@ -12371,38 +12371,38 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Amina viert haar verjaardag. Vertel wat u op het feest ziet. Vertel ook wat u van kinderfeestjes vindt. Gebruik het plaatje.",
+    "prompt": "Amina viert haar verjaardag. Vertel wie er op het feest zijn. Noem twee dingen die u op de tafel ziet. Vertel ook wat u van kinderfeestjes vindt. Gebruik het plaatje.",
     "images": [
       {
         "brief": "Amina (girl of about 10, two braids, purple hoodie) sits at a table with a round cake with lit candles; two friends of her age sit beside her; balloons hang above the table and wrapped presents with ribbons lie on the table. No text.",
-        "alt": "Een meisje zit met twee vrienden aan een tafel met een taart en ballonnen.",
+        "alt": "Amina zit met twee vrienden aan een tafel. Op de tafel staat een taart met kaarsjes en er liggen cadeaus. Boven de tafel hangen ballonnen.",
         "kind": "drawing",
         "file": "images/2decef1a2a749b52.webp"
       }
     ],
     "criteria": [
       [
-        "Vertel wat u op het plaatje ziet.",
-        "Say what you see in the picture."
+        "Zeg wie er op het feest zijn.",
+        "Say who is at the party."
       ],
       [
-        "Noem minstens twee dingen van het feest.",
-        "Name at least two things from the party."
+        "Noem twee dingen die u op de tafel ziet.",
+        "Name two things you see on the table."
       ],
       [
         "Zeg wat u van kinderfeestjes vindt.",
         "Say what you think of children's parties."
       ]
     ],
-    "sample": "Amina zit aan tafel met haar vrienden. Ik zie een taart met kaarsjes en veel ballonnen.",
+    "sample": "Amina zit aan tafel met haar vrienden. Op de tafel ik zie een taart en cadeaus.",
     "quotes": [
       "Amina zit aan tafel met haar vrienden.",
-      "Ik zie een taart met kaarsjes en veel ballonnen.",
+      "Op de tafel ik zie een taart en cadeaus.",
       null
     ],
-    "model": "Ik zie Amina aan een tafel met een taart. Op de taart staan kaarsjes. Er zijn twee vrienden op het feest. Boven de tafel hangen ballonnen en er liggen cadeaus. Ik vind kinderfeestjes gezellig, maar ook druk. Mijn kinderen vinden ze geweldig.",
-    "promptAudio": "audio/26a97efeb121fde8.mp3",
-    "revision": "c1:d28e2a63da6cbe95"
+    "model": "Op het feest zijn Amina en twee vrienden. Ze zitten samen aan tafel. Op de tafel staat een taart met kaarsjes. Er liggen ook cadeaus. Ik vind kinderfeestjes gezellig, maar ook druk. Mijn kinderen vinden ze geweldig.",
+    "promptAudio": "audio/17577657daa36d43.mp3",
+    "revision": "c1:8f3ad13faf67fd6d"
   },
   {
     "id": "A2:speaking:batch009-alleen-samen:1",
@@ -12417,7 +12417,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "U krijgt een nieuwe baan. Werkt u liever alleen of samen met collega's? Vertel ook waarom. Kies een van de plaatjes.",
+    "prompt": "U krijgt een nieuwe baan. Werkt u liever alleen of samen met collega's? Vertel ook waarom. Kies een van de plaatjes. Zeg ook iets over het andere plaatje.",
     "images": [
       {
         "brief": "Sabrina (woman in her thirties, long dark hair, green jumper) works alone at a desk with a laptop in a quiet office room; no other people. No text.",
@@ -12455,8 +12455,8 @@
       null
     ],
     "model": "Ik kies het tweede plaatje. Ik werk liever samen met collega's. Dan kun je vragen stellen en je leert van elkaar. Het is ook gezelliger. Alleen werken, zoals op het eerste plaatje, vind ik te stil. Dan praat je de hele dag met niemand.",
-    "promptAudio": "audio/622490e6906a35c6.mp3",
-    "revision": "c1:06cf8c4bc3da7d53"
+    "promptAudio": "audio/fae427cb0ef07b18.mp3",
+    "revision": "c1:251c0bfd0d67715f"
   },
   {
     "id": "A2:speaking:batch009-klas-thuis:1",
@@ -12471,7 +12471,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "U wilt Nederlands leren. Leert u liever in een klas of thuis achter de computer? Vertel ook waarom. Kies een van de plaatjes.",
+    "prompt": "U wilt Nederlands leren. Leert u liever in een klas of thuis achter de computer? Vertel ook waarom. Kies een van de plaatjes. Zeg ook iets over het andere plaatje.",
     "images": [
       {
         "brief": "In a classroom, meneer De Vries (man of about 60, grey hair, round glasses, dark blue jacket) sits at a table with four other adult students; a teacher stands at a blank whiteboard. No text.",
@@ -12509,8 +12509,8 @@
       "De klas op het eerste plaatje is niets voor mij."
     ],
     "model": "Ik kies het eerste plaatje, de klas. In de klas praat je veel met andere mensen. De docent helpt je meteen als je iets niet begrijpt. Thuis achter de computer, op het tweede plaatje, ben je alleen. Dat vind ik moeilijk.",
-    "promptAudio": "audio/7ec6cd8465471ec3.mp3",
-    "revision": "c1:3b204a036ff5e0cb"
+    "promptAudio": "audio/20a193643c6b65ef.mp3",
+    "revision": "c1:239f839a4412139b"
   },
   {
     "id": "A2:speaking:batch009-gemeente-bellen:1",
@@ -12525,7 +12525,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "U hebt een vraag voor de gemeente. Belt u liever, of gaat u liever naar het gemeentehuis? Vertel ook waarom. Kies een van de plaatjes.",
+    "prompt": "U hebt een vraag voor de gemeente. Belt u liever, of gaat u liever naar het gemeentehuis? Vertel ook waarom. Kies een van de plaatjes. Zeg ook iets over het andere plaatje.",
     "images": [
       {
         "brief": "Karim (man in his thirties, short black hair and beard, grey jacket) sits on a sofa at home and holds a phone to his ear. No text.",
@@ -12563,8 +12563,8 @@
       null
     ],
     "model": "Ik kies het tweede plaatje. Ik ga liever naar het gemeentehuis. Daar zie ik de medewerker en ik kan mijn papieren laten zien. Bellen, zoals op het eerste plaatje, vind ik lastig. Ik versta niet alles door de telefoon.",
-    "promptAudio": "audio/68f1e6f028c51b42.mp3",
-    "revision": "c1:ce276bcb3073ab2c"
+    "promptAudio": "audio/ac260311e10df088.mp3",
+    "revision": "c1:d130f6af8a7dfc18"
   },
   {
     "id": "A2:speaking:batch009-trein-auto:1",
@@ -12579,7 +12579,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "U gaat naar een verjaardag in een andere stad. Gaat u liever met de trein of met de auto? Vertel ook waarom. Kies een van de plaatjes.",
+    "prompt": "U gaat naar een verjaardag in een andere stad. Gaat u liever met de trein of met de auto? Vertel ook waarom. Kies een van de plaatjes. Zeg ook iets over het andere plaatje.",
     "images": [
       {
         "brief": "Fatima (woman in her forties, headscarf, blue coat) sits by the window in a train with a wrapped present on her lap. No text.",
@@ -12617,8 +12617,8 @@
       null
     ],
     "model": "Ik kies de trein, het eerste plaatje. In de trein kan ik lezen of slapen. Ik hoef niet te zoeken naar een parkeerplaats. Met de auto, op het tweede plaatje, sta je vaak in de file. Dat vind ik vervelend.",
-    "promptAudio": "audio/730da9d82379135c.mp3",
-    "revision": "c1:af1058bf66ce973a"
+    "promptAudio": "audio/81455d1377fb1b05.mp3",
+    "revision": "c1:0da3f4dde0dd9888"
   },
   {
     "id": "A2:speaking:batch009-flat-dorp:1",
@@ -12633,7 +12633,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "U zoekt een nieuwe woning. Woont u liever in een flat in de stad of in een huis in een dorp? Vertel ook waarom. Kies een van de plaatjes.",
+    "prompt": "U zoekt een nieuwe woning. Woont u liever in een flat in de stad of in een huis in een dorp? Vertel ook waarom. Kies een van de plaatjes. Zeg ook iets over het andere plaatje.",
     "images": [
       {
         "brief": "A tall apartment building on a busy city street with a tram passing and shops at street level; one balcony has a plant. No text, no signage.",
@@ -12671,8 +12671,8 @@
       "Op het andere plaatje is een klein huis in een dorp."
     ],
     "model": "Ik kies het huis in het dorp, plaatje twee. Ik heb dan een tuin en het is rustig. Mijn kinderen kunnen buiten spelen. Een flat in de stad, op plaatje één, is dicht bij de winkels. Maar ik vind de stad te druk.",
-    "promptAudio": "audio/49e6c54f572f968b.mp3",
-    "revision": "c1:aa151e596c17f3d0"
+    "promptAudio": "audio/8b20b161c267cb7c.mp3",
+    "revision": "c1:c154337302d799eb"
   },
   {
     "id": "A2:speaking:batch009-sportschool-park:1",
@@ -12687,7 +12687,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "U wilt meer bewegen. Sport u liever in een sportschool of buiten in het park? Vertel ook waarom. Kies een van de plaatjes.",
+    "prompt": "U wilt meer bewegen. Sport u liever in een sportschool of buiten in het park? Vertel ook waarom. Kies een van de plaatjes. Zeg ook iets over het andere plaatje.",
     "images": [
       {
         "brief": "In a gym, mevrouw Bakker (woman of about 65, short white hair, red cardigan) walks on a treadmill; next to her a rack with weights and an exercise bike. No text.",
@@ -12725,8 +12725,8 @@
       null
     ],
     "model": "Ik kies het park, het tweede plaatje. Buiten is de lucht fris en het is gratis. In een sportschool, zoals op het eerste plaatje, is het vaak druk en je moet betalen. Maar als het regent, is de sportschool wel handig.",
-    "promptAudio": "audio/abb53ea0620f677f.mp3",
-    "revision": "c1:ebb7fbee1eb02858"
+    "promptAudio": "audio/170349c9e42f1b6a.mp3",
+    "revision": "c1:fc95626e6d7d894c"
   },
   {
     "id": "A2:speaking:batch009-paspoort:1",
@@ -13720,7 +13720,7 @@
         "kind": "open"
       },
       {
-        "label": "Welke ervaring heeft u al met dit onderwerp?",
+        "label": "Heeft u al ervaring met dit onderwerp? Zo ja, welke?",
         "kind": "open"
       },
       {
@@ -13749,7 +13749,7 @@
       "Op dinsdagavond kan ik niet, want dan werk ik tot negen uur in de winkel."
     ],
     "model": "Ik wil deze cursus volgen, omdat ik op mijn werk steeds vaker de kas en de facturen moet controleren, terwijl ik dat nooit heb geleerd. Bovendien wil ik over een paar jaar een eigen winkel beginnen, en dan moet ik mijn administratie zelf kunnen bijhouden. Een cursus boekhouden heb ik nog niet gevolgd, maar in mijn geboorteland heb ik drie jaar de administratie gedaan voor de winkel van mijn oom. Op mijn huidige werk tel ik elke avond de kas en maak ik het weekoverzicht van de verkoop, dus met cijfers heb ik geen moeite. Op dinsdagavond kan ik niet, omdat ik dan tot negen uur in de winkel werk. Alle andere avonden ben ik beschikbaar.",
-    "revision": "c1:15a582952b578a5e"
+    "revision": "c1:26e4532b1670e4e2"
   },
   {
     "id": "B1:writing:batch015-gemiste-werkdag:1",
@@ -13833,7 +13833,7 @@
     "targetLevelValidated": false,
     "rubric": "b1-schrijven",
     "goal": "klagen",
-    "prompt": "U hebt bij webwinkel Kastenzolder een kledingkast besteld. De gegevens van uw bestelling staan in de tabel. U bent niet tevreden over de bezorging en over de kast. U hebt al contact gehad met de klantenservice, maar er is nog niets opgelost. U schrijft een e-mail aan de webwinkel: u wilt klagen en u wilt dat de winkel het probleem oplost. De tabel komt niet bij uw e-mail. De tekst moet dus te begrijpen zijn zonder de tabel. Schrijf de e-mail.",
+    "prompt": "U hebt bij webwinkel Kastenzolder een kledingkast besteld. De gegevens van uw bestelling staan in de tabel. U bent niet tevreden over de bezorging en over de kast. U hebt al geprobeerd het probleem op te lossen, maar dat is niet gelukt. U schrijft een e-mail aan de webwinkel: u wilt klagen en u wilt dat de winkel het probleem oplost. De tabel komt niet bij uw e-mail. De tekst moet dus te begrijpen zijn zonder de tabel. Schrijf de e-mail.",
     "scaffold": {
       "to": "klantenservice@kastenzolder.nl",
       "from": "kandidaat@mail.nl",
@@ -13909,7 +13909,7 @@
       "Kunt u mij uiterlijk vrijdag 18 september laten weten wat u gaat doen? Ik hoor graag van u."
     ],
     "model": "Op 25 augustus heb ik bij u een witte kledingkast met drie deuren besteld, bestelnummer 48213. Volgens uw bevestiging zou de kast uiterlijk 4 september worden bezorgd. Helaas is er twee keer iets misgegaan. Ten eerste werd de kast pas op 9 september bezorgd, vijf dagen later dan afgesproken, terwijl ik daarvoor twee dagen vrij had genomen. Ten tweede bleek bij het uitpakken dat een van de deuren beschadigd is: er zit een diepe kras in en de hoek is gedeukt. Ik heb dit dezelfde dag gemeld bij uw klantenservice en foto's van de schade gestuurd. Uw medewerker beloofde dat ik binnen twee dagen antwoord zou krijgen, maar tot nu toe heb ik niets gehoord. Daarom verwacht ik dat u binnen twee weken een nieuwe deur levert of de kast omruilt. Omdat ik door de late bezorging extra vrij heb moeten nemen, wil ik bovendien de bezorgkosten van € 29,95 terug. Ik ontvang graag uiterlijk vrijdag 18 september een reactie van u. Als ik dan nog niets heb gehoord, annuleer ik de bestelling en wil ik mijn geld terug.",
-    "revision": "c1:6864efe710b5f0a9"
+    "revision": "c1:a5ed40c8c7bef26c"
   },
   {
     "id": "B1:writing:batch015-pauzerooster:1",
@@ -17121,7 +17121,7 @@
     "exam": "nt2-i",
     "taskType": "middellang",
     "domain": "werk",
-    "title": "Trein gemist, toch op het gesprek",
+    "title": "Op weg naar een sollicitatiegesprek",
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "b1-spreken",
@@ -17165,8 +17165,8 @@
         "Say how it ended at the company (third picture)."
       ],
       [
-        "Zeg hoe Modibo zich voelde toen de trein wegreed, bijvoorbeeld geschrokken of zenuwachtig.",
-        "Say how Modibo felt when the train left, for example shocked or nervous."
+        "Zeg hoe Modibo zich voelde, bijvoorbeeld geschrokken of zenuwachtig op het station, of opgelucht bij het bedrijf.",
+        "Say how Modibo felt, for example shocked or nervous at the station, or relieved at the company."
       ]
     ],
     "sample": "Modibo wilde vorige week met de trein naar zijn sollicitatiegesprek. Op het station hij zag dat zijn trein net wegreed. Hij is de trein gemist en hij was heel zenuwachtig. Toen ging hij snel naar het bedrijf. Uiteindelijk kwam hij nog op tijd en had hij een goed gesprek met de mevrouw.",
@@ -17178,7 +17178,7 @@
     ],
     "model": "Het ging bijna mis. Toen Modibo op het perron aankwam, reed zijn trein net weg. Hij schrok, omdat hij niet te laat wilde komen. Daarom rende hij naar de bushalte en nam hij de bus. Uiteindelijk kwam hij iets later aan dan gepland, maar het gesprek ging door. Hij gaf de mevrouw van het bedrijf een hand en het gesprek verliep goed.",
     "promptAudio": "audio/f5beb29ccbfb7b69.mp3",
-    "revision": "c1:97b67ad439be291d"
+    "revision": "c1:0fe71703f1048a94"
   },
   {
     "id": "B1:speaking:batch017-eerste-schooldag:1",
@@ -17303,7 +17303,7 @@
     "rubric": "b1-spreken",
     "prepSeconds": 15,
     "speakingSeconds": 30,
-    "prompt": "Uw vriendin Roos wil een nieuwe fiets kopen. Ze woont op driehoog zonder lift, ze heeft niet veel geld en ze wil de fiets volgende week al gebruiken. Ze twijfelt tussen twee fietsen uit dezelfde winkel. Bekijk de tabel. Adviseer Roos welke fiets ze het beste kan kopen en waarom. Noem minstens twee punten uit de tabel en ook een nadeel van uw keuze.",
+    "prompt": "Uw vriendin Roos wil een nieuwe fiets kopen. Ze woont op driehoog zonder lift, ze heeft niet veel geld en ze wil de fiets volgende week al gebruiken. Ze twijfelt tussen twee fietsen uit dezelfde winkel. Bekijk de tabel. Adviseer Roos welke fiets het beste bij haar situatie past. Noem minstens twee punten uit de tabel en ook een nadeel van uw keuze.",
     "table": {
       "caption": "Twee fietsen bij dezelfde fietsenwinkel",
       "columns": [
@@ -17360,8 +17360,8 @@
       "Het nadeel is dat je drie weken moet wachten, misschien je kunt zolang een fiets lenen."
     ],
     "model": "Ik zou fiets twee nemen, ook al is die duurder. Je woont driehoog zonder lift, dus je moet je fiets elke dag de trap op dragen; vijftien kilo is dan veel prettiger dan eenentwintig. Bovendien krijg je drie jaar garantie in plaats van één, zodat je de eerste jaren geen reparatiekosten hebt. Het nadeel is dat je drie weken moet wachten. Misschien kun je zolang een fiets lenen.",
-    "promptAudio": "audio/8859c8210209d561.mp3",
-    "revision": "c1:f39d1e22c813d140"
+    "promptAudio": "audio/011b025c44473556.mp3",
+    "revision": "c1:a5aea2b8d58c3f93"
   },
   {
     "id": "B1:speaking:batch017-machinestoring:1",
@@ -17376,7 +17376,7 @@
     "rubric": "b1-spreken",
     "prepSeconds": 15,
     "speakingSeconds": 30,
-    "prompt": "U werkt in een fabriek waar pakketten worden ingepakt. Een collega van een andere afdeling valt vandaag in bij uw inpakmachine. Hij vraagt wat hij moet doen als de machine kapotgaat. Kijk naar de plaatjes. Leg hem stap voor stap uit wat hij eerst moet doen en wie hij daarna moet bellen. Geef ook een waarschuwing.",
+    "prompt": "U werkt in een fabriek waar pakketten worden ingepakt. Een collega van een andere afdeling helpt vandaag bij uw inpakmachine. Hij vraagt wat hij moet doen als de machine vastloopt. Kijk naar de plaatjes. Leg hem stap voor stap uit wat hij eerst moet doen en wie hij daarna moet bellen. Geef ook een waarschuwing.",
     "images": [
       {
         "brief": "In a factory hall, Hasan (man in his fifties, grey moustache, brown cap) presses a large round red stop button on the side panel of a packaging machine; on the machine's conveyor belt a cardboard box sits crooked, jammed at the opening of the machine. No text, no warning symbols.",
@@ -17419,8 +17419,8 @@
       "Je mag de machine niet zelf openmaken, want dat is gevaarlijk."
     ],
     "model": "Als de machine vastloopt, moet je hem eerst stopzetten. Druk op de grote rode knop aan de zijkant, zodat de band stilstaat en niemand gewond raakt. Probeer de machine nooit zelf te repareren, want dat is gevaarlijk. Daarna bel je de technische dienst; het nummer hangt bij de telefoon. Zeg welke machine het is en wat er gebeurd is. Blijf bij de machine tot de monteur er is.",
-    "promptAudio": "audio/bb2f27eb897311e7.mp3",
-    "revision": "c1:de5eb72544b83677"
+    "promptAudio": "audio/b5d97ce48972fd3a.mp3",
+    "revision": "c1:ddd7044a9e5e64d9"
   },
   {
     "id": "B1:speaking:batch017-sportabonnement:1",
@@ -17645,12 +17645,12 @@
     "exam": "nt2-i",
     "taskType": "kort",
     "domain": "overig",
-    "title": "Het raam gaat niet dicht",
+    "title": "Een probleem met het raam",
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "b1-spreken",
     "speakingSeconds": 20,
-    "prompt": "U huurt een woning. Het raam van uw slaapkamer gaat sinds gisteren niet meer goed dicht. U belt uw verhuurder. U hoort eerst uw verhuurder. Zeg kort wat er mis is met het raam. Stel ook twee vragen: wanneer het raam wordt gerepareerd en of u de reparatie moet betalen. Gebruik het plaatje.",
+    "prompt": "U huurt een woning. Sinds gisteren is er een probleem met het raam van uw slaapkamer. U belt uw verhuurder. U hoort eerst uw verhuurder. Zeg kort wat er mis is met het raam. Stel ook twee vragen: wanneer het raam wordt gerepareerd en of u de reparatie moet betalen. Gebruik het plaatje.",
     "cue": {
       "speaker": "Meneer De Vries",
       "role": "m-older",
@@ -17659,7 +17659,7 @@
     "images": [
       {
         "brief": "A close view of a bedroom window in a plain wall: a white window frame whose casement stands slightly open, leaving a clear gap between the window and the frame, and the metal handle hanging loose, pointing straight down. A plain dusty-blue curtain hangs at one side. No text.",
-        "alt": "Een raam in een slaapkamer staat op een kier; de hendel hangt los naar beneden.",
+        "alt": "Een raam in een slaapkamer staat op een kier, terwijl de hendel naar beneden wijst.",
         "kind": "drawing",
         "size": "single",
         "file": "images/f1dd1f197b28bf46.webp"
@@ -17686,9 +17686,9 @@
       "Sinds gisteren het raam van mijn slaapkamer gaat niet meer dicht. Er komt koude lucht binnen, want hendel is kapot."
     ],
     "model": "Ik bel over het raam van mijn slaapkamer. De hendel zit los, waardoor het raam niet dicht kan en er een kier blijft. Weet u wanneer iemand het kan komen repareren? En moet ik die reparatie zelf betalen, of valt dat onder de huur?",
-    "promptAudio": "audio/523372b31db7bc9b.mp3",
+    "promptAudio": "audio/1f2ee47bca6bd8dc.mp3",
     "cueAudio": "audio/ce91ba5c3241fc01.mp3",
-    "revision": "c1:71d7b8058ceb2de5"
+    "revision": "c1:ab974b9a56dafb9e"
   },
   {
     "id": "B1:speaking:batch016-roosterbord:1",
@@ -17849,7 +17849,7 @@
     "targetLevelValidated": false,
     "rubric": "b1-spreken",
     "speakingSeconds": 20,
-    "prompt": "Uw dochter Amina moet deze week een medicijn innemen, ook op school. U spreekt 's ochtends met haar leerkracht. U hoort eerst de leerkracht. Geef twee instructies: wanneer en hoe Amina het medicijn moet innemen. Zeg ook tot wanneer dat nodig is.",
+    "prompt": "Uw dochter Amina moet een paar dagen een medicijn innemen, ook op school. U spreekt 's ochtends met haar leerkracht. U hoort eerst de leerkracht. Geef twee instructies: wanneer en hoe Amina het medicijn moet innemen. Zeg ook tot wanneer dat nodig is.",
     "cue": {
       "speaker": "Leerkracht",
       "role": "f-adult",
@@ -17876,9 +17876,9 @@
       "Tot en met vrijdag ze moet de tablet nemen."
     ],
     "model": "Amina moet elke dag om half één een tablet innemen, direct na de lunch. Kunt u haar eraan herinneren, omdat ze het zelf vaak vergeet? Ze moet de tablet met een groot glas water innemen. De kuur duurt nog tot en met vrijdag.",
-    "promptAudio": "audio/4f5842718981699f.mp3",
+    "promptAudio": "audio/f84fd6ef6081874e.mp3",
     "cueAudio": "audio/8fe57df015b892fc.mp3",
-    "revision": "c1:a6b1e22d5cc59bc3"
+    "revision": "c1:0ab6b9b0ab602d04"
   },
   {
     "id": "B1:speaking:batch016-pensioen:1",
@@ -17887,7 +17887,7 @@
     "exam": "nt2-i",
     "taskType": "kort",
     "domain": "werk",
-    "title": "Een collega gaat met pensioen",
+    "title": "Nieuws van een collega",
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "b1-spreken",
@@ -17921,7 +17921,7 @@
     "model": "Wat een nieuws, dat had ik niet verwacht! Ik vind het jammer voor ons, omdat jij altijd iedereen helpt als een machine vastloopt. Maar voor jou is het fijn, want je hebt al zo lang hard gewerkt. Heb je al plannen voor daarna?",
     "promptAudio": "audio/63cf0b825fb666d1.mp3",
     "cueAudio": "audio/f72414c7c1981fe0.mp3",
-    "revision": "c1:f7efac0d8baa00ac"
+    "revision": "c1:068502c7766b7a0a"
   },
   {
     "id": "B1:speaking:batch016-open-dag:1",
@@ -24485,11 +24485,11 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Hasan doet boodschappen op de markt. Vertel wat Hasan bij deze kraam kan kopen. Vertel ook wat u van de markt vindt. Gebruik het plaatje.",
+    "prompt": "Hasan doet boodschappen op de markt. Vertel wat u ziet. Noem twee dingen die Hasan bij deze kraam kan kopen. Vertel ook wat u van de markt vindt. Gebruik het plaatje.",
     "images": [
       {
         "brief": "Hasan (man in his fifties, grey moustache, brown cap) stands in front of a market stall with a striped awning; on the stall lie apples, tomatoes and a bunch of carrots; behind the stall the stallholder, a woman in a green apron, holds out a paper bag. No text, no price tags.",
-        "alt": "Een man staat bij een marktkraam met fruit en groente; de verkoopster houdt een zak vast.",
+        "alt": "Een man staat bij een marktkraam met appels, tomaten en wortels; de verkoopster houdt een zak vast.",
         "kind": "drawing",
         "file": "images/55c8c4b89f47f99f.webp"
       }
@@ -24515,8 +24515,8 @@
       null
     ],
     "model": "Ik zie Hasan bij een kraam op de markt. Op de kraam liggen appels, tomaten en wortels. De verkoopster geeft hem een zak. Ik vind de markt gezellig. Het fruit is daar vers en vaak goedkoper dan in de supermarkt.",
-    "promptAudio": "audio/7b4c29676929b7f6.mp3",
-    "revision": "c1:1f12c5136aa210a5"
+    "promptAudio": "audio/8e6e2c4cf113391f.mp3",
+    "revision": "c1:8eae00fb9d6e6ecd"
   },
   {
     "id": "A2:speaking:batch026-regen:1",
@@ -24525,13 +24525,13 @@
     "exam": "duo-a2",
     "taskType": "picture-describe",
     "domain": "vervoer",
-    "title": "Wachten op de bus in de regen",
+    "title": "Regen bij de bushalte",
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Sabrina wacht op de bus. Het regent. Vertel wat de mensen bij de halte doen. Vertel ook wat u van reizen met de bus vindt. Gebruik het plaatje.",
+    "prompt": "Sabrina gaat naar haar werk. Het regent. Vertel wat u ziet. Noem twee dingen die de mensen bij de halte doen. Vertel ook wat u van reizen met de bus vindt. Gebruik het plaatje.",
     "images": [
       {
         "brief": "At a bus stop with a small shelter, Sabrina (woman in her thirties, long dark hair, green jumper) stands in the rain under an open yellow umbrella; an older woman sits on the bench under the roof of the shelter; a bus is approaching down the street; rain falls in simple lines. No text, no sign on the stop, no number on the bus.",
@@ -24561,8 +24561,8 @@
       null
     ],
     "model": "Ik zie een bushalte in de regen. Sabrina staat onder een gele paraplu en wacht op de bus. Een oudere vrouw zit op het bankje onder het dak. De bus komt eraan. Ik vind de bus prima. Hij is goedkoop, maar soms te laat.",
-    "promptAudio": "audio/ee8768d9259150a2.mp3",
-    "revision": "c1:b269656205645f1c"
+    "promptAudio": "audio/5286f2c1eae44d63.mp3",
+    "revision": "c1:cb77e7e78f4a3fb0"
   },
   {
     "id": "A2:speaking:batch026-schoolplein:1",
@@ -24577,7 +24577,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "De school is uit. Amina is nog op het schoolplein. Vertel wat de kinderen doen. Vertel ook wat u van buiten spelen vindt. Gebruik het plaatje.",
+    "prompt": "De school is uit. Amina is nog op het schoolplein. Vertel wat u ziet. Noem twee dingen die de kinderen doen. Vertel ook wat u van buiten spelen vindt. Gebruik het plaatje.",
     "images": [
       {
         "brief": "A school playground with a low fence and an open gate: Amina (girl of about 10, two braids, purple hoodie) skips with a jump rope; two children kick a ball to each other; a mother with a bicycle waits at the gate. No text.",
@@ -24607,8 +24607,8 @@
       "Ik vind buiten spelen goed voor kinderen, want ze beweegt dan veel."
     ],
     "model": "Ik zie een schoolplein. Amina springt touwtje. Twee kinderen spelen met een bal. Bij het hek wacht een moeder met een fiets. Ik vind buiten spelen heel goed voor kinderen. Ze bewegen en ze krijgen frisse lucht. Binnen zitten ze vaak achter een scherm.",
-    "promptAudio": "audio/ffd213608f1a4aa6.mp3",
-    "revision": "c1:1d4152eb2c275f9d"
+    "promptAudio": "audio/066f50e34c5a2564.mp3",
+    "revision": "c1:dd83f0028160f181"
   },
   {
     "id": "A2:speaking:batch026-online-winkel:1",
@@ -24623,7 +24623,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "U wilt nieuwe kleren kopen. Koopt u liever online of in een winkel? Vertel ook waarom. Kies een van de plaatjes.",
+    "prompt": "U wilt nieuwe kleren kopen. Koopt u liever online of in een winkel? Vertel ook waarom. Kies een van de plaatjes. Zeg ook iets over het andere plaatje.",
     "images": [
       {
         "brief": "At home, meneer De Vries (man of about 60, grey hair, round glasses, dark blue jacket) sits at a kitchen table with a laptop and an open cardboard parcel with a folded blue shirt in it. No text, blank laptop screen.",
@@ -24661,8 +24661,8 @@
       null
     ],
     "model": "Ik kies het tweede plaatje, de winkel. In de winkel kan ik de kleren passen. Dan weet ik zeker dat de maat goed is. Online kopen, zoals op het eerste plaatje, is makkelijk. Maar vaak moet ik het pakket weer terugsturen.",
-    "promptAudio": "audio/bbd2e09b32746056.mp3",
-    "revision": "c1:b9218e804d5829ec"
+    "promptAudio": "audio/115932752e059be7.mp3",
+    "revision": "c1:034014b8c9e2f2f4"
   },
   {
     "id": "A2:speaking:batch026-fiets-lopen:1",
@@ -24677,7 +24677,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "U werkt dicht bij uw huis. Gaat u liever met de fiets of lopend naar uw werk? Vertel ook waarom. Kies een van de plaatjes.",
+    "prompt": "U werkt dicht bij uw huis. Gaat u liever met de fiets of lopend naar uw werk? Vertel ook waarom. Kies een van de plaatjes. Zeg ook iets over het andere plaatje.",
     "images": [
       {
         "brief": "Julio (young man, curly hair, striped shirt) cycles along a quiet street with trees, a bag over his shoulder. No text.",
@@ -24715,8 +24715,8 @@
       null
     ],
     "model": "Ik kies het tweede plaatje. Ik ga liever lopend naar mijn werk. Het is maar tien minuten en ik word wakker van de frisse lucht. Op het eerste plaatje fietst een man. Fietsen is sneller, maar mijn fiets is vaak kapot.",
-    "promptAudio": "audio/ab339708d952c4d6.mp3",
-    "revision": "c1:3783ae4516494146"
+    "promptAudio": "audio/a5938b82cf6b898f.mp3",
+    "revision": "c1:4d8d3f678d7a1a0a"
   },
   {
     "id": "A2:speaking:batch026-feest-thuis:1",
@@ -24731,7 +24731,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "U bent geslaagd voor uw examen. U wilt dat vieren met vrienden. Viert u het liever thuis of in een restaurant? Vertel ook waarom. Kies een van de plaatjes.",
+    "prompt": "U bent geslaagd voor uw examen. U wilt dat vieren met vrienden. Viert u het liever thuis of in een restaurant? Vertel ook waarom. Kies een van de plaatjes. Zeg ook iets over het andere plaatje.",
     "images": [
       {
         "brief": "At home, Karim (man in his thirties, short black hair and beard, grey jacket) sits at his dining table with two friends, a woman with short red hair in a yellow top and a man with glasses in a blue shirt; on the table a few dishes of food and glasses. No text.",
@@ -24769,8 +24769,8 @@
       "Thuis, op het eerste plaatje, ze zitten gezellig aan tafel."
     ],
     "model": "Ik kies het eerste plaatje. Ik vier het liever thuis. Thuis is het rustig en we kunnen lang blijven zitten. Ik kook dan zelf voor mijn vrienden. Een restaurant, zoals op het tweede plaatje, is duur en vaak druk.",
-    "promptAudio": "audio/f23c16b61b00ef30.mp3",
-    "revision": "c1:16d636320c98d7ce"
+    "promptAudio": "audio/630e58916e2921ea.mp3",
+    "revision": "c1:389f3d2c99b0f76d"
   },
   {
     "id": "A2:speaking:batch026-treinkaartje:1",
@@ -24962,7 +24962,7 @@
     "exam": "duo-a2",
     "taskType": "video-answer",
     "domain": "werk",
-    "title": "Hoe meld je je ziek?",
+    "title": "Een nieuwe collega",
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-spreken",
@@ -25006,7 +25006,7 @@
     "model": "Je moet 's ochtends bellen, voor acht uur. Je belt de teamleider. Dat is Ellen. Zij zit in het kantoor. Je zegt dat je ziek bent. Een appje is niet genoeg. Als je weer beter bent, bel je ook even.",
     "promptAudio": "audio/cd6a99e6ddfc0df5.mp3",
     "cueAudio": "audio/1f5b094c699dc4e4.mp3",
-    "revision": "c1:fd1ac4176fcf9dd9"
+    "revision": "c1:aa17797616d185ce"
   },
   {
     "id": "A2:speaking:batch027-taalcafe-oefenen:1",
@@ -25068,7 +25068,7 @@
     "exam": "duo-a2",
     "taskType": "video-answer",
     "domain": "opleiding",
-    "title": "Welke avondcursus?",
+    "title": "Avondcursussen op school",
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "a2-spreken",
@@ -25112,7 +25112,7 @@
     "model": "Ik wil graag de computercursus doen. Op mijn werk moet ik veel met de computer werken. Dat vind ik nog moeilijk. Ik wil ook e-mails leren schrijven. Ik kan op maandag en op donderdag komen. Hoe lang duurt de cursus?",
     "promptAudio": "audio/ba7aefbc805da305.mp3",
     "cueAudio": "audio/0064a24087ac26e4.mp3",
-    "revision": "c1:a82ccf6d19000898"
+    "revision": "c1:daaf51b4d92f36ae"
   },
   {
     "id": "A2:speaking:batch027-wachtkamer:1",
@@ -25127,7 +25127,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Hasan zit in de wachtkamer van de huisarts. Vertel wat de mensen doen. Vertel ook wat u van deze wachtkamer vindt. Gebruik het plaatje.",
+    "prompt": "Hasan zit in de wachtkamer van de huisarts. Vertel wat u ziet. Noem twee dingen die de mensen doen. Vertel ook wat u van deze wachtkamer vindt. Gebruik het plaatje.",
     "images": [
       {
         "brief": "In a doctor's waiting room with a row of plain chairs and a large green plant, Hasan (man in his fifties, grey moustache, brown cap) sits and looks at his phone; next to him a young mother watches her small boy, who plays with wooden blocks on the floor; across the room an older woman with a grey bun and a purple cardigan holds a paper cup of water. No text, no signs, no posters.",
@@ -25157,8 +25157,8 @@
       null
     ],
     "model": "Ik zie een wachtkamer bij de huisarts. Hasan zit op een stoel en kijkt op zijn telefoon. Een klein kind speelt met blokken. Een oudere vrouw drinkt een bekertje water. Ik vind de wachtkamer fijn. Het is rustig en er is een mooie plant.",
-    "promptAudio": "audio/838b5e9ec68b5540.mp3",
-    "revision": "c1:bcaceb06c0dfea84"
+    "promptAudio": "audio/e38900a03f51143a.mp3",
+    "revision": "c1:6d2c2bb38339341f"
   },
   {
     "id": "A2:speaking:batch027-keuken:1",
@@ -25173,7 +25173,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Fatima kookt thuis met haar kinderen. Het is druk in de keuken. Vertel wat de mensen doen. Vertel ook wat u van samen koken vindt. Gebruik het plaatje.",
+    "prompt": "Fatima is thuis met haar kinderen. Het is druk in de keuken. Vertel wat u ziet. Noem twee dingen die de mensen doen. Vertel ook wat u van samen koken vindt. Gebruik het plaatje.",
     "images": [
       {
         "brief": "In a home kitchen, Fatima (woman in her forties, headscarf, blue coat) stirs a big pot on the stove with a wooden spoon; her son Sem (teenage boy, short brown hair, green sweater) cuts vegetables on a board at the counter; her daughter Amina (girl of about 10, two braids, purple hoodie) puts plates on the kitchen table. No text.",
@@ -25203,8 +25203,8 @@
       null
     ],
     "model": "Ik zie een keuken. Fatima staat bij het fornuis en roert in een grote pan. Haar zoon snijdt groente op een plank. Haar dochter zet de borden op tafel. Ik vind samen koken gezellig. Het gaat sneller en de kinderen leren koken.",
-    "promptAudio": "audio/de7e08de2afc832c.mp3",
-    "revision": "c1:8a02308f25f8b4b8"
+    "promptAudio": "audio/a22c744a2b1d3ded.mp3",
+    "revision": "c1:3060aa000d57d914"
   },
   {
     "id": "A2:speaking:batch027-kassa:1",
@@ -25219,7 +25219,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "Karim staat in de rij bij de kassa van de supermarkt. Vertel wat Karim gaat kopen. Vertel ook wat u van wachten in de rij vindt. Gebruik het plaatje.",
+    "prompt": "Karim staat in de rij bij de kassa van de supermarkt. Vertel wat u ziet. Noem twee dingen die Karim gaat kopen. Vertel ook wat u van wachten in de rij vindt. Gebruik het plaatje.",
     "images": [
       {
         "brief": "At a supermarket checkout, Karim (man in his thirties, short black hair and beard, grey jacket) stands in a short queue holding a basket with a loaf of bread, a plain white milk carton and a bunch of bananas; in front of him a woman with a grey ponytail and a red coat puts groceries from a trolley on the belt; the cashier, a young man with short red hair and a dark green apron, sits at the till. No text, no prices, no logos.",
@@ -25249,8 +25249,8 @@
       "Ik vind wachten niet leuk, maar hier hoef ik nooit lang wachten."
     ],
     "model": "Ik zie Karim in de supermarkt. Hij staat in de rij bij de kassa. In zijn mandje zitten brood, melk en bananen. Ik vind wachten in de rij vervelend. Daarom ga ik vroeg in de ochtend, dan is het rustig.",
-    "promptAudio": "audio/1c3fa3b6242a226f.mp3",
-    "revision": "c1:557527f75041a067"
+    "promptAudio": "audio/32c2d8068fe39449.mp3",
+    "revision": "c1:b642962be698e784"
   },
   {
     "id": "A2:speaking:batch027-bakkerij:1",
@@ -25265,7 +25265,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "U gaat werken in een bakkerij. Werkt u liever vroeg in de ochtend of in de avond? Vertel ook waarom. Kies een van de plaatjes.",
+    "prompt": "U gaat werken in een bakkerij. Werkt u liever vroeg in de ochtend of in de avond? Vertel ook waarom. Kies een van de plaatjes. Zeg ook iets over het andere plaatje.",
     "images": [
       {
         "brief": "In a bakery early in the morning, Julio (young man, curly hair, striped shirt) wears an apron and slides a tray of bread rolls into a large oven; through the window the sky is pale pink and orange with the sun rising. No text.",
@@ -25303,8 +25303,8 @@
       null
     ],
     "model": "Ik kies het tweede plaatje, de avond. 's Ochtends vroeg opstaan vind ik moeilijk. In de avond is het rustig in de winkel. Overdag kan ik dan naar mijn les. Op het eerste plaatje werkt een man heel vroeg. Dat is niets voor mij.",
-    "promptAudio": "audio/6a6cd5a1e2ca4421.mp3",
-    "revision": "c1:b92e4fdec2175fb6"
+    "promptAudio": "audio/356924ce146a8129.mp3",
+    "revision": "c1:2b23bbae70dc1f9b"
   },
   {
     "id": "A2:speaking:batch027-contant-pinnen:1",
@@ -25319,7 +25319,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "U koopt iets in een winkel. Betaalt u liever contant of met uw pinpas? Vertel ook waarom. Kies een van de plaatjes.",
+    "prompt": "U koopt iets in een winkel. Betaalt u liever contant of met uw pinpas? Vertel ook waarom. Kies een van de plaatjes. Zeg ook iets over het andere plaatje.",
     "images": [
       {
         "brief": "At the counter of a small shop, mevrouw Bakker (woman of about 65, short white hair, red cardigan) hands a few coins and a plain banknote to the shopkeeper, a man of about 50 with a bald head and a dark apron; a paper bag with her shopping stands on the counter. No text, no numbers on the banknote.",
@@ -25357,8 +25357,8 @@
       "Op plaatje twee de vrouw betaalt met pinpas."
     ],
     "model": "Ik kies het eerste plaatje. Ik betaal liever contant. Dan zie ik hoeveel geld ik nog heb. Met een pinpas geef je snel te veel uit. Pinnen, op het tweede plaatje, is wel makkelijk en snel. Maar soms doet de automaat het niet.",
-    "promptAudio": "audio/52264fda78f3f341.mp3",
-    "revision": "c1:e9d65df53d065172"
+    "promptAudio": "audio/9b146a0a36393290.mp3",
+    "revision": "c1:af98023aff78f253"
   },
   {
     "id": "A2:speaking:batch027-bus-fiets:1",
@@ -25373,7 +25373,7 @@
     "rubric": "a2-spreken",
     "speakingSeconds": 40,
     "prepSeconds": 10,
-    "prompt": "U volgt een cursus in de stad. Gaat u liever met de bus of met de fiets naar de cursus? Vertel ook waarom. Kies een van de plaatjes.",
+    "prompt": "U volgt een cursus in de stad. Gaat u liever met de bus of met de fiets naar de cursus? Vertel ook waarom. Kies een van de plaatjes. Zeg ook iets over het andere plaatje.",
     "images": [
       {
         "brief": "Fatima (woman in her forties, headscarf, blue coat) sits by the window in a city bus with a shoulder bag on her lap. No text, no destination sign.",
@@ -25411,8 +25411,8 @@
       null
     ],
     "model": "Ik kies de bus, het eerste plaatje. De cursus is 's avonds en dan is het donker. In de bus kan ik nog even mijn woorden leren. Fietsen, op het tweede plaatje, is gezond en goedkoop. Maar in de regen word ik nat.",
-    "promptAudio": "audio/e98e85c3ff87a611.mp3",
-    "revision": "c1:0df74059ab8c3833"
+    "promptAudio": "audio/92cd3dd7546d3247.mp3",
+    "revision": "c1:a294287fc8bc6280"
   },
   {
     "id": "A2:speaking:batch027-sollicitatiegesprek:1",
@@ -26060,7 +26060,7 @@
     "targetLevelValidated": false,
     "rubric": "b1-schrijven",
     "goal": "informeren",
-    "prompt": "U werkt als docent Engels bij Taalcentrum Westerbrug. Uw groep E2 heeft twaalf cursisten en doet op vrijdag 11 december 2026 examen. Op vrijdag 13 november heeft de groep een proefexamen gemaakt. De coördinator van de cursussen, meneer Verhoeven, vraagt u per e-mail hoe de groep het heeft gedaan, hoe de aanwezigheid bij de lessen was en wat u daarbij opvalt, en wat u voorstelt voor de laatste weken van de cursus. In de tabel ziet u de resultaten en de aanwezigheid. U schrijft meneer Verhoeven een e-mail met deze informatie. De tabel komt niet bij uw e-mail. De tekst moet dus te begrijpen zijn zonder de tabel. Schrijf de e-mail.",
+    "prompt": "U werkt als docent Engels bij Taalcentrum Westerbrug. Uw groep E2 heeft twaalf cursisten en doet op vrijdag 11 december 2026 examen. Op vrijdag 13 november heeft de groep een proefexamen gemaakt. De coördinator van de cursussen, meneer Verhoeven, vraagt u per e-mail hoe de groep het heeft gedaan. Hij wil ook weten hoe de aanwezigheid bij de lessen was en wat u daarbij opvalt. Ten slotte vraagt hij wat u voorstelt voor de laatste weken van de cursus. In de tabel ziet u de resultaten en de aanwezigheid. U schrijft meneer Verhoeven een e-mail met deze informatie. De tabel komt niet bij uw e-mail. De tekst moet dus te begrijpen zijn zonder de tabel. Schrijf de e-mail.",
     "scaffold": {
       "to": "p.verhoeven@taalcentrumwesterbrug.nl",
       "from": "kandidaat@mail.nl",
@@ -26139,7 +26139,7 @@
       "Ik stel voor dat wij in de laatste weken elke les een half uur extra schrijven. Ook wil ik de cursisten die gezakt zijn elke week extra huiswerk geven."
     ],
     "model": "Hierbij stuur ik u, zoals afgesproken, een kort verslag over groep E2, die op 13 november het proefexamen Engels heeft gemaakt. Over drie onderdelen ben ik tevreden. Voor luisteren zijn elf van de twaalf cursisten geslaagd, met een gemiddelde van 7,6, en voor lezen tien, met een 7,3. Ook spreken ging redelijk: negen cursisten haalden een voldoende. Schrijven is echter een groot probleem, want daarvoor zijn acht cursisten gezakt en het gemiddelde was maar een 5,1. De aanwezigheid verklaart dat voor een deel. Op maandag is gemiddeld negentig procent of meer van de groep aanwezig, maar bij de schrijfles op woensdag om half negen is dat nog maar 55 procent. Het valt mij op dat op woensdag veel cursisten na de spreekles naar huis gaan, terwijl op maandag bijna iedereen beide lessen volgt. Daarom stel ik voor om de schrijfles vanaf volgende week om zeven uur te geven en de spreekles daarna. Bovendien wil ik de cursisten die zijn gezakt, extra schrijfopdrachten voor thuis geven, die ik per e-mail nakijk. Ik hoor graag of u hiermee akkoord gaat.",
-    "revision": "c1:b722e8debca5549b"
+    "revision": "c1:2501f084963ad845"
   },
   {
     "id": "B1:writing:batch029-magnetron:1",
@@ -26252,7 +26252,7 @@
     "targetLevelValidated": false,
     "rubric": "b1-spreken",
     "speakingSeconds": 20,
-    "prompt": "Uw auto staat sinds gisteren bij de garage, omdat de uitlaat kapot is. U belt de garage en noemt uw naam. U hoort eerst de medewerker. Stel twee vragen: wat de reparatie kost en wanneer de auto klaar is. Zeg ook waarom u de auto snel nodig hebt.",
+    "prompt": "Uw auto staat sinds gisteren bij de garage, omdat de uitlaat kapot is. U belt de garage. U hoort eerst de medewerker. Stel twee vragen: wat de reparatie kost en wanneer de auto klaar is. Zeg ook waarom u de auto snel nodig hebt.",
     "cue": {
       "speaker": "Garagemedewerker",
       "role": "m-shop",
@@ -26279,9 +26279,9 @@
       "Vrijdag ik moet naar mijn werk in andere stad en daar gaat geen bus, dus ik heb de auto echt nodig."
     ],
     "model": "Ja, dat klopt. Kunt u me zeggen wat de reparatie ongeveer gaat kosten? En weet u al wanneer ik hem kan ophalen? Ik heb de auto vrijdag namelijk hard nodig, omdat ik dan voor mijn werk naar een klant in een andere stad moet.",
-    "promptAudio": "audio/3823905b59327633.mp3",
+    "promptAudio": "audio/68025ec990932ff0.mp3",
     "cueAudio": "audio/9440872bcb8cc6c7.mp3",
-    "revision": "c1:f147032e82a24dbc"
+    "revision": "c1:f552e91b117b6248"
   },
   {
     "id": "B1:speaking:batch030-eindpresentatie:1",
@@ -26523,7 +26523,7 @@
     "exam": "nt2-i",
     "taskType": "kort",
     "domain": "overig",
-    "title": "Farah is geslaagd",
+    "title": "Farah heeft nieuws",
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "b1-spreken",
@@ -26557,7 +26557,7 @@
     "model": "Gefeliciteerd, wat een goed nieuws! Dat heb je knap gedaan, zeker omdat je er zo zenuwachtig over was. Hoe ging het, moest je iets moeilijks doen, zoals inparkeren? Dit moeten we vieren: zullen we na de les samen ergens iets gaan drinken? Ik trakteer.",
     "promptAudio": "audio/2ca5962358dc15ce.mp3",
     "cueAudio": "audio/86d0fd47bd5b572d.mp3",
-    "revision": "c1:51a84d1263698037"
+    "revision": "c1:139f079e6ba9e6b8"
   },
   {
     "id": "B1:speaking:batch030-voetbalavond:1",
@@ -26609,13 +26609,13 @@
     "exam": "nt2-i",
     "taskType": "middellang",
     "domain": "overig",
-    "title": "Portemonnee kwijt in de tram",
+    "title": "Roos heeft pech",
     "status": "ai-editorially-reviewed",
     "targetLevelValidated": false,
     "rubric": "b1-spreken",
     "prepSeconds": 15,
     "speakingSeconds": 30,
-    "prompt": "Uw vriendin Roos is vorige week in de tram haar portemonnee kwijtgeraakt, maar ze heeft hem teruggekregen. Een vriend vraagt hoe dat is gegaan. Kijk naar de plaatjes. Vertel wat er gebeurde, hoe Roos zich voelde en hoe ze haar portemonnee terugkreeg. Gebruik alle drie de plaatjes.",
+    "prompt": "Uw vriendin Roos had vorige week pech. Een vriend vraagt hoe dat is gegaan. Kijk naar de plaatjes. Vertel wat er gebeurde, hoe Roos zich voelde en hoe alles weer goed kwam. Gebruik alle drie de plaatjes.",
     "images": [
       {
         "brief": "Inside a city tram, Roos (young woman, dark hair in a bun, yellow scarf) has just stood up from a seat and walks towards the open tram door with a shoulder bag on her arm; on the seat she has left lies a brown wallet, clearly visible. Two other passengers sit further away. No text, no route numbers, no signs.",
@@ -26645,16 +26645,16 @@
         "Say what happened in the tram (first picture)."
       ],
       [
-        "Vertel hoe Roos merkte dat haar portemonnee weg was (tweede plaatje).",
-        "Say how Roos noticed that her wallet was gone (second picture)."
+        "Vertel wat Roos bij de bakker merkte (tweede plaatje).",
+        "Say what Roos noticed at the bakery (second picture)."
       ],
       [
-        "Vertel hoe ze haar portemonnee terugkreeg (derde plaatje).",
-        "Say how she got her wallet back (third picture)."
+        "Vertel hoe het afliep (derde plaatje).",
+        "Say how it ended (third picture)."
       ],
       [
-        "Zeg hoe Roos zich voelde toen ze haar portemonnee miste, bijvoorbeeld geschrokken of in paniek.",
-        "Say how Roos felt when she missed her wallet, for example shocked or in a panic."
+        "Zeg hoe Roos zich voelde, bijvoorbeeld geschrokken of in paniek bij de bakker, of opgelucht bij de balie.",
+        "Say how Roos felt, for example shocked or in a panic at the bakery, or relieved at the counter."
       ]
     ],
     "sample": "Roos ging vorige week met de tram naar haar werk. In de tram zij legde haar portemonnee naast zich op de stoel. Bij het uitstappen vergat ze hem. Zo is ze haar portemonnee verloren. Bij de bakker wilde ze betalen, maar haar portemonnee was weg. De volgende dag kon ze hem ophalen bij de balie voor gevonden voorwerpen.",
@@ -26665,8 +26665,8 @@
       null
     ],
     "model": "Het begon in de tram. Roos zat bij het raam en legde haar portemonnee naast zich op de stoel. Toen ze bij haar halte uitstapte, vergat ze hem. Pas bij de bakker merkte ze dat haar portemonnee weg was, en ze schrok enorm. Gelukkig had iemand hem gevonden en afgegeven. De volgende dag kon ze hem ophalen bij het bureau voor gevonden voorwerpen.",
-    "promptAudio": "audio/3ca1cd7c154e46d5.mp3",
-    "revision": "c1:d750071e1557fd5f"
+    "promptAudio": "audio/da13c1e4fe2ef444.mp3",
+    "revision": "c1:537e25af890ea7f9"
   },
   {
     "id": "B1:speaking:batch031-taalcafe-avond:1",
@@ -26791,7 +26791,7 @@
     "rubric": "b1-spreken",
     "prepSeconds": 15,
     "speakingSeconds": 30,
-    "prompt": "U volgt een cursus bij een avondschool. Uw collega Sabrina wil bij dezelfde school een cursus Engels gaan doen, omdat ze volgend jaar een andere baan wil zoeken. Ze heeft niet veel geld en twee jonge kinderen. Ze twijfelt tussen twee cursussen. Bekijk de tabel. Adviseer Sabrina welke cursus ze het beste kan kiezen en waarom. Noem minstens twee punten uit de tabel en ook een nadeel van uw keuze.",
+    "prompt": "U volgt een cursus bij een avondschool. Uw collega Sabrina wil bij dezelfde school een cursus Engels gaan doen, omdat ze volgend jaar een andere baan wil zoeken. Ze heeft niet veel geld en twee jonge kinderen. Ze twijfelt tussen twee cursussen. Bekijk de tabel. Adviseer Sabrina welke cursus het beste bij haar situatie past. Noem minstens twee punten uit de tabel en ook een nadeel van uw keuze.",
     "table": {
       "caption": "Twee cursussen Engels bij dezelfde avondschool",
       "columns": [
@@ -26848,8 +26848,8 @@
       null
     ],
     "model": "Ik zou cursus één nemen. Die is met tweehonderdvijfenzeventig euro veel goedkoper, en dat scheelt als je weinig geld hebt. Bovendien is er maar één lesavond per week, zodat je maar één avond oppas voor de kinderen hoeft te regelen. Het nadeel is dat je alleen een bewijs van deelname krijgt. Maar je leert hetzelfde Engels, en dat merken ze in een sollicitatiegesprek.",
-    "promptAudio": "audio/cd5c9b6e3561ab90.mp3",
-    "revision": "c1:61f1eca310f0770e"
+    "promptAudio": "audio/8414b0ac69bf5785.mp3",
+    "revision": "c1:33c079249a1b2ec7"
   },
   {
     "id": "B1:speaking:batch031-afvalcontainers:1",
@@ -26923,7 +26923,7 @@
     "rubric": "b1-spreken",
     "prepSeconds": 15,
     "speakingSeconds": 30,
-    "prompt": "U werkt in de thuiszorg en rijdt elke dag naar cliënten. U krijgt een nieuwe werktelefoon en mag zelf een abonnement kiezen. U belt veel voor uw werk en gebruikt onderweg de navigatie op uw telefoon. Uw leidinggevende vraagt welk abonnement u kiest. Bekijk de tabel. Vergelijk de twee abonnementen en zeg welk abonnement u kiest. Noem twee redenen en ook een nadeel van uw keuze.",
+    "prompt": "U werkt in de thuiszorg en rijdt elke dag naar cliënten. U krijgt een nieuwe werktelefoon en mag zelf een abonnement kiezen. U belt veel voor uw werk en gebruikt onderweg de navigatie op uw telefoon. Uw leidinggevende vraagt welk abonnement u kiest. Bekijk de tabel. Vergelijk de twee abonnementen en zeg welk abonnement het beste bij uw werk past. Noem twee redenen en ook een nadeel van uw keuze.",
     "table": {
       "caption": "Twee abonnementen voor de werktelefoon. Het bedrijf betaalt maximaal € 20 per maand; de rest betaalt u zelf.",
       "columns": [
@@ -26980,8 +26980,8 @@
       "Het nadeel is dat ik zeven euro per maand zelf moet betalen"
     ],
     "model": "Ik kies abonnement twee. Ten eerste bel ik de hele dag met cliënten; met tweehonderd minuten kom ik niet uit en abonnement twee heeft onbeperkt bellen. Ten tweede rijd ik met de navigatie naar cliënten, en dan is vijf gigabyte te weinig. Abonnement één is wel goedkoper, want dat betaalt het bedrijf helemaal, maar die zeven euro per maand betaal ik graag zelf.",
-    "promptAudio": "audio/8d0e68f6e98bc741.mp3",
-    "revision": "c1:356024626e32d179"
+    "promptAudio": "audio/d5cb80e482169523.mp3",
+    "revision": "c1:b49f59286cfef3df"
   },
   {
     "id": "B1:speaking:batch031-sollicitatietips:1",

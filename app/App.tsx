@@ -445,7 +445,8 @@ export default function App({
           <footer className="footer">
             <span className="unofficial">
               {t(
-                'Onafhankelijke oefenopgaven · geen officiële examens',
+                // Short in Dutch: the longer notice wrapped the footer onto two lines.
+                'Geen officiële examens',
                 'Independent practice · not official exams',
               )}
             </span>

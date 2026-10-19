@@ -168,8 +168,11 @@ export function restore(storage, catalogue) {
     }
     const seconds = (value) =>
       Number.isFinite(value) && value > 0 && value < 1e8 ? Math.floor(value) : 0;
-    const sessionSnapshot = (session) => ({
+    const sessionSnapshot = ({ skipped, ...session }: Session): Session => ({
       ...session,
+      ...(Array.isArray(skipped)
+        ? { skipped: skipped.filter((key) => typeof key === 'string') }
+        : {}),
       checked: session.checked || {},
       elapsedSeconds: seconds(session.elapsedSeconds),
       revisions: Object.fromEntries(
@@ -230,10 +233,12 @@ export function startSession(
 export function complete(state, catalogue, now = Date.now()) {
   const a = state.active;
   if (!validSession(a, catalogue)) return state;
-  const questions = flatten(a, catalogue);
+  const questions = flatten(a, catalogue),
+    answered = (key, q) => Object.hasOwn(q.options, a.answers[key]);
+  // Every question needs an answer or an explicit skip; a skipped one scores as not correct.
   if (
     !questions.length ||
-    questions.some(({ key, q }) => !Object.hasOwn(q.options, a.answers[key]))
+    questions.some(({ key, q }) => !answered(key, q) && !a.skipped?.includes(key))
   )
     return state;
   const ended = { ...a, endedAt: a.endedAt ?? now };
@@ -252,10 +257,12 @@ export function complete(state, catalogue, now = Date.now()) {
     const qs = questions.filter((x) => x.item.id === id);
     if (!qs.length) return;
     const responses = Object.fromEntries(
-      qs.map((x) => [
-        x.q.id,
-        { selected: a.answers[x.key], fingerprint: questionFingerprint(x.item, x.q) },
-      ]),
+      qs
+        .filter((x) => answered(x.key, x.q))
+        .map((x) => [
+          x.q.id,
+          { selected: a.answers[x.key], fingerprint: questionFingerprint(x.item, x.q) },
+        ]),
     );
     const previous = records[id];
     // A focused retry updates only the retried answers; the first full result stays.
@@ -335,11 +342,59 @@ export function reviewOpen(
   if (inSet && a?.setId && a.mode === 'practice' && !a.endedAt && a.ids[a.index] === id) {
     next.active = {
       ...a,
+      // A task reviewed after going back to it no longer counts as skipped.
+      ...(a.skipped ? { skipped: a.skipped.filter((x) => x !== id) } : {}),
       index: Math.min(a.index + 1, a.ids.length - 1),
       endedAt: a.index === a.ids.length - 1 ? now : null,
     };
   }
   return next;
+}
+// Skipping moves a practice set on without an answer. A closed question is left unanswered
+// (and scores as not correct); an open task stays unreviewed. Skipping the last one ends the set.
+export function skipQuestion(state, catalogue, now = Date.now()) {
+  const a = state.active;
+  if (!a || a.mode !== 'practice' || a.endedAt) return state;
+  const questions = flatten(a, catalogue),
+    current = questions[a.index];
+  if (!current || a.checked[current.key]) return state;
+  const { [current.key]: _, ...answers } = a.answers;
+  const next = {
+    ...state,
+    active: {
+      ...a,
+      answers,
+      skipped: [...(a.skipped || []).filter((key) => key !== current.key), current.key],
+      index: Math.min(a.index + 1, questions.length - 1),
+    },
+  };
+  return a.index === questions.length - 1 ? complete(next, catalogue, now) : next;
+}
+// A task already reviewed in this run (the learner went back to it) is passed, not skipped.
+export function reviewedInSession(state, id) {
+  const record = state.records[id];
+  return !!record?.completed && !!state.active && record.at >= state.active.startedAt;
+}
+export function skipOpen(state, id, now = Date.now()) {
+  const a = state.active;
+  if (!a?.setId || a.mode !== 'practice' || a.endedAt || a.ids[a.index] !== id) return state;
+  const skipped = (a.skipped || []).filter((x) => x !== id);
+  return {
+    ...state,
+    active: {
+      ...a,
+      skipped: reviewedInSession(state, id) ? skipped : [...skipped, id],
+      index: Math.min(a.index + 1, a.ids.length - 1),
+      endedAt: a.index === a.ids.length - 1 ? now : null,
+    },
+  };
+}
+// Going back in a set of open tasks keeps every draft; the earlier task opens as it was left.
+export function previousOpen(state, id) {
+  const a = state.active;
+  if (!a?.setId || a.mode !== 'practice' || a.endedAt || a.ids[a.index] !== id || a.index === 0)
+    return state;
+  return { ...state, active: { ...a, index: a.index - 1 } };
 }
 // Elapsed time is the seconds a learner actually spent on the screen; time away is never counted.
 export function elapsed(session) {
