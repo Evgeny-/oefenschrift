@@ -222,7 +222,7 @@ try {
   // Firefox may log CSP violations as warnings. Capture the browser event on every
   // document so a blocked inline script fails the journey even if the app hydrates.
   await send('script.addPreloadScript', {
-    functionDeclaration: `()=>{document.addEventListener('securitypolicyviolation',event=>console.error('CSP violation: '+event.effectiveDirective+' '+event.blockedURI));}`,
+    functionDeclaration: `()=>{document.addEventListener('securitypolicyviolation',event=>console.error('CSP violation: '+event.effectiveDirective+' '+event.blockedURI));window.productionReactionReads=0;const originalFetch=window.fetch;window.fetch=async(...args)=>{const response=await originalFetch(...args);const [input,init]=args;if(new URL(typeof input==='string'?input:input.url,location.href).pathname.endsWith('/api/reactions')&&JSON.parse(init?.body||'{}').operation==='get'){await response.clone().json();window.productionReactionReads++;}return response;};}`,
   });
   const evaluate = async (expression) => {
     const result = await send('script.evaluate', {
@@ -302,6 +302,31 @@ try {
   await ready('.question');
   await ready('.app-shell[data-hydrated]');
   checks.push('Direct set reload restores practice');
+  await evaluate(
+    `new Promise((resolve,reject)=>{const end=Date.now()+7000;const check=()=>window.productionReactionReads>0&&document.querySelectorAll('.reaction-button').length===2?resolve(true):Date.now()>end?reject(Error('Exercise reactions did not load')):setTimeout(check,50);check();})`,
+  );
+  assert.ok(
+    await evaluate(
+      `!document.querySelector('.report-trigger')&&!document.querySelector('.reaction-error')&&[...document.querySelectorAll('.reaction-button')].every(button=>button.getAttribute('aria-pressed')==='false'&&!button.disabled)`,
+    ),
+    'An unrated exercise offers reactions and keeps the optional report hidden',
+  );
+  await evaluate(
+    `document.querySelector('.reaction-button[data-reaction="dislike"]').click();true;`,
+  );
+  await ready('.reaction-button[data-reaction="dislike"][aria-pressed="true"]:not(:disabled)');
+  await ready('.report-trigger');
+  assert.ok(
+    await evaluate(
+      `!document.querySelector('.reaction-error')&&!document.querySelector('.report-dialog')`,
+    ),
+    'A saved dislike reveals the optional report without opening it',
+  );
+  await send('browsingContext.reload', { context, wait: 'complete' });
+  await ready('.app-shell[data-hydrated]');
+  await ready('.reaction-button[data-reaction="dislike"][aria-pressed="true"]:not(:disabled)');
+  await ready('.report-trigger');
+  checks.push('A saved dislike survives reload and reveals the optional report');
   // Test the compiled CSS: development styles cannot catch a centering transform
   // lost during bundling. A short viewport must keep the form inside a scrollable popup.
   for (const [name, width, height] of [
