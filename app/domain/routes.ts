@@ -29,7 +29,7 @@ export function routeLang(location): Language | undefined {
 }
 const withoutLang = (pathname: string) => pathname.replace(/^\/en(?=\/|$)/i, '');
 export function routeLevel(location): Level | undefined {
-  const match = withoutLang(location.pathname).match(/^\/(a2|b1|b2)(?:\/|$)/i);
+  const match = withoutLang(location.pathname).match(/^\/(a1|a2|b1|b2)(?:\/|$)/i);
   return match?.[1].toUpperCase() as Level | undefined;
 }
 export function sessionRoute(active) {

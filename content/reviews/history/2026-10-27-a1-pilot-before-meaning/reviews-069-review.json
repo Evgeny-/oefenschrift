@@ -1,0 +1,199 @@
+{
+  "review_id": "069-review",
+  "source": "content/batches/069-original.json",
+  "source_sha256": "4f6c9a05fa7eb65460c1e7194b80a1d5d18bf8ac245f8900468d5a3e09048215",
+  "proposed": "content/batches/069-proposed.json",
+  "proposed_identical_to_author_file": false,
+  "author_source_sha256": "b3d8c04f64e5d38bc58818a7a9a4ee8926a17289803518599a5b2398582434e7",
+  "review_type": "independent-ai-editorial",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-27",
+  "reviewer": "Independent Codex AI agent in a separate reviewer context. The reviewer did not author batch 069 or edit the author's files. No Opus review is claimed.",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "item_count": 3,
+  "question_count": 6,
+  "distribution": {
+    "level": { "A1": 3 },
+    "part": { "reading": 3 },
+    "domain": { "werk": 1, "opleiding": 1, "vrije-tijd-familie": 1 },
+    "skill": { "detail": 4, "time-place": 1, "person": 1 },
+    "keys": { "A": 2, "B": 2, "C": 2 },
+    "options": { "3": 6 }
+  },
+  "edits": [
+    {
+      "id": "A1:reading:batch069-kopjes:1",
+      "field": "title",
+      "old": "Kopjes in de kast",
+      "new": "Een bericht op het werk",
+      "reason": "The old title supplied q1's object and destination. A context title keeps the fact in the message."
+    },
+    {
+      "id": "A1:reading:batch069-lesboek:1",
+      "field": "title",
+      "old": "Je boek voor de les",
+      "new": "Morgen in de les",
+      "reason": "The old title cued q1's keyed object. The replacement gives only the setting."
+    },
+    {
+      "id": "A1:reading:batch069-lesboek:1",
+      "field": "text greeting",
+      "old": "Beste cursist,",
+      "new": "Hoi,",
+      "reason": "Remove an unnecessary learner label and keep a natural direct message using je."
+    },
+    {
+      "id": "A1:reading:batch069-lesboek:1",
+      "field": "text sentence",
+      "old": "De docent geeft je een pen.",
+      "new": "Ik geef je een pen.",
+      "reason": "Sara writes the message herself. First person makes the giver explicit and sounds natural in this direct message."
+    },
+    {
+      "id": "A1:reading:batch069-tafel-dragen:1",
+      "field": "title",
+      "old": "Een nieuwe tafel",
+      "new": "Helpen op zaterdag",
+      "reason": "Use a context title so it does not cue the object in q1's correct task."
+    },
+    {
+      "id": "A1:reading:batch069-tafel-dragen:1",
+      "field": "text sentence",
+      "old": "Jij kunt de tafel met Ali dragen.",
+      "new": "Jij draagt de tafel met Ali.",
+      "reason": "State Sem's assigned action directly. The old sentence expressed an ability or possibility while q1 asks what Sem will do."
+    },
+    {
+      "id": "A1:reading:batch069-tafel-dragen:1",
+      "field": "questions[q1].evidence",
+      "old": "Jij kunt de tafel met Ali dragen.",
+      "new": "Jij draagt de tafel met Ali.",
+      "reason": "Keep the evidence verbatim after the source repair. The existing keyed answer and explanation still agree."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "read_in_full": "AGENTS.md; docs/briefs/review.md; docs/briefs/author.md; content/blueprint.md sections 1, 3, 4.0, 5 and 8-13; content/reviews/rubric.md; docs/research/content-workflow.md; the A2 reading paragraph and scope of docs/research/exam-blueprints-2026-09-10.md; the complete 069-original.json and 069-notes.md; the complete final 069-proposed.json after every repair; scripts/batch-adopt.ts and the relevant integration gate; all 68 catalogue reading titles and the seven nearest catalogue records in full.",
+    "a1_scope": "The new section 4.0 governs this pilot. The older official-exam research document has no A1 blueprint. No official A1 task or exam-equivalence comparison applies.",
+    "separate_level_target_check": "content/reviews/069-level-check.md, by separate fresh-context Codex agent /root/a1_level_check, passes all three final items against the A1 foundation authoring target and independently records the same final SHA-256 4f6c9a05fa7eb65460c1e7194b80a1d5d18bf8ac245f8900468d5a3e09048215. This is not learner difficulty validation.",
+    "final_source": "The reviewer reread all three final messages, situations, titles, six prompts, 18 options, six keys, evidence quotes and explanations after formatting. All 15 applicable rubric checks pass; open-task, KNM and media requirements do not apply.",
+    "contract": "Exactly three original A1 reading bericht records with exam a1-practice, distinct IDs and slugs, recognised fitting domains, situations, status draft and targetLevelValidated false. Each has exactly two questions with options A-C. No retired type, revision or generated media field is present.",
+    "answers": "One explicit sentence entails each key. Every quote is a verbatim substring. Every distractor names a nearby competing object, place, material, category number or person, with the false relation recorded per question below. Option word counts match within each question. No title supplies a tested relation after the repairs.",
+    "language": "Complete-text word counts are 30, 38 and 33. Main-body sentence means are 6.25, 5.67 and 4.83 words; maxima are 7, 7 and 6. Splitting the entire text including greetings and sign-offs gives means of 5.00, 4.75 and 4.71 and maxima of 9, 8 and 6. All meet the local average <=8 and maximum <=12 targets. Sentences use simple present main clauses and direct commands. Question and explanation language was read separately.",
+    "originality": "New messages with fictional everyday details. The CEFR source informs the target only. No official exercise wording is reproduced. Personal names and generic settings need no invented-company verification. There are no KNM or time-sensitive public-service claims.",
+    "diversity": "Compared with all 68 reading titles: 43 A2 and 25 B1, with no existing A1 item. Read speelgoed, bibliobus, kantine, werkkleding, praktijkles, picknick and openingstijden in full. Workplace storage, materials for one lesson and help carrying furniture are distinct purposes. The family item's person-to-task matching shares a reading operation with picknick but its activity and purpose differ. No slug collision or duplicated source passage was found.",
+    "formatting": "Ran npx prettier --write content/batches/069-proposed.json before the final full-source read and SHA-256 calculation. The proposed file was not edited after that hash.",
+    "batch_check": "npm run batch:check content/batches/069-proposed.json on the final formatted source: Checked 3 items, 6 questions. Keys: {A:2,B:2,C:2}. Options: {3:6}. No failures, no warnings.",
+    "hash": "SHA-256 calculated from the exact formatted proposed file bytes using Node crypto. source_sha256 intentionally names those reviewed bytes under the adoption contract. The original author's file and notes remain unchanged."
+  },
+  "source_verification": [
+    {
+      "url": "https://rm.coe.int/common-european-framework-of-reference-forlanguages-learning-teaching/16809ea0d4",
+      "title": "Council of Europe: Common European Framework of Reference for Languages: Learning, teaching, assessment - Companion volume (2020)",
+      "accessed_at": "2026-10-27",
+      "pages": "54-55 (PDF indices 53-54)",
+      "verified": "Independently opened and read the primary PDF's A1 overall reading comprehension and reading correspondence descriptors. They support working phrase by phrase with familiar words in very short simple texts, with rereading, and understanding short personal messages. Familiar everyday actions and directly stated facts in this batch fit that authoring direction.",
+      "limitation": "The descriptors do not prescribe these word counts, option counts or question format and cannot validate the difficulty of these new exercises. PDF screenshot requests failed; verification used the full PDF text with page markers."
+    }
+  ],
+  "items": [
+    {
+      "id": "A1:reading:batch069-kopjes:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "A 30-word familiar message about concrete objects and locations. Both answers come from one short clause. No condition, calculation or implied intention is needed. This is an editorial target judgment with difficulty unvalidated.",
+      "evidence": {
+        "q1": {
+          "answer": "A",
+          "quote": "Zet de kopjes in de kast.",
+          "entailment": "The imperative directly names the cups as the things Lina must put in the cupboard.",
+          "distractors": {
+            "B": "The plates are on the table. The instruction to put things away names only the cups.",
+            "C": "The spoons are by the tap. They are not the object named in the instruction."
+          }
+        },
+        "q2": {
+          "answer": "B",
+          "quote": "De borden staan op de tafel.",
+          "entailment": "The plates' location is explicitly on the table.",
+          "distractors": {
+            "A": "The cupboard is the cups' destination, not the plates' stated location.",
+            "C": "The tap is the spoons' location, not the plates' location."
+          }
+        },
+        "metadata": "bericht and werk fit the colleague's short workplace instruction. Title repaired; all other fields retained."
+      }
+    },
+    {
+      "id": "A1:reading:batch069-lesboek:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "A 38-word classroom message with familiar materials, simple commands and clearly labelled digits. Finding oefening 4 requires category matching, not arithmetic. No sentence exceeds seven body words. Difficulty remains unvalidated.",
+      "evidence": {
+        "q1": {
+          "answer": "C",
+          "quote": "Neem je boek mee.",
+          "entailment": "The command explicitly says to bring the book.",
+          "distractors": {
+            "A": "The notebook is already in the cupboard. The command does not tell the learner to bring it.",
+            "B": "Sara gives the learner a pen. The learner is not told to bring one."
+          }
+        },
+        "q2": {
+          "answer": "A",
+          "quote": "Daarna maak je oefening 4.",
+          "entailment": "The exercise number is explicitly four.",
+          "distractors": {
+            "B": "Two labels the room, not the exercise.",
+            "C": "Three labels the reading text, not the exercise."
+          }
+        },
+        "metadata": "bericht and opleiding fit a teacher's message about one lesson. The revised title, greeting and first-person giver preserve the question logic."
+      }
+    },
+    {
+      "id": "A1:reading:batch069-tafel-dragen:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "A 33-word message about helping with a table. The salutation names Sem, and each person's action is stated in a short sentence. Dragen names a concrete physical action with a familiar object. Difficulty remains unvalidated.",
+      "evidence": {
+        "q1": {
+          "answer": "B",
+          "quote": "Jij draagt de tafel met Ali.",
+          "entailment": "Hoi Sem and the situation explicitly identify jij as Sem. The repaired sentence states his task directly.",
+          "distractors": {
+            "A": "Ik maak koffie assigns coffee to the writer Mila, identified in the situation and sign-off.",
+            "C": "Noor neemt brood mee assigns bringing bread to Noor."
+          }
+        },
+        "q2": {
+          "answer": "C",
+          "quote": "Noor neemt brood mee.",
+          "entailment": "Noor is explicitly the person bringing bread.",
+          "distractors": {
+            "A": "Ali carries the table with Sem. Noor is the person stated to bring bread.",
+            "B": "Mila writes the message and makes coffee. The bread sentence names Noor."
+          }
+        },
+        "metadata": "bericht and vrije-tijd-familie fit a sister's request for household help. The task sentence, its evidence and the neutral title were repaired."
+      }
+    }
+  ],
+  "author_doubts_decisions": [
+    "Cursist: removed from the greeting as unnecessary. Oefening stays: a familiar classroom word repeated in the source, question and every option. Dragen stays: a concrete action with tafel; the assignment is now stated without kunt.",
+    "lesboek q2: accepted. Both distractors reuse explicitly labelled nearby numbers. The item tests matching the word oefening to its number. It needs no calculation or combined condition.",
+    "tafel-dragen q1: accepted after removing the modal ambiguity. The situation and Hoi Sem explicitly anchor jij. Linking a message's addressee to its direct second-person instruction is appropriate for this simple-message target."
+  ],
+  "set_assembly": "The three distinct messages form the requested local A1 reading pilot with six balanced keys. Existing catalogue entries and sets were not edited. A1 mock exams and level checks are outside this batch's scope.",
+  "media_notes": ["Reading only. No audio, pictures, starters or media generation is required."],
+  "coordinator_actions": [
+    "The first-batch fresh-context A1 target check is complete in content/reviews/069-level-check.md and passes the exact final proposed hash.",
+    "Adopt with npm run batch:adopt 069, then integrate through npm run content:integrate using the project's normal hints hash refresh process for closed-item additions. Keep all work local."
+  ],
+  "limitations": [
+    "This independent AI editorial review checks wording, answer logic and the local authoring specification. It does not validate CEFR difficulty, learner performance or official exam equivalence.",
+    "This is the first A1 batch, so no existing A1 catalogue exemplars are available. The comparison and the completed separate target check use the primary CEFR descriptors and local section 4.0.",
+    "The author notes describe the original text. The repairs and final measurements are recorded here without editing those notes."
+  ]
+}

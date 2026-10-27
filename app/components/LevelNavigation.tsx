@@ -1,11 +1,13 @@
 import SegmentLinks from './SegmentLinks';
+import { LEVELS, type Level } from '../types';
+const visibleLevels: Level[] = LEVELS.filter((level) => level !== 'B2');
 // Levels without reviewed material stay visible as a placeholder link that does not navigate.
 export default function LevelNavigation({
   label,
   value,
   hrefFor,
   onChange,
-  available = ['A2', 'B1', 'B2'],
+  available = visibleLevels,
   soon = 'Binnenkort',
 }) {
   return (
@@ -14,7 +16,7 @@ export default function LevelNavigation({
       label={label}
       value={value}
       onChange={onChange}
-      options={['A2', 'B1', 'B2'].map((level) =>
+      options={visibleLevels.map((level) =>
         available.includes(level) || level === value
           ? { value: level, label: level, href: hrefFor(level) }
           : { value: level, label: level, note: soon },

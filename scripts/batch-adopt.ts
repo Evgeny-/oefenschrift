@@ -5,6 +5,8 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { meaningReviewErrors } from './meaning-review';
+import { itemPassedReview } from './content-review';
 
 const batch = process.argv[2];
 if (!/^\d{3}$/.test(batch || '')) {
@@ -30,6 +32,19 @@ if (review.source_sha256 !== digest(proposed)) {
   console.error(
     `The review records ${review.source_sha256}, the proposed file hashes to ${digest(proposed)}.`,
   );
+  process.exit(1);
+}
+const proposedItems = JSON.parse(readFileSync(proposed, 'utf8'));
+if (
+  !Array.isArray(proposedItems) ||
+  !proposedItems.every((item) => itemPassedReview(review, item.id))
+) {
+  console.error('Every proposed exercise needs an individual passing editorial verdict.');
+  process.exit(1);
+}
+const meaningErrors = meaningReviewErrors(review, proposedItems, false);
+if (meaningErrors.length) {
+  console.error('Meaning review has not passed:\n' + meaningErrors.join('\n'));
   process.exit(1);
 }
 if (existsSync(proposedStarters) && review.starters_sha256 !== digest(proposedStarters)) {

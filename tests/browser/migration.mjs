@@ -98,6 +98,18 @@ const pass = signed('pass', 'c'),
 // Cookies are host-scoped, so a tiny fixture server can issue authentic old HttpOnly
 // cookies without adding a test-only authentication endpoint to the application.
 const seedServer = createServer((request, response) => {
+  // A browser may fetch the fixture's icon while the next page migrates cookies.
+  // Only the deliberate fixture navigation may seed old authentication cookies.
+  if (request.url === '/favicon.ico') {
+    response.writeHead(204);
+    response.end();
+    return;
+  }
+  if (request.method !== 'GET' || request.url !== '/') {
+    response.writeHead(404);
+    response.end();
+    return;
+  }
   response.writeHead(200, {
     'Content-Type': 'text/html',
     'Set-Cookie': [

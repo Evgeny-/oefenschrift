@@ -1,0 +1,13 @@
+# Meaning review correction, 27 October 2026
+
+The first A1 expansion passed literal evidence and answer-key checks while several conversations made little practical sense. In the broom dialogue, a request to turn music on led to a choice between a radio and musical instruments, then unrelated statements about chairs and tableware. Those statements supplied distractors instead of helping the people communicate.
+
+The review now begins in a fresh context with a source-only packet from `npm run batch:review-source -- content/batches/NNN-original.json`. Questions, choices, answers, models, criteria and author notes are withheld until the reviewer has saved its findings. The reviewer explains the purpose of the exchange and the function of every exact dialogue turn. Open tasks also need a credible medium and recipient. An explanation that needs unstated events or motives fails.
+
+The full-item review follows that pass and checks the source against its questions, illustration brief, sample and starters. Source changes require another meaning check and a fresh packet hash. Review contract version 2 carries these findings. Adoption, integration and file-based media generation all enforce the contract. Exact historical source hashes through batch 068 retain their old approvals; all A1 sources are excluded from that exemption.
+
+A fresh editorial regression used four sources before the coordinator revealed the expected results. It rejected the broom dialogue and required a repair to a pen search padded with unrelated object locations. A normal soup order passed, as did a coherent playful exchange. The preserved source and sealed expectations are in `tests/fixtures/review-meaning/`; the actual findings are in `content/reviews/2026-10-27-reviewer-semantic-regression.json`.
+
+The user's later correction also changes the program's tone: about 15% of tasks may be lightly funny. For 36 exercises, five use a surprising scene and 31 use ordinary situations. Each reviewer classifies the source independently and records exact tone counts. The code rejects excessive humorous counts per batch, with upward rounding for small batches; the coordinator checks the combined program.
+
+These checks require a documented editorial judgment. They cannot determine meaning from a schema or guarantee that every weak exercise will be caught. The regression demonstrates the recorded reviewer decisions, while unit tests protect answer withholding, hashes, rejected verdicts, turn links, tone counts and source preservation on a failed adoption. No human difficulty validation or official-exam equivalence is claimed.

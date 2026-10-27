@@ -13,21 +13,24 @@ export const SKILLS = new Set([
   'summary',
   'picture',
 ]);
+const everydayDomains = new Set([
+  'werk',
+  'opleiding',
+  'wonen-buurt',
+  'gezondheid',
+  'winkels-diensten',
+  'instanties',
+  'vervoer',
+  'vrije-tijd-familie',
+]);
 export const DOMAINS = {
-  A2: new Set([
-    'werk',
-    'opleiding',
-    'wonen-buurt',
-    'gezondheid',
-    'winkels-diensten',
-    'instanties',
-    'vervoer',
-    'vrije-tijd-familie',
-  ]),
+  A1: everydayDomains,
+  A2: everydayDomains,
   B1: new Set(['werk', 'educatie', 'overig']),
 };
 export const TASK_TYPES = {
   reading: {
+    A1: ['bericht'],
     A2: ['brief', 'email', 'folder', 'bericht', 'advertentie', 'krant', 'regels', 'rooster'],
     B1: [
       'artikel',
@@ -40,14 +43,17 @@ export const TASK_TYPES = {
     ],
   },
   listening: {
+    A1: ['gesprek'],
     A2: ['gesprek', 'voicemail', 'omroep', 'nieuws', 'uitleg', 'reclame'],
     B1: ['interview', 'gesprek', 'voorlichting', 'instructie'],
   },
   writing: {
+    A1: ['bericht'],
     A2: ['email', 'wijkkrant', 'form', 'picture-note'],
     B1: ['zinstaak', 'deelschrijftaak', 'korte-schrijftaak'],
   },
   speaking: {
+    A1: ['picture-describe'],
     A2: ['video-answer', 'picture-describe', 'picture-choose', 'picture-sequence'],
     B1: ['kort', 'middellang'],
   },

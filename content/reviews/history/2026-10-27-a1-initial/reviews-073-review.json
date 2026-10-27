@@ -1,0 +1,1129 @@
+{
+  "review_id": "073-review",
+  "source": "content/batches/073-original.json",
+  "source_sha256": "9c5b921de710b71a82f9222aaccb88e8cb98ed38677c5828e9fc66cebc0e2d87",
+  "proposed": "content/batches/073-proposed.json",
+  "author_source_sha256": "a554886cb1290583b7413093007d9d2f1b7d468892364f2b9a994614ff4e5097",
+  "starters_source": "content/batches/073-starters.json",
+  "starters_sha256": "fe65a50f89ce7eb69f10f727cde70d4b748240eed920516714f94b2a35333431",
+  "starters_verdict": "pass",
+  "review_type": "independent-ai-editorial",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-27",
+  "reviewer": "Independent Codex AI agent /root/review_a1_speaking_fun in a separate reviewer context. This agent did not author batch 073. Opus 5 was unavailable and was not used.",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "item_count": 9,
+  "question_count": 0,
+  "counts": {
+    "unchanged_pass": 1,
+    "edited_pass": 8,
+    "rejected": 0
+  },
+  "distribution": {
+    "level": {
+      "A1": 9
+    },
+    "part": {
+      "speaking": 9
+    },
+    "taskType": {
+      "picture-describe": 9
+    },
+    "domain": {
+      "vrije-tijd-familie": 3,
+      "vervoer": 1,
+      "wonen-buurt": 3,
+      "opleiding": 1,
+      "winkels-diensten": 1
+    },
+    "content_goals": 18,
+    "understandable_language_goals": 9,
+    "drawing_briefs": 9,
+    "starters": 27
+  },
+  "edits": [
+    {
+      "id": "A1:speaking:batch073-miniparaplu:1",
+      "field": "images[0].brief",
+      "old": "Karim (man in his thirties, short black hair and beard, grey jacket) waits beside a plain bus shelter in light rain. He holds an absurdly tiny open blue umbrella above his head; the umbrella canopy is no wider than his hand and is unmistakably a miniature umbrella with a curved handle. Karim looks up at it with an amused smile. Show the blue canopy against a warm off-white background and keep its colour clear, with no other umbrella in the scene. A puddle and the shelter's simple bench give the illustration depth. No text, signs, numerals, logos, bus route symbols or clock faces.",
+      "new": "Karim (man in his thirties, short black hair and beard, grey jacket) waits beside a plain bus shelter in light rain. He holds an absurdly tiny open blue umbrella above his head; the umbrella canopy is no wider than his hand and is unmistakably a miniature umbrella with a curved handle. Karim looks up at it with an amused smile. Frame Karim from the waist up, large enough that the hand-sized canopy still reads clearly at the displayed exercise size. Keep his head, raised hand and the complete umbrella visible. Show the blue canopy against a warm off-white background and keep its colour clear, with no other umbrella in the scene. A puddle and the shelter's simple bench give the illustration depth. No text, signs, numerals, logos, bus route symbols or clock faces.",
+      "reason": "Add a closer composition so the hand-sized umbrella stays recognisable at the size used by the exercise."
+    },
+    {
+      "id": "A1:speaking:batch073-langesjaal:1",
+      "field": "criteria[0]",
+      "old": [
+        "Zeg dat Roos in een park is. 'Buiten' is ook goed.",
+        "Say that Roos is in a park. 'Outside' is also acceptable."
+      ],
+      "new": [
+        "Zeg waar Roos is, bijvoorbeeld in het park of buiten.",
+        "Say where Roos is, for example in the park or outside."
+      ],
+      "reason": "Allow accurate visible location variants because the prompt asks a broad where question."
+    },
+    {
+      "id": "A1:speaking:batch073-koelkastbal:1",
+      "field": "criteria[0]",
+      "old": [
+        "Zeg dat er een bal in de koelkast ligt.",
+        "Say that there is a ball in the refrigerator."
+      ],
+      "new": [
+        "Zeg wat er in de koelkast ligt: een bal. 'Een bal' is genoeg.",
+        "Say what is in the refrigerator: a ball. 'A ball' is enough."
+      ],
+      "reason": "Make a simple object answer sufficient without requiring the learner to repeat the location already given by the question."
+    },
+    {
+      "id": "A1:speaking:batch073-tuinbed:1",
+      "field": "prompt",
+      "old": "Kijk naar het plaatje. Waar is de vrouw? Wat doet ze? Vertel het.",
+      "new": "Kijk naar het plaatje. Is de vrouw binnen of buiten? Wat doet ze? Vertel het.",
+      "reason": "Separate the outside setting from the bed/action goal so in bed cannot accidentally answer the first question."
+    },
+    {
+      "id": "A1:speaking:batch073-tuinbed:1",
+      "field": "criteria[1]",
+      "old": [
+        "Zeg dat ze in bed ligt. 'Ze slaapt' is ook goed.",
+        "Say that she is lying in bed. 'She is sleeping' is also acceptable."
+      ],
+      "new": [
+        "Zeg dat ze ligt of slaapt.",
+        "Say that she is lying down or sleeping."
+      ],
+      "reason": "Accept a tiny lying-down statement without requiring the already visible bed to be named."
+    },
+    {
+      "id": "A1:speaking:batch073-boekenpan:1",
+      "field": "criteria[0]",
+      "old": [
+        "Zeg dat de boeken in een pan liggen.",
+        "Say that the books are in a cooking pot."
+      ],
+      "new": [
+        "Zeg waar de boeken liggen, bijvoorbeeld in een pan of op tafel.",
+        "Say where the books are, for example in a cooking pot or on the table."
+      ],
+      "reason": "Accept accurate broader placement on the table alongside the more precise container location."
+    },
+    {
+      "id": "A1:speaking:batch073-hondenboek:1",
+      "field": "criteria[1]",
+      "old": [
+        "Zeg dat de hond op een stoel zit.",
+        "Say that the dog is sitting on a chair."
+      ],
+      "new": [
+        "Zeg waar de hond zit, bijvoorbeeld op een stoel of naast Julio.",
+        "Say where the dog is sitting, for example on a chair or beside Julio."
+      ],
+      "reason": "Accept beside Julio as a correct short location answer to the prompt."
+    },
+    {
+      "id": "A1:speaking:batch073-samenjas:1",
+      "field": "images[0].brief",
+      "old": "Inside a small clothing shop, Roos (young woman, dark hair in a bun, yellow scarf) and Sabrina (woman in her thirties, long dark hair, green jumper) stand shoulder to shoulder, sharing one enormous blue coat. Exactly two distinct heads emerge from the same wide collar; the coat is one continuous garment with one central opening and two outer sleeves. Roos's yellow scarf and a little of Sabrina's green jumper remain visible at the collar. Each woman has one outer arm in a sleeve, and their bodies and feet are clearly separate below the coat. They smile at each other. Show a short empty clothes rail and a small fitting-room curtain. No mirrors, other people or coats. No text, signs, numerals, price labels, logos or clock faces.",
+      "new": "Inside a small clothing shop, Roos (young woman, dark hair in a bun, yellow scarf) and Sabrina (woman in her thirties, long dark hair, green jumper) stand shoulder to shoulder, sharing one enormous blue coat. Exactly two distinct heads emerge from the same wide collar; the coat is one continuous garment with one central opening and two outer sleeves. Roos's yellow scarf and a little of Sabrina's green jumper remain visible at the collar. Each woman has one outer arm in a sleeve, while her inner arm stays hidden inside the coat. Show exactly four natural lower legs and four feet below the coat, clearly grouped as two legs per person. The two faces stay separately readable, with empty space around both heads. They smile at each other. Show a short empty clothes rail and a small fitting-room curtain. No mirrors, other people or coats. No text, signs, numerals, price labels, logos or clock faces.",
+      "reason": "Specify separate faces, hidden inner arms and four naturally grouped legs to reduce anatomy/counting ambiguity."
+    },
+    {
+      "id": "A1:speaking:batch073-stofzuigerdans:1",
+      "field": "criteria[1]",
+      "old": [
+        "Zeg dat ze in de keuken is.",
+        "Say that she is in the kitchen."
+      ],
+      "new": [
+        "Zeg waar Sabrina is, bijvoorbeeld in de keuken of thuis.",
+        "Say where Sabrina is, for example in the kitchen or at home."
+      ],
+      "reason": "Accept thuis as a correct ordinary answer to the broad location question."
+    }
+  ],
+  "rejected": [],
+  "checks": [
+    {
+      "check": "rubric-1-target-language",
+      "verdict": "pass",
+      "evidence": "All prompts contain 12–17 words, models 9–11 words and model sentences 4–7 words. Main-clause present-tense language and familiar pictured concepts meet the local authoring target; no CEFR validation is inferred."
+    },
+    {
+      "check": "rubric-2-level-distinction",
+      "verdict": "pass",
+      "evidence": "Each item asks for two tiny visible facts. No reason, subordinate clause, narrative, prediction, precise joke explanation or minimum spoken duration is required."
+    },
+    {
+      "check": "rubric-3-natural-dutch",
+      "verdict": "pass",
+      "evidence": "Full prompts, criteria, samples, models, alt text and starters read in context. Intentional article, verb and agreement errors occur only in prepared learner samples and remain understandable."
+    },
+    {
+      "check": "rubric-4-task-clarity",
+      "verdict": "pass-after-edits",
+      "evidence": "Garden first question now explicitly asks binnen/buiten. Location criteria accept accurate short variants; fridge criterion accepts the simple noun phrase Een bal."
+    },
+    {
+      "check": "rubric-5-defensible-open-response",
+      "verdict": "pass",
+      "evidence": "Individual natural-variant guidance allows combined utterances and brief answers. The model wording is exemplary, not mandatory. All content goals can be met in a short sentence."
+    },
+    {
+      "check": "rubric-6-explicit-goal-evidence",
+      "verdict": "pass",
+      "evidence": "Each item has two literal prompt-to-criterion traces and exact model support below."
+    },
+    {
+      "check": "rubric-7-functional-distractors",
+      "verdict": "not-applicable",
+      "evidence": "These nine open speaking tasks contain no answer options or distractors."
+    },
+    {
+      "check": "rubric-8-self-review",
+      "verdict": "pass",
+      "evidence": "Exactly three bilingual criteria per item cover the two asked-for facts and understandable Dutch. Every language criterion explicitly tolerates small errors."
+    },
+    {
+      "check": "rubric-9-quotes-and-answer-consistency",
+      "verdict": "pass",
+      "evidence": "Every sample has exactly one null among the content goals and two verbatim non-null quotes; each omission is explained below. All nine models satisfy both content goals."
+    },
+    {
+      "check": "rubric-10-originality-and-claims",
+      "verdict": "pass",
+      "evidence": "All nine have exam a1-practice and targetLevelValidated false. No official A1 format, validated difficulty, exam-equivalence or pass prediction appears."
+    },
+    {
+      "check": "rubric-11-diversity",
+      "verdict": "pass",
+      "evidence": "Compared all 98 existing speaking titles/prompts and relevant full single-picture records. Nine slugs and titles are unique. Scale, unusual placement and shared activities support three distinct themes; basic colours recur deliberately."
+    },
+    {
+      "check": "rubric-12-closed-audit-trail",
+      "verdict": "not-applicable",
+      "evidence": "No closed questions occur in this batch."
+    },
+    {
+      "check": "rubric-13-knm-facts",
+      "verdict": "not-applicable",
+      "evidence": "No KNM, law, benefit, medical-advice or other time-sensitive factual claim occurs."
+    },
+    {
+      "check": "rubric-14-copyright-provenance",
+      "verdict": "pass-with-stated-limit",
+      "evidence": "Authored scenes, wording and models are original according to the source/notes. Catalogue checks found no identical titles/slugs or duplicated complete premise. No official or commercial exercise was used as a wording source; editorial review cannot prove absence across all external material."
+    },
+    {
+      "check": "rubric-15-record-contract",
+      "verdict": "pass",
+      "evidence": "Nine unique preserved IDs, nine picture-describe items, nine a1-spreken rubrics, nine single drawing briefs, 27 bilingual criteria, 18 content goals and 27 incomplete ordered starters. No retired type field or generated media. Final shared checker reports no failures and no warnings."
+    },
+    {
+      "check": "cast-style-and-media-boundaries",
+      "verdict": "brief-stage-pass",
+      "evidence": "Every named cast trait string is verbatim from config/illustration.json. Each item has one Dutch alt, one purposeful surprising detail and a no-text instruction. The coordinator must use a1StylePrefix and independently inspect every rendered image."
+    },
+    {
+      "check": "starters",
+      "verdict": "pass",
+      "evidence": "All 27 fragments were reviewed with the final criteria. A natural completion for each is recorded below. Every fragment contains one ellipsis, remains incomplete, and leaves all required fact values to the learner. Proposed starters are byte-identical to the author’s file."
+    },
+    {
+      "check": "exact-final-batch-check",
+      "verdict": "pass",
+      "command": "npm run batch:check content/batches/073-proposed.json",
+      "output": "Checked 9 items, 0 questions. Keys: {}. Options: {}.\nNo failures, no warnings."
+    }
+  ],
+  "items": [
+    {
+      "id": "A1:speaking:batch073-reuzenbeker:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The nine-word model has four- and five-word present main clauses. Cup and big are concrete, familiar concepts. The size joke never needs an explanation.",
+      "prompt_words": 17,
+      "model_words": 9,
+      "model_sentence_words": [
+        4,
+        5
+      ],
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Wat heeft Modibo in zijn handen?",
+            "criterion_nl": "Zeg wat Modibo in zijn handen heeft: een beker. Ook 'kop' is goed.",
+            "criterion_en": "Say what Modibo is holding: a cup. 'Kop' is also acceptable.",
+            "sample_quote": "Modibo heeft beker.",
+            "sample_verdict": "demonstrated",
+            "model_quote": "Modibo heeft een beker."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Is het groot of klein?",
+            "criterion_nl": "Zeg dat de beker groot is.",
+            "criterion_en": "Say that the cup is big.",
+            "sample_quote": null,
+            "sample_verdict": "omitted",
+            "model_quote": "De beker is heel groot."
+          }
+        ],
+        "understandable_language": {
+          "criterion_nl": "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+          "criterion_en": "Speak understandable Dutch. Small mistakes are fine.",
+          "sample_quote": "Modibo heeft beker.",
+          "verdict": "pass; the short sample remains understandable even where it contains the intended beginner error",
+          "model_verdict": "Both short present-tense model clauses communicate their intended facts clearly."
+        },
+        "sample_omission_proof": "Modibo heeft beker names a cup, with an understandable missing article. It says nothing about size. The sole null belongs to goal 2.",
+        "natural_variants": "Een beker, een kop or een mok can identify the visible handled drinking cup. Groot or heel groot communicates size; a short phrase can meet a goal. A combined answer such as Hij heeft een grote beker may meet both goals.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "Modibo heeft …",
+            "verdict": "pass",
+            "natural_completion_example": "Modibo heeft een beker.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 2,
+            "fragment": "De beker is …",
+            "verdict": "pass",
+            "natural_completion_example": "De beker is groot.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Ik zie …",
+            "verdict": "pass",
+            "natural_completion_example": "Ik zie een beker.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          }
+        ],
+        "image_brief_and_alt": "A huge handled drinking cup is explicit in the English brief and Dutch alt. Rim and handle must remain visible so it reads as a cup. Modibo’s fixed trait string is verbatim. The size comparison uses his head and torso; colour is incidental.",
+        "metadata": "picture-describe and a1-spreken match one illustration and two visible facts. The domain matches the scenario. Draft status, targetLevelValidated false, 20-second recording guide and zero timed preparation are correct. No generated media is embedded."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "A nine-word model uses heeft and is with a familiar drinking object."
+        },
+        "clarity": {
+          "score": 5,
+          "basis": "The prompt separately asks what he holds and whether it is big or small."
+        },
+        "variety": {
+          "score": 4,
+          "basis": "Object plus size starts the scale theme; the next task also includes size."
+        },
+        "visual_interest_brief_stage": {
+          "score": 5,
+          "basis": "A cup wider than a normal adult head gives a clear scale joke in the brief."
+        },
+        "task_image_fit_brief_stage": {
+          "score": 5,
+          "basis": "Rim, handle and adult comparison directly support the two requested facts."
+        }
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-miniparaplu:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The ten-word model has four- and six-word main clauses. Paraplu is a common concrete rain object, pictured and named in the prompt. Only colour and size are required.",
+      "prompt_words": 17,
+      "model_words": 10,
+      "model_sentence_words": [
+        4,
+        6
+      ],
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Welke kleur heeft de paraplu?",
+            "criterion_nl": "Zeg dat de paraplu blauw is.",
+            "criterion_en": "Say that the umbrella is blue.",
+            "sample_quote": "De paraplu blauw.",
+            "sample_verdict": "demonstrated",
+            "model_quote": "De paraplu is blauw."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Is de paraplu groot of klein?",
+            "criterion_nl": "Zeg dat de paraplu klein is.",
+            "criterion_en": "Say that the umbrella is small.",
+            "sample_quote": null,
+            "sample_verdict": "omitted",
+            "model_quote": "Het is een heel kleine paraplu."
+          }
+        ],
+        "understandable_language": {
+          "criterion_nl": "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+          "criterion_en": "Speak understandable Dutch. Small mistakes are fine.",
+          "sample_quote": "De paraplu blauw.",
+          "verdict": "pass; the short sample remains understandable even where it contains the intended beginner error",
+          "model_verdict": "Both short present-tense model clauses communicate their intended facts clearly."
+        },
+        "sample_omission_proof": "De paraplu blauw gives blue with an understandable missing verb. It contains no small/big description. Goal 2 alone is absent.",
+        "natural_variants": "Accept blauw, klein, heel klein and understandable short phrases. The learner need not name the miniature-umbrella joke or describe rain, transport or the handle.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "De kleur is …",
+            "verdict": "pass",
+            "natural_completion_example": "De kleur is blauw.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 2,
+            "fragment": "De paraplu is …",
+            "verdict": "pass",
+            "natural_completion_example": "De paraplu is klein.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Ik zie …",
+            "verdict": "pass",
+            "natural_completion_example": "Ik zie een paraplu.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          }
+        ],
+        "image_brief_and_alt": "Karim’s fixed traits are verbatim. The alt and brief agree on a small blue umbrella. The added waist-up framing keeps the complete hand-sized blue canopy and curved handle readable at display size; the adult’s head and raised hand preserve scale. Reject a rendered cocktail stick or an unreadable speck.",
+        "metadata": "picture-describe and a1-spreken match one illustration and two visible facts. The domain matches the scenario. Draft status, targetLevelValidated false, 20-second recording guide and zero timed preparation are correct. No generated media is embedded."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "The required words blauw and klein occur in short is sentences."
+        },
+        "clarity": {
+          "score": 4,
+          "basis": "The words are clear; the miniature umbrella still needs a display-size legibility check."
+        },
+        "variety": {
+          "score": 4,
+          "basis": "Size recurs from the first item, paired here with colour and a bus shelter scene."
+        },
+        "visual_interest_brief_stage": {
+          "score": 5,
+          "basis": "A normal adult waiting under a hand-sized umbrella supplies the visual surprise."
+        },
+        "task_image_fit_brief_stage": {
+          "score": 4,
+          "basis": "The tighter framing improves the brief, but the tiny canopy remains a rendering gate."
+        }
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-langesjaal:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The ten-word model has two five-word main clauses. The target is a familiar place and colour, with no need to describe the unusual long curve.",
+      "prompt_words": 14,
+      "model_words": 10,
+      "model_sentence_words": [
+        5,
+        5
+      ],
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Waar is Roos?",
+            "criterion_nl": "Zeg waar Roos is, bijvoorbeeld in het park of buiten.",
+            "criterion_en": "Say where Roos is, for example in the park or outside.",
+            "sample_quote": null,
+            "sample_verdict": "omitted",
+            "model_quote": "Roos is in het park."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Welke kleur heeft haar sjaal?",
+            "criterion_nl": "Zeg dat haar sjaal geel is.",
+            "criterion_en": "Say that her scarf is yellow.",
+            "sample_quote": "Haar sjaal is geel.",
+            "sample_verdict": "demonstrated",
+            "model_quote": "Ze heeft een gele sjaal."
+          }
+        ],
+        "understandable_language": {
+          "criterion_nl": "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+          "criterion_en": "Speak understandable Dutch. Small mistakes are fine.",
+          "sample_quote": "Haar sjaal is geel.",
+          "verdict": "pass; the short sample remains understandable even where it contains the intended beginner error",
+          "model_verdict": "Both short present-tense model clauses communicate their intended facts clearly."
+        },
+        "sample_omission_proof": "Haar sjaal is geel supplies the scarf colour. It names no place and does not imply a park or outdoors. Only goal 1 is absent.",
+        "natural_variants": "In het park, buiten or op het pad are valid visible locations. Geel or een gele sjaal communicates the colour. Do not require a comment about scarf length.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "Roos is …",
+            "verdict": "pass",
+            "natural_completion_example": "Roos is buiten.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 2,
+            "fragment": "Haar sjaal is …",
+            "verdict": "pass",
+            "natural_completion_example": "Haar sjaal is geel.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Ik zie …",
+            "verdict": "pass",
+            "natural_completion_example": "Ik zie een sjaal.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          }
+        ],
+        "image_brief_and_alt": "Roos’s exact bun and yellow-scarf traits match the brief. Park trees, grass, path and bench support location. The long yellow scarf must stay visibly attached at the neck. Alt, model and second criterion all say yellow; length is the joke rather than a third goal.",
+        "metadata": "picture-describe and a1-spreken match one illustration and two visible facts. The domain matches the scenario. Draft status, targetLevelValidated false, 20-second recording guide and zero timed preparation are correct. No generated media is embedded."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "Park, buiten, geel and sjaal are concrete and supported by the scene."
+        },
+        "clarity": {
+          "score": 5,
+          "basis": "The repaired first criterion accepts accurate short location variants."
+        },
+        "variety": {
+          "score": 4,
+          "basis": "Colour appears elsewhere, while the long curve creates a distinct park composition."
+        },
+        "visual_interest_brief_stage": {
+          "score": 5,
+          "basis": "One continuous yellow scarf leads through the scene and supplies a visible surprise."
+        },
+        "task_image_fit_brief_stage": {
+          "score": 5,
+          "basis": "The brief and alt explicitly show the place and colour without adding a required length statement."
+        }
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-koelkastbal:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The eleven-word model has seven- and four-word main clauses. Bal, rood and koelkast are familiar household words. The revised criterion removes any demand to restate the already supplied location.",
+      "prompt_words": 16,
+      "model_words": 11,
+      "model_sentence_words": [
+        7,
+        4
+      ],
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Wat ligt er in de koelkast?",
+            "criterion_nl": "Zeg wat er in de koelkast ligt: een bal. 'Een bal' is genoeg.",
+            "criterion_en": "Say what is in the refrigerator: a ball. 'A ball' is enough.",
+            "sample_quote": "In de koelkast ligt bal.",
+            "sample_verdict": "demonstrated",
+            "model_quote": "Er ligt een bal in de koelkast."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Welke kleur heeft het?",
+            "criterion_nl": "Zeg dat de bal rood is.",
+            "criterion_en": "Say that the ball is red.",
+            "sample_quote": null,
+            "sample_verdict": "omitted",
+            "model_quote": "De bal is rood."
+          }
+        ],
+        "understandable_language": {
+          "criterion_nl": "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+          "criterion_en": "Speak understandable Dutch. Small mistakes are fine.",
+          "sample_quote": "In de koelkast ligt bal.",
+          "verdict": "pass; the short sample remains understandable even where it contains the intended beginner error",
+          "model_verdict": "Both short present-tense model clauses communicate their intended facts clearly."
+        },
+        "sample_omission_proof": "In de koelkast ligt bal identifies a ball despite the missing article. It contains no colour word. Only goal 2 is absent.",
+        "natural_variants": "Een bal is enough for the first question; repeating in de koelkast is optional. Rood, hij is rood or de bal is rood can meet the colour goal. Een rode bal can meet both content goals in one phrase.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "In de koelkast ligt …",
+            "verdict": "pass",
+            "natural_completion_example": "In de koelkast ligt een bal.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 2,
+            "fragment": "Het is …",
+            "verdict": "pass",
+            "natural_completion_example": "Het is rood.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Ik zie …",
+            "verdict": "pass",
+            "natural_completion_example": "Ik zie een bal.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          }
+        ],
+        "image_brief_and_alt": "Hasan’s fixed moustache/cap traits appear verbatim. The brief makes a red ball the only refrigerator content and explicitly excludes orange or pink lighting. The alt agrees. Keep the fridge recognisable and the ball visible; the learner need not discuss the surprise.",
+        "metadata": "picture-describe and a1-spreken match one illustration and two visible facts. The domain matches the scenario. Draft status, targetLevelValidated false, 20-second recording guide and zero timed preparation are correct. No generated media is embedded."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "A short object label and colour can complete both goals."
+        },
+        "clarity": {
+          "score": 5,
+          "basis": "Een bal is explicitly sufficient, matching the actual question."
+        },
+        "variety": {
+          "score": 4,
+          "basis": "Object plus colour repeats a basic description pattern in a new household premise."
+        },
+        "visual_interest_brief_stage": {
+          "score": 5,
+          "basis": "A lone red ball in an empty refrigerator makes a direct visual joke."
+        },
+        "task_image_fit_brief_stage": {
+          "score": 5,
+          "basis": "The unique content and controlled red colour match both facts and the Dutch alt."
+        }
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-tuinbed:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The eleven-word model has six- and five-word present clauses. The revised fifteen-word prompt uses the familiar binnen/buiten contrast and a simple action question. It requires no account of why the bed is there.",
+      "prompt_words": 15,
+      "model_words": 11,
+      "model_sentence_words": [
+        6,
+        5
+      ],
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Is de vrouw binnen of buiten?",
+            "criterion_nl": "Zeg dat de vrouw in de tuin is. 'Buiten' is ook goed.",
+            "criterion_en": "Say that the woman is in the garden. 'Outside' is also acceptable.",
+            "sample_quote": null,
+            "sample_verdict": "omitted",
+            "model_quote": "De vrouw is in de tuin."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Wat doet ze?",
+            "criterion_nl": "Zeg dat ze ligt of slaapt.",
+            "criterion_en": "Say that she is lying down or sleeping.",
+            "sample_quote": "De vrouw slaapt.",
+            "sample_verdict": "demonstrated",
+            "model_quote": "Ze slaapt in een bed."
+          }
+        ],
+        "understandable_language": {
+          "criterion_nl": "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+          "criterion_en": "Speak understandable Dutch. Small mistakes are fine.",
+          "sample_quote": "De vrouw slaapt.",
+          "verdict": "pass; the short sample remains understandable even where it contains the intended beginner error",
+          "model_verdict": "Both short present-tense model clauses communicate their intended facts clearly."
+        },
+        "sample_omission_proof": "De vrouw slaapt gives the visible sleeping action. It contains no outside/garden statement; sleeping can occur indoors, so goal 1 stays absent.",
+        "natural_variants": "Buiten, in de tuin or the understandable De vrouw buiten may meet goal 1. Ze ligt, ze ligt in bed and ze slaapt meet goal 2. A natural resting description is acceptable when it plainly describes the depicted lying pose. In bed alone does not answer the repaired inside/outside question.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "De vrouw is …",
+            "verdict": "pass",
+            "natural_completion_example": "De vrouw is buiten.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 2,
+            "fragment": "Ze …",
+            "verdict": "pass",
+            "natural_completion_example": "Ze slaapt.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Ik zie …",
+            "verdict": "pass",
+            "natural_completion_example": "Ik zie een bed.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          }
+        ],
+        "image_brief_and_alt": "The unnamed adult rests in a normal bed on grass with a garden fence. Closed eyes and a pillow support sleep or lying down. The alt states a sleeping woman in a garden. Outdoor daylight is the sole surprising detail. The prompt now distinguishes outdoors from the separate bed/action fact.",
+        "metadata": "picture-describe and a1-spreken match one illustration and two visible facts. The domain matches the scenario. Draft status, targetLevelValidated false, 20-second recording guide and zero timed preparation are correct. No generated media is embedded."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "Buiten and slaapt can each be said in a tiny phrase."
+        },
+        "clarity": {
+          "score": 5,
+          "basis": "The explicit binnen/buiten question removes the former in-bed location ambiguity."
+        },
+        "variety": {
+          "score": 5,
+          "basis": "The item separates an outdoor setting from a relaxed action instead of asking for a colour."
+        },
+        "visual_interest_brief_stage": {
+          "score": 5,
+          "basis": "An ordinary bed in a daylight garden is immediate and gently odd."
+        },
+        "task_image_fit_brief_stage": {
+          "score": 5,
+          "basis": "Grass, fence, closed eyes and pillow support the two stated goals."
+        }
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-boekenpan:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The ten-word model has six- and four-word present clauses. Pan, boek and twee are familiar concrete vocabulary. Count two requires no calculation or narrative.",
+      "prompt_words": 14,
+      "model_words": 10,
+      "model_sentence_words": [
+        6,
+        4
+      ],
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Waar liggen de boeken?",
+            "criterion_nl": "Zeg waar de boeken liggen, bijvoorbeeld in een pan of op tafel.",
+            "criterion_en": "Say where the books are, for example in a cooking pot or on the table.",
+            "sample_quote": "De boeken ligt in een pan.",
+            "sample_verdict": "demonstrated",
+            "model_quote": "De boeken liggen in een pan."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Hoeveel boeken ziet u?",
+            "criterion_nl": "Zeg dat er twee boeken zijn.",
+            "criterion_en": "Say that there are two books.",
+            "sample_quote": null,
+            "sample_verdict": "omitted",
+            "model_quote": "Het zijn twee boeken."
+          }
+        ],
+        "understandable_language": {
+          "criterion_nl": "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+          "criterion_en": "Speak understandable Dutch. Small mistakes are fine.",
+          "sample_quote": "De boeken ligt in een pan.",
+          "verdict": "pass; the short sample remains understandable even where it contains the intended beginner error",
+          "model_verdict": "Both short present-tense model clauses communicate their intended facts clearly."
+        },
+        "sample_omission_proof": "De boeken ligt in een pan communicates location despite subject/verb disagreement. Boeken is plural but does not give the exact count two. Only goal 2 is absent.",
+        "natural_variants": "In een pan, in de pan or op tafel can answer the broad visible location question. Twee or twee boeken supplies the count. De twee boeken liggen in de pan can meet both in one sentence. Avoid requiring the classroom label.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "De boeken liggen …",
+            "verdict": "pass",
+            "natural_completion_example": "De boeken liggen in een pan.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 2,
+            "fragment": "Ik zie … boeken.",
+            "verdict": "pass",
+            "natural_completion_example": "Ik zie twee boeken.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Er is …",
+            "verdict": "pass",
+            "natural_completion_example": "Er is een pan.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          }
+        ],
+        "image_brief_and_alt": "Exactly two closed books have distinct yellow/terracotta covers and pale page edges inside a blue pot on a classroom table. The alt names the same two books and container. No extra books may enter the rendered scene. Both books must remain separate and countable above the pot rim; one merged book fails the media gate.",
+        "metadata": "picture-describe and a1-spreken match one illustration and two visible facts. The domain matches the scenario. Draft status, targetLevelValidated false, 20-second recording guide and zero timed preparation are correct. No generated media is embedded."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "The model uses common objects, a simple place phrase and twee."
+        },
+        "clarity": {
+          "score": 5,
+          "basis": "The criterion permits the natural broader table location while preserving the exact count goal."
+        },
+        "variety": {
+          "score": 5,
+          "basis": "A classroom container and small count differ from the scale and colour tasks."
+        },
+        "visual_interest_brief_stage": {
+          "score": 5,
+          "basis": "A cooking pot holding classroom books gives a familiar-object mismatch."
+        },
+        "task_image_fit_brief_stage": {
+          "score": 4,
+          "basis": "Two distinct covers and page edges must remain countable in the rendered pot."
+        }
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-hondenboek:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The ten-word model has four- and six-word main clauses. Leest, hond and stoel support two concrete visible facts. The location criterion now accepts beside him as a correct natural answer.",
+      "prompt_words": 13,
+      "model_words": 10,
+      "model_sentence_words": [
+        4,
+        6
+      ],
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Wat doet Julio?",
+            "criterion_nl": "Zeg dat Julio een boek leest. 'Hij leest' is ook goed.",
+            "criterion_en": "Say that Julio is reading a book. 'He is reading' is also acceptable.",
+            "sample_quote": null,
+            "sample_verdict": "omitted",
+            "model_quote": "Julio leest een boek."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Waar zit de hond?",
+            "criterion_nl": "Zeg waar de hond zit, bijvoorbeeld op een stoel of naast Julio.",
+            "criterion_en": "Say where the dog is sitting, for example on a chair or beside Julio.",
+            "sample_quote": "De hond zit op stoel.",
+            "sample_verdict": "demonstrated",
+            "model_quote": "De hond zit op een stoel."
+          }
+        ],
+        "understandable_language": {
+          "criterion_nl": "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+          "criterion_en": "Speak understandable Dutch. Small mistakes are fine.",
+          "sample_quote": "De hond zit op stoel.",
+          "verdict": "pass; the short sample remains understandable even where it contains the intended beginner error",
+          "model_verdict": "Both short present-tense model clauses communicate their intended facts clearly."
+        },
+        "sample_omission_proof": "De hond zit op stoel gives a dog location with a missing article. It makes no statement about Julio, a book or reading; goal 1 alone is absent.",
+        "natural_variants": "Hij leest or Julio leest is enough for the action; naming the book is optional. Op een stoel, naast Julio or naast de man accurately locates the dog. Do not require a story, the dog’s feelings or a claim about reading aloud.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "Julio …",
+            "verdict": "pass",
+            "natural_completion_example": "Julio leest.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 2,
+            "fragment": "De hond zit …",
+            "verdict": "pass",
+            "natural_completion_example": "De hond zit op een stoel.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Ik zie …",
+            "verdict": "pass",
+            "natural_completion_example": "Ik zie een hond.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          }
+        ],
+        "image_brief_and_alt": "Julio’s fixed curly hair and striped shirt appear verbatim. Eyes looking at the open book support reading, while the dog sits on its own visible chair beside him. The Dutch alt states both facts. Keep dog legs, body and chair legs separate, with blank book pages. The friendly attentive pose supplies humour without giving the learner a new verb.",
+        "metadata": "picture-describe and a1-spreken match one illustration and two visible facts. The domain matches the scenario. Draft status, targetLevelValidated false, 20-second recording guide and zero timed preparation are correct. No generated media is embedded."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "The required action and location use reads, dog and chair vocabulary."
+        },
+        "clarity": {
+          "score": 5,
+          "basis": "The first goal accepts hij leest and the second permits either valid pictured location."
+        },
+        "variety": {
+          "score": 5,
+          "basis": "A reading action with a dog’s seating adds a different relationship from object tasks."
+        },
+        "visual_interest_brief_stage": {
+          "score": 5,
+          "basis": "A dog sitting on its own chair for a book has a clear, gentle adult illustration premise."
+        },
+        "task_image_fit_brief_stage": {
+          "score": 5,
+          "basis": "Gaze, open book and separate dog chair support the requested action and place."
+        }
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-samenjas:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The ten-word model has six- and four-word main clauses. Count two and blue are tiny content goals; the learner never has to explain how the shared coat works.",
+      "prompt_words": 16,
+      "model_words": 10,
+      "model_sentence_words": [
+        6,
+        4
+      ],
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Hoeveel mensen dragen de jas?",
+            "criterion_nl": "Zeg dat twee mensen de jas dragen. 'Twee vrouwen' is ook goed.",
+            "criterion_en": "Say that two people are wearing the coat. 'Two women' is also acceptable.",
+            "sample_quote": null,
+            "sample_verdict": "omitted",
+            "model_quote": "Twee vrouwen dragen samen een jas."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Welke kleur heeft de jas?",
+            "criterion_nl": "Zeg dat de jas blauw is.",
+            "criterion_en": "Say that the coat is blue.",
+            "sample_quote": "De jas is blauw.",
+            "sample_verdict": "demonstrated",
+            "model_quote": "De jas is blauw."
+          }
+        ],
+        "understandable_language": {
+          "criterion_nl": "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+          "criterion_en": "Speak understandable Dutch. Small mistakes are fine.",
+          "sample_quote": "De jas is blauw.",
+          "verdict": "pass; the short sample remains understandable even where it contains the intended beginner error",
+          "model_verdict": "Both short present-tense model clauses communicate their intended facts clearly."
+        },
+        "sample_omission_proof": "De jas is blauw gives colour only. It names neither people nor a number, and the coat itself does not entail a count. Only goal 1 is absent.",
+        "natural_variants": "Twee, twee mensen, twee vrouwen or ze zijn met tweeën communicates the requested count. Blauw or een blauwe jas gives the colour. Naming Roos and Sabrina can demonstrate two distinct wearers when the meaning is clear; no anatomical description is required.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "Er zijn … mensen.",
+            "verdict": "pass",
+            "natural_completion_example": "Er zijn twee mensen.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 2,
+            "fragment": "De jas is …",
+            "verdict": "pass",
+            "natural_completion_example": "De jas is blauw.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Ik zie …",
+            "verdict": "pass",
+            "natural_completion_example": "Ik zie een jas.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          }
+        ],
+        "image_brief_and_alt": "Both fixed cast trait strings are verbatim. One continuous blue coat has two heads in one wide collar. Added instructions keep inner arms hidden and explicitly group four natural lower legs as two per adult. The alt agrees on both women sharing one blue coat. No mirror or bystander may inflate the count. Any merged faces, extra limb or two separate coats requires a redraw.",
+        "metadata": "picture-describe and a1-spreken match one illustration and two visible facts. The domain matches the scenario. Draft status, targetLevelValidated false, 20-second recording guide and zero timed preparation are correct. No generated media is embedded."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "Two and blue can complete the content goals using familiar people/coat words."
+        },
+        "clarity": {
+          "score": 4,
+          "basis": "The written task is clear; the shared garment requires unambiguous rendering."
+        },
+        "variety": {
+          "score": 4,
+          "basis": "Count and colour recur as simple operations, with a new shop and shared-garment relation."
+        },
+        "visual_interest_brief_stage": {
+          "score": 5,
+          "basis": "Two ordinary adults smiling inside one enormous coat form a distinct visual premise."
+        },
+        "task_image_fit_brief_stage": {
+          "score": 4,
+          "basis": "Two wearers and one blue garment must survive anatomy and counting checks at display size."
+        }
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-stofzuigerdans:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The ten-word model has two five-word main clauses. Danst and keuken are everyday concepts. The longer optional noun stofzuiger appears only as an extra detail in the model and alt; learners need not produce it.",
+      "prompt_words": 12,
+      "model_words": 10,
+      "model_sentence_words": [
+        5,
+        5
+      ],
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Wat doet Sabrina?",
+            "criterion_nl": "Zeg dat Sabrina danst. U hoeft 'stofzuiger' niet te zeggen.",
+            "criterion_en": "Say that Sabrina is dancing. You do not need to say 'vacuum cleaner'.",
+            "sample_quote": "Sabrina dans.",
+            "sample_verdict": "demonstrated",
+            "model_quote": "Ze danst met een stofzuiger."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Waar is ze?",
+            "criterion_nl": "Zeg waar Sabrina is, bijvoorbeeld in de keuken of thuis.",
+            "criterion_en": "Say where Sabrina is, for example in the kitchen or at home.",
+            "sample_quote": null,
+            "sample_verdict": "omitted",
+            "model_quote": "Sabrina is in de keuken."
+          }
+        ],
+        "understandable_language": {
+          "criterion_nl": "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+          "criterion_en": "Speak understandable Dutch. Small mistakes are fine.",
+          "sample_quote": "Sabrina dans.",
+          "verdict": "pass; the short sample remains understandable even where it contains the intended beginner error",
+          "model_verdict": "Both short present-tense model clauses communicate their intended facts clearly."
+        },
+        "sample_omission_proof": "Sabrina dans communicates dancing despite the missing verb ending. It names no place and does not imply a kitchen or home. Only goal 2 is absent.",
+        "natural_variants": "Ze danst or Sabrina is aan het dansen expresses the action; stofzuiger is explicitly optional. In de keuken or thuis answers location. A correct dance/action statement need not account for the pretend partner. Ordinary cleaning is not enough for the intended dance goal; if the image supports cleaning alone, redraw it.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "Sabrina …",
+            "verdict": "pass",
+            "natural_completion_example": "Sabrina danst.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 2,
+            "fragment": "Ze is …",
+            "verdict": "pass",
+            "natural_completion_example": "Ze is in de keuken.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Ik zie …",
+            "verdict": "pass",
+            "natural_completion_example": "Ik zie Sabrina.",
+            "basis": "One incomplete fragment with an ellipsis; it supports this criterion without providing the required completion or a new task fact."
+          }
+        ],
+        "image_brief_and_alt": "Sabrina’s fixed trait string is verbatim. Lifted arm, bent knees and raised heel define the dancing pose; sink, cupboards and counter establish the kitchen. Alt and model describe dancing there. The unplugged vacuum is a visual prop, and its noun is optional. Inspect the actual pose independently: an ordinary vacuuming image fails this brief even when the room is correct.",
+        "metadata": "picture-describe and a1-spreken match one illustration and two visible facts. The domain matches the scenario. Draft status, targetLevelValidated false, 20-second recording guide and zero timed preparation are correct. No generated media is embedded."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "The task requires only dancing and a familiar home location; the vacuum noun is optional."
+        },
+        "clarity": {
+          "score": 4,
+          "basis": "The two questions are clear, while a static dance pose still needs media review."
+        },
+        "variety": {
+          "score": 5,
+          "basis": "Playful movement with a household prop adds an action distinct from resting and reading."
+        },
+        "visual_interest_brief_stage": {
+          "score": 5,
+          "basis": "An ordinary vacuum as a dance partner gives a single expressive surprise."
+        },
+        "task_image_fit_brief_stage": {
+          "score": 4,
+          "basis": "The rendered pose must read as dancing, with a visible kitchen and clear adult anatomy."
+        }
+      }
+    }
+  ],
+  "source_verification": [
+    {
+      "url": "https://rm.coe.int/common-european-framework-of-reference-forlanguages-learning-teaching/16809ea0d4",
+      "title": "Council of Europe, CEFR Companion Volume (2020)",
+      "accessed": "2026-10-27",
+      "printed_page": 62,
+      "verified_descriptor": "Can produce simple, mainly isolated phrases about people and places.",
+      "judgment": "The descriptor supports the general brief-production target. The task shapes, exact counts and recording guide are local choices. No official item comparison or difficulty validation applies."
+    }
+  ],
+  "author_doubts_decisions": [
+    "Samples reread in full after the final edits: every one omits exactly the single goal marked null. Plural boeken does not entail two; sleeping does not entail outdoors; a blue coat does not entail two wearers.",
+    "Buiten remains accepted for the park and garden. The garden first question was repaired to binnen/buiten so in bed cannot answer that location goal. Lying down and sleeping remain acceptable action variants.",
+    "Two size tasks and four colour goals are acceptable within a nine-item foundation batch: the themes, setting, object relationship and scene composition change. Basic linguistic repetition keeps production small; it is not evidence of learner-calibrated difficulty.",
+    "Paraplu and sjaal are retained as common concrete pictured vocabulary. Stofzuiger remains optional. No joke requires a special noun, cultural fact or explanation.",
+    "The umbrella brief now uses closer framing, preserving adult scale and a complete canopy/handle. The rendered tiny canopy must remain readable at display size.",
+    "Shared-coat anatomy instructions are strengthened while keeping the intended two-adult premise. Exactly two separate people wearing one blue coat must remain evident; do not tighten the language task to compensate for faulty art.",
+    "The dance brief already requires a lifted arm, bent knees and raised heel. Retain it, then reject/redraw any rendered picture that reads only as cleaning. A brief-stage editorial pass is not a media pass."
+  ],
+  "set_assembly": [
+    {
+      "proposed_id": "a1-speaking-01",
+      "proposed_title": "Groot en klein",
+      "slugs": [
+        "reuzenbeker",
+        "miniparaplu",
+        "langesjaal"
+      ],
+      "basis": "Scale and colour/setting with a giant cup, tiny umbrella and a long scarf."
+    },
+    {
+      "proposed_id": "a1-speaking-02",
+      "proposed_title": "Een andere plek",
+      "slugs": [
+        "koelkastbal",
+        "tuinbed",
+        "boekenpan"
+      ],
+      "basis": "Familiar objects appear in an unexpected container or place; goals vary across identity, colour, setting, action and count."
+    },
+    {
+      "proposed_id": "a1-speaking-03",
+      "proposed_title": "Samen iets leuks",
+      "slugs": [
+        "hondenboek",
+        "samenjas",
+        "stofzuigerdans"
+      ],
+      "basis": "Reading with a dog, sharing a coat and dancing with a vacuum give distinct adult social/household compositions."
+    }
+  ],
+  "media_notes": [
+    "Generate one illustration per adopted item using a1StylePrefix. Brief-stage visual ratings do not certify rendered art. No media or provider call was made by this reviewer.",
+    "Inspect the giant handled cup; readable blue miniature umbrella; attached yellow scarf; clearly red ball; outdoor bed and restful pose; two countable books in the pan; dog/chair separation; two people sharing one coat; unmistakable dance pose and kitchen.",
+    "All pictures exclude readable text, signage, numerals and logos. Open picture tasks may show their required facts in the image and Dutch alt. No closed-answer leakage check applies.",
+    "Speaking printed prompts need narration after exact-source approval. No dialogue or voice pairing is required. Use the configured native Netherlands-Dutch narration workflow, with no retired Esmee/Nick casting or provider changes."
+  ],
+  "coordinator_actions": [
+    "Complete the separate fresh-context first A1 speaking target check against the final proposal and its recorded SHA-256.",
+    "Read the nine field edits across eight items, then adopt with npm run batch:adopt 073. Proposed starters are intentionally copied without byte changes and have been reviewed against the final criteria.",
+    "Assemble three sets of three, generate prompt narration and nine images, inspect media independently, then use npm run content:integrate and the normal starter hash process. Keep all work local."
+  ],
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty, learner outcomes or official exam equivalence. The actual reviewer was Codex, not Opus 5.",
+    "No rendered illustration or prompt audio was reviewed at this stage. Editorial source readiness does not bypass the media gates.",
+    "No A1 speaking reference batch or content/exemplars directory exists. The existing A2 single-picture reference tasks require more content and opinions; this local A1 batch deliberately asks only two tiny facts. The separate first-batch target calibration remains required.",
+    "The author’s original batch, starters and notes were not edited. The broader working tree contains concurrent coordinator work outside this reviewer’s scope."
+  ]
+}

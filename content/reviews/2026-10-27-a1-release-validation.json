@@ -1,0 +1,789 @@
+{
+  "review_id": "2026-10-27-a1-release-validation",
+  "recorded_at": "2026-10-27T20:26:51.158321+00:00",
+  "scope": "Final local validation before publication. Production deployment is not established by this record.",
+  "technical_verdict": "pass",
+  "evidence_inputs": [
+    {
+      "path": "var/a1-tone-balance-2026-10-27/final-integrity.json",
+      "sha256": "a794f98c8199c46ae279b17e6f5341b732eab278f1152ef43b0373bea558ed0b"
+    },
+    {
+      "path": "var/a1-tone-balance-2026-10-27/local-http-audit.json",
+      "sha256": "6331e63a62708307d87d4af9e2cc9287a22209ecf25756763f4e8bd1dd2ef93b"
+    },
+    {
+      "path": "var/a1-tone-balance-2026-10-27/production-backup.json",
+      "sha256": "4d8b66291ad647a2f03bd59dbbb01f6103e61d3779a3acf9da54a2495aba6db3"
+    },
+    {
+      "path": "tmp/voice-quality-2026-10-27/release-check-verified.log",
+      "sha256": "072ea2830781afb4174d6801cb3c6a61af19dbbc62a9747f02fa2321c22194ae"
+    },
+    {
+      "path": "tmp/voice-quality-2026-10-27/release-browser.log",
+      "sha256": "956165e450d1f1125f91dfc12056c43f4725af2ad2e6f83bb47c453f7dd8df3d"
+    }
+  ],
+  "counts": {
+    "head_exercises": 386,
+    "pre_application_exercises": 428,
+    "final_exercises": 428,
+    "net_added_vs_head": 42,
+    "removed_vs_head": 0,
+    "a1": 42,
+    "a1_by_skill": {
+      "reading": 12,
+      "listening": 12,
+      "speaking": 9,
+      "writing": 9
+    },
+    "new_expansion": 36,
+    "new_expansion_tone": {
+      "light-humor": 5,
+      "ordinary": 31
+    },
+    "sets": 117,
+    "old_sets": 103,
+    "new_sets": 14,
+    "hints": 182,
+    "old_hints": 164,
+    "global_audio_manifest": 603,
+    "global_image_manifest": 299,
+    "selected_house_style_images": 36,
+    "selected_a1_audio": 45,
+    "selected_legacy_recast_audio": 14
+  },
+  "current_file_hashes": {
+    "content/catalogue.json": "0db3ce4febb02e0f9d962f2ee44461bdcdaaf15373cb19041cf358a59a9d5417",
+    "content/practice-sets.json": "67a750018c528bd404d683585045e9e0812185f5393ca1f0bb04766b9a46c653",
+    "content/audio-manifest.json": "9af660b4792db313bd965fe1dc7829b47cdefcd6bed9391131ea46689080a8bb",
+    "content/image-manifest.json": "84c92b8a4f7f9734a55306bc6de0870bc442b67c41322fd0e0e26fbb0a7925e9",
+    "content/hints/sentence-starters.json": "01dd52550b476aa419c2a8245e810bf726313e009813298c7b6f5bf768f7305b",
+    "content/hints/review.json": "2c21236d1ee3bb616997366d22f3650d128848475f55564ed03cccfeab285d1d",
+    "content/migrations/2026-10-27-voices.json": "9a31dd636dede4d5fe0ea19d4e84761c481e12570cae968bcb26e9827f170868",
+    "config/voices.json": "20e479656fb60674dbfdf289d7c3352b11790ebcbfeda9443a84ff1fe8e40e59",
+    "config/illustration.json": "9bff94fb7cf9254ad610aff83b8cb0f88e456c6f165e4e6633cab431673d0d24"
+  },
+  "a1_current_sources_and_reviews": [
+    {
+      "source": "content/batches/069-original.json",
+      "source_sha256": "2ea92e35342b8106d97bca4f1d0652af3a07520f67ff62ba776756b115ff49ca",
+      "review": "content/reviews/069-review.json",
+      "review_sha256": "a9857a4fa3e2695e7db2f0bb60b0a259b01fda527af5cac58ea8ac5df6be35d4",
+      "items": 3,
+      "v2_meaning_first_pass": true
+    },
+    {
+      "source": "content/batches/070-original.json",
+      "source_sha256": "cbab425f18852bffc1b2f1b668f28a80a4f0c37c50da686d224091f9af7f0e67",
+      "review": "content/reviews/070-review.json",
+      "review_sha256": "d73b7ad3697366269a22944faaad9c3255ce576433fe2c7f6b8742db24c8b7b7",
+      "items": 3,
+      "v2_meaning_first_pass": true
+    },
+    {
+      "source": "content/batches/071-original.json",
+      "source_sha256": "52885cb9bf887f392ec1927d8fc9897e3276fca8968191855bb39842b847e382",
+      "review": "content/reviews/071-review.json",
+      "review_sha256": "429dfd0383a4b596a662e5f2b19d02d2ad4495b2bc75c168cb7fa134165fd041",
+      "items": 9,
+      "v2_meaning_first_pass": true
+    },
+    {
+      "source": "content/batches/072-original.json",
+      "source_sha256": "f5d3c44e7d98966ba740f108b3325166ba3071335d310c708720b6579645036b",
+      "review": "content/reviews/072-review.json",
+      "review_sha256": "3e9cc6b25e8f68a002d00b941566ab182ba159bcb6994335b261ae084514ce08",
+      "items": 9,
+      "v2_meaning_first_pass": true
+    },
+    {
+      "source": "content/batches/073-original.json",
+      "source_sha256": "badf61f8b2d67f93d074c1b1dc78385fed9c8498403d7bec3e5fa9c356645110",
+      "review": "content/reviews/073-review.json",
+      "review_sha256": "05b33f93d613cb10e30dd204a0c0af6bd78556cb1de5c2db03701cf3957a2e99",
+      "items": 9,
+      "v2_meaning_first_pass": true
+    },
+    {
+      "source": "content/batches/074-original.json",
+      "source_sha256": "50ebeb07b9885faa13d6c43905789aac818f74bbc6e80de1ea4bae4100397b4e",
+      "review": "content/reviews/074-review.json",
+      "review_sha256": "ea5ce55f892320dbc7c439076e4c00ad6255067cdb33279339bcba5213e67b79",
+      "items": 9,
+      "v2_meaning_first_pass": true
+    }
+  ],
+  "reviewed_starters": [
+    {
+      "path": "content/batches/073-starters.json",
+      "sha256": "f07f1f36bbe6e1a569c844f3f906b37c3caa5ba4cee66502e666ff1a6e7e632b",
+      "items": 9,
+      "merged_exactly": true
+    },
+    {
+      "path": "content/batches/074-starters.json",
+      "sha256": "2cbe18cd55665a7bab261f95147c6368c437b87f374581268c1b81143fc5dafc",
+      "items": 9,
+      "merged_exactly": true
+    }
+  ],
+  "existing_content_protection": {
+    "head_commit": "7fe0a0d486b05f15ce27cc50595c3b93084776ba",
+    "all_existing_ids_retained": true,
+    "all_386_existing_revisions_unchanged": true,
+    "existing_source_semantics_unchanged": true,
+    "unchanged_records": 341,
+    "audio_only_changed_records": 45,
+    "existing_sets_unchanged": true,
+    "existing_sentence_starters_unchanged": true,
+    "pre_application_changes_exactly_match_authorized_scope": true
+  },
+  "applied_media": {
+    "selected_images": 36,
+    "selected_a1_audio": 45,
+    "selected_legacy_recast_audio": 14,
+    "all_95_files_match_exact_approved_bytes": true,
+    "review_snapshots": [
+      {
+        "path": "content/reviews/2026-10-27-a1-house-style.json",
+        "sha256": "52ae172f01952174f24ceba133e3ec0d69666cffb61f2f8ba96e985cb789831d"
+      },
+      {
+        "path": "content/reviews/2026-10-27-a1-tone-audio.json",
+        "sha256": "49b25ad774cfe3fff166c7eb76810685f68ed0f78ae17f9f9f7acd924f92e1b5"
+      },
+      {
+        "path": "content/reviews/2026-10-27-robert-lieke-replacement.json",
+        "sha256": "ccadced0b4dc6490e2913058a860a2b7c7f99263ed0d35594c24db35f4a1abef"
+      }
+    ],
+    "effective_audio_revalidation": {
+      "path": "var/a1-tone-balance-2026-10-27/final-technical-review.json",
+      "sha256": "3ffc79069f547f2101052ee37929c292cfa4ab19944b1b5fdaef9220d73de57b",
+      "current_config_sha256": "20e479656fb60674dbfdf289d7c3352b11790ebcbfeda9443a84ff1fe8e40e59",
+      "prior_review_config_sha256": "49bc0f462d74d96c8331fa0ab21bd51ab28bde28b9a4d107b66f26a5b640541a",
+      "byte_hash_changed_after_formatting": true,
+      "reason_semantic_provenance_remains_valid": "All 59 actual effective voice IDs, settings, model/mode, A1 profile, turn gaps, casting, processing and cache tokens were recomputed with current helpers/configuration. Their approved bytes and source/script hashes match exactly; config whole-file hash is recorded truthfully rather than treated as synthesis input.",
+      "all_59_current_semantics_and_cache_match": true,
+      "no_provider_calls": true
+    },
+    "current_catalogue_audio_graph": {
+      "referenced_job_count": 595,
+      "all_links_match_current_manifest": true,
+      "retired_Esmee_Nick_referenced_count": 0,
+      "manifest_only_historical_job_count": 8
+    },
+    "files": [
+      {
+        "key": "A1:reading:batch071-plant-ogen:1#image0",
+        "file": "assets/images/11d3360f7841800c.webp",
+        "sha256": "11d3360f7841800cb0489182cfe2368933b184e42fc966c2f17c5b7e5fd002d6"
+      },
+      {
+        "key": "A1:reading:batch071-eend-tas:1#image0",
+        "file": "assets/images/6a27059ac6323128.webp",
+        "sha256": "6a27059ac632312821a4ebcffb59c8316dd6a8fac1c5f841f2b9bd8ad5d980ff"
+      },
+      {
+        "key": "A1:reading:batch071-kat-werkt:1#image0",
+        "file": "assets/images/76074619cfe1bbdf.webp",
+        "sha256": "76074619cfe1bbdfcd5196688382572083f8a9709f4a890269c583031a3527c3"
+      },
+      {
+        "key": "A1:listening:batch072-bezem-feest:1#image0",
+        "file": "assets/images/10b0db81c491f38d.webp",
+        "sha256": "10b0db81c491f38d66d91bbf7c4d692cd8e645b8dee3861333a61d4cd05e3e18"
+      },
+      {
+        "key": "A1:listening:batch072-paraplu-werk:1#image0",
+        "file": "assets/images/76aba80d596cdb40.webp",
+        "sha256": "76aba80d596cdb400b41a41512532334c6b6d6f3765d0ce24ccbee1164e45be3"
+      },
+      {
+        "key": "A1:listening:batch072-bloem-beker:1#image0",
+        "file": "assets/images/e67d9afd549a6d82.webp",
+        "sha256": "e67d9afd549a6d8278af8e652eb67dd3b8afc3daac8052db229f869c76e10802"
+      },
+      {
+        "key": "A1:listening:batch072-kat-boeken:1#image0",
+        "file": "assets/images/0a99c761c1eccaad.webp",
+        "sha256": "0a99c761c1eccaad0896899628993033f6e006c13dd2ca0ab393cb74c00fe61e"
+      },
+      {
+        "key": "A1:speaking:batch073-miniparaplu:1#image0",
+        "file": "assets/images/e0826def098e409f.webp",
+        "sha256": "e0826def098e409f4812a2138df21abedc3abef736518c58e7dbd3ad06296494"
+      },
+      {
+        "key": "A1:speaking:batch073-hondenboek:1#image0",
+        "file": "assets/images/7bf11660c5e57b3b.webp",
+        "sha256": "7bf11660c5e57b3bf6585798a6d9b5e2318315a09b10244181dded73a0ee4a05"
+      },
+      {
+        "key": "A1:speaking:batch073-samenjas:1#image0",
+        "file": "assets/images/35054428f4a7772a.webp",
+        "sha256": "35054428f4a7772a67801a47a46243510c6d2598facc9e4f53d21a5e9cba47e3"
+      },
+      {
+        "key": "A1:writing:batch074-appelui:1#image0",
+        "file": "assets/images/e98caba3a2fdd4fc.webp",
+        "sha256": "e98caba3a2fdd4fc24c9055ba92a6f2f4ecc11776d3fa7621a1c55683b2d7d3a"
+      },
+      {
+        "key": "A1:writing:batch074-tuinfilm:1#image0",
+        "file": "assets/images/c1e915a29eb3dd4c.webp",
+        "sha256": "c1e915a29eb3dd4c87348b96211a65785c0f2f1a5df6b789b825fb91df07c7a6"
+      },
+      {
+        "key": "A1:writing:batch074-reuzenbox:1#image0",
+        "file": "assets/images/c56e54e3cb389725.webp",
+        "sha256": "c56e54e3cb3897256148570c0394ff7edcc0659d588357d3fa997ebd30d9f892"
+      },
+      {
+        "key": "A1:reading:batch071-hoed-les:1#image0",
+        "file": "assets/images/85b3c271d7195f23.webp",
+        "sha256": "85b3c271d7195f237665698bd4746f223a47f4b99b0c48ba1941cd2aa9868f95"
+      },
+      {
+        "key": "A1:reading:batch071-winkel-sok:1#image0",
+        "file": "assets/images/28e266e28e91674e.webp",
+        "sha256": "28e266e28e91674e29032617fea396e0daba86b5ebbe02bb74bab064a077fa8e"
+      },
+      {
+        "key": "A1:reading:batch071-beer-dokter:1#image0",
+        "file": "assets/images/90b141ef736e8d38.webp",
+        "sha256": "90b141ef736e8d38c53601ae758bf6e0f8005e6b11f3f33136cd1e18b05058f1"
+      },
+      {
+        "key": "A1:reading:batch071-taart-staart:1#image0",
+        "file": "assets/images/3d25f24703957f9a.webp",
+        "sha256": "3d25f24703957f9a6a2712637a883328c152e9efd30c2fc56ad322564960ca6e"
+      },
+      {
+        "key": "A1:reading:batch071-koffer-les:1#image0",
+        "file": "assets/images/5d06c1b907ca5907.webp",
+        "sha256": "5d06c1b907ca5907f7e131360baf8b580a31ad134694563c8d5c97c11528db70"
+      },
+      {
+        "key": "A1:reading:batch071-hond-feest:1#image0",
+        "file": "assets/images/95cf15b67b75b12e.webp",
+        "sha256": "95cf15b67b75b12ee3c9917f5edb28819f94cd9cc5e20082127a3e5c8788dfdb"
+      },
+      {
+        "key": "A1:listening:batch072-banaan-telefoon:1#image0",
+        "file": "assets/images/388aa73dc1492a0d.webp",
+        "sha256": "388aa73dc1492a0daa552c9de20eef8c2052153c5255913ef2b319fcb742358f"
+      },
+      {
+        "key": "A1:listening:batch072-eend-reis:1#image0",
+        "file": "assets/images/c23438077b01117b.webp",
+        "sha256": "c23438077b01117bbdda37eb4a3ffdb44b09f0f42315e0a13a0dcacd19edc4fc"
+      },
+      {
+        "key": "A1:listening:batch072-stoel-ogen:1#image0",
+        "file": "assets/images/f95c6fcd8abb6d93.webp",
+        "sha256": "f95c6fcd8abb6d930907e3ca8413d69ea03681974e448f1ad0aacd2a850fecd6"
+      },
+      {
+        "key": "A1:listening:batch072-grote-hoed:1#image0",
+        "file": "assets/images/a47e808838de8fa0.webp",
+        "sha256": "a47e808838de8fa01005e62ab1a309cd7d5feeb652674ba5f12f35b8e9db9a3a"
+      },
+      {
+        "key": "A1:listening:batch072-doos-oren:1#image0",
+        "file": "assets/images/da6554e61643f217.webp",
+        "sha256": "da6554e61643f2174035d63b12e5eda507326c590e21674cef8873b9ee262d76"
+      },
+      {
+        "key": "A1:speaking:batch073-reuzenbeker:1#image0",
+        "file": "assets/images/0481b18e6a8aa7b9.webp",
+        "sha256": "0481b18e6a8aa7b9e3e2a5fd84a0cd7a92559cf3125aa4c3dd0dfcccbbf09055"
+      },
+      {
+        "key": "A1:speaking:batch073-langesjaal:1#image0",
+        "file": "assets/images/76a1731a20f090fb.webp",
+        "sha256": "76a1731a20f090fb3ae709589369aeaf7c70de5b224fccf652c085e4ee1325cf"
+      },
+      {
+        "key": "A1:speaking:batch073-koelkastbal:1#image0",
+        "file": "assets/images/66bc07964555d96b.webp",
+        "sha256": "66bc07964555d96b41ef7f37a5140c9b3592c4e42185d1fd12d962ecc6273498"
+      },
+      {
+        "key": "A1:speaking:batch073-tuinbed:1#image0",
+        "file": "assets/images/9d078fdbbbc0a9b3.webp",
+        "sha256": "9d078fdbbbc0a9b35657952c3ce22a71dbd2e800f22082c9b073915754e324d1"
+      },
+      {
+        "key": "A1:speaking:batch073-boekenpan:1#image0",
+        "file": "assets/images/c770e2d8b36174c5.webp",
+        "sha256": "c770e2d8b36174c5b45bf844a59c74aacebf62dbada27f2cbf2c5b69f91a4311"
+      },
+      {
+        "key": "A1:speaking:batch073-stofzuigerdans:1#image0",
+        "file": "assets/images/d265444f7873cd96.webp",
+        "sha256": "d265444f7873cd96e87e42c92f473cd125c8d092ea01fa4652e1e1570c03ea13"
+      },
+      {
+        "key": "A1:writing:batch074-schoenlunch:1#image0",
+        "file": "assets/images/2e37e6ed9569b8d9.webp",
+        "sha256": "2e37e6ed9569b8d97ff449668730f609b5c12f6f9bf703adc44dd947cc2c8351"
+      },
+      {
+        "key": "A1:writing:batch074-ontbijttaart:1#image0",
+        "file": "assets/images/f8d3cc6cd378107a.webp",
+        "sha256": "f8d3cc6cd378107aa2a0e9ecd28fd6ba4f88c2409fe54da11180c66a5c8fc173"
+      },
+      {
+        "key": "A1:writing:batch074-lepelmuziek:1#image0",
+        "file": "assets/images/aa835f70f6200f03.webp",
+        "sha256": "aa835f70f6200f0348afd720cc8d499d310a275fe7902b42ff4c1f160d0665bb"
+      },
+      {
+        "key": "A1:writing:batch074-fietsfeest:1#image0",
+        "file": "assets/images/09333dd36f216a1f.webp",
+        "sha256": "09333dd36f216a1f5520b1bdd1aeb39feed8cf033a5b1be5e6bf2ddb096e1040"
+      },
+      {
+        "key": "A1:writing:batch074-stoelsokken:1#image0",
+        "file": "assets/images/08d396b8a1c06ead.webp",
+        "sha256": "08d396b8a1c06ead8dd9e9f535b57e284bf65bf690c617c2a9cce3c20b5e3dc8"
+      },
+      {
+        "key": "A1:writing:batch074-komhoed:1#image0",
+        "file": "assets/images/ea1cd7acbe7e6fdd.webp",
+        "sha256": "ea1cd7acbe7e6fdd1094a459725828d4b9919f4558d010bda4c1b61cac3c2338"
+      },
+      {
+        "key": "A1:listening:batch070-foto-werk:1#q2",
+        "file": "assets/audio/a214711cd63bbd6e.mp3",
+        "sha256": "8f02b9961e826c5b154e4b461913ffed4a0875cf21bc644846412a9644aa63f3"
+      },
+      {
+        "key": "A1:listening:batch070-foto-werk:1#q1",
+        "file": "assets/audio/64061853f26321fa.mp3",
+        "sha256": "798388b8d2d298e59d53cc07d13c8ebde12fea848f755923f59086fcccd96b97"
+      },
+      {
+        "key": "A1:listening:batch070-potlood-lenen:1#q1",
+        "file": "assets/audio/5ec2e35b3004f40e.mp3",
+        "sha256": "028132af29ae642fdc6cd425507d85f1a7a40f05d4901eb5fa71400fcda02855"
+      },
+      {
+        "key": "A1:listening:batch070-potlood-lenen:1#q2",
+        "file": "assets/audio/b708ef1093b3651f.mp3",
+        "sha256": "da9c4431ef7b94003d2df475792fef7f268b9f6a65cfa0d82a3aab1bc294e4bf"
+      },
+      {
+        "key": "A1:listening:batch070-foto-werk:1#fragment",
+        "file": "assets/audio/03bd7db7ce0db743.mp3",
+        "sha256": "afaf5ac023ff318ad100d25d18285ccdb827f737a0889323749f5d043f1589fa"
+      },
+      {
+        "key": "A1:listening:batch070-potlood-lenen:1#fragment",
+        "file": "assets/audio/54766059274e5f22.mp3",
+        "sha256": "d0386bb1bbf655621f0d3598c128ab67b77b9fc61f730a1a434fc6eccd2e1876"
+      },
+      {
+        "key": "A1:listening:batch070-tas-kopen:1#q1",
+        "file": "assets/audio/a35326ff72852da3.mp3",
+        "sha256": "fe81c0e64541229b7029eab8f877f1b5700c76528180e09739d533258ef517f5"
+      },
+      {
+        "key": "A1:listening:batch070-tas-kopen:1#q2",
+        "file": "assets/audio/5a3799b0d4d9517b.mp3",
+        "sha256": "fbfc8dd335b4ba12a1c8592969cfcd8fdccef6743f21a4987d6f77db13b6d309"
+      },
+      {
+        "key": "A1:listening:batch070-tas-kopen:1#fragment",
+        "file": "assets/audio/ceacc102490a1cf1.mp3",
+        "sha256": "b7dbd31207604d67ab8842f957b594dcf372ffc236d5b65176ac310368f951f3"
+      },
+      {
+        "key": "A1:listening:batch072-banaan-telefoon:1#q1",
+        "file": "assets/audio/5f435616465d4f29.mp3",
+        "sha256": "8e924f2887180b674897f9387971ab86908e32414ef910c8b7b3e7879bc0c39e"
+      },
+      {
+        "key": "A1:listening:batch072-banaan-telefoon:1#q2",
+        "file": "assets/audio/e0a8373ce77ee905.mp3",
+        "sha256": "b0f11e74092466114d1d96aca9151317e6c29249c127ffda1705397e18cd7b43"
+      },
+      {
+        "key": "A1:listening:batch072-banaan-telefoon:1#fragment",
+        "file": "assets/audio/6ac3d4520b4c4d37.mp3",
+        "sha256": "829f680862f9936e5c77e35b1a969d2b713ecc7ad5f5cbe849d471b505c429a8"
+      },
+      {
+        "key": "A1:listening:batch072-eend-reis:1#q1",
+        "file": "assets/audio/26cb0c3dfcd73ce7.mp3",
+        "sha256": "a201f5356d4f82d97a985ad4b862a49c7c0e36018ffd3872b9bb3fe38907a95d"
+      },
+      {
+        "key": "A1:listening:batch072-eend-reis:1#fragment",
+        "file": "assets/audio/acac3e67a2f9d038.mp3",
+        "sha256": "ea2952d516d77fd120e38b554c6ced0ef8fba91c89ea5aea7680c37035a4aed5"
+      },
+      {
+        "key": "A1:listening:batch072-eend-reis:1#q2",
+        "file": "assets/audio/6f4af5587a7f2028.mp3",
+        "sha256": "8283380d59c990aabbb0218f0b7bedad698b821f3dffe0bef2cb6a4f096e8398"
+      },
+      {
+        "key": "A1:listening:batch072-stoel-ogen:1#q1",
+        "file": "assets/audio/086cecb4da6035b5.mp3",
+        "sha256": "2646bddc52eed765f7a351e33a2239ee2d62586a25254d262eff74dae536eef4"
+      },
+      {
+        "key": "A1:listening:batch072-stoel-ogen:1#q2",
+        "file": "assets/audio/aada995c4d483fc2.mp3",
+        "sha256": "37835b4fc5231867e9c6ecd6871b3298b0f2625e72f9c1ba724f315f1aa785b8"
+      },
+      {
+        "key": "A1:listening:batch072-stoel-ogen:1#fragment",
+        "file": "assets/audio/5dae377e937ae004.mp3",
+        "sha256": "0fd9a9b98701b0baea77c3789f071db9e06a4e6a1dc82eb7f63d3dc6d05e2df3"
+      },
+      {
+        "key": "A1:listening:batch072-grote-hoed:1#q1",
+        "file": "assets/audio/2b341b61b938f8c5.mp3",
+        "sha256": "0b7a025d448449397b5be20ce901ece4054fc3ef5ff9e0878829d578d01a7dd6"
+      },
+      {
+        "key": "A1:listening:batch072-grote-hoed:1#q2",
+        "file": "assets/audio/e5aa5fbc386cd588.mp3",
+        "sha256": "60f507dc10d40ae40edfc2306b6fc9d741f5d326d9a0748504b2611324342026"
+      },
+      {
+        "key": "A1:listening:batch072-grote-hoed:1#fragment",
+        "file": "assets/audio/1f6ffb0cfa5c6f31.mp3",
+        "sha256": "8d07ec04aa29dab7039b15caa22eb694c3cda4fa44ef2c476242bcb55a08f039"
+      },
+      {
+        "key": "A1:listening:batch072-bezem-feest:1#q1",
+        "file": "assets/audio/6f04f1d434518923.mp3",
+        "sha256": "ae428a237e984f898aa20634c3883f603ba35ffecc6b91f5c04fa1ac37f0b28c"
+      },
+      {
+        "key": "A1:listening:batch072-bezem-feest:1#q2",
+        "file": "assets/audio/9ebf7d00add94746.mp3",
+        "sha256": "654ca3302fd17e6efc17c08638819752433dae06875e111bafb2da869b011169"
+      },
+      {
+        "key": "A1:listening:batch072-bezem-feest:1#fragment",
+        "file": "assets/audio/4c5d4dd63277113f.mp3",
+        "sha256": "7d547755486a8714cf7cd9ca1245aad6424fa963dc6a71c8be7e8056836526f6"
+      },
+      {
+        "key": "A1:listening:batch072-doos-oren:1#q1",
+        "file": "assets/audio/cfe9b372b9197bbd.mp3",
+        "sha256": "36af69dc22e241a3e82d3c4b35a244e4d3e7f0561bcc50c2576a416a0ea27b7e"
+      },
+      {
+        "key": "A1:listening:batch072-doos-oren:1#q2",
+        "file": "assets/audio/0f7d4ee783c34d66.mp3",
+        "sha256": "41909c3ad0675d840c0b68543a8a4ac7e7b208bbe164c469aa24e99ec0a78c89"
+      },
+      {
+        "key": "A1:listening:batch072-doos-oren:1#fragment",
+        "file": "assets/audio/be0f2d029f33e868.mp3",
+        "sha256": "3c342439e6a4f5c44df593c3a12144f8099f73f3aacab1df041055cdb78dca79"
+      },
+      {
+        "key": "A1:listening:batch072-paraplu-werk:1#q1",
+        "file": "assets/audio/ef8c6984188dfe2d.mp3",
+        "sha256": "0a94a5d6c7517911aa7ba58a651e0ee9cc1fdbcd2f840b83f96525dfdc5a9964"
+      },
+      {
+        "key": "A1:listening:batch072-paraplu-werk:1#q2",
+        "file": "assets/audio/62efa616d5f05afd.mp3",
+        "sha256": "4669063242623a0bc21f39ff1145dba8700241fb25770b4d306d911b64dc2c82"
+      },
+      {
+        "key": "A1:listening:batch072-paraplu-werk:1#fragment",
+        "file": "assets/audio/df32101c7710bc4f.mp3",
+        "sha256": "6a8852f4dd8810bc378d096246d1e5723356aae1d1cad514962ebc3e72849964"
+      },
+      {
+        "key": "A1:listening:batch072-bloem-beker:1#q1",
+        "file": "assets/audio/74ed610a9616897c.mp3",
+        "sha256": "6cab0cf45f2ff817b8daba9a787941518b6d2a18fd7d30d9e7c67c5c7a1ab603"
+      },
+      {
+        "key": "A1:listening:batch072-bloem-beker:1#q2",
+        "file": "assets/audio/569a83af38b4befb.mp3",
+        "sha256": "232aa247f62bd24d4be0dddb7b5158e3990e370c102ab9cee9563c731ecf0a24"
+      },
+      {
+        "key": "A1:listening:batch072-bloem-beker:1#fragment",
+        "file": "assets/audio/6e4eed92c45111aa.mp3",
+        "sha256": "2aaec96eaf136f9aa8ff70f8e70086c8c58f824def7ae1a969466dde331de8bb"
+      },
+      {
+        "key": "A1:listening:batch072-kat-boeken:1#q2",
+        "file": "assets/audio/3879005728eafa0c.mp3",
+        "sha256": "8091ba0c35fde66e34436f6d868e43cfdedbb68822bb893a5d745feb2de9fa77"
+      },
+      {
+        "key": "A1:listening:batch072-kat-boeken:1#fragment",
+        "file": "assets/audio/7ec6985c6e589054.mp3",
+        "sha256": "5aee7ef468b4bece9e482fe77ffb3f29e83f199e1d6610269f47c0d2044f900a"
+      },
+      {
+        "key": "A1:listening:batch072-kat-boeken:1#q1",
+        "file": "assets/audio/c67728ddadfcaff3.mp3",
+        "sha256": "b384f4db0ff59b3581b8b7b38e3e942b0ad86be6a56d883c1b20af5004707249"
+      },
+      {
+        "key": "A1:speaking:batch073-miniparaplu:1#prompt",
+        "file": "assets/audio/24e5cd9b9c1d033a.mp3",
+        "sha256": "a146090be09db927963ef45740c1c236cb9b33be82530b98cefd045506aea422"
+      },
+      {
+        "key": "A1:speaking:batch073-reuzenbeker:1#prompt",
+        "file": "assets/audio/d9c399a123be807c.mp3",
+        "sha256": "f9caabc0ffe9b219417c9c4f8fa10271024ff9a838e05637f050bf7653d57c7e"
+      },
+      {
+        "key": "A1:speaking:batch073-langesjaal:1#prompt",
+        "file": "assets/audio/413a5df506de0e3b.mp3",
+        "sha256": "01e4b479fa353795de90c9f92ab1c4622981e10d4f6ba9fcab4f41a1fa9cf20b"
+      },
+      {
+        "key": "A1:speaking:batch073-koelkastbal:1#prompt",
+        "file": "assets/audio/bc02e6c2021521af.mp3",
+        "sha256": "1e5dbe79bec4a7be1b7797679857e581cd10029ecf94f46b164cb6bc6622d821"
+      },
+      {
+        "key": "A1:speaking:batch073-tuinbed:1#prompt",
+        "file": "assets/audio/268b7140fe137cc3.mp3",
+        "sha256": "d2c9d2ddb1f948167e182d16c2b23b4dc09baaca37b34ccb65c2f34b3e31b0a6"
+      },
+      {
+        "key": "A1:speaking:batch073-boekenpan:1#prompt",
+        "file": "assets/audio/fb77275e272ce9a7.mp3",
+        "sha256": "75d8765999b658170d0417257ce0513cff5c39f7a44ded0fc86eddec988ae92a"
+      },
+      {
+        "key": "A1:speaking:batch073-hondenboek:1#prompt",
+        "file": "assets/audio/dce8dfae80c53a72.mp3",
+        "sha256": "150f23a385425d21c0a6739f8db23dc14fed8c7f5a99c33c1cf502767837f140"
+      },
+      {
+        "key": "A1:speaking:batch073-samenjas:1#prompt",
+        "file": "assets/audio/7d08792c7fb37d91.mp3",
+        "sha256": "a735530564141f8aa6fc852b3a3310c87b7ac3087a7dc78e1a1a753aac7110f8"
+      },
+      {
+        "key": "A1:speaking:batch073-stofzuigerdans:1#prompt",
+        "file": "assets/audio/fe8cd28e63c5d5b2.mp3",
+        "sha256": "7693e6093f38fa850f721b551477f863bd11285dd2c857d5f87cf98cc3d5f2a0"
+      },
+      {
+        "key": "A2:listening:batch005-training:1#fragment",
+        "file": "assets/audio/b60adc2dff43f74b.mp3",
+        "sha256": "e0e24d119bad1e34f57f9b8db8c6993c2ecf8c6433e797b597edc02f6e925e20"
+      },
+      {
+        "key": "B1:listening:batch013-logistiek:1#q1-fragment",
+        "file": "assets/audio/ac331e2d3d5ecec1.mp3",
+        "sha256": "d9d6767ee9cd34cd0951dada964613ce48f3e933f5c522bdba2ea81e18df45fe"
+      },
+      {
+        "key": "B1:listening:batch013-logistiek:1#q2-fragment",
+        "file": "assets/audio/20af46376270a95e.mp3",
+        "sha256": "373c169979776e957e034394c83b141f9ac7c950e6512fd6c7f8585fce3dd10b"
+      },
+      {
+        "key": "B1:listening:batch013-logistiek:1#q3-fragment",
+        "file": "assets/audio/5d5757a8965248f2.mp3",
+        "sha256": "cf813d56dce3c778c087cfe089f07d9b6022b1245f9a3e843f68df744b6ffb8e"
+      },
+      {
+        "key": "B1:listening:batch013-logistiek:1#q4-fragment",
+        "file": "assets/audio/9b314a5f78926374.mp3",
+        "sha256": "b5b89bf6e463ced44ec3636b3b2b877f3591f5244636d675013ea44598ff53c2"
+      },
+      {
+        "key": "B1:listening:batch013-logistiek:1#q5-fragment",
+        "file": "assets/audio/5c7f11fa8dee04e3.mp3",
+        "sha256": "38e58bca25ea2574d4e2bff7a4d272f5126d31d5bf24bd0676b67880f096a127"
+      },
+      {
+        "key": "B1:listening:batch013-logistiek:1#q7-fragment",
+        "file": "assets/audio/8604110a69819219.mp3",
+        "sha256": "6bb8bb9bffb048b706d3b173fef25929a1455730ffa9e5b139439b47e9c5503c"
+      },
+      {
+        "key": "B1:listening:batch013-logistiek:1#q6-fragment",
+        "file": "assets/audio/64371a3293920b3f.mp3",
+        "sha256": "f07b531963a9f2ca2d186282d38843b069ad22d139c734f86123e88df2f5e9ae"
+      },
+      {
+        "key": "B1:listening:batch002-lekkage:1#q1-fragment",
+        "file": "assets/audio/86641b115779c67d.mp3",
+        "sha256": "2afab5117bdd7d246f3a5b776cb159e2bad58d583ea1de489a17374bbcf62389"
+      },
+      {
+        "key": "B1:listening:batch002-lekkage:1#q2-fragment",
+        "file": "assets/audio/50df297aa2d2b22f.mp3",
+        "sha256": "45a7fdeebf704fe4c1ed56d513267191627a9bcaf0d5eb926535c65f468b2b6d"
+      },
+      {
+        "key": "B1:listening:batch002-lekkage:1#q3-fragment",
+        "file": "assets/audio/beeaabec613e07a4.mp3",
+        "sha256": "1ef56264221884ab6c9751be0fdd9ad3626b99ef18b23352bda8da22dc128b6c"
+      },
+      {
+        "key": "B1:listening:batch002-lekkage:1#q5-fragment",
+        "file": "assets/audio/119b23b86862c021.mp3",
+        "sha256": "d25f0d948e303376f9ac59e586b765bf5034436ba8e830e7bcb3a3ab2c0dd90c"
+      },
+      {
+        "key": "B1:listening:batch002-lekkage:1#q6-fragment",
+        "file": "assets/audio/28b1f5735df17ec6.mp3",
+        "sha256": "b5fabf31f31d8f48f0a68a5fcbba70c8c2a3776521ccf0bd823ca6e79172ee41"
+      },
+      {
+        "key": "B1:listening:batch002-lekkage:1#q4-fragment",
+        "file": "assets/audio/6765e4590dcc1def.mp3",
+        "sha256": "49007cd5c059b39952323b28dd3200f94bcd359c208c72f5e7f0f5b724345195"
+      }
+    ]
+  },
+  "application_checks": {
+    "command": "npm run check",
+    "verdict": "pass",
+    "tests": 165,
+    "passed": 165,
+    "failed": 0,
+    "typecheck": "pass",
+    "prettier": "pass",
+    "source_size_limit": "pass",
+    "production_build": "pass",
+    "prepared_catalogue": {
+      "exercises": 428,
+      "sets": 117,
+      "reviewed_hint_groups": 182,
+      "required_media_and_reviews": "pass"
+    }
+  },
+  "firefox_checks": {
+    "command": "npm run test:browser",
+    "verdict": "pass",
+    "isolated_profile_and_database": true,
+    "synthetic_provider_credentials": true,
+    "journey_count": 10,
+    "journeys": [
+      "migration",
+      "standardization",
+      "infrastructure",
+      "reactions",
+      "refinement",
+      "translation",
+      "home-sample",
+      "a1",
+      "a1-listening",
+      "a1-open"
+    ],
+    "coverage": [
+      "All four A1 skills",
+      "320px and 390px layouts",
+      "Saved answers and drafts",
+      "Real audio playback and retry",
+      "Single editable speaking transcript",
+      "Feedback and report failure recovery",
+      "Reaction persistence",
+      "Legacy progress and session migration"
+    ]
+  },
+  "local_http_delivery": {
+    "origin": "http://127.0.0.1:8766",
+    "audited_at_utc": "2026-10-27T20:24:41.344292+00:00",
+    "verdict": "pass",
+    "summary": {
+      "selected_approved_files": 95,
+      "selected_images": 36,
+      "selected_audio": 59,
+      "audio_range_requests": 59,
+      "home_images": 5,
+      "a1_set_html_pages": 14,
+      "media_pass_count": 100,
+      "html_pass_count": 14,
+      "failure_count": 0,
+      "http_get_requests": 173,
+      "elapsed_seconds": 1.426
+    },
+    "checks": [
+      "Exact approved SHA-256 of full media responses",
+      "Image WebP dimensions and MIME headers",
+      "Audio MPEG MIME headers",
+      "All 59 audio byte ranges return HTTP 206 and exact bytes 0–255",
+      "All 14 A1 set pages match the current 42 source items and set membership"
+    ],
+    "a1_set_paths": [
+      "/sets/a1-reading-01",
+      "/sets/a1-listening-01",
+      "/sets/a1-reading-02",
+      "/sets/a1-reading-03",
+      "/sets/a1-reading-04",
+      "/sets/a1-listening-02",
+      "/sets/a1-listening-03",
+      "/sets/a1-listening-04",
+      "/sets/a1-speaking-01",
+      "/sets/a1-speaking-02",
+      "/sets/a1-speaking-03",
+      "/sets/a1-writing-01",
+      "/sets/a1-writing-02",
+      "/sets/a1-writing-03"
+    ],
+    "home_images": [
+      {
+        "file": "assets/images/home/reading.webp",
+        "sha256": "47c0c5507b148f08265fb51eceeb17f292e29e3a4c3791613d4fa7090bc89adf"
+      },
+      {
+        "file": "assets/images/home/listening.webp",
+        "sha256": "ce578214913762c3b8022aca8dbbd53122c6dc27093723cba31c9239d95a0ccd"
+      },
+      {
+        "file": "assets/images/home/writing.webp",
+        "sha256": "49801b8859e517f3e1ee04d1a72ff6b13ad4eef950eed2fb84088118b9a34811"
+      },
+      {
+        "file": "assets/images/home/speaking.webp",
+        "sha256": "af83a6b28b48699e54245ec0c1e06b78a1202ba427102851b9a58a047d0f442d"
+      },
+      {
+        "file": "assets/images/home/knm.webp",
+        "sha256": "8fec6e2ba0b538d8289350b5158b9ba4a96abc3fbd0679c02a7b8ba480f50ecc"
+      }
+    ],
+    "public_read_only": true
+  },
+  "database_checks": {
+    "local_integrity": "ok",
+    "published_exercises": 428,
+    "published_payloads_match_catalogue": true,
+    "a1_sets_match_json": true,
+    "drafts_preserved": true,
+    "prior_editorial_history_rows_preserved": true,
+    "five_preexisting_legacy_set_membership_differences_preserved": true,
+    "production_online_backup": {
+      "location": "remote production host",
+      "absolute_path": "/home/ubuntu/oefenschrift/var/backups/pre-a1-release-2026-10-27T20-06-19.173Z.sqlite3",
+      "created_at": "2026-10-27T20:06:19.364Z",
+      "bytes": 4501504,
+      "integrity": "ok"
+    },
+    "privacy": "Only aggregate findings and backup metadata are retained here. No database contents, user records, browser storage or credentials are included."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or exam equivalence.",
+    "Audio checks establish source, transcription and technical integrity; complete user listening approval remains pending.",
+    "The coordinator passed visual QA; final user taste review remains pending.",
+    "Production deployment and production browser checks require separate post-publication evidence."
+  ]
+}

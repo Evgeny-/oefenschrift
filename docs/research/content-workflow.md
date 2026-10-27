@@ -4,6 +4,8 @@
 
 This process applies to original reading, listening, writing, speaking, and KNM practice. The author creates a batch and may revise it. A separate reviewer evaluates the final source independently and never edits the author’s batch. Editorial review cannot validate CEFR difficulty, predict exam results, or establish equivalence with an official inburgering exam.
 
+The A1 foundation practice bank requested on 27 October 2026 uses blueprint section 4.0 and `exam: a1-practice`. Its shorter texts and question counts are local teaching choices informed by the CEFR. It uses the same editorial and hash gates. Its expanded specification includes simple speaking and writing tasks, one reviewed illustration per new item and audio for listening and spoken prompts. A1 mock exams and level checks remain unavailable. The 27 October expansion has nine items per skill, grouped into three sets of three.
+
 ## 1. Define the batch
 
 Record the requested number of items by level and part before writing. Add explicit diversity targets for setting, purpose, text type, tested operation, and answer shape. Reserve unique, stable item IDs. Mark level labels as authoring targets with `targetLevelValidated: false` until learner evidence supports calibration.
@@ -30,7 +32,7 @@ The author validates JSON parsing, schema fields, unique IDs, requested counts, 
 
 ## 5. Independent editorial review
 
-The reviewer reads every item in full and applies `content/reviews/rubric.md`. For closed questions, the reviewer proves the key from the stored quote and source, tests every distractor as a possible competing answer, and checks that the explanation matches both. For open tasks, the reviewer maps prompt to criteria, criteria to sample quotes, and criteria to the model. The reviewer compares A2 and B1 demands across the batch and flags duplicate concepts.
+The coordinator first supplies a fresh reviewer with a source-only packet from `npm run batch:review-source -- <batch>`. Before seeing questions, keys, criteria, models or author notes, the reviewer records whether the source makes sense, what each person wants and why its sentences or turns follow. Invented context cannot justify a weak source. A later full-item pass applies `content/reviews/rubric.md`. For closed questions, the reviewer proves the key from the stored quote and source, tests every distractor as a possible competing answer, and checks that the explanation matches both. For open tasks, the reviewer maps prompt to criteria, criteria to sample quotes, and criteria to the model. The reviewer compares A2 and B1 demands across the batch and flags duplicate concepts.
 
 For KNM, the reviewer opens each cited official page, confirms that it supports the precise claim, checks current terminology and exceptions that could change the answer, and records the verified URL in the review evidence. Search snippets alone do not count as verification.
 
@@ -43,6 +45,10 @@ The author applies requested edits and reruns author checks. The reviewer reread
 ## 7. Hash gate and review artifact
 
 After the last edit, calculate SHA-256 from the exact source JSON. The review JSON records the source path, hash, item count, distribution, per-item verdict, concrete evidence, source verification where applicable, limitations, and `ready_for_integration`. The Markdown report mirrors the same verdicts for human reading.
+
+New and changed source bytes require review contract version 2, the final blind-packet hash and item-specific meaning evidence. `batch:adopt`, integration and file-based media generation reject missing or failed meaning checks. Frozen historical source hashes through batch 068 retain their earlier contracts; all A1 sources are excluded. These structural gates check that evidence is supplied; they cannot certify the judgment itself.
+
+Reviewers also classify each source as ordinary or lightly humorous and record exact tone counts. Keep around 15% funny tasks across the program; the current 36-item A1 expansion uses five. The gate caps humor per batch with upward rounding for small groups, while the coordinator checks the full program's mix.
 
 Set `ready_for_integration: true` only when every item passes, the batch checks succeed, and the recorded hash matches the current file. Any later byte change invalidates the gate and requires a new hash plus a focused rereview.
 

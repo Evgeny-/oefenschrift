@@ -1,4 +1,5 @@
 import type { Exercise, PracticeSet as PracticeSetDefinition, ServiceStatus } from './types';
+import { LEVELS } from './types';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import useStudy, { rememberPreferences } from './useStudy';
@@ -10,6 +11,7 @@ import { NavIcon, ContactLink } from './components/Controls';
 import { stateForRoute } from './domain/render-state';
 import { resolveTheme } from './domain/theme';
 import LevelNavigation from './components/LevelNavigation';
+import A1PracticeOnly from './components/A1PracticeOnly';
 import Preferences from './components/Preferences';
 import AppLink from './components/AppLink';
 import {
@@ -220,7 +222,8 @@ export default function App({
     }
   };
   const backPart = practiceSet?.part || opened?.part || (route === 'session' ? 'mock' : null),
-    runningCheck = route === 'check' ? checkInProgress(state) : null;
+    runningCheck =
+      route === 'check' && state.settings.level !== 'A1' ? checkInProgress(state) : null;
   // Icon motion follows a real section change, never the initial page load.
   useDisclosureMotion();
   const [motion, setMotion] = useState<{ part: string; count: number } | null>(null),
@@ -262,9 +265,7 @@ export default function App({
       current = first?.questions ? flatten(a, catalogue)[a.index]?.item.id : a.ids[a.index];
     return `${base} · ${unitLabel(practiceSet.part, 1, state.settings.lang)} ${a.ids.indexOf(current) + 1} ${t('van', 'of')} ${a.ids.length}`;
   })();
-  const available = ['A2', 'B1', 'B2'].filter((level) =>
-    catalogue.some((item) => item.level === level),
-  );
+  const available = LEVELS.filter((level) => catalogue.some((item) => item.level === level));
   const screen = missing ? (
     <>
       <Heading
@@ -280,7 +281,9 @@ export default function App({
       <PracticeSet />
     ) : null
   ) : route === 'session' ? (
-    state.active?.mode === 'mock' ? (
+    state.settings.level === 'A1' ? (
+      <A1PracticeOnly title={t('Proefexamen A1', 'A1 practice test')} />
+    ) : state.active?.mode === 'mock' ? (
       <Session />
     ) : (
       <Heading

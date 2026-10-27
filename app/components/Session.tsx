@@ -66,6 +66,7 @@ export function Session({ onComplete = undefined }: { onComplete?: () => void })
       <ExerciseHeader
         item={item}
         timer={sessionTimer(a, setState)}
+        showClock={a.mode === 'mock'}
         questionId={q.id}
         tag={
           a.mode === 'mock'
@@ -188,7 +189,7 @@ export function QuestionColumns({
         // The DUO A2 player prints this line under the situation; the Staatsexamen does not.
         <p className="instruction">
           {item.part === 'listening'
-            ? 'Lees eerst de vraag. Luister daarna naar de tekst.'
+            ? 'Lees eerst de vraag. Luister daarna naar het fragment.'
             : 'Lees eerst de vraag. Lees daarna de tekst.'}
         </p>
       )}

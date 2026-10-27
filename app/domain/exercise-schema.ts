@@ -9,14 +9,17 @@ export function exerciseMetadataErrors(item: any): string[] {
   const errors: string[] = [];
   const fail = (message: string) => errors.push(`${item.id || '(no id)'}: ${message}`);
   const { level, part } = item;
-  if (!['A2', 'B1'].includes(level)) fail('level must be A2 or B1');
-  const expectedExam = part === 'knm' ? 'knm' : level === 'B1' ? 'nt2-i' : 'duo-a2';
+  if (!['A1', 'A2', 'B1'].includes(level)) fail('level must be A1, A2 or B1');
+  const expectedExam =
+    part === 'knm' ? 'knm' : level === 'A1' ? 'a1-practice' : level === 'B1' ? 'nt2-i' : 'duo-a2';
   if (item.exam !== expectedExam) fail(`exam must be ${expectedExam}`);
+  if (level === 'A1' && !['reading', 'listening', 'writing', 'speaking'].includes(part))
+    fail('A1 supports reading, listening, writing and speaking practice');
   if (part === 'knm' && level !== 'A2') fail('KNM uses A2 language');
   if (Object.hasOwn(item, 'type'))
     fail('use taskType; the legacy type field is no longer accepted');
   const types: string[] | undefined =
-    Object.hasOwn(TASK_TYPES, part) && ['A2', 'B1'].includes(level)
+    Object.hasOwn(TASK_TYPES, part) && ['A1', 'A2', 'B1'].includes(level)
       ? TASK_TYPES[part][level]
       : undefined;
   if (!types?.includes(item.taskType))
@@ -24,7 +27,7 @@ export function exerciseMetadataErrors(item: any): string[] {
   const labels = Object.hasOwn(TASK_LABELS, item.taskType) ? TASK_LABELS[item.taskType] : undefined;
   if (!labels?.every((label) => typeof label === 'string' && label.trim()))
     fail('taskType needs Dutch and English display labels');
-  const domains = ['A2', 'B1'].includes(level) ? DOMAINS[level] : undefined;
+  const domains = ['A1', 'A2', 'B1'].includes(level) ? DOMAINS[level] : undefined;
   if (!domains?.has(item.domain)) fail(`domain must be one of ${[...(domains || [])].join(', ')}`);
   if (
     level === 'B1' &&

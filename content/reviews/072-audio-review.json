@@ -1,0 +1,1821 @@
+{
+  "review_id": "072-audio-review",
+  "reviewed_at": "2026-10-27T18:39:57.553Z",
+  "review_type": "independent-audio-technical-and-script-transcript",
+  "reviewer": "Codex AI reviewer /root/voice_generation_targeting, separate from the final media generator /root. This reviewer inspected final staged bytes, scripts, source reviews, generation manifests, supplementary transcripts and cleanup implementation. No audio was heard.",
+  "scope": "Nine A1 foundation listening conversations and eighteen question narrations for local testing.",
+  "audio_technical_verdict": "pass",
+  "audio_technical_pass_count": 27,
+  "specialist_listening_verdict": "pending",
+  "overall_status": "audio-technical-pass; auditory-review-pending",
+  "ready_for_media_application": true,
+  "approval_scope": "Local testing of only the exact file SHA-256 values recorded here.",
+  "source": "content/batches/072-original.json",
+  "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+  "editorial_review": "content/reviews/072-review.json",
+  "sources": [
+    {
+      "path": "content/batches/072-original.json",
+      "sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "review": "content/reviews/072-review.json",
+      "review_sha256": "6e8b9a38484155501ac55b5f08ae8d2c99230f732cd23f02b3ab65448b30eac1"
+    }
+  ],
+  "checks": {
+    "full_final_audio_decoded": true,
+    "mono_mp3_44100_hz_192000_bps": true,
+    "source_review_and_script_hashes_verified": true,
+    "source_role_labels_and_effective_voice_ids_verified": true,
+    "distinct_conversation_voices_verified": true,
+    "actual_role_settings_verified": true,
+    "cache_tokens_recomputed": true,
+    "declared_source_format_verified": "mp3_44100_192 at 44100 Hz",
+    "decoded_manifest_durations_within_seconds": 0.001,
+    "container_duration_tolerance_seconds": 0.1,
+    "fragment_waveforms_recomputed": true,
+    "all_final_sample_peaks_below_dbfs": -1.729465928936702,
+    "supplementary_transcript_bytes_verified": true,
+    "all_individual_word_differences_inspected": true,
+    "unsupported_added_words_found": false,
+    "provider_requests_by_reviewer": 0,
+    "production_media_or_catalogue_mutations_by_reviewer": 0
+  },
+  "config_sha256": "65cd1abc83f54adc8591c9624978bfa5dcee1f3ac527e3ae987c7dc449377ef2",
+  "code_hashes": {
+    "scripts/audio.ts": "32afd4bb245a20f3474c6f749cfeac3de2ded285c161dc945610e6f841918c50",
+    "scripts/audio-profile.ts": "e3af49ca7ab41207bdc7da968662c12afbb80eae4efc098c163ff96625aee25c",
+    "scripts/audio-processing.ts": "0926493004a2a09fff1c1136a3fe9ec43f7792f5679c504122684faf02b26afd",
+    "scripts/audio-casting.ts": "6bc70d99a27b9e20177654b02a3bb95eb9db95ae15c2c80254d90bc89a6841ea"
+  },
+  "code_validation": {
+    "command": "node --import tsx --test tests/audio-processing.test.ts tests/audio-profile.test.ts tests/audio-casting.test.ts",
+    "passing_tests": 12
+  },
+  "native_voice_metadata": {
+    "source": "var/voice-samples/2026-10-27-all/manifest.json",
+    "sha256": "3fdb9f556073c4dc2bf350f0d218aa76ec8725d7921aecf9ef81834c817b5f06",
+    "voices": [
+      {
+        "id": "serge",
+        "voiceId": "UNBIyLbtFB9k7FKW8wJv",
+        "projectName": "Serge de Beer",
+        "providerName": "Serge de Beer - Professional Narrator",
+        "language": "nl",
+        "locale": "nl-NL",
+        "accent": "standard",
+        "category": "professional",
+        "verifiedAt": "2026-09-17"
+      },
+      {
+        "id": "roos",
+        "voiceId": "7qdUFMklKPaaAVMsBTBt",
+        "projectName": "Roos",
+        "providerName": "Roos - Kind, Articulate and Confident",
+        "language": "nl",
+        "locale": "nl-NL",
+        "accent": "standard",
+        "category": "professional",
+        "verifiedAt": "2026-09-17"
+      },
+      {
+        "id": "ruth",
+        "voiceId": "yO6w2xlECAQRFP6pX7Hw",
+        "projectName": "Ruth",
+        "providerName": "Ruth - Friendly Children's Storyteller",
+        "language": "nl",
+        "locale": "nl-NL",
+        "accent": "standard",
+        "category": "high_quality",
+        "verifiedAt": "2026-10-27"
+      },
+      {
+        "id": "lieke",
+        "voiceId": "kZQ3IGqYUStQ8u1Y62s6",
+        "projectName": "Lieke",
+        "providerName": "Lieke - Bright and upbeat",
+        "language": "nl",
+        "locale": "nl-NL",
+        "accent": "standard",
+        "category": "high_quality",
+        "verifiedAt": "2026-10-27"
+      },
+      {
+        "id": "ruben",
+        "voiceId": "MkRWZTk4OBui6Jb2lgK0",
+        "projectName": "Ruben",
+        "providerName": "Ruben",
+        "language": "nl",
+        "locale": "nl-NL",
+        "accent": "standard",
+        "category": "high_quality",
+        "verifiedAt": "2026-10-27"
+      },
+      {
+        "id": "jerry",
+        "voiceId": "gdTrLNuwWUaxC0z5n1j7",
+        "projectName": "Jerry",
+        "providerName": "Jerry - Warm and conversational Dutch Voice",
+        "language": "nl",
+        "locale": "nl-NL",
+        "accent": "standard",
+        "category": "professional",
+        "verifiedAt": "2026-09-17"
+      },
+      {
+        "id": "daan",
+        "voiceId": "SFlhmoT9q6x81D3fl3dp",
+        "projectName": "Daan",
+        "providerName": "Daan - Energetic and natural",
+        "language": "nl",
+        "locale": "nl-NL",
+        "accent": "standard",
+        "category": "high_quality",
+        "verifiedAt": "2026-10-27"
+      },
+      {
+        "id": "robert",
+        "voiceId": "cblS8WYNsiBLGnlV6jjx",
+        "projectName": "Robert",
+        "providerName": "Robert - Deep, Warm and Natural",
+        "language": "nl",
+        "locale": "nl-NL",
+        "accent": "standard",
+        "category": "professional",
+        "verifiedAt": "2026-09-17"
+      }
+    ]
+  },
+  "generation_manifests": [
+    {
+      "path": "var/a1-fun-2026-10-27/072/audio/audio-manifest.json",
+      "sha256": "b9dbe02d2ee25c4c93587b2b3f7ffd9196c21cd74cf8978a79aaaf250f1577eb"
+    }
+  ],
+  "supplementary_transcript_audit": {
+    "path": "var/a1-fun-2026-10-27/072/audio-audit.json",
+    "sha256": "a9ec2275c569cb6b1fa6c383a3d07b1bddeb1a116088768ae723704293755a70"
+  },
+  "a1_profile": {
+    "name": "A1",
+    "speedMultiplier": 0.82,
+    "gapSeconds": 0.9,
+    "note": "Configured A1 settings were verified per role, including explicit a1Speed overrides. These settings and durations do not validate CEFR difficulty or exam equivalence."
+  },
+  "auditory_review_pending": [
+    "pronunciation and name vowel quality",
+    "intelligibility and articulation",
+    "voice balance and useful pauses",
+    "residual noise, processing artifacts and timbre",
+    "answer-revealing emphasis"
+  ],
+  "limitations": "Transcription checks and signal measurements do not establish perceived voice quality. The reviewer had no auditory access. This audio review does not review illustrations or certify difficulty, official exam format or exam equivalence.",
+  "clips": [
+    {
+      "key": "A1:listening:batch072-banaan-telefoon:1#q1",
+      "item_id": "A1:listening:batch072-banaan-telefoon:1",
+      "kind": "question",
+      "file": "audio/13592ed5edaee9c3.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/13592ed5edaee9c3.mp3",
+      "file_sha256": "632e834101b5d80022485e9064de003991e2d705313c90c749c1aad805012905",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "35af89bf293a02fc58d3a230cd2f6a84544cc8a1db129821f45d4e1d8645583b",
+      "text": "Wat moet Roos schrijven?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 1.950476,
+      "decoded_duration": 1.9504761904761905,
+      "bytes": 48317,
+      "decoded_sample_peak_dbfs": -1.7722696231241974,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat moet Roos schrijven?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-banaan-telefoon:1#q2",
+      "item_id": "A1:listening:batch072-banaan-telefoon:1",
+      "kind": "question",
+      "file": "audio/2fb292f4703e83d6.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/2fb292f4703e83d6.mp3",
+      "file_sha256": "fbc2869f30a448deb4db24a8189762bd5b6313401682d936938e00add70c7b3c",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "51973a1a6922f88f24ed5e40f57a8aa2f75a42db6620951d39971270542c5a46",
+      "text": "Waar moet Roos schrijven?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 1.857596,
+      "decoded_duration": 1.8575963718820863,
+      "bytes": 46436,
+      "decoded_sample_peak_dbfs": -2.2723752010153957,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Waar moet Roos schrijven?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-banaan-telefoon:1#fragment",
+      "item_id": "A1:listening:batch072-banaan-telefoon:1",
+      "kind": "fragment",
+      "file": "audio/70b9e8ae14da8d2a.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/70b9e8ae14da8d2a.mp3",
+      "file_sha256": "372fd6c5f056de223ced3d269f09c90ae33a9ea67d347e217c857422f9528c26",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "0675dc64abe9d7c3f4be9190d7ebf8ffb48b808dd79d276de170e4a298aa3dcf",
+      "text": "Mijn telefoon is een banaan!\nLeuk! Schrijf je naam op het papier.\nEn mijn adres of nummer? Mijn boek ligt bij het bord.\nAlleen je naam. Dat is genoeg voor deze les.",
+      "roles": {
+        "f-young": "7qdUFMklKPaaAVMsBTBt",
+        "f-mature": "yO6w2xlECAQRFP6pX7Hw"
+      },
+      "settings": {
+        "f-young": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "f-mature": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.9
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 15.674535,
+      "decoded_duration": 15.674557823129252,
+      "bytes": 378087,
+      "decoded_sample_peak_dbfs": -2.0991902991254014,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Mijn telefoon is een banaan. Leuk! Schrijf je naam op het papier. En mijn adres of nummer. Mijn boek ligt bij het bord. Alleen je naam. Dat is genoeg voor deze les.",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-eend-reis:1#q1",
+      "item_id": "A1:listening:batch072-eend-reis:1",
+      "kind": "question",
+      "file": "audio/26cb0c3dfcd73ce7.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/26cb0c3dfcd73ce7.mp3",
+      "file_sha256": "a201f5356d4f82d97a985ad4b862a49c7c0e36018ffd3872b9bb3fe38907a95d",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "cf6717c61acb01ebbbca2f20ddcc13285751e372ff80ab4dfe50739416438965",
+      "text": "Hoe reizen Sabrina en Julio?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 2.693515,
+      "decoded_duration": 2.693514739229025,
+      "bytes": 66498,
+      "decoded_sample_peak_dbfs": -2.6827252370755166,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Hoe reizen Sabrina en Julio?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-eend-reis:1#fragment",
+      "item_id": "A1:listening:batch072-eend-reis:1",
+      "kind": "fragment",
+      "file": "audio/82f5e9a51f67f210.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/82f5e9a51f67f210.mp3",
+      "file_sha256": "898119ef14a5519934475e9332ce119ab7ba28bfff207aa8b677d95a24ce3a45",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "369046a2f1270c83bf1dbe77c70e0fc7fb69c6ad1bd2633bcce0323c4370e628",
+      "text": "Wat een grote eend! Gaan we met de bus?\nNee, we nemen de trein. De fiets blijft thuis.\nMijn jas en boek gaan mee. Wat neem jij mee?\nIk neem mijn tas. Dan gaan we.",
+      "roles": {
+        "f-adult": "kZQ3IGqYUStQ8u1Y62s6",
+        "m-young": "MkRWZTk4OBui6Jb2lgK0"
+      },
+      "settings": {
+        "f-adult": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.9
+        },
+        "m-young": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.9
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 13.16678,
+      "decoded_duration": 13.166802721088436,
+      "bytes": 317901,
+      "decoded_sample_peak_dbfs": -1.808754061685478,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat een grote eend. Gaan we met de bus? Nee, we nemen de trein. De fiets blijft thuis. Mijn jas en boek gaan mee. Wat neem jij mee? Ik neem mijn tas. Dan gaan we.",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-eend-reis:1#q2",
+      "item_id": "A1:listening:batch072-eend-reis:1",
+      "kind": "question",
+      "file": "audio/f3561f6012da8de0.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/f3561f6012da8de0.mp3",
+      "file_sha256": "5a0f9995220f8d646e207ea56bf15953c0e7dad5b1a0b175e04efd8e1abf9195",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "83419a33bf1687f8bc2829b461c0c14d63f7b1399c124f33b2bcd7ec45562c42",
+      "text": "Wat neemt Julio mee?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 1.996916,
+      "decoded_duration": 1.9969160997732427,
+      "bytes": 49571,
+      "decoded_sample_peak_dbfs": -4.812914906503128,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat neemt Julio mee?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-stoel-ogen:1#q1",
+      "item_id": "A1:listening:batch072-stoel-ogen:1",
+      "kind": "question",
+      "file": "audio/b71231b5b9680fc0.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/b71231b5b9680fc0.mp3",
+      "file_sha256": "8bc60760c0e84ef1385fcd78813a3e29c0131625503c9aa4244f3209cd9d3e63",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "9aceff9dad74abe02e6a0e6dc83842e5f059237b79bf2d28c450ddd7161cbfd4",
+      "text": "Wat zoekt Roos?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 1.578957,
+      "decoded_duration": 1.5789569160997732,
+      "bytes": 39540,
+      "decoded_sample_peak_dbfs": -1.7774723124909286,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat zoekt Roos?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-stoel-ogen:1#q2",
+      "item_id": "A1:listening:batch072-stoel-ogen:1",
+      "kind": "question",
+      "file": "audio/aada995c4d483fc2.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/aada995c4d483fc2.mp3",
+      "file_sha256": "37835b4fc5231867e9c6ecd6871b3298b0f2625e72f9c1ba724f315f1aa785b8",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "b23a5b982162bc5f67189d1e5368a2e6d1f3ae2f5be8c996aed4ffd3ba24cbf7",
+      "text": "Waar ligt de pen?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 1.486077,
+      "decoded_duration": 1.486077097505669,
+      "bytes": 37032,
+      "decoded_sample_peak_dbfs": -1.8775782086663473,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Waar ligt de pen?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-stoel-ogen:1#fragment",
+      "item_id": "A1:listening:batch072-stoel-ogen:1",
+      "kind": "fragment",
+      "file": "audio/44d880dc24a32eb1.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/44d880dc24a32eb1.mp3",
+      "file_sha256": "8fdbe59051d41d50e451ae18402dc35b086435ca48dbc9b3c07cb624bd6e3258",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "b096aeaa4d6bc4211873eedae7a545c74c0338b674f9ad99a885f65c1e8e863b",
+      "text": "Die stoel heeft ogen! Ik zoek mijn pen.\nJe boek en telefoon zijn hier.\nLigt mijn pen op of naast de tafel?\nJe pen ligt onder de tafel. Pak maar.",
+      "roles": {
+        "f-young": "7qdUFMklKPaaAVMsBTBt",
+        "m-young": "MkRWZTk4OBui6Jb2lgK0"
+      },
+      "settings": {
+        "f-young": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "m-young": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.9
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 13.63102,
+      "decoded_duration": 13.631020408163264,
+      "bytes": 328559,
+      "decoded_sample_peak_dbfs": -2.316216399908881,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Die stoel heeft ogen. Ik zoek mijn pen. Je boek en telefoon zijn hier. Ligt mijn pen op of naast de tafel? Je pen ligt onder de tafel. Pak maar.",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-grote-hoed:1#q1",
+      "item_id": "A1:listening:batch072-grote-hoed:1",
+      "kind": "question",
+      "file": "audio/a35326ff72852da3.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/a35326ff72852da3.mp3",
+      "file_sha256": "fe81c0e64541229b7029eab8f877f1b5700c76528180e09739d533258ef517f5",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "ab8692a48b0b3df4b8ab54b177e6ffd4ec33f391a7815c1cac32b8bccb2f9cd6",
+      "text": "Wat koopt Fatima?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 1.857596,
+      "decoded_duration": 1.8575963718820863,
+      "bytes": 46436,
+      "decoded_sample_peak_dbfs": -1.7761713479654584,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat koopt Fatima?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-grote-hoed:1#q2",
+      "item_id": "A1:listening:batch072-grote-hoed:1",
+      "kind": "question",
+      "file": "audio/e5aa5fbc386cd588.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/e5aa5fbc386cd588.mp3",
+      "file_sha256": "60f507dc10d40ae40edfc2306b6fc9d741f5d326d9a0748504b2611324342026",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "b98aece1d84a83559791a43527568201e53c1ea7faecdc3592188ff1d5f8f94a",
+      "text": "Hoeveel broden koopt Fatima?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 2.275556,
+      "decoded_duration": 2.2755555555555556,
+      "bytes": 56467,
+      "decoded_sample_peak_dbfs": -2.2596440831377502,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Hoeveel broden koopt Fatima?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-grote-hoed:1#fragment",
+      "item_id": "A1:listening:batch072-grote-hoed:1",
+      "kind": "fragment",
+      "file": "audio/3c52755d59f634bd.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/3c52755d59f634bd.mp3",
+      "file_sha256": "f9fe81dce9acfc9d4ae744e2ca2e493eb9348f4ab97d4bd433c0081acb6ae383",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "95c7440d1bbadd103fce4c65f1b0686d2f7cced33b56817fc5dce09064fde67b",
+      "text": "Uw hoed is heel groot! Ik koop brood.\nWilt u één, twee of drie broden? We hebben ook koek en taart.\nTwee broden, graag. Dat is genoeg.\nGoed. Ik pak het brood. Tot ziens!",
+      "roles": {
+        "f-adult": "kZQ3IGqYUStQ8u1Y62s6",
+        "m-shop": "gdTrLNuwWUaxC0z5n1j7"
+      },
+      "settings": {
+        "f-adult": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.9
+        },
+        "m-shop": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.82
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 18.321451,
+      "decoded_duration": 18.321451247165534,
+      "bytes": 441408,
+      "decoded_sample_peak_dbfs": -1.7644714275041162,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Uw hoed is heel groot. Ik koop brood. Wilt u één, twee of drie broden? We hebben ook koek en taart. Twee broden graag. Dat is genoeg. Goed. Ik pak het brood. Tot ziens!",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-bezem-feest:1#q1",
+      "item_id": "A1:listening:batch072-bezem-feest:1",
+      "kind": "question",
+      "file": "audio/e0a60809ddc33118.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/e0a60809ddc33118.mp3",
+      "file_sha256": "bc09aa672f350800a8316e0f2403d2953e26123dc722520884bd0bc930a7cc8f",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "898d9cd10daf72a5364d83cfce6bc30dc535cac0a745c50c69c836fba32e3131",
+      "text": "Wat wil Daan horen?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 1.857596,
+      "decoded_duration": 1.8575963718820863,
+      "bytes": 46436,
+      "decoded_sample_peak_dbfs": -1.7794241247094855,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat wil Daan horen?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-bezem-feest:1#q2",
+      "item_id": "A1:listening:batch072-bezem-feest:1",
+      "kind": "question",
+      "file": "audio/69a8f6d480d23b0e.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/69a8f6d480d23b0e.mp3",
+      "file_sha256": "3bcacb2a3804487b2a28b2bededc75753fdeb7d249cc8038cc929b1f8ed3cd3a",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "88810dcb06a97bc89ff367da922c94833fc1b252d2a564258914e3648c32d43e",
+      "text": "Wat zet Daan klaar?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 1.764717,
+      "decoded_duration": 1.7647165532879818,
+      "bytes": 43928,
+      "decoded_sample_peak_dbfs": -2.1880787822883554,
+      "waveform_verified": false,
+      "generation_cer": 0.067,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat zet dan klaar?",
+        "cer": 0.06666666666666667,
+        "edits": [
+          {
+            "type": "replace",
+            "reference": "daan",
+            "hypothesis": "dan",
+            "reference_index": 2,
+            "hypothesis_index": 2,
+            "context": {
+              "reference": "wat zet daan klaar",
+              "hypothesis": "wat zet dan klaar"
+            }
+          }
+        ]
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass-for-local-testing",
+        "classification": "proper-name-recognition-uncertainty",
+        "explanation": "The short spoken question Wat zet Daan klaar? is recognized as Wat zet dan klaar? The printed reviewed question names Daan and its object/options remain unchanged. This is insufficient evidence to certify the vowel or its length; auditory pronunciation review remains pending."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-bezem-feest:1#fragment",
+      "item_id": "A1:listening:batch072-bezem-feest:1",
+      "kind": "fragment",
+      "file": "audio/fbfd201c88ce4e5e.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/fbfd201c88ce4e5e.mp3",
+      "file_sha256": "0b3b5cd869d464f5b35864907b44df011daa1621b265b15299e4de4441d907f3",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "cc084a865af0dd1aa7e627936d1158047a8388703e38b187771559f6fb6fb825",
+      "text": "Je danst met een bezem! Zet je muziek aan?\nJa. Wil je de radio, gitaar of piano horen?\nDe radio, graag. Ik zet de stoelen klaar.\nGoed. De borden en glazen staan al klaar.",
+      "roles": {
+        "m-casual": "SFlhmoT9q6x81D3fl3dp",
+        "f-young": "7qdUFMklKPaaAVMsBTBt"
+      },
+      "settings": {
+        "m-casual": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.9
+        },
+        "f-young": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 15.395737,
+      "decoded_duration": 15.395736961451247,
+      "bytes": 371190,
+      "decoded_sample_peak_dbfs": -1.7856077584878336,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Je danst met een bezem. Zet je muziek aan? Ja. Wil je de radio, gitaar of piano horen? De radio graag. Ik zet de stoelen klaar. Goed. De borden en glazen staan al klaar.",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-doos-oren:1#q1",
+      "item_id": "A1:listening:batch072-doos-oren:1",
+      "kind": "question",
+      "file": "audio/cfe9b372b9197bbd.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/cfe9b372b9197bbd.mp3",
+      "file_sha256": "36af69dc22e241a3e82d3c4b35a244e4d3e7f0561bcc50c2576a416a0ea27b7e",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "a7eb9652bb11b9858ef43836e775f8b95a8f84dcf369c47bf3c305ee5e554039",
+      "text": "Wat zit er in de doos?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 1.857596,
+      "decoded_duration": 1.8575963718820863,
+      "bytes": 46436,
+      "decoded_sample_peak_dbfs": -2.2603317748081193,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat zit er in de doos?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-doos-oren:1#q2",
+      "item_id": "A1:listening:batch072-doos-oren:1",
+      "kind": "question",
+      "file": "audio/c9da088e031879d2.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/c9da088e031879d2.mp3",
+      "file_sha256": "303b2169ec0eaa44c23739679bc17b83345bb558da737d5d47674d8205a71a38",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "7b3b9770d585389ee16998bffe05c3b8c0eaa53b2e6dcee60bfeeeb1e2906847",
+      "text": "Voor welk dier is de doos?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 1.996916,
+      "decoded_duration": 1.9969160997732427,
+      "bytes": 49571,
+      "decoded_sample_peak_dbfs": -1.76609547433458,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Voor welk dier is de doos?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-doos-oren:1#fragment",
+      "item_id": "A1:listening:batch072-doos-oren:1",
+      "kind": "fragment",
+      "file": "audio/568329000cb14585.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/568329000cb14585.mp3",
+      "file_sha256": "f6163faafea8aab78c8aea80788a2e03c66ae39de8f09c22de4a8b762a99b68e",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "904a49e0991df285e2bd9b80c0dea43c0f64f3910965d2704abcd3dfb964f88e",
+      "text": "Deze doos heeft oren! Wat zit er in de doos?\nSokken. De appels en het boek liggen op tafel.\nIs de doos voor de hond of de vogel?\nVoor de kat. Ze slaapt graag in dozen.",
+      "roles": {
+        "m-adult": "cblS8WYNsiBLGnlV6jjx",
+        "f-adult": "kZQ3IGqYUStQ8u1Y62s6"
+      },
+      "settings": {
+        "m-adult": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.7544
+        },
+        "f-adult": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.9
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 15.209977,
+      "decoded_duration": 15.209977324263038,
+      "bytes": 366802,
+      "decoded_sample_peak_dbfs": -1.7950544319425372,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Deze doos heeft oren. Wat zit er in de doos? Sokken. De appels en het boek liggen op tafel. Is de doos voor de hond of de vogel? Voor de kat. Ze slaapt graag in dozen.",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-paraplu-werk:1#q1",
+      "item_id": "A1:listening:batch072-paraplu-werk:1",
+      "kind": "question",
+      "file": "audio/c8020ca9c3c336c7.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/c8020ca9c3c336c7.mp3",
+      "file_sha256": "f70a2d5c9735f15c9bf694b14bbc704f676bcdf70fce2039ee21743feb9c6c73",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "78fe42a638aefd6d0c2bb5bdab425f4f80daae52ec2f7ed6dbdc875cc7d2f67f",
+      "text": "Wat wil Julio drinken?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 2.043356,
+      "decoded_duration": 2.043356009070295,
+      "bytes": 50825,
+      "decoded_sample_peak_dbfs": -1.9988479873386873,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat wil Julio drinken?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-paraplu-werk:1#q2",
+      "item_id": "A1:listening:batch072-paraplu-werk:1",
+      "kind": "question",
+      "file": "audio/93ec13ce57d53206.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/93ec13ce57d53206.mp3",
+      "file_sha256": "88d30e6f7034ef355f152d7e2f2acd5adec82bf0cb8920474dbdd9cf5497bbfb",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "b8be93bb2a5c5b3518fb405ec51b5a64d77c25793a46a89af867d491f34b09f1",
+      "text": "Wat gebruikt Julio voor zijn werk?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 3.018594,
+      "decoded_duration": 3.01859410430839,
+      "bytes": 74021,
+      "decoded_sample_peak_dbfs": -3.592622160891057,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat gebruikt Julio voor zijn werk?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-paraplu-werk:1#fragment",
+      "item_id": "A1:listening:batch072-paraplu-werk:1",
+      "kind": "fragment",
+      "file": "audio/cf0821c42a1abc30.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/cf0821c42a1abc30.mp3",
+      "file_sha256": "30d0e2afad75d003ec2049bc81ea2d7c888f2c2ef803be19a000b7730e950a0d",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "3b1962c56f2124847f0d6945622f538f5813c99e2d52f64d8c0cc076f9b24d28",
+      "text": "Er staat een paraplu op kantoor! Wat drink je?\nIk wil koffie. Melk en thee staan hier.\nJe computer is kapot. Hier liggen pen en papier.\nIk werk met mijn telefoon. Dat gaat goed.",
+      "roles": {
+        "f-adult": "kZQ3IGqYUStQ8u1Y62s6",
+        "m-young": "MkRWZTk4OBui6Jb2lgK0"
+      },
+      "settings": {
+        "f-adult": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.9
+        },
+        "m-young": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.9
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 14.838617,
+      "decoded_duration": 14.838639455782314,
+      "bytes": 358025,
+      "decoded_sample_peak_dbfs": -1.729465928936702,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Er staat een paraplu op kantoor. Wat drink je? Ik wil koffie. Melk en thee staan hier. Je computer is kapot. Hier liggen pen en papier. Ik werk met mijn telefoon. Dat gaat goed.",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-bloem-beker:1#q1",
+      "item_id": "A1:listening:batch072-bloem-beker:1",
+      "kind": "question",
+      "file": "audio/74ed610a9616897c.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/74ed610a9616897c.mp3",
+      "file_sha256": "6cab0cf45f2ff817b8daba9a787941518b6d2a18fd7d30d9e7c67c5c7a1ab603",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "bb98e55781e6380ae4f50752c6c3c5af694dccd94c4130de62c419c1bde27365",
+      "text": "Wat wil Fatima eten?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 2.136236,
+      "decoded_duration": 2.136235827664399,
+      "bytes": 52705,
+      "decoded_sample_peak_dbfs": -1.7859333348747775,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat wil Fatima eten?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-bloem-beker:1#q2",
+      "item_id": "A1:listening:batch072-bloem-beker:1",
+      "kind": "question",
+      "file": "audio/569a83af38b4befb.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/569a83af38b4befb.mp3",
+      "file_sha256": "232aa247f62bd24d4be0dddb7b5158e3990e370c102ab9cee9563c731ecf0a24",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "7d6a6cc320fb2cba3dbaf58a367b53d8e386e81aa3fa4f4a16f6cfb133b91022",
+      "text": "Wat wil Fatima drinken?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 2.089796,
+      "decoded_duration": 2.089795918367347,
+      "bytes": 51452,
+      "decoded_sample_peak_dbfs": -1.9151695288248036,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat wil Fatima drinken?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-bloem-beker:1#fragment",
+      "item_id": "A1:listening:batch072-bloem-beker:1",
+      "kind": "fragment",
+      "file": "audio/a68c1b9f743ab374.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/a68c1b9f743ab374.mp3",
+      "file_sha256": "9f722a3b0d895655634f50c35504441f8c545c3ea5cbe529c55a699737918f1e",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "009325b3637bc155bc98d410b9bd737582200ff59bca55efcc64f31bf87cbd1d",
+      "text": "Er zit een bloem in uw beker!\nJa, dat is leuk. Wilt u soep, brood of rijst?\nSoep, graag. Ik neem ook water.\nGoed. Er is ook melk en sap. Gaat u maar zitten.",
+      "roles": {
+        "f-adult": "kZQ3IGqYUStQ8u1Y62s6",
+        "m-shop": "gdTrLNuwWUaxC0z5n1j7"
+      },
+      "settings": {
+        "f-adult": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.9
+        },
+        "m-shop": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.82
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 15.860136,
+      "decoded_duration": 15.860136054421769,
+      "bytes": 382475,
+      "decoded_sample_peak_dbfs": -1.7683696501612447,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Er zit een bloem in uw beker. Ja, dat is leuk. Wilt u soep, brood of rijst? Soep graag. Ik neem ook water. Goed. Er is ook melk en sap. Gaat u maar zitten.",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-kat-boeken:1#q1",
+      "item_id": "A1:listening:batch072-kat-boeken:1",
+      "kind": "question",
+      "file": "audio/9768dd9df39b362c.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/9768dd9df39b362c.mp3",
+      "file_sha256": "027c11d346ead569ad2c6d7e053be3ee5f32baba77b7d427f09245e6d410346b",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "7ce172b1219bd6ed32f354c296952eb8368673f9da01e4f4c39e6c9ea936a3cf",
+      "text": "Wat wil Ruth lezen?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 1.950476,
+      "decoded_duration": 1.9504761904761905,
+      "bytes": 48317,
+      "decoded_sample_peak_dbfs": -2.3714179947632266,
+      "waveform_verified": false,
+      "generation_cer": 0.133,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat wil Ruud lezen?",
+        "cer": 0.13333333333333333,
+        "edits": [
+          {
+            "type": "replace",
+            "reference": "ruth",
+            "hypothesis": "ruud",
+            "reference_index": 2,
+            "hypothesis_index": 2,
+            "context": {
+              "reference": "wat wil ruth lezen",
+              "hypothesis": "wat wil ruud lezen"
+            }
+          }
+        ]
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass-for-local-testing",
+        "classification": "proper-name-recognition-uncertainty",
+        "explanation": "The name Ruth is recognized as Ruud. This is a plausible Dutch proper-name recognition ambiguity. The printed question and situation identify Ruth, and the predicate/possessive and all answer-bearing wording stay unchanged. Auditory name pronunciation remains pending."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-kat-boeken:1#q2",
+      "item_id": "A1:listening:batch072-kat-boeken:1",
+      "kind": "question",
+      "file": "audio/22f2abd7d49a92c0.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/22f2abd7d49a92c0.mp3",
+      "file_sha256": "74710c5bbb1b33878db291c53ddb13a22a4a0573914e93932196def564957afb",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "bca88a30ec4b624d921bf6d35aa819a8e7b1296e50625d3b5df86d7709a86f01",
+      "text": "Wat zegt Ruth over haar telefoon?",
+      "roles": {
+        "narrator": "UNBIyLbtFB9k7FKW8wJv"
+      },
+      "settings": {
+        "narrator": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.779
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 2.554195,
+      "decoded_duration": 2.5541950113378684,
+      "bytes": 62736,
+      "decoded_sample_peak_dbfs": -1.7628476842735328,
+      "waveform_verified": false,
+      "generation_cer": 0.074,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat zegt Ruud over haar telefoon?",
+        "cer": 0.07407407407407407,
+        "edits": [
+          {
+            "type": "replace",
+            "reference": "ruth",
+            "hypothesis": "ruud",
+            "reference_index": 2,
+            "hypothesis_index": 2,
+            "context": {
+              "reference": "wat zegt ruth over haar telefoon",
+              "hypothesis": "wat zegt ruud over haar telefoon"
+            }
+          }
+        ]
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass-for-local-testing",
+        "classification": "proper-name-recognition-uncertainty",
+        "explanation": "The name Ruth is recognized as Ruud. This is a plausible Dutch proper-name recognition ambiguity. The printed question and situation identify Ruth, and the predicate/possessive and all answer-bearing wording stay unchanged. Auditory name pronunciation remains pending."
+      }
+    },
+    {
+      "key": "A1:listening:batch072-kat-boeken:1#fragment",
+      "item_id": "A1:listening:batch072-kat-boeken:1",
+      "kind": "fragment",
+      "file": "audio/a8883f07bb6f85f2.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/a1-fun-2026-10-27/072/audio/a8883f07bb6f85f2.mp3",
+      "file_sha256": "f8b9ac3ef8f29232e1fdb865e74d729707880b9a0777218dafe5970613c52dbe",
+      "source": "content/batches/072-original.json",
+      "source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "script_sha256": "f8c1f9770bec33557507373def6b67e3a6867b07bc93871065536266060184f1",
+      "text": "Er slaapt een kat op mijn tas! Wat lees jij?\nIk lees een nieuw boek. De krant ligt hier.\nIk wil mijn mail lezen. Mijn telefoon is leeg.\nMijn computer is kapot. Dan praten we even.",
+      "roles": {
+        "f-mature": "yO6w2xlECAQRFP6pX7Hw",
+        "f-young": "7qdUFMklKPaaAVMsBTBt"
+      },
+      "settings": {
+        "f-mature": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.9
+        },
+        "f-young": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        }
+      },
+      "profile": {
+        "name": "A1",
+        "speedMultiplier": 0.82,
+        "gapSeconds": 0.9
+      },
+      "gap_seconds": 0.9,
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 16.742494,
+      "decoded_duration": 16.74249433106576,
+      "bytes": 403164,
+      "decoded_sample_peak_dbfs": -1.7875613998901463,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Er slaapt een kat op mijn tas. Wat lees jij? Ik lees een nieuw boek. De krant ligt hier. Ik wil mijn mail lezen. Mijn telefoon is leeg. Mijn computer is kapot. Dan praten we even.",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    }
+  ]
+}

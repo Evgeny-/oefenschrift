@@ -1,0 +1,408 @@
+{
+  "review_id": "069-a1-pilot-meaning-2026-10-27",
+  "review_contract_version": 2,
+  "source": "content/batches/069-original.json",
+  "proposed_source": "content/batches/069-proposed.json",
+  "source_sha256": "2ea92e35342b8106d97bca4f1d0652af3a07520f67ff62ba776756b115ff49ca",
+  "author_draft": "var/a1-tone-balance-2026-10-27/pilot/069-authored.json",
+  "author_draft_sha256": "61ac9dda77a86581610b860dfd701600c2290c9e01770097d069012b12458d88",
+  "author_notes_source": "var/a1-tone-balance-2026-10-27/pilot/notes.md",
+  "author_notes_sha256": "064e88c80d8721a1646683d36a4e857b03a9fbe3d1ac30f1335a375f173bb905",
+  "blind_findings_source": "var/a1-tone-balance-2026-10-27/pilot/069-blind-findings.json",
+  "blind_findings_sha256": "4eea2965a5931c488ab228e3122cd2bc931b45af1b7c43c4f679789f11d97934",
+  "review_type": "independent AI editorial review of all six pilot sources, with source-first meaning findings saved before full-item review",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-27T20:03:14.962978+00:00",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "0db04d1366fdef223218da590b072828a968d4424f6ce0be44577ffee051442d",
+    "independence_note": "Fresh reviewer context saved item-specific blind findings in the pilot directory before the coordinator released full authored sources and notes. The reviewer then read every full item, rebuilt the final packet and repeated the meaning check. Source text, titles, situations and images are unchanged from the blind packet; only one distractor option in this batch was repaired. Earlier approvals were not reused."
+  },
+  "tone_balance": {
+    "ordinary": 3,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "Three repaired ordinary pilot items in batch 069, outside the 36-item expansion. They add no humor to that expansion's five planned light-humor items. Across both pilot batches the contribution is six ordinary items."
+  },
+  "replaces": [
+    "A1:reading:batch069-kopjes:1",
+    "A1:reading:batch069-lesboek:1",
+    "A1:reading:batch069-tafel-dragen:1"
+  ],
+  "edits": [
+    {
+      "id": "A1:reading:batch069-tafel-dragen:1",
+      "field": "questions[q1].options.C",
+      "before": "Het brood meenemen.",
+      "after": "De stoelen dragen.",
+      "reason": "The later bread question and its person options could eliminate the earlier bread distractor without the source. Chairs remain a familiar furniture-help alternative and preserve the key."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npm run batch:check -- content/batches/069-proposed.json",
+      "items": 3,
+      "questions": 6,
+      "keys": {
+        "A": 2,
+        "B": 2,
+        "C": 2
+      },
+      "three_option_questions": 6,
+      "failures": [],
+      "warnings": []
+    },
+    "meaning_review": {
+      "command": "meaningReviewErrors(review, items, false)",
+      "errors": [],
+      "legacy_exemption_used": false
+    },
+    "source_packet_rebuilt": "Final canonical packet hashes equal the persisted source-first packet hashes; final source meaning rechecked.",
+    "full_source_read": true,
+    "closed_question_audit": "Every key entails the exact stored quote; all twelve distractors per batch are assessed in item-specific question audits. Two questions per source remain explicit and independent of answer-revealing prompts.",
+    "metadata_and_counts": "Three original IDs, their domains and formats, two questions per item and balanced ABCABC keys retained.",
+    "rubric_applicability": {
+      "checked": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15
+      ],
+      "not_applicable": {
+        "8": "Closed tasks have no production self-review criteria.",
+        "13": "No KNM or time-sensitive factual public-service claims."
+      }
+    },
+    "image_briefs_alts_unchanged": false,
+    "media_generation_performed": false,
+    "adoption_performed": false,
+    "integration_performed": false
+  },
+  "items": [
+    {
+      "id": "A1:reading:batch069-kopjes:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "meets local foundation authoring target",
+        "targetLevelValidated": false,
+        "evidence": "Concrete kitchen nouns and short present-tense clauses; the two commands use familiar structures. The directly stated object and location are suitable foundation targets.",
+        "official_exam_comparison": "not applicable to this foundation pilot"
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Omar sends his colleague Lina instructions for the kitchen before they eat there: put the cups in the cupboard and leave the plates on the table.",
+        "communicative_purpose": "Lina can prepare the shared eating space without putting away the plates that Omar explicitly wants left out.",
+        "contrivance_check": "The cup instruction and the plate instruction describe one immediate kitchen preparation. Naming the plates and their location matters because the following instruction says to leave them there; the message does not inventory unrelated furniture or supplies.",
+        "unsupported_assumptions": [],
+        "sentence_links": [
+          {
+            "quote": "We eten straks in de keuken.",
+            "function": "States the upcoming shared activity and its setting."
+          },
+          {
+            "quote": "Zet de kopjes in de kast.",
+            "function": "Gives Lina the concrete preparation action."
+          },
+          {
+            "quote": "De borden staan op de tafel.",
+            "function": "Identifies the objects and location governed by the next instruction."
+          },
+          {
+            "quote": "Laat de borden daar staan.",
+            "function": "Tells Lina to retain that arrangement while putting the cups away."
+          }
+        ]
+      },
+      "evidence": {
+        "questions": [
+          {
+            "id": "q1",
+            "verdict": "pass",
+            "key": "A",
+            "key_text": "De kopjes.",
+            "evidence": "Zet de kopjes in de kast.",
+            "entailment": "The instruction names cups and directs Lina to the cupboard.",
+            "distractors": [
+              {
+                "option": "B",
+                "text": "De borden.",
+                "rationale": "The plates must remain on the table, so they are not the objects to put away."
+              },
+              {
+                "option": "C",
+                "text": "De lepels.",
+                "rationale": "Spoons are a familiar kitchen item, but the explicit instruction names cups."
+              }
+            ],
+            "option_form_check": "The alternatives have equal word counts and the same grammatical function. The key has no extra condition, explanation, specific modifier or unique prompt-word overlap.",
+            "explanation_check": "The final explanation agrees with the cited fact and adds no competing answer."
+          },
+          {
+            "id": "q2",
+            "verdict": "pass",
+            "key": "B",
+            "key_text": "Op de tafel.",
+            "evidence": "De borden staan op de tafel.",
+            "entailment": "The message explicitly places the plates on the table.",
+            "distractors": [
+              {
+                "option": "A",
+                "text": "In de kast.",
+                "rationale": "The cupboard is the destination for the cups; it is not the stated plate location."
+              },
+              {
+                "option": "C",
+                "text": "Bij de kraan.",
+                "rationale": "The tap is a plausible kitchen location, but the source places the plates on the table."
+              }
+            ],
+            "option_form_check": "The alternatives have equal word counts and the same grammatical function. The key has no extra condition, explanation, specific modifier or unique prompt-word overlap.",
+            "explanation_check": "The final explanation agrees with the cited fact and adds no competing answer."
+          }
+        ],
+        "visible_cue_audit": "The work title and colleague situation supply no cup instruction or plate location. q2 names plates but does not name cups, the answer to q1. Neither prompt states a location that answers the other question.",
+        "diversity": "Workplace preparation for a meal; it differs from the lesson reminder and furniture-help invitation. The catalogue's canteen item concerns ordering lunch rather than preparing a kitchen.",
+        "media": "Reading source has no image or audio requirement.",
+        "record_contract": "a1-practice; taskType bericht fits this reading source; domain werk fits its stated context. Draft status and unvalidated target retained. No retired type or generated media field.",
+        "originality_and_facts": "Original fictional everyday practice. No institution, brand, address or time-sensitive KNM fact is introduced; external factual verification is not needed.",
+        "language_figures": {
+          "source_words": 28,
+          "sentences_or_fragments": 6,
+          "mean_words": 4.67,
+          "maximum_words": 8
+        },
+        "source_repair": "The upcoming kitchen meal now motivates putting cups away and leaving plates out. The old new-cup box and unrelated spoon location are removed."
+      }
+    },
+    {
+      "id": "A1:reading:batch069-lesboek:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "meets local foundation authoring target",
+        "targetLevelValidated": false,
+        "evidence": "One reminder, one material and one exercise number; short main clauses and explicit Daarna connect the activities. oefening and vragen are familiar classroom vocabulary in their stated context.",
+        "official_exam_comparison": "not applicable to this foundation pilot"
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Teacher Sara reminds a learner about tomorrow's lesson, requests the book, and gives the short sequence of reading followed by exercise four.",
+        "communicative_purpose": "The learner knows what to bring and what to expect in the lesson, with help available for the exercise questions.",
+        "contrivance_check": "The book, shared text, numbered exercise and offered help all belong to the announced lesson. The sequence is explicit through Daarna; no unrelated classroom stock or unstated reason for contact is needed.",
+        "unsupported_assumptions": [],
+        "sentence_links": [
+          {
+            "quote": "Morgen hebben we weer les.",
+            "function": "Anchors the reminder in the next lesson."
+          },
+          {
+            "quote": "Neem je boek mee.",
+            "function": "Requests the learning material needed for that lesson."
+          },
+          {
+            "quote": "We lezen samen een tekst.",
+            "function": "Introduces the joint lesson activity."
+          },
+          {
+            "quote": "Daarna maak je oefening 4.",
+            "function": "States the learner's following activity and which exercise to do."
+          },
+          {
+            "quote": "Ik help je met de vragen.",
+            "function": "Offers teacher support for the just-mentioned exercise."
+          }
+        ]
+      },
+      "evidence": {
+        "questions": [
+          {
+            "id": "q1",
+            "verdict": "pass",
+            "key": "C",
+            "key_text": "Je boek.",
+            "evidence": "Neem je boek mee.",
+            "entailment": "Sara expressly asks the learner to bring the book.",
+            "distractors": [
+              {
+                "option": "A",
+                "text": "Je schrift.",
+                "rationale": "A notebook is plausible lesson material, but the request specifies a book."
+              },
+              {
+                "option": "B",
+                "text": "Je pen.",
+                "rationale": "A pen is plausible lesson material, but it is not the item requested."
+              }
+            ],
+            "option_form_check": "The alternatives have equal word counts and the same grammatical function. The key has no extra condition, explanation, specific modifier or unique prompt-word overlap.",
+            "explanation_check": "The final explanation agrees with the cited fact and adds no competing answer."
+          },
+          {
+            "id": "q2",
+            "verdict": "pass",
+            "key": "A",
+            "key_text": "Oefening 4.",
+            "evidence": "Daarna maak je oefening 4.",
+            "entailment": "The next assigned activity is explicitly exercise four.",
+            "distractors": [
+              {
+                "option": "B",
+                "text": "Oefening 2.",
+                "rationale": "Exercise two is a familiar alternative number; the message says four."
+              },
+              {
+                "option": "C",
+                "text": "Oefening 3.",
+                "rationale": "Exercise three is a familiar alternative number; the message says four."
+              }
+            ],
+            "option_form_check": "The alternatives have equal word counts and the same grammatical function. The key has no extra condition, explanation, specific modifier or unique prompt-word overlap.",
+            "explanation_check": "The final explanation agrees with the cited fact and adds no competing answer."
+          }
+        ],
+        "visible_cue_audit": "The lesson title supplies neither book nor exercise four. The two questions ask for distinct facts; no question or option discloses the other correct answer.",
+        "diversity": "Preparing for an ordinary lesson; its book request and exercise number differ from lending a classroom tool. Existing library access and extra-lesson texts have different purposes.",
+        "media": "Reading source has no image or audio requirement.",
+        "record_contract": "a1-practice; taskType bericht fits this reading source; domain opleiding fits its stated context. Draft status and unvalidated target retained. No retired type or generated media field.",
+        "originality_and_facts": "Original fictional everyday practice. No institution, brand, address or time-sensitive KNM fact is introduced; external factual verification is not needed.",
+        "language_figures": {
+          "source_words": 29,
+          "sentences_or_fragments": 7,
+          "mean_words": 4.14,
+          "maximum_words": 6
+        },
+        "source_repair": "The lesson plan replaces room and text numbers and the unrelated notebook and pen facts; bringing the book now belongs to the explicit shared reading activity."
+      }
+    },
+    {
+      "id": "A1:reading:batch069-tafel-dragen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "meets local foundation authoring target",
+        "targetLevelValidated": false,
+        "evidence": "The table's destination and the subsequent meal are explicit. The salutation and situation resolve jij as Sem. Four personal names make this the densest reading source, but it stays at 33 words and the source remains visible while answering.",
+        "official_exam_comparison": "not applicable to this foundation pilot"
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Mila asks her brother Sem to help bring a new table indoors on Saturday, assigns Ali as his carrying partner, and explains the shared meal and ten o'clock start.",
+        "communicative_purpose": "Sem can arrive at the agreed time, know whom to carry the table with and understand the plan to eat afterwards.",
+        "contrivance_check": "Ali has an explicit practical role in carrying the table. Noor's bread contributes to the immediately preceding shared meal rather than an unrelated inventory. The final questions ask Sem's assigned work and Noor's stated contribution; these are direct facts in a short visible message, without an added recall task.",
+        "unsupported_assumptions": [],
+        "sentence_links": [
+          {
+            "quote": "Kom je zaterdag helpen?",
+            "function": "Invites Sem to provide help on a named day."
+          },
+          {
+            "quote": "Onze nieuwe tafel moet naar binnen.",
+            "function": "Explains the concrete work for which help is requested."
+          },
+          {
+            "quote": "Jij draagt de tafel met Ali.",
+            "function": "Assigns the carrying job and its second participant."
+          },
+          {
+            "quote": "Daarna eten we samen.",
+            "function": "Adds the shared activity after the work."
+          },
+          {
+            "quote": "Noor neemt brood mee.",
+            "function": "States a contribution to that meal."
+          },
+          {
+            "quote": "We beginnen om tien uur.",
+            "function": "Completes the invitation with its start time."
+          }
+        ]
+      },
+      "evidence": {
+        "questions": [
+          {
+            "id": "q1",
+            "verdict": "pass",
+            "key": "B",
+            "key_text": "De tafel dragen.",
+            "evidence": "Jij draagt de tafel met Ali.",
+            "entailment": "The named addressee Sem is jij in the sentence assigning the table to him and Ali.",
+            "distractors": [
+              {
+                "option": "A",
+                "text": "De koffie maken.",
+                "rationale": "Preparing coffee is plausible help during a family visit, but Sem is assigned the table."
+              },
+              {
+                "option": "C",
+                "text": "De stoelen dragen.",
+                "rationale": "Carrying chairs is a plausible furniture-moving task, but the instruction identifies a table."
+              }
+            ],
+            "option_form_check": "The alternatives have equal word counts and the same grammatical function. The key has no extra condition, explanation, specific modifier or unique prompt-word overlap.",
+            "explanation_check": "The final explanation agrees with the cited fact and adds no competing answer."
+          },
+          {
+            "id": "q2",
+            "verdict": "pass",
+            "key": "C",
+            "key_text": "Noor.",
+            "evidence": "Noor neemt brood mee.",
+            "entailment": "The bread contribution is assigned explicitly to Noor.",
+            "distractors": [
+              {
+                "option": "A",
+                "text": "Ali.",
+                "rationale": "Ali is named as Sem's partner for carrying the table; Noor is named for bread."
+              },
+              {
+                "option": "B",
+                "text": "Mila.",
+                "rationale": "Mila writes the message and names Noor as the person bringing bread."
+              }
+            ],
+            "option_form_check": "The alternatives have equal word counts and the same grammatical function. The key has no extra condition, explanation, specific modifier or unique prompt-word overlap.",
+            "explanation_check": "The final explanation agrees with the cited fact and adds no competing answer."
+          }
+        ],
+        "visible_cue_audit": "Saturday in the title is not a tested fact. Replaced the q1 bread distractor because q2's bread question and person options could eliminate it without reading. The final chair distractor removes that dependency; neither question now supplies the other answer.",
+        "diversity": "A family request for carrying furniture with a shared meal afterwards. The bread contribution belongs to that meal; the message differs from the catalogue's family picnic invitation.",
+        "media": "Reading source has no image or audio requirement.",
+        "record_contract": "a1-practice; taskType bericht fits this reading source; domain vrije-tijd-familie fits its stated context. Draft status and unvalidated target retained. No retired type or generated media field.",
+        "originality_and_facts": "Original fictional everyday practice. No institution, brand, address or time-sensitive KNM fact is introduced; external factual verification is not needed.",
+        "language_figures": {
+          "source_words": 33,
+          "sentences_or_fragments": 7,
+          "mean_words": 4.71,
+          "maximum_words": 6
+        },
+        "source_repair": "The text states that the new table must go inside and connects Noor's bread to eating together after the work. The unneeded coffee assignment is removed."
+      }
+    }
+  ],
+  "media_notes": "Reading items have no required audio or images.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty, learner calibration or official-exam equivalence.",
+    "Current originals remain untouched until coordinator adoption.",
+    "The table-help message has more names than the other reading sources, but its two facts remain explicit in visible text."
+  ]
+}

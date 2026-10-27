@@ -1,0 +1,1084 @@
+{
+  "review_id": "071-review",
+  "source": "content/batches/071-original.json",
+  "proposed": "content/batches/071-proposed.json",
+  "source_sha256": "a60352abbfbf6e25a136523ed12c05ca298bcb228eb7fbc44eef1e6ba736a931",
+  "author_source_sha256": "37645f534b6c9a2cdce03176b23ff9a08de7d00697e266d1784bb3782f71b62e",
+  "author_notes_sha256": "8d6279f05bcdb889280caf2dca8c012a2610cb1eeeda08386684e4cc144de5ae",
+  "review_type": "independent-ai-editorial",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-27",
+  "reviewer": "Separate fresh-context Codex reviewer agent /root/review_a1_reading_fun. This agent did not author batch 071 and did not edit the author source or notes. The current available model was used; no Opus review is claimed.",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "item_count": 9,
+  "question_count": 18,
+  "edited_item_count": 9,
+  "rejected": [],
+  "distribution": {
+    "level": {
+      "A1": 9
+    },
+    "part": {
+      "reading": 9
+    },
+    "domain": {
+      "werk": 2,
+      "opleiding": 2,
+      "winkels-diensten": 1,
+      "vervoer": 1,
+      "gezondheid": 1,
+      "vrije-tijd-familie": 2
+    },
+    "skill": {
+      "detail": 5,
+      "time-place": 8,
+      "person": 2,
+      "quantity": 3
+    },
+    "keys": {
+      "A": 6,
+      "C": 6,
+      "B": 6
+    },
+    "options": {
+      "3": 18
+    }
+  },
+  "edits": [
+    {
+      "id": "A1:reading:batch071-plant-ogen:1",
+      "field": "questions[q1].explanation",
+      "old": "Lina neemt haar beker mee. De melk en de suiker staan al op het werk.",
+      "new": "Lina neemt haar beker mee. De melk staat op de tafel. De suiker staat bij het raam.",
+      "reason": "Use only explicit source facts in the explanation."
+    },
+    {
+      "id": "A1:reading:batch071-plant-ogen:1",
+      "field": "questions[q2].options-and-answer",
+      "old": {
+        "options": {
+          "A": "Op de tafel.",
+          "B": "In de keuken.",
+          "C": "Bij het raam."
+        },
+        "answer": "B"
+      },
+      "new": {
+        "options": {
+          "A": "Op de tafel.",
+          "B": "Bij het raam.",
+          "C": "In de keuken."
+        },
+        "answer": "C"
+      },
+      "reason": "Vary answer positions while retaining two keys per letter in each six-question set."
+    },
+    {
+      "id": "A1:reading:batch071-hoed-les:1",
+      "field": "questions[q1].options-and-answer",
+      "old": {
+        "options": {
+          "A": "Voor Sara.",
+          "B": "Voor Sami.",
+          "C": "Voor Noor."
+        },
+        "answer": "C"
+      },
+      "new": {
+        "options": {
+          "A": "Voor Sara.",
+          "B": "Voor Noor.",
+          "C": "Voor Sami."
+        },
+        "answer": "B"
+      },
+      "reason": "Vary answer positions while retaining two keys per letter in each six-question set."
+    },
+    {
+      "id": "A1:reading:batch071-hoed-les:1",
+      "field": "questions[q2].options-and-answer",
+      "old": {
+        "options": {
+          "A": "Drie.",
+          "B": "Twee.",
+          "C": "Vier."
+        },
+        "answer": "A"
+      },
+      "new": {
+        "options": {
+          "A": "Twee.",
+          "B": "Drie.",
+          "C": "Vier."
+        },
+        "answer": "B"
+      },
+      "reason": "Vary answer positions while retaining two keys per letter in each six-question set."
+    },
+    {
+      "id": "A1:reading:batch071-winkel-sok:1",
+      "field": "text",
+      "old": "Beste klant,\n\nIn onze winkel hangt een heel grote sok. Uw jas is klaar. U kunt de jas vrijdag halen. Wij zijn maandag dicht. Op zaterdag sluiten we vroeg. U betaalt twaalf euro. De sok kost vijf euro. Een tas kost drie euro.\n\nTot ziens!",
+      "new": "Beste klant,\n\nIn onze winkel hangt een heel grote sok. Uw jas is klaar. U haalt de jas vrijdag op. Wij zijn maandag dicht. Op zaterdag sluiten we vroeg. De jas kost twaalf euro. De sok kost vijf euro. Een tas kost drie euro.\n\nTot ziens!",
+      "reason": "State the coat collection day directly and explicitly name the coat in its price sentence. This removes modal and referent ambiguity."
+    },
+    {
+      "id": "A1:reading:batch071-winkel-sok:1",
+      "field": "questions[q1].prompt",
+      "old": "Wanneer kunt u de jas halen?",
+      "new": "Wanneer haalt u de jas op?",
+      "reason": "Keep the question and evidence aligned with the direct coat facts."
+    },
+    {
+      "id": "A1:reading:batch071-winkel-sok:1",
+      "field": "questions[q1].evidence",
+      "old": "U kunt de jas vrijdag halen.",
+      "new": "U haalt de jas vrijdag op.",
+      "reason": "Keep the question and evidence aligned with the direct coat facts."
+    },
+    {
+      "id": "A1:reading:batch071-winkel-sok:1",
+      "field": "questions[q1].options-and-answer",
+      "old": {
+        "options": {
+          "A": "Op maandag.",
+          "B": "Op vrijdag.",
+          "C": "Op zaterdag."
+        },
+        "answer": "B"
+      },
+      "new": {
+        "options": {
+          "A": "Op vrijdag.",
+          "B": "Op zaterdag.",
+          "C": "Op maandag."
+        },
+        "answer": "A"
+      },
+      "reason": "Vary answer positions while retaining two keys per letter in each six-question set."
+    },
+    {
+      "id": "A1:reading:batch071-winkel-sok:1",
+      "field": "questions[q2].prompt",
+      "old": "Hoeveel betaalt u voor de jas?",
+      "new": "Hoeveel kost de jas?",
+      "reason": "Keep the question and evidence aligned with the direct coat facts."
+    },
+    {
+      "id": "A1:reading:batch071-winkel-sok:1",
+      "field": "questions[q2].evidence",
+      "old": "U betaalt twaalf euro.",
+      "new": "De jas kost twaalf euro.",
+      "reason": "Keep the question and evidence aligned with the direct coat facts."
+    },
+    {
+      "id": "A1:reading:batch071-winkel-sok:1",
+      "field": "questions[q2].explanation",
+      "old": "U betaalt twaalf euro voor de jas. De sok kost vijf euro. De tas kost drie euro.",
+      "new": "De jas kost twaalf euro. De sok kost vijf euro. De tas kost drie euro.",
+      "reason": "Keep the question and evidence aligned with the direct coat facts."
+    },
+    {
+      "id": "A1:reading:batch071-eend-tas:1",
+      "field": "questions[q1].options-and-answer",
+      "old": {
+        "options": {
+          "A": "Met de trein.",
+          "B": "Met de fiets.",
+          "C": "Met de bus."
+        },
+        "answer": "A"
+      },
+      "new": {
+        "options": {
+          "A": "Met de fiets.",
+          "B": "Met de trein.",
+          "C": "Met de bus."
+        },
+        "answer": "B"
+      },
+      "reason": "Vary answer positions while retaining two keys per letter in each six-question set."
+    },
+    {
+      "id": "A1:reading:batch071-eend-tas:1",
+      "field": "questions[q2].options-and-answer",
+      "old": {
+        "options": {
+          "A": "Karim.",
+          "B": "Noor.",
+          "C": "Roos."
+        },
+        "answer": "B"
+      },
+      "new": {
+        "options": {
+          "A": "Noor.",
+          "B": "Karim.",
+          "C": "Roos."
+        },
+        "answer": "A"
+      },
+      "reason": "Vary answer positions while retaining two keys per letter in each six-question set."
+    },
+    {
+      "id": "A1:reading:batch071-beer-dokter:1",
+      "field": "questions[q2].options-and-answer",
+      "old": {
+        "options": {
+          "A": "Koffie.",
+          "B": "Water.",
+          "C": "Thee."
+        },
+        "answer": "A"
+      },
+      "new": {
+        "options": {
+          "A": "Thee.",
+          "B": "Water.",
+          "C": "Koffie."
+        },
+        "answer": "C"
+      },
+      "reason": "Vary answer positions while retaining two keys per letter in each six-question set."
+    },
+    {
+      "id": "A1:reading:batch071-taart-staart:1",
+      "field": "questions[q2].options-and-answer",
+      "old": {
+        "options": {
+          "A": "Een glas.",
+          "B": "Een lepel.",
+          "C": "Een bord."
+        },
+        "answer": "C"
+      },
+      "new": {
+        "options": {
+          "A": "Een bord.",
+          "B": "Een lepel.",
+          "C": "Een glas."
+        },
+        "answer": "A"
+      },
+      "reason": "Vary answer positions while retaining two keys per letter in each six-question set."
+    },
+    {
+      "id": "A1:reading:batch071-taart-staart:1",
+      "field": "images[0].brief",
+      "old": "A cheerful cake shaped like a plump fish, with a clearly formed edible tail at one end and a tiny icing eye at the other. The cake is an isolated hero object on a small plain undecorated cake board, not a dinner plate. Use warm cake crumb, smooth coral icing and a few broad contrasting frosting shapes, with tactile materials and gentle directional light. Editorial food illustration for adults. No people, eating scene, plates, glasses, spoons, bread, birthday candles, clocks, calendars or day names. No readable text, letters, numerals, labels or logos.",
+      "new": "A cheerful cake shaped like a plump fish, with a clearly formed edible tail at one end and a tiny icing eye at the other. The cake is an isolated hero object against the paper background, with no board or other support visible. Use warm cake crumb, smooth coral icing and a few broad contrasting frosting shapes, with tactile materials and gentle directional light. Editorial food illustration for adults. No people, eating scene, plates, glasses, spoons, bread, birthday candles, clocks, calendars or day names. No readable text, letters, numerals, labels or logos.",
+      "reason": "Remove the cake board so it cannot resemble the plate answer."
+    },
+    {
+      "id": "A1:reading:batch071-kat-werkt:1",
+      "field": "questions[q1].options-and-answer",
+      "old": {
+        "options": {
+          "A": "Thuis.",
+          "B": "Op kantoor.",
+          "C": "In de winkel."
+        },
+        "answer": "A"
+      },
+      "new": {
+        "options": {
+          "A": "In de winkel.",
+          "B": "Op kantoor.",
+          "C": "Thuis."
+        },
+        "answer": "C"
+      },
+      "reason": "Vary answer positions while retaining two keys per letter in each six-question set."
+    },
+    {
+      "id": "A1:reading:batch071-koffer-les:1",
+      "field": "questions[q1].options-and-answer",
+      "old": {
+        "options": {
+          "A": "Haar boek.",
+          "B": "Haar pen.",
+          "C": "Haar jas."
+        },
+        "answer": "C"
+      },
+      "new": {
+        "options": {
+          "A": "Haar jas.",
+          "B": "Haar pen.",
+          "C": "Haar boek."
+        },
+        "answer": "A"
+      },
+      "reason": "Vary answer positions while retaining two keys per letter in each six-question set."
+    },
+    {
+      "id": "A1:reading:batch071-koffer-les:1",
+      "field": "questions[q2].prompt",
+      "old": "Waar staan de tassen?",
+      "new": "Waar is de les vandaag?",
+      "reason": "Replace a location task whose visible suitcase was a distractor with the explicit lesson setting."
+    },
+    {
+      "id": "A1:reading:batch071-koffer-les:1",
+      "field": "questions[q2].evidence",
+      "old": "De tassen staan in de auto.",
+      "new": "Vandaag is de les buiten.",
+      "reason": "Replace a location task whose visible suitcase was a distractor with the explicit lesson setting."
+    },
+    {
+      "id": "A1:reading:batch071-koffer-les:1",
+      "field": "questions[q2].explanation",
+      "old": "De tassen staan in de auto. De groep zit op het gras. De docent zit op de koffer.",
+      "new": "De les is buiten. Het boek blijft thuis. De tassen staan in de auto.",
+      "reason": "Replace a location task whose visible suitcase was a distractor with the explicit lesson setting."
+    },
+    {
+      "id": "A1:reading:batch071-koffer-les:1",
+      "field": "questions[q2].options-and-answer",
+      "old": {
+        "options": {
+          "A": "In de auto.",
+          "B": "Op het gras.",
+          "C": "Op de koffer."
+        },
+        "answer": "A"
+      },
+      "new": {
+        "options": {
+          "A": "Thuis.",
+          "B": "Buiten.",
+          "C": "In de auto."
+        },
+        "answer": "B"
+      },
+      "reason": "Remove the visible suitcase location from q2; use only outside, home and car, with the brief excluding all setting clues."
+    },
+    {
+      "id": "A1:reading:batch071-koffer-les:1",
+      "field": "images[0].brief",
+      "old": "Mevrouw Bakker (woman of about 65, short white hair, red cardigan) sits upright on a large sturdy mustard-yellow suitcase, her feet relaxed and her hands resting naturally in her lap. Her open welcoming expression makes the unusual seat feel friendly. Show the woman and suitcase as a clear isolated editorial vignette against a warm paper-coloured backdrop, with soft cloth and scuffed case materials. No visible ground surface, grass, tree, car, bags, coats, jackets, books, pens, other people or classroom. No text, letters, numbers, signage or logos.",
+      "new": "Mevrouw Bakker (woman of about 65, short white hair, red cardigan) sits upright on a large sturdy mustard-yellow suitcase, her feet relaxed and her hands resting naturally in her lap. Her open welcoming expression makes the unusual seat feel friendly. Show the woman and suitcase as a clear isolated editorial vignette against a warm paper-coloured backdrop, with soft cloth and scuffed case materials. No indoor or outdoor setting clues: no visible ground surface, grass, tree, sky, clouds, wall, floor, door, window, car, bags, coats, jackets, books, pens, other people or classroom. No text, letters, numbers, signage or logos.",
+      "reason": "Exclude all indoor and outdoor location cues from the isolated teacher-and-suitcase scene after the q2 repair."
+    },
+    {
+      "id": "A1:reading:batch071-hond-feest:1",
+      "field": "questions[q1].options-and-answer",
+      "old": {
+        "options": {
+          "A": "Naar het park.",
+          "B": "Naar het strand.",
+          "C": "Naar de tuin."
+        },
+        "answer": "B"
+      },
+      "new": {
+        "options": {
+          "A": "Naar het strand.",
+          "B": "Naar het park.",
+          "C": "Naar de tuin."
+        },
+        "answer": "A"
+      },
+      "reason": "Vary answer positions while retaining two keys per letter in each six-question set."
+    }
+  ],
+  "checks": {
+    "read_in_full": "AGENTS.md; content/blueprint.md sections 1, 3, 4.0, 5 and 7-13; docs/briefs/author.md; docs/briefs/review.md; content/reviews/rubric.md; docs/research/content-workflow.md; complete 071-original.json and 071-notes.md; config/illustration.json and config/voices.json; 069-review.json and all three current A1 catalogue records; the official A2 reading paragraph in the older research blueprint. All 71 current reading IDs/titles/domains were read for diversity. Nearest A2 records huisarts, kantine, werkkleding, praktijkles, picknick, stadsbus, bloedprikken, dienstwissel and terugbrengen were inspected in full.",
+    "final_source": "All nine final messages, situations, titles, 18 prompts, 54 options, keys, quotes, explanations, image briefs and alt texts were reread after the source repairs. All 15 applicable rubric checks pass. No rejected premise or off-target item remains.",
+    "a1_scope": "The local section 4.0 governs. The older research blueprint has no official A1 exercise specification. The first 069 pilot already had a separate fresh-context target check. This review compares each new item to the local target and the primary CEFR descriptors, without an official-item or exam-equivalence claim.",
+    "count_and_contract": "Exactly nine new A1 reading bericht records, 18 questions, three A-C options per question, unique IDs/slugs and one draft illustration each. Six A, six B and six C keys. No key repeats three times. All three proposed sets have exactly two keys per letter.",
+    "evidence_and_distractors": "Each quote is a verbatim substring of its own message and directly entails its answer. All 36 distractors were tested against the complete message and their letter-specific rationales are recorded per item. Options are parallel, with no longest-in-words or unusually specific key. No key-only prompt echo or odd polarity signal was found.",
+    "language": "All complete messages have 34-48 whitespace words; the shortest is 34 and longest 48. Sentence-unit means are below eight and no unit exceeds twelve. Simple present main clauses and direct commands dominate. Questions, options and explanations were separately checked. No inference, combined condition, arithmetic, negative question or required idiom appears.",
+    "originality": "New fictional personal and shop/appointment messages. No invented business, institution, street, brand or website needs name verification. No time-sensitive KNM, medical, legal or public-service claim is taught. Personal names are fictional context labels.",
+    "diversity": "All 71 current reading titles checked; no slug collision. Existing three A1 records read in full, alongside the nearest A2 contexts. New settings and practical purposes cover work, education, shopping, transport, health and family/free time. Repeated bring-object operations are acknowledged in lower variety ratings. No neighbourhood or volunteering scenario was added.",
+    "media": "Brief and alt review passes; no generated image exists or receives a visual pass here. Each brief was checked against both final questions, keys and distractors. All titles describe only untested visual hooks. The suitcase scene excludes all location cues; the cake board was removed. Use config a1StylePrefix when generating, then review every final render against both questions.",
+    "author_files": "The author source and notes remain untouched. Their SHA-256 values are recorded. Only 071-proposed.json and 071-review.json/md were written.",
+    "formatting": "Owned proposed and review files were formatted with Prettier. The source hash records the exact final formatted proposed bytes.",
+    "batch_check": "npm run batch:check content/batches/071-proposed.json: Checked 9 items, 18 questions. Keys: {A:6,C:6,B:6}. Options: {3:18}. No failures, no warnings.",
+    "hash": "source_sha256 is calculated from the exact formatted proposed file under the adoption contract; it must match before npm run batch:adopt 071."
+  },
+  "source_verification": [
+    {
+      "url": "https://rm.coe.int/common-european-framework-of-reference-forlanguages-learning-teaching/16809ea0d4",
+      "title": "Council of Europe: CEFR Companion volume (2020)",
+      "accessed_at": "2026-10-27",
+      "pages": "Printed pages 54-55, PDF indices 53-54",
+      "verified": "Opened the primary PDF and independently read the A1 overall reading and correspondence descriptors. They support rereading very short familiar texts and brief personal messages about practical arrangements. The local exercise target follows that direction.",
+      "limitation": "The source does not prescribe this project's word limits, multiple-choice counts or visual style and does not validate these exercises. No source exercise wording was copied."
+    }
+  ],
+  "author_doubts_decisions": [
+    "Hoed, oren, staart, koffer and stof remain as concrete visual hook words. They are untested; short nearby sentences and the requested images support them. They lower simplicity ratings where appropriate without making a key depend on an unfamiliar word. No idiom or cultural explanation is needed.",
+    "The three times in kat-werkt and three rooms in beer-dokter remain acceptable for short messages that can be reread. Each question requires one directly stated fact with no arithmetic. Both receive simplicity four, with the density explicitly recorded. This is a reading judgment, not approval for similarly dense beginner audio.",
+    "The coat price needed repair: De jas kost twaalf euro now supplies the exact object-price relation in one quote. The collection sentence now states Friday directly, removing the possible Saturday reading of kunt.",
+    "The humour is ordinary visual play: a paper-eyed plant, unusual hat, large sock, toy duck, stuffed bear, fish-shaped cake, desk cat, suitcase seat and birthday dog. Keys never ask for a punchline or cultural knowledge.",
+    "All five requested 1-5 ratings are recorded per item with concrete fixes or generation constraints. They are editorial judgments; none certifies CEFR difficulty, exam equivalence or actual image quality.",
+    "The cake-board risk was resolved in the brief by removing the board. The visible-suitcase distractor risk was resolved by replacing koffer-les q2 with the explicitly stated lesson setting, then excluding all setting cues from its illustration. Cat/home leakage remains a render-stage inspection point."
+  ],
+  "set_assembly": [
+    {
+      "id": "a1-reading-02",
+      "title": "Kleine verrassingen",
+      "items": [
+        "A1:reading:batch071-plant-ogen:1",
+        "A1:reading:batch071-hoed-les:1",
+        "A1:reading:batch071-winkel-sok:1"
+      ],
+      "question_count": 6,
+      "key_sequence": [
+        "A",
+        "C",
+        "B",
+        "B",
+        "A",
+        "C"
+      ],
+      "keys": {
+        "A": 2,
+        "B": 2,
+        "C": 2
+      }
+    },
+    {
+      "id": "a1-reading-03",
+      "title": "Even op pad",
+      "items": [
+        "A1:reading:batch071-eend-tas:1",
+        "A1:reading:batch071-beer-dokter:1",
+        "A1:reading:batch071-taart-staart:1"
+      ],
+      "question_count": 6,
+      "key_sequence": [
+        "B",
+        "A",
+        "C",
+        "C",
+        "B",
+        "A"
+      ],
+      "keys": {
+        "A": 2,
+        "B": 2,
+        "C": 2
+      }
+    },
+    {
+      "id": "a1-reading-04",
+      "title": "Een andere dag",
+      "items": [
+        "A1:reading:batch071-kat-werkt:1",
+        "A1:reading:batch071-koffer-les:1",
+        "A1:reading:batch071-hond-feest:1"
+      ],
+      "question_count": 6,
+      "key_sequence": [
+        "C",
+        "B",
+        "A",
+        "B",
+        "A",
+        "C"
+      ],
+      "keys": {
+        "A": 2,
+        "B": 2,
+        "C": 2
+      }
+    }
+  ],
+  "media_notes": [
+    "Nine illustration briefs pass editorial review only. Preserve the funny untested hook, apply config a1StylePrefix and inspect each actual render for leakage, lettering, anatomy and object clarity. No media was generated by the reviewer.",
+    "For koffer-les, the isolated teacher and case must have no ground, grass, sky, floor, wall or car; q2 now tests buiten. Retain the fixed cast phrase woman of about 65, short white hair, red cardigan.",
+    "For taart-staart, no board or support dish may appear because q2 tests a plate. For kat-werkt, no domestic or workplace decor may appear.",
+    "This is a reading batch; voice configuration was inspected for shared project context, but no voice, audio script or provider call is needed."
+  ],
+  "coordinator_actions": [
+    "Review and adopt all nine items with npm run batch:adopt 071. Keep the exact hash gate and all author-history records.",
+    "Generate the nine illustrations from the adopted source, then visually inspect every render against both final questions before setting a media review flag. Add the three new local practice sets through the normal integration process without changing existing set membership.",
+    "Keep targetLevelValidated false, A1 mock exams and level checks unavailable, and all work local unless publication is separately requested."
+  ],
+  "limitations": [
+    "Independent AI editorial review of language, task logic and the local authoring target. It does not validate CEFR difficulty, teaching outcomes, learner performance or official exam equivalence.",
+    "Visual interest and task-image-fit ratings assess approved briefs; actual rendering quality and answer safety remain pending visual media review.",
+    "The author notes describe the original wording and original key order. This review records the exact adopted proposal changes and revised per-set key sequences without editing those notes."
+  ],
+  "items": [
+    {
+      "id": "A1:reading:batch071-plant-ogen:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "A familiar 34-word coffee-break message. The commands and place statements are short present main clauses. The untested plant joke uses concrete familiar objects. Comparable with the local 069 kopjes target, with an added visual hook.",
+      "off_target": false,
+      "evidence": {
+        "q1": {
+          "answer": "A",
+          "correct_option": "Haar beker.",
+          "quote": "Neem je beker mee.",
+          "verbatim_in_source": true,
+          "entailment": "The direct command names the cup as the thing Lina must bring.",
+          "distractors": {
+            "B": {
+              "option": "De melk.",
+              "rationale": "The milk is on the table. It is not the object of Neem ... mee."
+            },
+            "C": {
+              "option": "De suiker.",
+              "rationale": "The sugar is by the window. The bringing instruction names the cup."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        },
+        "q2": {
+          "answer": "C",
+          "correct_option": "In de keuken.",
+          "quote": "De koffie staat in de keuken.",
+          "verbatim_in_source": true,
+          "entailment": "The sentence states that the coffee is in the kitchen.",
+          "distractors": {
+            "A": {
+              "option": "Op de tafel.",
+              "rationale": "The table is where the milk stands, not where the coffee stands."
+            },
+            "B": {
+              "option": "Bij het raam.",
+              "rationale": "The window is the sugar's stated location, not the coffee's."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        }
+      },
+      "metadata": "Original A1 reading bericht; exam a1-practice; fitting domain; status draft; targetLevelValidated false. Exactly two questions with three options each. No retired type, generated media or revision is present.",
+      "language": {
+        "id": "A1:reading:batch071-plant-ogen:1",
+        "complete_text_words": 34,
+        "split_units": 7,
+        "mean_words_per_unit": 4.86,
+        "longest_unit": 7
+      },
+      "diversity": "Coffee-break preparation differs from 069 kopjes storage, while keeping its concrete object/place operation.",
+      "titles_and_media": "Brief and alt show only the paper-eyed plant and bow. No requested object or coffee location appears. Render review must reject any cup, milk, sugar, table, window or kitchen.",
+      "editorial_ratings": {
+        "scale": "1-5; editorial judgment only; visual ratings assess the brief, not rendered media",
+        "simplicity": 5,
+        "clarity": 5,
+        "variety": 3,
+        "visual_interest": 4,
+        "task_image_fit": 5,
+        "rationale_and_concrete_fixes": "Familiar wording and an asymmetric paper-eyed plant. Variety is lower because the existing pilot also uses cups at work. This item changes the purpose to preparing a coffee break. Replaced an unsupported workplace assertion in q1's explanation with the two explicit object locations."
+      }
+    },
+    {
+      "id": "A1:reading:batch071-hoed-les:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "A 34-word class message. The card recipient and pencil count are explicit. Hoed and oren are concrete untested visual vocabulary. Comparable with local 069 lesboek; no sentence requires two linked conditions.",
+      "off_target": false,
+      "evidence": {
+        "q1": {
+          "answer": "B",
+          "correct_option": "Voor Noor.",
+          "quote": "We maken een kaart voor Noor.",
+          "verbatim_in_source": true,
+          "entailment": "The card is explicitly for Noor.",
+          "distractors": {
+            "A": {
+              "option": "Voor Sara.",
+              "rationale": "Sara writes the message as Sami's teacher. The sentence names Noor as the card's recipient."
+            },
+            "C": {
+              "option": "Voor Sami.",
+              "rationale": "Sami receives this message. Noor is the person for whom they make the card."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        },
+        "q2": {
+          "answer": "B",
+          "correct_option": "Drie.",
+          "quote": "Neem drie potloden mee.",
+          "verbatim_in_source": true,
+          "entailment": "The command states three pencils, with no arithmetic.",
+          "distractors": {
+            "A": {
+              "option": "Twee.",
+              "rationale": "Two counts the books Sara has, not the pencils Sami brings."
+            },
+            "C": {
+              "option": "Vier.",
+              "rationale": "Four counts Sara's pens, not Sami's pencils."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        }
+      },
+      "metadata": "Original A1 reading bericht; exam a1-practice; fitting domain; status draft; targetLevelValidated false. Exactly two questions with three options each. No retired type, generated media or revision is present.",
+      "language": {
+        "id": "A1:reading:batch071-hoed-les:1",
+        "complete_text_words": 34,
+        "split_units": 8,
+        "mean_words_per_unit": 4.25,
+        "longest_unit": 7
+      },
+      "diversity": "Making a card for a named person differs from 069 lesboek exercise work. The recipient question adds a different operation.",
+      "titles_and_media": "Hat with ears is untested. No people, names, card, pencils, pens or books appear. Its anatomical ears do not depict the tested pencil count; reject any supplies or decorative object groups that resemble the options.",
+      "editorial_ratings": {
+        "scale": "1-5; editorial judgment only; visual ratings assess the brief, not rendered media",
+        "simplicity": 4,
+        "clarity": 5,
+        "variety": 4,
+        "visual_interest": 4,
+        "task_image_fit": 5,
+        "rationale_and_concrete_fixes": "Hoed and oren add concrete visual vocabulary; keep them untested. The bent ears and hanging hook give the isolated hat a purposeful silhouette. No language repair is needed."
+      }
+    },
+    {
+      "id": "A1:reading:batch071-winkel-sok:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "A 46-word generic shop message with an explicit collection day and explicit coat price after repair. Three days and prices remain separately labelled for rereading. Slightly denser than local 069 examples but within the local A1 target.",
+      "off_target": false,
+      "evidence": {
+        "q1": {
+          "answer": "A",
+          "correct_option": "Op vrijdag.",
+          "quote": "U haalt de jas vrijdag op.",
+          "verbatim_in_source": true,
+          "entailment": "The repaired sentence states the coat collection day as Friday, rather than merely saying Friday is possible.",
+          "distractors": {
+            "B": {
+              "option": "Op zaterdag.",
+              "rationale": "Saturday is the day the shop closes early. It is not the collection day stated in the repaired sentence."
+            },
+            "C": {
+              "option": "Op maandag.",
+              "rationale": "Monday is explicitly the day the shop is closed. The collection sentence states Friday."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        },
+        "q2": {
+          "answer": "C",
+          "correct_option": "Twaalf euro.",
+          "quote": "De jas kost twaalf euro.",
+          "verbatim_in_source": true,
+          "entailment": "The repaired sentence explicitly attaches twelve euros to the coat.",
+          "distractors": {
+            "A": {
+              "option": "Vijf euro.",
+              "rationale": "Five euros is the sock's price."
+            },
+            "B": {
+              "option": "Drie euro.",
+              "rationale": "Three euros is a bag's price."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        }
+      },
+      "metadata": "Original A1 reading bericht; exam a1-practice; fitting domain; status draft; targetLevelValidated false. Exactly two questions with three options each. No retired type, generated media or revision is present.",
+      "language": {
+        "id": "A1:reading:batch071-winkel-sok:1",
+        "complete_text_words": 46,
+        "split_units": 9,
+        "mean_words_per_unit": 5.11,
+        "longest_unit": 10
+      },
+      "diversity": "Collecting one finished coat differs from catalogue returns rules and work-clothing allocation.",
+      "titles_and_media": "Only the unusual display sock and generic shop recess are allowed. No coat, bag, price, day, clock or calendar can cue either answer.",
+      "editorial_ratings": {
+        "scale": "1-5; editorial judgment only; visual ratings assess the brief, not rendered media",
+        "simplicity": 4,
+        "clarity": 5,
+        "variety": 5,
+        "visual_interest": 4,
+        "task_image_fit": 5,
+        "rationale_and_concrete_fixes": "Several days and prices make the message denser than the first pilot. Explicitly named the coat's price and stated its collection day. The large knitted sock remains the visual hook."
+      }
+    },
+    {
+      "id": "A1:reading:batch071-eend-tas:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "A 34-word personal arrival message. Each person-transport relation is in one short sentence. Plastic is concrete context vocabulary and the duck is not tested. The addressee is clearly distinguished from the message writer.",
+      "off_target": false,
+      "evidence": {
+        "q1": {
+          "answer": "B",
+          "correct_option": "Met de trein.",
+          "quote": "Ik kom met de trein.",
+          "verbatim_in_source": true,
+          "entailment": "Roos signs the message. Its first-person arrival sentence explicitly names the train.",
+          "distractors": {
+            "A": {
+              "option": "Met de fiets.",
+              "rationale": "Roos says her bicycle is at home, while her arrival sentence states the train."
+            },
+            "C": {
+              "option": "Met de bus.",
+              "rationale": "The bus is Noor's explicitly stated transport, not Roos's."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        },
+        "q2": {
+          "answer": "A",
+          "correct_option": "Noor.",
+          "quote": "Noor komt met de bus.",
+          "verbatim_in_source": true,
+          "entailment": "The sentence explicitly identifies Noor as the person arriving by bus.",
+          "distractors": {
+            "B": {
+              "option": "Karim.",
+              "rationale": "Karim is the addressee; the only bus-arrival sentence names Noor. No bus journey is assigned to Karim."
+            },
+            "C": {
+              "option": "Roos.",
+              "rationale": "Roos says she comes by train. The bus sentence names Noor."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        }
+      },
+      "metadata": "Original A1 reading bericht; exam a1-practice; fitting domain; status draft; targetLevelValidated false. Exactly two questions with three options each. No retired type, generated media or revision is present.",
+      "language": {
+        "id": "A1:reading:batch071-eend-tas:1",
+        "complete_text_words": 34,
+        "split_units": 7,
+        "mean_words_per_unit": 4.86,
+        "longest_unit": 7
+      },
+      "diversity": "A personal arrival and gift message differs from the catalogue's transport timetables, fare rules and parking permits.",
+      "titles_and_media": "The duck and tote are untested. No traveller or transport type is visible. Alt gives only the duck and bag.",
+      "editorial_ratings": {
+        "scale": "1-5; editorial judgment only; visual ratings assess the brief, not rendered media",
+        "simplicity": 5,
+        "clarity": 5,
+        "variety": 5,
+        "visual_interest": 4,
+        "task_image_fit": 5,
+        "rationale_and_concrete_fixes": "The transport relations are short and distinct. Use the duck's tilted head and bag folds from the brief to carry the playful scene without transport clues. No further source repair is needed."
+      }
+    },
+    {
+      "id": "A1:reading:batch071-beer-dokter:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "A 48-word visit message. The patient's waiting room and doctor's drink each have one explicit sentence. The three rooms and drinks require category matching on a reread, with no calculation or medical knowledge. Denser than 069, still compatible with the local target.",
+      "off_target": false,
+      "evidence": {
+        "q1": {
+          "answer": "C",
+          "correct_option": "In kamer twee.",
+          "quote": "U wacht in kamer twee.",
+          "verbatim_in_source": true,
+          "entailment": "The patient is directly told to wait in room two.",
+          "distractors": {
+            "A": {
+              "option": "In kamer één.",
+              "rationale": "The doctor is in room one; that is not the patient's instructed waiting room."
+            },
+            "B": {
+              "option": "In kamer drie.",
+              "rationale": "Room three contains a bed. The waiting instruction names room two."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        },
+        "q2": {
+          "answer": "C",
+          "correct_option": "Koffie.",
+          "quote": "De dokter drinkt koffie.",
+          "verbatim_in_source": true,
+          "entailment": "The doctor's drink is directly stated as coffee.",
+          "distractors": {
+            "A": {
+              "option": "Thee.",
+              "rationale": "The toy bear has the tea. The doctor drinks coffee."
+            },
+            "B": {
+              "option": "Water.",
+              "rationale": "Water is offered to the patient."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        }
+      },
+      "metadata": "Original A1 reading bericht; exam a1-practice; fitting domain; status draft; targetLevelValidated false. Exactly two questions with three options each. No retired type, generated media or revision is present.",
+      "language": {
+        "id": "A1:reading:batch071-beer-dokter:1",
+        "complete_text_words": 48,
+        "split_units": 9,
+        "mean_words_per_unit": 5.33,
+        "longest_unit": 8
+      },
+      "diversity": "An immediate waiting-room instruction differs from the changed huisarts appointment and bloedprikken schedule.",
+      "titles_and_media": "Bear and bench do not identify a room number or drink. No cups, bottles, doors, bed, doctor or patient are permitted.",
+      "editorial_ratings": {
+        "scale": "1-5; editorial judgment only; visual ratings assess the brief, not rendered media",
+        "simplicity": 4,
+        "clarity": 5,
+        "variety": 5,
+        "visual_interest": 4,
+        "task_image_fit": 5,
+        "rationale_and_concrete_fixes": "The room and drink groups add scanning load but remain explicitly labelled. Keep the visual to one soft bear and bench, with no cup or room features. No language repair is required for a rereadable short message."
+      }
+    },
+    {
+      "id": "A1:reading:batch071-taart-staart:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "A 38-word invitation with short present main clauses and one direct command. The tail is an untested concrete visual joke. The day and requested object follow directly from their quoted sentences.",
+      "off_target": false,
+      "evidence": {
+        "q1": {
+          "answer": "B",
+          "correct_option": "Op zaterdag.",
+          "quote": "We eten zaterdag bij mij.",
+          "verbatim_in_source": true,
+          "entailment": "The invitation explicitly places their meal on Saturday. The situation, salutation and Ivo's sign-off anchor the two people.",
+          "distractors": {
+            "A": {
+              "option": "Op vrijdag.",
+              "rationale": "Friday is Ivo's bread-shopping day."
+            },
+            "C": {
+              "option": "Op zondag.",
+              "rationale": "Sunday is when Ivo is with his sister, not the day stated for this meal."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        },
+        "q2": {
+          "answer": "A",
+          "correct_option": "Een bord.",
+          "quote": "Neem een bord mee.",
+          "verbatim_in_source": true,
+          "entailment": "The direct command asks Mila to bring a plate.",
+          "distractors": {
+            "B": {
+              "option": "Een lepel.",
+              "rationale": "Ivo says he has spoons. They are not the requested object."
+            },
+            "C": {
+              "option": "Een glas.",
+              "rationale": "Ivo says he already has glasses; his bringing instruction names a plate."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        }
+      },
+      "metadata": "Original A1 reading bericht; exam a1-practice; fitting domain; status draft; targetLevelValidated false. Exactly two questions with three options each. No retired type, generated media or revision is present.",
+      "language": {
+        "id": "A1:reading:batch071-taart-staart:1",
+        "complete_text_words": 38,
+        "split_units": 9,
+        "mean_words_per_unit": 4.22,
+        "longest_unit": 7
+      },
+      "diversity": "An invitation to eat at a friend's home differs from the weather-dependent family picknick and furniture-carrying message.",
+      "titles_and_media": "Removed the cake board entirely because it could resemble q2's plate. The isolated fish cake supplies neither day nor requested utensil. Reject any visible support dish, glass or spoon.",
+      "editorial_ratings": {
+        "scale": "1-5; editorial judgment only; visual ratings assess the brief, not rendered media",
+        "simplicity": 4,
+        "clarity": 5,
+        "variety": 4,
+        "visual_interest": 5,
+        "task_image_fit": 5,
+        "rationale_and_concrete_fixes": "The fish cake gives a clear unusual silhouette. Removed its board to prevent a plate cue. Staart remains untested; the text's day and command stay simple."
+      }
+    },
+    {
+      "id": "A1:reading:batch071-kat-werkt:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "A 41-word colleague message. Three places and times are explicitly paired with their person or action; the call question asks only for the imperative's time. Rereading keeps this different from listening memory demands. The cat's work is an untested visual joke.",
+      "off_target": false,
+      "evidence": {
+        "q1": {
+          "answer": "C",
+          "correct_option": "Thuis.",
+          "quote": "Ik werk thuis.",
+          "verbatim_in_source": true,
+          "entailment": "Nora is identified as the writer in the situation and sign-off. Ik werk thuis states her workplace.",
+          "distractors": {
+            "A": {
+              "option": "In de winkel.",
+              "rationale": "Sara, not Nora, is explicitly assigned the shop."
+            },
+            "B": {
+              "option": "Op kantoor.",
+              "rationale": "Jij assigns the office to Amir, the named addressee."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        },
+        "q2": {
+          "answer": "B",
+          "correct_option": "Om vier uur.",
+          "quote": "Bel me om vier uur.",
+          "verbatim_in_source": true,
+          "entailment": "The call instruction gives four o'clock directly.",
+          "distractors": {
+            "A": {
+              "option": "Om twaalf uur.",
+              "rationale": "Twelve is Nora's meal time, not the time in the call instruction."
+            },
+            "C": {
+              "option": "Om vijf uur.",
+              "rationale": "Five is Nora's finishing time, not the requested call time."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        }
+      },
+      "metadata": "Original A1 reading bericht; exam a1-practice; fitting domain; status draft; targetLevelValidated false. Exactly two questions with three options each. No retired type, generated media or revision is present.",
+      "language": {
+        "id": "A1:reading:batch071-kat-werkt:1",
+        "complete_text_words": 41,
+        "split_units": 9,
+        "mean_words_per_unit": 4.56,
+        "longest_unit": 7
+      },
+      "diversity": "A colleague call during a workday differs from shift rules and work-clothing instructions. Both questions are time-place, which is suitable locally but less varied within this item.",
+      "titles_and_media": "Crop to the cat and bare desk edge. A desk alone is consistent with home, office and shop and does not identify Nora's workplace. Reject room decor, shop goods, phones and clocks. Alt names no place or time.",
+      "editorial_ratings": {
+        "scale": "1-5; editorial judgment only; visual ratings assess the brief, not rendered media",
+        "simplicity": 4,
+        "clarity": 5,
+        "variety": 4,
+        "visual_interest": 4,
+        "task_image_fit": 5,
+        "rationale_and_concrete_fixes": "Three workplaces and times make this denser than the simplest message, with repeated place questions. Keep the bare desk crop and expressive cat paw. Do not add equipment or domestic decor. The facts remain short enough for rereading."
+      }
+    },
+    {
+      "id": "A1:reading:batch071-koffer-les:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "A 42-word teacher message. A simple command supplies the coat and the opening sentence supplies the outside location. Koffer is untested, picture-supported vocabulary. The repaired q2 no longer uses the visible suitcase as an option.",
+      "off_target": false,
+      "evidence": {
+        "q1": {
+          "answer": "A",
+          "correct_option": "Haar jas.",
+          "quote": "Neem je jas mee.",
+          "verbatim_in_source": true,
+          "entailment": "The direct command names Noor's coat as the thing to bring.",
+          "distractors": {
+            "B": {
+              "option": "Haar pen.",
+              "rationale": "Noor gets a pen from the teacher, so it is not the object the teacher asks her to bring."
+            },
+            "C": {
+              "option": "Haar boek.",
+              "rationale": "The book stays at home."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        },
+        "q2": {
+          "answer": "B",
+          "correct_option": "Buiten.",
+          "quote": "Vandaag is de les buiten.",
+          "verbatim_in_source": true,
+          "entailment": "The opening sentence explicitly says that today's lesson is outside.",
+          "distractors": {
+            "A": {
+              "option": "Thuis.",
+              "rationale": "Home is where Noor's book stays. The lesson is explicitly outside."
+            },
+            "C": {
+              "option": "In de auto.",
+              "rationale": "The car holds the bags. It is not the stated lesson location."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        }
+      },
+      "metadata": "Original A1 reading bericht; exam a1-practice; fitting domain; status draft; targetLevelValidated false. Exactly two questions with three options each. No retired type, generated media or revision is present.",
+      "language": {
+        "id": "A1:reading:batch071-koffer-les:1",
+        "complete_text_words": 42,
+        "split_units": 9,
+        "mean_words_per_unit": 4.67,
+        "longest_unit": 7
+      },
+      "diversity": "Outdoor lesson preparation shares the bring-material operation with 069 lesboek, so its within-catalogue variety rating is lower. The second question now tests the lesson setting; the object and practical purpose differ.",
+      "titles_and_media": "Retain mevrouw Bakker's exact cast traits and the funny suitcase seat. The replacement q2 asks the lesson setting. Brief now explicitly excludes both indoor and outdoor clues, including ground, sky, trees, walls, floor and car. The isolated person and case give no tested place; alt names no lesson location. Render review must enforce this.",
+      "editorial_ratings": {
+        "scale": "1-5; editorial judgment only; visual ratings assess the brief, not rendered media",
+        "simplicity": 4,
+        "clarity": 5,
+        "variety": 3,
+        "visual_interest": 4,
+        "task_image_fit": 5,
+        "rationale_and_concrete_fixes": "The familiar bringing operation overlaps the earlier lesson message, so variety is three. The outdoor lesson and teacher's suitcase offer another practical purpose. Replaced the picture-linked bag-location question and strengthened scene exclusions. The suitcase seat remains visually interesting."
+      }
+    },
+    {
+      "id": "A1:reading:batch071-hond-feest:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "A 45-word outing message. The beach and bottle count are explicit. The dog's birthday is the visual surprise; its meaning is unnecessary for either key. No price, arithmetic, condition or cultural joke is tested.",
+      "off_target": false,
+      "evidence": {
+        "q1": {
+          "answer": "A",
+          "correct_option": "Naar het strand.",
+          "quote": "We gaan naar het strand.",
+          "verbatim_in_source": true,
+          "entailment": "Ben writes We gaan naar het strand. The question names Ben and does not assume Dina accepts the invitation.",
+          "distractors": {
+            "B": {
+              "option": "Naar het park.",
+              "rationale": "The park is closed. The departure sentence names the beach."
+            },
+            "C": {
+              "option": "Naar de tuin.",
+              "rationale": "The garden contains the dog's ball. It is not the stated destination."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        },
+        "q2": {
+          "answer": "C",
+          "correct_option": "Twee.",
+          "quote": "We nemen twee flessen water mee.",
+          "verbatim_in_source": true,
+          "entailment": "The sentence explicitly says they take two bottles of water.",
+          "distractors": {
+            "A": {
+              "option": "Drie.",
+              "rationale": "Three counts apples, not bottles of water."
+            },
+            "B": {
+              "option": "Vier.",
+              "rationale": "Four counts rolls, not bottles of water."
+            }
+          },
+          "explanation_check": "The final explanation names the keyed fact and the two explicit competing details. No outside fact, calculation or inferred rule is required."
+        }
+      },
+      "metadata": "Original A1 reading bericht; exam a1-practice; fitting domain; status draft; targetLevelValidated false. Exactly two questions with three options each. No retired type, generated media or revision is present.",
+      "language": {
+        "id": "A1:reading:batch071-hond-feest:1",
+        "complete_text_words": 45,
+        "split_units": 9,
+        "mean_words_per_unit": 5,
+        "longest_unit": 8
+      },
+      "diversity": "A dog's birthday outing differs from veterinary medicine and the school zoo trip; destination plus count differs from the home-meal item.",
+      "titles_and_media": "Dog portrait and party hat are untested. No beach, garden, park, bottles, food or decorative count groups appear. Alt gives neither destination nor count.",
+      "editorial_ratings": {
+        "scale": "1-5; editorial judgment only; visual ratings assess the brief, not rendered media",
+        "simplicity": 4,
+        "clarity": 5,
+        "variety": 4,
+        "visual_interest": 4,
+        "task_image_fit": 5,
+        "rationale_and_concrete_fixes": "The quantity choices reuse the nearby food counts without calculation. A tilted party hat gives the portrait expression. Retain the crop and exclude setting clues and decorations that resemble counted supplies."
+      }
+    }
+  ]
+}

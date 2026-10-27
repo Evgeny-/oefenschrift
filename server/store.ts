@@ -5,6 +5,7 @@ import { dirname, resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import type { Exercise, PracticeSet } from '../app/types';
 import { exerciseMetadataErrors } from '../app/domain/exercise-schema';
+import { initializeReactions, pruneReactions } from './reactions';
 export class StoreError extends Error {
   constructor(
     message: string,
@@ -28,7 +29,7 @@ export function validateExercise(item) {
     Array.isArray(item) ||
     !/^[-\w:]{1,120}$/.test(item.id || '') ||
     !parts.includes(item.part) ||
-    !['A2', 'B1', 'B2', 'KNM'].includes(item.level) ||
+    !['A1', 'A2', 'B1', 'B2', 'KNM'].includes(item.level) ||
     typeof item.title !== 'string' ||
     !item.title.trim() ||
     item.title.length > 240
@@ -103,6 +104,7 @@ export class ContentStore {
       CREATE TABLE IF NOT EXISTS events(id INTEGER PRIMARY KEY,created_at INTEGER NOT NULL,day TEXT NOT NULL,visitor TEXT NOT NULL,kind TEXT NOT NULL,item_id TEXT,question_id TEXT,selected TEXT,correct INTEGER,lang TEXT,level TEXT,mode TEXT);
       CREATE INDEX IF NOT EXISTS events_day ON events(day,kind);
       CREATE INDEX IF NOT EXISTS events_item ON events(item_id,question_id);`);
+    initializeReactions(this.db);
     if (
       !this.db
         .prepare('PRAGMA table_info(reports)')
@@ -168,8 +170,9 @@ export class ContentStore {
         .run(new Date(now - EVENT_RETENTION_DAYS * 86400000).toISOString().slice(0, 10)).changes,
       reports = this.db
         .prepare("DELETE FROM reports WHERE status='resolved' AND created_at<?")
-        .run(Math.floor(now / 1000) - REPORT_RETENTION_DAYS * 86400).changes;
-    return Number(events) + Number(reports);
+        .run(Math.floor(now / 1000) - REPORT_RETENTION_DAYS * 86400).changes,
+      reactions = pruneReactions(this.db, now);
+    return Number(events) + Number(reports) + reactions;
   }
   history(row, operation) {
     this.db
@@ -385,7 +388,7 @@ export class ContentStore {
     for (const event of events) {
       if (!event || typeof event !== 'object') continue;
       const lang = ['nl', 'en'].includes(event.lang) ? event.lang : null,
-        level = ['A2', 'B1', 'B2'].includes(event.level) ? event.level : null;
+        level = ['A1', 'A2', 'B1', 'B2'].includes(event.level) ? event.level : null;
       if (event.kind === 'visit') {
         rows.push(['visit', null, null, null, null, lang, level, null]);
         continue;

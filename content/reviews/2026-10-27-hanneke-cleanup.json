@@ -1,0 +1,1373 @@
+{
+  "review_id": "2026-10-27-hanneke-cleanup",
+  "reviewed_at": "2026-10-27T18:39:57.553Z",
+  "review_type": "independent-audio-technical-and-script-transcript",
+  "reviewer": "Codex AI reviewer /root/voice_generation_targeting, separate from the final media generator /root. This reviewer inspected final staged bytes, scripts, source reviews, generation manifests, supplementary transcripts and cleanup implementation. No audio was heard.",
+  "scope": "The exact 16 final cleaned Hanneke clips in staged-final, from seven adopted reviewed source batches. The earlier processing-order attempt is outside this approval.",
+  "audio_technical_verdict": "pass",
+  "audio_technical_pass_count": 16,
+  "specialist_listening_verdict": "pending",
+  "overall_status": "audio-technical-pass; auditory-review-pending",
+  "ready_for_media_application": true,
+  "approval_scope": "Local testing of only the exact file SHA-256 values recorded here.",
+  "sources": [
+    {
+      "path": "content/batches/063-original.json",
+      "sha256": "4fa88d95360650df5c37a48b4aa0512f5fa6bb755d495e015a78ceae3a861d51",
+      "review": "content/reviews/063-review.json",
+      "review_sha256": "c2489ed49cdd58822a0b99dc824c44ee9184d43accae0ac3a87f114ee567c7bb"
+    },
+    {
+      "path": "content/batches/056-original.json",
+      "sha256": "4594603fe1bf395753031e2d3c8504605afab0897af72b8d0f23779bb4f8de14",
+      "review": "content/reviews/056-review.json",
+      "review_sha256": "82e906fd60b6a345d32aa95e105f25b27dbd0327616171909cf2eb513672fb9a"
+    },
+    {
+      "path": "content/batches/059-original.json",
+      "sha256": "f0b28b476b9c4cebd26f77a9dff63ff8b720a2df26719e1514266632a15d5d9f",
+      "review": "content/reviews/059-review.json",
+      "review_sha256": "acbc527049f159af706edbe9b0892b10b4dd0f9ef8a1a8aafe05c1563a38b92f"
+    },
+    {
+      "path": "content/batches/057-original.json",
+      "sha256": "47fa99c3951839e9f55cc1f1ab1ab6d822cc9e76c91e986d53d2f244b9d54ea1",
+      "review": "content/reviews/057-review.json",
+      "review_sha256": "1fd2ffb1c14ce3e87f4a3c16a88737ecace5af05ec445f5e9be76eb578856469"
+    },
+    {
+      "path": "content/batches/066-original.json",
+      "sha256": "a6f37902d9720bea4e45ff578bf9962569b0b0e48475214a005688813c02539d",
+      "review": "content/reviews/066-review.json",
+      "review_sha256": "93a9c1fb96006a4843566d4fd811212ab5fb70b1490bc002b5609a72eba9328a"
+    },
+    {
+      "path": "content/batches/022-original.json",
+      "sha256": "a803db3fe6dc74e7a62c1c59dd4b39924cd0c73526a18cb1b8c9e1e3391ecf71",
+      "review": "content/reviews/022-review.json",
+      "review_sha256": "106a0fec92deb1e5c8648f707501e0ffa9191c9fb8660b30c1101166ddf5bf64"
+    },
+    {
+      "path": "content/batches/030-original.json",
+      "sha256": "5202a8f4e55293f20dfec1b030977e2da11ce82a9b7a3fdb783e4a48d888e764",
+      "review": "content/reviews/030-review.json",
+      "review_sha256": "55ab49b9991e69ec279c6006eeedb3138530c3a4412c4651c9b58ce5971593fc"
+    }
+  ],
+  "checks": {
+    "full_final_audio_decoded": true,
+    "mono_mp3_44100_hz_192000_bps": true,
+    "source_review_and_script_hashes_verified": true,
+    "source_role_labels_and_effective_voice_ids_verified": true,
+    "distinct_conversation_voices_verified": true,
+    "actual_role_settings_verified": true,
+    "cache_tokens_recomputed": true,
+    "declared_source_format_verified": "mp3_44100_192 at 44100 Hz",
+    "decoded_manifest_durations_within_seconds": 0.001,
+    "container_duration_tolerance_seconds": 0.1,
+    "fragment_waveforms_recomputed": true,
+    "all_final_sample_peaks_below_dbfs": -1.6900916358262892,
+    "supplementary_transcript_bytes_verified": true,
+    "all_individual_word_differences_inspected": true,
+    "unsupported_added_words_found": false,
+    "provider_requests_by_reviewer": 0,
+    "production_media_or_catalogue_mutations_by_reviewer": 0
+  },
+  "config_sha256": "65cd1abc83f54adc8591c9624978bfa5dcee1f3ac527e3ae987c7dc449377ef2",
+  "code_hashes": {
+    "scripts/audio.ts": "32afd4bb245a20f3474c6f749cfeac3de2ded285c161dc945610e6f841918c50",
+    "scripts/audio-profile.ts": "e3af49ca7ab41207bdc7da968662c12afbb80eae4efc098c163ff96625aee25c",
+    "scripts/audio-processing.ts": "0926493004a2a09fff1c1136a3fe9ec43f7792f5679c504122684faf02b26afd",
+    "scripts/audio-casting.ts": "6bc70d99a27b9e20177654b02a3bb95eb9db95ae15c2c80254d90bc89a6841ea"
+  },
+  "code_validation": {
+    "command": "node --import tsx --test tests/audio-processing.test.ts tests/audio-profile.test.ts tests/audio-casting.test.ts",
+    "passing_tests": 12
+  },
+  "native_voice_metadata": {
+    "source": "var/voice-samples/2026-10-27-all/manifest.json",
+    "sha256": "3fdb9f556073c4dc2bf350f0d218aa76ec8725d7921aecf9ef81834c817b5f06",
+    "voices": [
+      {
+        "id": "hanneke",
+        "voiceId": "tfweP7lGJyLeNV9dH1Rm",
+        "projectName": "Hanneke",
+        "providerName": "Marianne - Senior Dutch voice",
+        "language": "nl",
+        "locale": "nl-NL",
+        "accent": "standard",
+        "category": "high_quality",
+        "verifiedAt": "2026-09-17"
+      },
+      {
+        "id": "lieke",
+        "voiceId": "kZQ3IGqYUStQ8u1Y62s6",
+        "projectName": "Lieke",
+        "providerName": "Lieke - Bright and upbeat",
+        "language": "nl",
+        "locale": "nl-NL",
+        "accent": "standard",
+        "category": "high_quality",
+        "verifiedAt": "2026-10-27"
+      },
+      {
+        "id": "peter",
+        "voiceId": "60CwgZt94Yf7yYIXMDDe",
+        "projectName": "Peter",
+        "providerName": "Peter - Natural, Professional Narrator",
+        "language": "nl",
+        "locale": "nl-NL",
+        "accent": "standard",
+        "category": "professional",
+        "verifiedAt": "2026-09-17"
+      },
+      {
+        "id": "robert",
+        "voiceId": "cblS8WYNsiBLGnlV6jjx",
+        "projectName": "Robert",
+        "providerName": "Robert - Deep, Warm and Natural",
+        "language": "nl",
+        "locale": "nl-NL",
+        "accent": "standard",
+        "category": "professional",
+        "verifiedAt": "2026-09-17"
+      },
+      {
+        "id": "daan",
+        "voiceId": "SFlhmoT9q6x81D3fl3dp",
+        "projectName": "Daan",
+        "providerName": "Daan - Energetic and natural",
+        "language": "nl",
+        "locale": "nl-NL",
+        "accent": "standard",
+        "category": "high_quality",
+        "verifiedAt": "2026-10-27"
+      }
+    ]
+  },
+  "generation_manifests": [
+    {
+      "path": "var/hanneke-replacement-2026-10-27/staged-final/063-original/audio-manifest.json",
+      "sha256": "bf31b9492a24f3989d89e72038f4d5b377834c315e7bc01b0efa4cb6de5e0be5"
+    },
+    {
+      "path": "var/hanneke-replacement-2026-10-27/staged-final/056-original/audio-manifest.json",
+      "sha256": "3364170afb780433e07e3d549f8d8361fbe14b4441c1ec0a36a3198b8defe021"
+    },
+    {
+      "path": "var/hanneke-replacement-2026-10-27/staged-final/059-original/audio-manifest.json",
+      "sha256": "8ce6c6364297c79ad3fa1028fc8282a06f877111d4d17714081343e02cb2e5ce"
+    },
+    {
+      "path": "var/hanneke-replacement-2026-10-27/staged-final/057-original/audio-manifest.json",
+      "sha256": "ee9fb19545233a19c03e8266db83f4b68d7b86a07a7afd28b6e9c015133124a3"
+    },
+    {
+      "path": "var/hanneke-replacement-2026-10-27/staged-final/066-original/audio-manifest.json",
+      "sha256": "6e06b0ec97d296dea92822d0d4ad8cfad1b468885e2d7b44d0b9452002365aca"
+    },
+    {
+      "path": "var/hanneke-replacement-2026-10-27/staged-final/022-original/audio-manifest.json",
+      "sha256": "945773fbe414dd544885784318266ab9d7de18bd2866a64056daf45f52995cdc"
+    },
+    {
+      "path": "var/hanneke-replacement-2026-10-27/staged-final/030-original/audio-manifest.json",
+      "sha256": "38ab8540c236a80e886cd401f39b28d26e2107a8ba8c5a12e6bcb7fc7d7e4d2f"
+    }
+  ],
+  "supplementary_transcript_audit": {
+    "path": "var/hanneke-replacement-2026-10-27/transcript-audit.json",
+    "sha256": "6951b9021f4e900f186f7ae630d3b4b0b1eff79b0038e5df88fc34b7e52cdf3b"
+  },
+  "cleanup_review": {
+    "role": "f-older",
+    "voice_id": "tfweP7lGJyLeNV9dH1Rm",
+    "preset": "spectral-v1",
+    "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+    "stage": "after-level-match",
+    "verified_implementation_order": [
+      "decode provider source to WAV",
+      "initial per-turn constant gain with -18 LUFS target and -1.5 dBTP ceiling",
+      "approved highpass and spectral noise reduction",
+      "repeat per-turn constant-gain level/peak matching",
+      "stitch losslessly when applicable",
+      "encode final 44100 Hz 192 kbps MP3"
+    ],
+    "cache_isolation": "Only clips containing the processed effective role append processing metadata. The filter and after-level-match stage enter the cache. Unprocessed legacy inputs retain their previous fields.",
+    "dialogue_policy": "Per-role cleanup is rejected before provider access for dialogue synthesis.",
+    "unchanged_other_speaker_turns": {
+      "count": 23,
+      "byte_hashes_verified": true,
+      "record": "var/hanneke-replacement-2026-10-27/turn-reuse.json",
+      "sha256": "0685c968e916e34c567fe310b0af6b47ef573c2dc2747e72c2a68360fc7f1b1c"
+    }
+  },
+  "auditory_review_pending": [
+    "pronunciation and name vowel quality",
+    "intelligibility and articulation",
+    "voice balance and useful pauses",
+    "residual noise, processing artifacts and timbre",
+    "answer-revealing emphasis"
+  ],
+  "limitations": "Transcription checks and signal measurements do not establish perceived voice quality. The reviewer had no auditory access. This audio review does not review illustrations or certify difficulty, official exam format or exam equivalence.",
+  "clips": [
+    {
+      "key": "A2:speaking:buurvrouw:1#cue",
+      "item_id": "A2:speaking:buurvrouw:1",
+      "kind": "cue",
+      "file": "audio/4ca68bef674e7e7a.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/063-original/4ca68bef674e7e7a.mp3",
+      "file_sha256": "8e1ff001390598b36b236ce18bbefb97cab4b08a357334f7e028337386bd159f",
+      "source": "content/batches/063-original.json",
+      "source_sha256": "4fa88d95360650df5c37a48b4aa0512f5fa6bb755d495e015a78ceae3a861d51",
+      "script_sha256": "bab861c1185986b13b3abaf3db53707f88f86ede084a84a8e311b8e0e1970164",
+      "text": "Waarom kun je morgen niet komen, en op welke andere dag kun je wel?",
+      "roles": {
+        "f-older": "tfweP7lGJyLeNV9dH1Rm"
+      },
+      "settings": {
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        }
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 4.411791,
+      "decoded_duration": 4.4117913832199545,
+      "bytes": 107249,
+      "decoded_sample_peak_dbfs": -1.9486105846155364,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Waarom kun je morgen niet komen? En op welke andere dag kun je wel?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A2:listening:batch005-tabletten:1#fragment",
+      "item_id": "A2:listening:batch005-tabletten:1",
+      "kind": "fragment",
+      "file": "audio/b8a698a3c02202eb.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/056-original/b8a698a3c02202eb.mp3",
+      "file_sha256": "7a4df0d017ac67093c4b9a551ed28a7020d4f6abb55ba3843f300a80d339c985",
+      "source": "content/batches/056-original.json",
+      "source_sha256": "4594603fe1bf395753031e2d3c8504605afab0897af72b8d0f23779bb4f8de14",
+      "script_sha256": "cc8f1c4bcc269f48e52b7ba3db3e36b609519d3b57fed3e98c1eca9758349eb9",
+      "text": "Goedemorgen, mevrouw Bakker. Ik heb uw tabletten voor de bloeddruk.\nFijn. Hoe moet ik ze innemen?\nEén tablet per dag, 's ochtends bij het ontbijt. Vroeger had u twee per dag, maar de dokter heeft dat veranderd.\nDus alleen 's ochtends. En als ik het een keer vergeet?\nNeem de tablet dan later op de dag, met wat eten. Maar neem nooit twee tabletten tegelijk.\nDat is duidelijk. Zit alles in dit doosje?\nNee, dit is voor twee weken. Meer hebben we vandaag niet. De rest ligt donderdag voor u klaar.\nGoed. En als de tabletten op zijn? Krijg ik dan vanzelf nieuwe?\nNee, dan belt u de huisarts voor een nieuw recept. De huisarts stuurt het recept naar ons.\nDank u wel. Tot donderdag.",
+      "roles": {
+        "f-adult": "kZQ3IGqYUStQ8u1Y62s6",
+        "f-older": "tfweP7lGJyLeNV9dH1Rm"
+      },
+      "settings": {
+        "f-adult": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.9
+        },
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        }
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 47.781995,
+      "decoded_duration": 47.781995464852606,
+      "bytes": 1148594,
+      "decoded_sample_peak_dbfs": -1.6900916358262892,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Goedemorgen mevrouw Bakker. Ik heb uw tabletten voor de bloeddruk. Fijn. Hoe moet ik ze innemen? Eén tablet per dag, 's ochtends bij het ontbijt. Vroeger had u twee per dag, maar de dokter heeft dat veranderd. Dus alleen 's ochtends. En als ik het een keer vergeet? Neem de tablet dan later op de dag met wat eten. Maar neem nooit twee tabletten tegelijk. Dat is duidelijk. Zit alles in dit doosje? Nee, dit is voor twee weken. Meer hebben we vandaag niet. De rest ligt donderdag voor u klaar. Goed. En als de tabletten op zijn, krijg ik dan vanzelf nieuwe? Nee, dan belt u de huisarts voor een nieuw recept. De huisarts stuurt het recept naar ons. Dank u wel. Tot donderdag.",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A2:speaking:batch009-nieuwe-buurvrouw:1#cue",
+      "item_id": "A2:speaking:batch009-nieuwe-buurvrouw:1",
+      "kind": "cue",
+      "file": "audio/7582e427c5bce7ed.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/059-original/7582e427c5bce7ed.mp3",
+      "file_sha256": "a1b617b46c344cd584d74d380d20557c231c78272674964af2a86915b51e6ba3",
+      "source": "content/batches/059-original.json",
+      "source_sha256": "f0b28b476b9c4cebd26f77a9dff63ff8b720a2df26719e1514266632a15d5d9f",
+      "script_sha256": "43e069db9060a37e2aa1f472e975a4c87bb313602d8cb8d88670c04bd5a21cbb",
+      "text": "Hallo, ik ben uw nieuwe buurvrouw. Hoe lang woont u al in deze straat, en wat vindt u van de buurt?",
+      "roles": {
+        "f-older": "tfweP7lGJyLeNV9dH1Rm"
+      },
+      "settings": {
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        }
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 6.501587,
+      "decoded_duration": 6.501587301587302,
+      "bytes": 157404,
+      "decoded_sample_peak_dbfs": -1.765445819163143,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Hallo, ik ben uw nieuwe buurvrouw. Hoe lang woont u al in deze straat? En wat vindt u van de buurt?",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "B1:listening:batch037-hovenier:1#q1-fragment",
+      "item_id": "B1:listening:batch037-hovenier:1",
+      "kind": "fragment",
+      "file": "audio/8ae9233701e30088.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/057-original/8ae9233701e30088.mp3",
+      "file_sha256": "73d67b145a8e9f1f3c6b43462a152c4ce4c0b16e4763816d824e0d34c85cb7ce",
+      "source": "content/batches/057-original.json",
+      "source_sha256": "47fa99c3951839e9f55cc1f1ab1ab6d822cc9e76c91e986d53d2f244b9d54ea1",
+      "script_sha256": "4460b73d677d7347be35111bba8a6a4090ffea29b5f52a6d7965d43fef30274a",
+      "text": "Goedemiddag. Vandaag praten we over leren op latere leeftijd. Mijn gast is Hanna, achtenzestig jaar en tweedejaars van de m-b-o-opleiding tot hovenier. Hanna, de meeste mensen doen het na hun pensioen rustiger aan. Waarom begon jij aan een opleiding?\nIk heb veertig jaar op een kantoor gewerkt, altijd binnen, en de tuin was mijn uitlaatklep. Na mijn pensioen had ik daar eindelijk alle tijd voor, maar na een half jaar merkte ik iets: mijn eigen tuin kende ik, de rest niet. Waarom gaat een heg aan de ene kant van de straat dood en aan de andere kant niet? Dat wilde ik leren van mensen die het vak kennen. Mijn buurvrouw vroeg voor de grap of ik dan niet naar school moest. Een week later stond ik op de open dag.",
+      "roles": {
+        "presenter": "60CwgZt94Yf7yYIXMDDe",
+        "f-older": "tfweP7lGJyLeNV9dH1Rm"
+      },
+      "settings": {
+        "presenter": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.93
+        },
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        }
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 48.641066,
+      "decoded_duration": 48.64108843537415,
+      "bytes": 1169283,
+      "decoded_sample_peak_dbfs": -1.7755209387669015,
+      "waveform_verified": true,
+      "generation_cer": 0.004,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Goedemiddag, vandaag praten we over leren op latere leeftijd. Mijn gast is Hannah, 68 jaar en tweedejaars van de mbo-opleiding tot hovenier. Hannah, de meeste mensen doen het na hun pensioen rustiger aan. Waarom begon jij aan een opleiding? Ik heb 40 jaar op een kantoor gewerkt, altijd binnen, en de tuin was mijn uitlaatklep. Na mijn pensioen had ik daar eindelijk alle tijd voor, maar na een half jaar merkte ik iets. Mijn eigen tuin kende ik, de rest niet. Waarom gaat een heg aan de ene kant van de straat dood en aan de andere kant niet? Dat wilde ik leren van mensen die het vak kennen. Mijn buurvrouw vroeg voor de grap of ik dan niet naar school moest. Een week later stond ik op de open dag",
+        "cer": 0.0035398230088495575,
+        "edits": [
+          {
+            "type": "replace",
+            "reference": "hanna",
+            "hypothesis": "hannah",
+            "reference_index": 12,
+            "hypothesis_index": 12,
+            "context": {
+              "reference": "latere leeftijd mijn gast is hanna achtenzestig jaar en tweedejaars van",
+              "hypothesis": "latere leeftijd mijn gast is hannah achtenzestig jaar en tweedejaars van"
+            }
+          },
+          {
+            "type": "delete",
+            "reference": "m",
+            "hypothesis": null,
+            "reference_index": 19,
+            "hypothesis_index": 19,
+            "context": {
+              "reference": "jaar en tweedejaars van de m b o opleiding tot hovenier",
+              "hypothesis": "jaar en tweedejaars van de mbo opleiding tot hovenier hannah de"
+            }
+          },
+          {
+            "type": "delete",
+            "reference": "b",
+            "hypothesis": null,
+            "reference_index": 20,
+            "hypothesis_index": 19,
+            "context": {
+              "reference": "en tweedejaars van de m b o opleiding tot hovenier hanna",
+              "hypothesis": "jaar en tweedejaars van de mbo opleiding tot hovenier hannah de"
+            }
+          },
+          {
+            "type": "replace",
+            "reference": "o",
+            "hypothesis": "mbo",
+            "reference_index": 21,
+            "hypothesis_index": 19,
+            "context": {
+              "reference": "tweedejaars van de m b o opleiding tot hovenier hanna de",
+              "hypothesis": "jaar en tweedejaars van de mbo opleiding tot hovenier hannah de"
+            }
+          },
+          {
+            "type": "replace",
+            "reference": "hanna",
+            "hypothesis": "hannah",
+            "reference_index": 25,
+            "hypothesis_index": 23,
+            "context": {
+              "reference": "b o opleiding tot hovenier hanna de meeste mensen doen het",
+              "hypothesis": "de mbo opleiding tot hovenier hannah de meeste mensen doen het"
+            }
+          }
+        ]
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "orthography-or-minor-pronunciation-variant",
+        "explanation": "Hanna/Hannah is a proper-name spelling alternative; the transcript keeps the same person. The source spells the letters m-b-o; Scribe writes the same abbreviation as mbo. These edits are token boundaries, not missing educational content.",
+        "auditory_pronunciation_assessment": "pending"
+      }
+    },
+    {
+      "key": "B1:listening:batch037-hovenier:1#q2-fragment",
+      "item_id": "B1:listening:batch037-hovenier:1",
+      "kind": "fragment",
+      "file": "audio/6f707977b9b8c40d.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/057-original/6f707977b9b8c40d.mp3",
+      "file_sha256": "5c0ce652026c6744c079ab694d12c01165647d18d93e278d07c967a34ad0da31",
+      "source": "content/batches/057-original.json",
+      "source_sha256": "47fa99c3951839e9f55cc1f1ab1ab6d822cc9e76c91e986d53d2f244b9d54ea1",
+      "script_sha256": "e544ffbbf0587180f20b176db2f47313b570a6978f57afe7e5b6c3549dc65edf",
+      "text": "Je zit in een klas met jongeren. Hoe gaat dat?\nIn mijn klas zitten zestien studenten. De meesten zijn zeventien of achttien, en ik ben de oudste in het lokaal. De eerste weken was het stil om mij heen. De jongens zeiden mevrouw tegen me en hielden de deur voor me open. Dat veranderde bij de eerste praktijkles. We moesten een border beplanten, en ik wist welke planten in de schaduw kunnen staan, omdat ik dat veertig jaar in mijn eigen tuin had uitgeprobeerd. Sindsdien vragen ze mij om advies, en ik vraag hun om hulp met de computer, want alle opdrachten worden online ingeleverd. Ik ben nu gewoon Hanna. Alleen in de pauze merk ik het verschil: de helft van hun grappen begrijp ik niet.",
+      "roles": {
+        "presenter": "60CwgZt94Yf7yYIXMDDe",
+        "f-older": "tfweP7lGJyLeNV9dH1Rm"
+      },
+      "settings": {
+        "presenter": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.93
+        },
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        }
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 47.757868,
+      "decoded_duration": 47.75786848072563,
+      "bytes": 1147968,
+      "decoded_sample_peak_dbfs": -1.7612242445293405,
+      "waveform_verified": true,
+      "generation_cer": 0.002,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Je zit in een klas met jongeren. Hoe gaat dat? In mijn klas zitten zestien studenten. De meesten zijn zeventien of achttien en ik ben de oudste in het lokaal. De eerste weken was het stil om mij heen. De jongens zeiden mevrouw tegen me en hielden de deur voor me open. Dat veranderde bij de eerste praktijkles. We moesten een border beplanten en ik wist welke planten in de schaduw kunnen staan, omdat ik dat veertig jaar in mijn eigen tuin had uitgeprobeerd. Sindsdien vragen ze mij om advies en ik vraag hun om hulp met de computer, want alle opdrachten worden online ingeleverd. Ik ben nu gewoon Hannah. Alleen in de pauze merk ik het verschil. De helft van hun grappen begrijp ik niet",
+        "cer": 0.0018214936247723133,
+        "edits": [
+          {
+            "type": "replace",
+            "reference": "hanna",
+            "hypothesis": "hannah",
+            "reference_index": 109,
+            "hypothesis_index": 109,
+            "context": {
+              "reference": "ingeleverd ik ben nu gewoon hanna alleen in de pauze merk",
+              "hypothesis": "ingeleverd ik ben nu gewoon hannah alleen in de pauze merk"
+            }
+          }
+        ]
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "orthography-or-minor-pronunciation-variant",
+        "explanation": "Hanna/Hannah is a proper-name spelling alternative; the transcript keeps the same person.",
+        "auditory_pronunciation_assessment": "pending"
+      }
+    },
+    {
+      "key": "B1:listening:batch037-hovenier:1#q4-fragment",
+      "item_id": "B1:listening:batch037-hovenier:1",
+      "kind": "fragment",
+      "file": "audio/9e511e3e2829ff0b.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/057-original/9e511e3e2829ff0b.mp3",
+      "file_sha256": "1cf01b960a90cc3f69780ae0f2c09e033ef084be18b3f2a22af875447809b16a",
+      "source": "content/batches/057-original.json",
+      "source_sha256": "47fa99c3951839e9f55cc1f1ab1ab6d822cc9e76c91e986d53d2f244b9d54ea1",
+      "script_sha256": "bafd9c9c1b16f60885882fbe68abd895f2b661a7131a3c952cce50f8b20057cb",
+      "text": "Volgende maand is het praktijkexamen. Hoe ziet dat eruit?\nWe krijgen om acht uur 's ochtends een tekening van een tuin, en om vier uur moet die tuin er liggen. In die acht uur leg ik een pad van tegels, plant ik een border volgens de tekening en snoei ik een heg. De hele dag loopt er een examinator rond, en aan haar moet ik uitleggen waarom ik iets doe. Waarom deze plant op deze plek, waarom eerst het pad en dan de border. Het pad vind ik het spannendst, want dat wordt nagemeten: elke tegel mag maar een halve centimeter afwijken. Bij het oefenen lukte het vorige week in negen uur, dus ik moet nog een uur sneller worden.",
+      "roles": {
+        "presenter": "60CwgZt94Yf7yYIXMDDe",
+        "f-older": "tfweP7lGJyLeNV9dH1Rm"
+      },
+      "settings": {
+        "presenter": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.93
+        },
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        }
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 46.178912,
+      "decoded_duration": 46.17891156462585,
+      "bytes": 1109724,
+      "decoded_sample_peak_dbfs": -2.2538009011897957,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Volgende maand is het praktijkexamen. Hoe ziet dat eruit? We krijgen om 8.00u 's ochtends een tekening van een tuin en om 4.00u moet die tuin er liggen. In die 8.00u leg ik een pad van tegels, plant ik een border volgens de tekening en snoei ik een heg. De hele dag loopt er een examinator rond en aan haar moet ik uitleggen waarom ik iets doe. Waarom deze plant op deze plek? Waarom eerst het pad en dan de border? Het pad vind ik het spannendst, want dat wordt nagemeten. Elke tegel mag maar een halve centimeter afwijken. Bij het oefenen lukte het vorige week in 9.00u, dus ik moet nog 1.00u sneller worden.",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "B1:listening:batch037-hovenier:1#q3-fragment",
+      "item_id": "B1:listening:batch037-hovenier:1",
+      "kind": "fragment",
+      "file": "audio/4993b9486c10cf9c.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/057-original/4993b9486c10cf9c.mp3",
+      "file_sha256": "c4f807e2d6b5162fd142f23f46826e5bdae83b15ace3069f9b2b739d6b132c48",
+      "source": "content/batches/057-original.json",
+      "source_sha256": "47fa99c3951839e9f55cc1f1ab1ab6d822cc9e76c91e986d53d2f244b9d54ea1",
+      "script_sha256": "62e07e5df3ed2b1807fe942b151ffbc2f528319a17033eba080c75fbd4f7437b",
+      "text": "Wat is voor jou het moeilijkste aan de opleiding?\nNiet de theorie, al had iedereen dat verwacht. Voor het examen moeten we tweehonderd planten kennen met hun Latijnse naam, en die leer ik met kaartjes aan de keukentafel. Dat gaat goed, want ik heb thuis de tijd, en de jongeren hebben die niet. Nee, het zwaarste is het lichamelijke werk. In een praktijkles tillen we de hele ochtend tegels van twintig kilo, en om vier uur voel ik dat ik geen twintig meer ben. Daarom heb ik met de docent afgesproken dat ik bij het zware werk vaker wissel met een klasgenoot. In ruil daarvoor doe ik meer van het precieze werk, zoals snoeien en meten.",
+      "roles": {
+        "presenter": "60CwgZt94Yf7yYIXMDDe",
+        "f-older": "tfweP7lGJyLeNV9dH1Rm"
+      },
+      "settings": {
+        "presenter": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.93
+        },
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        }
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 45.528753,
+      "decoded_duration": 45.52875283446712,
+      "bytes": 1094051,
+      "decoded_sample_peak_dbfs": -3.448708756179006,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat is voor jou het moeilijkste aan de opleiding? Niet de theorie, al had iedereen dat verwacht. Voor het examen moeten we 200 planten kennen met hun Latijnse naam en die leer ik met kaartjes aan de keukentafel. Dat gaat goed, want ik heb thuis de tijd en de jongeren hebben die niet. Nee, het zwaarste is het lichamelijke werk. In een praktijkles tillen we de hele ochtend tegels van twintig kilo en om 16.00 uur voel ik dat ik geen twintig meer ben. Daarom heb ik met de docent afgesproken dat ik bij het zware werk vaker wissel met een klasgenoot. In ruil daarvoor doe ik meer van het precieze werk, zoals snoeien en meten.",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "B1:listening:batch037-hovenier:1#q6-fragment",
+      "item_id": "B1:listening:batch037-hovenier:1",
+      "kind": "fragment",
+      "file": "audio/73395bca6f533eea.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/057-original/73395bca6f533eea.mp3",
+      "file_sha256": "b5dcfbc78ba54c461f83945248c2c95a579d600c1fc96aa58f4b72080d1a25d1",
+      "source": "content/batches/057-original.json",
+      "source_sha256": "47fa99c3951839e9f55cc1f1ab1ab6d822cc9e76c91e986d53d2f244b9d54ea1",
+      "script_sha256": "7117b7cbcfaa12c0e9af9e542693a3a8af11bace8d301e6f6dca3d36264e3f1b",
+      "text": "Stel, iemand van jouw leeftijd wil dit ook. Wat zou je die persoon aanraden?\nGa naar een open dag en vraag daar of ze ouderen aannemen. Kies een vak dat je al een beetje kent, want dan heb je in de klas iets te bieden en voel je je minder een vreemde. Ik heb met de school afgesproken dat ik één dag per week les heb en twee dagen bij het bedrijf werk. De jongeren werken vier dagen. Wat ik niet zou doen, is wachten tot je zeker weet dat je het kunt. Dat weet je pas als je begonnen bent. Na de open dag heb ik nog een jaar getwijfeld, en in dat jaar had ik al kunnen leren.",
+      "roles": {
+        "presenter": "60CwgZt94Yf7yYIXMDDe",
+        "f-older": "tfweP7lGJyLeNV9dH1Rm"
+      },
+      "settings": {
+        "presenter": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.93
+        },
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        }
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 40.838322,
+      "decoded_duration": 40.83832199546485,
+      "bytes": 981829,
+      "decoded_sample_peak_dbfs": -1.7781228678324354,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Stel iemand van jouw leeftijd wil dit ook. Wat zou je die persoon aanraden? Ga naar een open dag en vraag daar of ze ouderen aannemen. Kies een vak dat je al een beetje kent, want dan heb je in de klas iets te bieden en voel je je minder een vreemde. Ik heb met de school afgesproken dat ik één dag per week les heb en twee dagen bij het bedrijf werk. De jongeren werken vier dagen. Wat ik niet zou doen is wachten tot je zeker weet dat je het kunt. Dat weet je pas als je begonnen bent. Na de open dag heb ik nog een jaar getwijfeld en in dat jaar had ik al kunnen leren",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "B1:listening:batch037-hovenier:1#q5-fragment",
+      "item_id": "B1:listening:batch037-hovenier:1",
+      "kind": "fragment",
+      "file": "audio/329cb318c6c9470a.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/057-original/329cb318c6c9470a.mp3",
+      "file_sha256": "2afd8bdea6824a3c7b0f87ec66aa5cef3cb19e74dc783d94e195747e886b38a9",
+      "source": "content/batches/057-original.json",
+      "source_sha256": "47fa99c3951839e9f55cc1f1ab1ab6d822cc9e76c91e986d53d2f244b9d54ea1",
+      "script_sha256": "5e5f6b94f0f45a16c1b7411be6a0b770100a4ab8f05930a7d663f80e28e1e81e",
+      "text": "Wat vindt je familie ervan?\nDat verschilt. Mijn man dacht in het begin dat het een bevlieging was, iets wat na een maand over zou zijn. Nu brengt hij mij twee keer per week naar het hoveniersbedrijf waar ik als leerling werk, want dat is met de fiets te ver. Mijn dochter maakte zich zorgen over mijn rug, en ze belt nog steeds na elke praktijkdag om te vragen hoe het ging. En mijn kleinzoon van zestien vindt het vooral grappig. Hij doet zelf een opleiding tot kok, en op zondagmiddag zitten we samen aan tafel: hij overhoort mij de plantennamen, en ik overhoor hem de recepten. Tegen zijn vrienden zegt hij dat zijn oma ook op het m-b-o zit.",
+      "roles": {
+        "presenter": "60CwgZt94Yf7yYIXMDDe",
+        "f-older": "tfweP7lGJyLeNV9dH1Rm"
+      },
+      "settings": {
+        "presenter": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.93
+        },
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        }
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 45.297392,
+      "decoded_duration": 45.29741496598639,
+      "bytes": 1089035,
+      "decoded_sample_peak_dbfs": -1.8864667242983835,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Wat vindt je familie ervan? Dat verschilt. Mijn man dacht in het begin dat het een bevlieging was, iets wat na een maand over zou zijn. Nu brengt hij mij twee keer per week naar het hoveniersbedrijf waar ik als leerling werk, want dat is met de fiets te ver. Mijn dochter maakte zich zorgen over mijn rug en ze belt nog steeds na elke praktijkdag om te vragen hoe het ging. En mijn kleinzoon van zestien vindt het vooral grappig. Hij doet zelf een opleiding tot kok en op zondagmiddag zitten we samen aan tafel. Hij overhoort mij de plantennamen en ik overhoor hem de recepten. Tegen zijn vrienden zegt hij dat zijn oma ook op het MBO zit",
+        "cer": 0,
+        "edits": [
+          {
+            "type": "delete",
+            "reference": "m",
+            "hypothesis": null,
+            "reference_index": 118,
+            "hypothesis_index": 118,
+            "context": {
+              "reference": "zijn oma ook op het m b o zit",
+              "hypothesis": "zijn oma ook op het mbo zit"
+            }
+          },
+          {
+            "type": "delete",
+            "reference": "b",
+            "hypothesis": null,
+            "reference_index": 119,
+            "hypothesis_index": 118,
+            "context": {
+              "reference": "oma ook op het m b o zit",
+              "hypothesis": "zijn oma ook op het mbo zit"
+            }
+          },
+          {
+            "type": "replace",
+            "reference": "o",
+            "hypothesis": "mbo",
+            "reference_index": 120,
+            "hypothesis_index": 118,
+            "context": {
+              "reference": "ook op het m b o zit",
+              "hypothesis": "zijn oma ook op het mbo zit"
+            }
+          }
+        ]
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "orthography-or-minor-pronunciation-variant",
+        "explanation": "The source spells the letters m-b-o; Scribe writes the same abbreviation as mbo. These edits are token boundaries, not missing educational content.",
+        "auditory_pronunciation_assessment": "pending"
+      }
+    },
+    {
+      "key": "B1:listening:batch037-hovenier:1#q7-fragment",
+      "item_id": "B1:listening:batch037-hovenier:1",
+      "kind": "fragment",
+      "file": "audio/4849580911603f3d.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/057-original/4849580911603f3d.mp3",
+      "file_sha256": "1b8a0b00c88dc22db1fda69f223cfaed9e4b0d0be7c551d6cfb7ab37405cf1cb",
+      "source": "content/batches/057-original.json",
+      "source_sha256": "47fa99c3951839e9f55cc1f1ab1ab6d822cc9e76c91e986d53d2f244b9d54ea1",
+      "script_sha256": "12ed4a5188a96dbaecdb0ed7e3713eca30e5f75e0673deb18c70a26c09218474",
+      "text": "Laatste vraag. Wat heeft dit jaar op school je gebracht?\nMeer dan kennis over planten. Ik dacht dat ik naar school ging om een vak te leren, maar ik heb vooral geleerd dat ik op mijn leeftijd nog kan veranderen. Op kantoor deed ik veertig jaar hetzelfde werk, en daar was ik goed in. Nu ben ik weer iemand die fouten maakt en dingen voor het eerst doet, en dat vind ik veel minder erg dan ik had gedacht. Of ik straks veel tuinen ga aanleggen, weet ik niet. Maar het diploma haal ik, al moet ik het pad drie keer opnieuw leggen.\nHanna, dank je wel, en veel succes bij het examen.",
+      "roles": {
+        "presenter": "60CwgZt94Yf7yYIXMDDe",
+        "f-older": "tfweP7lGJyLeNV9dH1Rm"
+      },
+      "settings": {
+        "presenter": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.93
+        },
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        }
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 40.080884,
+      "decoded_duration": 40.08090702947846,
+      "bytes": 963648,
+      "decoded_sample_peak_dbfs": -1.7664203201426498,
+      "waveform_verified": true,
+      "generation_cer": 0.002,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Laatste vraag: wat heeft dit jaar op school je gebracht Meer dan kennis over planten? Ik dacht dat ik naar school ging om een vak te leren, maar ik heb vooral geleerd dat ik op mijn leeftijd nog kan veranderen. Op kantoor deed ik veertig jaar hetzelfde werk en daar was ik goed in. Nu ben ik weer iemand die fouten maakt en dingen voor het eerst doet. En dat vind ik veel minder erg dan ik had gedacht. Of ik straks veel tuinen ga aanleggen weet ik niet, maar het diploma haal ik, al moet ik het pad drie keer opnieuw leggen. Hannah, dank je wel en veel succes bij het examen",
+        "cer": 0.0022172949002217295,
+        "edits": [
+          {
+            "type": "replace",
+            "reference": "hanna",
+            "hypothesis": "hannah",
+            "reference_index": 103,
+            "hypothesis_index": 103,
+            "context": {
+              "reference": "pad drie keer opnieuw leggen hanna dank je wel en veel",
+              "hypothesis": "pad drie keer opnieuw leggen hannah dank je wel en veel"
+            }
+          }
+        ]
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "orthography-or-minor-pronunciation-variant",
+        "explanation": "Hanna/Hannah is a proper-name spelling alternative; the transcript keeps the same person.",
+        "auditory_pronunciation_assessment": "pending"
+      }
+    },
+    {
+      "key": "B1:listening:batch012-mantelzorg:1#q3-fragment",
+      "item_id": "B1:listening:batch012-mantelzorg:1",
+      "kind": "fragment",
+      "file": "audio/458e95adb693c856.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/057-original/458e95adb693c856.mp3",
+      "file_sha256": "75ad0c7ccbfc3d3389677100b967de46c526463ec9c44cf0d7b0c46782894729",
+      "source": "content/batches/057-original.json",
+      "source_sha256": "47fa99c3951839e9f55cc1f1ab1ab6d822cc9e76c91e986d53d2f244b9d54ea1",
+      "script_sha256": "f39224126b39ba09b53db0c26eca1449c506d035d80cb2038597fb6440d748e3",
+      "text": "Mag ik iets vragen? Mijn moeder is achtentachtig en woont nog zelfstandig. Het huishouden lukt nog wel, met wat hulp van mij. Maar ze kan zichzelf niet meer goed wassen en aankleden, en haar steunkousen krijgt ze niet meer aan. Moet ik daarvoor ook naar de gemeente?\nGoede vraag, want dit gaat vaak mis. Nee, hulp bij het wassen en aankleden is geen taak van de gemeente. Dat is wijkverpleging, en die wordt betaald door de zorgverzekeraar, uit de basisverzekering. U belt zelf een thuiszorgorganisatie; dan komt een wijkverpleegkundige kijken welke zorg uw moeder nodig heeft. U hoeft dus niet eerst naar de gemeente of naar de huisarts. Onthoud het zo: gaat het om het huis, dan is het de gemeente. Gaat het om het lichaam, dan is het de zorgverzekeraar.\nDus voor het huishouden de gemeente, en voor het wassen de verzekeraar.\nPrecies. En als ze naar elkaar wijzen, bel dan ons. Wij helpen u verder.",
+      "roles": {
+        "f-older": "tfweP7lGJyLeNV9dH1Rm",
+        "m-adult": "cblS8WYNsiBLGnlV6jjx"
+      },
+      "settings": {
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        },
+        "m-adult": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.92
+        }
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 64.818957,
+      "decoded_duration": 64.81895691609978,
+      "bytes": 1557359,
+      "decoded_sample_peak_dbfs": -1.7680447314428651,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Mag ik iets vragen? Mijn moeder is 88 en woont nog zelfstandig. Het huishouden lukt nog wel met wat hulp van mij, maar ze kan zichzelf niet meer goed wassen en aankleden en haar steunkousen krijgt ze niet meer aan. Moet ik daarvoor ook naar de gemeente? Goede vraag, want dit gaat vaak mis. Nee, hulp bij het wassen en aankleden is geen taak van de gemeente. Dat is wijkverpleging en die wordt betaald door de zorgverzekeraar uit de basisverzekering. U belt zelf een thuiszorgorganisatie. Dan komt een wijkverpleegkundige kijken welke zorg uw moeder nodig heeft. U hoeft dus niet eerst naar de gemeente of naar de huisarts. Onthoud het zo. Gaat het om het huis, dan is het de gemeente. Gaat het om het lichaam, dan is het de zorgverzekeraar. Dus voor het huishouden de gemeente en voor het wassen de verzekeraar. Precies. En als ze naar elkaar wijzen, bel dan ons. Wij helpen u verder.",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "B1:listening:batch012-mantelzorg:1#q6-fragment",
+      "item_id": "B1:listening:batch012-mantelzorg:1",
+      "kind": "fragment",
+      "file": "audio/7e622fec94f05337.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/057-original/7e622fec94f05337.mp3",
+      "file_sha256": "a429b8676b40c0c99518d3397d8587b341fc9c49cdfee4e52baf3ef076dd0550",
+      "source": "content/batches/057-original.json",
+      "source_sha256": "47fa99c3951839e9f55cc1f1ab1ab6d822cc9e76c91e986d53d2f244b9d54ea1",
+      "script_sha256": "2c0a742321ec589243debb2b8e5dbb05670dfe43c4032175aaaac0b081efd86a",
+      "text": "Ik rond af. Bij de uitgang ligt een folder met alle telefoonnummers. Voor hulp in huis belt u de gemeente. Voor wijkverpleging belt u een thuiszorgorganisatie of uw zorgverzekeraar. En voor alles daartussen kunt u bij ons terecht. Het steunpunt zit hier in de bibliotheek en is elke dinsdagochtend en donderdagochtend open, zonder afspraak. Als u vanavond één ding onthoudt, dan dit: wacht niet tot u het niet meer volhoudt. Vraag op tijd hulp, en zorg net zo goed voor uzelf als voor uw vader of moeder. Een mantelzorger die omvalt, helpt niemand. Ik blijf nog een half uur, dus loop gerust even naar me toe.\nDan kom ik straks meteen even langs, voor dat logeerhuis.\nHeel goed. Dank u wel allemaal, en tot ziens.",
+      "roles": {
+        "m-adult": "cblS8WYNsiBLGnlV6jjx",
+        "f-older": "tfweP7lGJyLeNV9dH1Rm"
+      },
+      "settings": {
+        "m-adult": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.92
+        },
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        }
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 48.858027,
+      "decoded_duration": 48.858049886621316,
+      "bytes": 1174299,
+      "decoded_sample_peak_dbfs": -1.8391660701027288,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Ik rond af. Bij de uitgang ligt een folder met alle telefoonnummers. Voor hulp in huis belt u de gemeente. Voor wijkverpleging belt u een thuiszorgorganisatie of uw zorgverzekeraar en voor alles daartussen kunt u bij ons terecht. Het steunpunt zit hier in de bibliotheek en is elke dinsdagochtend en donderdagochtend open zonder afspraak. Als u vanavond één ding onthoudt, dan dit: wacht niet tot u het niet meer volhoudt. Vraag op tijd hulp en zorg net zo goed voor uzelf als voor uw vader of moeder. Een mantelzorger die omvalt, helpt niemand. Ik blijf nog een half uur, dus loop gerust even naar me toe. Dan kom ik straks meteen even langs voor dat logeerhuis. Heel goed. Dank u wel allemaal en tot ziens.",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "B1:listening:batch012-mantelzorg:1#q5-fragment",
+      "item_id": "B1:listening:batch012-mantelzorg:1",
+      "kind": "fragment",
+      "file": "audio/92a5419f25ddb864.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/057-original/92a5419f25ddb864.mp3",
+      "file_sha256": "edcff1475b59ee405648955f4c45952c2ed71a2e067142438752d1a84c3857ec",
+      "source": "content/batches/057-original.json",
+      "source_sha256": "47fa99c3951839e9f55cc1f1ab1ab6d822cc9e76c91e986d53d2f244b9d54ea1",
+      "script_sha256": "845601424637bdfe590299b18439d9c50a36c672bb573126e690b17641b8be27",
+      "text": "Mag ik daar nog iets over zeggen? Ik ben zelf vijfenzestig en ik zorg nu drie jaar voor mijn moeder. Mijn broer woont ver weg, dus het komt vooral op mij neer. Eerlijk gezegd voel ik me schuldig als ik aan zo'n logeerhuis denk. Het is mijn moeder. Ik vind eigenlijk dat ik het zelf hoor te doen, zolang ik het kan. Maar ik merk ook dat ik moe ben. Vorige week ben ik de verjaardag van mijn kleinzoon vergeten, en dat is niets voor mij.\nDank u dat u dat zo eerlijk zegt, want zo denken veel mensen. Maar hulp vragen is geen zwakte, en het betekent niet dat u minder van uw moeder houdt. Als u omvalt, heeft uw moeder helemaal niemand meer. Een middag per week vrij maakt u juist een betere mantelzorger.",
+      "roles": {
+        "f-older": "tfweP7lGJyLeNV9dH1Rm",
+        "m-adult": "cblS8WYNsiBLGnlV6jjx"
+      },
+      "settings": {
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        },
+        "m-adult": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.92
+        }
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 46.039592,
+      "decoded_duration": 46.039591836734694,
+      "bytes": 1106590,
+      "decoded_sample_peak_dbfs": -1.7570047206969956,
+      "waveform_verified": true,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Mag ik daar nog iets over zeggen? Ik ben zelf 65 en ik zorg nu drie jaar voor mijn moeder. Mijn broer woont ver weg, dus het komt vooral op mij neer. Eerlijk gezegd voel ik me schuldig als ik aan zo'n logeerhuis denk. Het is mijn moeder. Ik vind eigenlijk dat ik het zelf hoor te doen zolang ik het kan, maar ik merk ook dat ik moe ben. Vorige week ben ik de verjaardag van mijn kleinzoon vergeten en dat is niets voor mij. Dank u dat u dat zo eerlijk zegt, want zo denken veel mensen. Maar hulp vragen is geen zwakte en het betekent niet dat u minder van uw moeder houdt. Als u omvalt, heeft uw moeder helemaal niemand meer. Een middag per week vrij maakt u juist een betere mantelzorger",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "B1:speaking:batch016-pensioen:1#cue",
+      "item_id": "B1:speaking:batch016-pensioen:1",
+      "kind": "cue",
+      "file": "audio/1aa521b77c5579fb.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/066-original/1aa521b77c5579fb.mp3",
+      "file_sha256": "f6b1647cf6ab338f1405fb4104204e43c01c5130c43cce07357b149eecee40f4",
+      "source": "content/batches/066-original.json",
+      "source_sha256": "a6f37902d9720bea4e45ff578bf9962569b0b0e48475214a005688813c02539d",
+      "script_sha256": "1c94b1735296ded2f124ee9d08f074e24ce9ba699f0ca08551f65678debf0c20",
+      "text": "Ik wil je iets vertellen, maar zeg het nog niet tegen de anderen. Ik stop eind december: ik ga met pensioen. Na dertig jaar vind ik het wel mooi geweest.",
+      "roles": {
+        "f-older": "tfweP7lGJyLeNV9dH1Rm"
+      },
+      "settings": {
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        }
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 10.17034,
+      "decoded_duration": 10.170340136054422,
+      "bytes": 245803,
+      "decoded_sample_peak_dbfs": -1.8260725840912386,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Ik wil je iets vertellen, maar zeg het nog niet tegen de anderen. Ik stop eind december. Ik ga met pensioen. Na dertig jaar vind ik het wel mooi geweest",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    },
+    {
+      "key": "A2:listening:batch022-pakket:1#fragment",
+      "item_id": "A2:listening:batch022-pakket:1",
+      "kind": "fragment",
+      "file": "audio/d92518c3283db019.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/022-original/d92518c3283db019.mp3",
+      "file_sha256": "bff7ae6dc94d09bc6d149b742c9655064ccd93477242aa827b532cbc9facd294",
+      "source": "content/batches/022-original.json",
+      "source_sha256": "a803db3fe6dc74e7a62c1c59dd4b39924cd0c73526a18cb1b8c9e1e3391ecf71",
+      "script_sha256": "69b4d1d4a4819d2d1646f8d4905a1ba98c18acbdd3120d0522c13eb68cc1f1a3",
+      "text": "Goedemiddag, mevrouw Bakker. Mag ik u iets vragen? Volgende week ben ik een week weg voor mijn werk. Maar dinsdag komt er een pakket voor mij. Wilt u dat pakket aannemen?\nDat is goed, Julio. Wat zit erin? Is het groot?\nHet is een printer, voor mijn studie. De doos is groot en zwaar. Maar de bezorger draagt hem naar binnen. U hoeft alleen uw handtekening te zetten.\nPrima. Hoe laat komt de bezorger? Dinsdagochtend ga ik altijd naar de markt.\nDe bezorger komt dinsdag tussen twee en vijf uur. Dus 's middags.\nDan ben ik thuis. En als ik toch niet thuis ben?\nDan komt de bezorger niet terug. Hij brengt het pakket naar het pakketpunt in de supermarkt. Buiten zetten mag niet, want de printer is duur.\nIk blijf dinsdagmiddag gewoon thuis. Wanneer haal je het pakket op?\nIk ben zondag terug. Maandagavond kom ik het halen. Bedankt, mevrouw Bakker!\nGraag gedaan. Goede reis, Julio.",
+      "roles": {
+        "m-young": "SFlhmoT9q6x81D3fl3dp",
+        "f-older": "tfweP7lGJyLeNV9dH1Rm"
+      },
+      "settings": {
+        "m-young": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.9
+        },
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        }
+      },
+      "casting": {
+        "m-young": "m-casual"
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 60.274331,
+      "decoded_duration": 60.27433106575964,
+      "bytes": 1448271,
+      "decoded_sample_peak_dbfs": -1.7696694465928606,
+      "waveform_verified": true,
+      "generation_cer": 0.001,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Goedemiddag mevrouw Bakker. Mag ik u iets vragen? Volgende week ben ik een week weg voor mijn werk, maar dinsdag komt er een pakket voor mij. Wilt u dat pakket aannemen? Dat is goed, Julio. Wat zit erin? Is het groot? Het is een printer voor mijn studie. De doos is groot en zwaar, maar de bezorger draagt hem naar binnen. U hoeft alleen uw handtekening te zetten. Prima. Hoe laat komt de bezorger? Dinsdagochtend ga ik altijd naar de markt. De bezorger komt dinsdag tussen twee en vijf uur. Dus 's middags. Dan ben ik thuis. En als ik toch niet thuis ben? Dan komt de bezorger niet terug. Hij brengt het pakket naar het pakketpunt in de supermarkt. Buiten zetten mag niet, want de printer is duur. Ik blijf dinsdagmiddag gewoon thuis. Wanneer haal je het pakket op? Ik ben zondag terug. Maandagavond kom ik het halen. Bedankt mevrouw Bakker. Graag gedaan. Goeie reis Julio!",
+        "cer": 0.0014577259475218659,
+        "edits": [
+          {
+            "type": "replace",
+            "reference": "goede",
+            "hypothesis": "goeie",
+            "reference_index": 154,
+            "hypothesis_index": 154,
+            "context": {
+              "reference": "bedankt mevrouw bakker graag gedaan goede reis julio",
+              "hypothesis": "bedankt mevrouw bakker graag gedaan goeie reis julio"
+            }
+          }
+        ]
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "orthography-or-minor-pronunciation-variant",
+        "explanation": "The closing greeting Goede reis is transcribed as colloquial Goeie reis. This does not change a tested fact.",
+        "auditory_pronunciation_assessment": "pending"
+      }
+    },
+    {
+      "key": "B1:speaking:batch030-kat-voeren:1#cue",
+      "item_id": "B1:speaking:batch030-kat-voeren:1",
+      "kind": "cue",
+      "file": "audio/83cad4c927f88a9e.mp3",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/var/hanneke-replacement-2026-10-27/staged-final/030-original/83cad4c927f88a9e.mp3",
+      "file_sha256": "b059085a9e01649b449e21473d05362588e5554ec6a3561a2b88e5df9c7add8a",
+      "source": "content/batches/030-original.json",
+      "source_sha256": "5202a8f4e55293f20dfec1b030977e2da11ce82a9b7a3fdb783e4a48d888e764",
+      "script_sha256": "78841bbaf0cd32b7dde751353615c864b85f6b3217510a8babd1a0ded90d71ac",
+      "text": "Hallo! Morgen vertrekken jullie, toch? Ik kom graag voor de kat zorgen, dat is geen moeite. Maar wat moet ik precies doen? Zeg het maar.",
+      "roles": {
+        "f-older": "tfweP7lGJyLeNV9dH1Rm"
+      },
+      "settings": {
+        "f-older": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.95
+        }
+      },
+      "processing": {
+        "f-older": {
+          "preset": "spectral-v1",
+          "filter": "highpass=f=80,afftdn=nr=12:nf=-42:tn=1:gs=8",
+          "stage": "after-level-match"
+        }
+      },
+      "source_format": "mp3_44100_192",
+      "source_sample_rate": 44100,
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 1,
+      "bitrate": 192000,
+      "container_duration": 9.055782,
+      "decoded_duration": 9.05578231292517,
+      "bytes": 218844,
+      "decoded_sample_peak_dbfs": -1.8503110730543406,
+      "waveform_verified": false,
+      "generation_cer": 0,
+      "generation_inserted_run": 0,
+      "supplementary_transcript": {
+        "model": "scribe_v2",
+        "hypothesis": "Hallo, morgen vertrekken jullie toch? Ik kom graag voor de kat zorgen, dat is geen moeite. Maar wat moet ik precies doen? Zeg het maar",
+        "cer": 0,
+        "edits": []
+      },
+      "technical_verdict": "pass",
+      "auditory_verdict": "pending",
+      "approved_for_local_testing": true,
+      "word_audit": {
+        "verdict": "pass",
+        "classification": "normalized-source-match",
+        "explanation": "The supplementary transcript matches the reviewed script after the existing Dutch number/time normalization."
+      }
+    }
+  ]
+}

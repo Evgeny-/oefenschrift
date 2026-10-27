@@ -17,6 +17,7 @@ function shuffle<T>(list: T[], random: () => number) {
   return out;
 }
 export function checkPool(catalogue: Exercise[], level: string, part: string) {
+  if (level === 'A1') return [];
   return catalogue.filter(
     (item) => item.part === part && item.level === level && item.questions?.length,
   );

@@ -1,0 +1,408 @@
+{
+  "review_id": "070-a1-pilot-meaning-2026-10-27",
+  "review_contract_version": 2,
+  "source": "content/batches/070-original.json",
+  "proposed_source": "content/batches/070-proposed.json",
+  "source_sha256": "cbab425f18852bffc1b2f1b668f28a80a4f0c37c50da686d224091f9af7f0e67",
+  "author_draft": "var/a1-tone-balance-2026-10-27/pilot/070-authored.json",
+  "author_draft_sha256": "39e4d9bbacac50833f9e6f7eca7539f481bd1e5ac065eb8210b3a76207afbb98",
+  "author_notes_source": "var/a1-tone-balance-2026-10-27/pilot/notes.md",
+  "author_notes_sha256": "064e88c80d8721a1646683d36a4e857b03a9fbe3d1ac30f1335a375f173bb905",
+  "blind_findings_source": "var/a1-tone-balance-2026-10-27/pilot/070-blind-findings.json",
+  "blind_findings_sha256": "24b5dd58c470dd33ee649f9e8635c6a1c768cd07c20ba6a75407ee25b40ded30",
+  "review_type": "independent AI editorial review of all six pilot sources, with source-first meaning findings saved before full-item review",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-27T20:03:14.962978+00:00",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "30f2b56dc6535154760808b773698c134c55cd29d940dcd3546f146ca5137240",
+    "independence_note": "Fresh reviewer context saved item-specific blind findings in the pilot directory before the coordinator released full authored sources and notes. The reviewer then read every full item, rebuilt the final packet and repeated the meaning check. Source text, titles, situations and images are unchanged from the blind packet; only one distractor option in this batch was repaired. Earlier approvals were not reused."
+  },
+  "tone_balance": {
+    "ordinary": 3,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "Three repaired ordinary pilot items in batch 070, outside the 36-item expansion. They add no humor to that expansion's five planned light-humor items. Across both pilot batches the contribution is six ordinary items."
+  },
+  "replaces": [
+    "A1:listening:batch070-foto-werk:1",
+    "A1:listening:batch070-potlood-lenen:1",
+    "A1:listening:batch070-tas-kopen:1"
+  ],
+  "edits": [
+    {
+      "id": "A1:listening:batch070-potlood-lenen:1",
+      "field": "questions[q1].options.B",
+      "before": "Het papier.",
+      "after": "Een schaar.",
+      "reason": "Use parallel indefinite classroom-object noun phrases for all three alternatives; the key gains no article or added-description cue."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npm run batch:check -- content/batches/070-proposed.json",
+      "items": 3,
+      "questions": 6,
+      "keys": {
+        "A": 2,
+        "B": 2,
+        "C": 2
+      },
+      "three_option_questions": 6,
+      "failures": [],
+      "warnings": []
+    },
+    "meaning_review": {
+      "command": "meaningReviewErrors(review, items, false)",
+      "errors": [],
+      "legacy_exemption_used": false
+    },
+    "source_packet_rebuilt": "Final canonical packet hashes equal the persisted source-first packet hashes; final source meaning rechecked.",
+    "full_source_read": true,
+    "closed_question_audit": "Every key entails the exact stored quote; all twelve distractors per batch are assessed in item-specific question audits. Two questions per source remain explicit and independent of answer-revealing prompts.",
+    "metadata_and_counts": "Three original IDs, their domains and formats, two questions per item and balanced ABCABC keys retained.",
+    "rubric_applicability": {
+      "checked": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15
+      ],
+      "not_applicable": {
+        "8": "Closed tasks have no production self-review criteria.",
+        "13": "No KNM or time-sensitive factual public-service claims."
+      }
+    },
+    "image_briefs_alts_unchanged": true,
+    "media_generation_performed": false,
+    "adoption_performed": false,
+    "integration_performed": false
+  },
+  "items": [
+    {
+      "id": "A1:listening:batch070-foto-werk:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "meets local foundation authoring target",
+        "targetLevelValidated": false,
+        "evidence": "Thirty-three spoken words in four turns. The photo explains both questions, and the single named photographer and single photo position keep the facts explicit. Karim is a third person mentioned, not a third speaker.",
+        "official_exam_comparison": "not applicable to this foundation pilot"
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Sabrina tells Julio about a work photograph. Julio asks who takes it and where to stand; Sabrina supplies Karim and the tree outside, and Julio goes outside.",
+        "communicative_purpose": "The colleagues coordinate Julio's participation in the work photograph so he can go to its stated location.",
+        "contrivance_check": "Both details Julio asks for directly support the announced photograph. Sabrina answers the two questions in their order. Julio's departure follows the outside location. The picture brief depicts a preliminary workplace conversation and does not require an unstated event to make the exchange coherent.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "We maken vandaag een foto voor het werk.",
+            "response_function": "Sabrina introduces the work photograph that Julio is being asked to join."
+          },
+          {
+            "turn": 2,
+            "quote": "Wie maakt de foto? Waar moet ik staan?",
+            "response_function": "Julio requests the photographer and his own position, both practical arrangements for that photograph."
+          },
+          {
+            "turn": 3,
+            "quote": "Karim maakt de foto. Je staat buiten bij de boom.",
+            "response_function": "Sabrina answers who will take the picture and where Julio should stand."
+          },
+          {
+            "turn": 4,
+            "quote": "Goed. Ik ga naar buiten. Dank je.",
+            "response_function": "Julio accepts the directions, states his immediate move outside and thanks Sabrina."
+          }
+        ]
+      },
+      "evidence": {
+        "questions": [
+          {
+            "id": "q1",
+            "verdict": "pass",
+            "key": "A",
+            "key_text": "Karim.",
+            "evidence": "Karim maakt de foto.",
+            "entailment": "Sabrina directly names Karim as the photographer.",
+            "distractors": [
+              {
+                "option": "B",
+                "text": "Julio.",
+                "rationale": "Julio asks who will take the picture and receives Karim's name."
+              },
+              {
+                "option": "C",
+                "text": "Sabrina.",
+                "rationale": "Sabrina supplies the answer Karim; she does not identify herself as the photographer."
+              }
+            ],
+            "option_form_check": "The alternatives have equal word counts and the same grammatical function. The key has no extra condition, explanation, specific modifier or unique prompt-word overlap.",
+            "explanation_check": "The final explanation agrees with the cited fact and adds no competing answer."
+          },
+          {
+            "id": "q2",
+            "verdict": "pass",
+            "key": "B",
+            "key_text": "Bij de boom.",
+            "evidence": "Je staat buiten bij de boom.",
+            "entailment": "Sabrina tells Julio to stand outside by the tree.",
+            "distractors": [
+              {
+                "option": "A",
+                "text": "In de gang.",
+                "rationale": "A corridor fits the work setting, but the spoken direction specifies the tree outside."
+              },
+              {
+                "option": "C",
+                "text": "Bij de deur.",
+                "rationale": "A doorway fits the work setting, but it is not the stated position."
+              }
+            ],
+            "option_form_check": "The alternatives have equal word counts and the same grammatical function. The key has no extra condition, explanation, specific modifier or unique prompt-word overlap.",
+            "explanation_check": "The final explanation agrees with the cited fact and adds no competing answer."
+          }
+        ],
+        "visible_cue_audit": "The title identifies a work photograph, not its photographer. q2 names Julio as the person receiving a standing direction but does not disclose Karim or the tree. The two printed prompts do not state either keyed fact.",
+        "diversity": "Two colleagues coordinate participation in a staff picture. This differs from the loan and the purchase; existing work-training and coffee-fund recordings serve other purposes.",
+        "media": "Inspected assets/images/f6083943ed1c9ce3.webp. Sabrina's dark hair and green jumper and Julio's curls and striped shirt match the cast. They speak by an empty desk. No Karim, camera, tree, corridor or doorway reveals either key; alt describes only the workplace conversation.",
+        "record_contract": "a1-practice; taskType gesprek fits this listening source; domain werk fits its stated context. Draft status and unvalidated target retained. No retired type or generated media field.",
+        "originality_and_facts": "Original fictional everyday practice. No institution, brand, address or time-sensitive KNM fact is introduced; external factual verification is not needed.",
+        "language_figures": {
+          "source_words": 33,
+          "sentences_or_fragments": 8,
+          "mean_words": 4.12,
+          "maximum_words": 8
+        },
+        "source_repair": "Six turns become four. The request for photographer and position receives one connected reply; corridor waiting and door-helper facts are removed."
+      }
+    },
+    {
+      "id": "A1:listening:batch070-potlood-lenen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "meets local foundation authoring target",
+        "targetLevelValidated": false,
+        "evidence": "Thirty spoken words in four turns. The missing pencil motivates the loan. Het has the single pencil referent, and the return time is explicit. Drawing, borrowing and returning are concrete everyday activities.",
+        "official_exam_comparison": "not applicable to this foundation pilot"
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "In drawing class, Roos lacks a pencil and asks her teacher Mark for a loan. He offers his pencil; she asks when to return it and receives an end-of-class deadline.",
+        "communicative_purpose": "Roos gets a pencil for drawing and establishes when the borrowed item must be returned.",
+        "contrivance_check": "The missing pencil and desire to draw explicitly motivate the request. Mark offers the named tool, and Roos's pronoun het refers directly to it. Returning a loan follows naturally from accepting one. No unrelated tools, colours or classroom objects are listed. Empty hands in the context picture can represent the talk before the handover.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Ik heb geen potlood. Ik wil tekenen. Mag ik iets lenen?",
+            "response_function": "Roos states the missing tool, gives her immediate activity and asks for a loan."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja. Ik geef je mijn potlood.",
+            "response_function": "Mark grants the request by offering his own pencil."
+          },
+          {
+            "turn": 3,
+            "quote": "Dank u. Wanneer geef ik het terug?",
+            "response_function": "Roos thanks him and asks for the return time for that pencil."
+          },
+          {
+            "turn": 4,
+            "quote": "Geef het na de les terug.",
+            "response_function": "Mark specifies the end of the lesson as the return point."
+          }
+        ]
+      },
+      "evidence": {
+        "questions": [
+          {
+            "id": "q1",
+            "verdict": "pass",
+            "key": "C",
+            "key_text": "Een potlood.",
+            "evidence": "Ik geef je mijn potlood.",
+            "entailment": "The teacher directly offers his pencil in response to the borrowing request.",
+            "distractors": [
+              {
+                "option": "A",
+                "text": "Een gum.",
+                "rationale": "An eraser is a plausible classroom loan, but Mark offers a pencil."
+              },
+              {
+                "option": "B",
+                "text": "Een schaar.",
+                "rationale": "Scissors are a plausible classroom tool, but the offered item is a pencil."
+              }
+            ],
+            "option_form_check": "The alternatives have equal word counts and the same grammatical function. The key has no extra condition, explanation, specific modifier or unique prompt-word overlap.",
+            "explanation_check": "The final explanation agrees with the cited fact and adds no competing answer."
+          },
+          {
+            "id": "q2",
+            "verdict": "pass",
+            "key": "A",
+            "key_text": "Na de les.",
+            "evidence": "Geef het na de les terug.",
+            "entailment": "Mark expressly sets the return after the lesson.",
+            "distractors": [
+              {
+                "option": "B",
+                "text": "Voor de les.",
+                "rationale": "Before class reverses the stated relation to the lesson."
+              },
+              {
+                "option": "C",
+                "text": "In de pauze.",
+                "rationale": "The break is a plausible time for a classroom loan, but Mark says after the lesson."
+              }
+            ],
+            "option_form_check": "The alternatives have equal word counts and the same grammatical function. The key has no extra condition, explanation, specific modifier or unique prompt-word overlap.",
+            "explanation_check": "The final explanation agrees with the cited fact and adds no competing answer."
+          }
+        ],
+        "visible_cue_audit": "The drawing-class title supports the setting without naming the loaned object. q2 now uses het rather than potlood, so it cannot supply q1's answer. q1's three options are indefinite two-word classroom-object phrases after the small parallelism repair.",
+        "diversity": "Learner and teacher arrange a tool loan and its return. This differs from the reading lesson's bring-your-book reminder and from scheduling a course.",
+        "media": "Inspected assets/images/09cedb946f96b4c9.webp. Roos has the prescribed bun and yellow scarf, and the teacher has grey hair and a blue shirt. Empty hands and table show no pencil, eraser or scissors; no clock or timetable supplies the return time. The generic classroom alt reveals neither key.",
+        "record_contract": "a1-practice; taskType gesprek fits this listening source; domain opleiding fits its stated context. Draft status and unvalidated target retained. No retired type or generated media field.",
+        "originality_and_facts": "Original fictional everyday practice. No institution, brand, address or time-sensitive KNM fact is introduced; external factual verification is not needed.",
+        "language_figures": {
+          "source_words": 30,
+          "sentences_or_fragments": 8,
+          "mean_words": 3.75,
+          "maximum_words": 6
+        },
+        "source_repair": "The missing tool now motivates the first request. Unrelated eraser, paper, break and drinking remarks are removed. q2 omits the earlier object name that leaked q1."
+      }
+    },
+    {
+      "id": "A1:listening:batch070-tas-kopen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "meets local foundation authoring target",
+        "targetLevelValidated": false,
+        "evidence": "Thirty-one spoken words in four turns. The small bag and card payment are explicit; the carrying reason uses a short main clause. The reference Die points to the small bag without a competing object.",
+        "official_exam_comparison": "not applicable to this foundation pilot"
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Shop assistant Ruben asks Fatima which bag she wants. She requests a small one because she can carry it easily; he presents a small bag and directs payment, and she names her card as the payment method.",
+        "communicative_purpose": "Customer and assistant select a bag matching Fatima's stated need and move the purchase to payment.",
+        "contrivance_check": "The size preference, carrying reason, offered bag and payment all advance the same purchase. Die refers to the small bag. Ruben does not recite a list of available sizes or unrelated stock. The illustration establishes the shop conversation without needing the bag or payment objects to appear.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag. Welke tas wilt u kopen?",
+            "response_function": "Ruben opens the sale with a greeting and asks Fatima to specify the bag she wants."
+          },
+          {
+            "turn": 2,
+            "quote": "Een kleine tas, graag. Die kan ik makkelijk dragen.",
+            "response_function": "Fatima selects a small bag and explains its practical carrying advantage."
+          },
+          {
+            "turn": 3,
+            "quote": "Hier is een kleine tas. U kunt hier betalen.",
+            "response_function": "Ruben offers a bag matching that request and tells her where payment can occur."
+          },
+          {
+            "turn": 4,
+            "quote": "Dank u. Ik betaal met mijn pas.",
+            "response_function": "Fatima acknowledges the offer and states that she will pay by card."
+          }
+        ]
+      },
+      "evidence": {
+        "questions": [
+          {
+            "id": "q1",
+            "verdict": "pass",
+            "key": "B",
+            "key_text": "Een kleine tas.",
+            "evidence": "Een kleine tas, graag.",
+            "entailment": "Fatima requests a small bag, and Ruben then offers a small bag.",
+            "distractors": [
+              {
+                "option": "A",
+                "text": "Een grote tas.",
+                "rationale": "A large bag is the same product with a different size; Fatima asks for small."
+              },
+              {
+                "option": "C",
+                "text": "Een nieuwe rugzak.",
+                "rationale": "A backpack is a familiar shop alternative, but she requests a small bag."
+              }
+            ],
+            "option_form_check": "The alternatives have equal word counts and the same grammatical function. The key has no extra condition, explanation, specific modifier or unique prompt-word overlap.",
+            "explanation_check": "The final explanation agrees with the cited fact and adds no competing answer."
+          },
+          {
+            "id": "q2",
+            "verdict": "pass",
+            "key": "C",
+            "key_text": "Met haar pas.",
+            "evidence": "Ik betaal met mijn pas.",
+            "entailment": "Fatima expressly says she will pay with her card.",
+            "distractors": [
+              {
+                "option": "A",
+                "text": "Met haar munten.",
+                "rationale": "Coins are a plausible shop payment, but Fatima specifies her card."
+              },
+              {
+                "option": "B",
+                "text": "Met haar telefoon.",
+                "rationale": "A phone is a plausible shop payment, but she specifies her card."
+              }
+            ],
+            "option_form_check": "The alternatives have equal word counts and the same grammatical function. The key has no extra condition, explanation, specific modifier or unique prompt-word overlap.",
+            "explanation_check": "The final explanation agrees with the cited fact and adds no competing answer."
+          }
+        ],
+        "visible_cue_audit": "The generic shop title and buyer/seller situation provide no size or payment fact. q1 asks about the purchase and q2 asks how it is paid for; neither prompt supplies the other answer.",
+        "diversity": "A customer chooses a bag and states payment. No price, delivery or repair rule is mixed into the exchange; it differs from existing bakery orders and phone repairs.",
+        "media": "Inspected assets/images/5cb6046c1873815a.webp. Fatima has a headscarf and blue coat; the assistant has black hair and a terracotta shirt. The empty counter and hands show no bag, backpack, coins, card, phone or terminal. The alt describes only the shop interaction.",
+        "record_contract": "a1-practice; taskType gesprek fits this listening source; domain winkels-diensten fits its stated context. Draft status and unvalidated target retained. No retired type or generated media field.",
+        "originality_and_facts": "Original fictional everyday practice. No institution, brand, address or time-sensitive KNM fact is introduced; external factual verification is not needed.",
+        "language_figures": {
+          "source_words": 31,
+          "sentences_or_fragments": 8,
+          "mean_words": 3.88,
+          "maximum_words": 5
+        },
+        "source_repair": "Fatima's size preference now follows the seller's open choice question and leads directly to offering the bag and payment. Unused stock and payment-method lists are removed; q1's evidence is updated to the new exact sentence."
+      }
+    }
+  ],
+  "media_notes": "The three current rendered images were inspected, remain compatible with both questions and may be reused because briefs/alts are exact. Regenerate the three changed conversation audios and the changed pencil q2 narration after adoption. The other five question narrations are unchanged. Source review does not approve unlistened replacement audio.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty, learner calibration or official-exam equivalence.",
+    "Current originals remain untouched until coordinator adoption.",
+    "Replacement audio has not been generated or listened to by this reviewer."
+  ]
+}

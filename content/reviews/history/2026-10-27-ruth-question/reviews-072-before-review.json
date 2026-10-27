@@ -1,0 +1,1114 @@
+{
+  "review_id": "072-review",
+  "review_contract_version": 2,
+  "source": "content/batches/072-original.json",
+  "source_sha256": "976cee22236a328652b9f9a3de94fd974f9b5f8258aabcc4c96528a76bac93d7",
+  "proposed": "content/batches/072-proposed.json",
+  "proposed_identical_to_author_file": false,
+  "author_source": "var/a1-meaning-repairs-2026-10-27/072-authored.json",
+  "author_source_sha256": "67017cf2a3f9473e0cc738169edb8fff129869017e4ab73e418bdb69a3cf2507",
+  "author_notes": "var/a1-meaning-repairs-2026-10-27/072-authored-notes.md",
+  "author_notes_sha256": "6eb6dbd6796368f41bca959d6d4808d91e65c00d3256d52d8130b7621b40c60d",
+  "review_type": "independent-ai-editorial",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-27T19:30:51.197334+00:00",
+  "reviewer": "Fresh independent Codex reviewer /root/review_072_meaning_v2, separate from the author. No human or Opus review is claimed.",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "item_count": 9,
+  "question_count": 18,
+  "replaces": [
+    "A1:listening:batch072-banaan-telefoon:1",
+    "A1:listening:batch072-eend-reis:1",
+    "A1:listening:batch072-stoel-ogen:1",
+    "A1:listening:batch072-grote-hoed:1",
+    "A1:listening:batch072-bezem-feest:1",
+    "A1:listening:batch072-doos-oren:1",
+    "A1:listening:batch072-paraplu-werk:1",
+    "A1:listening:batch072-bloem-beker:1",
+    "A1:listening:batch072-kat-boeken:1"
+  ],
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "8c9d82d12f9db7c0cea7d969fd451657fe941f22f0fd31df6fe216164b6469f3",
+    "independence_note": "Before seeing questions, options, keys, author notes or prior reviews, this fresh reviewer read the source-only packet and persisted all nine item findings plus 36 verbatim turn links in var/a1-meaning-repairs-2026-10-27/072-blind-findings.json. The full-item stage followed only after coordinator authorization. After a small flower-reference edit and brief simplification, the reviewer reread the complete final source and repeated its meaning check; the recorded packet hash covers those final bytes. A later focused independent review compared the folded-paper flower brief with the adopted source. Only that subject-detail field changed; its full scene, script, title, situation, questions, choices, evidence, explanations and alt were reread. Folding details identify the already stated paper flower and do not alter the conversation or reveal the food/drink answers.",
+    "initial_packet_sha256": "0573c91e7228e3651087f9ba55d3bfa301c2c1a67355f7dd58db9888b49eaf55",
+    "initial_findings": "var/a1-meaning-repairs-2026-10-27/072-blind-findings.json",
+    "final_packet_source": "var/a1-meaning-repairs-2026-10-27/072-final-blind-packet.json",
+    "final_source_rechecked_at": "2026-10-27T19:30:51.197334+00:00"
+  },
+  "distribution": {
+    "level": {
+      "A1": 9
+    },
+    "part": {
+      "listening": 9
+    },
+    "domain": {
+      "opleiding": 1,
+      "vervoer": 1,
+      "werk": 2,
+      "winkels-diensten": 2,
+      "vrije-tijd-familie": 3
+    },
+    "skill": {
+      "person": 2,
+      "time-place": 7,
+      "detail": 8,
+      "quantity": 1
+    },
+    "keys": {
+      "A": 6,
+      "B": 6,
+      "C": 6
+    },
+    "options": {
+      "3": 18
+    }
+  },
+  "answer_sequence": "ABCABCBCABCACABCAB",
+  "editorial_rating_scale": "1–5, strongest at 5. Simplicity, clarity, variety, visual interest, task-image fit and coherence are editorial judgments. Image ratings apply only to briefs; they do not approve rendered media or validate CEFR difficulty.",
+  "edits": [
+    {
+      "id": "A1:listening:batch072-banaan-telefoon:1",
+      "field": "images[0].brief",
+      "old": "Roos (young woman, dark hair in a bun, yellow scarf) holds a banana beside her ear like a telephone during a classroom exercise. Ruth (woman in her fifties, short chestnut hair, lilac cardigan) faces Roos with an empty open hand. No real telephone, doctor, medical object, calendar, book, paper, pen, board or writing gesture. No text, numerals, labels, signage, clock faces or logos.",
+      "new": "Roos (young woman, dark hair in a bun, yellow scarf) holds a banana beside her ear like a telephone during a classroom exercise. Ruth (woman in her fifties, short chestnut hair, lilac cardigan) faces Roos with empty hands. No real telephone, doctor, medical objects, bakery objects, hairdressing tools or calendar. No text, numerals, labels, signage, clock faces or logos.",
+      "reason": "Keep essential scene and cast facts with answer exclusions. Remove nonessential prop, pose and material detail; use config/illustration.json stylePrefix for all aesthetics. Update exclusions to match all final options."
+    },
+    {
+      "id": "A1:listening:batch072-eend-reis:1",
+      "field": "images[0].brief",
+      "old": "Sabrina (woman in her thirties, long dark hair, green jumper) and Julio (young man, curly hair, striped shirt) stand beside a waist-high inflatable toy duck on the floor of a hall. Sabrina looks at the large beak while Julio gestures toward the toy with an empty hand. No transport, tracks, platform, tickets, transport symbols, bags, luggage or clock. No text, numerals, labels, signage, clock faces or logos.",
+      "new": "Sabrina (woman in her thirties, long dark hair, green jumper) and Julio (young man, curly hair, striped shirt) stand beside a large toy duck. Sabrina looks at the duck while Julio gestures toward it with an empty hand. No vehicles, transport symbols, tracks, station, platform, tickets or clock. No text, numerals, labels, signage, clock faces or logos.",
+      "reason": "Keep essential scene and cast facts with answer exclusions. Remove nonessential prop, pose and material detail; use config/illustration.json stylePrefix for all aesthetics. Update exclusions to match all final options."
+    },
+    {
+      "id": "A1:listening:batch072-stoel-ogen:1",
+      "field": "images[0].brief",
+      "old": "Roos (young woman, dark hair in a bun, yellow scarf) and Ruben (young man, closely cropped brown hair, dusty blue shirt) stand beside an office chair with large paper eyes attached to its backrest. Both look at the eyes. Their hands are empty. No pen, book, bag, desk, table, writing surface or drawing gesture. No object hidden beside or beneath furniture, search gesture, arrow or pointing toward anything outside the image. No text, numerals, labels, signage, clock faces or logos.",
+      "new": "Roos (young woman, dark hair in a bun, yellow scarf) and Ruben (young man, closely cropped brown hair, dusty blue shirt) stand beside an office chair with large paper eyes attached to its backrest. Both look at the eyes with empty hands. No pen, book, bag, desk, table, writing surface or drawing gesture. No hidden object, search gesture, arrow or pointing outside the image. No text, numerals, labels, signage, clock faces or logos.",
+      "reason": "Keep essential scene and cast facts with answer exclusions. Remove nonessential prop, pose and material detail; use config/illustration.json stylePrefix for all aesthetics. Update exclusions to match all final options."
+    },
+    {
+      "id": "A1:listening:batch072-grote-hoed:1",
+      "field": "images[0].brief",
+      "old": "Fatima (woman in her forties, headscarf, blue coat) faces baker Jerry (man in his forties, short black hair, terracotta apron) across a bakery counter. Jerry wears an oversized white baker hat that bends at the top. He steadies the hat with one hand. Fatima smiles at the hat. No bread, loaf, roll, biscuit, cake, pastry, food display, bag, item grouping or counting gesture. No text, numerals, labels, signage, clock faces or logos.",
+      "new": "Fatima (woman in her forties, headscarf, blue coat) faces baker Jerry (man in his forties, short black hair, terracotta apron) across a bakery counter. Jerry wears a very large white baker hat and holds it steady with one hand. Fatima smiles at the hat. No bread, cake, biscuits, other food, bag or counting gesture. No text, numerals, labels, signage, clock faces or logos.",
+      "reason": "Keep essential scene and cast facts with answer exclusions. Remove nonessential prop, pose and material detail; use config/illustration.json stylePrefix for all aesthetics. Update exclusions to match all final options."
+    },
+    {
+      "id": "A1:listening:batch072-bezem-feest:1",
+      "field": "questions[0].options.B",
+      "old": "De lamp.",
+      "new": "De televisie.",
+      "reason": "Use a familiar device that can also supply sound, so the broom dance does not single out radio against unrelated household devices."
+    },
+    {
+      "id": "A1:listening:batch072-bezem-feest:1",
+      "field": "questions[0].options.C",
+      "old": "De oven.",
+      "new": "De telefoon.",
+      "reason": "Use a familiar device that can also supply sound, so the broom dance does not single out radio against unrelated household devices."
+    },
+    {
+      "id": "A1:listening:batch072-bezem-feest:1",
+      "field": "images[0].brief",
+      "old": "Roos (young woman, dark hair in a bun, yellow scarf) dances with a broom as if it were a dance partner. Daan (young man, wavy brown hair, sage-green overshirt) watches her and smiles. Their mouths are closed. No radio, lamp, oven, music player, speaker, musical note, instrument, clock, food or table-setting action. No text, numerals, labels, signage, clock faces or logos.",
+      "new": "Roos (young woman, dark hair in a bun, yellow scarf) dances with a broom as if it were a dance partner. Daan (young man, wavy brown hair, sage-green overshirt) watches her and smiles. No radio, television, telephone, music player, speaker, musical note, instrument or clock. No text, numerals, labels, signage, clock faces or logos.",
+      "reason": "Keep essential scene and cast facts with answer exclusions. Remove nonessential prop, pose and material detail; use config/illustration.json stylePrefix for all aesthetics. Update exclusions to match all final options."
+    },
+    {
+      "id": "A1:listening:batch072-doos-oren:1",
+      "field": "images[0].brief",
+      "old": "Karim (man in his thirties, short black hair and beard, grey jacket) and Lieke (woman in her thirties, straight auburn bob, muted sage blouse) sit beside a closed cardboard gift box. Two large paper HUMAN ears are attached to opposite sides of the box. Each ear has a rounded human outer rim and earlobe. The box has no animal features. Karim touches one paper ear while Lieke smiles at it. The fully closed lid hides all contents. No socks, apples, books, other clothing, other people, animals, portrait or family photograph. No text, numerals, labels, signage, clock faces or logos.",
+      "new": "Karim (man in his thirties, short black hair and beard, grey jacket) and Lieke (woman in her thirties, straight auburn bob, muted sage blouse) sit beside a closed gift box. Two large paper human ears with rounded rims and earlobes are attached to opposite sides. Karim touches one ear while Lieke smiles. The closed lid hides all contents. No socks, apples, books, other clothing, other people, animals or family portraits. No text, numerals, labels, signage, clock faces or logos.",
+      "reason": "Keep essential scene and cast facts with answer exclusions. Remove nonessential prop, pose and material detail; use config/illustration.json stylePrefix for all aesthetics. Update exclusions to match all final options."
+    },
+    {
+      "id": "A1:listening:batch072-paraplu-werk:1",
+      "field": "images[0].brief",
+      "old": "Sabrina (woman in her thirties, long dark hair, green jumper) and Julio (young man, curly hair, striped shirt) stand beside an open umbrella lying on its side on the office floor. Sabrina points to the umbrella canopy. Julio faces her with empty hands. No transport, transport symbol, bag, coat, clock, calendar, telephone or computer. No text, numerals, labels, signage, clock faces or logos.",
+      "new": "Sabrina (woman in her thirties, long dark hair, green jumper) and Julio (young man, curly hair, striped shirt) stand beside an open umbrella lying on its side on the office floor. Sabrina points to the umbrella while Julio faces her with empty hands. No vehicles, transport symbols or clock. No text, numerals, labels, signage, clock faces or logos.",
+      "reason": "Keep essential scene and cast facts with answer exclusions. Remove nonessential prop, pose and material detail; use config/illustration.json stylePrefix for all aesthetics. Update exclusions to match all final options."
+    },
+    {
+      "id": "A1:listening:batch072-bloem-beker:1",
+      "field": "script[1].text",
+      "old": "Dank u. Hij is van papier. Wat wilt u eten?",
+      "new": "Dank u. De bloem is van papier. Wat wilt u eten?",
+      "reason": "Name the flower explicitly so its material cannot be read as referring to the mug."
+    },
+    {
+      "id": "A1:listening:batch072-bloem-beker:1",
+      "field": "text",
+      "old": "Fatima: Wat een mooie bloem in die beker!\nJerry: Dank u. Hij is van papier. Wat wilt u eten?\nFatima: Soep, graag. En een glas water.\nJerry: Goed. Gaat u zitten. Ik breng uw eten.",
+      "new": "Fatima: Wat een mooie bloem in die beker!\nJerry: Dank u. De bloem is van papier. Wat wilt u eten?\nFatima: Soep, graag. En een glas water.\nJerry: Goed. Gaat u zitten. Ik breng uw eten.",
+      "reason": "Rebuild the transcript exactly from the revised script."
+    },
+    {
+      "id": "A1:listening:batch072-bloem-beker:1",
+      "field": "images[0].brief",
+      "old": "Fatima (woman in her forties, headscarf, blue coat) faces Jerry (man in his forties, short black hair, terracotta apron) across a café counter. A paper flower with folded petals stands in an opaque mug on the counter. The mug has no liquid or soil. Fatima gestures toward the paper flower and Jerry smiles. No soup, bread, rice, other food, bowl, meal, milk, juice, water, drinking glass, bottle, jug or second drinking vessel. No text, numerals, labels, signage, clock faces or logos.",
+      "new": "Fatima (woman in her forties, headscarf, blue coat) faces Jerry (man in his forties, short black hair, terracotta apron) across a café counter. A paper flower stands in an empty mug on the counter. Fatima gestures toward the flower while Jerry smiles. No food, liquid, drinking glass, bottle, jug or second drinking vessel. No text, numerals, labels, signage, clock faces or logos.",
+      "reason": "Keep essential scene and cast facts with answer exclusions. Remove nonessential prop, pose and material detail; use config/illustration.json stylePrefix for all aesthetics. Update exclusions to match all final options."
+    },
+    {
+      "id": "A1:listening:batch072-kat-boeken:1",
+      "field": "images[0].brief",
+      "old": "Ruth (woman in her fifties, short chestnut hair, lilac cardigan) and Roos (young woman, dark hair in a bun, yellow scarf) sit at home beside a large cat sleeping across Ruth's bag. Both women look at the cat with empty hands. No uniform, work equipment, shop, classroom, travel object, clock, calendar, telephone or reading material. No text, numerals, labels, signage, clock faces or logos.",
+      "new": "Ruth (woman in her fifties, short chestnut hair, lilac cardigan) and Roos (young woman, dark hair in a bun, yellow scarf) sit at home beside a large cat sleeping across Ruth's bag. Both women look at the cat with empty hands. No work uniform, work equipment, shop, classroom or clock. No text, numerals, labels, signage, clock faces or logos.",
+      "reason": "Keep essential scene and cast facts with answer exclusions. Remove nonessential prop, pose and material detail; use config/illustration.json stylePrefix for all aesthetics. Update exclusions to match all final options."
+    },
+    {
+      "id": "A1:listening:batch072-bloem-beker:1",
+      "field": "images[0].brief",
+      "old": "Fatima (woman in her forties, headscarf, blue coat) faces Jerry (man in his forties, short black hair, terracotta apron) across a café counter. A paper flower stands in an empty mug on the counter. Fatima gestures toward the flower while Jerry smiles. No food, liquid, drinking glass, bottle, jug or second drinking vessel. No text, numerals, labels, signage, clock faces or logos.",
+      "new": "Fatima (woman in her forties, headscarf, blue coat) faces Jerry (man in his forties, short black hair, terracotta apron) across a café counter. A folded paper flower with angular petals and visible fold lines stands in an empty mug on the counter. Fatima gestures toward the flower while Jerry smiles. No food, liquid, drinking glass, bottle, jug or second drinking vessel. No text, numerals, labels, signage, clock faces or logos.",
+      "reason": "Make the already stated paper flower visually distinguishable from a real flower using its physical folds. Angular petals and fold lines are subject facts, with no added rendering style, scenery, texture or answer cue."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "read_in_full": "Review and author briefs, rubric, workflow, applicable blueprint A1 and general sections, voices and illustration config; blind packet and saved findings first, then complete authored source and notes, archived prior review, listening catalogue titles, and complete final proposal. Every title, situation, script, transcript, question, option, key, evidence quote, explanation, image brief, alt and metadata field was inspected.",
+    "meaning_order": "Initial packet findings were persisted before the full source was supplied. Final source has been reread after the local edit. All 36 final exact turns retain a specific conversational function; all nine sources pass at 4 or 5 without unresolved invented context.",
+    "target_and_language": "Blueprint 4.0 foundation target applies. Nine scripts have 30–35 spoken words, four short turns, mean sentence length 3.56–4.86 and no sentence over eight words. Present-tense main clauses, familiar concrete words, written-out times. No competing spoken times, calculations, exception question or additional named speaker. No official-exam comparison applies.",
+    "contract": "Nine unique retained IDs, A1 listening gesprek and a1-practice, fitting recognised domains, two stable named speakers, two distinct effective configured voice IDs, two questions, three options each, one drawing brief and Dutch alt per item. No retired type, revision, generated media or KNM claim.",
+    "answers_and_distractors": "All 18 exact evidence quotes occur in the final mechanical transcript and directly entail the keyed fact in one turn. All 36 wrong choices were checked individually. Familiar unmentioned alternatives are allowed under updated A1 guidance and do not justify added source facts. Final choices are parallel with no unique key-length, specificity, prompt-word or polarity cue.",
+    "memory": "Each question asks one concrete fact. Some natural supporting detail explains an unusual object or completes a transaction, but no list recites answer alternatives. Train and bus exchanges share mode/time question shapes and remain separated in the retained sets.",
+    "open_tasks": "Not applicable: no production task, criteria, model, sample or sentence starter occurs in this closed listening batch.",
+    "image_and_preview_leaks": "Every title, situation, alt and final brief was checked against both questions. Candidate professions, devices, objects, quantities, family images, transport and clocks are excluded where relevant. The broom wrong choices were changed to other sound-capable devices to reduce guessing from the dance. Rendered pixels require separate review.",
+    "style": "Final briefs use plain scene facts, cast traits and answer exclusions. Paper eyes and human paper ears remain subject facts. The folded flower, angular petals and visible fold lines identify its explicitly stated paper construction; they add no texture, shading, rendering technique or decorative background. Only the shared config stylePrefix supplies illustration aesthetics.",
+    "voices": "Reviewed source roles are unchanged. The doos-oren m-adult role resolves through the per-ID config casting to m-young/Ruben, paired with f-adult/Lieke; the blocked Robert/Lieke pairing is not used. All other pairs have distinct configured voices. A1 delivery and complete media checks remain later gates.",
+    "diversity": "Nine purposes remain distinct: role-play setup, trip departure, find a drawing tool, buy and pack bread, finish cleaning and start music, prepare a gift, dry an umbrella and discuss a commute, order café food and drink, and free a bag before work. Catalogue A1 staff-photo, pencil-loan and bag-purchase tasks do not duplicate these purposes. Related bakery/café and travel/commute items are in different sets.",
+    "provenance_and_current_facts": "Local fictional adult exchanges, generic settings and existing fictional character names. No new organisation, address, brand, real public figure or changing KNM fact requires external lookup. The author notes state original drafting. This editorial inspection cannot prove absence of every accidental phrase overlap.",
+    "set_balance": "Retained three-item sets each have two A, two B and two C answers. Total keys 6/6/6; no three consecutive equal keys.",
+    "formatting": "Prettier was run on the proposed source and review outputs. The recorded source hash covers the final formatted proposal.",
+    "batch_check": "npm run batch:check -- content/batches/072-proposed.json: Checked 9 items, 18 questions. Keys {A:6,B:6,C:6}; options {3:18}. Nine known revisions. No failures, no warnings.",
+    "meaning_contract": "After the focused paper-flower refinement, meaningReviewErrors(review, final, false) returned no errors for the exact proposal; nine passing meaning records and all 36 exact turn links still satisfy contract version 2.",
+    "hash": "source_sha256 covers the exact proposed source bytes. meaning_first.packet_sha256 is produced by meaningPacketHash(final). No starters apply.",
+    "paper_flower_focus": "Exact comparison found this one changed field. Folded construction, angular petals and visible fold lines clarify the paper flower already named by the speaker and alt. These are object-identification facts, not an augmentation of the illustration style. Café scene, cast, empty mug and all exclusions are unchanged. Questions still ask for soup and water; no food, liquid or second vessel is allowed. Script, evidence, explanations, key logic and all 36 exact turn links are unchanged. The affected full item and final source meaning were rechecked without unresolved assumptions."
+  },
+  "items": [
+    {
+      "id": "A1:listening:batch072-banaan-telefoon:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "30 words, four turns and two direct facts: the assigned recipient and desired day. The lesson expressly establishes the pretend call. No competing day is spoken. Difficulty remains unvalidated.",
+      "language": {
+        "spoken_words": 30,
+        "turns": 4,
+        "sentences": 8,
+        "mean_words_per_sentence": 3.75,
+        "longest_sentence_words": 6
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "Roos and Ruth are explicitly practising telephone calls in a lesson. Roos asks to use a banana as the prop; Ruth gives a doctor-appointment scenario and tells her how to start.",
+        "communicative_purpose": "Roos wants permission to use the prop and prepares an appointment request. Ruth wants her to practise starting the call with her name. Their exchange establishes the exercise and the first action.",
+        "contrivance_check": "The unusual telephone is justified in the stated classroom practice. The doctor and appointment belong to the scenario Ruth expressly assigns. Monday supplies Roos's proposed appointment day; it does not introduce a second activity. The image depicts the same prop exercise. No inventory or category mismatch.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "We oefenen bellen. Mag ik deze banaan gebruiken?",
+            "response_function": "Opens the stated telephone exercise and asks whether this banana may serve as its prop."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, als telefoon. Bel de dokter voor een afspraak.",
+            "response_function": "Answers the permission request and explicitly establishes both the prop's telephone role and the appointment-call scenario."
+          },
+          {
+            "turn": 3,
+            "quote": "Goed. Ik wil maandag naar de dokter.",
+            "response_function": "Accepts that scenario and chooses a day for the appointment she is preparing to request."
+          },
+          {
+            "turn": 4,
+            "quote": "Begin maar. Zeg eerst je naam.",
+            "response_function": "Moves from agreeing the scenario into performing it, with a specific instruction for the opening of the call."
+          }
+        ]
+      },
+      "evidence": {
+        "q1": {
+          "answer": "A",
+          "quote": "Bel de dokter voor een afspraak.",
+          "entailment": "Ruth explicitly assigns the doctor as the person to call.",
+          "distractors": {
+            "B": "A baker is a familiar person to phone, but the assigned recipient is the doctor.",
+            "C": "A hairdresser is a familiar person to phone, but Ruth names the doctor."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        },
+        "q2": {
+          "answer": "B",
+          "quote": "Ik wil maandag naar de dokter.",
+          "entailment": "Roos directly states Monday as her desired appointment day.",
+          "distractors": {
+            "A": "Friday is an ordinary appointment day, but Roos says Monday.",
+            "C": "Tuesday is an ordinary appointment day, but Roos says Monday."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        }
+      },
+      "metadata": "gesprek and opleiding describe the actual source. A1, a1-practice, draft and targetLevelValidated false are correct. No retired type or generated media is present.",
+      "media": "The banana phone prop remains, with both adults. The brief excludes all three candidate professions and calendar cues. Title, situation and alt give neither doctor nor Monday.",
+      "voice_roles": {
+        "Roos": "f-young",
+        "Ruth": "f-mature"
+      },
+      "effective_voice_roles": {
+        "Roos": "f-young",
+        "Ruth": "f-mature"
+      },
+      "voice_names": {
+        "Roos": "Roos",
+        "Ruth": "Ruth"
+      },
+      "editorial_ratings": {
+        "simplicity": 5,
+        "clarity": 5,
+        "variety": 5,
+        "visual_interest_brief_stage": 5,
+        "task_image_fit_brief_stage": 5,
+        "coherence": 5
+      }
+    },
+    {
+      "id": "A1:listening:batch072-eend-reis:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "34 words, four turns and two direct travel facts. The sister explains the toy; she is not an extra named speaker or tested identity. Train and station reinforce one journey rather than competing modes. Difficulty remains unvalidated.",
+      "language": {
+        "spoken_words": 34,
+        "turns": 4,
+        "sentences": 7,
+        "mean_words_per_sentence": 4.86,
+        "longest_sentence_words": 8
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "Sabrina and Julio are preparing to travel. Sabrina checks whether the large toy duck is coming; Julio explains its recipient and their transport. They establish their departure time and move toward the station.",
+        "communicative_purpose": "Sabrina wants to know about the conspicuous object and when they leave. Julio explains the gift, provides their travel arrangements and prompts departure.",
+        "contrivance_check": "The duck is explicitly a toy for Julio's sister, so its presence on the trip has a stated reason. Train, departure time and station are compatible parts of their journey. The train detail is volunteered, but it is relevant to the shared trip. No list of unrelated transport alternatives or possessions. The toy-duck image does not contradict the conversation.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Neem je die grote eend mee op reis?",
+            "response_function": "Asks whether the conspicuous duck will accompany their stated trip."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, het is speelgoed voor mijn zus. We nemen de trein.",
+            "response_function": "Confirms that it will and explains whom the toy is for; then supplies relevant transport information for their shared trip."
+          },
+          {
+            "turn": 3,
+            "quote": "Goed. Hoe laat gaan we weg?",
+            "response_function": "Accepts that information and asks the next concrete travel question, their departure time."
+          },
+          {
+            "turn": 4,
+            "quote": "Om tien uur. Kom, we gaan naar het station.",
+            "response_function": "Directly answers the time question and initiates the next journey step, going to the station."
+          }
+        ]
+      },
+      "evidence": {
+        "q1": {
+          "answer": "C",
+          "quote": "We nemen de trein.",
+          "entailment": "Julio explicitly says they take the train; the we refers to the two named travellers.",
+          "distractors": {
+            "A": "A bus is a plausible travel mode, but Julio explicitly says train.",
+            "B": "A bicycle is a plausible travel mode, but Julio explicitly says train."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        },
+        "q2": {
+          "answer": "A",
+          "quote": "Om tien uur.",
+          "entailment": "Julio answers the immediately preceding departure-time question with ten o'clock.",
+          "distractors": {
+            "B": "Nine is a plausible nearby hour, but the answer gives ten.",
+            "C": "Eleven is a plausible nearby hour, but the answer gives ten."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        }
+      },
+      "metadata": "gesprek and vervoer describe the actual source. A1, a1-practice, draft and targetLevelValidated false are correct. No retired type or generated media is present.",
+      "media": "The large toy duck remains with the two travellers. No vehicle, transport symbol, station, ticket or clock may appear. The mode and time remain audio facts.",
+      "voice_roles": {
+        "Sabrina": "f-adult",
+        "Julio": "m-young"
+      },
+      "effective_voice_roles": {
+        "Sabrina": "f-adult",
+        "Julio": "m-young"
+      },
+      "voice_names": {
+        "Sabrina": "Lieke",
+        "Julio": "Ruben"
+      },
+      "editorial_ratings": {
+        "simplicity": 5,
+        "clarity": 5,
+        "variety": 4,
+        "visual_interest_brief_stage": 5,
+        "task_image_fit_brief_stage": 5,
+        "coherence": 4
+      }
+    },
+    {
+      "id": "A1:listening:batch072-stoel-ogen:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "35 words, four turns and one tool-location problem. Only one missing object and one location occur in the source. The face comment is slightly explanatory but keeps the craft purpose clear. Difficulty remains unvalidated.",
+      "language": {
+        "spoken_words": 35,
+        "turns": 4,
+        "sentences": 8,
+        "mean_words_per_sentence": 4.38,
+        "longest_sentence_words": 8
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "While preparing the office for a party, Roos needs her pen to make eyes for a chair. Ruben locates it, letting her resume drawing; he comments on the chair decoration.",
+        "communicative_purpose": "Roos wants to recover the tool she needs for the stated decoration. Ruben helps locate it and acknowledges the party decoration she can continue.",
+        "contrivance_check": "Pen, drawing, paper eyes and a face for the party form one concrete craft activity. The final face comment restates the decoration rather than adding a fact needed for another subject. It is slightly explanatory, but it follows the drawing. The illustrated chair with attached eyes shows the same decoration; the source does not say that all drawing is finished. No unrelated stocktaking.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Ik zoek mijn pen. Ik maak ogen voor deze stoel.",
+            "response_function": "States the missing-tool problem and explains the immediate craft use for the pen."
+          },
+          {
+            "turn": 2,
+            "quote": "Je pen ligt onder de tafel. Ik zie hem.",
+            "response_function": "Resolves that problem by saying exactly where he can see the pen."
+          },
+          {
+            "turn": 3,
+            "quote": "Dank je. Nu kan ik weer tekenen.",
+            "response_function": "Thanks him for locating the tool and states the direct consequence, being able to draw again."
+          },
+          {
+            "turn": 4,
+            "quote": "Leuk. De stoel krijgt een gezicht voor het feest.",
+            "response_function": "Responds approvingly to that resumed work and connects the chair face to the already stated party preparation."
+          }
+        ]
+      },
+      "evidence": {
+        "q1": {
+          "answer": "B",
+          "quote": "Ik zoek mijn pen.",
+          "entailment": "Roos names her pen as the object she is seeking.",
+          "distractors": {
+            "A": "A book is a familiar belonging, but she explicitly seeks her pen.",
+            "C": "A bag is a familiar belonging, but she explicitly seeks her pen."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        },
+        "q2": {
+          "answer": "C",
+          "quote": "Je pen ligt onder de tafel.",
+          "entailment": "Ruben directly locates the pen under the table.",
+          "distractors": {
+            "A": "On the table is a natural pen location, but Ruben says under.",
+            "B": "Beside the table is a natural search location, but Ruben says under."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        }
+      },
+      "metadata": "gesprek and werk describe the actual source. A1, a1-practice, draft and targetLevelValidated false are correct. No retired type or generated media is present.",
+      "media": "Paper eyes remain on the chair. Both hands are empty; the pen, book, bag, table and drawing gesture are excluded, along with positions or pointing that could hint at the pen location.",
+      "voice_roles": {
+        "Roos": "f-young",
+        "Ruben": "m-young"
+      },
+      "effective_voice_roles": {
+        "Roos": "f-young",
+        "Ruben": "m-young"
+      },
+      "voice_names": {
+        "Roos": "Roos",
+        "Ruben": "Ruben"
+      },
+      "editorial_ratings": {
+        "simplicity": 5,
+        "clarity": 5,
+        "variety": 5,
+        "visual_interest_brief_stage": 5,
+        "task_image_fit_brief_stage": 5,
+        "coherence": 4
+      }
+    },
+    {
+      "id": "A1:listening:batch072-grote-hoed:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "30 words, four turns and a common purchase sequence. Bread and two loaves are directly stated. The bag request completes the transaction without introducing competing products. Difficulty remains unvalidated.",
+      "language": {
+        "spoken_words": 30,
+        "turns": 4,
+        "sentences": 7,
+        "mean_words_per_sentence": 4.29,
+        "longest_sentence_words": 8
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "Fatima notices the baker's large hat and asks for bread. Jerry asks how much; she orders two loaves and requests a bag. He agrees to pack the bread.",
+        "communicative_purpose": "Fatima wants to buy and carry away bread. Jerry needs the quantity and then fulfils her packing request.",
+        "contrivance_check": "The hat supplies an ordinary opening observation in the illustrated shop encounter. Jerry's brief thanks naturally accepts the friendly remark before serving the customer. Quantity and bag are both necessary parts of this purchase. No mismatched object category or forced alternatives.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Uw hoed is groot! Ik wil graag brood.",
+            "response_function": "Makes a friendly observation about the baker's visible hat and initiates the bread purchase."
+          },
+          {
+            "turn": 2,
+            "quote": "Dank u. Hoeveel broden wilt u?",
+            "response_function": "Acknowledges the remark and asks the quantity needed to fulfil the request for bread."
+          },
+          {
+            "turn": 3,
+            "quote": "Twee broden, graag. Mag ik ook een zak?",
+            "response_function": "Answers the quantity question and asks for the packaging she needs for the purchase."
+          },
+          {
+            "turn": 4,
+            "quote": "Ja, ik doe het brood in een zak.",
+            "response_function": "Accepts the packaging request and says how he will fulfil it."
+          }
+        ]
+      },
+      "evidence": {
+        "q1": {
+          "answer": "B",
+          "quote": "Ik wil graag brood.",
+          "entailment": "Fatima requests bread and then orders two loaves, so bread is the product purchased.",
+          "distractors": {
+            "A": "Cake is sold by a baker, but Fatima asks for bread.",
+            "C": "Biscuits are sold by a baker, but Fatima asks for bread."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        },
+        "q2": {
+          "answer": "C",
+          "quote": "Twee broden, graag.",
+          "entailment": "Fatima directly orders two loaves.",
+          "distractors": {
+            "A": "One loaf is a plausible quantity, but she says two.",
+            "B": "Three loaves is a plausible quantity, but she says two."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        }
+      },
+      "metadata": "gesprek and winkels-diensten describe the actual source. A1, a1-practice, draft and targetLevelValidated false are correct. No retired type or generated media is present.",
+      "media": "The baker and large hat establish the shop without any food, purchase group or counting gesture. Neither the bread nor the two-loaf quantity is depicted.",
+      "voice_roles": {
+        "Fatima": "f-adult",
+        "Jerry": "m-shop"
+      },
+      "effective_voice_roles": {
+        "Fatima": "f-adult",
+        "Jerry": "m-shop"
+      },
+      "voice_names": {
+        "Fatima": "Lieke",
+        "Jerry": "Jerry"
+      },
+      "editorial_ratings": {
+        "simplicity": 5,
+        "clarity": 5,
+        "variety": 4,
+        "visual_interest_brief_stage": 5,
+        "task_image_fit_brief_stage": 5,
+        "coherence": 5
+      }
+    },
+    {
+      "id": "A1:listening:batch072-bezem-feest:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "34 words, four turns and directly stated device and party time. Cleaning links the broom to the situation. The one party time is a brief relevant reminder; there is no competing time or inventory. Difficulty remains unvalidated.",
+      "language": {
+        "spoken_words": 34,
+        "turns": 4,
+        "sentences": 8,
+        "mean_words_per_sentence": 4.25,
+        "longest_sentence_words": 6
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "Daan notices Roos dancing with the broom while they prepare for a party and asks whether cleaning is finished. She confirms this and requests radio music. He agrees and mentions the party time; she puts the broom away and invites him to dance.",
+        "communicative_purpose": "Daan checks that the floor is ready. Roos wants to finish with the broom, have the radio switched on and dance with Daan while preparing for the stated party.",
+        "contrivance_check": "Broom and clean floor connect directly. The radio is a suitable device to switch on for dancing. The party time is volunteered, but it belongs to their explicitly stated shared preparation. The closing invitation follows the agreement to switch on the radio. No instrument/device mixture, unrelated furniture inventory or invented live performance is needed. The picture shows the same broom dance.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Je danst met de bezem! Is de vloer schoon?",
+            "response_function": "Comments on the visible broom dance and checks whether the cleaning associated with that broom is complete."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, ik ben klaar. Zet jij de radio aan?",
+            "response_function": "Answers that cleaning is complete and asks Daan to switch on a radio, a relevant next action for dancing."
+          },
+          {
+            "turn": 3,
+            "quote": "Ja. Het feest begint om acht uur.",
+            "response_function": "Agrees to switch it on and gives a brief reminder of the stated party's start time."
+          },
+          {
+            "turn": 4,
+            "quote": "Ik zet de bezem weg. Kom, we dansen samen.",
+            "response_function": "Puts away the finished cleaning tool and turns the solo broom dance into an invitation to dance together."
+          }
+        ]
+      },
+      "evidence": {
+        "q1": {
+          "answer": "A",
+          "quote": "Zet jij de radio aan?",
+          "entailment": "Roos directly asks Daan to switch on the radio; his next yes accepts this request.",
+          "distractors": {
+            "B": "A television can be switched on and can supply music, but Roos explicitly asks for the radio. It is absent from the image.",
+            "C": "A telephone can be switched on and can supply music, but Roos explicitly asks for the radio. It is absent from the image."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        },
+        "q2": {
+          "answer": "B",
+          "quote": "Het feest begint om acht uur.",
+          "entailment": "Daan states the party start time as eight o'clock.",
+          "distractors": {
+            "A": "Six is a plausible evening party time, but Daan gives eight.",
+            "C": "Ten is a plausible evening party time, but Daan gives eight."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        }
+      },
+      "metadata": "gesprek and vrije-tijd-familie describe the actual source. A1, a1-practice, draft and targetLevelValidated false are correct. No retired type or generated media is present.",
+      "media": "The broom dance remains. All three candidate devices and clock cues are absent. All device choices can supply sound, reducing the picture-only shortcut created by lamp/oven. Rendered pixels still need checking for music symbols or devices.",
+      "voice_roles": {
+        "Daan": "m-casual",
+        "Roos": "f-young"
+      },
+      "effective_voice_roles": {
+        "Daan": "m-casual",
+        "Roos": "f-young"
+      },
+      "voice_names": {
+        "Daan": "Daan",
+        "Roos": "Roos"
+      },
+      "editorial_ratings": {
+        "simplicity": 5,
+        "clarity": 5,
+        "variety": 5,
+        "visual_interest_brief_stage": 5,
+        "task_image_fit_brief_stage": 5,
+        "coherence": 4
+      }
+    },
+    {
+      "id": "A1:listening:batch072-doos-oren:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "32 words, four turns and two direct gift facts. The brother explains the decoration. Socks are the sole stated contents and no family-member list appears in the source. Difficulty remains unvalidated.",
+      "language": {
+        "spoken_words": 32,
+        "turns": 4,
+        "sentences": 7,
+        "mean_words_per_sentence": 4.57,
+        "longest_sentence_words": 6
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "Karim and Lieke are preparing a gift in a box decorated with ears. Karim asks who will receive it and what is inside. Lieke identifies her brother, explains the funny decoration and names the contents before closing the box.",
+        "communicative_purpose": "Karim wants to understand the gift they are preparing. Lieke explains its recipient and contents and completes the wrapping step.",
+        "contrivance_check": "The recipient, his reaction to the ears, contents and closing the box all concern this one present. Lieke can state her brother's preference without requiring the reviewer to invent an event that makes the exchange intelligible. Socks are the actual contents, rather than one entry in an unrelated inventory. The closed-box image hides those contents and illustrates the same gift.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Die doos heeft oren! Voor wie is dit cadeau?",
+            "response_function": "Notices the unusual wrapping and asks who the present is for."
+          },
+          {
+            "turn": 2,
+            "quote": "Voor mijn broer. Hij vindt die oren grappig.",
+            "response_function": "Answers with the recipient and explains why the ear decoration suits him."
+          },
+          {
+            "turn": 3,
+            "quote": "Wat zit er in de doos?",
+            "response_function": "Follows the recipient question with a concrete question about the contents of that same gift."
+          },
+          {
+            "turn": 4,
+            "quote": "Er zitten sokken in. Ik doe de doos dicht.",
+            "response_function": "Answers the contents question and proceeds with the stated gift preparation by closing the box."
+          }
+        ]
+      },
+      "evidence": {
+        "q1": {
+          "answer": "C",
+          "quote": "Er zitten sokken in.",
+          "entailment": "Lieke directly names socks as the contents of this gift box.",
+          "distractors": {
+            "A": "Apples can be packed in a box, but Lieke states socks.",
+            "B": "Books can be packed in a box, but Lieke states socks."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        },
+        "q2": {
+          "answer": "A",
+          "quote": "Voor mijn broer.",
+          "entailment": "Lieke answers the recipient question with my brother, corresponding to her brother in the option.",
+          "distractors": {
+            "B": "A sister is a plausible gift recipient, but Lieke says brother.",
+            "C": "A mother is a plausible gift recipient, but Lieke says brother."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        }
+      },
+      "metadata": "gesprek and vrije-tijd-familie describe the actual source. A1, a1-practice, draft and targetLevelValidated false are correct. No retired type or generated media is present.",
+      "media": "The box retains explicitly human paper ears. Its fully closed lid hides contents. No candidate contents, extra person or family portrait appears; the image gives neither socks nor brother.",
+      "voice_roles": {
+        "Karim": "m-adult",
+        "Lieke": "f-adult"
+      },
+      "effective_voice_roles": {
+        "Karim": "m-young",
+        "Lieke": "f-adult"
+      },
+      "voice_names": {
+        "Karim": "Ruben",
+        "Lieke": "Lieke"
+      },
+      "editorial_ratings": {
+        "simplicity": 5,
+        "clarity": 5,
+        "variety": 5,
+        "visual_interest_brief_stage": 5,
+        "task_image_fit_brief_stage": 5,
+        "coherence": 5
+      }
+    },
+    {
+      "id": "A1:listening:batch072-paraplu-werk:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "32 words, four turns and two direct commute facts. Drying explains the umbrella; rain links to the homeward journey. Departure time is relevant additional information without a competing time. Difficulty remains unvalidated.",
+      "language": {
+        "spoken_words": 32,
+        "turns": 4,
+        "sentences": 8,
+        "mean_words_per_sentence": 4,
+        "longest_sentence_words": 6
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "At the office, Sabrina asks why Julio's umbrella is open. He explains that it is wet and drying while rain continues outside. She asks about his journey home; he states the bus and his departure time.",
+        "communicative_purpose": "Sabrina checks the unusual open umbrella indoors and asks how Julio will travel home in the stated wet weather. Julio explains the umbrella and his planned journey.",
+        "contrivance_check": "The source itself supplies the link from the indoor umbrella to drying, continuing rain and the later journey. Asking how someone will get home follows that weather exchange without a missing appointment or special relationship. The departure time is additional, relevant travel information. The image shows the stated umbrella at the office. No mixed categories or inventory.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Je paraplu staat open op kantoor. Is hij nat?",
+            "response_function": "Identifies the unusual office umbrella position and asks whether wetness explains it."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, hij moet drogen. Buiten regent het nog.",
+            "response_function": "Confirms wetness and gives the practical drying reason; the continuing rain maintains the weather topic."
+          },
+          {
+            "turn": 3,
+            "quote": "Goed. Hoe ga je straks naar huis?",
+            "response_function": "Acknowledges the explanation and asks about the later home journey in that weather context."
+          },
+          {
+            "turn": 4,
+            "quote": "Met de bus. Ik vertrek om vijf uur.",
+            "response_function": "Answers with the means of transport and adds when that homeward journey begins."
+          }
+        ]
+      },
+      "evidence": {
+        "q1": {
+          "answer": "C",
+          "quote": "Met de bus.",
+          "entailment": "Julio answers the immediately preceding homeward-travel question with the bus.",
+          "distractors": {
+            "A": "The train is a familiar commute option, but Julio says bus.",
+            "B": "The bicycle is a familiar commute option, but Julio says bus."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        },
+        "q2": {
+          "answer": "A",
+          "quote": "Ik vertrek om vijf uur.",
+          "entailment": "Julio directly states that he leaves at five o'clock.",
+          "distractors": {
+            "B": "Six is a plausible work departure time, but he gives five.",
+            "C": "Seven is a plausible work departure time, but he gives five."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        }
+      },
+      "metadata": "gesprek and werk describe the actual source. A1, a1-practice, draft and targetLevelValidated false are correct. No retired type or generated media is present.",
+      "media": "The open umbrella on the office floor establishes the stated drying scene. No vehicle, transport symbol or clock supplies the bus or departure time.",
+      "voice_roles": {
+        "Sabrina": "f-adult",
+        "Julio": "m-young"
+      },
+      "effective_voice_roles": {
+        "Sabrina": "f-adult",
+        "Julio": "m-young"
+      },
+      "voice_names": {
+        "Sabrina": "Lieke",
+        "Julio": "Ruben"
+      },
+      "editorial_ratings": {
+        "simplicity": 5,
+        "clarity": 5,
+        "variety": 4,
+        "visual_interest_brief_stage": 4,
+        "task_image_fit_brief_stage": 5,
+        "coherence": 4
+      }
+    },
+    {
+      "id": "A1:listening:batch072-bloem-beker:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "32 words after clarification, four turns and a simple meal-and-drink order. Repeating de bloem resolves the pronoun before the food request. No menu alternatives are recited. Difficulty remains unvalidated.",
+      "language": {
+        "spoken_words": 32,
+        "turns": 4,
+        "sentences": 9,
+        "mean_words_per_sentence": 3.56,
+        "longest_sentence_words": 7
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "Fatima compliments a decorative flower at a café. Jerry acknowledges her comment, explains that the flower is paper and asks for her order. She requests soup and water; he directs her to sit while he brings it.",
+        "communicative_purpose": "Fatima wants to order a meal and drink. Jerry receives the order and arranges table service after a short exchange about the decoration.",
+        "contrivance_check": "The flower and its paper material concern one café decoration; the turn names de bloem explicitly. Folded construction, angular petals and fold lines make that paper identity visible without adding a new activity or motive. Jerry then asks for an order and Fatima gives a normal meal-and-drink request. Sitting down follows his offer to bring the food. The image contains the same paper flower in an empty mug. No unresolved referent, invented motive or menu inventory is needed.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Wat een mooie bloem in die beker!",
+            "response_function": "Opens with a compliment directed at the flower displayed in a cup."
+          },
+          {
+            "turn": 2,
+            "quote": "Dank u. De bloem is van papier. Wat wilt u eten?",
+            "response_function": "Accepts the compliment, explicitly identifies the flower as paper and starts the café service task by asking what the customer wants to eat."
+          },
+          {
+            "turn": 3,
+            "quote": "Soep, graag. En een glas water.",
+            "response_function": "Answers the order question with a meal and its accompanying drink."
+          },
+          {
+            "turn": 4,
+            "quote": "Goed. Gaat u zitten. Ik breng uw eten.",
+            "response_function": "Accepts the order and tells the customer to sit, establishing that he will bring it to her."
+          }
+        ]
+      },
+      "evidence": {
+        "q1": {
+          "answer": "B",
+          "quote": "Soep, graag.",
+          "entailment": "Fatima directly orders soup in response to the food-order question.",
+          "distractors": {
+            "A": "Bread is a plausible café food, but the stated order is soup.",
+            "C": "Rice is a familiar food alternative, but the stated order is soup."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        },
+        "q2": {
+          "answer": "C",
+          "quote": "En een glas water.",
+          "entailment": "Fatima directly adds a glass of water to her order.",
+          "distractors": {
+            "A": "Milk is a familiar drink, but she asks for water.",
+            "B": "Juice is a familiar drink, but she asks for water."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        }
+      },
+      "metadata": "gesprek and winkels-diensten describe the actual source. A1, a1-practice, draft and targetLevelValidated false are correct. No retired type or generated media is present.",
+      "media": "The folded paper flower remains in an empty mug at the counter. Angular petals and visible fold lines distinguish its paper construction; they do not show or suggest the tested soup or water. No food, liquid, glass or second vessel depicts the order. The unchanged alt states the equivalent paper-flower scene. Rendered pixels still need independent review.",
+      "voice_roles": {
+        "Fatima": "f-adult",
+        "Jerry": "m-shop"
+      },
+      "effective_voice_roles": {
+        "Fatima": "f-adult",
+        "Jerry": "m-shop"
+      },
+      "voice_names": {
+        "Fatima": "Lieke",
+        "Jerry": "Jerry"
+      },
+      "editorial_ratings": {
+        "simplicity": 5,
+        "clarity": 5,
+        "variety": 4,
+        "visual_interest_brief_stage": 5,
+        "task_image_fit_brief_stage": 5,
+        "coherence": 5
+      }
+    },
+    {
+      "id": "A1:listening:batch072-kat-boeken:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "33 words, four turns and one immediate departure problem. Work and nine o'clock are explicit. The cat is a practical obstacle, rather than a pretext for unrelated equipment details. Difficulty remains unvalidated.",
+      "language": {
+        "spoken_words": 33,
+        "turns": 4,
+        "sentences": 9,
+        "mean_words_per_sentence": 3.67,
+        "longest_sentence_words": 6
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "At home, Ruth needs to leave for work but the cat is sleeping on her bag. Roos offers to lift the cat and asks when work starts. Ruth gives the time and urgency; Roos tells her to take the bag and wishes her a good day.",
+        "communicative_purpose": "Ruth wants access to her bag so she can leave for work. Roos helps remove the stated obstruction, checks the timing and sends her off.",
+        "contrivance_check": "The cat, bag, work start and immediate departure form one practical obstacle-and-help exchange. No special relationship between the women is needed beyond their stated presence at home. The picture depicts the stated obstacle before the help occurs. There is no unrelated book, clothing or destination inventory.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "De kat slaapt op mijn tas. Ik moet naar mijn werk.",
+            "response_function": "States the visible obstacle to taking her bag and the immediate reason she needs it, leaving for work."
+          },
+          {
+            "turn": 2,
+            "quote": "Ik pak de kat. Hoe laat begin je?",
+            "response_function": "Offers the action that removes the obstacle and asks when the stated work begins."
+          },
+          {
+            "turn": 3,
+            "quote": "Om negen uur. Ik moet nu weg.",
+            "response_function": "Directly answers the start-time question and confirms that departure is needed now."
+          },
+          {
+            "turn": 4,
+            "quote": "Goed. Pak je tas maar. Fijne dag!",
+            "response_function": "Acknowledges the urgency, invites Ruth to take the now-accessible bag after the offered help and closes with a natural farewell."
+          }
+        ]
+      },
+      "evidence": {
+        "q1": {
+          "answer": "A",
+          "quote": "Ik moet naar mijn werk.",
+          "entailment": "Ruth directly states that she needs to go to work.",
+          "distractors": {
+            "B": "The shop is a plausible destination from home, but Ruth explicitly says work.",
+            "C": "A lesson is a plausible destination from home, but Ruth explicitly says work."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        },
+        "q2": {
+          "answer": "B",
+          "quote": "Om negen uur.",
+          "entailment": "Ruth answers the immediately preceding work-start question with nine o'clock.",
+          "distractors": {
+            "A": "Eight is a plausible work start time, but she answers nine.",
+            "C": "Ten is a plausible work start time, but she answers nine."
+          },
+          "explanation_check": "The explanation agrees with the quote, speaker and requested fact.",
+          "option_check": "All choices answer the same question in parallel form. No option contains another; the key has no unique prompt-word, length, specificity or polarity cue."
+        }
+      },
+      "metadata": "gesprek and vrije-tijd-familie describe the actual source. A1, a1-practice, draft and targetLevelValidated false are correct. No retired type or generated media is present.",
+      "media": "The cat remains on the bag at home. No work uniform, workplace objects, shop, classroom or clock favours the destination or time. The bag is the obstacle, not an answer option.",
+      "voice_roles": {
+        "Ruth": "f-mature",
+        "Roos": "f-young"
+      },
+      "effective_voice_roles": {
+        "Ruth": "f-mature",
+        "Roos": "f-young"
+      },
+      "voice_names": {
+        "Ruth": "Ruth",
+        "Roos": "Roos"
+      },
+      "editorial_ratings": {
+        "simplicity": 5,
+        "clarity": 5,
+        "variety": 5,
+        "visual_interest_brief_stage": 5,
+        "task_image_fit_brief_stage": 5,
+        "coherence": 5
+      }
+    }
+  ],
+  "retained_sets": [
+    {
+      "id": "a1-listening-02",
+      "ids": [
+        "A1:listening:batch072-banaan-telefoon:1",
+        "A1:listening:batch072-eend-reis:1",
+        "A1:listening:batch072-stoel-ogen:1"
+      ],
+      "keys": {
+        "A": 2,
+        "B": 2,
+        "C": 2
+      }
+    },
+    {
+      "id": "a1-listening-03",
+      "ids": [
+        "A1:listening:batch072-grote-hoed:1",
+        "A1:listening:batch072-bezem-feest:1",
+        "A1:listening:batch072-doos-oren:1"
+      ],
+      "keys": {
+        "B": 2,
+        "C": 2,
+        "A": 2
+      }
+    },
+    {
+      "id": "a1-listening-04",
+      "ids": [
+        "A1:listening:batch072-paraplu-werk:1",
+        "A1:listening:batch072-bloem-beker:1",
+        "A1:listening:batch072-kat-boeken:1"
+      ],
+      "keys": {
+        "C": 2,
+        "A": 2,
+        "B": 2
+      }
+    }
+  ],
+  "archive": {
+    "reason": "The previous approval is superseded after the source-meaning audit and complete replacement review. Its full details remain in the coordinator-created archive. Archived media approvals do not approve these replacement scripts or briefs.",
+    "files": [
+      {
+        "path": "content/reviews/history/2026-10-27-a1-initial/reviews-072-review.json",
+        "sha256": "6e8b9a38484155501ac55b5f08ae8d2c99230f732cd23f02b3ab65448b30eac1"
+      },
+      {
+        "path": "content/reviews/history/2026-10-27-a1-initial/reviews-072-review.md",
+        "sha256": "3d7ad640c3aa09e023ab2db68596916c0f2f85e4c4275a2e650179986f9acd4f"
+      },
+      {
+        "path": "content/reviews/history/2026-10-27-a1-initial/batches-072-original.json",
+        "sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232"
+      },
+      {
+        "path": "content/reviews/history/2026-10-27-a1-initial/batches-072-notes.md",
+        "sha256": "a6a51f11aaa788988bcbd2af59f7f967d9509103e2eb09a4e62addaea89ea1b5"
+      },
+      {
+        "path": "content/reviews/history/2026-10-27-paper-flower/batches-072-before-original.json",
+        "sha256": "1d60e34123f19852d0f7bad06a817d40ef1fd523b404581ed746daeda25ba776"
+      },
+      {
+        "path": "content/reviews/history/2026-10-27-paper-flower/reviews-072-before-review.json",
+        "sha256": "ba336c6c95136272a2ed50a66576c7f498f10bb85572251c53b7b0d300dc06fc"
+      },
+      {
+        "path": "content/reviews/history/2026-10-27-paper-flower/reviews-072-before-review.md",
+        "sha256": "72a658603f5f9fe10c1ab48c1f86b62efcf392fa5d597d04bb36b4a41126e52f"
+      },
+      {
+        "path": "content/reviews/history/2026-10-27-paper-flower/batches-072-before-meaning-packet.json",
+        "sha256": "c820fe6ee8515e415308c662c1120b2fc8f70c7c3f79e841afd554c4590acfd1"
+      }
+    ]
+  },
+  "revisions": [
+    {
+      "reviewed_at": "2026-10-27T19:15:26.974464+00:00",
+      "scope": "Full replacement review of all nine retained exercise IDs under meaning-first contract version 2.",
+      "previous_review_id": "072-review",
+      "previous_source_sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+      "previous_review_archive": "content/reviews/history/2026-10-27-a1-initial/reviews-072-review.json",
+      "details": "Replaces every earlier 072 source, answer audit and brief judgment with this final source review. The complete previous report, source and notes are preserved at the archive paths and hashes above. The initial approval did not establish source coherence and must not be treated as approval of these replacement bytes."
+    },
+    {
+      "reviewed_at": "2026-10-27T19:30:51.197334+00:00",
+      "scope": "Focused independent final-source review of the paper-flower image brief only.",
+      "verdict": "pass",
+      "previous_source_sha256": "1d60e34123f19852d0f7bad06a817d40ef1fd523b404581ed746daeda25ba776",
+      "previous_packet_sha256": "c820fe6ee8515e415308c662c1120b2fc8f70c7c3f79e841afd554c4590acfd1",
+      "source_sha256": "976cee22236a328652b9f9a3de94fd974f9b5f8258aabcc4c96528a76bac93d7",
+      "packet_sha256": "8c9d82d12f9db7c0cea7d969fd451657fe941f22f0fd31df6fe216164b6469f3",
+      "previous_review_archive": "content/reviews/history/2026-10-27-paper-flower/reviews-072-before-review.json",
+      "id": "A1:listening:batch072-bloem-beker:1",
+      "field": "images[0].brief",
+      "old": "Fatima (woman in her forties, headscarf, blue coat) faces Jerry (man in his forties, short black hair, terracotta apron) across a café counter. A paper flower stands in an empty mug on the counter. Fatima gestures toward the flower while Jerry smiles. No food, liquid, drinking glass, bottle, jug or second drinking vessel. No text, numerals, labels, signage, clock faces or logos.",
+      "new": "Fatima (woman in her forties, headscarf, blue coat) faces Jerry (man in his forties, short black hair, terracotta apron) across a café counter. A folded paper flower with angular petals and visible fold lines stands in an empty mug on the counter. Fatima gestures toward the flower while Jerry smiles. No food, liquid, drinking glass, bottle, jug or second drinking vessel. No text, numerals, labels, signage, clock faces or logos.",
+      "details": "Exact comparison found this one changed field. Folded construction, angular petals and visible fold lines clarify the paper flower already named by the speaker and alt. These are object-identification facts, not an augmentation of the illustration style. Café scene, cast, empty mug and all exclusions are unchanged. Questions still ask for soup and water; no food, liquid or second vessel is allowed. Script, evidence, explanations, key logic and all 36 exact turn links are unchanged. The affected full item and final source meaning were rechecked without unresolved assumptions."
+    }
+  ],
+  "media_notes": {
+    "status": "source-and-brief-review-only",
+    "audio": "All replacement fragments and changed question narration require generation from the adopted hash-approved source, transcription round trips and complete listening review. Preserve reviewed roles and the per-ID Ruben casting.",
+    "images": "All nine briefs changed and need regenerated images in the existing minimal flat style, followed by rendered-image checks against both questions and the complete exclusion list. No historical image approval is reused."
+  },
+  "coordinator_actions": [
+    "Read this review and proposed diff, then adopt with npm run batch:adopt 072.",
+    "Generate and independently review replacement media locally using the normal hash gates.",
+    "Integrate only the adopted reviewed bytes and current passing media; preserve practice-set membership and study history."
+  ],
+  "limitations": [
+    "Independent AI editorial review does not validate A1 difficulty, establish exam equivalence or predict exam results.",
+    "No rendered image, generated audio, browser journey or provider output was inspected in this review.",
+    "Source readiness does not make an item publishable before its replacement media passes review."
+  ]
+}

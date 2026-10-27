@@ -1,6 +1,8 @@
 import type { StudyState, Session, Exercise, ExerciseRecord } from '../types';
+import { LEVELS } from '../types';
 import { STORAGE_KEY, readStudy, writeStored } from './persistence';
 import standardization from '../../content/migrations/2026-09-standardization.json';
+import voiceMigration from '../../content/migrations/2026-10-27-voices.json';
 export { STORAGE_KEY } from './persistence';
 export const defaults = (): StudyState => ({
   version: 2,
@@ -24,33 +26,60 @@ export function flatten(session, catalogue) {
     ? all.filter((x) => session.questions.includes(x.key))
     : all;
 }
-// A source or answer-key revision invalidates only the affected saved response.
-// This is a content checksum, not a security or authentication mechanism.
-export function questionFingerprint(item, q) {
-  const source = JSON.stringify([
+function questionSource(item, q) {
+  return [
     item.level,
     item.part,
     item.text ?? '',
     item.transcript ?? '',
-    item.audio ?? '',
     q.id,
     q.prompt,
     Object.entries(q.options),
     q.answer,
     q.explanation,
-  ]);
+  ];
+}
+// A source or answer-key revision invalidates only the affected saved response.
+// Derived media URLs are excluded. This is a content checksum, not authentication.
+function fingerprint(fields, version: 'q1' | 'q2') {
+  const source = JSON.stringify(fields);
   let hash = 2166136261;
   for (let i = 0; i < source.length; i++) {
     hash ^= source.charCodeAt(i);
     hash = Math.imul(hash, 16777619);
   }
-  return `q1:${(hash >>> 0).toString(16)}`;
+  return `${version}:${(hash >>> 0).toString(16)}`;
+}
+export function questionFingerprint(item, q) {
+  return fingerprint(questionSource(item, q), 'q2');
+}
+function previousFingerprint(item, q, audio = item.audio) {
+  const fields = questionSource(item, q);
+  return fingerprint([...fields.slice(0, 4), audio ?? '', ...fields.slice(4)], 'q1');
+}
+function matchesResponse(item, q, response, savedRevision) {
+  if (!response) return false;
+  if (
+    response?.fingerprint === questionFingerprint(item, q) ||
+    response?.fingerprint === previousFingerprint(item, q)
+  )
+    return true;
+  const previous = voiceMigration.previousAudio[item.id];
+  // A known voice replacement may change only this URL. Recompute every source
+  // field and require both revisions, rather than trusting an old checksum alone.
+  return (
+    !!previous &&
+    previous.revision === item.revision &&
+    savedRevision === item.revision &&
+    response?.fingerprint === previousFingerprint(item, q, previous.audio)
+  );
 }
 export function mistakes(item, record) {
+  if (!matchesRevision(record?.revision, item)) return [];
   return (item.questions || []).filter((q) => {
     const saved = record?.responses?.[q.id];
     return (
-      saved?.fingerprint === questionFingerprint(item, q) &&
+      matchesResponse(item, q, saved, record?.revision) &&
       Object.hasOwn(q.options, saved.selected) &&
       saved.selected !== q.answer
     );
@@ -74,6 +103,7 @@ export function validSession(a, catalogue) {
   const first = catalogue.find((i) => i.id === a.ids[0]);
   // A level check mixes reading and listening at one level; other sessions keep one subject.
   const check = a.mode === 'check';
+  if (first?.level === 'A1' && a.mode !== 'practice') return false;
   if (check && (!['A2', 'B1', 'B2'].includes(a.level) || a.questions === undefined)) return false;
   if (
     !a.ids.every((id) =>
@@ -108,8 +138,7 @@ export function restore(storage, catalogue) {
   try {
     const parsed = readStudy(storage);
     if (!parsed || ![1, 2].includes(parsed.version)) return state;
-    if (['A2', 'B1', 'B2'].includes(parsed.settings?.level))
-      state.settings.level = parsed.settings.level;
+    if (LEVELS.includes(parsed.settings?.level)) state.settings.level = parsed.settings.level;
     if (['nl', 'en'].includes(parsed.settings?.lang)) state.settings.lang = parsed.settings.lang;
     state.settings.clock = parsed.settings?.clock === true;
     if (['light', 'dark', 'system'].includes(parsed.settings?.theme))
@@ -146,10 +175,13 @@ export function restore(storage, catalogue) {
           for (const q of item.questions) {
             const answer = r.responses?.[q.id];
             if (
-              answer?.fingerprint === questionFingerprint(item, q) &&
+              matchesResponse(item, q, answer, r.revision) &&
               Object.hasOwn(q.options, answer.selected)
             )
-              responses[q.id] = { selected: answer.selected, fingerprint: answer.fingerprint };
+              responses[q.id] = {
+                selected: answer.selected,
+                fingerprint: questionFingerprint(item, q),
+              };
           }
           if (Object.keys(responses).length) record.responses = responses;
           state.records[item.id] = record;

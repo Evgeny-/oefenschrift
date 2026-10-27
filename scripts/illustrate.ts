@@ -152,7 +152,8 @@ async function run() {
   // Pictures are independent: a few generate at once.
   await pool(list, CONCURRENCY, async (job) => {
     const size = style.sizes[job.kind] || style.sizes.still;
-    const prompt = `${style.stylePrefix} ${expandCast(job.spec.brief!)}`;
+    const prefix = style.stylePrefix;
+    const prompt = `${prefix} ${expandCast(job.spec.brief!)}`;
     // A redo gets a fresh attempt number so that its files do not collide with the first drawing.
     const attempt = REDO.has(job.key) ? (manifest[job.key]?.attempt || 1) + 1 : 1;
     const token = sha(

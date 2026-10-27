@@ -1,0 +1,80 @@
+{
+  "review_id": "2026-10-27-reviewer-semantic-regression",
+  "review_contract_version": 2,
+  "reviewed_at": "2026-10-27T19:03:41.244013+00:00",
+  "source": "tests/fixtures/review-meaning/source.json",
+  "source_sha256": "948617afea2512dbab94ed1afdefdeb93a12498fecaa3d216deea3c6da5dae74",
+  "review_order": "blind-source-before-expected-results-and-answer-material",
+  "independence_note": "Read only the review brief, rubric, workflow, relevant blueprint/config and this blind four-dialogue source. No expected-results file, authored batch, notes, questions, options, keys or other review was opened.",
+  "items": [
+    {
+      "id": "broom",
+      "verdict": "reject",
+      "coherence_rating": 1,
+      "situation_summary": "Daan notices Roos dancing with a broom and asks about turning music on. The replies shift to instrument choices and then to furniture and tableware.",
+      "communicative_purpose": "Starting music is the stated request. The exchange never establishes why preparing chairs, plates or glasses helps with that request.",
+      "contrivance_check": "Fails. Radio, guitar and piano are presented as interchangeable ways to turn music on without establishing a performance. The later stock of chairs, plates and glasses serves no stated interaction.",
+      "unsupported_assumptions": [
+        "A live performance would make the guitar and piano relevant alternatives to turning on a radio.",
+        "An unstated gathering would connect chairs, plates and glasses to the music request."
+      ],
+      "reasons": [
+        "The reply changes the object category from switching on music to choosing between a device and instruments.",
+        "The final two turns add unrelated stocktaking instead of completing the music exchange."
+      ],
+      "repair_scope": "Replace the dialogue premise or develop a new, explicitly linked exchange. A literal quoted answer would not repair the source."
+    },
+    {
+      "id": "search",
+      "verdict": "revise",
+      "coherence_rating": 2,
+      "situation_summary": "Roos wants to find her pen. Ruben first locates her book and telephone, then answers her direct question about the pen.",
+      "communicative_purpose": "Helping Roos find her pen is clear, and the final answer achieves it. Ruben’s first reply does not help with that search as written.",
+      "contrivance_check": "Fails locally. The book and telephone are a pair of unrelated location facts. The source gives no reason to inventory them when Roos asks for her pen.",
+      "unsupported_assumptions": [
+        "The book or telephone would provide a useful clue to the pen’s location, although the dialogue never supplies that connection."
+      ],
+      "reasons": [
+        "The second turn responds to a search for a pen by naming other objects.",
+        "The third and fourth turns are coherent, so replacing the unrelated second turn can repair the exchange."
+      ],
+      "repair_scope": "Replace the second turn with a direct contribution to the pen search. Do not add an off-page explanation for the other objects."
+    },
+    {
+      "id": "menu",
+      "verdict": "pass",
+      "coherence_rating": 5,
+      "situation_summary": "A waiter takes a customer’s soup order and asks whether the customer also wants bread.",
+      "communicative_purpose": "The exchange establishes the soup choice and whether to serve bread.",
+      "contrivance_check": "Passes. The list names real alternatives the customer must choose between. Bread is a relevant follow-up to the soup order.",
+      "unsupported_assumptions": [],
+      "reasons": [
+        "Each reply answers the preceding service question.",
+        "The choices and follow-up both serve the order rather than supplying unrelated distractor facts."
+      ]
+    },
+    {
+      "id": "playful",
+      "verdict": "pass",
+      "coherence_rating": 5,
+      "situation_summary": "A notices B wearing a pan on their head. B explains that their hat is wet, asks to borrow A’s coat and then says they can go outside.",
+      "communicative_purpose": "B explains the visible oddity and obtains permission and a location for the coat needed to go outside.",
+      "contrivance_check": "Passes. The wet hat supplies an explicit reason for the pan. The coat request is followed by permission, its location and the stated next action.",
+      "unsupported_assumptions": [],
+      "reasons": [
+        "The unusual object is grounded by the wet-hat explanation.",
+        "The request, permission and thanks form a coherent practical exchange."
+      ]
+    }
+  ],
+  "counts": {
+    "pass": 2,
+    "revise": 1,
+    "reject": 1
+  },
+  "limitations": [
+    "Semantic editorial regression only. This does not approve a batch or validate CEFR difficulty."
+  ],
+  "original_review_source": "var/a1-meaning-repairs-2026-10-27/reviewer-evaluation-blind.json",
+  "reproducibility_note": "Source and sealed expected verdicts copied unchanged into tests/fixtures/review-meaning after the blind review. Reviewers receive source.json alone before writing findings; expected.json remains coordinator-only until findings are saved."
+}

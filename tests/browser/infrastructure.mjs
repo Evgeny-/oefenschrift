@@ -249,8 +249,8 @@ try {
     'Hint disclosure opens without changing the draft',
   );
   await check(
-    `document.querySelector('.report-trigger').getBoundingClientRect().left-document.querySelector('.session-clock').getBoundingClientRect().right<20&&Math.abs(document.querySelector('.exercise-meta > p').getBoundingClientRect().y-document.querySelector('.exercise-tools').getBoundingClientRect().y)<8`,
-    'Timer and report are grouped beside the exercise metadata',
+    `!document.querySelector('.session-clock')&&!document.querySelector('.report-trigger')&&document.querySelectorAll('.reaction-button').length===2`,
+    'Speaking offers like and dislike with its report initially hidden',
   );
   await evaluate(`document.querySelector('.type-toggle').focus();true;`);
   await check(
@@ -268,6 +268,12 @@ try {
   await fs.writeFile(sourceFile, (await fs.readFile(sourceFile, 'utf8')).replace(newText, oldText));
   await wait(`!document.querySelector('.sentence-starters summary')?.textContent.includes('HMR')`);
   await shot('speaking');
+  await click('.reaction-button[data-reaction="dislike"]');
+  await wait(`!!document.querySelector('.report-trigger')`);
+  await check(
+    `!document.querySelector('.report-dialog')`,
+    'Dislike reveals an optional report without opening a dialog',
+  );
   await click('.report-trigger');
   await reportGeometry('The report dialog is centered and fully visible on desktop');
   await shot('report-desktop');
@@ -557,6 +563,7 @@ try {
   );
   await click('[data-action="start-check"]');
   await wait(`!!document.querySelector('.question')`);
+  await check(`!document.querySelector('.session-clock')`, 'The level check hides the timer');
   await check(
     `document.querySelector('.toolbar .back').textContent.includes('Stop the check')&&document.querySelector('.session-position span').textContent==='Question 1 of 10'&&document.querySelector('.exercise-meta p').textContent.includes('Level check')`,
     'The check runs in the exercise layout with its own toolbar',

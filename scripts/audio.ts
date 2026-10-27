@@ -1,5 +1,29 @@
 import { setting as environmentSetting } from '../environment';
 import { requireReviewedMedia } from './media-review';
+import {
+  configuredAudioSource,
+  decodeAudioSource,
+  probePcmSource,
+  type AudioSource,
+} from './audio-source';
+import { audioOption, parseAudioKeys, selectAudioJobs } from './audio-selection';
+import { audioProcessingFor, assertProcessingMode, type VoiceProcessing } from './audio-processing';
+import {
+  audioCastingFor,
+  audioVoicesForItem,
+  assertDistinctAudioVoices,
+  clipWithCasting,
+  validateAudioCasting,
+  type AudioCasting,
+} from './audio-casting';
+import {
+  audioCacheInput,
+  audioModeFor,
+  audioProfileFor,
+  turnGapFor,
+  voiceSettingsFor,
+  type AudioProfile,
+} from './audio-profile';
 // Generate listening audio, question audio and speaking prompts from reviewed scripts.
 //
 //   tsx scripts/audio.ts                 report what would be generated (dry run)
@@ -8,9 +32,11 @@ import { requireReviewedMedia } from './media-review';
 //                                        also write audio fields into content/catalogue.json
 //   tsx scripts/audio.ts --file x.json --generate --out tmp/audio [--voices config/voices.json]
 //                                        generate for items in a JSON file (testing a batch before integration)
+//   tsx scripts/audio.ts --keys tmp/keys.json --source-format mp3_44100_192 --generate --apply
+//                                        replace only the exact job keys in a JSON array
 //
 // Scripts name voice roles (config/voices.json); a conversation uses two different roles and, by default,
-// the dialogue model in one request (item.audioMode overrides). Every clip is loudness-normalised and
+// stitched per-turn synthesis (item.audioMode can select dialogue). Every clip is loudness-normalised and
 // transcribed back with Scribe and compared with the script (character error rate after number
 // normalisation, and the longest run of inserted words); a clip that fails the round trip is kept
 // under tmp/ but never written to the manifest. The API key is read the same way the app reads it and
@@ -24,6 +50,7 @@ type Turn = { speaker?: string; role: string; text: string };
 type Item = {
   id: string;
   part: string;
+  level?: string;
   text?: string;
   script?: Turn[];
   audioMode?: 'stitched' | 'dialogue';
@@ -45,6 +72,12 @@ type Clip = {
   inserted: number;
   script_sha256: string;
   settings: unknown;
+  sourceFormat?: AudioSource['sourceFormat'];
+  sourceSampleRate?: AudioSource['sourceSampleRate'];
+  profile?: AudioProfile;
+  gapSeconds?: number;
+  casting?: AudioCasting;
+  processing?: VoiceProcessing;
 };
 
 const args = process.argv.slice(2);
@@ -87,8 +120,8 @@ function apiKey(): string {
   return key;
 }
 const sha = (value: string) => createHash('sha256').update(value).digest('hex');
-const voiceFor = (role: string): string => {
-  const entry = voices.roles[role];
+const voiceFor = (role: string, configuration = voices): string => {
+  const entry = configuration.roles[role];
   if (!entry?.voice_id)
     throw new Error(`Voice role "${role}" has no voice_id in config/voices.json.`);
   return entry.voice_id;
@@ -105,23 +138,30 @@ async function withRetry(call: () => Promise<Response>): Promise<Response> {
   return response;
 }
 // Voice settings for one role: the shared settings plus the role's speaking-rate multiplier.
-const settingsFor = (role: string) => ({
-  ...voices.settings,
-  speed: voices.roles[role]?.speed ?? voices.settings.speed ?? 1,
-});
-async function tts(key: string, role: string, text: string): Promise<Buffer> {
-  const voiceId = voiceFor(role);
+const settingsFor = (role: string, profile?: AudioProfile, configuration = voices) =>
+  voiceSettingsFor(configuration, role, profile);
+async function tts(
+  key: string,
+  role: string,
+  text: string,
+  profile?: AudioProfile,
+  configuration = voices,
+): Promise<Buffer> {
+  const voiceId = voiceFor(role, configuration);
   const response = await withRetry(() =>
-    fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}?output_format=${PCM}`, {
-      method: 'POST',
-      headers: { 'xi-api-key': key, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        text,
-        model_id: voices.model,
-        language_code: voices.language,
-        voice_settings: settingsFor(role),
-      }),
-    }),
+    fetch(
+      `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}?output_format=${audioSource.sourceFormat}`,
+      {
+        method: 'POST',
+        headers: { 'xi-api-key': key, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          text,
+          model_id: voices.model,
+          language_code: voices.language,
+          voice_settings: settingsFor(role, profile, configuration),
+        }),
+      },
+    ),
   );
   if (!response.ok) throw new Error(`ElevenLabs text-to-speech returned HTTP ${response.status}.`);
   return Buffer.from(await response.arrayBuffer());
@@ -131,16 +171,19 @@ async function dialogue(
   inputs: { text: string; voice_id: string }[],
 ): Promise<Buffer> {
   const response = await withRetry(() =>
-    fetch(`https://api.elevenlabs.io/v1/text-to-dialogue?output_format=${PCM}`, {
-      method: 'POST',
-      headers: { 'xi-api-key': key, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        inputs,
-        model_id: voices.dialogueModel,
-        language_code: voices.language,
-        settings: { stability: voices.settings.stability },
-      }),
-    }),
+    fetch(
+      `https://api.elevenlabs.io/v1/text-to-dialogue?output_format=${audioSource.sourceFormat}`,
+      {
+        method: 'POST',
+        headers: { 'xi-api-key': key, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          inputs,
+          model_id: voices.dialogueModel,
+          language_code: voices.language,
+          settings: { stability: voices.settings.stability },
+        }),
+      },
+    ),
   );
   if (!response.ok)
     throw new Error(`ElevenLabs text-to-dialogue returned HTTP ${response.status}.`);
@@ -303,50 +346,30 @@ function roundTrip(reference: string, hypothesis: string) {
   }
   return { wer: cer, inserted, wordCount, hypothesis };
 }
-// The provider returns lossless 16-bit PCM at 24 kHz; every step below stays lossless (WAV) until the
-// single final MP3 encode, so the clip is encoded exactly once. Level matching is a pure gain: the
-// integrated loudness is measured and the whole turn is shifted to the target, with no compression.
-// 44.1 kHz PCM needs a Pro plan; the run probes once and falls back to 24 kHz on a Starter key.
-let PCM = 'pcm_44100',
-  PCM_RATE = 44100;
+// PCM stays lossless until the final MP3 encode. The optional full-bandwidth provider MP3 is
+// decoded to WAV first; it has one provider encode and one final encode. Level matching applies
+// constant gain without compression. The default probes PCM access and only downgrades when the
+// provider explicitly identifies the subscription restriction.
+let audioSource: AudioSource = { sourceFormat: 'pcm_44100', sourceSampleRate: 44100 };
 const PIPELINE = 'pcm-gain-single-encode';
-async function choosePcm(key: string) {
-  const response = await fetch(
-    `https://api.elevenlabs.io/v1/text-to-speech/${voiceFor('narrator')}?output_format=pcm_44100`,
-    {
-      method: 'POST',
-      headers: { 'xi-api-key': key, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        text: 'Test.',
-        model_id: voices.model,
-        language_code: voices.language,
-      }),
-    },
-  );
-  if (response.status === 403) {
-    PCM = 'pcm_24000';
-    PCM_RATE = 24000;
-  }
-  console.log(`Source audio: ${PCM}.`);
-}
-function pcmToWav(raw: Buffer, wav: string) {
-  const rawPath = wav.replace(/\.wav$/, '.pcm');
-  writeFileSync(rawPath, raw);
-  execFileSync('ffmpeg', [
-    '-y',
-    '-loglevel',
-    'error',
-    '-f',
-    's16le',
-    '-ar',
-    String(PCM_RATE),
-    '-ac',
-    '1',
-    '-i',
-    rawPath,
-    wav,
-  ]);
-  execFileSync('rm', [rawPath]);
+async function chooseSource(key: string, requested?: AudioSource) {
+  audioSource =
+    requested ??
+    (await probePcmSource(() =>
+      fetch(
+        `https://api.elevenlabs.io/v1/text-to-speech/${voiceFor('narrator')}?output_format=pcm_44100`,
+        {
+          method: 'POST',
+          headers: { 'xi-api-key': key, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            text: 'Test.',
+            model_id: voices.model,
+            language_code: voices.language,
+          }),
+        },
+      ),
+    ));
+  console.log(`Source audio: ${audioSource.sourceFormat}.`);
 }
 function measureLoudness(wav: string): { integrated: number; truePeak: number } {
   // loudnorm prints its measurement as JSON on stderr; the audio itself is discarded.
@@ -378,8 +401,8 @@ function matchLoudness(wav: string) {
   ]);
   execFileSync('mv', [tmp, wav]);
 }
-function stitch(parts: string[], target: string) {
-  const gap = Number(voices.gapSeconds || 0.45);
+function stitch(parts: string[], target: string, profile?: AudioProfile) {
+  const gap = turnGapFor(voices, profile);
   const inputs = parts.flatMap((p) => ['-i', p]);
   const filter =
     parts.map((_, i) => `[${i}:a]apad=pad_dur=${gap}[a${i}]`).join(';') +
@@ -398,7 +421,7 @@ function stitch(parts: string[], target: string) {
     target,
   ]);
 }
-// The one lossy step: 44.1 kHz MP3 at 192 kbps.
+// Final output encode: 44.1 kHz MP3 at 192 kbps.
 function encode(wav: string, mp3: string) {
   execFileSync('ffmpeg', [
     '-y',
@@ -448,9 +471,7 @@ function jobs(items: Item[]): Job[] {
   const list: Job[] = [];
   for (const item of items) {
     if (item.script?.length) {
-      const mode =
-        item.audioMode ||
-        (item.script.length > 1 ? voices.defaultConversationMode || 'stitched' : 'stitched');
+      const mode = audioModeFor(item, item.script, voices);
       list.push({
         key: `${item.id}#fragment`,
         item,
@@ -484,11 +505,7 @@ function jobs(items: Item[]): Job[] {
             item,
             kind: 'fragment',
             turns: question.script,
-            mode:
-              item.audioMode ||
-              (question.script.length > 1
-                ? voices.defaultConversationMode || 'stitched'
-                : 'stitched'),
+            mode: audioModeFor(item, question.script, voices),
             target: (clip) =>
               Object.assign(question, {
                 audio: clip.file,
@@ -536,24 +553,32 @@ function jobs(items: Item[]): Job[] {
   return list;
 }
 
-// A clip made from the same script, voices and settings stays valid at either source rate:
-// a key that falls back to 24 kHz must not resynthesise every 44.1 kHz clip.
+// PCM clips stay valid at either source rate, so a 24 kHz fallback does not replace older
+// 44.1 kHz clips. An explicit MP3 source requires its own cache token and recorded provenance.
 export function reusableClip(
   existing: Clip | undefined,
   script_sha256: string,
   tokenAt: (rate: number) => string,
+  sourceFormat?: AudioSource['sourceFormat'],
 ): existing is Clip {
+  const mp3 = sourceFormat === 'mp3_44100_192';
   return Boolean(
     existing &&
       existing.script_sha256 === script_sha256 &&
-      [44100, 24000].some((rate) => existing.file === `audio/${tokenAt(rate)}.mp3`),
+      (mp3 ? existing.sourceFormat === sourceFormat : existing.sourceFormat !== 'mp3_44100_192') &&
+      (mp3 ? [44100] : [44100, 24000]).some(
+        (rate) => existing.file === `audio/${tokenAt(rate)}.mp3`,
+      ),
   );
 }
 
 async function run() {
   const source = option('--file', '');
-  if (GENERATE) await requireReviewedMedia(source);
   const catalogue: Item[] = JSON.parse(readFileSync(source || 'content/catalogue.json', 'utf8'));
+  const keysPath = audioOption(args, '--keys');
+  const requestedSource = configuredAudioSource(
+    audioOption(args, '--source-format') ?? voices.source_format,
+  );
   const manifestPath = source ? resolve(OUT, 'audio-manifest.json') : 'content/audio-manifest.json';
   const manifest: Record<string, Clip> = existsSync(manifestPath)
     ? Object.fromEntries(
@@ -562,10 +587,32 @@ async function run() {
           .map((c) => [c.key, c]),
       )
     : {};
-  const list = jobs(catalogue);
+  const allJobs = jobs(catalogue);
+  const list = selectAudioJobs(
+    allJobs,
+    keysPath ? parseAudioKeys(readFileSync(keysPath, 'utf8')) : undefined,
+  );
+  validateAudioCasting(voices);
+  // Catch invalid role pacing before even the PCM entitlement probe can consume a request.
+  for (const job of list) {
+    const configuration = audioVoicesForItem(voices, job.item.id);
+    const profile = audioProfileFor(job.item, configuration);
+    assertProcessingMode(
+      job.mode,
+      audioProcessingFor(
+        configuration,
+        job.turns.map((turn) => turn.role),
+      ),
+    );
+    assertDistinctAudioVoices(job.turns, configuration);
+    for (const turn of job.turns) {
+      voiceFor(turn.role, configuration);
+      settingsFor(turn.role, profile, configuration);
+    }
+  }
   const usedChars = list.reduce((n, j) => n + j.turns.reduce((m, t) => m + t.text.length, 0), 0);
   console.log(
-    `${list.length} clips for ${catalogue.length} items, ${usedChars} characters of script.`,
+    `${list.length} selected clips of ${allJobs.length} for ${new Set(list.map((job) => job.item.id)).size} items, ${usedChars} characters of script.`,
   );
   if (!GENERATE) {
     for (const j of list)
@@ -575,8 +622,9 @@ async function run() {
     return;
   }
 
+  await requireReviewedMedia(source);
   const key = apiKey();
-  await choosePcm(key);
+  await chooseSource(key, requestedSource);
   mkdirSync(OUT, { recursive: true });
   mkdirSync(TMP, { recursive: true });
   let failures = 0,
@@ -584,33 +632,49 @@ async function run() {
   const failed: any[] = [];
   // Clips are independent: a few synthesise at once, within the provider's concurrency allowance.
   await pool(list, CONCURRENCY, async (job) => {
-    const roles = Object.fromEntries(job.turns.map((t) => [t.role, voiceFor(t.role)]));
+    const configuration = audioVoicesForItem(voices, job.item.id);
+    const profile = audioProfileFor(job.item, configuration);
+    const casting = audioCastingFor(
+      voices,
+      job.item.id,
+      job.turns.map((turn) => turn.role),
+    );
+    const processing = audioProcessingFor(
+      configuration,
+      job.turns.map((turn) => turn.role),
+    );
+    const roles = Object.fromEntries(
+      job.turns.map((t) => [t.role, voiceFor(t.role, configuration)]),
+    );
     const text = job.turns.map((t) => spoken(t.text)).join('\n');
     const script_sha256 = sha(job.turns.map((t) => t.text).join('\n'));
     const tokenAt = (rate: number) =>
       sha(
-        JSON.stringify({
-          text,
-          roles,
-          model: job.mode === 'dialogue' ? voices.dialogueModel : voices.model,
-          settings:
-            job.mode === 'dialogue' && job.turns.length > 1
-              ? voices.settings
-              : Object.fromEntries(job.turns.map((t) => [t.role, settingsFor(t.role)])),
-          mode: job.mode,
-          loudness: voices.loudness,
-          pipeline: `${PIPELINE}-${rate}`,
-        }),
+        JSON.stringify(
+          audioCacheInput({
+            text,
+            roles,
+            mode: job.mode,
+            turns: job.turns,
+            voices: configuration,
+            pipeline: PIPELINE,
+            rate,
+            profile,
+            sourceFormat: audioSource.sourceFormat,
+          }),
+        ),
       ).slice(0, 16);
-    const token = tokenAt(PCM_RATE),
+    const token = tokenAt(audioSource.sourceSampleRate),
       file = `audio/${token}.mp3`,
       target = resolve(OUT, `${token}.mp3`);
     const existing = manifest[job.key];
     if (
-      reusableClip(existing, script_sha256, tokenAt) &&
+      reusableClip(existing, script_sha256, tokenAt, audioSource.sourceFormat) &&
       existsSync(resolve(OUT, existing.file.replace(/^audio\//, '')))
     ) {
-      job.target?.(existing);
+      const reused = clipWithCasting(existing, casting);
+      manifest[job.key] = reused;
+      job.target?.(reused);
       return;
     }
     if (job.turns.length > 1 && new Set(job.turns.map((t) => t.role)).size < 2) {
@@ -629,12 +693,13 @@ async function run() {
           rmSync(wav, { force: true });
         }
         if (job.mode === 'dialogue' && job.turns.length > 1) {
-          pcmToWav(
+          decodeAudioSource(
             await dialogue(
               key,
               job.turns.map((t) => ({ text: spoken(t.text), voice_id: roles[t.role] })),
             ),
             wav,
+            audioSource,
           );
           matchLoudness(wav);
         } else {
@@ -642,13 +707,32 @@ async function run() {
           for (const [i, turn] of job.turns.entries()) {
             const p = resolve(TMP, `${token}-${i}.wav`);
             if (!existsSync(p)) {
-              pcmToWav(await tts(key, turn.role, spoken(turn.text)), p);
+              decodeAudioSource(
+                await tts(key, turn.role, spoken(turn.text), profile, configuration),
+                p,
+                audioSource,
+              );
               matchLoudness(p);
+              if (processing?.[turn.role]) {
+                const processed = p.replace(/\.wav$/, '.processed.wav');
+                execFileSync('ffmpeg', [
+                  '-y',
+                  '-loglevel',
+                  'error',
+                  '-i',
+                  p,
+                  '-af',
+                  processing[turn.role].filter,
+                  processed,
+                ]);
+                execFileSync('mv', [processed, p]);
+                matchLoudness(p);
+              }
             }
             parts.push(p);
           }
           if (parts.length === 1) execFileSync('cp', [parts[0], wav]);
-          else stitch(parts, wav);
+          else stitch(parts, wav, profile);
         }
         encode(wav, target);
         const { wer, inserted, wordCount, hypothesis } = roundTrip(
@@ -668,7 +752,20 @@ async function run() {
           wer: Math.round(wer * 1000) / 1000,
           inserted,
           script_sha256,
-          settings: voices.settings,
+          settings:
+            job.mode === 'dialogue' && job.turns.length > 1
+              ? voices.settings
+              : Object.fromEntries(
+                  job.turns.map((turn) => [
+                    turn.role,
+                    settingsFor(turn.role, profile, configuration),
+                  ]),
+                ),
+          sourceFormat: audioSource.sourceFormat,
+          sourceSampleRate: audioSource.sourceSampleRate,
+          ...(profile ? { profile, gapSeconds: turnGapFor(voices, profile) } : {}),
+          ...(casting ? { casting } : {}),
+          ...(processing ? { processing } : {}),
         };
         if (wer > cerLimit(wordCount) || (wordCount >= 10 && inserted >= INSERT_LIMIT)) {
           if (attempt === 1) {

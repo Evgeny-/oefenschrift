@@ -1,0 +1,258 @@
+{
+  "review_id": "070-review",
+  "source": "content/batches/070-original.json",
+  "source_sha256": "638850e3b48d020587ea6e6a51616152252a70f09779abc4da6b8475a0731743",
+  "proposed": "content/batches/070-proposed.json",
+  "proposed_identical_to_author_file": false,
+  "author_source_sha256": "0263cf56fe8a8a62acbd15880cbdc06eca423f4388fcb88955b6a684ff2a8131",
+  "review_type": "independent-ai-editorial",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-27",
+  "reviewer": "Independent Codex AI agent /root/review_a1_audio in a separate reviewer context. This agent did not author the batch or change the author files. No Opus review is claimed.",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "item_count": 3,
+  "question_count": 6,
+  "distribution": {
+    "level": {
+      "A1": 3
+    },
+    "part": {
+      "listening": 3
+    },
+    "domain": {
+      "werk": 1,
+      "opleiding": 1,
+      "winkels-diensten": 1
+    },
+    "skill": {
+      "person": 1,
+      "time-place": 2,
+      "detail": 3
+    },
+    "keys": {
+      "A": 2,
+      "B": 2,
+      "C": 2
+    },
+    "options": {
+      "3": 6
+    }
+  },
+  "edits": [
+    {
+      "id": "A1:listening:batch070-foto-werk:1",
+      "field": "images[0].brief",
+      "old": "Sabrina (woman in her thirties, long dark hair, green jumper) and Julio (young man, curly hair, striped shirt) stand facing each other beside a low empty desk in a plain work room and talk. Show only these two colleagues and the desk. No other people, camera, photographs, doorway, corridor, windows or tree. No text, numerals, labels, signage or logos.",
+      "new": "Sabrina (woman in her thirties, long dark hair, green jumper) and Julio (young man, curly hair, striped shirt) stand facing each other beside a low empty desk in a plain work room and talk. Show only these two colleagues and the desk. No other people, camera, photographs, doorway, corridor, windows, tree or clocks. No text, numerals, labels, signage or logos.",
+      "reason": "Explicitly exclude clocks from the context picture."
+    },
+    {
+      "id": "A1:listening:batch070-potlood-lenen:1",
+      "field": "situation",
+      "old": "Roos praat met haar docent.",
+      "new": "Roos praat met haar docent Mark.",
+      "reason": "Name the second speaker so the literal two-named-speaker A1 requirement is met."
+    },
+    {
+      "id": "A1:listening:batch070-potlood-lenen:1",
+      "field": "script[*].speaker / text",
+      "old": "Docent",
+      "new": "Mark",
+      "reason": "Give the teacher a consistent personal label and rebuild text mechanically. Spoken lines and voice role are unchanged."
+    },
+    {
+      "id": "A1:listening:batch070-potlood-lenen:1",
+      "field": "images[0].brief",
+      "old": "Roos (young woman, dark hair in a bun, yellow scarf) talks with a male teacher who has short grey hair and a dusty blue shirt. They stand beside an empty classroom table. Both have empty hands. No pencils, erasers, paper, bags, drinking vessels, clock or timetable. No text, numerals, labels, signage or logos.",
+      "new": "Roos (young woman, dark hair in a bun, yellow scarf) talks with her teacher Mark, a man with short grey hair and a dusty blue shirt. They stand beside an empty classroom table. Both have empty hands. No pencils, erasers, paper, bags, drinking vessels, clock or timetable. No text, numerals, labels, signage or logos.",
+      "reason": "Link the generic teacher to his new speaker name while preserving Roos and every answer-exclusion constraint."
+    },
+    {
+      "id": "A1:listening:batch070-tas-kopen:1",
+      "field": "title",
+      "old": "Een tas kopen",
+      "new": "In de winkel",
+      "reason": "The original title favored the two bag options over the backpack distractor. Retain only the shop context."
+    },
+    {
+      "id": "A1:listening:batch070-tas-kopen:1",
+      "field": "situation",
+      "old": "Fatima praat met een verkoper in een winkel.",
+      "new": "Fatima praat met verkoper Ruben in een winkel.",
+      "reason": "Name the seller as the second named speaker."
+    },
+    {
+      "id": "A1:listening:batch070-tas-kopen:1",
+      "field": "script[*].speaker / text",
+      "old": "Verkoper",
+      "new": "Ruben",
+      "reason": "Use one consistent personal label and rebuild the transcript. Voice role remains m-shop."
+    },
+    {
+      "id": "A1:listening:batch070-tas-kopen:1",
+      "field": "script[4].text / text",
+      "old": "Prima. Betalen kan ook met geld of een telefoon.",
+      "new": "Prima. Betalen kan ook met munten of een telefoon.",
+      "reason": "Geld can include money spent through a card. Munten names a concrete alternative to the stated card payment."
+    },
+    {
+      "id": "A1:listening:batch070-tas-kopen:1",
+      "field": "questions[q2].options.A",
+      "old": "Met haar geld.",
+      "new": "Met haar munten.",
+      "reason": "Make the distractor physically distinct from card payment and keep the same option length."
+    },
+    {
+      "id": "A1:listening:batch070-tas-kopen:1",
+      "field": "questions[q2].explanation",
+      "old": "Fatima betaalt met haar pas. Je kunt hier ook met geld of een telefoon betalen.",
+      "new": "Fatima betaalt met haar pas. Je kunt hier ook met munten of een telefoon betalen.",
+      "reason": "Keep the explanation aligned with the repaired script and alternative."
+    },
+    {
+      "id": "A1:listening:batch070-tas-kopen:1",
+      "field": "images[0].brief",
+      "old": "Fatima (woman in her forties, headscarf, blue coat) talks with a male shop assistant who has short black hair and a terracotta shirt. They face each other across an empty shop counter. Both have empty hands. No bags, backpacks, money, cards, payment terminal, phones or visible merchandise. No text, numerals, labels, signage or logos.",
+      "new": "Fatima (woman in her forties, headscarf, blue coat) talks with shop assistant Ruben, a man with short black hair and a terracotta shirt. They face each other across an empty shop counter. Both have empty hands. No bags, backpacks, money, cards, payment terminal, phones, clocks or visible merchandise. No text, numerals, labels, signage or logos.",
+      "reason": "Link the seller to Ruben and explicitly exclude clocks. Fatima and all answer-bearing objects stay excluded."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "read_in_full": "AGENTS.md; docs/briefs/review.md; docs/briefs/author.md; content/blueprint.md; content/reviews/rubric.md; docs/research/content-workflow.md; config/voices.json; config/illustration.json; complete 070-original.json and 070-notes.md; complete final 070-proposed.json after the last repair and formatting; relevant official-exam research paragraphs; batch checker/adoption contract; all 50 listening catalogue titles and nine nearest catalogue records in full.",
+    "a1_scope": "The new local A1 listening specification governs this batch. No official A1 item comparison, exam shape or exam-equivalence verdict applies. Level columns state compatibility with the CEFR-informed authoring target. Difficulty remains unvalidated.",
+    "final_source": "After the last brief edit, the reviewer reread every final field: all three dialogues, six prompts, eighteen options, keys, evidence, explanations, situations, titles, image briefs and Dutch alts. All applicable rubric checks pass.",
+    "contract": "Three original A1 listening gesprek items, 30-70 spoken words each, six turns each, two personally named speakers with two stable distinct configured roles, two questions per item with A-C options, one context drawing brief and alt per item. Correct exam/domain/taskType metadata, draft status and targetLevelValidated false. No retired type, generated media, revision or KNM claim.",
+    "language": "Spoken words 51/48/48; sentence means 4.25/4.36/4.00; maxima 8/6/8. Speaker labels are excluded. Short present-tense main clauses, commands and natural elliptical spoken questions. No digits, calculations or combined conditions. Prompts, options and explanations were read independently.",
+    "answers": "All six exact quotes occur in the mechanically joined text and entail their keys in the explicit two-speaker context. Every distractor is audited below. Equal option word counts within each question: 1/3, 2/3 and 3/3 for the two questions in each item. No odd polarity, longer key or prompt-only echo signals an answer. Revised shop title supplies no candidate object.",
+    "originality": "Original fictional everyday arrangements with no copied exercise wording. No company, institution, address or brand was invented. Generic teacher and seller receive personal names only; web verification of a business name does not apply. No current KNM or public-service factual claim is present.",
+    "diversity": "Reviewed all 50 listening titles and the full bakker, training, scherm, toets, werkdag, computercursus, koffiegeld, loket and verjaardagstaart records. Staff-photo coordination, a classroom loan and an in-person bag/payment choice have distinct purposes. No same-part slug or ID collision. Compared the author notes with the integrated A1 reading topics; classroom borrowing differs from bringing a book and finding an exercise number.",
+    "script_joins_and_roles": "Each final text exactly equals script.map(speaker + colon-space + text).join(newline). Each speaker maps to one configured role; every pair has distinct roles. Roles remain Sabrina f-adult / Julio m-young, Roos f-young / Mark m-adult, Ruben m-shop / Fatima f-adult.",
+    "image_briefs": "One contextual social exchange per scene. Sabrina, Julio, Roos and Fatima traits are copied verbatim from config. Briefs and Dutch alts contain no keyed fact or visual relation that entails a distractor. All briefs exclude text, numerals, signage, logos and clocks, and omit all tested objects/actions/locations. House style comes from the pipeline prefix. Rendered pixels still require a later review against both questions.",
+    "formatting": "Ran npx prettier --write content/batches/070-proposed.json after the last brief edit, then the final batch check and a complete final-source read. The proposed file has not changed since hashing.",
+    "batch_check": "npm run batch:check content/batches/070-proposed.json: Checked 3 items, 6 questions. Keys {A:2,B:2,C:2}. Options {3:6}. No failures, no warnings.",
+    "hash": "SHA-256 calculated from the exact formatted proposal bytes. source_sha256 intentionally records those bytes for adoption. The author original and notes remain unchanged."
+  },
+  "source_verification": [
+    {
+      "url": "https://rm.coe.int/common-european-framework-of-reference-forlanguages-learning-teaching/16809ea0d4",
+      "title": "Council of Europe: CEFR Companion volume (2020)",
+      "accessed_at": "2026-10-27",
+      "pages": "Printed 48 and 52 for oral comprehension and recordings; printed 54-55 for the simple-language reading foundation (PDF indices 47, 51, 53, 54).",
+      "verified": "Independently opened the primary PDF. The A1 descriptors support extracting explicit concrete everyday information from very short recordings when speech is very slow, clear and separated by assimilation pauses. The reading descriptors support very short familiar language and simple personal messages.",
+      "limitation": "These descriptors do not prescribe dialogue length, turn count, multiple-choice format or image design and do not validate the difficulty of these exercises. Verification used the primary PDF text and page markers; screenshot calls returned no useful image."
+    }
+  ],
+  "items": [
+    {
+      "id": "A1:listening:batch070-foto-werk:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "A familiar workplace exchange of 51 spoken words with short clauses. Questions select one named person and one explicit place. The source has no combined condition or calculation. Difficulty is unvalidated.",
+      "evidence": {
+        "q1": {
+          "answer": "A",
+          "quote": "Karim maakt de foto.",
+          "entailment": "Sabrina explicitly names Karim as the photographer in answer to Julio.",
+          "distractors": {
+            "B": "Julio asks where he must stand and is the photo subject. The photographer sentence names Karim.",
+            "C": "Julio suggests Sabrina, but she answers Karim and describes her own separate job at the door."
+          }
+        },
+        "q2": {
+          "answer": "B",
+          "quote": "Je staat buiten bij de boom.",
+          "entailment": "The direct reply to Julio tells him to stand by the tree.",
+          "distractors": {
+            "A": "The corridor is where people wait, explicitly distinguished from the photo position.",
+            "C": "The door is where Sabrina helps; it is not Julio's assigned photo position."
+          }
+        },
+        "metadata": "gesprek and werk match a staff-photograph exchange. Title and situation give context only.",
+        "media": "Sabrina/Julio use f-adult/m-young. The picture shows only their neutral conversation beside a desk, with no camera, photographer action, door, corridor or tree. The alts do not identify any answer. Named participants being visible does not mark a photographer because nobody performs that action."
+      }
+    },
+    {
+      "id": "A1:listening:batch070-potlood-lenen:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "The 48-word exchange uses concrete classroom materials and an explicit return time. The simple reference het follows the single loaned object. Sentences average 4.36 words, at most six. Difficulty is unvalidated.",
+      "evidence": {
+        "q1": {
+          "answer": "C",
+          "quote": "Ik geef je mijn potlood.",
+          "entailment": "Mark directly tells Roos that he is giving her his pencil in response to her loan request.",
+          "distractors": {
+            "A": "Mark explicitly uses the eraser himself, so it is not what he hands to Roos.",
+            "B": "Paper is something the group collects before class. The teacher's transfer to Roos names the pencil only."
+          }
+        },
+        "q2": {
+          "answer": "A",
+          "quote": "Geef het na de les terug.",
+          "entailment": "The return instruction follows Roos asking when to return the loaned pencil and explicitly says after the lesson.",
+          "distractors": {
+            "B": "Before the lesson is the paper-collection time, not the stated return time.",
+            "C": "The break is when they drink water, not the stated return time."
+          }
+        },
+        "metadata": "gesprek and opleiding fit the classroom loan. The second speaker now has the name Mark in situation and transcript.",
+        "media": "Roos/Mark use f-young/m-adult. Empty hands and table, with no pencil, eraser, paper, drink, clock or timetable. Roos's exact cast traits remain intact. Image and alt reveal no borrowed object or return time."
+      }
+    },
+    {
+      "id": "A1:listening:batch070-tas-kopen:1",
+      "verdict": "pass",
+      "level": "compatible-with-a1-foundation-target",
+      "level_reason": "A 48-word shop exchange with directly stated size preference and card payment. Munten is a concrete everyday payment object in an explicit payment context. No price or calculation is tested. Difficulty is unvalidated.",
+      "evidence": {
+        "q1": {
+          "answer": "B",
+          "quote": "Nee, een kleine tas, graag.",
+          "entailment": "Fatima directly chooses the small bag after refusing the proposed large one. Her following acceptance continues that selection.",
+          "distractors": {
+            "A": "The seller proposes a large bag; Fatima refuses it and says she already has one at home.",
+            "C": "New backpacks are other shop stock. Fatima never requests or selects one."
+          }
+        },
+        "q2": {
+          "answer": "C",
+          "quote": "Ik betaal met mijn pas.",
+          "entailment": "Fatima explicitly states that she pays using her card.",
+          "distractors": {
+            "A": "Coins are a general alternative offered by the seller, physically distinct from Fatima's stated card.",
+            "B": "A phone is another generally accepted method, not the method Fatima chooses."
+          }
+        },
+        "metadata": "gesprek and winkels-diensten fit the purchase. Neutral title removes an object-category cue; Ruben names the second speaker.",
+        "media": "Ruben/Fatima use m-shop/f-adult. Only the two people and an empty counter appear. No bags, backpacks or payment objects are allowed. Fatima's cast traits are exact. Image and alt supply no selection or payment method."
+      }
+    }
+  ],
+  "author_doubts_decisions": [
+    "The loan exchange is accepted. A request to borrow precedes Ik geef je mijn potlood and an explicit return instruction follows it, so no gift-versus-loan distinction determines a key.",
+    "En in de pauze? is a natural short follow-up about lesson activities after the teacher mentions before/after class. Hier in de gang? directly follows Waar moet ik staan? and is immediately corrected. Neither requires a hidden premise to answer a question.",
+    "Lenen, tekenen, potlood, gum, terug, rugzak and pas name familiar activities or concrete objects. The short context makes their roles explicit. Retain them as authoring-target vocabulary; learner difficulty still needs evidence.",
+    "Replace geld with munten. Money also covers a card balance, so the original payment distractor could overlap the key. Coins remove that overlap and remain directly anchored.",
+    "A teacher and a shop seller were labelled only by role. Personal names Mark and Ruben meet the literal two-named-speaker rule. Speaker roles, spoken words and question references stay consistent."
+  ],
+  "set_assembly": "The three conversations form the requested local A1 listening set with six questions and balanced keys. Existing sets and catalogue were not edited. Do not assemble A1 mocks or a level check from this pilot.",
+  "media_notes": [
+    "Script approval permits generation only from the adopted exact source. No generated media was reviewed or produced by this reviewer.",
+    "Use scripts/audio.ts with deliberate A1 delivery and pauses, and generate both fragment and question narration. Manifest and round-trip gates remain required.",
+    "Review every rendered context illustration against both questions before marking it reviewed. No image may reveal a key or make a distractor appear supported.",
+    "A full specialist listening review of pronunciation, pacing, pauses, intelligibility and emphasis remains separate from source approval and transcription checks."
+  ],
+  "coordinator_actions": [
+    "Complete the separate fresh-context first-batch A1 level-target check against the final proposed hash.",
+    "Adopt with npm run batch:adopt 070 before media generation. Integrate through npm run content:integrate and the normal hints hash process.",
+    "Generate and review the audio and context illustrations, then verify the local learner journeys. Keep work local."
+  ],
+  "limitations": [
+    "This independent AI editorial review does not validate CEFR difficulty, learner performance or official exam equivalence.",
+    "This first A1 listening batch has no same-level catalogue exemplars. The editorial target judgment uses the primary CEFR descriptors and local blueprint section 4.0. The coordinator owns the separate fresh-context first-batch target check.",
+    "Audio and images did not exist at this review stage. Text approval does not certify the rendered media. The ready_for_integration flag approves the source under the editorial gate; required media gates still block learner delivery until satisfied.",
+    "The author notes retain the original wording and counts. Final repairs and decisions are recorded here without changing those notes."
+  ]
+}

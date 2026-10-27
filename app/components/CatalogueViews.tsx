@@ -9,6 +9,7 @@ import { checkDate, checkLine } from './LevelCheck';
 import AppLink from './AppLink';
 import useSelectionIndicator from './useSelectionIndicator';
 import { mediaUrl } from '../domain/base';
+import A1PracticeOnly from './A1PracticeOnly';
 function ListFilters({ filter, onChange, includeAll = true, includeDrafts = false }) {
   const { t } = useStudyContext(),
     indicator = useSelectionIndicator(filter);
@@ -256,6 +257,8 @@ export function MockSetup() {
     a = state.active;
   const activePart = a && catalogue.find((i) => i.id === a.ids[0])?.part;
   const subjects = ['reading', 'listening', ...(itemsFor('knm').length ? ['knm'] : [])];
+  if (state.settings.level === 'A1')
+    return <A1PracticeOnly title={t('Proefexamen A1', 'A1 practice test')} />;
   return (
     <>
       <Heading
@@ -630,8 +633,8 @@ export function About() {
         </ol>
         <p className="about-report">
           {t(
-            'Klopt iets niet? Kies ‘Meld een probleem’ bij die opgave.',
-            'Something wrong? Choose ‘Report a problem’ on that exercise.',
+            'Klopt iets niet? Kies het duimpje omlaag bij de opgave. Je kunt daarna een probleem melden.',
+            'Something wrong? Give the exercise a thumbs-down. You can then report a problem.',
           )}
         </p>
         <section className="about-checks" aria-labelledby="about-checks-heading">

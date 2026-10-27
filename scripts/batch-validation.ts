@@ -9,12 +9,12 @@ export function validateBatch(batch: any[], catalogue: any[], voices: any, batch
     warn = (s: string) => warnings.push(s);
   const words = (s: string) => s.trim().split(/\s+/).filter(Boolean).length;
   const LENGTH = {
-    reading: { A2: [100, 250], B1: [400, 700] },
-    listening: { A2: [60, 210], B1: [150, 900] },
+    reading: { A1: [25, 60], A2: [100, 250], B1: [400, 700] },
+    listening: { A1: [30, 70], A2: [60, 210], B1: [150, 900] },
   };
   const QUESTIONS = {
-    reading: { A2: [2, 3], B1: [5, 7] },
-    listening: { A2: [2, 3], B1: [5, 9] },
+    reading: { A1: [2, 2], A2: [2, 3], B1: [5, 7] },
+    listening: { A1: [2, 2], A2: [2, 3], B1: [5, 9] },
     knm: { A2: [1, 1] },
   };
 
@@ -52,7 +52,7 @@ export function validateBatch(batch: any[], catalogue: any[], voices: any, batch
     const tag = item.id || '(no id)';
     if (
       !catalogue.some((existing: any) => existing.id === item.id) &&
-      !/^(A2|B1):(reading|listening|writing|speaking|knm):batch\d{3}-[a-z0-9-]+:\d+$/.test(
+      !/^(A1|A2|B1):(reading|listening|writing|speaking|knm):batch\d{3}-[a-z0-9-]+:\d+$/.test(
         item.id || '',
       )
     )
@@ -81,17 +81,28 @@ export function validateBatch(batch: any[], catalogue: any[], voices: any, batch
       if (typeof text !== 'string' || !text.trim()) fail(`${tag}: text missing`);
       else {
         const [min, max] = (LENGTH as any)[part]?.[level] || [0, Infinity];
-        const n = words(text);
+        // A1 lengths describe speech; speaker labels are transcript formatting.
+        const source =
+          level === 'A1' && part === 'listening' && Array.isArray(item.script)
+            ? item.script.map((turn: any) => turn?.text || '').join(' ')
+            : text;
+        const n = words(source);
         if (part !== 'knm' && (n < min || n > max))
           fail(`${tag}: text has ${n} words; blueprint asks ${min}–${max}`);
-        if (level === 'A2') {
-          const sentences = text.split(/[.!?]+\s/).filter((s) => s.trim().length > 2);
+        if (level === 'A1' || level === 'A2') {
+          const sentences = source.split(/[.!?]+\s/).filter((s) => s.trim().length > 2);
           const lengths = sentences.map(words);
           const avg = lengths.reduce((a, b) => a + b, 0) / Math.max(1, lengths.length);
-          if (avg > 12)
-            warn(`${tag}: average sentence length ${avg.toFixed(1)} words (A2 target under 12)`);
-          if (Math.max(...lengths) > 18)
-            warn(`${tag}: longest sentence ${Math.max(...lengths)} words (A2 target 18)`);
+          const averageTarget = level === 'A1' ? 8 : 12,
+            longestTarget = level === 'A1' ? 12 : 18;
+          if (avg > averageTarget)
+            warn(
+              `${tag}: average sentence length ${avg.toFixed(1)} words (${level} target under ${averageTarget})`,
+            );
+          if (Math.max(...lengths) > longestTarget)
+            warn(
+              `${tag}: longest sentence ${Math.max(...lengths)} words (${level} target ${longestTarget})`,
+            );
         }
       }
       if (part === 'listening' && level === 'B1') {
@@ -128,22 +139,83 @@ export function validateBatch(batch: any[], catalogue: any[], voices: any, batch
         if (!Array.isArray(item.script) || item.script.length < 1)
           fail(`${tag}: listening needs a script array`);
         else {
-          const roles = new Set(item.script.map((t: any) => t.role));
+          const roles = new Set<string>(item.script.map((t: any) => t?.role));
           for (const turn of item.script) {
-            if (!voices.roles[turn.role]) fail(`${tag}: unknown voice role "${turn.role}"`);
-            if (!turn.text || !turn.speaker)
+            if (!turn || typeof turn !== 'object') {
+              fail(`${tag}: every script turn needs speaker, role and text`);
+              continue;
+            }
+            if (!Object.hasOwn(voices.roles, turn.role) || !voices.roles[turn.role]?.voice_id)
+              fail(`${tag}: unknown voice role "${turn.role}"`);
+            if (
+              typeof turn.text !== 'string' ||
+              !turn.text.trim() ||
+              typeof turn.speaker !== 'string' ||
+              !turn.speaker.trim()
+            )
               fail(`${tag}: every script turn needs speaker and text`);
           }
           if (item.script.length > 1 && roles.size < 2)
             fail(`${tag}: a conversation needs two different voice roles`);
-          const joined = item.script.map((t: any) => `${t.speaker}: ${t.text}`).join('\n');
+          const joined = item.script.map((t: any) => `${t?.speaker}: ${t?.text}`).join('\n');
           if (joined !== item.text)
             fail(`${tag}: text must equal the script joined as "Speaker: text" lines`);
-          const spoken = item.script.map((t: any) => t.text).join(' ');
+          const spoken = item.script.map((t: any) => t?.text || '').join(' ');
           const n = words(spoken);
-          if (n < 60 || n > 210)
-            fail(`${tag}: spoken script has ${n} words; A2 fragments are 60–210 words (30–90 s)`);
+          const [minimum, maximum] = level === 'A1' ? [30, 70] : [60, 210];
+          if (n < minimum || n > maximum)
+            fail(
+              `${tag}: spoken script has ${n} words; ${level} fragments are ${minimum}–${maximum} words`,
+            );
+          if (level === 'A1') {
+            if (item.script.length < 4 || item.script.length > 6)
+              fail(`${tag}: A1 conversations need four to six script turns`);
+            const voiceIds = new Set(
+              [...roles].map((role: string) => voices.roles[role]?.voice_id),
+            );
+            if (
+              voices.language !== 'nl' ||
+              roles.size !== 2 ||
+              voiceIds.size !== 2 ||
+              voiceIds.has(undefined)
+            )
+              fail(
+                `${tag}: A1 conversations need two distinct configured Netherlands Dutch voice roles`,
+              );
+            const speakers = new Map<string, Set<string>>();
+            for (const turn of item.script) {
+              if (!turn?.speaker) continue;
+              const assignments = speakers.get(turn.speaker) || new Set<string>();
+              assignments.add(turn.role);
+              speakers.set(turn.speaker, assignments);
+            }
+            if (
+              speakers.size !== 2 ||
+              [...speakers.values()].some((assignments) => assignments.size !== 1)
+            )
+              fail(
+                `${tag}: A1 conversations need two speakers with one consistent voice role each`,
+              );
+          }
         }
+        if (
+          level === 'A1' &&
+          !(
+            Array.isArray(item.images) &&
+            item.images.length === 1 &&
+            item.images.every(
+              (image: any) =>
+                typeof image?.brief === 'string' &&
+                image.brief.trim() &&
+                typeof image.alt === 'string' &&
+                image.alt.trim() &&
+                image.kind === 'drawing',
+            )
+          )
+        )
+          fail(
+            `${tag}: A1 listening needs one context illustration with brief, alt and kind drawing`,
+          );
       }
       const qs = item.questions;
       const [qmin, qmax] = (QUESTIONS as any)[part]?.[level] || [1, 9];
@@ -167,11 +239,13 @@ export function validateBatch(batch: any[], catalogue: any[], voices: any, batch
         )
           longestKeys++;
         if (!SKILLS.has(q.skill)) fail(`${qt}: skill must be one of ${[...SKILLS].join(', ')}`);
+        if (level === 'A1' && !['detail', 'time-place', 'quantity', 'person'].includes(q.skill))
+          fail(`${qt}: A1 skills must be detail, time-place, quantity or person`);
         const keys = Object.keys(q.options || {});
         const n = keys.length;
         optionCounts[n] = (optionCounts[n] || 0) + 1;
-        if ((level === 'B1' || part === 'knm') && n !== 3)
-          fail(`${qt}: B1 and KNM questions need exactly three options`);
+        if ((level === 'A1' || level === 'B1' || part === 'knm') && n !== 3)
+          fail(`${qt}: A1, B1 and KNM questions need exactly three options`);
         if (part === 'knm' && words(String(q.prompt || '')) > 20)
           fail(`${qt}: KNM question must have at most 20 words`);
         if (!(n === 3 || n === 4) || keys.join('') !== 'ABCD'.slice(0, n))
@@ -221,8 +295,8 @@ export function validateBatch(batch: any[], catalogue: any[], voices: any, batch
             !c.every((x) => typeof x === 'string' && x.trim())
           )
             fail(`${qt}: each criterion is [Dutch, English]`);
-      if (!item.rubric || !/^(a2|b1)-(schrijven|spreken)$/.test(item.rubric))
-        fail(`${qt}: rubric must be a2-schrijven, a2-spreken, b1-schrijven or b1-spreken`);
+      if (!item.rubric || !/^(a1|a2|b1)-(schrijven|spreken)$/.test(item.rubric))
+        fail(`${qt}: rubric must name the level and schrijven or spreken`);
       if (typeof item.model !== 'string' || words(item.model) < 8)
         fail(`${qt}: model answer missing or too short`);
       if (typeof item.sample !== 'string' || !item.sample.trim()) fail(`${qt}: sample missing`);
@@ -239,6 +313,27 @@ export function validateBatch(batch: any[], catalogue: any[], voices: any, batch
         fail(`${qt}: the sample must omit exactly one goal (one null quote)`);
       if (item.cue && !voices.roles[item.cue.role])
         fail(`${qt}: cue needs a configured voice role`);
+      if (level === 'A1') {
+        if (!Array.isArray(criteria) || criteria.length !== 3)
+          fail(
+            `${qt}: A1 open tasks need two content goals and one understandable-language criterion`,
+          );
+        const expected = part === 'writing' ? 'bericht' : 'picture-describe';
+        if (item.taskType !== expected) fail(`${qt}: A1 ${part} needs taskType ${expected}`);
+        if (Array.isArray(item.questions) && item.questions.length)
+          fail(`${qt}: A1 open tasks do not use closed questions`);
+        const mw = words(item.model);
+        if (mw < 8 || mw > 25) fail(`${qt}: A1 model answers need 8–25 words`);
+        if (words(item.prompt) > 55) fail(`${qt}: A1 prompts need at most 55 words`);
+        if (
+          !Array.isArray(item.images) ||
+          item.images.length !== 1 ||
+          !item.images.every((i) => i.brief && i.alt && i.kind === 'drawing')
+        )
+          fail(`${qt}: A1 open tasks need one drawing brief with Dutch alt text`);
+        if (part === 'speaking' && !(item.speakingSeconds === 20 && !item.prepSeconds))
+          fail(`${qt}: A1 speaking uses a 20-second recording guide without timed preparation`);
+      }
       if (part === 'writing' && level === 'A2') {
         if (
           item.taskType === 'email' &&

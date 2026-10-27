@@ -1,4 +1,5 @@
 import { getStore, StoreError } from '../../server/store';
+import { exerciseReaction, ReactionError } from '../../server/reactions';
 import { configuration, sharedFeedback, transcribe, ServiceError } from '../../server/services';
 import { guard, serviceStatus } from '../../server/availability';
 import { acquire, addressKey, limited, remaining, type Endpoint } from '../../server/limits';
@@ -11,9 +12,11 @@ import {
   visitorHash,
   migrationHeaders,
 } from '../../server/security';
-// Whole-server ceilings behind the per-client limits: cheap database writes only.
+// Whole-server ceilings behind the per-client limits for cheap database operations.
 const eventCalls: number[] = [],
-  reportCalls: number[] = [];
+  reportCalls: number[] = [],
+  reactionCalls: number[] = [],
+  reactionReadCalls: number[] = [];
 function ceiling(list: number[], max: number, now: number) {
   while (list.length && list[0] < now - 60000) list.shift();
   if (list.length >= max) return true;
@@ -66,7 +69,7 @@ export async function action({ request, params }) {
   if (request.headers.get('Origin') !== siteOrigin(request))
     throw new Response('Origin required', { status: 403 });
   const service: Endpoint = params.service;
-  if (!['reports', 'feedback', 'transcribe', 'events'].includes(service))
+  if (!['reports', 'feedback', 'transcribe', 'events', 'reactions'].includes(service))
     throw new Response('Not found', { status: 404 });
   if (request.method !== 'POST') throw new Response('Method not allowed', { status: 405 });
   const limit = service === 'transcribe' ? 9 * 1024 * 1024 : 16000;
@@ -96,9 +99,9 @@ export async function action({ request, params }) {
   // this browser or of the shared address) is a different message from a burst:
   // self-review for the rest of the day rather than a short wait.
   const address = addressKey(clientAddress(request));
-  const throttled = () => {
+  const throttled = (endpoint: Endpoint = service) => {
     const exceeded =
-      limited('address', address, service, now) || limited('pass', pass, service, now);
+      limited('address', address, endpoint, now) || limited('pass', pass, endpoint, now);
     if (!exceeded) return null;
     const daily = exceeded.window >= 86_400_000;
     return wait(
@@ -131,6 +134,32 @@ export async function action({ request, params }) {
       return Response.json(store.report(body));
     } catch (error) {
       return refused(error);
+    }
+  }
+  if (service === 'reactions') {
+    // Restoring a choice on each question is a cheap read. It must not spend the
+    // visitor's separate write allowance, including for a class sharing one address.
+    const reading = body?.operation === 'get';
+    const refusal = throttled(reading ? 'reactionReads' : 'reactions');
+    if (refusal) return refusal;
+    if (ceiling(reading ? reactionReadCalls : reactionCalls, reading ? 3000 : 600, now))
+      return wait('Please wait a minute before trying again.', 60);
+    const visitor = visitorHash(body?.visitor);
+    if (!visitor) return Response.json({ error: 'Invalid visitor.' }, { status: 400 });
+    try {
+      return Response.json(exerciseReaction(store, visitor, body, now), {
+        headers: { 'Cache-Control': 'no-store' },
+      });
+    } catch (error) {
+      return Response.json(
+        {
+          error:
+            error instanceof ReactionError
+              ? error.message
+              : 'Could not save exercise rating. Please retry.',
+        },
+        { status: error instanceof ReactionError ? 400 : 502 },
+      );
     }
   }
   const item = store

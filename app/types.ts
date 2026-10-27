@@ -1,4 +1,5 @@
-export type Level = 'A2' | 'B1' | 'B2';
+export const LEVELS = ['A1', 'A2', 'B1', 'B2'] as const;
+export type Level = (typeof LEVELS)[number];
 export type Part = 'reading' | 'listening' | 'writing' | 'speaking' | 'knm';
 export type Language = 'nl' | 'en';
 export type Theme = 'light' | 'dark' | 'system';
@@ -9,6 +10,7 @@ export interface Question {
   answer: string;
   explanation: string;
   evidence?: string;
+  skill?: string;
 }
 export interface Exercise {
   id: string;
@@ -17,7 +19,7 @@ export interface Exercise {
   part: Part;
   revision: string;
   taskType: string;
-  exam: 'duo-a2' | 'nt2-i' | 'knm';
+  exam: 'a1-practice' | 'duo-a2' | 'nt2-i' | 'knm';
   domain: string;
   status: 'draft' | 'ai-editorially-reviewed';
   targetLevelValidated: false;

@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-27",
+  "tool": "Built-in image_gen",
+  "mode": "Four reference edits and one new render, all transparent_background=true. No API or CLI image generation.",
+  "artDirection": "Preserve the accepted subjects, card composition and palette. Improve precise soft dimensional geometry, matte material edges and gentle upper-left light. No new text, logos or narrative.",
+  "edgeCleanup": {
+    "authorization": "The user explicitly approved local image tooling: Yes, clean the edges.",
+    "tool": "Sharp 0.35.5 for alpha-mask morphology; pngjs preserves source RGB bytes; cwebp converts final assets.",
+    "recipe": [
+      "Read the generated PNG without modifying RGB.",
+      "Threshold source alpha at 180 to identify the object mask.",
+      "Use four-connected components and discard components smaller than 300 pixels.",
+      "Apply median(9), erode(3), dilate(2), then blur(0.7) to the one-channel mask.",
+      "Set output alpha to min(original alpha, processed mask alpha). This removes fringe without increasing opacity or changing RGB.",
+      "Encode WebP using cwebp -q 92 -alpha_q 100 -m 6 -metadata none."
+    ],
+    "webpVersion": "1.6.0\nlibsharpyuv: 0.4.2",
+    "alpha": "Preserved losslessly during WebP encoding; verified byte-for-byte against the cleaned PNG alpha channel."
+  },
+  "visualVerification": "All five inspected at full resolution on dark card colors and 200px on light card colors. Independent reviewers also inspected listening, writing, speaking and KNM at full resolution on light colors and 200px on dark colors. No detached flecks or matte fringe remain visible. Geometry and palette remain intact.",
+  "assets": [
+    {
+      "name": "reading",
+      "file": "assets/images/home/reading.webp",
+      "generation": "edit",
+      "input": {
+        "file": "assets/images/home/reading.webp",
+        "sha256": "aa0dfe111fba3058dc65fdcb8372f6a44c8e72e8639fdad2832b6e4851408aaf"
+      },
+      "prompt": "Use case: precise-object-edit.\nAsset type: transparent decorative subject illustration for the existing reading card in an adult Dutch study app.\nInput image 1: the edit target; preserve its subject, colours, relative arrangement and diagonal orientation.\nPrimary request: refine the existing yellow envelope and warm off-white letter into a high quality, precise, softly dimensional editorial 3D illustration. Keep the open golden yellow envelope with one off-white letter, slightly tilted clockwise as in the input. Improve the physical accuracy and craft: plausible envelope back and front panels meeting at clean fold lines, consistent paper thickness, a restrained clean folded upper-right letter corner and four evenly spaced soft grey horizontal marks on the same letter plane. Use the same warm yellow and off-white palette, plus the existing two small navy emphasis strokes only. The object should feel carefully designed with crisp silhouettes, smooth matte surfaces, delicate bevels and gentle upper-left studio light, minimal controlled highlights and coherent contact shading.\nComposition/framing: square canvas, isolated object at comparable visible scale, complete object and strokes inside the frame with about 4% clear edge space. Keep letter dominant and envelope broad. No background, truly transparent alpha, no floor, no enclosing panel or external cast shadow.\nConstraints: preserve one envelope and one letter; keep the small navy accent strokes in their general position. No new decoration, no extra objects, no logo, no letters or readable text. Avoid mushy contours, rough cutout fringes, impossible intersecting paper folds, glowing plastic, hard photographic reflections or excessively pillowy geometry.",
+      "generatedSource": "/Users/evgeny.nikiforov/.codex/generated_images/01a17e1f-d646-7b43-aa55-1c1d00411a70/exec-de807e8d-8768-452e-960c-712165f1a672.png",
+      "generatedSourceSha256": "0fd080e881d14cc67420dd3608ac4004dab8d6e3b182855e1f38d2b3c6ffe800",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 105642,
+      "sha256": "47c0c5507b148f08265fb51eceeb17f292e29e3a4c3791613d4fa7090bc89adf",
+      "review": "Plausible envelope folds, consistent letter plane and four marks; clean corner fold.",
+      "verification": {
+        "sourceRgbByteIdenticalBeforeWebp": true,
+        "sourceAlphaNeverIncreased": true,
+        "alphaReducedPixels": 11579,
+        "finalWebpAlphaEqualsCleanedPng": true
+      }
+    },
+    {
+      "name": "listening",
+      "file": "assets/images/home/listening.webp",
+      "generation": "generate",
+      "input": null,
+      "prompt": "Create a finished high-quality stylized 3D editorial illustration for a language-learning website subject card.\nOne pair of cobalt-blue over-ear headphones, shown from a gentle front three-quarter angle. Continuous coherent arched headband, cornflower blue cushioned interior, symmetric credible hinges and yokes, softly bevelled earcups, thick smooth matching light-blue cushions. Left earcup shows its blue outside disc; right earcup turns toward the viewer and shows the dark inner opening. The object feels like carefully modelled matte material, clean precise manufactured forms with restrained highlights, lit gently from upper left. Add two tiny dark navy sound strokes just to the right of the right earcup.\nSquare composition with the complete object and two sound strokes inside the canvas, 4% clear outer margin, object large and centered. Actual transparent alpha background. Empty spaces inside the headband and around the object must be entirely transparent. Clean continuous antialiased silhouette with no colored fringe, pixel debris, floating specks or halos. Do not include a floor plane or outside shadow. No text or logo. Keep the simple soft dimensional illustration family, vivid saturated cobalt outer body and cornflower padding.",
+      "generatedSource": "/Users/evgeny.nikiforov/.codex/generated_images/01a17e20-3a7c-7712-b325-3666802c0fed/exec-68680fea-e8b8-4052-92d1-5ad0c0d53594.png",
+      "generatedSourceSha256": "12d890f7dab10feb3f7cb0db552741e9d94efbc59803ace64c4573f9d974339a",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 155880,
+      "sha256": "ce578214913762c3b8022aca8dbbd53122c6dc27093723cba31c9239d95a0ccd",
+      "review": "Continuous headband with aligned pivots and yokes; coherent cup and cushion layers.",
+      "verification": {
+        "sourceRgbByteIdenticalBeforeWebp": true,
+        "sourceAlphaNeverIncreased": true,
+        "alphaReducedPixels": 16119,
+        "finalWebpAlphaEqualsCleanedPng": true
+      }
+    },
+    {
+      "name": "writing",
+      "file": "assets/images/home/writing.webp",
+      "generation": "edit",
+      "input": {
+        "file": "assets/images/home/writing.webp",
+        "sha256": "f15564c6a73318b4e19f123d00c932537facf7da1e3d935a23ade8707c0a545c"
+      },
+      "prompt": "Use case: precise-object-edit.\nAsset type: transparent square homepage subject illustration, writing.\nInput image: the existing coral wooden pencil is the edit target.\nPrimary request: refine this same illustration to polished precise editorial 3D quality while preserving the diagonal orientation from bottom-left graphite tip to upper-right cream eraser, the nearly full-frame scale, coral red palette and soft dimensional family.\nSubject: one complete coral red hexagonal wooden pencil. Keep a cream eraser with softly rounded edges, restrained satin gold ferrule with plausible evenly spaced crimp rings, warm pale exposed wood sharpening into a graphite point. Keep the existing dark navy short looping scribble under the tip, matching the original small gesture.\nCorrect construction: six coherent long straight hexagonal facets converge cleanly through a symmetrical sharpened wooden cone to one graphite point; ferrule aligns squarely to the pencil barrel and grips the eraser without warped rings; each material boundary is precise. The tip meets the start of the scribble.\nStyle/medium: high-quality stylized 3D editorial object with softly bevelled matte lacquer, crisp precise contours, subtle wood grain only in exposed wood, controlled soft highlights. Gentle upper-left studio light and contact/occlusion shading between parts only. Clean readable object at small card size.\nComposition/framing: square, isolated actual transparent alpha background, whole pencil and scribble within the frame, approximately 4% edge clearance, comparable visible scale to input. No cast shadow outside the object. No floor plane.\nConstraints: preserve this subject, composition, palette and original scribble. Improve accuracy and workmanship. Do not add accessories, decoration, narrative, text, logo or watermark. No checkerboard or opaque background.",
+      "generatedSource": "/Users/evgeny.nikiforov/.codex/generated_images/01a17e20-3a7c-7712-b325-3666802c0fed/exec-c3ee52a3-8ee6-4daa-a9c2-ec0ae3579be0.png",
+      "generatedSourceSha256": "dbf0fb8b93d5f206b0095329f427d0c18fd109e67d7a97c149030d2e54250751",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 103066,
+      "sha256": "49801b8859e517f3e1ee04d1a72ff6b13ad4eef950eed2fb84088118b9a34811",
+      "review": "Straight barrel facets, coherent exposed wood and single graphite point; aligned ferrule and eraser.",
+      "verification": {
+        "sourceRgbByteIdenticalBeforeWebp": true,
+        "sourceAlphaNeverIncreased": true,
+        "alphaReducedPixels": 7837,
+        "finalWebpAlphaEqualsCleanedPng": true
+      }
+    },
+    {
+      "name": "speaking",
+      "file": "assets/images/home/speaking.webp",
+      "generation": "edit",
+      "input": {
+        "file": "assets/images/home/speaking.webp",
+        "sha256": "016258e9f448ab7152538b1bf2184a9bc48f78ae49ae9adc470ffd6f2e03642b"
+      },
+      "prompt": "Use case: style-transfer.\nAsset type: existing homepage subject-card decorative artwork, refined raster replacement.\nInput image: edit target, the existing violet and ivory overlapping speech bubbles.\nPrimary request: refine the graphic into a polished, precise editorial 3D illustration, while preserving the original subject, palette, overall composition and friendly soft dimensional family.\nKeep a large violet speech bubble at upper/right with exactly three evenly spaced circular ivory dots, overlapping a smaller warm off-white speech bubble at lower/left with exactly three evenly spaced violet dots. Preserve their relative sizes and facing tails. Give both bubbles coherent, smooth speech-balloon silhouettes, clean rounded tails, subtly bevelled edges and restrained layered paper depth. Remove the awkward folded corners and warped surfaces of the reference. Dots must sit evenly on the same visible plane with coherent contact shading. The small navy conversational accent marks may remain, neatly placed and rounded.\nMaterials and lighting: softly bevelled matte surfaces, clean crisp edges, gentle studio light from upper left, subtle contact shading only, controlled highlights, no shiny plastic.\nFraming: square canvas, object fully inside frame with modest about 4% edge clearance, comparable visible scale to reference, no clipping.\nBackground: actual transparent alpha everywhere outside the objects, no backdrop, no floor, no rectangle, no opaque white, no checkerboard drawing.\nConstraints: no added narrative, no text, letters, numbers, logos or watermark. Preserve violet and ivory colors and the original object arrangement. Output a high quality at least 1024-pixel square image.",
+      "generatedSource": "/Users/evgeny.nikiforov/.codex/generated_images/01a17e20-59a7-7550-a967-3c6ac0177c87/exec-bf1ed702-fed1-4dc4-87c7-9fe4bcc212fe.png",
+      "generatedSourceSha256": "943756932a288f86d0ccae71d4d43114698210ce3846c630e322d4fa020c981f",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 88748,
+      "sha256": "af83a6b28b48699e54245ec0c1e06b78a1202ba427102851b9a58a047d0f442d",
+      "review": "Coherent smooth tails and evenly spaced dots on both bubbles.",
+      "verification": {
+        "sourceRgbByteIdenticalBeforeWebp": true,
+        "sourceAlphaNeverIncreased": true,
+        "alphaReducedPixels": 11653,
+        "finalWebpAlphaEqualsCleanedPng": true
+      }
+    },
+    {
+      "name": "knm",
+      "file": "assets/images/home/knm.webp",
+      "generation": "edit",
+      "input": {
+        "file": "assets/images/home/knm.webp",
+        "sha256": "dcb79fb9d979fc01e4c3e07a8b745d8e47a078afd137993a400bbf3f9f90ace6"
+      },
+      "prompt": "Use case: style-transfer.\nAsset type: existing homepage KNM subject-card decorative artwork, refined raster replacement.\nInput image: edit target, the existing miniature yellow Dutch house and garden.\nPrimary request: refine the graphic into a polished, precise editorial 3D illustration, while preserving the subject, palette, overall composition and friendly soft dimensional family.\nSubject: one compact yellow house with a terracotta tiled gable roof, one brick chimney, ivory roof trim and window frames, a blue centered front door, two matching blue ground-floor windows with flower boxes, one blue upper gable window, short front steps, a single rounded green tree to the left, small simple garden shrubs and flowers on an oval green garden base, and a Dutch flag to the right on its gold pole.\nCorrect the architecture: coherent front and visible left-side perspective, straight parallel door and window frames in their architectural planes, consistent sill thickness and trim, plausible tidy roof tiles and a true ridge, correct chimney connection, blue panes and door details clean and consistent. Simplify foliage into intentional rounded sculpted forms and make garden plants legible at small size. Keep the warm little house character.\nThe Netherlands flag is physically correct: exactly three equal horizontal bands, RED TOP, WHITE MIDDLE, BLUE BOTTOM, all following the same gentle cloth deformation, no extra stripes, right edge free and gently waving.\nStyle: softly bevelled matte surfaces, crisp clean edges, restrained material detail and controlled highlights. Gentle studio light from upper left, subtle object contact shading only. Avoid shiny plastic and excess tiny texture.\nFraming: square canvas, full house, tree, flag and base inside frame with modest about 4% edge clearance; comparable visible scale to original.\nBackground: actual transparent alpha everywhere outside objects, no backdrop, no floor, no opaque white, no checkerboard drawing.\nConstraints: preserve the original yellow/terracotta/blue/green color story and original object arrangement. No extra buildings, people, text, letters, numbers, logos or watermark. Output a high quality at least 1024-pixel square image.",
+      "generatedSource": "/Users/evgeny.nikiforov/.codex/generated_images/01a17e20-59a7-7550-a967-3c6ac0177c87/exec-05e48f01-7a92-4a2a-bc73-730e87635491.png",
+      "generatedSourceSha256": "4990fdb7ba014748243314b36ee804f3b81a13ec56f193b34929ee7cc4187985",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 187274,
+      "sha256": "8fec6e2ba0b538d8289350b5158b9ba4a96abc3fbd0679c02a7b8ba480f50ecc",
+      "review": "Coherent roof, wall, chimney, windows and foliage; red, white and blue Dutch flag bands share the same cloth deformation.",
+      "verification": {
+        "sourceRgbByteIdenticalBeforeWebp": true,
+        "sourceAlphaNeverIncreased": true,
+        "alphaReducedPixels": 12588,
+        "finalWebpAlphaEqualsCleanedPng": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,763 @@
+{
+  "review_id": "070-media-review",
+  "reviewed_at": "2026-10-27",
+  "review_type": "independent-visual-and-audio-technical",
+  "reviewer": "Independent Codex AI reviewer /root/review_a1_audio. This reviewer did not generate or edit the media. Each final WebP was viewed directly with view_image; audio was inspected through source/manifest checks and ffprobe, without auditory access.",
+  "source": "content/batches/070-original.json",
+  "source_sha256": "638850e3b48d020587ea6e6a51616152252a70f09779abc4da6b8475a0731743",
+  "editorial_review": "content/reviews/070-review.json",
+  "level_target_check": "content/reviews/070-level-check.md",
+  "scope": "Local A1 listening testing. Three final context illustrations and nine audio clips, including six question narrations.",
+  "visual_verdict": "pass",
+  "audio_technical_verdict": "pass",
+  "specialist_listening_verdict": "pending",
+  "overall_status": "visual-pass-and-audio-technical-pass; specialist-listening-pending",
+  "approved_image_count": 3,
+  "audio_technical_pass_count": 9,
+  "images": [
+    {
+      "id": "A1:listening:batch070-foto-werk:1",
+      "key": "A1:listening:batch070-foto-werk:1#image0",
+      "verdict": "pass",
+      "approved_for_local_testing": true,
+      "file": "images/f6083943ed1c9ce3.webp",
+      "installed_file": "assets/images/f6083943ed1c9ce3.webp",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/assets/images/f6083943ed1c9ce3.webp",
+      "file_sha256": "f6083943ed1c9ce3a38e7c4cac8258f8cd31f15f92cb052bfdabf68a41f3073a",
+      "brief": "Sabrina (woman in her thirties, long dark hair, green jumper) and Julio (young man, curly hair, striped shirt) stand facing each other beside a low empty desk in a plain work room and talk. Show only these two colleagues and the desk. No other people, camera, photographs, doorway, corridor, windows, tree or clocks. No text, numerals, labels, signage or logos.",
+      "alt": "Twee collega's praten naast een bureau op het werk.",
+      "kind": "drawing",
+      "generation": {
+        "tool_mode": "built-in image_gen",
+        "batch_tool_mode": "built-in image_gen; three independent opaque generations",
+        "transparent_background": false,
+        "source_batch": "content/batches/070-original.json",
+        "source_batch_sha256": "638850e3b48d020587ea6e6a51616152252a70f09779abc4da6b8475a0731743",
+        "full_prompt": "Minimal flat illustration made of a few simple shapes: no outlines, no texture, no background objects. Palette: warm off-white paper, charcoal grey, mustard yellow, plus one or two muted colours used sparingly (dusty blue, sage green, soft terracotta). Large empty space, deliberately low detail, friendly and calm, everyday Netherlands. No text, no captions, no logos. Sabrina (woman in her thirties, long dark hair, green jumper) and Julio (young man, curly hair, striped shirt) stand facing each other beside a low empty desk in a plain work room and talk. Show only these two colleagues and the desk. No other people, camera, photographs, doorway, corridor, windows, tree or clocks. No text, numerals, labels, signage or logos. Canvas and composition: landscape 16:10, calm empty space, main figures large enough to remain clear at the exercise player width.",
+        "prompt_sha256": "c88df1f74370662e0a31478960153d1c87cdc654b587021b4d174c28555f85ef",
+        "generated_source": "/Users/evgeny.nikiforov/.codex/generated_images/01a17e1f-d646-7b43-aa55-1c1d00411a70/exec-da1e56a3-3808-4127-86c5-3ea9a2a68a4a.png",
+        "source_png": "/Users/evgeny.nikiforov/Documents/ChatGPT/inburgering/content/images-source/batch070/image0.png",
+        "reviewed_source_png": "/Users/evgeny.nikiforov/Projects/inburgering/content/images-source/batch070/image0.png",
+        "source_png_sha256": "9b55372fac84556d85ebc150ee2f9682241b7603046bd26fd8e6dff447a7f4ce",
+        "source_png_dimensions": {
+          "width": 1586,
+          "height": 992
+        },
+        "output_sha256": "f6083943ed1c9ce3a38e7c4cac8258f8cd31f15f92cb052bfdabf68a41f3073a",
+        "output_dimensions": {
+          "width": 1024,
+          "height": 640
+        },
+        "output_bytes": 20260,
+        "output_format": "WebP",
+        "output_has_alpha": false,
+        "quality": 88,
+        "conversion": "cwebp -quiet -metadata none -q 88 -resize 1024 640 source.png -o output.webp",
+        "provenance_hashes_verified": true
+      },
+      "visual_review": {
+        "inspected_full_final_webp": true,
+        "inspected_player_preview": true,
+        "player_preview_width_px": 520,
+        "matched_against_final_brief_and_both_questions": true,
+        "cast": "Sabrina has long dark hair and a green jumper; Julio is a young man with curly hair and a striped shirt. The people match the named cast traits.",
+        "scene": "Two colleagues face each other and gesture beside one bare low desk. No third person or photography action appears. Empty background and desk support a neutral workplace context.",
+        "exclusions": "No camera, photograph, doorway, corridor, window, tree, clock, text, numeral, signage or logo is visible.",
+        "contrast_and_shape": "Faces, open conversational gestures and the desk silhouette read clearly at full 1024 px width and the 520 px preview. Dark clothing and muted green separate from the light background. Hands use simple flat shapes without disruptive artefacts.",
+        "material_deviation": false,
+        "deviation_notes": "No material brief deviation. The plain desk/table is empty and stays within the required low-detail context.",
+        "no_answer_or_distractor_visual_bias": true,
+        "questions": [
+          {
+            "id": "q1",
+            "prompt": "Wie maakt de foto?",
+            "options": {
+              "A": "Karim.",
+              "B": "Julio.",
+              "C": "Sabrina."
+            },
+            "answer": "A",
+            "evidence": "Karim maakt de foto.",
+            "verdict": "pass",
+            "visual_reason": "No camera or photography action assigns the photographer role to any visible person. Sabrina and Julio only talk. Their presence supplies the conversation context, and the picture does not identify Karim or select any name option."
+          },
+          {
+            "id": "q2",
+            "prompt": "Waar moet Julio staan voor de foto?",
+            "options": {
+              "A": "In de gang.",
+              "B": "Bij de boom.",
+              "C": "Bij de deur."
+            },
+            "answer": "B",
+            "evidence": "Je staat buiten bij de boom.",
+            "verdict": "pass",
+            "visual_reason": "No corridor, tree or doorway appears. Nothing points to a candidate location or shows Julio standing for a photograph."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch070-potlood-lenen:1",
+      "key": "A1:listening:batch070-potlood-lenen:1#image0",
+      "verdict": "pass",
+      "approved_for_local_testing": true,
+      "file": "images/09cedb946f96b4c9.webp",
+      "installed_file": "assets/images/09cedb946f96b4c9.webp",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/assets/images/09cedb946f96b4c9.webp",
+      "file_sha256": "09cedb946f96b4c93dd53ab5f2e8ae0dbd187d14867df668901e3142bce599d2",
+      "brief": "Roos (young woman, dark hair in a bun, yellow scarf) talks with her teacher Mark, a man with short grey hair and a dusty blue shirt. They stand beside an empty classroom table. Both have empty hands. No pencils, erasers, paper, bags, drinking vessels, clock or timetable. No text, numerals, labels, signage or logos.",
+      "alt": "Een jonge vrouw praat met een docent bij een tafel.",
+      "kind": "drawing",
+      "generation": {
+        "tool_mode": "built-in image_gen",
+        "batch_tool_mode": "built-in image_gen; three independent opaque generations",
+        "transparent_background": false,
+        "source_batch": "content/batches/070-original.json",
+        "source_batch_sha256": "638850e3b48d020587ea6e6a51616152252a70f09779abc4da6b8475a0731743",
+        "full_prompt": "Minimal flat illustration made of a few simple shapes: no outlines, no texture, no background objects. Palette: warm off-white paper, charcoal grey, mustard yellow, plus one or two muted colours used sparingly (dusty blue, sage green, soft terracotta). Large empty space, deliberately low detail, friendly and calm, everyday Netherlands. No text, no captions, no logos. Roos (young woman, dark hair in a bun, yellow scarf) talks with her teacher Mark, a man with short grey hair and a dusty blue shirt. They stand beside an empty classroom table. Both have empty hands. No pencils, erasers, paper, bags, drinking vessels, clock or timetable. No text, numerals, labels, signage or logos. Canvas and composition: landscape 16:10, calm empty space, main figures large enough to remain clear at the exercise player width.",
+        "prompt_sha256": "66c35119966250a5eaa718f74c1901c4cd3cd8d8c009cc3a36c48ac44198beea",
+        "generated_source": "/Users/evgeny.nikiforov/.codex/generated_images/01a17e1f-d646-7b43-aa55-1c1d00411a70/exec-0aaeceae-ba9f-4e90-a42b-302deab2c975.png",
+        "source_png": "/Users/evgeny.nikiforov/Documents/ChatGPT/inburgering/content/images-source/batch070/image1.png",
+        "reviewed_source_png": "/Users/evgeny.nikiforov/Projects/inburgering/content/images-source/batch070/image1.png",
+        "source_png_sha256": "e6f1de3563d4742e2833ef53ed4113f0bd1ce3455f0724e9270ab8cbd1e6bce0",
+        "source_png_dimensions": {
+          "width": 1586,
+          "height": 992
+        },
+        "output_sha256": "09cedb946f96b4c93dd53ab5f2e8ae0dbd187d14867df668901e3142bce599d2",
+        "output_dimensions": {
+          "width": 1024,
+          "height": 640
+        },
+        "output_bytes": 23600,
+        "output_format": "WebP",
+        "output_has_alpha": false,
+        "quality": 88,
+        "conversion": "cwebp -quiet -metadata none -q 88 -resize 1024 640 source.png -o output.webp",
+        "provenance_hashes_verified": true
+      },
+      "visual_review": {
+        "inspected_full_final_webp": true,
+        "inspected_player_preview": true,
+        "player_preview_width_px": 520,
+        "matched_against_final_brief_and_both_questions": true,
+        "cast": "Roos has dark hair in a bun and a yellow scarf. Mark has short grey hair and a dusty blue shirt. All prescribed traits are visible.",
+        "scene": "Two people converse beside an empty classroom table. Their visible hands hold no object. Two plain classroom chairs support the setting.",
+        "exclusions": "No pencil, eraser, paper, bag, drink vessel, clock, timetable, text, numeral, signage or logo is visible.",
+        "contrast_and_shape": "The bun, yellow scarf and grey-haired teacher remain distinct at 520 px. The table and two chairs have simple readable shapes. Faces and gestures have no distracting distortions; muted clothing separates from the pale background.",
+        "material_deviation": false,
+        "deviation_notes": "Two neutral chairs appear beside the required table. They add no answer-bearing detail and are acceptable classroom context.",
+        "no_answer_or_distractor_visual_bias": true,
+        "questions": [
+          {
+            "id": "q1",
+            "prompt": "Wat krijgt Roos van de docent?",
+            "options": {
+              "A": "Een gum.",
+              "B": "Het papier.",
+              "C": "Een potlood."
+            },
+            "answer": "C",
+            "evidence": "Ik geef je mijn potlood.",
+            "verdict": "pass",
+            "visual_reason": "No pencil, eraser, paper or handover appears. None of the three candidate objects is favored."
+          },
+          {
+            "id": "q2",
+            "prompt": "Wanneer geeft Roos het potlood terug?",
+            "options": {
+              "A": "Na de les.",
+              "B": "Voor de les.",
+              "C": "In de pauze."
+            },
+            "answer": "A",
+            "evidence": "Geef het na de les terug.",
+            "verdict": "pass",
+            "visual_reason": "No clock, timetable, class activity or break activity indicates when the pencil must be returned. The three time choices require the recording."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch070-tas-kopen:1",
+      "key": "A1:listening:batch070-tas-kopen:1#image0",
+      "verdict": "pass",
+      "approved_for_local_testing": true,
+      "file": "images/5cb6046c1873815a.webp",
+      "installed_file": "assets/images/5cb6046c1873815a.webp",
+      "reviewed_file": "/Users/evgeny.nikiforov/Projects/inburgering/assets/images/5cb6046c1873815a.webp",
+      "file_sha256": "5cb6046c1873815a07fa2f04992fa53793ecf9f568df0abe1cd8f347cbfe1df8",
+      "brief": "Fatima (woman in her forties, headscarf, blue coat) talks with shop assistant Ruben, a man with short black hair and a terracotta shirt. They face each other across an empty shop counter. Both have empty hands. No bags, backpacks, money, cards, payment terminal, phones, clocks or visible merchandise. No text, numerals, labels, signage or logos.",
+      "alt": "Een vrouw praat met een verkoper aan een toonbank.",
+      "kind": "drawing",
+      "generation": {
+        "tool_mode": "built-in image_gen",
+        "batch_tool_mode": "built-in image_gen; three independent opaque generations",
+        "transparent_background": false,
+        "source_batch": "content/batches/070-original.json",
+        "source_batch_sha256": "638850e3b48d020587ea6e6a51616152252a70f09779abc4da6b8475a0731743",
+        "full_prompt": "Minimal flat illustration made of a few simple shapes: no outlines, no texture, no background objects. Palette: warm off-white paper, charcoal grey, mustard yellow, plus one or two muted colours used sparingly (dusty blue, sage green, soft terracotta). Large empty space, deliberately low detail, friendly and calm, everyday Netherlands. No text, no captions, no logos. Fatima (woman in her forties, headscarf, blue coat) talks with shop assistant Ruben, a man with short black hair and a terracotta shirt. They face each other across an empty shop counter. Both have empty hands. No bags, backpacks, money, cards, payment terminal, phones, clocks or visible merchandise. No text, numerals, labels, signage or logos. Canvas and composition: landscape 16:10, calm empty space, main figures large enough to remain clear at the exercise player width.",
+        "prompt_sha256": "fd54549e569fb755e3e28d0c4597a84d3ede0147f06566b9833dbedc717693b1",
+        "generated_source": "/Users/evgeny.nikiforov/.codex/generated_images/01a17e1f-d646-7b43-aa55-1c1d00411a70/exec-09a4ca18-1481-4fb0-903f-4b6d688df677.png",
+        "source_png": "/Users/evgeny.nikiforov/Documents/ChatGPT/inburgering/content/images-source/batch070/image2.png",
+        "reviewed_source_png": "/Users/evgeny.nikiforov/Projects/inburgering/content/images-source/batch070/image2.png",
+        "source_png_sha256": "cc5bb8f2f58bbb454d79ce378efe8dac3897474e2d17d944109eab39ad22ae7f",
+        "source_png_dimensions": {
+          "width": 1586,
+          "height": 992
+        },
+        "output_sha256": "5cb6046c1873815a07fa2f04992fa53793ecf9f568df0abe1cd8f347cbfe1df8",
+        "output_dimensions": {
+          "width": 1024,
+          "height": 640
+        },
+        "output_bytes": 19180,
+        "output_format": "WebP",
+        "output_has_alpha": false,
+        "quality": 88,
+        "conversion": "cwebp -quiet -metadata none -q 88 -resize 1024 640 source.png -o output.webp",
+        "provenance_hashes_verified": true
+      },
+      "visual_review": {
+        "inspected_full_final_webp": true,
+        "inspected_player_preview": true,
+        "player_preview_width_px": 520,
+        "matched_against_final_brief_and_both_questions": true,
+        "cast": "Fatima wears a headscarf and blue coat. Ruben has short black hair and a terracotta shirt. His plain charcoal apron is consistent with the shop role.",
+        "scene": "Fatima and Ruben face each other across one empty counter. Her open hands and his hands on the counter show a conversation with no object exchange.",
+        "exclusions": "No bag, backpack, coin, money, card, phone, payment terminal, merchandise, clock, text, numeral, signage or logo is visible.",
+        "contrast_and_shape": "Blue coat and terracotta shirt remain distinct against the pale background at 520 px. The counter has a clear edge; both faces and visible hands read cleanly at player size. Flat muted colors match the house style.",
+        "material_deviation": false,
+        "deviation_notes": "A plain dark apron was added to Ruben. It establishes the shop role without supplying a tested fact.",
+        "no_answer_or_distractor_visual_bias": true,
+        "questions": [
+          {
+            "id": "q1",
+            "prompt": "Wat koopt Fatima?",
+            "options": {
+              "A": "Een grote tas.",
+              "B": "Een kleine tas.",
+              "C": "Een nieuwe rugzak."
+            },
+            "answer": "B",
+            "evidence": "Nee, een kleine tas, graag.",
+            "verdict": "pass",
+            "visual_reason": "No bag or backpack appears. Neither product type nor size supports any option."
+          },
+          {
+            "id": "q2",
+            "prompt": "Hoe betaalt Fatima?",
+            "options": {
+              "A": "Met haar munten.",
+              "B": "Met haar telefoon.",
+              "C": "Met haar pas."
+            },
+            "answer": "C",
+            "evidence": "Ik betaal met mijn pas.",
+            "verdict": "pass",
+            "visual_reason": "There is no coin, card, phone, terminal or payment gesture. No payment option is favored."
+          }
+        ]
+      }
+    }
+  ],
+  "audio": {
+    "manifest_source": "tmp/batch070/audio/audio-manifest.json",
+    "manifest_sha256": "5f842db4fcd5709d1332ce6e9204ec8974054c1ac4a60ab48b86979a82fa5960",
+    "technical_analysis_source": "tmp/batch070/audio-technical-review.json",
+    "checked_independently": "Verified adopted batch hash, each source/question string and script SHA-256, each configured voice-role mapping and profile-adjusted speed, actual MP3 file hashes, decoder metadata and durations. Read the reported transcription metrics and sample-level measurements from the generated manifest and technical report.",
+    "model": "eleven_multilingual_v2",
+    "mode": "stitched",
+    "language": "nl",
+    "configured_profile": {
+      "name": "A1",
+      "speed_multiplier": 0.82,
+      "speed_floor": 0.7,
+      "turn_gap_seconds": 0.9
+    },
+    "round_trip": {
+      "reported_character_error_rate": 0,
+      "reported_longest_inserted_run": 0,
+      "clip_count": 9,
+      "note": "The legacy manifest field wer stores the pipeline character error rate. These are provider-transcription results, not a listening review."
+    },
+    "encoding": {
+      "codec": "MP3",
+      "sample_rate_hz": 44100,
+      "channels": 1
+    },
+    "sample_level_range_db": {
+      "minimum_clip_max": -2.6,
+      "maximum_clip_max": -1.7,
+      "note": "Reported sample peaks are below digital full scale. This does not certify true peak, perceptual loudness balance or absence of audible distortion."
+    },
+    "fragment_measurements": [
+      {
+        "id": "A1:listening:batch070-foto-werk:1",
+        "file": "audio/676220fa71cf8b4e.mp3",
+        "file_sha256": "c3c7d88743046e41c93162856c18f6d6a15eed35cacff39d3dfd6d65e5a2f994",
+        "spoken_words": 51,
+        "duration_seconds": 25.369138,
+        "overall_words_per_second": 2.0103148072007007
+      },
+      {
+        "id": "A1:listening:batch070-potlood-lenen:1",
+        "file": "audio/4385be2fa9334ce0.mp3",
+        "file_sha256": "6259f00a4a4138d6bae2a769ae3f2749370ea063748c62bc4647143790209dcf",
+        "spoken_words": 48,
+        "duration_seconds": 23.743719,
+        "overall_words_per_second": 2.0215872821837118
+      },
+      {
+        "id": "A1:listening:batch070-tas-kopen:1",
+        "file": "audio/a7deecb77ca886c3.mp3",
+        "file_sha256": "47e784a36aa85e3181bbe02d5a95bd38260bcb7fd271c392cf92ce2cbb801872",
+        "spoken_words": 48,
+        "duration_seconds": 29.084376,
+        "overall_words_per_second": 1.6503693215927997
+      }
+    ],
+    "clips": [
+      {
+        "key": "A1:listening:batch070-foto-werk:1#q2",
+        "file": "audio/88a32261378949c1.mp3",
+        "reviewed_file": "tmp/batch070/audio/88a32261378949c1.mp3",
+        "file_sha256": "7e0c0bb3e03fa56e138581900c8398450b9158607ea1a6f8fdf20bd37f2b47f3",
+        "script_sha256": "8adc44539d676e6044eab2e1e4961f89e033e2d5d0da216021959ba0da296128",
+        "expected_script_sha256": "8adc44539d676e6044eab2e1e4961f89e033e2d5d0da216021959ba0da296128",
+        "source_text_matches": true,
+        "source_hash_matches": true,
+        "roles_match": true,
+        "settings_match": true,
+        "profile": {
+          "name": "A1",
+          "speedMultiplier": 0.82,
+          "gapSeconds": 0.9
+        },
+        "gap_seconds": 0.9,
+        "reported_round_trip_cer": 0,
+        "inserted_run": 0,
+        "duration_seconds": 3.065057,
+        "manifest_duration_matches": true,
+        "spoken_words": 7,
+        "overall_words_per_second": 2.2837907819782495,
+        "codec": "mp3",
+        "sample_rate_hz": 44100,
+        "channels": 1,
+        "mean_volume_db": -18.5,
+        "max_sample_volume_db": -1.8,
+        "installed_file": "assets/audio/88a32261378949c1.mp3",
+        "technical_verdict": "pass",
+        "auditory_review_performed": false,
+        "specialist_listening_status": "pending",
+        "measurement_note": "Overall words per second uses the source spoken-word count divided by complete encoded clip duration, including silence. The gap is a configured pipeline value. Neither value validates A1 articulation or pacing."
+      },
+      {
+        "key": "A1:listening:batch070-foto-werk:1#q1",
+        "file": "audio/0ae8b346c9c0d9dd.mp3",
+        "reviewed_file": "tmp/batch070/audio/0ae8b346c9c0d9dd.mp3",
+        "file_sha256": "f160a61ae273247309a36405065d90e6f21c9c5ce3cd2426e80b10a207c8d373",
+        "script_sha256": "3b669cea70477fa279d616b6646654003ff18b98c97fc4865812746448d80ef2",
+        "expected_script_sha256": "3b669cea70477fa279d616b6646654003ff18b98c97fc4865812746448d80ef2",
+        "source_text_matches": true,
+        "source_hash_matches": true,
+        "roles_match": true,
+        "settings_match": true,
+        "profile": {
+          "name": "A1",
+          "speedMultiplier": 0.82,
+          "gapSeconds": 0.9
+        },
+        "gap_seconds": 0.9,
+        "reported_round_trip_cer": 0,
+        "inserted_run": 0,
+        "duration_seconds": 1.671837,
+        "manifest_duration_matches": true,
+        "spoken_words": 4,
+        "overall_words_per_second": 2.392578125,
+        "codec": "mp3",
+        "sample_rate_hz": 44100,
+        "channels": 1,
+        "mean_volume_db": -18.4,
+        "max_sample_volume_db": -2.1,
+        "installed_file": "assets/audio/0ae8b346c9c0d9dd.mp3",
+        "technical_verdict": "pass",
+        "auditory_review_performed": false,
+        "specialist_listening_status": "pending",
+        "measurement_note": "Overall words per second uses the source spoken-word count divided by complete encoded clip duration, including silence. The gap is a configured pipeline value. Neither value validates A1 articulation or pacing."
+      },
+      {
+        "key": "A1:listening:batch070-potlood-lenen:1#q1",
+        "file": "audio/238e310828b2831c.mp3",
+        "reviewed_file": "tmp/batch070/audio/238e310828b2831c.mp3",
+        "file_sha256": "828072a217dc23af6e74b3360d985ae4214cd3fc48273374192e302ba4537c1a",
+        "script_sha256": "a9a830c82a1f722d33821ef1c2d0666f4a28e9c6092d8517a55da5fd045e9c19",
+        "expected_script_sha256": "a9a830c82a1f722d33821ef1c2d0666f4a28e9c6092d8517a55da5fd045e9c19",
+        "source_text_matches": true,
+        "source_hash_matches": true,
+        "roles_match": true,
+        "settings_match": true,
+        "profile": {
+          "name": "A1",
+          "speedMultiplier": 0.82,
+          "gapSeconds": 0.9
+        },
+        "gap_seconds": 0.9,
+        "reported_round_trip_cer": 0,
+        "inserted_run": 0,
+        "duration_seconds": 2.461338,
+        "manifest_duration_matches": true,
+        "spoken_words": 6,
+        "overall_words_per_second": 2.437676192581947,
+        "codec": "mp3",
+        "sample_rate_hz": 44100,
+        "channels": 1,
+        "mean_volume_db": -18.2,
+        "max_sample_volume_db": -2.6,
+        "installed_file": "assets/audio/238e310828b2831c.mp3",
+        "technical_verdict": "pass",
+        "auditory_review_performed": false,
+        "specialist_listening_status": "pending",
+        "measurement_note": "Overall words per second uses the source spoken-word count divided by complete encoded clip duration, including silence. The gap is a configured pipeline value. Neither value validates A1 articulation or pacing."
+      },
+      {
+        "key": "A1:listening:batch070-potlood-lenen:1#q2",
+        "file": "audio/3f351ed2afc27d16.mp3",
+        "reviewed_file": "tmp/batch070/audio/3f351ed2afc27d16.mp3",
+        "file_sha256": "21c66997187f1cd90d55d1fa3d9edcede158530307f853a9cfabc3070bfa4781",
+        "script_sha256": "2ffcba53237a0e70499e4a28eda95b6c50e6f711f671be4a9a29323d171102a0",
+        "expected_script_sha256": "2ffcba53237a0e70499e4a28eda95b6c50e6f711f671be4a9a29323d171102a0",
+        "source_text_matches": true,
+        "source_hash_matches": true,
+        "roles_match": true,
+        "settings_match": true,
+        "profile": {
+          "name": "A1",
+          "speedMultiplier": 0.82,
+          "gapSeconds": 0.9
+        },
+        "gap_seconds": 0.9,
+        "reported_round_trip_cer": 0,
+        "inserted_run": 0,
+        "duration_seconds": 2.600635,
+        "manifest_duration_matches": true,
+        "spoken_words": 6,
+        "overall_words_per_second": 2.30712890625,
+        "codec": "mp3",
+        "sample_rate_hz": 44100,
+        "channels": 1,
+        "mean_volume_db": -18.5,
+        "max_sample_volume_db": -1.8,
+        "installed_file": "assets/audio/3f351ed2afc27d16.mp3",
+        "technical_verdict": "pass",
+        "auditory_review_performed": false,
+        "specialist_listening_status": "pending",
+        "measurement_note": "Overall words per second uses the source spoken-word count divided by complete encoded clip duration, including silence. The gap is a configured pipeline value. Neither value validates A1 articulation or pacing."
+      },
+      {
+        "key": "A1:listening:batch070-foto-werk:1#fragment",
+        "file": "audio/676220fa71cf8b4e.mp3",
+        "reviewed_file": "tmp/batch070/audio/676220fa71cf8b4e.mp3",
+        "file_sha256": "c3c7d88743046e41c93162856c18f6d6a15eed35cacff39d3dfd6d65e5a2f994",
+        "script_sha256": "05cf4fb1abf2a092cf5db08e7d79cfdb7099542166ff8234ca653c2d070db3a8",
+        "expected_script_sha256": "05cf4fb1abf2a092cf5db08e7d79cfdb7099542166ff8234ca653c2d070db3a8",
+        "source_text_matches": true,
+        "source_hash_matches": true,
+        "roles_match": true,
+        "settings_match": true,
+        "profile": {
+          "name": "A1",
+          "speedMultiplier": 0.82,
+          "gapSeconds": 0.9
+        },
+        "gap_seconds": 0.9,
+        "reported_round_trip_cer": 0,
+        "inserted_run": 0,
+        "duration_seconds": 25.369138,
+        "manifest_duration_matches": true,
+        "spoken_words": 51,
+        "overall_words_per_second": 2.0103148072007007,
+        "codec": "mp3",
+        "sample_rate_hz": 44100,
+        "channels": 1,
+        "mean_volume_db": -21.8,
+        "max_sample_volume_db": -1.8,
+        "installed_file": "assets/audio/676220fa71cf8b4e.mp3",
+        "technical_verdict": "pass",
+        "auditory_review_performed": false,
+        "specialist_listening_status": "pending",
+        "measurement_note": "Overall words per second uses the source spoken-word count divided by complete encoded clip duration, including silence. The gap is a configured pipeline value. Neither value validates A1 articulation or pacing."
+      },
+      {
+        "key": "A1:listening:batch070-potlood-lenen:1#fragment",
+        "file": "audio/4385be2fa9334ce0.mp3",
+        "reviewed_file": "tmp/batch070/audio/4385be2fa9334ce0.mp3",
+        "file_sha256": "6259f00a4a4138d6bae2a769ae3f2749370ea063748c62bc4647143790209dcf",
+        "script_sha256": "7fd85667c24ad45c54b5a7fbee1cfb4d508970ac1f54a10c276ce8d08499bc90",
+        "expected_script_sha256": "7fd85667c24ad45c54b5a7fbee1cfb4d508970ac1f54a10c276ce8d08499bc90",
+        "source_text_matches": true,
+        "source_hash_matches": true,
+        "roles_match": true,
+        "settings_match": true,
+        "profile": {
+          "name": "A1",
+          "speedMultiplier": 0.82,
+          "gapSeconds": 0.9
+        },
+        "gap_seconds": 0.9,
+        "reported_round_trip_cer": 0,
+        "inserted_run": 0,
+        "duration_seconds": 23.743719,
+        "manifest_duration_matches": true,
+        "spoken_words": 48,
+        "overall_words_per_second": 2.0215872821837118,
+        "codec": "mp3",
+        "sample_rate_hz": 44100,
+        "channels": 1,
+        "mean_volume_db": -22.8,
+        "max_sample_volume_db": -1.8,
+        "installed_file": "assets/audio/4385be2fa9334ce0.mp3",
+        "technical_verdict": "pass",
+        "auditory_review_performed": false,
+        "specialist_listening_status": "pending",
+        "measurement_note": "Overall words per second uses the source spoken-word count divided by complete encoded clip duration, including silence. The gap is a configured pipeline value. Neither value validates A1 articulation or pacing."
+      },
+      {
+        "key": "A1:listening:batch070-tas-kopen:1#q1",
+        "file": "audio/0e466b3b377df4c7.mp3",
+        "reviewed_file": "tmp/batch070/audio/0e466b3b377df4c7.mp3",
+        "file_sha256": "58f8655215d6891925c3a426fdd36321be9f12870dbad2c0aba2d223788391bb",
+        "script_sha256": "ab8692a48b0b3df4b8ab54b177e6ffd4ec33f391a7815c1cac32b8bccb2f9cd6",
+        "expected_script_sha256": "ab8692a48b0b3df4b8ab54b177e6ffd4ec33f391a7815c1cac32b8bccb2f9cd6",
+        "source_text_matches": true,
+        "source_hash_matches": true,
+        "roles_match": true,
+        "settings_match": true,
+        "profile": {
+          "name": "A1",
+          "speedMultiplier": 0.82,
+          "gapSeconds": 0.9
+        },
+        "gap_seconds": 0.9,
+        "reported_round_trip_cer": 0,
+        "inserted_run": 0,
+        "duration_seconds": 1.811179,
+        "manifest_duration_matches": true,
+        "spoken_words": 3,
+        "overall_words_per_second": 1.6563587650549616,
+        "codec": "mp3",
+        "sample_rate_hz": 44100,
+        "channels": 1,
+        "mean_volume_db": -19.1,
+        "max_sample_volume_db": -1.8,
+        "installed_file": "assets/audio/0e466b3b377df4c7.mp3",
+        "technical_verdict": "pass",
+        "auditory_review_performed": false,
+        "specialist_listening_status": "pending",
+        "measurement_note": "Overall words per second uses the source spoken-word count divided by complete encoded clip duration, including silence. The gap is a configured pipeline value. Neither value validates A1 articulation or pacing."
+      },
+      {
+        "key": "A1:listening:batch070-tas-kopen:1#q2",
+        "file": "audio/4e46b8f7813690b6.mp3",
+        "reviewed_file": "tmp/batch070/audio/4e46b8f7813690b6.mp3",
+        "file_sha256": "414a501087f9b69c9e04851e9f0bafbc09cd50513b810a4e745b6d5f747a6a74",
+        "script_sha256": "5982a4181a76c1f962450595eb9520f46c4da6854be14611d923645fde8e0c4c",
+        "expected_script_sha256": "5982a4181a76c1f962450595eb9520f46c4da6854be14611d923645fde8e0c4c",
+        "source_text_matches": true,
+        "source_hash_matches": true,
+        "roles_match": true,
+        "settings_match": true,
+        "profile": {
+          "name": "A1",
+          "speedMultiplier": 0.82,
+          "gapSeconds": 0.9
+        },
+        "gap_seconds": 0.9,
+        "reported_round_trip_cer": 0,
+        "inserted_run": 0,
+        "duration_seconds": 1.857596,
+        "manifest_duration_matches": true,
+        "spoken_words": 3,
+        "overall_words_per_second": 1.614990234375,
+        "codec": "mp3",
+        "sample_rate_hz": 44100,
+        "channels": 1,
+        "mean_volume_db": -20.2,
+        "max_sample_volume_db": -1.8,
+        "installed_file": "assets/audio/4e46b8f7813690b6.mp3",
+        "technical_verdict": "pass",
+        "auditory_review_performed": false,
+        "specialist_listening_status": "pending",
+        "measurement_note": "Overall words per second uses the source spoken-word count divided by complete encoded clip duration, including silence. The gap is a configured pipeline value. Neither value validates A1 articulation or pacing."
+      },
+      {
+        "key": "A1:listening:batch070-tas-kopen:1#fragment",
+        "file": "audio/a7deecb77ca886c3.mp3",
+        "reviewed_file": "tmp/batch070/audio/a7deecb77ca886c3.mp3",
+        "file_sha256": "47e784a36aa85e3181bbe02d5a95bd38260bcb7fd271c392cf92ce2cbb801872",
+        "script_sha256": "e8e2c0049a9d52d4361bf9ffaccda25fc5cc23507fa66871074849d2e71add3d",
+        "expected_script_sha256": "e8e2c0049a9d52d4361bf9ffaccda25fc5cc23507fa66871074849d2e71add3d",
+        "source_text_matches": true,
+        "source_hash_matches": true,
+        "roles_match": true,
+        "settings_match": true,
+        "profile": {
+          "name": "A1",
+          "speedMultiplier": 0.82,
+          "gapSeconds": 0.9
+        },
+        "gap_seconds": 0.9,
+        "reported_round_trip_cer": 0,
+        "inserted_run": 0,
+        "duration_seconds": 29.084376,
+        "manifest_duration_matches": true,
+        "spoken_words": 48,
+        "overall_words_per_second": 1.6503693215927997,
+        "codec": "mp3",
+        "sample_rate_hz": 44100,
+        "channels": 1,
+        "mean_volume_db": -20.9,
+        "max_sample_volume_db": -1.7,
+        "installed_file": "assets/audio/a7deecb77ca886c3.mp3",
+        "technical_verdict": "pass",
+        "auditory_review_performed": false,
+        "specialist_listening_status": "pending",
+        "measurement_note": "Overall words per second uses the source spoken-word count divided by complete encoded clip duration, including silence. The gap is a configured pipeline value. Neither value validates A1 articulation or pacing."
+      }
+    ],
+    "auditory_access": false,
+    "specialist_listening_status": "pending",
+    "specialist_checks_still_required": [
+      "Pronunciation and names",
+      "Very slow and clear articulation for the intended learner",
+      "Pause usefulness and perceived pacing",
+      "Voice balance and intelligibility",
+      "Clipping, room echo and other audible artefacts",
+      "Answer-revealing emphasis"
+    ],
+    "limitation": "No pronunciation, pacing, intelligibility or emphasis pass is claimed. Measured duration, configured speed and perfect transcription cannot establish those properties."
+  },
+  "checks": {
+    "source": "The adopted source SHA-256 still matches the independent editorial review and separate target check.",
+    "image_integrity": "Computed full SHA-256 for each final WebP, generated source PNG and full prompt; all agree with the generation record. Briefs and alts match the adopted source exactly.",
+    "image_geometry": "sips reports 1024x640 pixels and no alpha channel for each final WebP. Full files and 520 px previews were inspected directly.",
+    "image_content": "Every final image was checked against the literal brief, cast traits and each question, option and evidence quote. No tested item, answer action or distractor cue appears. No text, logos, numerals, signs or clocks appear.",
+    "audio_integrity": "Nine actual MP3 hashes are recorded. ffprobe confirms the listed durations and 44.1 kHz mono encoding. Each final source text, script hash, role mapping and speed formula matches the manifest.",
+    "mutations": "This reviewer wrote only the media review artifacts and a temporary independent audio audit. No source, catalogue, image, audio or global manifest was edited."
+  },
+  "limitations": [
+    "This technical and visual review does not validate CEFR difficulty or official exam equivalence.",
+    "Full specialist listening remains pending because the reviewer did not have auditory access.",
+    "Source and output hashes preserve traceability; the stored generation prompt does not guarantee byte-identical stochastic regeneration.",
+    "Approval applies only to the exact image and audio bytes recorded here. Any replacement file needs an updated integrity check and affected media review."
+  ],
+  "user_quality_followup": {
+    "date": "2026-10-27",
+    "reported_exercise": "A1:listening:batch070-foto-werk:1",
+    "user_report": "The user rejected the sound quality of Sabrina and Julio.",
+    "source_inspection": "All nine retained batch070 WAVs are 24 kHz, 16-bit mono; final MP3 headers are 44.1 kHz after resampling. Source fields were added to their manifest entries without changing audio bytes.",
+    "status": "The two fragments containing Esmee were replaced with Lieke. Following the user’s final voice choice, Julio now uses Ruben. The shop conversation retains Jerry with Lieke. All final hashes, role mappings, durations and waveforms passed independent integrity review. The foto-werk transcript also passed the 27-clip supplementary Ruben audit. Per-clip auditory review remains pending.",
+    "audit": "docs/research/voice-quality-2026-10-27.md",
+    "original_generation_manifest_sha256": "9944428180ad98c185a31f0405e4856920444ce9261304791b66015ffcbd84d2",
+    "updated_generation_manifest_sha256": "5f842db4fcd5709d1332ce6e9204ec8974054c1ac4a60ab48b86979a82fa5960",
+    "manifest_update_note": "The generation manifest was updated only to record independently verified PCM24 source metadata. The audio bytes and reviewed script remain unchanged.",
+    "replacement_review": "content/reviews/2026-10-27-voice-replacement.json",
+    "current_replacement_clips": [
+      {
+        "key": "A1:listening:batch070-foto-werk:1#fragment",
+        "file": "audio/e9396f0813d61a01.mp3",
+        "sha256": "61297fb57286dc6c03150e89eb911fd43c7c98586ec61af4c696f9d6b7ce617b",
+        "script_sha256": "05cf4fb1abf2a092cf5db08e7d79cfdb7099542166ff8234ca653c2d070db3a8",
+        "roles": {
+          "f-adult": "kZQ3IGqYUStQ8u1Y62s6",
+          "m-young": "MkRWZTk4OBui6Jb2lgK0"
+        },
+        "settings": {
+          "f-adult": {
+            "stability": 0.5,
+            "similarity_boost": 0.75,
+            "style": 0,
+            "use_speaker_boost": true,
+            "speed": 0.9
+          },
+          "m-young": {
+            "stability": 0.5,
+            "similarity_boost": 0.75,
+            "style": 0,
+            "use_speaker_boost": true,
+            "speed": 0.9
+          }
+        },
+        "source_format": "mp3_44100_192",
+        "source_sample_rate": 44100,
+        "duration_seconds": 21.32888888888889,
+        "technical_verdict": "pass",
+        "auditory_verdict": "pending",
+        "supplementary_transcript_check": {
+          "verdict": "pass",
+          "method": "Independent supplementary Scribe v2 transcript compared with reviewed source; no auditory access",
+          "file_sha256": "61297fb57286dc6c03150e89eb911fd43c7c98586ec61af4c696f9d6b7ce617b",
+          "audit_stage": "27-clip Ruben retranscription",
+          "character_error_rate": 0,
+          "explanation": "The final normalized transcript has no word edits.",
+          "repaired_after_first_ruben_audit": false
+        }
+      },
+      {
+        "key": "A1:listening:batch070-tas-kopen:1#fragment",
+        "file": "audio/2bf4a611ccbbc03d.mp3",
+        "sha256": "6e50cb3f796f799e22a39b600c1cd0c0b881c68b9fe084b3ff459dcca4e24a1f",
+        "script_sha256": "e8e2c0049a9d52d4361bf9ffaccda25fc5cc23507fa66871074849d2e71add3d",
+        "roles": {
+          "m-shop": "gdTrLNuwWUaxC0z5n1j7",
+          "f-adult": "kZQ3IGqYUStQ8u1Y62s6"
+        },
+        "settings": {
+          "m-shop": {
+            "stability": 0.5,
+            "similarity_boost": 0.75,
+            "style": 0,
+            "use_speaker_boost": true,
+            "speed": 0.82
+          },
+          "f-adult": {
+            "stability": 0.5,
+            "similarity_boost": 0.75,
+            "style": 0,
+            "use_speaker_boost": true,
+            "speed": 0.9
+          }
+        },
+        "source_format": "mp3_44100_192",
+        "source_sample_rate": 44100,
+        "duration_seconds": 28.48063492063492,
+        "technical_verdict": "pass",
+        "auditory_verdict": "pending",
+        "supplementary_transcript_check": {
+          "status": "Original generation round-trip threshold passed; not selected for supplementary retranscription"
+        }
+      }
+    ],
+    "replacement_history": [
+      {
+        "stage": "initial-Lieke-Daan-replacements",
+        "clips": [
+          {
+            "key": "A1:listening:batch070-foto-werk:1#fragment",
+            "file": "audio/9cf417fa06e498a3.mp3",
+            "sha256": "15b31e1453cf670f299ee32e0c198137cc68754bfea7aec32256a03f06aa9b36"
+          },
+          {
+            "key": "A1:listening:batch070-tas-kopen:1#fragment",
+            "file": "audio/2bf4a611ccbbc03d.mp3",
+            "sha256": "6e50cb3f796f799e22a39b600c1cd0c0b881c68b9fe084b3ff459dcca4e24a1f"
+          }
+        ]
+      }
+    ],
+    "replacement_review_sha256": "50bfe1d6b0c518d5f5258bf23767a5b7ed996ac1f348c238c43454e59c5c2519",
+    "final_update_at": "2026-10-27T17:59:23.553Z",
+    "other_seven_original_clips_byte_verified_unchanged": true
+  }
+}

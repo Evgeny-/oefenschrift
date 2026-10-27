@@ -52,7 +52,14 @@ test('windows per address and per pass refuse without counting, reopen, and repo
     assert.equal(remaining('pass', 'abc', 'feedback', now + DAY), dayMax, 'a new day resets');
     assert.equal(limited('pass', 'abc', 'feedback', now + DAY), null);
     // Address windows are wider than pass windows for every endpoint.
-    for (const endpoint of ['feedback', 'transcribe', 'reports', 'events'] as const)
+    for (const endpoint of [
+      'feedback',
+      'transcribe',
+      'reports',
+      'events',
+      'reactions',
+      'reactionReads',
+    ] as const)
       assert.ok(RULES.address[endpoint].at(-1)![1] >= RULES.pass[endpoint].at(-1)![1], endpoint);
   } finally {
     resetLimits();

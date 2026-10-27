@@ -16,6 +16,7 @@ import { Heading } from './ExerciseHeader';
 import { Session } from './Session';
 import { Mistake, QuestionReview } from './Results';
 import { useEnterAction } from './keys';
+import A1PracticeOnly from './A1PracticeOnly';
 
 export function checkDate(session, lang) {
   return new Date(session.endedAt || session.startedAt).toLocaleDateString(
@@ -43,6 +44,7 @@ export function LevelCheck() {
     if (session) setState((s) => ({ ...s, active: session }));
   };
   useEnterAction(!active && plan.enough, start);
+  if (level === 'A1') return <A1PracticeOnly title={t('Niveaucheck A1', 'A1 level check')} />;
   if (active) return <Session onComplete={() => go('check-result')} />;
   return (
     <>
@@ -122,6 +124,7 @@ export function CheckResult() {
     lang = state.settings.lang,
     at = Number(new URLSearchParams(useLocation().search).get('at')) || undefined,
     session = latestCheck(state, level, at);
+  if (level === 'A1') return <A1PracticeOnly title={t('Niveaucheck A1', 'A1 level check')} />;
   if (!session)
     return (
       <>

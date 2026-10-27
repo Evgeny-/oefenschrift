@@ -4,6 +4,7 @@ import { readFile, readdir, realpath, rename, writeFile } from 'node:fs/promises
 import { resolve, sep } from 'node:path';
 import { validateBatch } from './batch-validation';
 import { itemPassedReview } from './content-review';
+import { meaningReviewErrors } from './meaning-review';
 
 const digest = (value: string | Buffer) => createHash('sha256').update(value).digest('hex');
 function requireValue(condition: unknown, message: string): asserts condition {
@@ -84,6 +85,8 @@ export async function checkContent(write = false, refreshHints = '') {
     }
     const sourceItems = await reviewedSource(review, 'content/batches', 'batch_verdict');
     requireValue(Array.isArray(sourceItems) && sourceItems.length, `${filename}: empty batch`);
+    const meaningErrors = meaningReviewErrors(review, sourceItems);
+    requireValue(!meaningErrors.length, `${filename}: ${meaningErrors.join('\n')}`);
     requireValue(
       sourceItems.every((item) => itemPassedReview(review, item.id)),
       `${filename}: every imported exercise needs an individual passing review`,

@@ -1,0 +1,1980 @@
+{
+  "review_id": "2026-10-27-a1-closed-meaning-audit",
+  "review_type": "independent-semantic-naturalness-audit",
+  "reviewed_at": "2026-10-27",
+  "scope": {
+    "source_files": [
+      {
+        "path": "content/batches/071-original.json",
+        "sha256": "a60352abbfbf6e25a136523ed12c05ca298bcb228eb7fbc44eef1e6ba736a931",
+        "item_count": 9
+      },
+      {
+        "path": "content/batches/072-original.json",
+        "sha256": "7c1e97e5ea8b29f02806ad664946ac5b1b104dbcc50cf1be7f37c8c0df32e232",
+        "item_count": 9
+      }
+    ],
+    "items": 18,
+    "questions": 36
+  },
+  "instructions_read": [
+    "AGENTS.md",
+    "docs/briefs/review.md",
+    "content/reviews/rubric.md",
+    "content/blueprint.md section 4.0 and section 5",
+    "docs/research/content-workflow.md"
+  ],
+  "method": [
+    "A source-only extraction containing IDs, situations and complete messages/scripts was used to assess practical intention and progression. Full item JSON was then inspected, including every question, option, explanation, brief and alt.",
+    "No prior pass, numeric rating, author note, balanced-key count or source word count was treated as evidence of semantic quality.",
+    "A familiar playful visual oddity is permitted. Findings concern the surrounding human exchange, not the presence of humour.",
+    "Literal evidence containment and key entailment were checked separately from source coherence. Every option has an item-specific assessment.",
+    "No source, prior review, catalogue or global file was edited; no repair wording or replacement exercise was invented."
+  ],
+  "rating_scale": {
+    "5": "A clear practical purpose and natural progression, without semantic repairs needed.",
+    "4": "A coherent core with a specific minor-to-moderate unmotivated addition.",
+    "3": "The purpose is recognisable, but inventories or unconnected facts materially weaken the message.",
+    "2": "Several replies or facts require an invented purpose or missing causal link.",
+    "1": "The central exchange lacks a coherent practical meaning."
+  },
+  "verdict_policy": "Revise means a recognisable practical core remains. Reject means the current source/question design should be replaced rather than accepted after a cosmetic wording edit. Verdicts apply to the audited bytes only.",
+  "summary": {
+    "verdict_counts": {
+      "revise": 14,
+      "reject": 4
+    },
+    "ready_for_integration": false,
+    "literal_key_quotes_supported": 36,
+    "literal_quote_total": 36,
+    "main_result": "All 18 need source-level editorial work. All 36 keys have literal source support; that mechanical success did not prevent semantic failures.",
+    "recurring_failures": [
+      "Unrequested pairs/triples of objects, people, locations or quantities become distractor stock. Their presence in the source is mistaken for communicative relevance.",
+      "Listening speakers recite candidate answers or offer a forced binary guess before another speaker supplies the third option.",
+      "Replies change the subject or answer a different question; the listener must invent the unstated goal, reason or missing action.",
+      "Some questions compare overlapping spatial categories or treat an unstated possession as explicitly false.",
+      "The same structure recurs beneath varied visual jokes: an oddity announcement, two sets of contrast facts, then two literal matching questions."
+    ],
+    "playfulness": "The plant eyes, hat ears, duck, fish cake, working cat, suitcase seat, party-hat dog, banana phone, chair eyes, broom dance, box ears, open umbrella and cup flower are not rejection reasons in themselves."
+  },
+  "items": [
+    {
+      "id": "A1:reading:batch071-plant-ogen:1",
+      "source": "content/batches/071-original.json",
+      "title": "De plant heeft ogen",
+      "verdict": "revise",
+      "semantic_coherence": {
+        "score": 3,
+        "out_of": 5,
+        "reason": "The mug and coffee make a recognisable invitation, but a scattered ingredient inventory replaces a clear practical message."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Omar appears to invite Lina to have coffee and asks her to bring her mug. The source never states a meeting or shared break.",
+          "The plant with paper eyes is an intelligible visual joke and needs no removal."
+        ],
+        "progression": [
+          "Plant joke → mug request: a possible move from small talk to a coffee invitation, but the purpose is only implied.",
+          "Mug request → coffee location: useful practical information.",
+          "Milk on the table → sugar by the window: no recipient need or reason for this distribution is established."
+        ]
+      },
+      "findings": [
+        {
+          "field": "text",
+          "quote": "De melk staat op de tafel. De suiker staat bij het raam.",
+          "issue": "The two locations function as a stock of distractors. The note does not explain why Lina needs this inventory."
+        },
+        {
+          "field": "questions[1].options",
+          "quote": "Op de tafel. / Bij het raam. / In de keuken.",
+          "issue": "These are overlapping spatial categories: coffee in a kitchen can also be on a table or by a window. The text supplies one direct statement, but does not make the other two locations clearly false."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Wat moet Lina meenemen?",
+          "answer": "A",
+          "answer_text": "Haar beker.",
+          "evidence": "Neem je beker mee.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Haar beker.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "B",
+              "text": "De melk.",
+              "assessment": "Milk is already located on the table; the message does not ask Lina to bring it."
+            },
+            {
+              "option": "C",
+              "text": "De suiker.",
+              "assessment": "Sugar is already located by the window; the message does not ask Lina to bring it."
+            }
+          ],
+          "concerns": [
+            "The options are anchored, but their anchoring comes from the weak inventory."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Waar staat de koffie?",
+          "answer": "C",
+          "answer_text": "In de keuken.",
+          "evidence": "De koffie staat in de keuken.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Op de tafel.",
+              "assessment": "This location is stated for the milk, but can also be true of coffee located in a kitchen."
+            },
+            {
+              "option": "B",
+              "text": "Bij het raam.",
+              "assessment": "This location is stated for sugar, but can also be true of coffee located in a kitchen."
+            },
+            {
+              "option": "C",
+              "text": "In de keuken.",
+              "assessment": "Explicitly supported key."
+            }
+          ],
+          "concerns": [
+            "Different levels of location specificity weaken the claim of one defensible location answer."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The plant and paper eyes match the source joke and the alt. Excluding drinks and all three locations avoids a written instruction to reveal either key. The tactile cut-paper direction is an older aesthetic direction; current shared style still governs rendering.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:reading:batch071-hoed-les:1",
+      "source": "content/batches/071-original.json",
+      "title": "Een hoed met oren",
+      "verdict": "revise",
+      "semantic_coherence": {
+        "score": 3,
+        "out_of": 5,
+        "reason": "Making a birthday card explains a request for pencils, while the numbered book/pen inventory lacks a role in that activity."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Sara tells Sami about a class activity: making a birthday card for Noor. She asks him to bring pencils.",
+          "The unusual hat is harmless scene-setting; the source does not connect it to the birthday activity, but a teacher can mention a playful hat."
+        ],
+        "progression": [
+          "Hat with ears → card for Noor: a small-talk switch, not a contradiction.",
+          "Noor is having a birthday → card: clear purpose.",
+          "Bring three pencils → I have two books and four pens: books have no stated use and the differing counts become the quantity distractors."
+        ]
+      },
+      "findings": [
+        {
+          "field": "text",
+          "quote": "Ik heb twee boeken en vier pennen.",
+          "issue": "The books are unrelated to making the card, and neither count serves a stated learner need. Both numbers are copied into q2 as competing quantities."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Voor wie is de kaart?",
+          "answer": "B",
+          "answer_text": "Voor Noor.",
+          "evidence": "We maken een kaart voor Noor.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Voor Sara.",
+              "assessment": "Sara is the sender/teacher; the source says the card is for Noor."
+            },
+            {
+              "option": "B",
+              "text": "Voor Noor.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "C",
+              "text": "Voor Sami.",
+              "assessment": "Sami receives the message; the source says the card is for Noor."
+            }
+          ],
+          "concerns": [],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Hoeveel potloden neemt Sami mee?",
+          "answer": "B",
+          "answer_text": "Drie.",
+          "evidence": "Neem drie potloden mee.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Twee.",
+              "assessment": "Two counts the books, not the pencils Sami is asked to bring."
+            },
+            {
+              "option": "B",
+              "text": "Drie.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "C",
+              "text": "Vier.",
+              "assessment": "Four counts the pens, not the pencils Sami is asked to bring."
+            }
+          ],
+          "concerns": [
+            "The arithmetic-free key is clear, but the two wrong numbers rely on an artificial supply list."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The hat with ears matches the joke and alt. A hook-mounted still life differs from the teacher wearing it, without contradicting a tested fact. The brief explicitly hides the card, people and counted supplies, so no key is intentionally shown. Felt-like material needs the current shared flat style to take precedence.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:reading:batch071-winkel-sok:1",
+      "source": "content/batches/071-original.json",
+      "title": "Een grote sok in de winkel",
+      "verdict": "revise",
+      "semantic_coherence": {
+        "score": 3,
+        "out_of": 5,
+        "reason": "A coat-pickup notice is recoverable, but the service, payment and unrelated product prices do not form a clear customer message."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "The clothing shop wants the customer to collect a coat on Friday. It also announces other days and prices.",
+          "A huge sock in the shop can be an amusing display; the joke does not itself cause a semantic problem."
+        ],
+        "progression": [
+          "Huge sock → coat ready: an advertisement-like opening followed by a personal pickup notice.",
+          "Friday pickup → Monday closed and Saturday early closure: potentially relevant opening information, but no opening times are given and the Friday arrangement already settles the pickup.",
+          "Coat price → sock price → bag price: the message turns into an unexplained sales list."
+        ]
+      },
+      "findings": [
+        {
+          "field": "situation + text",
+          "quote": "U leest een bericht van een kledingwinkel. / Uw jas is klaar. / De jas kost twaalf euro.",
+          "issue": "The source never identifies what has been done to the existing coat. The twelve euros can be read as the coat price or the unstated service charge; the practical transaction is under-specified."
+        },
+        {
+          "field": "text",
+          "quote": "De sok kost vijf euro. Een tas kost drie euro.",
+          "issue": "The coat-pickup message gives no customer reason for these unrelated prices; they supply q2 distractors."
+        },
+        {
+          "field": "text",
+          "quote": "Wij zijn maandag dicht. Op zaterdag sluiten we vroeg.",
+          "issue": "These extra days create competing date facts while leaving the useful opening hours unstated."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Wanneer haalt u de jas op?",
+          "answer": "A",
+          "answer_text": "Op vrijdag.",
+          "evidence": "U haalt de jas vrijdag op.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Op vrijdag.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "B",
+              "text": "Op zaterdag.",
+              "assessment": "Saturday is the early-closing day, not the stated pickup day."
+            },
+            {
+              "option": "C",
+              "text": "Op maandag.",
+              "assessment": "Monday is the closed day, not the stated pickup day."
+            }
+          ],
+          "concerns": [
+            "The key is explicit. The extra days add comparison load without improving the pickup message."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Hoeveel kost de jas?",
+          "answer": "C",
+          "answer_text": "Twaalf euro.",
+          "evidence": "De jas kost twaalf euro.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Vijf euro.",
+              "assessment": "Five euros is attached to the sock, not the coat."
+            },
+            {
+              "option": "B",
+              "text": "Drie euro.",
+              "assessment": "Three euros is attached to a bag, not the coat."
+            },
+            {
+              "option": "C",
+              "text": "Twaalf euro.",
+              "assessment": "Explicitly supported key."
+            }
+          ],
+          "concerns": [
+            "The literal price is supported, while what the customer pays for remains unclear in the practical situation."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The huge sock matches text and alt. The brief excludes coat, bag, prices and day clues, so it does not intentionally reveal a key. It also confirms the sock is a display subject, leaving the source transition from display to a priced sock unexplained rather than resolving it.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:reading:batch071-eend-tas:1",
+      "source": "content/batches/071-original.json",
+      "title": "Een eend gaat mee",
+      "verdict": "revise",
+      "semantic_coherence": {
+        "score": 4,
+        "out_of": 5,
+        "reason": "Travel information and a small gift form a plausible friendly message; the unused bicycle statement is the weak addition."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Roos tells Karim how she and Noor will arrive and says the plastic duck in her bag is a gift for him.",
+          "Karim is the addressee; the message does not establish any need to locate Roos’s bicycle."
+        ],
+        "progression": [
+          "Train arrival → bicycle at home: a switch from useful arrival mode to a fact whose purpose is unstated.",
+          "Noor arriving by bus: plausible coordination of another visitor.",
+          "Plastic duck in the bag → for you: a clear gift announcement that explains the duck."
+        ]
+      },
+      "findings": [
+        {
+          "field": "text",
+          "quote": "Mijn fiets staat thuis.",
+          "issue": "This is not required to explain arriving by train, since taking a bicycle to or on a train is also possible. The text gives no reason Karim needs this fact; its clear task role is to provide q1’s third transport option."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Hoe komt Roos?",
+          "answer": "B",
+          "answer_text": "Met de trein.",
+          "evidence": "Ik kom met de trein.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Met de fiets.",
+              "assessment": "The bicycle is said to be at home; train is the explicit arrival mode."
+            },
+            {
+              "option": "B",
+              "text": "Met de trein.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "C",
+              "text": "Met de bus.",
+              "assessment": "The bus is Noor’s mode, not Roos’s stated mode."
+            }
+          ],
+          "concerns": [
+            "The bicycle anchor is weak source content even though the intended answer is clear."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Wie komt met de bus?",
+          "answer": "A",
+          "answer_text": "Noor.",
+          "evidence": "Noor komt met de bus.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Noor.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "B",
+              "text": "Karim.",
+              "assessment": "Karim receives the message; no bus travel is stated for him."
+            },
+            {
+              "option": "C",
+              "text": "Roos.",
+              "assessment": "Roos explicitly arrives by train; Noor is named as the bus traveller."
+            }
+          ],
+          "concerns": [],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The plastic duck peeking out of a bag agrees with the source and alt. Removing vehicles and people from the brief prevents either transport/person key from being supplied by the illustration. This is the strongest source-level story in the reading batch.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:reading:batch071-beer-dokter:1",
+      "source": "content/batches/071-original.json",
+      "title": "Een beer bij de dokter",
+      "verdict": "reject",
+      "semantic_coherence": {
+        "score": 2,
+        "out_of": 5,
+        "reason": "A patient appointment message becomes a room inventory and a doctor/patient/toy drinks chart, so its second tested fact has no credible appointment purpose."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "The practice should be telling mevrouw Ali where to wait for an appointment.",
+          "No patient need is established for the contents of another room or for what the doctor and stuffed bear drink. The bear can remain a playful waiting-room object."
+        ],
+        "progression": [
+          "Wait in room two → doctor in room one: potentially useful orientation.",
+          "Bed in room three: no action or relevance for this patient.",
+          "Stuffed bear → patient water, doctor coffee, bear tea: the source leaves the appointment purpose and assigns three drinks to three subjects."
+        ]
+      },
+      "findings": [
+        {
+          "field": "text",
+          "quote": "In kamer drie staat een bed.",
+          "issue": "No reason for the patient to know this room’s contents is established; it supplies the third numbered-room option."
+        },
+        {
+          "field": "text + questions[1]",
+          "quote": "U krijgt water. De dokter drinkt koffie. De beer heeft een kopje thee. / Wat drinkt de dokter?",
+          "issue": "The central second question is built around an implausible appointment-notice fact. The supplied bear joke has expanded into a second pretend tea scene solely to complete the drink alternatives."
+        },
+        {
+          "field": "text",
+          "quote": "De dokter zit in kamer één.",
+          "issue": "The information can orient a patient, but together with the unused bed room it makes the note a memorisation grid rather than a useful waiting instruction."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "In welke kamer wacht u?",
+          "answer": "C",
+          "answer_text": "In kamer twee.",
+          "evidence": "U wacht in kamer twee.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "In kamer één.",
+              "assessment": "Room one is assigned to the doctor, not to the patient’s waiting instruction."
+            },
+            {
+              "option": "B",
+              "text": "In kamer drie.",
+              "assessment": "Room three contains a bed; room two is the explicit waiting instruction."
+            },
+            {
+              "option": "C",
+              "text": "In kamer twee.",
+              "assessment": "Explicitly supported key."
+            }
+          ],
+          "concerns": [
+            "Literal evidence is sound, but the third room is arbitrary load."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Wat drinkt de dokter?",
+          "answer": "C",
+          "answer_text": "Koffie.",
+          "evidence": "De dokter drinkt koffie.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Thee.",
+              "assessment": "Tea is assigned to the stuffed bear, not to the doctor."
+            },
+            {
+              "option": "B",
+              "text": "Water.",
+              "assessment": "Water is offered to the patient, not to the doctor."
+            },
+            {
+              "option": "C",
+              "text": "Koffie.",
+              "assessment": "Explicitly supported key."
+            }
+          ],
+          "concerns": [
+            "The quote proves coffee, but a source quote cannot justify the unnatural clinical message or the doctor-drink task."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The bear on a waiting-room bench is coherent and matches the alt. The brief excludes the cups, rooms and people needed to answer the questions. The visual joke itself is salvageable; the source/question design needs replacement.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:reading:batch071-taart-staart:1",
+      "source": "content/batches/071-original.json",
+      "title": "Een taart met een staart",
+      "verdict": "revise",
+      "semantic_coherence": {
+        "score": 3,
+        "out_of": 5,
+        "reason": "The invitation and bring-a-plate request are understandable, but the extra days create an artificial weekend schedule."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Ivo invites Mila to eat at his home on Saturday and asks her to bring a plate.",
+          "He is making an unusual cake; a cake shaped with a tail is a legible visual joke."
+        ],
+        "progression": [
+          "Saturday meal → making a cake with a tail: relevant food preparation with the requested oddity.",
+          "Friday bread shopping: potentially preparation for the meal, though no link is stated.",
+          "Sunday visit to his sister: no link to Mila’s Saturday visit.",
+          "Bring a plate → I have glasses and spoons: a credible practical distinction between what the guest brings and what is already available."
+        ]
+      },
+      "findings": [
+        {
+          "field": "text",
+          "quote": "Vrijdag koop ik brood. Zondag ben ik bij mijn zus.",
+          "issue": "The two other days flank the Saturday key. The Sunday plan has no established purpose for this invitation; it introduces another person and time only to populate q1."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Wanneer gaat Mila bij Ivo eten?",
+          "answer": "B",
+          "answer_text": "Op zaterdag.",
+          "evidence": "We eten zaterdag bij mij.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Op vrijdag.",
+              "assessment": "Friday is the bread-shopping day, not the meal day."
+            },
+            {
+              "option": "B",
+              "text": "Op zaterdag.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "C",
+              "text": "Op zondag.",
+              "assessment": "Sunday is the sister visit, not the meal day."
+            }
+          ],
+          "concerns": [
+            "The explicit Saturday key is clear; the surrounding schedule adds unnecessary comparison load."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Wat moet Mila meenemen?",
+          "answer": "A",
+          "answer_text": "Een bord.",
+          "evidence": "Neem een bord mee.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Een bord.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "B",
+              "text": "Een lepel.",
+              "assessment": "Ivo already has spoons and asks for a plate."
+            },
+            {
+              "option": "C",
+              "text": "Een glas.",
+              "assessment": "Ivo already has glasses and asks for a plate."
+            }
+          ],
+          "concerns": [
+            "Unlike the numbered inventories elsewhere, the available tableware has a plausible function in a bring-your-own-plate request."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "A fish-shaped cake makes the tail ordinary within a playful design; the alt is consistent. No day clues or tableware are deliberately shown. The source does not need an explanation of how a cake has a tail to remain simple.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:reading:batch071-kat-werkt:1",
+      "source": "content/batches/071-original.json",
+      "title": "De kat werkt mee",
+      "verdict": "revise",
+      "semantic_coherence": {
+        "score": 3,
+        "out_of": 5,
+        "reason": "A home-working colleague asking for a call is plausible, while the three workplaces and three times resemble a grid made for the questions."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Nora tells Amir that she works from home and asks him to call at four.",
+          "Her cat lying on the desk makes the claim that the cat also works understandable as a joke."
+        ],
+        "progression": [
+          "Cat “works” → lies on desk → Nora works at home: coherent humorous opening.",
+          "You work at the office → Sara works in the shop: the addressee already knows his own workplace and Sara’s relevance is unstated.",
+          "Call at four → eat at twelve → stop at five: ending work can constrain availability; lunch at twelve does not explain a four-o’clock call."
+        ]
+      },
+      "findings": [
+        {
+          "field": "text",
+          "quote": "Jij werkt op kantoor. Sara werkt in de winkel.",
+          "issue": "The message does not assign work, coordinate locations or explain why the recipient needs these facts; they mainly create two wrong workplace choices."
+        },
+        {
+          "field": "text",
+          "quote": "Ik eet om twaalf uur.",
+          "issue": "The lunch time has no stated relation to a call four hours later. It supplies q2’s third time and increases memory load."
+        },
+        {
+          "field": "text",
+          "quote": "Bel me om vier uur. Ik eet om twaalf uur. Om vijf uur stop ik.",
+          "issue": "The times occur out of day order and have mixed relevance, making a simple call arrangement less natural."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Waar werkt Nora?",
+          "answer": "C",
+          "answer_text": "Thuis.",
+          "evidence": "Ik werk thuis.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "In de winkel.",
+              "assessment": "The shop is Sara’s workplace, not Nora’s."
+            },
+            {
+              "option": "B",
+              "text": "Op kantoor.",
+              "assessment": "The office is Amir’s workplace, not Nora’s."
+            },
+            {
+              "option": "C",
+              "text": "Thuis.",
+              "assessment": "Explicitly supported key."
+            }
+          ],
+          "concerns": [
+            "The two wrong workplaces rely on unmotivated reporting of other people’s locations."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Hoe laat moet Amir bellen?",
+          "answer": "B",
+          "answer_text": "Om vier uur.",
+          "evidence": "Bel me om vier uur.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Om twaalf uur.",
+              "assessment": "Twelve is lunch time, not the requested call time."
+            },
+            {
+              "option": "B",
+              "text": "Om vier uur.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "C",
+              "text": "Om vijf uur.",
+              "assessment": "Five is the work ending time, not the requested call time."
+            }
+          ],
+          "concerns": [
+            "Stopping at five can be relevant context; the earlier lunch fact is filler."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The cat on a desk matches source and alt. Excluding domestic or office setting cues protects the home-versus-office key. The desk is an ordinary work cue shared by both alternatives and does not alone identify home.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:reading:batch071-koffer-les:1",
+      "source": "content/batches/071-original.json",
+      "title": "De docent zit op een koffer",
+      "verdict": "revise",
+      "semantic_coherence": {
+        "score": 4,
+        "out_of": 5,
+        "reason": "The outdoor lesson notice has a clear learner purpose and useful equipment instructions; the car/bag detail is an unmotivated extra."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Mevrouw Bakker tells Noor that the lesson is outdoors, asks her to bring a coat, tells her no book is needed and promises a pen.",
+          "The teacher sitting on a suitcase is a clear visual oddity within an outdoor class."
+        ],
+        "progression": [
+          "Outside lesson → bring coat: direct practical connection.",
+          "Book stays home → teacher provides pen: plausible preparation instructions.",
+          "Students on grass → teacher on suitcase: coherent scene and joke.",
+          "Bags in the car: no instruction, owner or reason for that storage is supplied."
+        ]
+      },
+      "findings": [
+        {
+          "field": "text",
+          "quote": "De tassen staan in de auto.",
+          "issue": "The final sentence neither tells Noor what to do with her bag nor explains how the bags relate to the lesson. Its only established task role is to anchor “In de auto” in q2."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Wat moet Noor meenemen?",
+          "answer": "A",
+          "answer_text": "Haar jas.",
+          "evidence": "Neem je jas mee.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Haar jas.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "B",
+              "text": "Haar pen.",
+              "assessment": "The teacher will give Noor a pen; it is not the object she is asked to bring."
+            },
+            {
+              "option": "C",
+              "text": "Haar boek.",
+              "assessment": "The book explicitly stays at home."
+            }
+          ],
+          "concerns": [],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Waar is de les vandaag?",
+          "answer": "B",
+          "answer_text": "Buiten.",
+          "evidence": "Vandaag is de les buiten.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Thuis.",
+              "assessment": "Home is stated for the book; outside is the explicit lesson setting. “Thuis” is also broader than an indoor/outdoor category."
+            },
+            {
+              "option": "B",
+              "text": "Buiten.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "C",
+              "text": "In de auto.",
+              "assessment": "The car is assigned to the bags, not to the lesson."
+            }
+          ],
+          "concerns": [
+            "The explicit outside key is usable, but q2 depends on the unmotivated bag/car addition for its third option."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The isolated teacher on a suitcase matches the source joke and alt. The detailed ban on all outdoor setting clues intentionally protects q2. No coat, book or pen is shown in the brief. The scene remains recognisable as the suitcase joke without revealing the lesson setting.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:reading:batch071-hond-feest:1",
+      "source": "content/batches/071-original.json",
+      "title": "Een feest voor de hond",
+      "verdict": "revise",
+      "semantic_coherence": {
+        "score": 3,
+        "out_of": 5,
+        "reason": "The dog’s birthday beach outing is a clear social plan, but the uncollected ball and numbered provisions make two distractor inventories."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Ben invites Dina to come to the beach for the dog’s birthday. Water and picnic food can be useful shared-trip information.",
+          "The dog’s birthday hat is the permitted playful detail."
+        ],
+        "progression": [
+          "Dog birthday → hat → beach outing: coherent celebration.",
+          "Park closed: can explain choosing the beach, though the link is unstated.",
+          "Ball in garden: no request to fetch it or plan to use it follows.",
+          "Two water bottles → three apples and four rolls: food is plausible for a picnic, but the exact contrasting counts have no stated planning function."
+        ]
+      },
+      "findings": [
+        {
+          "field": "text",
+          "quote": "In de tuin ligt zijn bal.",
+          "issue": "No one is asked to bring or collect the ball. The garden supplies the third destination alternative without advancing the trip."
+        },
+        {
+          "field": "text",
+          "quote": "Ik heb ook drie appels en vier broodjes.",
+          "issue": "The source does not explain how these exact counts affect what Dina should bring or do. Along with two water bottles they form the same three-number pattern used elsewhere."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Waar gaat Ben naartoe?",
+          "answer": "A",
+          "answer_text": "Naar het strand.",
+          "evidence": "We gaan naar het strand.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Naar het strand.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "B",
+              "text": "Naar het park.",
+              "assessment": "The park is closed; the stated destination is the beach."
+            },
+            {
+              "option": "C",
+              "text": "Naar de tuin.",
+              "assessment": "The ball is in the garden; no garden outing is stated."
+            }
+          ],
+          "concerns": [
+            "The garden is only anchored by an unrelated object location."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Hoeveel flessen water nemen ze mee?",
+          "answer": "C",
+          "answer_text": "Twee.",
+          "evidence": "We nemen twee flessen water mee.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Drie.",
+              "assessment": "Three counts apples, not water bottles."
+            },
+            {
+              "option": "B",
+              "text": "Vier.",
+              "assessment": "Four counts rolls, not water bottles."
+            },
+            {
+              "option": "C",
+              "text": "Twee.",
+              "assessment": "Explicitly supported key."
+            }
+          ],
+          "concerns": [
+            "The quantity distractors are literal and distinct, but rely on unnecessary exact counts."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The dog in a party hat matches the celebration and alt. A close portrait avoids supplying the destination or counts. The image joke can remain while the practical message is revised.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:listening:batch072-banaan-telefoon:1",
+      "source": "content/batches/072-original.json",
+      "title": "Een banaan als telefoon",
+      "verdict": "revise",
+      "semantic_coherence": {
+        "score": 2,
+        "out_of": 5,
+        "reason": "The source establishes a banana telephone game, then gives an unexplained writing task and inserts a book/board sentence that nobody responds to."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Roos plays with a banana as a telephone during a lesson.",
+          "Ruth asks her to write her name, but the source never says why a telephone game requires writing. Roos seeks clarification about personal details."
+        ],
+        "progression": [
+          "Roos announces banana phone → Ruth says “Leuk!”: natural acknowledgement of the joke.",
+          "“Leuk!” → write your name on paper: no activity link or purpose is stated.",
+          "Roos asks whether to add address/number: understandable clarification of the writing instruction.",
+          "“Mijn boek ligt bij het bord” follows that clarification without a reason. Ruth ignores it and returns to “Alleen je naam”."
+        ]
+      },
+      "findings": [
+        {
+          "field": "script[1].text",
+          "quote": "Leuk! Schrijf je naam op het papier.",
+          "issue": "Ruth changes from the game to a writing instruction without establishing what they are trying to complete."
+        },
+        {
+          "field": "script[2].text",
+          "quote": "En mijn adres of nummer? Mijn boek ligt bij het bord.",
+          "issue": "The second sentence is an unrelated location report. It introduces precisely the book and board used as q2 distractors."
+        },
+        {
+          "field": "questions",
+          "quote": "Wat moet Roos schrijven? / Waar moet Roos schrijven?",
+          "issue": "Both questions mine the same short imperative. There is little independent listening information once that instruction is understood."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Wat moet Roos schrijven?",
+          "answer": "A",
+          "answer_text": "Haar naam.",
+          "evidence": "Schrijf je naam op het papier.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Haar naam.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "B",
+              "text": "Haar adres.",
+              "assessment": "Roos asks about an address, but Ruth specifies only the name."
+            },
+            {
+              "option": "C",
+              "text": "Haar nummer.",
+              "assessment": "Roos asks about a number, but Ruth specifies only the name."
+            }
+          ],
+          "concerns": [
+            "“Nummer” has no type stated; the three personal-data alternatives contribute to a form-filling exchange that the lesson game has not introduced."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Waar moet Roos schrijven?",
+          "answer": "B",
+          "answer_text": "Op het papier.",
+          "evidence": "Schrijf je naam op het papier.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "In een boek.",
+              "assessment": "The book is merely said to be near the board; it is not the writing surface."
+            },
+            {
+              "option": "B",
+              "text": "Op het papier.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "C",
+              "text": "Op het bord.",
+              "assessment": "The board is only a location reference for the book; Ruth explicitly specifies paper."
+            }
+          ],
+          "concerns": [
+            "The two surface distractors arise from the unrelated book/board sentence."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The banana-phone gesture, lesson setting and alt agree with the source opening. The brief excludes all three writing surfaces and any personal details. This protects answer secrecy without fixing the missing connection between the game and the writing task.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:listening:batch072-eend-reis:1",
+      "source": "content/batches/072-original.json",
+      "title": "Een grote eend",
+      "verdict": "revise",
+      "semantic_coherence": {
+        "score": 3,
+        "out_of": 5,
+        "reason": "Choosing transport and preparing to leave are understandable, but the bicycle and packing inventory give shallow contrasts rather than useful trip planning."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Sabrina checks whether they will take the bus and asks what Julio will bring.",
+          "Julio clarifies that they will use the train and says he will bring a bag. Neither person explains a purpose for the bicycle fact or why the bag is useful information."
+        ],
+        "progression": [
+          "Sabrina notices a huge duck → asks about the bus: a plausible small-talk switch before leaving.",
+          "Julio rejects bus and says train: direct answer.",
+          "“De fiets blijft thuis”: no prior proposal to bring a bicycle.",
+          "Sabrina’s coat/book → Julio’s bag: packing is relevant, but container-versus-contents is an uneven comparison; everyone’s bag could contain the named objects."
+        ]
+      },
+      "findings": [
+        {
+          "field": "script[1].text",
+          "quote": "De fiets blijft thuis.",
+          "issue": "The bicycle has not been proposed or connected to the trip; it supplies q1’s third mode."
+        },
+        {
+          "field": "script[2:4].text",
+          "quote": "Mijn jas en boek gaan mee. Wat neem jij mee? / Ik neem mijn tas.",
+          "issue": "The exchange contrasts specific items with a container. The source never makes it clear what practical information Sabrina obtains from learning only that Julio brings a bag."
+        },
+        {
+          "field": "questions[1].options",
+          "quote": "Zijn tas. / Zijn jas. / Zijn boek.",
+          "issue": "The source establishes Sabrina’s coat and book, but does not state whether Julio also brings his own. A is the only explicit answer, while the other items are not explicitly ruled out."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Hoe reizen Sabrina en Julio?",
+          "answer": "C",
+          "answer_text": "Met de trein.",
+          "evidence": "we nemen de trein.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Met de bus.",
+              "assessment": "Bus is Sabrina’s suggestion, rejected by Julio."
+            },
+            {
+              "option": "B",
+              "text": "Met de fiets.",
+              "assessment": "The bicycle is said to stay home; train is the chosen mode."
+            },
+            {
+              "option": "C",
+              "text": "Met de trein.",
+              "assessment": "Explicitly supported key."
+            }
+          ],
+          "concerns": [
+            "The train choice is direct, but the bicycle line adds an unmotivated third alternative."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Wat neemt Julio mee?",
+          "answer": "A",
+          "answer_text": "Zijn tas.",
+          "evidence": "Ik neem mijn tas.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Zijn tas.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "B",
+              "text": "Zijn jas.",
+              "assessment": "A coat is stated for Sabrina; no Julio coat is stated. This is unsupported, rather than explicitly false."
+            },
+            {
+              "option": "C",
+              "text": "Zijn boek.",
+              "assessment": "A book is stated for Sabrina; no Julio book is stated. This is unsupported, rather than explicitly false."
+            }
+          ],
+          "concerns": [
+            "The answer is a direct source match; the distractor rationale depends on absence and changed possessives."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "An enormous toy duck in a public hall is an understandable visual oddity. The alt matches the brief. Transport and luggage are explicitly excluded, so neither key is intentionally revealed. The visual does not supply the missing packing purpose.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:listening:batch072-stoel-ogen:1",
+      "source": "content/batches/072-original.json",
+      "title": "Een stoel met ogen",
+      "verdict": "revise",
+      "semantic_coherence": {
+        "score": 2,
+        "out_of": 5,
+        "reason": "Roos’s search is clear, but Ruben first answers a different question and Roos then recites two candidate locations before he gives the third."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Roos wants to find her pen.",
+          "Ruben is in a position to help, but his first reply locates a book and telephone instead. His last reply finally gives the pen location."
+        ],
+        "progression": [
+          "Chair with eyes → looking for pen: permissible small-talk opening.",
+          "Pen search → “Je boek en telefoon zijn hier”: nonresponsive without a stated connection to the search.",
+          "Roos asks “op of naast de tafel”: no reason is given for restricting her guess to those two positions.",
+          "Ruben says under the table and invites her to take it: the final reply solves the actual request."
+        ]
+      },
+      "findings": [
+        {
+          "field": "script[1].text",
+          "quote": "Je boek en telefoon zijn hier.",
+          "issue": "Ruben does not respond to the stated missing pen. The two unrelated belongings are exactly q1’s wrong options."
+        },
+        {
+          "field": "script[2].text",
+          "quote": "Ligt mijn pen op of naast de tafel?",
+          "issue": "The binary question supplies both wrong positions for q2. It sounds shaped around the multiple-choice options rather than Roos’s practical need."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Wat zoekt Roos?",
+          "answer": "B",
+          "answer_text": "Haar pen.",
+          "evidence": "Ik zoek mijn pen.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Haar boek.",
+              "assessment": "Ruben locates her book; Roos says she is looking for her pen."
+            },
+            {
+              "option": "B",
+              "text": "Haar pen.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "C",
+              "text": "Haar telefoon.",
+              "assessment": "Ruben locates her phone; Roos says she is looking for her pen."
+            }
+          ],
+          "concerns": [
+            "The wrong objects are anchored in the nonresponsive reply."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Waar ligt de pen?",
+          "answer": "C",
+          "answer_text": "Onder de tafel.",
+          "evidence": "Je pen ligt onder de tafel.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Op de tafel.",
+              "assessment": "This is Roos’s guess; Ruben explicitly states under the table."
+            },
+            {
+              "option": "B",
+              "text": "Naast de tafel.",
+              "assessment": "This is Roos’s other guess; Ruben explicitly states under the table."
+            },
+            {
+              "option": "C",
+              "text": "Onder de tafel.",
+              "assessment": "Explicitly supported key."
+            }
+          ],
+          "concerns": [
+            "The answer is clear, but both distractors are spoken as a contrived choice list."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The chair’s paper eyes and alt agree with the joke. Tables, all three belongings and search-pointing are explicitly hidden, protecting both questions. Ruben’s shrug in the brief adds no helpful response; the source itself must carry the search logic.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:listening:batch072-grote-hoed:1",
+      "source": "content/batches/072-original.json",
+      "title": "Een heel grote hoed",
+      "verdict": "revise",
+      "semantic_coherence": {
+        "score": 3,
+        "out_of": 5,
+        "reason": "The bakery transaction is coherent, but the baker recites the answer set and advertises unrelated goods in the middle of asking a quantity."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Fatima wants to buy bread.",
+          "Jerry needs to know how many loaves and then prepares the order. The large hat is a harmless visual comment."
+        ],
+        "progression": [
+          "Comment on hat → wants bread: a believable customer opening.",
+          "Jerry asks “één, twee of drie”: quantity is relevant but this exact three-way recital is not justified by a standard pack size or restriction.",
+          "“We hebben ook koek en taart” interrupts the unresolved quantity question.",
+          "Fatima requests two; Jerry says he will get them: sensible completion, although goodbye comes before the exchange is visibly completed."
+        ]
+      },
+      "findings": [
+        {
+          "field": "script[1].text",
+          "quote": "Wilt u één, twee of drie broden?",
+          "issue": "The baker speaks q2’s complete answer set. No reason is stated to offer exactly these three quantities."
+        },
+        {
+          "field": "script[1].text",
+          "quote": "We hebben ook koek en taart.",
+          "issue": "The two extra product categories interrupt the quantity request and supply q1’s two distractors. Fatima has already said she wants bread."
+        },
+        {
+          "field": "script[0].text",
+          "quote": "Ik koop brood.",
+          "issue": "This is understandable, but as a direct opening order it sounds like a factual exercise declaration rather than a request to a baker."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Wat koopt Fatima?",
+          "answer": "B",
+          "answer_text": "Brood.",
+          "evidence": "Ik koop brood.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Taart.",
+              "assessment": "Cake is only advertised as available; Fatima orders bread."
+            },
+            {
+              "option": "B",
+              "text": "Brood.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "C",
+              "text": "Koek.",
+              "assessment": "Cake/biscuit product “koek” is only advertised as available; Fatima orders bread."
+            }
+          ],
+          "concerns": [
+            "The availability pair exists mainly to supply the wrong product options."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Hoeveel broden koopt Fatima?",
+          "answer": "C",
+          "answer_text": "Twee broden.",
+          "evidence": "Twee broden, graag.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Eén brood.",
+              "assessment": "One is offered by Jerry, but Fatima chooses two."
+            },
+            {
+              "option": "B",
+              "text": "Drie broden.",
+              "assessment": "Three is offered by Jerry, but Fatima chooses two."
+            },
+            {
+              "option": "C",
+              "text": "Twee broden.",
+              "assessment": "Explicitly supported key."
+            }
+          ],
+          "concerns": [
+            "Both wrong quantities are copied from Jerry’s artificial three-way question."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The oversized baker’s hat, counter and oven establish the shop and match the alt. No food or counting gesture is requested in the brief, so the two purchasing keys are not deliberately shown. The visual joke fits the transaction.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:listening:batch072-bezem-feest:1",
+      "source": "content/batches/072-original.json",
+      "title": "Dansen met een bezem",
+      "verdict": "reject",
+      "semantic_coherence": {
+        "score": 1,
+        "out_of": 5,
+        "reason": "The central music choice compares a playback device with instruments without establishing performers or recordings; the exchange is written around option lists rather than a shared plan."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Daan notices Roos dancing with a broom and asks whether she will turn on music. He later says he will prepare chairs.",
+          "Roos agrees about music and offers a radio/guitar/piano choice, but the source never establishes what action she would perform for any of those alternatives."
+        ],
+        "progression": [
+          "Dancing with broom → asking to turn music on: possible, even if she is dancing without it; this is not itself an error.",
+          "“Ja” → radio/guitar/piano: the reply changes from switching on music to a choice between a device and two instruments. No performer, recordings or selection context is established.",
+          "Daan chooses “de radio” → chairs: party preparation explains the chore, but music selection has not become a coherent action.",
+          "Roos says plates and glasses are ready: plausible chore status, serving as two more object alternatives in q2."
+        ]
+      },
+      "findings": [
+        {
+          "field": "script[1].text",
+          "quote": "Ja. Wil je de radio, gitaar of piano horen?",
+          "issue": "Radio is a music source/device, while guitar and piano are instruments. Everyday choice language could be coherent with an established performer or recordings; this source supplies neither. A1 listeners must invent that context."
+        },
+        {
+          "field": "script[0:2].text",
+          "quote": "Zet je muziek aan? / Wil je de radio, gitaar of piano horen?",
+          "issue": "The answer does not resolve the requested action in an ordinary way. The central q1 answer exists because Roos speaks the multiple-choice set."
+        },
+        {
+          "field": "questions[0]",
+          "quote": "Wat wil Daan horen?",
+          "issue": "The question faithfully tests an unnatural choice rather than a clear practical intention."
+        },
+        {
+          "field": "situation",
+          "quote": "Roos en Daan maken een feest klaar.",
+          "issue": "“Een feest klaarmaken” is an awkward collocation; the Dutch situation line itself needs editorial attention."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Wat wil Daan horen?",
+          "answer": "A",
+          "answer_text": "De radio.",
+          "evidence": "De radio, graag.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "De radio.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "B",
+              "text": "De gitaar.",
+              "assessment": "Guitar is offered but not chosen. The offering itself lacks an established practical meaning."
+            },
+            {
+              "option": "C",
+              "text": "De piano.",
+              "assessment": "Piano is offered but not chosen. The offering itself lacks an established practical meaning."
+            }
+          ],
+          "concerns": [
+            "The exact quote proves the radio answer; it does not make the radio/instrument choice sensible."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Wat zet Daan klaar?",
+          "answer": "B",
+          "answer_text": "Stoelen.",
+          "evidence": "Ik zet de stoelen klaar.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Borden.",
+              "assessment": "Plates are already ready according to Roos; Daan says he will prepare chairs."
+            },
+            {
+              "option": "B",
+              "text": "Stoelen.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "C",
+              "text": "Glazen.",
+              "assessment": "Glasses are already ready according to Roos; Daan says he will prepare chairs."
+            }
+          ],
+          "concerns": [
+            "This chore distinction is understandable, but it cannot rescue the broken central music exchange."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The broom dance and alt are a clear, acceptable joke. Music sources and all three chore objects are excluded from the brief. There is no requirement to remove the broom humour; the human exchange around it needs replacement.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:listening:batch072-doos-oren:1",
+      "source": "content/batches/072-original.json",
+      "title": "Een doos met oren",
+      "verdict": "revise",
+      "semantic_coherence": {
+        "score": 2,
+        "out_of": 5,
+        "reason": "The questions about a box can form one exchange, but unrelated contents and an unjustified pet choice obscure what the box is for."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Karim wants to know the box contents and whom it is for.",
+          "Lieke says socks are inside and that the box is for a cat that likes sleeping in boxes. The source does not connect the socks to the cat’s bed or explain why Karim offers a dog or bird."
+        ],
+        "progression": [
+          "Box with ears → asking contents: understandable curiosity.",
+          "“Sokken” answers the question; apples and book on a table add unrelated stocktaking.",
+          "Dog-or-bird question: no preceding animal information or feature motivates these alternatives.",
+          "Cat likes boxes: a clear reason for using a box, but how the currently sock-filled box serves that purpose remains unstated."
+        ]
+      },
+      "findings": [
+        {
+          "field": "script[1].text",
+          "quote": "De appels en het boek liggen op tafel.",
+          "issue": "These objects do not help answer what is in the box or explain its intended use. They supply both q1 distractors."
+        },
+        {
+          "field": "script[2].text",
+          "quote": "Is de doos voor de hond of de vogel?",
+          "issue": "A bird is not an ordinary alternative for an unexplained closed household box, and neither animal has been introduced. The sentence supplies q2’s two wrong animals."
+        },
+        {
+          "field": "script[1].text + script[3].text",
+          "quote": "Sokken. / Voor de kat. Ze slaapt graag in dozen.",
+          "issue": "The source leaves open whether this is storage or a cat bed. It never says the socks form bedding or will be removed. That missing connection should not be invented by the listener."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Wat zit er in de doos?",
+          "answer": "C",
+          "answer_text": "Sokken.",
+          "evidence": "Sokken.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Appels.",
+              "assessment": "The apples are said to be on the table, not in the box."
+            },
+            {
+              "option": "B",
+              "text": "Een boek.",
+              "assessment": "The book is said to be on the table, not in the box."
+            },
+            {
+              "option": "C",
+              "text": "Sokken.",
+              "assessment": "Explicitly supported key."
+            }
+          ],
+          "concerns": [
+            "The explicit answer is clear, but the table inventory is unmotivated."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Voor welk dier is de doos?",
+          "answer": "A",
+          "answer_text": "Voor de kat.",
+          "evidence": "Voor de kat.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Voor de kat.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "B",
+              "text": "Voor de hond.",
+              "assessment": "Dog is Karim’s suggestion, while Lieke explicitly says cat."
+            },
+            {
+              "option": "C",
+              "text": "Voor de vogel.",
+              "assessment": "Bird is Karim’s other suggestion, while Lieke explicitly says cat."
+            }
+          ],
+          "concerns": [
+            "The two wrong animals come from a forced binary guess."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The closed box with unmistakably human paper ears and the alt agree. Animal features and contents are excluded, protecting both keys. Making the box a closed craft object does not clarify how the socks and the cat’s intended sleeping place relate.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:listening:batch072-paraplu-werk:1",
+      "source": "content/batches/072-original.json",
+      "title": "Een paraplu op kantoor",
+      "verdict": "reject",
+      "semantic_coherence": {
+        "score": 2,
+        "out_of": 5,
+        "reason": "A drink exchange and a device workaround are spliced together; two inventories fill the gaps, and Sabrina never establishes why she changes to computer failure."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Sabrina asks what Julio is drinking, although Julio replies with what he wants.",
+          "Julio then states he uses his phone for work after Sabrina announces his computer is broken. No work problem or request for help is introduced before that announcement."
+        ],
+        "progression": [
+          "Umbrella in office → drink question: the visual observation is allowed small talk, but a standing umbrella is not itself surprising; only the unseen-in-speech open canopy supplies the joke.",
+          "What are you drinking → I want coffee: current activity and desired drink do not exactly match.",
+          "Milk and tea stand here: unrelated to the coffee preference and no offer follows.",
+          "Computer broken → pen/paper: an unannounced topic change that implies a proposed workaround without stating it.",
+          "I work with my phone: understandable as rejecting the implied workaround, but the intended problem must be inferred."
+        ]
+      },
+      "findings": [
+        {
+          "field": "script[0:2].text",
+          "quote": "Wat drink je? / Ik wil koffie.",
+          "issue": "The question asks about present drinking and the answer gives a preference. The exercise question later silently adopts the preference version."
+        },
+        {
+          "field": "script[1].text",
+          "quote": "Melk en thee staan hier.",
+          "issue": "The pair adds drink distractors without answering Sabrina’s question or advancing a coffee order."
+        },
+        {
+          "field": "script[2].text",
+          "quote": "Je computer is kapot. Hier liggen pen en papier.",
+          "issue": "Sabrina abruptly asserts Julio’s broken computer, then displays writing materials. There is no established work task, discovery or request linking this turn to the conversation."
+        },
+        {
+          "field": "script[0].text + images[0].brief",
+          "quote": "Er staat een paraplu op kantoor! / wide open mustard-yellow umbrella",
+          "issue": "The script treats an ordinary stored umbrella as a surprise. The feature that makes the scene unusual is available only in the visual brief."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Wat wil Julio drinken?",
+          "answer": "C",
+          "answer_text": "Koffie.",
+          "evidence": "Ik wil koffie.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Melk.",
+              "assessment": "Milk is present, but Julio explicitly wants coffee."
+            },
+            {
+              "option": "B",
+              "text": "Thee.",
+              "assessment": "Tea is present, but Julio explicitly wants coffee."
+            },
+            {
+              "option": "C",
+              "text": "Koffie.",
+              "assessment": "Explicitly supported key."
+            }
+          ],
+          "concerns": [
+            "The key is supported by Julio’s preference despite the earlier present-activity question."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Wat gebruikt Julio voor zijn werk?",
+          "answer": "A",
+          "answer_text": "Zijn telefoon.",
+          "evidence": "Ik werk met mijn telefoon.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Zijn telefoon.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "B",
+              "text": "Zijn computer.",
+              "assessment": "His computer is said to be broken; he explicitly says he works with his phone."
+            },
+            {
+              "option": "C",
+              "text": "Een pen.",
+              "assessment": "A pen is present, but he explicitly says he works with his phone."
+            }
+          ],
+          "concerns": [
+            "The phone quote is direct. The pen distractor relies on the unspoken suggestion that Julio should use the displayed supplies."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The open umbrella supplies a workable office joke; the alt also calls it open. The script omits that important feature. The brief hides drinks and work devices, so no question key is deliberately revealed. The story still needs a coherent conversational purpose.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:listening:batch072-bloem-beker:1",
+      "source": "content/batches/072-original.json",
+      "title": "Een bloem in een beker",
+      "verdict": "revise",
+      "semantic_coherence": {
+        "score": 3,
+        "out_of": 5,
+        "reason": "A café order gives the speakers a clear purpose, but the menu is recited as a three-option question and the worker offers drinks after the customer has already chosen water."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Fatima wants food and orders soup plus water.",
+          "Jerry acknowledges the flower joke, asks for a food choice and directs her to sit. His final drink inventory has no stated purpose after the completed order."
+        ],
+        "progression": [
+          "Flower in cup → “Ja, dat is leuk”: coherent acknowledgement.",
+          "Soup/bread/rice choice: these can be foods sold in a café, but a bare exact three-way list sounds made for q1 rather than an introduced menu.",
+          "Soup and water: a normal customer order.",
+          "Milk and juice also available: no request to reconsider water, offer of anything further or other reason follows; then Jerry tells her to sit."
+        ]
+      },
+      "findings": [
+        {
+          "field": "script[1].text",
+          "quote": "Wilt u soep, brood of rijst?",
+          "issue": "The bare categories are offered as an exact three-option list. No menu context explains this particular set, and it maps directly to q1."
+        },
+        {
+          "field": "script[3].text",
+          "quote": "Er is ook melk en sap.",
+          "issue": "Fatima has already ordered water. The unused drinks enter only after her choice and create q2’s two wrong options."
+        },
+        {
+          "field": "script[3].text",
+          "quote": "Goed. Er is ook melk en sap. Gaat u maar zitten.",
+          "issue": "The worker confirms the order, announces alternatives, then closes the exchange without allowing a response to those alternatives."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Wat wil Fatima eten?",
+          "answer": "B",
+          "answer_text": "Soep.",
+          "evidence": "Soep, graag.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Brood.",
+              "assessment": "Bread is offered, but Fatima chooses soup."
+            },
+            {
+              "option": "B",
+              "text": "Soep.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "C",
+              "text": "Rijst.",
+              "assessment": "Rice is offered, but Fatima chooses soup."
+            }
+          ],
+          "concerns": [
+            "Food-order intent is clear; the source still uses options-as-dialogue."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Wat wil Fatima drinken?",
+          "answer": "C",
+          "answer_text": "Water.",
+          "evidence": "Ik neem ook water.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Melk.",
+              "assessment": "Milk is advertised after the order; Fatima chooses water."
+            },
+            {
+              "option": "B",
+              "text": "Sap.",
+              "assessment": "Juice is advertised after the order; Fatima chooses water."
+            },
+            {
+              "option": "C",
+              "text": "Water.",
+              "assessment": "Explicitly supported key."
+            }
+          ],
+          "concerns": [
+            "The post-order alternatives are not needed for a natural transaction."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The flower in a mug is coherent, and the alt matches. The brief specifies paper petals to avoid a second biological oddity and excludes liquids and food. The paper material is an illustrative interpretation, not a tested source fact; no key is deliberately shown.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    },
+    {
+      "id": "A1:listening:batch072-kat-boeken:1",
+      "source": "content/batches/072-original.json",
+      "title": "Een kat op de tas",
+      "verdict": "reject",
+      "semantic_coherence": {
+        "score": 2,
+        "out_of": 5,
+        "reason": "The source starts with reading, then introduces a broken computer whose owner is already reading a book, so the final decision to chat lacks an established practical cause."
+      },
+      "source_only_analysis": {
+        "speaker_intentions_or_message_purpose": [
+          "Ruth asks what Roos is reading, then says she wants to read email but her phone has no charge.",
+          "Roos says she is reading a new book. Her subsequent broken-computer announcement has no established connection to Ruth’s email problem or to her own book."
+        ],
+        "progression": [
+          "Cat sleeping on bag → what are you reading: a plausible library small-talk switch.",
+          "New book answers the question; newspaper location is an unused alternative.",
+          "Ruth wants email but phone is empty: a clear obstacle to her own goal.",
+          "Roos’s computer is broken → “Dan praten we even”: the computer was never offered or needed for Roos’s book; no shared plan to use it was established. The conclusion depends on missing intentions."
+        ]
+      },
+      "findings": [
+        {
+          "field": "script[1].text",
+          "quote": "De krant ligt hier.",
+          "issue": "The newspaper is not offered to Ruth or linked to Roos’s book. It supplies q1’s third reading object."
+        },
+        {
+          "field": "script[3].text",
+          "quote": "Mijn computer is kapot. Dan praten we even.",
+          "issue": "Roos’s computer has not been introduced as an option for Ruth’s email. It also does not stop Roos reading the book she already has. The stated consequence therefore lacks a clear cause."
+        },
+        {
+          "field": "questions[1].options",
+          "quote": "Hij is nieuw. / Hij is leeg. / Hij is kapot.",
+          "issue": "The new-book adjective and broken-computer adjective are transplanted to the phone solely to form a second attribute-matching question."
+        },
+        {
+          "field": "script[2:4].text",
+          "quote": "Mijn telefoon is leeg. / Mijn computer is kapot.",
+          "issue": "The pair introduces two device problems and owner tracking into a short beginner exchange, without an ordinary shared problem being solved."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Wat wil Ruth lezen?",
+          "answer": "A",
+          "answer_text": "Haar mail.",
+          "evidence": "Ik wil mijn mail lezen.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Haar mail.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "B",
+              "text": "Een boek.",
+              "assessment": "Roos reads a book; Ruth explicitly says she wants to read email."
+            },
+            {
+              "option": "C",
+              "text": "De krant.",
+              "assessment": "A newspaper is present, but Ruth explicitly says she wants email."
+            }
+          ],
+          "concerns": [
+            "The email key is direct; the unused newspaper is distractor stock."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        },
+        {
+          "id": "q2",
+          "prompt": "Wat zegt Ruth over haar telefoon?",
+          "answer": "B",
+          "answer_text": "Hij is leeg.",
+          "evidence": "Mijn telefoon is leeg.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The source explicitly states the keyed fact; this does not establish that the source is a coherent human message.",
+          "options": [
+            {
+              "option": "A",
+              "text": "Hij is nieuw.",
+              "assessment": "“Nieuw” describes Roos’s book, not Ruth’s phone."
+            },
+            {
+              "option": "B",
+              "text": "Hij is leeg.",
+              "assessment": "Explicitly supported key."
+            },
+            {
+              "option": "C",
+              "text": "Hij is kapot.",
+              "assessment": "“Kapot” describes Roos’s computer, not Ruth’s phone."
+            }
+          ],
+          "concerns": [
+            "The attributes are anchored, but the broken computer exists in a turn whose practical consequence is not established."
+          ],
+          "explanation_audit": "The explanation matches the literal source allocation."
+        }
+      ],
+      "model_audit": "Not applicable: these are closed reading/listening exercises and contain no production model.",
+      "image_and_alt_audit": {
+        "scope": "Complete authored brief and alt text only; rendered illustration not inspected.",
+        "finding": "The sleeping cat on Ruth’s bag is clear and the alt agrees. The brief hides all reading materials and devices, protecting the two questions. A quiet reading-room setting alone does not explain why Roos’s broken computer prevents either woman’s current activity.",
+        "answer_leakage_at_brief_level": "No tested answer is deliberately shown in the written brief; this is not a visual-review pass."
+      },
+      "source_repair_proposed": false
+    }
+  ],
+  "limitations": [
+    "This is an AI editorial meaning audit, not human learner calibration, CEFR validation or exam-equivalence evidence.",
+    "Audio and rendered illustrations were not opened, generated or approved. Image findings concern authored briefs/alts only.",
+    "These closed A1 items contain no KNM claims requiring current official-fact verification. No browser or provider calls were made.",
+    "This audit does not constitute a passing integration review and supplies no proposed source batch."
+  ]
+}

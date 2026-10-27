@@ -91,7 +91,9 @@ export default function Overview() {
   const failuresByDay = a.daily.map((d) =>
     a.services.filter((s) => s.day === d.day).reduce((n, s) => n + Number(s.failures), 0),
   );
-  const levels = ['A2', 'B1', 'KNM'].filter((level) => a.parts.some((p) => p.level === level)),
+  const levels = ['A1', 'A2', 'B1', 'KNM'].filter((level) =>
+      a.parts.some((p) => p.level === level),
+    ),
     partsShown = Object.keys(subjects).filter((part) => a.parts.some((p) => p.part === part));
   const visitors = useMemo(
     () => (t) => ({

@@ -5,14 +5,20 @@ import AppLink from '../AppLink';
 // The questions a visitor asks before trusting a free exam site. Short, plain answers;
 // anything about processing points to the privacy page rather than repeating it.
 export default function Faq() {
-  const { t } = useStudyContext();
+  const { t, state } = useStudyContext(),
+    beginner = state.settings.level === 'A1';
   const entries: [string, React.ReactNode][] = [
     [
       t('Is dit het officiële inburgeringsexamen?', 'Is this the official integration exam?'),
-      t(
-        'Nee. Dit zijn onafhankelijke oefenopgaven in de vorm van het examen. Het echte examen doe je bij DUO; deze site geeft geen officiële score en voorspelt niet of je slaagt.',
-        'No. These are independent practice tasks in the shape of the exam. The real exam is taken at DUO; this site gives no official score and does not predict whether you will pass.',
-      ),
+      beginner
+        ? t(
+            'De A1-opgaven zijn korte oefeningen voor lezen, luisteren, schrijven en spreken. A1 is het beoogde niveau; de moeilijkheid is nog niet met docenten en cursisten getest.',
+            'The A1 tasks are short reading, listening, writing and speaking exercises. A1 is the intended level; teachers and learners have yet to test their difficulty.',
+          )
+        : t(
+            'Nee. Dit zijn onafhankelijke oefenopgaven in de vorm van het examen. Het echte examen doe je bij DUO; deze site geeft geen officiële score en voorspelt niet of je slaagt.',
+            'No. These are independent practice tasks in the shape of the exam. The real exam is taken at DUO; this site gives no official score and does not predict whether you will pass.',
+          ),
     ],
     [
       t('Wat kost het?', 'What does it cost?'),
@@ -50,13 +56,20 @@ export default function Faq() {
     ],
     [
       t('Welk niveau kies ik?', 'Which level should I choose?'),
-      <>
-        {t(
-          'Het niveau dat jouw examen vraagt. Twijfel je? ',
-          'The level your exam requires. Not sure? ',
-        )}
-        <AppLink to="check">{t('Doe de niveaucheck', 'Take the level check')}</AppLink>.
-      </>,
+      beginner ? (
+        t(
+          'Begin met A1 om korte, eenvoudige berichten en gesprekken te oefenen. Kies A2 wanneer je langere teksten aankunt en voor het inburgeringsexamen wilt oefenen.',
+          'Start with A1 to practise short, simple messages and conversations. Choose A2 when you can manage longer texts and want to practise for the integration exam.',
+        )
+      ) : (
+        <>
+          {t(
+            'Het niveau dat jouw examen vraagt. Twijfel je? ',
+            'The level your exam requires. Not sure? ',
+          )}
+          <AppLink to="check">{t('Doe de niveaucheck', 'Take the level check')}</AppLink>.
+        </>
+      ),
     ],
     [
       t('Komen er nieuwe opgaven bij?', 'Are new tasks added?'),

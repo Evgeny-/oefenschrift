@@ -39,7 +39,7 @@ export default function Home() {
     );
   // A check under way comes first; then the set you were in; then the check's advice;
   // then the first subject at this level with something to start.
-  const check = checkInProgress(state),
+  const check = level === 'A1' ? null : checkInProgress(state),
     checking = check && hasProgress(check),
     latest = latestCheck(state, level),
     advice = latest && checkSummary(latest, catalogue).weakest,
@@ -53,13 +53,20 @@ export default function Home() {
     <div className="home">
       <div className="home-hero">
         <h1 tabIndex={-1}>
-          {t('Oefen voor je inburgeringsexamen', 'Practise for the Dutch integration exam')}
+          {level === 'A1'
+            ? t('Begin met Nederlands', 'Start learning Dutch')
+            : t('Oefen voor je inburgeringsexamen', 'Practise for the Dutch integration exam')}
         </h1>
         <p>
-          {t(
-            'Gratis oefenopgaven voor lezen, luisteren, schrijven, spreken en KNM. Geen account nodig.',
-            'Free practice for reading, listening, writing, speaking and KNM. No account needed.',
-          )}
+          {level === 'A1'
+            ? t(
+                'Oefen Nederlands met korte, verrassende opdrachten.',
+                'Practise Dutch through short, playful exercises.',
+              )
+            : t(
+                'Gratis oefenopgaven voor lezen, luisteren, schrijven, spreken en KNM. Geen account nodig.',
+                'Free practice for reading, listening, writing, speaking and KNM. No account needed.',
+              )}
         </p>
         <div className="actions">
           {checking ? (
@@ -217,10 +224,15 @@ export default function Home() {
               <span>{t('Opgaven op jouw niveau', 'Tasks at your level')}</span>
             </h3>
             <p>
-              {t(
-                'Voor elk onderdeel, in de vorm van het examen en afgestemd op A2 en B1. Er komen regelmatig nieuwe opgaven bij.',
-                'For every part, in the shape of the exam and made for A2 and B1. New tasks are added regularly.',
-              )}
+              {level === 'A1'
+                ? t(
+                    'Oefen op A1 met korte opdrachten voor lezen, luisteren, schrijven en spreken.',
+                    'Practise reading, listening, writing and speaking through short A1 tasks.',
+                  )
+                : t(
+                    'Voor elk onderdeel, in de vorm van het examen en afgestemd op A2 en B1. Er komen regelmatig nieuwe opgaven bij.',
+                    'For every part, in the shape of the exam and made for A2 and B1. New tasks are added regularly.',
+                  )}
             </p>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { readFile, readdir, realpath } from 'node:fs/promises';
 import { checkContent } from './content';
 import { validateBatch } from './batch-validation';
 import { itemPassedReview } from './content-review';
+import { meaningReviewErrors } from './meaning-review';
 
 // Dry runs may inspect drafts. Producing media must use the exact bytes an
 // independent reviewer passed, or the catalogue rebuilt through that same gate.
@@ -24,6 +25,8 @@ export async function requireReviewedMedia(source = '') {
     const batch = JSON.parse(bytes.toString());
     if (!Array.isArray(batch) || !batch.every((item) => itemPassedReview(review, item.id)))
       throw Error('Every media source item needs an individual passing review.');
+    const meaningErrors = meaningReviewErrors(review, batch);
+    if (meaningErrors.length) throw Error(meaningErrors.join('\n'));
     const catalogue = JSON.parse(await readFile('content/catalogue.json', 'utf8'));
     const voices = JSON.parse(await readFile('config/voices.json', 'utf8'));
     const result = validateBatch(batch, catalogue, voices);

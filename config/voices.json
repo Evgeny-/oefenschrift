@@ -1,6 +1,6 @@
 {
-  "note": "Voice roles used by listening scripts and speaking prompts. Scripts reference roles, never voice IDs. Chosen and confirmed from the audition of 10 September 2026 (docs/research/voice-audition-2026-09-10.md); only native Netherlands Dutch voices, no Flemish, none that add words to the script.",
-  "audition": "2026-09-10",
+  "note": "Voice roles used by reviewed scripts. Native Netherlands Dutch only. On 27 October 2026 the user chose Lieke, Ruth for more mature female roles, Ruben as the main younger male voice and Daan for casual roles. Esmee and Nick are retired. Other existing roles retain their earlier choices.",
+  "audition": "2026-10-27",
   "model": "eleven_multilingual_v2",
   "dialogueModel": "eleven_v3",
   "defaultConversationMode": "stitched",
@@ -12,6 +12,13 @@
     "use_speaker_boost": true
   },
   "gapSeconds": 0.45,
+  "profiles": {
+    "A1": {
+      "speedMultiplier": 0.82,
+      "gapSeconds": 0.9,
+      "note": "Beginner listening: use an explicit a1Speed when configured for an auditioned voice; other roles retain their existing role speed multiplied by 0.82 with a 0.7 floor. Stitched turns use 0.9-second gaps. Lieke, Ruben, Daan and Ruth use the auditioned 0.9 speed directly."
+    }
+  },
   "loudness": {
     "integrated": -18,
     "truePeak": -1.5,
@@ -40,25 +47,28 @@
       "speed": 0.85
     },
     "f-adult": {
-      "voice_id": "TuUL8QNimlzrTWC5Op2c",
-      "name": "Esmee",
+      "voice_id": "kZQ3IGqYUStQ8u1Y62s6",
+      "name": "Lieke",
       "use": "teacher, manager, receptionist, huisarts assistant",
-      "speed": 0.95,
-      "note": "chosen by the user in the second audition (10 September 2026), heard through the lossless chain with Hanneke"
+      "speed": 0.9,
+      "note": "Selected by the user on 27 October 2026. Native nl-NL standard accent, Studio Quality provider metadata verified. A1 speed uses the auditioned 0.9 directly.",
+      "a1Speed": 0.9
     },
     "f-older": {
       "voice_id": "tfweP7lGJyLeNV9dH1Rm",
       "name": "Hanneke",
       "use": "older neighbour, grandmother, older customer",
-      "note": "user: senior, good voice, quiet; loudness normalisation applies",
-      "speed": 0.95
+      "note": "The user accepted the cleaned Hanneke sample on 27 October 2026 and also kept Ruth for mature adult roles. Apply spectral-v1 after initial per-turn level matching, then enforce the loudness/peak ceiling again, matching the approved comparison. Raw source has audible background noise amplified by gain.",
+      "speed": 0.95,
+      "noiseReduction": "spectral-v1"
     },
     "m-young": {
-      "voice_id": "6kGjm3FeadxmRCkt22Pc",
-      "name": "Nick",
+      "voice_id": "MkRWZTk4OBui6Jb2lgK0",
+      "name": "Ruben",
       "use": "student, young colleague, delivery worker",
-      "note": "confirmed by the user on 2026-09-10",
-      "speed": 0.9
+      "note": "Selected by the user on 27 October 2026 over Daan for general younger male roles. Native nl-NL standard accent, Studio Quality provider metadata verified.",
+      "speed": 0.9,
+      "a1Speed": 0.9
     },
     "m-adult": {
       "voice_id": "cblS8WYNsiBLGnlV6jjx",
@@ -80,6 +90,27 @@
       "use": "shopkeeper, market trader, repair service",
       "note": "confirmed by the user on 2026-09-10",
       "speed": 1
+    },
+    "m-casual": {
+      "voice_id": "SFlhmoT9q6x81D3fl3dp",
+      "name": "Daan",
+      "use": "relaxed friend, classmate, neighbour in a casual exchange",
+      "note": "The user kept Daan on 27 October 2026 for chill, casual voices. Use deliberate exercise casting.",
+      "speed": 0.9,
+      "a1Speed": 0.9
+    },
+    "f-mature": {
+      "voice_id": "yO6w2xlECAQRFP6pX7Hw",
+      "name": "Ruth",
+      "use": "mature female colleague, teacher, customer or neighbour",
+      "speed": 0.9,
+      "a1Speed": 0.9,
+      "language": "nl",
+      "locale": "nl-NL",
+      "accent": "standard",
+      "category": "high_quality",
+      "approved_at": "2026-10-27",
+      "note": "The user likes Ruth and hears her as more adult. Available for deliberate future exercise casting."
     }
   },
   "excluded": [
@@ -107,9 +138,52 @@
       "voice_id": "h6uBOiAjLKklte8hdYio",
       "name": "Roland",
       "reason": "inserted 'uh' and 'uhm' that were not in the script (round-trip check, 2026-09-17)"
+    },
+    {
+      "voice_id": "TuUL8QNimlzrTWC5Op2c",
+      "name": "Esmee",
+      "reason": "Retired at user request on 27 October 2026 after the A1 sound-quality complaint; replace current clips with Lieke."
+    },
+    {
+      "voice_id": "6kGjm3FeadxmRCkt22Pc",
+      "name": "Nick",
+      "reason": "Retired at user request on 27 October 2026. Noise was already documented on 17 September; replaced with Ruben, with Daan retained for selected casual conversations."
     }
   ],
-  "speedNote": "Per-role speaking-rate multiplier for single-speaker clips (multilingual v2 voice_settings.speed, 0.7–1.2); chosen on 10 September 2026 so that the fast voices from the audition (Roos, Nick, Robert, Peter, Serge) land near 2.5 words per second, the A2 pace of the slower voices. The dialogue model ignores it.",
+  "speedNote": "Per-role speaking-rate multiplier for single-speaker clips (multilingual v2 voice_settings.speed, 0.7–1.2). Existing rates were chosen on 10 September 2026. Lieke, Ruben, Daan and Ruth use the auditioned 0.9 rate selected on 27 October, including A1. The dialogue model ignores it.",
   "conversationNote": "Conversations are generated per turn with eleven_multilingual_v2 and stitched (0.45 s gaps, per-turn loudness normalisation). The dialogue model (eleven_v3) was the default for a day on 10 September 2026 and produced audible room echo on the female voices; it stays available per item with audioMode: \"dialogue\".",
-  "pipelineNote": "Since 10 September 2026 clips are requested as 16-bit PCM at 24 kHz, level-matched by a constant gain to -18 LUFS (no compression), stitched losslessly and encoded once to 44.1 kHz MP3 at 192 kbps. An earlier chain re-encoded MP3 three times and normalised twice."
+  "pipelineNote": "Current source format is mp3_44100_192, available on the current Creator plan. Decode provider MP3 to PCM WAV, level-match by constant gain toward -18 LUFS with a -1.5 dBTP ceiling, stitch and encode final 44.1 kHz MP3 at 192 kbps. This has one provider encode and one final encode. Legacy PCM clips remain available for history. Use exact --keys lists for bounded replacement runs.",
+  "source_format": "mp3_44100_192",
+  "casting": {
+    "B1:speaking:batch030-kantoortuin:1": {
+      "m-young": "m-casual"
+    },
+    "A2:speaking:batch026-woorden-leren:1": {
+      "m-young": "m-casual"
+    },
+    "B1:speaking:batch002-cursusgemist:1": {
+      "m-young": "m-casual"
+    },
+    "A2:listening:batch022-pakket:1": {
+      "m-young": "m-casual"
+    },
+    "A2:listening:batch005-training:1": {
+      "m-adult": "m-young"
+    },
+    "B1:listening:batch013-logistiek:1": {
+      "m-adult": "m-young"
+    },
+    "B1:listening:batch002-lekkage:1": {
+      "m-adult": "m-young"
+    },
+    "A1:listening:batch072-doos-oren:1": {
+      "m-adult": "m-young"
+    }
+  },
+  "disallowedPairings": [
+    {
+      "voiceIds": ["cblS8WYNsiBLGnlV6jjx", "kZQ3IGqYUStQ8u1Y62s6"],
+      "reason": "User rejected the low-energy Robert (Karim) voice paired with energetic Lieke on 27 October 2026. Use Ruben for these conversations."
+    }
+  ]
 }

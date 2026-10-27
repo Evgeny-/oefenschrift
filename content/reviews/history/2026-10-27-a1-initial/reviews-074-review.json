@@ -1,0 +1,940 @@
+{
+  "review_id": "074-review",
+  "source": "content/batches/074-original.json",
+  "source_sha256": "fdf70fa86bba0509f790cf487cb7e96ce24f949b263fec2549a930202977df09",
+  "proposed": "content/batches/074-proposed.json",
+  "author_source_sha256": "92f1ee3e857b5bc892e8773ca422e3d2103abb62abab8781e226f6efaf3f1f49",
+  "starters_source": "content/batches/074-starters.json",
+  "starters_sha256": "70092369ed3ce21940326520ba96b59badf04c94aa13acf64a625f8206bc1edd",
+  "starters_verdict": "pass",
+  "review_type": "independent-ai-editorial",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-27",
+  "reviewer": "Independent Codex AI agent /root/review_a1_writing_fun in a separate reviewer context. This agent did not author this batch. Opus 5 was unavailable and was not used.",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "item_count": 9,
+  "question_count": 0,
+  "counts": {
+    "unchanged_pass": 6,
+    "edited_pass": 3,
+    "rejected": 0
+  },
+  "distribution": {
+    "level": {
+      "A1": 9
+    },
+    "part": {
+      "writing": 9
+    },
+    "taskType": {
+      "bericht": 9
+    },
+    "domain": {
+      "werk": 1,
+      "winkels-diensten": 2,
+      "vrije-tijd-familie": 4,
+      "opleiding": 2
+    },
+    "content_goals": 18,
+    "understandable_language_goals": 9,
+    "drawing_briefs": 9,
+    "starters": 27
+  },
+  "edits": [
+    {
+      "id": "A1:writing:batch074-lepelmuziek:1",
+      "field": "sample",
+      "old": "Modibo, neem je een pan mee? Ik hebben geen pan.",
+      "new": "Kom je bij mij muziek maken? Dat zijn leuk.",
+      "reason": "Change which content goal is missing so the request to bring a pan cannot implicitly satisfy the omitted invitation."
+    },
+    {
+      "id": "A1:writing:batch074-lepelmuziek:1",
+      "field": "quotes",
+      "old": [
+        null,
+        "neem je een pan mee?",
+        "neem je een pan mee?"
+      ],
+      "new": [
+        "Kom je bij mij muziek maken?",
+        null,
+        "Kom je bij mij muziek maken?"
+      ],
+      "reason": "Align the exact sample evidence and single null with the repaired omission."
+    },
+    {
+      "id": "A1:writing:batch074-lepelmuziek:1",
+      "field": "images[0].brief",
+      "old": "Modibo (young man, short black hair, light shirt) stands at a kitchen table and playfully taps two wooden spoons on an upside-down cooking pan like a drum. His hands hold the spoons clearly and correctly. One lifted foot and his delighted expression suggest a lively rhythm without drawn symbols. Use a low viewpoint, with the pan and raised spoons forming a strong triangular composition. A single ordinary kitchen chair keeps the scene domestic. No text, no captions, no musical notes, no signs, no logos.",
+      "new": "An adult woman with short curly hair and a dusty blue shirt stands at a kitchen table and playfully taps two wooden spoons on an upside-down cooking pan like a drum. Her hands hold the spoons clearly and correctly. One lifted foot and her delighted expression suggest a lively rhythm without drawn symbols. Use a low viewpoint, with the pan and raised spoons forming a strong triangular composition. A single ordinary kitchen chair keeps the scene domestic. No text, no captions, no musical notes, no signs, no logos.",
+      "reason": "Show an unnamed adult doing the learner’s home activity; invited Modibo need not already be present. Keep brief and Dutch alt consistent."
+    },
+    {
+      "id": "A1:writing:batch074-lepelmuziek:1",
+      "field": "images[0].alt",
+      "old": "Modibo maakt met twee houten lepels muziek op een pan in de keuken.",
+      "new": "Een vrouw maakt met twee houten lepels muziek op een pan in de keuken.",
+      "reason": "Show an unnamed adult doing the learner’s home activity; invited Modibo need not already be present. Keep brief and Dutch alt consistent."
+    },
+    {
+      "id": "A1:writing:batch074-reuzenbox:1",
+      "field": "sample",
+      "old": "In de doos zit een lepel. Ik gebruik die lepel. Hij zijn klein.",
+      "new": "In de doos zit een lepel. De lepel zijn klein.",
+      "reason": "Name the spoon explicitly so its size cannot be read as an opinion about the box."
+    },
+    {
+      "id": "A1:writing:batch074-komhoed:1",
+      "field": "prompt",
+      "old": "U krijgt een foto van Sabrina. Ze draagt een kom op haar hoofd. Schrijf Sabrina een bericht. Zeg wat u van de foto vindt. Vraag om nog een foto.",
+      "new": "U zit met Sabrina in de klas. U krijgt een foto van Sabrina. Ze draagt een kom op haar hoofd. Schrijf Sabrina een bericht. Zeg wat u van de foto vindt. Vraag om nog een foto.",
+      "reason": "State the classroom relationship already shown by the illustration, giving opleiding an explicit task context."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "read_in_full": "AGENTS.md; blueprint sections 1, 3, 4.0, 5-13; docs/briefs/review.md and author.md; rubric; content-workflow; illustration config; full original batch, author notes and all 27 starters; all 66 writing catalogue titles and prompts; 16 nearest catalogue records in full; official-exam research writing paragraphs for context only; final formatted proposal in full.",
+    "a1_scope": "The local A1 foundation specification in blueprint 4.0 governs. This is the first A1 writing batch. No official A1 task comparison, exam-format claim or equivalence verdict applies. There are no same-level writing exemplars in the current catalogue. A separate first-batch target check remains the coordinator’s next step.",
+    "contract": "Exactly nine original messages, two tiny content goals and one understandable-language criterion each, one drawing brief and Dutch alt each, correct A1/bericht/a1-schrijven/a1-practice metadata. Models contain 8-13 words and prompts 24-36, within the local 8-25 and <=55 limits. No retired type, generated media, revision, official score or KNM facts.",
+    "language": "Every final prompt, bilingual criterion, sample, quote, model, starter, brief and alt was read. Models have two short main-clause sentences of four to seven words. Familiar concrete nouns include ui, lepel, sokken and kom, all supported by a picture/alt. No required reason, advanced tense, subordinate response, greeting sequence or narrative.",
+    "sample_quotes": "Every sample has exactly one null in a content-goal position. Its two non-null quotes are exact substrings. Every sample is comprehensible despite its deliberate beginner verb-form error; grammar perfection is not the language gate. Each sample’s other wording was checked for accidental satisfaction of the null goal.",
+    "criteria_and_models": "For each item the two criteria trace to the prompt and visible detail. The model explicitly meets both. Alternative opinions, food choices, short phrasings and understandable learner variants remain acceptable. One sentence may meet two content goals where both intentions are clear.",
+    "starters": "All 27 fragments were read in criterion order, tested for natural completions and found incomplete. They leave the required facts to the learner. Criteria did not change, so the author starter file passes unchanged and no proposed-starters file is needed.",
+    "diversity": "All 66 current writing catalogue prompts and 16 nearby full records were compared. No matching complete premise or same-part slug collision. The first two messages share an object-identification/request shape but differ in workplace help versus correction of a shop purchase. Other acts include opinion, preference, invitation, place/time information, acceptance with a food offer, seat availability and asking for another photo.",
+    "originality_and_names": "All scenarios and language are new practice content. Only ordinary personal cast names and generic settings appear. No invented company, institution, address, brand, public policy claim or sourced exercise wording requires an organisation-name search or KNM verification.",
+    "images": "All nine briefs and alts agree with their tasks and exclude printed text, signage and logos. The configured a1StylePrefix supplies the requested warm paper/gouache style and excludes numerals and watermarks. Every remaining named cast depiction repeats the exact configured traits. Open-task images and alts may supply visible content facts. Opinion and food-choice goals stay open. Pixel quality and exact goal visibility still require rendered-media review.",
+    "formatting": "Formatted content/batches/074-proposed.json with Prettier after the final edit. The complete final proposal and unchanged starter overlay were then reread before hashing.",
+    "batch_check": "npm run batch:check content/batches/074-proposed.json: Checked 9 items, 0 questions. Keys: {}. Options: {}. No failures, no warnings.",
+    "hash": "source_sha256 records the exact formatted proposal bytes that will be adopted. starters_sha256 records the unchanged author overlay. The author source, notes and starters were not modified."
+  },
+  "source_verification": [
+    {
+      "url": "https://rm.coe.int/common-european-framework-of-reference-forlanguages-learning-teaching/16809ea0d4",
+      "title": "Council of Europe (2020), CEFR Companion volume",
+      "accessed_at": "2026-10-27",
+      "pages": "Printed 66-67, 83-84; PDF indices 65-66, 82-83.",
+      "verified": "Independently opened the primary PDF. A1 written production describes basic personal information and isolated simple phrases; creative writing covers everyday objects. A1 correspondence permits very short simple messages that give information or ask a question. A1 messages may give a place or a return time.",
+      "limitation": "These descriptors inform the editorial target. They do not set this local two-goal task shape, model length or picture design, and cannot validate item difficulty or exam equivalence."
+    }
+  ],
+  "items": [
+    {
+      "id": "A1:writing:batch074-schoenlunch:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "Two short facts about familiar work, a bag and bread. The 12-word model uses seven- and five-word main clauses; no explanation is required.",
+      "prompt_words": 27,
+      "model_words": 12,
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Zeg wat er in uw tas zit.",
+            "criterion_nl": "U zegt dat er een schoen in uw tas zit.",
+            "criterion_en": "Say that there is a shoe in your bag.",
+            "sample_quote": "In mijn tas zit een schoen.",
+            "sample_verdict": "demonstrated",
+            "model_quote": "Er zit een schoen in mijn tas."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Vraag hem om brood.",
+            "criterion_nl": "U vraagt Julio om brood.",
+            "criterion_en": "Ask Julio for bread.",
+            "sample_quote": null,
+            "sample_verdict": "missing",
+            "model_quote": "Heb je brood voor mij?"
+          },
+          {
+            "criterion": 3,
+            "criterion_nl": "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "criterion_en": "Your message is understandable. Use short, simple sentences.",
+            "sample_quote": "In mijn tas zit een schoen.",
+            "sample_verdict": "understandable despite a beginner verb-form error",
+            "model_verdict": "Both model sentences communicate the requested goals clearly in short simple Dutch."
+          }
+        ],
+        "sample_omission_proof": "The sample identifies the shoe, then describes its size. It never asks Julio for bread.",
+        "natural_variants": "Accept Een schoen zit in mijn tas, Er is een schoen in mijn tas, Mag ik brood, or another understandable equivalent. A size or colour is optional.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "In mijn tas zit …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 2,
+            "fragment": "Heb je … voor mij?",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Ik zie …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          }
+        ],
+        "image_brief_and_alt": "Julio has the exact configured young man, curly hair, striped shirt traits. The bag contains one shoe; the empty plate supports a lunch request. The brief does not say the bag belongs to Julio. Dutch alt names the visible shoe for equivalent access. Keep the shoe inside the open bag recognisable at display size.",
+        "metadata": "bericht and a1-schrijven fit a short practical message. Domain matches the stated or visible scene. Draft and targetLevelValidated false remain intact."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "Common bag, shoe and bread vocabulary; model clauses are 7 and 5 words."
+        },
+        "clarity": {
+          "score": 5,
+          "basis": "The image supplies the object and the prompt explicitly asks for bread."
+        },
+        "variety": {
+          "score": 4,
+          "basis": "The work help request differs from a shop correction, although both first tasks identify an unexpected object."
+        },
+        "visual_interest": {
+          "score": 5,
+          "basis": "A clean shoe replaces a packed lunch; Julio reacts from a close diagonal view."
+        },
+        "task_image_fit": {
+          "score": 5,
+          "basis": "The bag and shoe supply exactly the first goal; the bread request comes from the prompt."
+        }
+      }
+    },
+    {
+      "id": "A1:writing:batch074-appelui:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The eight-word model consists of two four-word sentences. Ui is a concrete everyday food shown clearly, and the requested apple is already named.",
+      "prompt_words": 24,
+      "model_words": 8,
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Zeg welk eten u krijgt.",
+            "criterion_nl": "U zegt dat u een ui krijgt.",
+            "criterion_en": "Say that you receive an onion.",
+            "sample_quote": null,
+            "sample_verdict": "missing",
+            "model_quote": "Ik krijg een ui."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Vraag om een appel.",
+            "criterion_nl": "U vraagt om een appel.",
+            "criterion_en": "Ask for an apple.",
+            "sample_quote": "Mag ik een appel?",
+            "sample_verdict": "demonstrated",
+            "model_quote": "Mag ik een appel?"
+          },
+          {
+            "criterion": 3,
+            "criterion_nl": "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "criterion_en": "Your message is understandable. Use short, simple sentences.",
+            "sample_quote": "Mag ik een appel?",
+            "sample_verdict": "understandable despite a beginner verb-form error",
+            "model_verdict": "Both model sentences communicate the requested goals clearly in short simple Dutch."
+          }
+        ],
+        "sample_omission_proof": "The sample asks for an apple and says the learner wants to eat one. It does not identify the received onion.",
+        "natural_variants": "Accept Ik heb een ui, Er zit een ui in mijn tas, Ik wil graag een appel, or other understandable wording that gives the received onion and requests an apple. A formal complaint or past-tense story is unnecessary.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "Ik krijg …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 2,
+            "fragment": "Mag ik …?",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Ik wil graag …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          }
+        ],
+        "image_brief_and_alt": "The received onion is inside the open bag; red apples stay separate in a basket. Dry brown skin and a clear onion silhouette must keep it distinct from an apple or pear. The customer is an unnamed adult. Dutch alt supplies the visible contrast. No prices or signs are allowed.",
+        "metadata": "bericht and a1-schrijven fit a short practical message. Domain matches the stated or visible scene. Draft and targetLevelValidated false remain intact."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "Two four-word model sentences use krijg and Mag ik with pictured food."
+        },
+        "clarity": {
+          "score": 5,
+          "basis": "Onion in the bag and separate apples make the received-versus-wanted contrast clear."
+        },
+        "variety": {
+          "score": 4,
+          "basis": "A correction to a shop has a different recipient and purpose from the preceding colleague help request."
+        },
+        "visual_interest": {
+          "score": 4,
+          "basis": "One onion amid a simple apple display gives a readable small surprise."
+        },
+        "task_image_fit": {
+          "score": 5,
+          "basis": "The image supplies the onion and the prompt supplies the requested apple."
+        }
+      }
+    },
+    {
+      "id": "A1:writing:batch074-ontbijttaart:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The ten-word model has two five-word sentences using a simple opinion and want construction. Learners choose a familiar drink without explaining a preference.",
+      "prompt_words": 32,
+      "model_words": 10,
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Zeg wat u van de taart vindt.",
+            "criterion_nl": "U zegt wat u van de taart vindt.",
+            "criterion_en": "Say what you think of the cake.",
+            "sample_quote": null,
+            "sample_verdict": "missing",
+            "model_quote": "Ik vind de taart mooi."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Zeg wat u wilt drinken. Kies zelf een drankje.",
+            "criterion_nl": "U noemt een drankje dat u wilt.",
+            "criterion_en": "Name a drink that you would like.",
+            "sample_quote": "Ik wil graag thee drinken.",
+            "sample_verdict": "demonstrated",
+            "model_quote": "Ik wil graag thee drinken."
+          },
+          {
+            "criterion": 3,
+            "criterion_nl": "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "criterion_en": "Your message is understandable. Use short, simple sentences.",
+            "sample_quote": "Ik wil graag thee drinken.",
+            "sample_verdict": "understandable despite a beginner verb-form error",
+            "model_verdict": "Both model sentences communicate the requested goals clearly in short simple Dutch."
+          }
+        ],
+        "sample_omission_proof": "The sample requests tea and comments on tea. It gives no opinion of the cake.",
+        "natural_variants": "Accept any understandable positive or negative cake reaction and any named drink the learner wants. Mooi, lekker, groot or niet lekker can meet the first goal; tea is only an example.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "Ik vind de taart …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 2,
+            "fragment": "Ik wil graag … drinken.",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Ik vind …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          }
+        ],
+        "image_brief_and_alt": "Roos repeats young woman, dark hair in a bun, yellow scarf verbatim. A tall cake, empty cup and bread plate support breakfast without fixing a drink or an opinion. Hands must support the cake stand coherently. No candles, age numerals or written decoration are requested.",
+        "metadata": "bericht and a1-schrijven fit a short practical message. Domain matches the stated or visible scene. Draft and targetLevelValidated false remain intact."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "Familiar cake and drink vocabulary, with two five-word model sentences."
+        },
+        "clarity": {
+          "score": 5,
+          "basis": "The two goals explicitly allow a chosen opinion and drink."
+        },
+        "variety": {
+          "score": 4,
+          "basis": "A personal reaction and preference add a different response shape after identification and request tasks."
+        },
+        "visual_interest": {
+          "score": 4,
+          "basis": "An unexpectedly tall cake on an ordinary breakfast table gives the scene its joke."
+        },
+        "task_image_fit": {
+          "score": 5,
+          "basis": "An empty cup preserves drink choice; the cake supports any personal reaction."
+        }
+      }
+    },
+    {
+      "id": "A1:writing:batch074-lepelmuziek:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The 11-word model uses six- and five-word questions. Music, a pan and home are familiar; mee te nemen occurs in the instruction but the response can use the short Neem je ... mee question.",
+      "prompt_words": 29,
+      "model_words": 11,
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Vraag hem om bij u muziek te maken.",
+            "criterion_nl": "U vraagt Modibo om bij u muziek te maken.",
+            "criterion_en": "Ask Modibo to make music at your home.",
+            "sample_quote": "Kom je bij mij muziek maken?",
+            "sample_verdict": "demonstrated",
+            "model_quote": "Kom je bij mij muziek maken?"
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Vraag hem om een pan mee te nemen.",
+            "criterion_nl": "U vraagt hem om een pan mee te nemen.",
+            "criterion_en": "Ask him to bring a pan.",
+            "sample_quote": null,
+            "sample_verdict": "missing",
+            "model_quote": "Neem je een pan mee?"
+          },
+          {
+            "criterion": 3,
+            "criterion_nl": "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "criterion_en": "Your message is understandable. Use short, simple sentences.",
+            "sample_quote": "Kom je bij mij muziek maken?",
+            "sample_verdict": "understandable despite a beginner verb-form error",
+            "model_verdict": "Both model sentences communicate the requested goals clearly in short simple Dutch."
+          }
+        ],
+        "sample_omission_proof": "The repaired sample explicitly invites Modibo to make music at the learner’s home. Dat zijn leuk comments on that activity and never asks for a pan. Only criterion 2 is missing.",
+        "natural_variants": "Accept Kom je hier muziek maken, Wil je bij mij muziek maken, Neem een pan mee, or other understandable equivalents. A mere request to bring a pan need not prove a music invitation. The source criterion requires no day, time, reason or instrument name beyond the pan.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "Kom je bij mij …?",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 2,
+            "fragment": "Neem je … mee?",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Kom je …?",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          }
+        ],
+        "image_brief_and_alt": "The revised brief depicts an unnamed adult woman making music with two spoons at home, matching the learner’s activity while invited Modibo remains the recipient. One ordinary pan, two believable spoon grips and an expressive pose supply the humour. Dutch alt now names a woman. No musical symbols or text are allowed.",
+        "metadata": "bericht and a1-schrijven fit a short practical message. Domain matches the stated or visible scene. Draft and targetLevelValidated false remain intact."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 4,
+          "basis": "The task uses the familiar separable verb meenemen and an invitation; both model questions stay short."
+        },
+        "clarity": {
+          "score": 5,
+          "basis": "Two explicit requests are distinguished, and the repaired sample omits only the pan request."
+        },
+        "variety": {
+          "score": 5,
+          "basis": "Inviting a friend to make household music adds an activity invitation and equipment request."
+        },
+        "visual_interest": {
+          "score": 5,
+          "basis": "Spoons on an upside-down pan and a lifted foot make the rhythm visible without symbols."
+        },
+        "task_image_fit": {
+          "score": 5,
+          "basis": "The learner’s home activity is shown; the invited recipient is no longer depicted as already present."
+        }
+      }
+    },
+    {
+      "id": "A1:writing:batch074-tuinfilm:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The 11-word model states one place and one provided time in two main clauses. No schedule calculation, added event plan or reason is required.",
+      "prompt_words": 30,
+      "model_words": 11,
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Zeg waar de film is.",
+            "criterion_nl": "U zegt dat de film in uw tuin is.",
+            "criterion_en": "Say that the film is in your garden.",
+            "sample_quote": null,
+            "sample_verdict": "missing",
+            "model_quote": "De film is in mijn tuin."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Zeg hoe laat de film begint.",
+            "criterion_nl": "U zegt dat de film om negen uur begint.",
+            "criterion_en": "Say that the film starts at nine o’clock.",
+            "sample_quote": "We beginnen om negen uur.",
+            "sample_verdict": "demonstrated",
+            "model_quote": "We beginnen om negen uur."
+          },
+          {
+            "criterion": 3,
+            "criterion_nl": "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "criterion_en": "Your message is understandable. Use short, simple sentences.",
+            "sample_quote": "We beginnen om negen uur.",
+            "sample_verdict": "understandable despite a beginner verb-form error",
+            "model_verdict": "Both model sentences communicate the requested goals clearly in short simple Dutch."
+          }
+        ],
+        "sample_omission_proof": "The sample states the nine-o’clock start and comments on the film. It never gives the garden location.",
+        "natural_variants": "Accept In mijn tuin kijken we een film, De film begint om 9 uur, or another understandable equivalent. A small spelling error in negen does not by itself fail understandable language. Exact model wording, the evening sky and the projector are not goals.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "De film is …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 2,
+            "fragment": "We beginnen om …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Wij gaan …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          }
+        ],
+        "image_brief_and_alt": "Sabrina has the exact configured woman in her thirties, long dark hair, green jumper traits. A plain cloth, projector beam, garden flowers and evening sky support an outdoor film. The prompt already supplies nine o’clock. No clock, numerals or movie title is allowed. Dutch alt describes her garden seat and cloth.",
+        "metadata": "bericht and a1-schrijven fit a short practical message. Domain matches the stated or visible scene. Draft and targetLevelValidated false remain intact."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "One familiar place and one stated time appear in six- and five-word model clauses."
+        },
+        "clarity": {
+          "score": 5,
+          "basis": "Garden and nine o’clock are given explicitly and requested separately."
+        },
+        "variety": {
+          "score": 5,
+          "basis": "This item passes on place and time instead of asking for an object or an opinion."
+        },
+        "visual_interest": {
+          "score": 4,
+          "basis": "A cosy cinema between flowers creates a gentle surprise through setting."
+        },
+        "task_image_fit": {
+          "score": 5,
+          "basis": "The garden is visible; the prompt supplies the start time without requiring a clock."
+        }
+      }
+    },
+    {
+      "id": "A1:writing:batch074-fietsfeest:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The ten-word model has two five-word main clauses. Confirming attendance and offering food need no reason, count requirement or invitation narrative.",
+      "prompt_words": 30,
+      "model_words": 10,
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Zeg dat u komt.",
+            "criterion_nl": "U zegt dat u naar het feest komt.",
+            "criterion_en": "Say that you are coming to the party.",
+            "sample_quote": "Ik kom naar je feest.",
+            "sample_verdict": "demonstrated",
+            "model_quote": "Ik kom naar je feest."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Zeg welk eten u meeneemt. Kies zelf iets te eten.",
+            "criterion_nl": "U noemt eten dat u meeneemt.",
+            "criterion_en": "Name food that you are bringing.",
+            "sample_quote": null,
+            "sample_verdict": "missing",
+            "model_quote": "Ik neem twee appels mee."
+          },
+          {
+            "criterion": 3,
+            "criterion_nl": "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "criterion_en": "Your message is understandable. Use short, simple sentences.",
+            "sample_quote": "Ik kom naar je feest.",
+            "sample_verdict": "understandable despite a beginner verb-form error",
+            "model_verdict": "Both model sentences communicate the requested goals clearly in short simple Dutch."
+          }
+        ],
+        "sample_omission_proof": "The sample confirms attendance, expresses happiness and praises the bicycle. It names no food to bring.",
+        "natural_variants": "Accept Ik kom, Ik ben erbij, and any familiar food the learner says they will bring. Two apples and the picture’s cake are examples, never required quantities or foods.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "Ik kom …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 2,
+            "fragment": "Ik neem … mee.",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Ik ben …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          }
+        ],
+        "image_brief_and_alt": "Julio repeats young man, curly hair, striped shirt verbatim. A party hat on the bicycle bell and offered cake make a party for the bicycle visible. Check a coherent two-wheel bicycle and a feasible one-handed hold plus cake offer. Dutch alt names only the party setting. Food choice stays open.",
+        "metadata": "bericht and a1-schrijven fit a short practical message. Domain matches the stated or visible scene. Draft and targetLevelValidated false remain intact."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "Two five-word model sentences use common come, food and bring patterns."
+        },
+        "clarity": {
+          "score": 5,
+          "basis": "Attendance is given in the premise and the learner freely chooses food."
+        },
+        "variety": {
+          "score": 5,
+          "basis": "Accepting a bicycle’s party invitation adds an offer to bring food."
+        },
+        "visual_interest": {
+          "score": 5,
+          "basis": "A bicycle wearing a party hat and being offered cake has one clear, adult playful premise."
+        },
+        "task_image_fit": {
+          "score": 5,
+          "basis": "The event is pictured while no particular food or quantity is forced on the learner."
+        }
+      }
+    },
+    {
+      "id": "A1:writing:batch074-stoelsokken:1",
+      "verdict": "pass",
+      "edited": false,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The 11-word model has six- and five-word clauses about a chair and a simple availability question. Vrij means available to sit on in the explicit classroom context.",
+      "prompt_words": 29,
+      "model_words": 11,
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Zeg welke stoel u wilt.",
+            "criterion_nl": "U zegt dat u de stoel met sokken wilt.",
+            "criterion_en": "Say that you want the chair with socks.",
+            "sample_quote": "Ik wil de stoel met sokken.",
+            "sample_verdict": "demonstrated",
+            "model_quote": "Ik wil de stoel met sokken."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Vraag of de stoel vrij is.",
+            "criterion_nl": "U vraagt of die stoel vrij is.",
+            "criterion_en": "Ask whether that chair is free.",
+            "sample_quote": null,
+            "sample_verdict": "missing",
+            "model_quote": "Is deze stoel nog vrij?"
+          },
+          {
+            "criterion": 3,
+            "criterion_nl": "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "criterion_en": "Your message is understandable. Use short, simple sentences.",
+            "sample_quote": "Ik wil de stoel met sokken.",
+            "sample_verdict": "understandable despite a beginner verb-form error",
+            "model_verdict": "Both model sentences communicate the requested goals clearly in short simple Dutch."
+          }
+        ],
+        "sample_omission_proof": "The sample identifies the desired socked chair and likes the socks. It never asks whether the chair is available.",
+        "natural_variants": "Accept natural chair descriptions that unambiguously identify the socked chair. Mag ik op de stoel met sokken zitten can communicate both desire and an availability/permission request; accept it when both intentions are understandable. Do not require a separate sentence per criterion.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "Ik wil de stoel met …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 2,
+            "fragment": "Is deze stoel …?",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Ik wil …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          }
+        ],
+        "image_brief_and_alt": "One adult classroom chair wears four knitted socks on its real four legs. A second plain chair gives a reason to identify the wanted chair. Dutch alt clearly names socks on chair legs. Check that the socks never become human feet or add legs. The picture does not have to establish availability because the task asks about it.",
+        "metadata": "bericht and a1-schrijven fit a short practical message. Domain matches the stated or visible scene. Draft and targetLevelValidated false remain intact."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "Common chair and sock nouns pair with Ik wil and Is deze stoel vrij."
+        },
+        "clarity": {
+          "score": 5,
+          "basis": "The desired chair is identified and the learner asks about availability."
+        },
+        "variety": {
+          "score": 5,
+          "basis": "A seat request in an adult classroom differs from food and event messages."
+        },
+        "visual_interest": {
+          "score": 5,
+          "basis": "Four knitted socks on ordinary chair legs make the surprise immediately drawable."
+        },
+        "task_image_fit": {
+          "score": 5,
+          "basis": "The second plain chair makes the socked chair distinctive without answering availability."
+        }
+      }
+    },
+    {
+      "id": "A1:writing:batch074-reuzenbox:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The 13-word model uses seven- and six-word main clauses to identify a household object and react to a box. No cause or complaint process is required.",
+      "prompt_words": 28,
+      "model_words": 13,
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Zeg wat er in de doos zit.",
+            "criterion_nl": "U zegt dat er een lepel in de doos zit.",
+            "criterion_en": "Say that there is a spoon in the box.",
+            "sample_quote": "In de doos zit een lepel.",
+            "sample_verdict": "demonstrated",
+            "model_quote": "Er zit een lepel in de doos."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Zeg wat u van de doos vindt.",
+            "criterion_nl": "U zegt wat u van de doos vindt.",
+            "criterion_en": "Say what you think of the box.",
+            "sample_quote": null,
+            "sample_verdict": "missing",
+            "model_quote": "Ik vind de doos erg groot."
+          },
+          {
+            "criterion": 3,
+            "criterion_nl": "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "criterion_en": "Your message is understandable. Use short, simple sentences.",
+            "sample_quote": "In de doos zit een lepel.",
+            "sample_verdict": "understandable despite a beginner verb-form error",
+            "model_verdict": "Both model sentences communicate the requested goals clearly in short simple Dutch."
+          }
+        ],
+        "sample_omission_proof": "The repaired sample identifies a spoon and explicitly describes De lepel as small. It gives no opinion or size judgment about the box, so criterion 2 alone is absent.",
+        "natural_variants": "Accept a spoon description in the box and any understandable reaction to the box, including groot, mooi, gek or te groot. The model’s opinion is not a required answer. No packing or delivery explanation is needed.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "In de doos zit …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 2,
+            "fragment": "Ik vind de doos …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Er is …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          }
+        ],
+        "image_brief_and_alt": "The unnamed adult customer opens a very large box containing one recognisable metal spoon. A high cutaway view must show the whole spoon clearly despite the size joke. Dutch alt supplies the spoon and size contrast. Keep other contents, packing labels, written marks and logos out.",
+        "metadata": "bericht and a1-schrijven fit a short practical message. Domain matches the stated or visible scene. Draft and targetLevelValidated false remain intact."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "Familiar spoon and box nouns appear in two short main clauses."
+        },
+        "clarity": {
+          "score": 5,
+          "basis": "The repeated De lepel in the sample removes the box-versus-spoon pronoun ambiguity."
+        },
+        "variety": {
+          "score": 4,
+          "basis": "Identification plus reaction overlaps the visual focus of other items but adds a delivery scene and packaging opinion."
+        },
+        "visual_interest": {
+          "score": 5,
+          "basis": "One tiny spoon alone in an enormous box produces a strong scale joke."
+        },
+        "task_image_fit": {
+          "score": 5,
+          "basis": "The brief demands a visible spoon; the second goal accepts the learner’s own reaction."
+        }
+      }
+    },
+    {
+      "id": "A1:writing:batch074-komhoed:1",
+      "verdict": "pass",
+      "edited": true,
+      "level": "compatible-with-local-a1-foundation-target; difficulty-unvalidated",
+      "level_reason": "The ten-word model has two five-word sentences. The longer repaired prompt still has only 36 words and simple main clauses; no comment about the joke’s cause is needed.",
+      "prompt_words": 36,
+      "model_words": 10,
+      "evidence": {
+        "prompt_criteria_sample_model": [
+          {
+            "criterion": 1,
+            "prompt_requirement": "Zeg wat u van de foto vindt.",
+            "criterion_nl": "U zegt wat u van de foto vindt.",
+            "criterion_en": "Say what you think of the photo.",
+            "sample_quote": null,
+            "sample_verdict": "missing",
+            "model_quote": "Ik vind je foto leuk."
+          },
+          {
+            "criterion": 2,
+            "prompt_requirement": "Vraag om nog een foto.",
+            "criterion_nl": "U vraagt Sabrina om nog een foto.",
+            "criterion_en": "Ask Sabrina for another photo.",
+            "sample_quote": "Stuur je nog een foto?",
+            "sample_verdict": "demonstrated",
+            "model_quote": "Stuur je nog een foto?"
+          },
+          {
+            "criterion": 3,
+            "criterion_nl": "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "criterion_en": "Your message is understandable. Use short, simple sentences.",
+            "sample_quote": "Stuur je nog een foto?",
+            "sample_verdict": "understandable despite a beginner verb-form error",
+            "model_verdict": "Both model sentences communicate the requested goals clearly in short simple Dutch."
+          }
+        ],
+        "sample_omission_proof": "The sample asks for another photo and says the learner wants to see it. It does not react to the existing photo.",
+        "natural_variants": "Accept any understandable opinion of the existing photo and any request for another one, such as Mag ik nog een foto. Wanting to see another photo does not by itself give an opinion of the current one.",
+        "starter_review": [
+          {
+            "criterion": 1,
+            "fragment": "Ik vind je foto …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 2,
+            "fragment": "Stuur je nog …?",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          },
+          {
+            "criterion": 3,
+            "fragment": "Ik vind …",
+            "verdict": "pass",
+            "basis": "Incomplete structure with an ellipsis. A natural completion is possible; no required task fact or full answer is supplied."
+          }
+        ],
+        "image_brief_and_alt": "Sabrina repeats woman in her thirties, long dark hair, green jumper verbatim. Her bowl stays visibly separate from her hair and is recognisably an upside-down kitchen bowl. The added first prompt sentence makes the classroom relationship explicit, matching opleiding and the art-class brief. Dutch alt names the bowl and class. No phone screen, written material or logo is required.",
+        "metadata": "bericht and a1-schrijven fit a short practical message. Domain matches the stated or visible scene. Draft and targetLevelValidated false remain intact."
+      },
+      "ratings": {
+        "language_simplicity": {
+          "score": 5,
+          "basis": "Familiar photo and bowl vocabulary; two five-word model sentences."
+        },
+        "clarity": {
+          "score": 5,
+          "basis": "The classroom relation is now explicit and the two message goals are separate."
+        },
+        "variety": {
+          "score": 4,
+          "basis": "A reaction overlaps other opinion tasks, but asking for a second photo has a distinct purpose."
+        },
+        "visual_interest": {
+          "score": 5,
+          "basis": "A recognisable kitchen bowl used as a hat makes an expressive portrait."
+        },
+        "task_image_fit": {
+          "score": 5,
+          "basis": "The prompt and alt identify Sabrina and her bowl; the model allows any photo opinion."
+        }
+      }
+    }
+  ],
+  "author_doubts_decisions": [
+    "Pan sample repaired instead of deciding whether a request to bring a pan implies an invitation: the new sample explicitly invites music-making and omits only the pan request.",
+    "Box sample repaired to De lepel zijn klein so the comment unambiguously concerns the spoon and cannot satisfy the box-opinion criterion.",
+    "Ui, lepel, sokken and kom are retained as familiar concrete items with clear picture/alt support. Their actual learner difficulty remains unvalidated.",
+    "A combined question such as Mag ik op de stoel met sokken zitten can meet the two chair intentions when understandable; exact model phrasing is never required."
+  ],
+  "set_assembly": [
+    {
+      "proposed_title": "Rare dingen aan tafel",
+      "slugs": [
+        "schoenlunch",
+        "appelui",
+        "ontbijttaart"
+      ],
+      "basis": "Food-related help, purchase correction and preference."
+    },
+    {
+      "proposed_title": "Kom je ook?",
+      "slugs": [
+        "lepelmuziek",
+        "tuinfilm",
+        "fietsfeest"
+      ],
+      "basis": "Invite, give event details, then accept with a food offer."
+    },
+    {
+      "proposed_title": "Kijk eens!",
+      "slugs": [
+        "stoelsokken",
+        "reuzenbox",
+        "komhoed"
+      ],
+      "basis": "Distinct responses to surprising classroom and household pictures."
+    }
+  ],
+  "media_notes": [
+    "Generate one image per adopted item with config/illustration.json a1StylePrefix through the authorized local workflow. No media was created or reviewed by this reviewer.",
+    "Render checks: shoe clearly in the bag; onion distinguishable from apples; cake stand and hands coherent; two spoon grips and one pan; blank garden screen without clock; bicycle mechanically coherent; exactly four socked chair legs; one visible spoon in the large box; bowl distinct from hair.",
+    "No printed text, labels, signs, numerals or logos. Apply the task and alt checks to each rendered image before recording a passing manifest review."
+  ],
+  "coordinator_actions": [
+    "Complete the separate fresh-context first A1 writing target check against the final proposed hash.",
+    "Read the six edited fields across three items, then adopt using npm run batch:adopt 074.",
+    "Assemble the three local practice sets, generate and review the nine drawings, and integrate only through npm run content:integrate with the normal starter hash process. Keep all work local."
+  ],
+  "limitations": [
+    "Independent AI editorial review does not validate CEFR difficulty, learner outcomes or official exam equivalence. The actual reviewer was Codex, not Opus 5.",
+    "Visual-interest ratings evaluate briefs only. No rendered illustrations exist at this review stage; later media gates still block learner delivery until satisfied.",
+    "There are no existing A1 writing exemplars or learner calibration data. The first-batch separate target check remains required.",
+    "The author notes preserve the draft wording and earlier omission decisions. This review records the final proposal without editing them."
+  ]
+}

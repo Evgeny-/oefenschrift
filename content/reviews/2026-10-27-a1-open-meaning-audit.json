@@ -1,0 +1,1671 @@
+{
+  "audit_id": "2026-10-27-a1-open-meaning-audit",
+  "reviewed_at": "2026-10-27T18:55:03Z",
+  "review_type": "independent-semantic-and-pragmatic-audit",
+  "scope": "18 A1 speaking and writing items from batches 073 and 074; source text and authored scene/alt consistency.",
+  "integration_authorization": false,
+  "method": "Read the complete sources and starters. Reconstruct person, intention, medium, recipient and purpose from each prompt and scene before judging criteria, samples, models and scaffolds. Do not use earlier editorial passes, numerical ratings or author assurances as evidence. Allow the explicitly requested visual oddity; test whether the surrounding communication makes sense.",
+  "prior_review_artifacts_used": false,
+  "sources": {
+    "content/batches/073-original.json": {
+      "sha256": "9c5b921de710b71a82f9222aaccb88e8cb98ed38677c5828e9fc66cebc0e2d87",
+      "kind": "exercises"
+    },
+    "content/batches/073-starters.json": {
+      "sha256": "fe65a50f89ce7eb69f10f727cde70d4b748240eed920516714f94b2a35333431",
+      "kind": "sentence-starters"
+    },
+    "content/batches/074-original.json": {
+      "sha256": "fdf70fa86bba0509f790cf487cb7e96ce24f949b263fec2549a930202977df09",
+      "kind": "exercises"
+    },
+    "content/batches/074-starters.json": {
+      "sha256": "70092369ed3ce21940326520ba96b59badf04c94aa13acf64a625f8206bc1edd",
+      "kind": "sentence-starters"
+    }
+  },
+  "reference_rules": [
+    "AGENTS.md",
+    "docs/briefs/review.md",
+    "content/reviews/rubric.md",
+    "content/blueprint.md section 4.0",
+    "docs/research/content-workflow.md",
+    "docs/briefs/author.md",
+    "config/illustration.json"
+  ],
+  "semantic_coherence_scale": {
+    "1": "Incoherent communicative premise; replacement needed.",
+    "2": "Major role or medium conflict; the current prompt/scene does not support its act.",
+    "3": "Meaning is recoverable only by adding a material missing context.",
+    "4": "Coherent purpose with a small contextual looseness.",
+    "5": "Self-contained coherent task; the visual oddity does not obstruct meaning."
+  },
+  "summary": {
+    "item_count": 18,
+    "pass": 7,
+    "revise": 11,
+    "reject": 0,
+    "semantic_context_revisions": 4,
+    "scaffold_only_revisions": 7,
+    "notes": [
+      "All nine speaking descriptions are semantically coherent at authored-source level; one needs a starter correction.",
+      "Six speaking titles and three writing titles disclose picture-derived answers. Two writing items also have context defects; the remaining title cases are scaffold-only revisions.",
+      "Four writing tasks impose an underexplained written medium or recipient role on what their scene presents as an immediate exchange.",
+      "Five other writing tasks have coherent acts: invitation, event details, RSVP, sharing odd packaging, and replying to a received playful photo.",
+      "No item needs wholesale replacement on this source-text audit. Revise means the current item fails a concrete check while its central content goals remain locally repairable."
+    ]
+  },
+  "cross_item_findings": [
+    {
+      "kind": "written-medium-without-purpose",
+      "ids": [
+        "A1:writing:batch074-schoenlunch:1",
+        "A1:writing:batch074-appelui:1",
+        "A1:writing:batch074-ontbijttaart:1",
+        "A1:writing:batch074-stoelsokken:1",
+        "A1:writing:batch074-reuzenbox:1"
+      ],
+      "explanation": "The prompt names a recipient and a message but does not establish why writing is the practical act in the authored scene. A correct-looking model and aligned criteria cannot supply that missing context."
+    },
+    {
+      "kind": "cross-goal-hint-leak",
+      "ids": [
+        "A1:speaking:batch073-reuzenbeker:1"
+      ],
+      "explanation": "A starter for one goal names the answer to another goal even though it remains syntactically incomplete."
+    },
+    {
+      "kind": "displayed-title-answer-leak",
+      "ids": [
+        "A1:speaking:batch073-reuzenbeker:1",
+        "A1:speaking:batch073-miniparaplu:1",
+        "A1:speaking:batch073-koelkastbal:1",
+        "A1:speaking:batch073-tuinbed:1",
+        "A1:speaking:batch073-boekenpan:1",
+        "A1:speaking:batch073-stofzuigerdans:1",
+        "A1:writing:batch074-schoenlunch:1",
+        "A1:writing:batch074-appelui:1",
+        "A1:writing:batch074-reuzenbox:1"
+      ],
+      "explanation": "The title is displayed in the exercise header. Six speaking titles and three writing titles disclose a fact asked for from the picture. The giant-cup and kitchen-dance titles supply both speaking goals; other flagged titles supply one goal. Theme words and facts already supplied in the prompt are not treated as new answer leakage."
+    }
+  ],
+  "implementation_evidence": {
+    "path": "app/components/ExerciseHeader.tsx",
+    "line": 124,
+    "quote": "<Heading title={item.title} dutch />",
+    "meaning": "The exercise header displays the authored title to the learner."
+  },
+  "checks": {
+    "all_18_source_fields_match_integrated_catalogue": true,
+    "catalogue_match_exclusions": [
+      "status",
+      "generated images[].file",
+      "catalogue-only derived fields"
+    ],
+    "all_18_batch_starter_arrays_match_integrated_hint_overlay": true,
+    "all_18_have_three_bilingual_criteria": true,
+    "all_18_samples_have_exactly_one_null_quote": true,
+    "all_non_null_sample_quotes_are_verbatim": true,
+    "all_models_within_8_to_25_words": true,
+    "all_prompts_within_55_words": true,
+    "all_starters_have_three_incomplete_fragments": true
+  },
+  "limitations": [
+    "No media was generated or fetched, and no provider or browser was called. The report audits authored image briefs and alt text, not the rendered images or audio.",
+    "An editorial judgment about coherent beginner practice does not validate CEFR difficulty, learning outcomes or exam equivalence.",
+    "This audit records findings only. It changes no source exercises, starters, catalogue, production state or prior review artifact."
+  ],
+  "items": [
+    {
+      "id": "A1:speaking:batch073-reuzenbeker:1",
+      "part": "speaking",
+      "source": "content/batches/073-original.json",
+      "source_sha256": "9c5b921de710b71a82f9222aaccb88e8cb98ed38677c5828e9fc66cebc0e2d87",
+      "canonical_item_sha256": "aa3d5fa590f24f65f6e7e9ffc21d190b2d715adf8d2bc6df1989f7280a1b6352",
+      "verdict": "revise",
+      "semantic_coherence": 5,
+      "reason": "The picture description is coherent. An optional starter supplies the answer to the object-identification goal. The displayed title also supplies both picture goals.",
+      "prompt_scene_reconstruction": {
+        "person": "A learner describes Modibo holding an unusually large cup.",
+        "intention": "Identify the object and its size.",
+        "medium": "A short spoken picture description.",
+        "recipient": "The exercise listener or practice partner.",
+        "why": "The surprising scale gives the learner a clear object and size to describe; the task does not require an explanation for the large cup.",
+        "scene": "A man holds one very large handled drinking cup in a kitchen."
+      },
+      "title_audit": {
+        "verdict": "revise",
+        "disclosed_goals": "both",
+        "reason": "The title supplies beker and groot, so the learner can meet both picture goals by repeating the title as a noun phrase."
+      },
+      "source_evidence": {
+        "title": "Een grote beker",
+        "prompt": "Kijk naar het plaatje. Wat heeft Modibo in zijn handen? Is het groot of klein? Vertel het.",
+        "scene_alt": "Modibo houdt met twee handen een heel grote beker vast.",
+        "criteria": [
+          [
+            "Zeg wat Modibo in zijn handen heeft: een beker. Ook 'kop' is goed.",
+            "Say what Modibo is holding: a cup. 'Kop' is also acceptable."
+          ],
+          [
+            "Zeg dat de beker groot is.",
+            "Say that the cup is big."
+          ],
+          [
+            "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+            "Speak understandable Dutch. Small mistakes are fine."
+          ]
+        ],
+        "sample": "Modibo heeft beker.",
+        "quotes": [
+          "Modibo heeft beker.",
+          null,
+          "Modibo heeft beker."
+        ],
+        "model": "Modibo heeft een beker. De beker is heel groot.",
+        "starters": [
+          "Modibo heeft …",
+          "De beker is …",
+          "Ik zie …"
+        ]
+      },
+      "criteria_audit": "The two content criteria match the two prompt questions. Accepting kop allows a natural alternative name for the handled object.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 2,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model identifies a cup and says it is large in natural short Dutch sentences.",
+      "starter_audit": {
+        "verdict": "revise",
+        "reason": "Starter 1 leaves the object open, but starter 2 names the object before the learner has supplied it. This breaks the no-task-facts rule across goals.",
+        "source": "content/batches/073-starters.json",
+        "source_sha256": "fe65a50f89ce7eb69f10f727cde70d4b748240eed920516714f94b2a35333431"
+      },
+      "image_alt_audit": "The brief and alt agree about one large cup; no role or state mismatch appears in the authored scene.",
+      "findings": [
+        {
+          "severity": "minor",
+          "kind": "starter-answer-leak",
+          "field": "starters[1]",
+          "quote": "De beker is …",
+          "related_field": "criteria[0][0]",
+          "related_quote": "Zeg wat Modibo in zijn handen heeft: een beker. Ook 'kop' is goed.",
+          "explanation": "The noun beker answers the first content goal. A fragment can be incomplete while still revealing another goal’s answer. This is a scaffold defect; the scenario itself makes sense."
+        },
+        {
+          "severity": "moderate",
+          "kind": "displayed-title-answer-leak",
+          "field": "title",
+          "quote": "Een grote beker",
+          "related_field": "prompt",
+          "related_quote": "Kijk naar het plaatje. Wat heeft Modibo in zijn handen? Is het groot of klein? Vertel het.",
+          "explanation": "The title supplies beker and groot, so the learner can meet both picture goals by repeating the title as a noun phrase. The live exercise header renders item.title, so this is a learner-visible scaffold, not private catalogue metadata. The required change concerns answer disclosure; it does not require harder Dutch."
+        }
+      ],
+      "mechanical_checks": {
+        "prompt_words": 17,
+        "model_words": 9,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-miniparaplu:1",
+      "part": "speaking",
+      "source": "content/batches/073-original.json",
+      "source_sha256": "9c5b921de710b71a82f9222aaccb88e8cb98ed38677c5828e9fc66cebc0e2d87",
+      "canonical_item_sha256": "246e3275ea7f7187eff9b4925f2258f826aba2dd135a8862990be10e8d1e57d8",
+      "verdict": "revise",
+      "semantic_coherence": 5,
+      "reason": "A clear picture description asks for two visible properties of the same object. The displayed title also supplies a picture-derived answer.",
+      "prompt_scene_reconstruction": {
+        "person": "A learner describes a man holding a tiny umbrella at a bus stop.",
+        "intention": "Give the umbrella colour and size.",
+        "medium": "A short spoken picture description.",
+        "recipient": "The exercise listener or practice partner.",
+        "why": "A miniature umbrella in rain is the visible joke. The learner only reports its colour and size.",
+        "scene": "A man holds a small blue umbrella over his head beside a bus shelter."
+      },
+      "title_audit": {
+        "verdict": "revise",
+        "disclosed_goals": "one",
+        "reason": "The title supplies klein, the answer to the size goal; only colour remains to be found from the picture."
+      },
+      "source_evidence": {
+        "title": "Een kleine paraplu",
+        "prompt": "Kijk naar het plaatje. Welke kleur heeft de paraplu? Is de paraplu groot of klein? Vertel het.",
+        "scene_alt": "Karim houdt een kleine blauwe paraplu boven zijn hoofd.",
+        "criteria": [
+          [
+            "Zeg dat de paraplu blauw is.",
+            "Say that the umbrella is blue."
+          ],
+          [
+            "Zeg dat de paraplu klein is.",
+            "Say that the umbrella is small."
+          ],
+          [
+            "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+            "Speak understandable Dutch. Small mistakes are fine."
+          ]
+        ],
+        "sample": "De paraplu blauw.",
+        "quotes": [
+          "De paraplu blauw.",
+          null,
+          "De paraplu blauw."
+        ],
+        "model": "De paraplu is blauw. Het is een heel kleine paraplu.",
+        "starters": [
+          "De kleur is …",
+          "De paraplu is …",
+          "Ik zie …"
+        ]
+      },
+      "criteria_audit": "The criteria ask only for blue and small, exactly matching the prompt. The learner need not explain whether the umbrella works.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 2,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model states blue and small in ordinary Dutch.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "The first two starters support a colour and size response without supplying blue or small.",
+        "source": "content/batches/073-starters.json",
+        "source_sha256": "fe65a50f89ce7eb69f10f727cde70d4b748240eed920516714f94b2a35333431"
+      },
+      "image_alt_audit": "The brief and alt specify the same blue miniature umbrella. Actual colour and legibility were not inspected.",
+      "findings": [
+        {
+          "severity": "minor",
+          "kind": "displayed-title-answer-leak",
+          "field": "title",
+          "quote": "Een kleine paraplu",
+          "related_field": "prompt",
+          "related_quote": "Kijk naar het plaatje. Welke kleur heeft de paraplu? Is de paraplu groot of klein? Vertel het.",
+          "explanation": "The title supplies klein, the answer to the size goal; only colour remains to be found from the picture. The live exercise header renders item.title, so this is a learner-visible scaffold, not private catalogue metadata. The required change concerns answer disclosure; it does not require harder Dutch."
+        }
+      ],
+      "mechanical_checks": {
+        "prompt_words": 17,
+        "model_words": 10,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-langesjaal:1",
+      "part": "speaking",
+      "source": "content/batches/073-original.json",
+      "source_sha256": "9c5b921de710b71a82f9222aaccb88e8cb98ed38677c5828e9fc66cebc0e2d87",
+      "canonical_item_sha256": "792b7a610fdb3a0f73adbc96235449c7e2764f4215621cbe48824cf2e0eadabc",
+      "verdict": "pass",
+      "semantic_coherence": 5,
+      "reason": "The location and scarf colour are visible and the two requested statements form a coherent description.",
+      "prompt_scene_reconstruction": {
+        "person": "A learner describes Roos walking in a park.",
+        "intention": "Say where she is and give her scarf colour.",
+        "medium": "A short spoken picture description.",
+        "recipient": "The exercise listener or practice partner.",
+        "why": "The long scarf draws attention to a familiar garment while the learner names a simple place and colour.",
+        "scene": "Roos walks in a park with a very long yellow scarf."
+      },
+      "title_audit": {
+        "verdict": "pass",
+        "disclosed_goals": "none",
+        "reason": "The title gives a scene theme or repeats context already stated in the prompt; it does not supply a new exact answer to a production goal."
+      },
+      "source_evidence": {
+        "title": "Een heel lange sjaal",
+        "prompt": "Kijk naar het plaatje. Waar is Roos? Welke kleur heeft haar sjaal? Vertel het.",
+        "scene_alt": "Roos loopt in een park met een heel lange gele sjaal.",
+        "criteria": [
+          [
+            "Zeg waar Roos is, bijvoorbeeld in het park of buiten.",
+            "Say where Roos is, for example in the park or outside."
+          ],
+          [
+            "Zeg dat haar sjaal geel is.",
+            "Say that her scarf is yellow."
+          ],
+          [
+            "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+            "Speak understandable Dutch. Small mistakes are fine."
+          ]
+        ],
+        "sample": "Haar sjaal is geel.",
+        "quotes": [
+          null,
+          "Haar sjaal is geel.",
+          "Haar sjaal is geel."
+        ],
+        "model": "Roos is in het park. Ze heeft een gele sjaal.",
+        "starters": [
+          "Roos is …",
+          "Haar sjaal is …",
+          "Ik zie …"
+        ]
+      },
+      "criteria_audit": "Location accepts both a park and the broader outside; the colour goal requires yellow. Both trace to explicit prompt questions.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 1,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model supplies a park location and yellow scarf with natural wording.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "Roos is … supports location; Haar sjaal is … supports colour. Neither supplies the required location or colour.",
+        "source": "content/batches/073-starters.json",
+        "source_sha256": "fe65a50f89ce7eb69f10f727cde70d4b748240eed920516714f94b2a35333431"
+      },
+      "image_alt_audit": "Brief and alt agree about the park, scarf and colour. The prompt does not demand a reason for the scarf’s length.",
+      "findings": [],
+      "mechanical_checks": {
+        "prompt_words": 14,
+        "model_words": 10,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-koelkastbal:1",
+      "part": "speaking",
+      "source": "content/batches/073-original.json",
+      "source_sha256": "9c5b921de710b71a82f9222aaccb88e8cb98ed38677c5828e9fc66cebc0e2d87",
+      "canonical_item_sha256": "6c10b47f7d0dd2dcdf3ea7f13a06086f63d6c60aaff887b385eb0c288dc0bb3d",
+      "verdict": "revise",
+      "semantic_coherence": 5,
+      "reason": "The unexpected object is a deliberate visual joke; naming it and its colour is a meaningful picture-description task. The displayed title also supplies a picture-derived answer.",
+      "prompt_scene_reconstruction": {
+        "person": "A learner describes the visible contents of an open refrigerator.",
+        "intention": "Name the object and its colour.",
+        "medium": "A short spoken picture description.",
+        "recipient": "The exercise listener or practice partner.",
+        "why": "A ball in a refrigerator is odd, but a person can describe an odd picture without explaining its backstory.",
+        "scene": "Hasan opens a refrigerator whose only content is one red ball."
+      },
+      "title_audit": {
+        "verdict": "revise",
+        "disclosed_goals": "one",
+        "reason": "The title names bal, the object the learner is asked to identify from the refrigerator picture."
+      },
+      "source_evidence": {
+        "title": "Een bal in de koelkast",
+        "prompt": "Kijk naar het plaatje. Wat ligt er in de koelkast? Welke kleur heeft het? Vertel het.",
+        "scene_alt": "Hasan kijkt in een open koelkast. Op een plank ligt een rode bal.",
+        "criteria": [
+          [
+            "Zeg wat er in de koelkast ligt: een bal. 'Een bal' is genoeg.",
+            "Say what is in the refrigerator: a ball. 'A ball' is enough."
+          ],
+          [
+            "Zeg dat de bal rood is.",
+            "Say that the ball is red."
+          ],
+          [
+            "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+            "Speak understandable Dutch. Small mistakes are fine."
+          ]
+        ],
+        "sample": "In de koelkast ligt bal.",
+        "quotes": [
+          "In de koelkast ligt bal.",
+          null,
+          "In de koelkast ligt bal."
+        ],
+        "model": "Er ligt een bal in de koelkast. De bal is rood.",
+        "starters": [
+          "In de koelkast ligt …",
+          "Het is …",
+          "Ik zie …"
+        ]
+      },
+      "criteria_audit": "The criteria match the object and colour questions and explicitly allow the short answer een bal.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 2,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model states that a ball is in the refrigerator and that it is red. Ligt is natural for a ball resting on a shelf.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "The fragments leave both ball and red for the learner to provide.",
+        "source": "content/batches/073-starters.json",
+        "source_sha256": "fe65a50f89ce7eb69f10f727cde70d4b748240eed920516714f94b2a35333431"
+      },
+      "image_alt_audit": "Brief and alt agree about a red ball in the open refrigerator; the action attributed to Hasan is not tested.",
+      "findings": [
+        {
+          "severity": "minor",
+          "kind": "displayed-title-answer-leak",
+          "field": "title",
+          "quote": "Een bal in de koelkast",
+          "related_field": "prompt",
+          "related_quote": "Kijk naar het plaatje. Wat ligt er in de koelkast? Welke kleur heeft het? Vertel het.",
+          "explanation": "The title names bal, the object the learner is asked to identify from the refrigerator picture. The live exercise header renders item.title, so this is a learner-visible scaffold, not private catalogue metadata. The required change concerns answer disclosure; it does not require harder Dutch."
+        }
+      ],
+      "mechanical_checks": {
+        "prompt_words": 16,
+        "model_words": 11,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-tuinbed:1",
+      "part": "speaking",
+      "source": "content/batches/073-original.json",
+      "source_sha256": "9c5b921de710b71a82f9222aaccb88e8cb98ed38677c5828e9fc66cebc0e2d87",
+      "canonical_item_sha256": "61c087a2c97f82c2db05dec77de7cac37b9242d3e2f4a0c01adb7b4102323047",
+      "verdict": "revise",
+      "semantic_coherence": 5,
+      "reason": "Sleeping outdoors supplies an odd scene with two straightforward visible facts. The displayed title also supplies a picture-derived answer.",
+      "prompt_scene_reconstruction": {
+        "person": "A learner describes an adult woman resting in a garden bed.",
+        "intention": "Say that she is outside and say what she is doing.",
+        "medium": "A short spoken picture description.",
+        "recipient": "The exercise listener or practice partner.",
+        "why": "Reporting outside and sleeping describes the unusual scene without asking for invented reasons.",
+        "scene": "A woman sleeps comfortably in a normal bed placed in a back garden."
+      },
+      "title_audit": {
+        "verdict": "revise",
+        "disclosed_goals": "one",
+        "reason": "The title supplies in de tuin, which the first criterion accepts as the location answer."
+      },
+      "source_evidence": {
+        "title": "Een bed in de tuin",
+        "prompt": "Kijk naar het plaatje. Is de vrouw binnen of buiten? Wat doet ze? Vertel het.",
+        "scene_alt": "Een vrouw slaapt in een bed in de tuin.",
+        "criteria": [
+          [
+            "Zeg dat de vrouw in de tuin is. 'Buiten' is ook goed.",
+            "Say that the woman is in the garden. 'Outside' is also acceptable."
+          ],
+          [
+            "Zeg dat ze ligt of slaapt.",
+            "Say that she is lying down or sleeping."
+          ],
+          [
+            "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+            "Speak understandable Dutch. Small mistakes are fine."
+          ]
+        ],
+        "sample": "De vrouw slaapt.",
+        "quotes": [
+          null,
+          "De vrouw slaapt.",
+          "De vrouw slaapt."
+        ],
+        "model": "De vrouw is in de tuin. Ze slaapt in een bed.",
+        "starters": [
+          "De vrouw is …",
+          "Ze …",
+          "Ik zie …"
+        ]
+      },
+      "criteria_audit": "The first criterion accepts buiten, which directly answers the prompt. The action criterion accepts lying down or sleeping and does not require an invisible mental state.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 1,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model gives the garden location and sleeping action.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "De vrouw is … can take buiten; Ze … can take slaapt. Neither supplies a required fact.",
+        "source": "content/batches/073-starters.json",
+        "source_sha256": "fe65a50f89ce7eb69f10f727cde70d4b748240eed920516714f94b2a35333431"
+      },
+      "image_alt_audit": "The brief’s grass, fence and flowers support outside; closed eyes and a pillow support sleeping. The alt is consistent.",
+      "findings": [
+        {
+          "severity": "minor",
+          "kind": "displayed-title-answer-leak",
+          "field": "title",
+          "quote": "Een bed in de tuin",
+          "related_field": "prompt",
+          "related_quote": "Kijk naar het plaatje. Is de vrouw binnen of buiten? Wat doet ze? Vertel het.",
+          "explanation": "The title supplies in de tuin, which the first criterion accepts as the location answer. The live exercise header renders item.title, so this is a learner-visible scaffold, not private catalogue metadata. The required change concerns answer disclosure; it does not require harder Dutch."
+        }
+      ],
+      "mechanical_checks": {
+        "prompt_words": 15,
+        "model_words": 11,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-boekenpan:1",
+      "part": "speaking",
+      "source": "content/batches/073-original.json",
+      "source_sha256": "9c5b921de710b71a82f9222aaccb88e8cb98ed38677c5828e9fc66cebc0e2d87",
+      "canonical_item_sha256": "0a7f79a7cc8a2cf091e51b5c35b38430177c3be3d569f55894230fec648f1aa8",
+      "verdict": "revise",
+      "semantic_coherence": 5,
+      "reason": "The task asks for a location and a small visible count; the odd container needs no extra factual story. The displayed title also supplies a picture-derived answer.",
+      "prompt_scene_reconstruction": {
+        "person": "A learner describes two books in an unusual container in a classroom.",
+        "intention": "Say where the books are and count them.",
+        "medium": "A short spoken picture description.",
+        "recipient": "The exercise listener or practice partner.",
+        "why": "The books in a pan are a visual puzzle that can be described with familiar nouns and a small number.",
+        "scene": "Two books sit inside a pot on a classroom table."
+      },
+      "title_audit": {
+        "verdict": "revise",
+        "disclosed_goals": "one",
+        "reason": "The title supplies in een pan, the location the learner is asked to identify."
+      },
+      "source_evidence": {
+        "title": "Boeken in een pan",
+        "prompt": "Kijk naar het plaatje. Waar liggen de boeken? Hoeveel boeken ziet u? Vertel het.",
+        "scene_alt": "Op een tafel staat een pan met twee boeken erin.",
+        "criteria": [
+          [
+            "Zeg waar de boeken liggen, bijvoorbeeld in een pan of op tafel.",
+            "Say where the books are, for example in a cooking pot or on the table."
+          ],
+          [
+            "Zeg dat er twee boeken zijn.",
+            "Say that there are two books."
+          ],
+          [
+            "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+            "Speak understandable Dutch. Small mistakes are fine."
+          ]
+        ],
+        "sample": "De boeken ligt in een pan.",
+        "quotes": [
+          "De boeken ligt in een pan.",
+          null,
+          "De boeken ligt in een pan."
+        ],
+        "model": "De boeken liggen in een pan. Het zijn twee boeken.",
+        "starters": [
+          "De boeken liggen …",
+          "Ik zie … boeken.",
+          "Er is …"
+        ]
+      },
+      "criteria_audit": "The criterion accepts in een pan and the broader op tafel; both describe the authored spatial arrangement. It then asks for exactly two books.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 2,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model locates the books in a pan and states there are two.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "The location and count fragments remain incomplete and do not reveal pan or two.",
+        "source": "content/batches/073-starters.json",
+        "source_sha256": "fe65a50f89ce7eb69f10f727cde70d4b748240eed920516714f94b2a35333431"
+      },
+      "image_alt_audit": "Brief and alt agree about two books in a pot on a table. Countability is a rendering issue not verified here.",
+      "findings": [
+        {
+          "severity": "minor",
+          "kind": "displayed-title-answer-leak",
+          "field": "title",
+          "quote": "Boeken in een pan",
+          "related_field": "prompt",
+          "related_quote": "Kijk naar het plaatje. Waar liggen de boeken? Hoeveel boeken ziet u? Vertel het.",
+          "explanation": "The title supplies in een pan, the location the learner is asked to identify. The live exercise header renders item.title, so this is a learner-visible scaffold, not private catalogue metadata. The required change concerns answer disclosure; it does not require harder Dutch."
+        }
+      ],
+      "mechanical_checks": {
+        "prompt_words": 14,
+        "model_words": 10,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-hondenboek:1",
+      "part": "speaking",
+      "source": "content/batches/073-original.json",
+      "source_sha256": "9c5b921de710b71a82f9222aaccb88e8cb98ed38677c5828e9fc66cebc0e2d87",
+      "canonical_item_sha256": "f12fd8da0cf3b33e2374810edbd6e602df7721390e1647c2ace8255e9e0359e4",
+      "verdict": "pass",
+      "semantic_coherence": 5,
+      "reason": "A person reading beside a dog on a chair gives two coherent visible description goals.",
+      "prompt_scene_reconstruction": {
+        "person": "A learner describes Julio and the dog next to him.",
+        "intention": "Name Julio’s action and locate the dog.",
+        "medium": "A short spoken picture description.",
+        "recipient": "The exercise listener or practice partner.",
+        "why": "The dog’s attentive posture supplies the humour; describing the human’s reading and the dog’s seat requires no claim that the dog can read.",
+        "scene": "Julio reads a picture book while a dog sits on a chair beside him."
+      },
+      "title_audit": {
+        "verdict": "pass",
+        "disclosed_goals": "none",
+        "reason": "The title gives a scene theme or repeats context already stated in the prompt; it does not supply a new exact answer to a production goal."
+      },
+      "source_evidence": {
+        "title": "Een boek voor de hond",
+        "prompt": "Kijk naar het plaatje. Wat doet Julio? Waar zit de hond? Vertel het.",
+        "scene_alt": "Julio leest een boek. Naast hem zit een hond op een stoel.",
+        "criteria": [
+          [
+            "Zeg dat Julio een boek leest. 'Hij leest' is ook goed.",
+            "Say that Julio is reading a book. 'He is reading' is also acceptable."
+          ],
+          [
+            "Zeg waar de hond zit, bijvoorbeeld op een stoel of naast Julio.",
+            "Say where the dog is sitting, for example on a chair or beside Julio."
+          ],
+          [
+            "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+            "Speak understandable Dutch. Small mistakes are fine."
+          ]
+        ],
+        "sample": "De hond zit op stoel.",
+        "quotes": [
+          null,
+          "De hond zit op stoel.",
+          "De hond zit op stoel."
+        ],
+        "model": "Julio leest een boek. De hond zit op een stoel.",
+        "starters": [
+          "Julio …",
+          "De hond zit …",
+          "Ik zie …"
+        ]
+      },
+      "criteria_audit": "The criteria accept hij leest and allow either op een stoel or naast Julio for the dog’s location.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 1,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model identifies Julio reading and places the dog on a chair. It makes no unsupported claim about the dog understanding the book.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "The action and location fragments support the goals without supplying leest or stoel.",
+        "source": "content/batches/073-starters.json",
+        "source_sha256": "fe65a50f89ce7eb69f10f727cde70d4b748240eed920516714f94b2a35333431"
+      },
+      "image_alt_audit": "Brief and alt give the same reading action and chair location.",
+      "findings": [],
+      "mechanical_checks": {
+        "prompt_words": 13,
+        "model_words": 10,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-samenjas:1",
+      "part": "speaking",
+      "source": "content/batches/073-original.json",
+      "source_sha256": "9c5b921de710b71a82f9222aaccb88e8cb98ed38677c5828e9fc66cebc0e2d87",
+      "canonical_item_sha256": "8f15104aa72a0d5160f57a73c36e0bcd9f8d52fbf8b6ab80fba474b616d9b62e",
+      "verdict": "pass",
+      "semantic_coherence": 5,
+      "reason": "The shared coat is an intentional visual oddity; counting its wearers and naming its colour remain coherent.",
+      "prompt_scene_reconstruction": {
+        "person": "A learner describes two women sharing one oversized coat in a shop.",
+        "intention": "Count the people wearing the coat and give its colour.",
+        "medium": "A short spoken picture description.",
+        "recipient": "The exercise listener or practice partner.",
+        "why": "Adults playfully trying an enormous coat together can be described directly without inventing a reason for the garment.",
+        "scene": "Roos and Sabrina share one blue coat, with two visible heads and four legs."
+      },
+      "title_audit": {
+        "verdict": "pass",
+        "disclosed_goals": "none",
+        "reason": "The title gives a scene theme or repeats context already stated in the prompt; it does not supply a new exact answer to a production goal."
+      },
+      "source_evidence": {
+        "title": "Samen in een jas",
+        "prompt": "Kijk naar het plaatje. Hoeveel mensen dragen de jas? Welke kleur heeft de jas? Vertel het.",
+        "scene_alt": "Roos en Sabrina dragen samen één grote blauwe jas.",
+        "criteria": [
+          [
+            "Zeg dat twee mensen de jas dragen. 'Twee vrouwen' is ook goed.",
+            "Say that two people are wearing the coat. 'Two women' is also acceptable."
+          ],
+          [
+            "Zeg dat de jas blauw is.",
+            "Say that the coat is blue."
+          ],
+          [
+            "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+            "Speak understandable Dutch. Small mistakes are fine."
+          ]
+        ],
+        "sample": "De jas is blauw.",
+        "quotes": [
+          null,
+          "De jas is blauw.",
+          "De jas is blauw."
+        ],
+        "model": "Twee vrouwen dragen samen een jas. De jas is blauw.",
+        "starters": [
+          "Er zijn … mensen.",
+          "De jas is …",
+          "Ik zie …"
+        ]
+      },
+      "criteria_audit": "The prompt asks for people, so accepting twee mensen or twee vrouwen fits. The colour goal is blue.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 1,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model says two women wear a coat together and names blue. Dragen samen een jas is natural here.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "Er zijn … mensen and De jas is … leave count and colour open.",
+        "source": "content/batches/073-starters.json",
+        "source_sha256": "fe65a50f89ce7eb69f10f727cde70d4b748240eed920516714f94b2a35333431"
+      },
+      "image_alt_audit": "Brief and alt agree about one blue coat shared by two people. Anatomical clarity depends on the rendering, which was not inspected.",
+      "findings": [],
+      "mechanical_checks": {
+        "prompt_words": 16,
+        "model_words": 10,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-stofzuigerdans:1",
+      "part": "speaking",
+      "source": "content/batches/073-original.json",
+      "source_sha256": "9c5b921de710b71a82f9222aaccb88e8cb98ed38677c5828e9fc66cebc0e2d87",
+      "canonical_item_sha256": "a92f0ab5ce49edee535520aa12891c57c6da0c920920199764a852ab04b3f18b",
+      "verdict": "revise",
+      "semantic_coherence": 5,
+      "reason": "Dancing with a household object is a coherent playful scene and the required language stays simple. The displayed title also supplies both picture goals.",
+      "prompt_scene_reconstruction": {
+        "person": "A learner describes Sabrina dancing in her kitchen.",
+        "intention": "Say what she is doing and where she is.",
+        "medium": "A short spoken picture description.",
+        "recipient": "The exercise listener or practice partner.",
+        "why": "A person can dance while doing housework or use a vacuum as a playful partner. The learner only needs the visible action and place.",
+        "scene": "Sabrina dances in a kitchen holding a vacuum as a partner."
+      },
+      "title_audit": {
+        "verdict": "revise",
+        "disclosed_goals": "both",
+        "reason": "The title supplies dancing and kitchen, the two facts the learner is asked to describe."
+      },
+      "source_evidence": {
+        "title": "Dansen in de keuken",
+        "prompt": "Kijk naar het plaatje. Wat doet Sabrina? Waar is ze? Vertel het.",
+        "scene_alt": "Sabrina danst in de keuken met een stofzuiger.",
+        "criteria": [
+          [
+            "Zeg dat Sabrina danst. U hoeft 'stofzuiger' niet te zeggen.",
+            "Say that Sabrina is dancing. You do not need to say 'vacuum cleaner'."
+          ],
+          [
+            "Zeg waar Sabrina is, bijvoorbeeld in de keuken of thuis.",
+            "Say where Sabrina is, for example in the kitchen or at home."
+          ],
+          [
+            "Spreek begrijpelijk Nederlands. Kleine fouten zijn geen probleem.",
+            "Speak understandable Dutch. Small mistakes are fine."
+          ]
+        ],
+        "sample": "Sabrina dans.",
+        "quotes": [
+          "Sabrina dans.",
+          null,
+          "Sabrina dans."
+        ],
+        "model": "Sabrina is in de keuken. Ze danst met een stofzuiger.",
+        "starters": [
+          "Sabrina …",
+          "Ze is …",
+          "Ik zie …"
+        ]
+      },
+      "criteria_audit": "The criterion requires dancing but explicitly does not require stofzuiger. Location accepts keuken or thuis, matching the prompt’s broad where question.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 2,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model gives the kitchen location and dancing action. The optional vacuum detail agrees with the authored scene.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "The first two fragments leave the action and location open.",
+        "source": "content/batches/073-starters.json",
+        "source_sha256": "fe65a50f89ce7eb69f10f727cde70d4b748240eed920516714f94b2a35333431"
+      },
+      "image_alt_audit": "Brief and alt agree about dancing in a kitchen. The source brief demands a dancing pose; whether the rendered pose also reads as ordinary vacuuming was not inspected.",
+      "findings": [
+        {
+          "severity": "moderate",
+          "kind": "displayed-title-answer-leak",
+          "field": "title",
+          "quote": "Dansen in de keuken",
+          "related_field": "prompt",
+          "related_quote": "Kijk naar het plaatje. Wat doet Sabrina? Waar is ze? Vertel het.",
+          "explanation": "The title supplies dancing and kitchen, the two facts the learner is asked to describe. The live exercise header renders item.title, so this is a learner-visible scaffold, not private catalogue metadata. The required change concerns answer disclosure; it does not require harder Dutch."
+        }
+      ],
+      "mechanical_checks": {
+        "prompt_words": 12,
+        "model_words": 10,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:writing:batch074-schoenlunch:1",
+      "part": "writing",
+      "source": "content/batches/074-original.json",
+      "source_sha256": "fdf70fa86bba0509f790cf487cb7e96ce24f949b263fec2549a930202977df09",
+      "canonical_item_sha256": "002f37a7f9cd1c6e7a3ce2049ae5b4038eac598fa9c46033b0af22a54a4b608a",
+      "verdict": "revise",
+      "semantic_coherence": 2,
+      "reason": "The hunger/request idea works, but the authored scene places the named message recipient beside the bag the learner is supposed to describe to him. The displayed title also supplies a picture-derived answer.",
+      "prompt_scene_reconstruction": {
+        "person": "The learner is a worker who opens a bag and finds a shoe instead of lunch.",
+        "intention": "Tell Julio about the missing food and ask him for bread.",
+        "medium": "A written message is prescribed, although the scene suggests an immediate conversation.",
+        "recipient": "Julio; his relationship to the learner is unstated, and the illustration puts him at the lunch table looking into the bag.",
+        "why": "Asking a colleague for bread after finding no lunch is sensible. The given scene does not explain why the worker writes this to the person already observing the problem, and using Julio as the pictured bag-owner would make the learner message themself.",
+        "scene": "Julio is at the lunch table looking at the open bag with a shoe and an empty plate."
+      },
+      "title_audit": {
+        "verdict": "revise",
+        "disclosed_goals": "one",
+        "reason": "The title names schoen, the content the learner is asked to obtain from the picture."
+      },
+      "source_evidence": {
+        "title": "Een schoen als lunch",
+        "prompt": "U opent uw tas op het werk. Kijk naar het plaatje. Schrijf een bericht aan Julio. Zeg wat er in uw tas zit. Vraag hem om brood.",
+        "scene_alt": "Een open tas met een schoen staat naast een leeg bord. Julio kijkt naar de tas.",
+        "criteria": [
+          [
+            "U zegt dat er een schoen in uw tas zit.",
+            "Say that there is a shoe in your bag."
+          ],
+          [
+            "U vraagt Julio om brood.",
+            "Ask Julio for bread."
+          ],
+          [
+            "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "Your message is understandable. Use short, simple sentences."
+          ]
+        ],
+        "sample": "Hoi Julio. In mijn tas zit een schoen. De schoen zijn groot.",
+        "quotes": [
+          "In mijn tas zit een schoen.",
+          null,
+          "In mijn tas zit een schoen."
+        ],
+        "model": "Er zit een schoen in mijn tas. Heb je brood voor mij?",
+        "starters": [
+          "In mijn tas zit …",
+          "Heb je … voor mij?",
+          "Ik zie …"
+        ]
+      },
+      "criteria_audit": "The content criteria match the prompt. Heb je brood voor mij? is a conventional indirect request for bread and should count as asking; it need not be replaced by an imperative.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 2,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model identifies a shoe in the writer’s bag and asks for bread naturally. It cannot repair the recipient/location mismatch in the premise.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "The fragments support reporting a bag’s contents and requesting food. Neither supplies schoen or brood.",
+        "source": "content/batches/074-starters.json",
+        "source_sha256": "70092369ed3ce21940326520ba96b59badf04c94aa13acf64a625f8206bc1edd"
+      },
+      "image_alt_audit": "The object agrees with the prompt. The named cast creates an unresolved relation between writer, bag-owner and recipient.",
+      "findings": [
+        {
+          "severity": "major",
+          "kind": "recipient-scene-medium-mismatch",
+          "field": "prompt",
+          "quote": "U opent uw tas op het werk. Kijk naar het plaatje. Schrijf een bericht aan Julio.",
+          "related_field": "images[0].brief",
+          "related_quote": "At a work lunch table, Julio (young man, curly hair, striped shirt) looks with an amused raised eyebrow at an open lunch bag.",
+          "explanation": "Julio is already at the depicted lunch table looking at the problem. The message recipient cannot also stand in for the learner opening their own bag without a role explanation. A remote recipient or a reason for writing is absent; silently inventing one would conceal the task defect."
+        },
+        {
+          "severity": "minor",
+          "kind": "displayed-title-answer-leak",
+          "field": "title",
+          "quote": "Een schoen als lunch",
+          "related_field": "prompt",
+          "related_quote": "U opent uw tas op het werk. Kijk naar het plaatje. Schrijf een bericht aan Julio. Zeg wat er in uw tas zit. Vraag hem om brood.",
+          "explanation": "The title names schoen, the content the learner is asked to obtain from the picture. The live exercise header renders item.title, so this is a learner-visible scaffold, not private catalogue metadata. The required change concerns answer disclosure; it does not require harder Dutch."
+        }
+      ],
+      "mechanical_checks": {
+        "prompt_words": 27,
+        "model_words": 12,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:writing:batch074-appelui:1",
+      "part": "writing",
+      "source": "content/batches/074-original.json",
+      "source_sha256": "fdf70fa86bba0509f790cf487cb7e96ce24f949b263fec2549a930202977df09",
+      "canonical_item_sha256": "46dd709db043bcbb9a0e448cfdc5516271638d0368bb874ef6a80ade853ee552",
+      "verdict": "revise",
+      "semantic_coherence": 2,
+      "reason": "The wrong-item request is intelligible, but the task frames an in-person counter exchange as a written message without establishing a remote transaction or reporting context. The displayed title also supplies a picture-derived answer.",
+      "prompt_scene_reconstruction": {
+        "person": "The learner is a customer who wants an apple and sees an onion in the shopping bag.",
+        "intention": "Identify the unwanted item and obtain an apple.",
+        "medium": "A written message to the shop is prescribed; the pictured action is an in-person shop-counter exchange.",
+        "recipient": "The shop, with no named seller, remote order or contact context.",
+        "why": "A customer would ask a seller for the correct produce. At the depicted counter, the minimal model is a spoken turn. The prompt does not establish why this is a written message or whether the onion was a mistaken purchase or delivery.",
+        "scene": "A customer holds an onion-containing bag at a fruit-shop counter, beside apples."
+      },
+      "title_audit": {
+        "verdict": "revise",
+        "disclosed_goals": "one",
+        "reason": "The title names ui, the content the learner is asked to obtain from the picture."
+      },
+      "source_evidence": {
+        "title": "Een ui in de tas",
+        "prompt": "U wilt een appel kopen. Kijk naar het plaatje. Schrijf een bericht aan de winkel. Zeg welk eten u krijgt. Vraag om een appel.",
+        "scene_alt": "Een klant kijkt naar een ui in een papieren tas. Naast de tas staan appels.",
+        "criteria": [
+          [
+            "U zegt dat u een ui krijgt.",
+            "Say that you receive an onion."
+          ],
+          [
+            "U vraagt om een appel.",
+            "Ask for an apple."
+          ],
+          [
+            "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "Your message is understandable. Use short, simple sentences."
+          ]
+        ],
+        "sample": "Hallo. Mag ik een appel? Ik wil een appel eet.",
+        "quotes": [
+          null,
+          "Mag ik een appel?",
+          "Mag ik een appel?"
+        ],
+        "model": "Ik krijg een ui. Mag ik een appel?",
+        "starters": [
+          "Ik krijg …",
+          "Mag ik …?",
+          "Ik wil graag …"
+        ]
+      },
+      "criteria_audit": "The two content criteria correspond to the prompt. The present-tense criterion krijgt inherits the unresolved ongoing-counter versus later-message context.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 1,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "Ik krijg een ui. Mag ik een appel? is understandable as an immediate spoken exchange. As a written correction it does not establish a past error or an existing order.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "The fragments fit naming receipt and asking for an item, but preserve the unresolved present-tense transaction.",
+        "source": "content/batches/074-starters.json",
+        "source_sha256": "70092369ed3ce21940326520ba96b59badf04c94aa13acf64a625f8206bc1edd"
+      },
+      "image_alt_audit": "The onion and apples match the task, but the counter setting supplies the wrong medium for the prescribed communicative act.",
+      "findings": [
+        {
+          "severity": "major",
+          "kind": "forced-written-medium",
+          "field": "prompt",
+          "quote": "U wilt een appel kopen. Kijk naar het plaatje. Schrijf een bericht aan de winkel. Zeg welk eten u krijgt. Vraag om een appel.",
+          "related_field": "images[0].brief",
+          "related_quote": "At a small fruit shop counter, a surprised adult customer holds open a paper shopping bag.",
+          "explanation": "The learner is staged at a seller’s counter but asked to write a shop message. No remote order, later discovery or written contact is given. The onion/apple mix-up can remain playful, but the present context does not make the prescribed message practical."
+        },
+        {
+          "severity": "minor",
+          "kind": "unnatural-instruction-wording",
+          "field": "prompt",
+          "quote": "Zeg welk eten u krijgt.",
+          "related_field": "model",
+          "related_quote": "Ik krijg een ui. Mag ik een appel?",
+          "explanation": "Welk eten is an awkward way to refer to a single piece of produce here. The model reads as a spoken counter request and carries the same unresolved transaction context."
+        },
+        {
+          "severity": "minor",
+          "kind": "displayed-title-answer-leak",
+          "field": "title",
+          "quote": "Een ui in de tas",
+          "related_field": "prompt",
+          "related_quote": "U wilt een appel kopen. Kijk naar het plaatje. Schrijf een bericht aan de winkel. Zeg welk eten u krijgt. Vraag om een appel.",
+          "explanation": "The title names ui, the content the learner is asked to obtain from the picture. The live exercise header renders item.title, so this is a learner-visible scaffold, not private catalogue metadata. The required change concerns answer disclosure; it does not require harder Dutch."
+        }
+      ],
+      "mechanical_checks": {
+        "prompt_words": 24,
+        "model_words": 8,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:writing:batch074-ontbijttaart:1",
+      "part": "writing",
+      "source": "content/batches/074-original.json",
+      "source_sha256": "fdf70fa86bba0509f790cf487cb7e96ce24f949b263fec2549a930202977df09",
+      "canonical_item_sha256": "05c70c18f3add23932e830f46989091a36e4807ed9e936c97aaecc7cfbdae92a",
+      "verdict": "revise",
+      "semantic_coherence": 3,
+      "reason": "The cake and drink response is understandable, but writing to the person presently serving it is not motivated by the supplied scene.",
+      "prompt_scene_reconstruction": {
+        "person": "The learner is someone for whom Roos is preparing breakfast.",
+        "intention": "Comment on the cake and tell Roos which drink is wanted.",
+        "medium": "A written message is prescribed despite an immediately shared breakfast scene.",
+        "recipient": "Roos, the breakfast preparer shown presenting the cake at the table.",
+        "why": "A guest could naturally comment on a cake and name a drink to a host. The supplied scene supports saying that to Roos. It gives no photo, advance breakfast planning or other reason to message her while she presents the cake.",
+        "scene": "Roos presents a tall cake at a breakfast table with an empty cup."
+      },
+      "title_audit": {
+        "verdict": "pass",
+        "disclosed_goals": "none",
+        "reason": "The title gives a scene theme or repeats context already stated in the prompt; it does not supply a new exact answer to a production goal."
+      },
+      "source_evidence": {
+        "title": "Taart bij het ontbijt",
+        "prompt": "Roos maakt ontbijt voor u. Er staat een taart op tafel. Schrijf een bericht aan Roos. Zeg wat u van de taart vindt. Zeg wat u wilt drinken. Kies zelf een drankje.",
+        "scene_alt": "Roos staat bij een ontbijttafel met een hoge taart en een lege kop.",
+        "criteria": [
+          [
+            "U zegt wat u van de taart vindt.",
+            "Say what you think of the cake."
+          ],
+          [
+            "U noemt een drankje dat u wilt.",
+            "Name a drink that you would like."
+          ],
+          [
+            "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "Your message is understandable. Use short, simple sentences."
+          ]
+        ],
+        "sample": "Ik wil graag thee drinken. Thee zijn lekker.",
+        "quotes": [
+          null,
+          "Ik wil graag thee drinken.",
+          "Ik wil graag thee drinken."
+        ],
+        "model": "Ik vind de taart mooi. Ik wil graag thee drinken.",
+        "starters": [
+          "Ik vind de taart …",
+          "Ik wil graag … drinken.",
+          "Ik vind …"
+        ]
+      },
+      "criteria_audit": "The criteria exactly match giving an opinion and naming a wanted drink. An opinion about appearance, such as mooi, is valid; the learner need not taste the cake.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 1,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model gives an opinion and a preferred drink in natural simple Dutch. Its adequacy at sentence level does not establish why this should be a message.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "The opinion and drink fragments align and leave the opinion and drink choice open.",
+        "source": "content/batches/074-starters.json",
+        "source_sha256": "70092369ed3ce21940326520ba96b59badf04c94aa13acf64a625f8206bc1edd"
+      },
+      "image_alt_audit": "The cake agrees with the prompt. Roos serving it in person leaves the written medium unsupported.",
+      "findings": [
+        {
+          "severity": "moderate",
+          "kind": "unmotivated-written-medium",
+          "field": "prompt",
+          "quote": "Roos maakt ontbijt voor u. Er staat een taart op tafel. Schrijf een bericht aan Roos.",
+          "related_field": "images[0].brief",
+          "related_quote": "Roos (young woman, dark hair in a bun, yellow scarf) proudly presents an unexpectedly tall cake at a small breakfast table.",
+          "explanation": "The communicative goals suit a breakfast conversation, while the source specifically puts the addressee at the table presenting the cake. A message can work in a different temporal or remote context, but that context is not supplied. The tall cake itself is a coherent visual joke."
+        }
+      ],
+      "mechanical_checks": {
+        "prompt_words": 32,
+        "model_words": 10,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:writing:batch074-lepelmuziek:1",
+      "part": "writing",
+      "source": "content/batches/074-original.json",
+      "source_sha256": "fdf70fa86bba0509f790cf487cb7e96ce24f949b263fec2549a930202977df09",
+      "canonical_item_sha256": "44b0fac31475ea296ca56d997e97092e7ff55b494e40023c6a2b233372424c7e",
+      "verdict": "pass",
+      "semantic_coherence": 5,
+      "reason": "An invitation to join playful home percussion naturally includes a request to bring an instrument-like household object.",
+      "prompt_scene_reconstruction": {
+        "person": "The learner makes playful percussion at home.",
+        "intention": "Invite Modibo to make music and ask him to bring a pan.",
+        "medium": "A short written invitation or chat message.",
+        "recipient": "Modibo, a potential participant who is not already in the pictured scene.",
+        "why": "A friend can be invited to join a playful music activity; bringing a pan supplies something to play. The sender already owning a pan does not make a second participant’s pan pointless.",
+        "scene": "A woman plays two wooden spoons on an upside-down pan in a kitchen."
+      },
+      "title_audit": {
+        "verdict": "pass",
+        "disclosed_goals": "none",
+        "reason": "The title gives a scene theme or repeats context already stated in the prompt; it does not supply a new exact answer to a production goal."
+      },
+      "source_evidence": {
+        "title": "Muziek met een pan",
+        "prompt": "U maakt thuis muziek met lepels. Modibo kan meedoen. Schrijf hem een bericht. Vraag hem om bij u muziek te maken. Vraag hem om een pan mee te nemen.",
+        "scene_alt": "Een vrouw maakt met twee houten lepels muziek op een pan in de keuken.",
+        "criteria": [
+          [
+            "U vraagt Modibo om bij u muziek te maken.",
+            "Ask Modibo to make music at your home."
+          ],
+          [
+            "U vraagt hem om een pan mee te nemen.",
+            "Ask him to bring a pan."
+          ],
+          [
+            "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "Your message is understandable. Use short, simple sentences."
+          ]
+        ],
+        "sample": "Kom je bij mij muziek maken? Dat zijn leuk.",
+        "quotes": [
+          "Kom je bij mij muziek maken?",
+          null,
+          "Kom je bij mij muziek maken?"
+        ],
+        "model": "Kom je bij mij muziek maken? Neem je een pan mee?",
+        "starters": [
+          "Kom je bij mij …?",
+          "Neem je … mee?",
+          "Kom je …?"
+        ]
+      },
+      "criteria_audit": "The criteria match the invitation and bringing request. Kom je bij mij muziek maken? performs an invitation, and Neem je een pan mee? performs the requested polite request.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 2,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model contains both acts in idiomatic short Dutch questions.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "Both goal-specific fragments permit natural questions while leaving the action/object completion to the learner.",
+        "source": "content/batches/074-starters.json",
+        "source_sha256": "70092369ed3ce21940326520ba96b59badf04c94aa13acf64a625f8206bc1edd"
+      },
+      "image_alt_audit": "The picture depicts the sender’s activity with familiar household objects and does not place the remote recipient in the scene.",
+      "findings": [],
+      "mechanical_checks": {
+        "prompt_words": 29,
+        "model_words": 11,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:writing:batch074-tuinfilm:1",
+      "part": "writing",
+      "source": "content/batches/074-original.json",
+      "source_sha256": "fdf70fa86bba0509f790cf487cb7e96ce24f949b263fec2549a930202977df09",
+      "canonical_item_sha256": "1a34c7e69cf3652e8cfe355dcd0aca4292dbcc5dca52e64eba2c01b7d47975ba",
+      "verdict": "pass",
+      "semantic_coherence": 4,
+      "reason": "Sending a location and start time for tonight’s film is practical; the image depicts the planned event rather than necessarily the moment of sending.",
+      "prompt_scene_reconstruction": {
+        "person": "The learner hosts a garden film showing this evening.",
+        "intention": "Tell Sabrina where it is and when it begins.",
+        "medium": "A short planning or invitation-detail message.",
+        "recipient": "Sabrina, a potential viewer.",
+        "why": "A guest needs the location and start time before an evening activity. Vanavond gives the message a forward-looking planning context.",
+        "scene": "Sabrina sits in a garden facing an outdoor screen and projector."
+      },
+      "title_audit": {
+        "verdict": "pass",
+        "disclosed_goals": "none",
+        "reason": "The title gives a scene theme or repeats context already stated in the prompt; it does not supply a new exact answer to a production goal."
+      },
+      "source_evidence": {
+        "title": "Een film tussen de bloemen",
+        "prompt": "U kijkt vanavond een film in uw tuin. De film begint om negen uur. Schrijf een bericht aan Sabrina. Zeg waar de film is. Zeg hoe laat de film begint.",
+        "scene_alt": "Sabrina zit in een tuin voor een groot wit doek tussen twee bomen.",
+        "criteria": [
+          [
+            "U zegt dat de film in uw tuin is.",
+            "Say that the film is in your garden."
+          ],
+          [
+            "U zegt dat de film om negen uur begint.",
+            "Say that the film starts at nine o’clock."
+          ],
+          [
+            "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "Your message is understandable. Use short, simple sentences."
+          ]
+        ],
+        "sample": "We beginnen om negen uur. De film zijn leuk.",
+        "quotes": [
+          null,
+          "We beginnen om negen uur.",
+          "We beginnen om negen uur."
+        ],
+        "model": "De film is in mijn tuin. We beginnen om negen uur.",
+        "starters": [
+          "De film is …",
+          "We beginnen om …",
+          "Wij gaan …"
+        ]
+      },
+      "criteria_audit": "The criteria require the learner’s garden and nine o’clock. We beginnen om negen uur naturally states the start of the planned film activity; it does not silently change the requested act.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 1,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model gives the learner’s garden and the start time. The pronoun we is natural for a hosted group activity.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "The location and time fragments support both goals without providing tuin or negen.",
+        "source": "content/batches/074-starters.json",
+        "source_sha256": "70092369ed3ce21940326520ba96b59badf04c94aa13acf64a625f8206bc1edd"
+      },
+      "image_alt_audit": "The illustration names Sabrina already at the screen, which is temporally loose. Because the prompt explicitly schedules vanavond, the picture can show the planned event. It does not replace either textual fact or identify the learner as Sabrina.",
+      "findings": [],
+      "mechanical_checks": {
+        "prompt_words": 30,
+        "model_words": 11,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:writing:batch074-fietsfeest:1",
+      "part": "writing",
+      "source": "content/batches/074-original.json",
+      "source_sha256": "fdf70fa86bba0509f790cf487cb7e96ce24f949b263fec2549a930202977df09",
+      "canonical_item_sha256": "93415e4606537893ff7f682648741b25d1b176df26731fe22d22f8f5f5010f9d",
+      "verdict": "pass",
+      "semantic_coherence": 4,
+      "reason": "A party for a bicycle is whimsical, but an RSVP and food contribution are coherent messages to its human host.",
+      "prompt_scene_reconstruction": {
+        "person": "The learner is a guest at Julio’s playful bicycle-themed party.",
+        "intention": "Confirm attendance and say what food will be brought.",
+        "medium": "A short RSVP message.",
+        "recipient": "Julio, the host.",
+        "why": "A host benefits from knowing whether a guest will attend and what they will bring. Treating the bicycle as the party’s celebrated object is the deliberate joke; neither the learner nor model has to claim that a bicycle eats.",
+        "scene": "Julio stands beside a decorated bicycle and offers it a slice of cake as a visual gag."
+      },
+      "title_audit": {
+        "verdict": "pass",
+        "disclosed_goals": "none",
+        "reason": "The title gives a scene theme or repeats context already stated in the prompt; it does not supply a new exact answer to a production goal."
+      },
+      "source_evidence": {
+        "title": "Een feest voor een fiets",
+        "prompt": "Julio geeft een feest voor zijn fiets. U gaat naar het feest. Schrijf Julio een bericht. Zeg dat u komt. Zeg welk eten u meeneemt. Kies zelf iets te eten.",
+        "scene_alt": "Julio staat met een fiets onder een slinger. Op de fiets staat een feesthoedje.",
+        "criteria": [
+          [
+            "U zegt dat u naar het feest komt.",
+            "Say that you are coming to the party."
+          ],
+          [
+            "U noemt eten dat u meeneemt.",
+            "Name food that you are bringing."
+          ],
+          [
+            "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "Your message is understandable. Use short, simple sentences."
+          ]
+        ],
+        "sample": "Ik kom naar je feest. Ik ben blij. Je fiets zijn mooi.",
+        "quotes": [
+          "Ik kom naar je feest.",
+          null,
+          "Ik kom naar je feest."
+        ],
+        "model": "Ik kom naar je feest. Ik neem twee appels mee.",
+        "starters": [
+          "Ik kom …",
+          "Ik neem … mee.",
+          "Ik ben …"
+        ]
+      },
+      "criteria_audit": "The criteria match attendance and a food contribution. Any ordinary food chosen by the learner is allowed.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 2,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model confirms attendance and names apples to bring, both natural components of an RSVP.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "The fragments support attendance and what to bring without supplying the learner’s food choice.",
+        "source": "content/batches/074-starters.json",
+        "source_sha256": "70092369ed3ce21940326520ba96b59badf04c94aa13acf64a625f8206bc1edd"
+      },
+      "image_alt_audit": "The bicycle party is consistent across prompt, brief and alt. Offering cake to the bike is playful personification rather than a required factual belief.",
+      "findings": [],
+      "mechanical_checks": {
+        "prompt_words": 30,
+        "model_words": 10,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:writing:batch074-stoelsokken:1",
+      "part": "writing",
+      "source": "content/batches/074-original.json",
+      "source_sha256": "fdf70fa86bba0509f790cf487cb7e96ce24f949b263fec2549a930202977df09",
+      "canonical_item_sha256": "1a371671698fd98505d8285fa870f92c02ca989eea0476d6a072af15da5363a4",
+      "verdict": "revise",
+      "semantic_coherence": 3,
+      "reason": "The socked chair is intelligible, but the message to a teacher about whether that pictured classroom seat is free lacks a reservation or remote-planning context.",
+      "prompt_scene_reconstruction": {
+        "person": "The learner is a student who wants to use one distinctive classroom chair.",
+        "intention": "Identify the preferred chair and check whether it is available.",
+        "medium": "A written message is prescribed; the given context chiefly supports an immediate seat question.",
+        "recipient": "The teacher, with no assigned-seat or reservation role established.",
+        "why": "A student can ask about a seat. The source does not say the class uses assigned seats or bookings, or why the student messages the teacher about a visibly unoccupied chair. A remote reservation interpretation requires extra context.",
+        "scene": "An unoccupied chair with socks on its legs stands beside a desk; another empty chair is farther away."
+      },
+      "title_audit": {
+        "verdict": "pass",
+        "disclosed_goals": "none",
+        "reason": "The title gives a scene theme or repeats context already stated in the prompt; it does not supply a new exact answer to a production goal."
+      },
+      "source_evidence": {
+        "title": "De stoel met sokken",
+        "prompt": "In uw klas staat een stoel met sokken. U wilt daar zitten. Schrijf een bericht aan de docent. Zeg welke stoel u wilt. Vraag of de stoel vrij is.",
+        "scene_alt": "In een klas staat een stoel met sokken aan de vier poten.",
+        "criteria": [
+          [
+            "U zegt dat u de stoel met sokken wilt.",
+            "Say that you want the chair with socks."
+          ],
+          [
+            "U vraagt of die stoel vrij is.",
+            "Ask whether that chair is free."
+          ],
+          [
+            "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "Your message is understandable. Use short, simple sentences."
+          ]
+        ],
+        "sample": "Ik wil de stoel met sokken. De sokken is leuk.",
+        "quotes": [
+          "Ik wil de stoel met sokken.",
+          null,
+          "Ik wil de stoel met sokken."
+        ],
+        "model": "Ik wil de stoel met sokken. Is deze stoel nog vrij?",
+        "starters": [
+          "Ik wil de stoel met …",
+          "Is deze stoel …?",
+          "Ik wil …"
+        ]
+      },
+      "criteria_audit": "The criteria match identifying the socked chair and asking if it is free. Vrij can mean unoccupied or available, so the picture alone does not prove the answer; the problem is why this is a message to the teacher.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 2,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model expresses desire for the chair and asks about availability. It is understandable but gives the message no practical purpose beyond the imposed exercise.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "The preferred-chair and availability fragments fit the goals and do not supply sokken or vrij.",
+        "source": "content/batches/074-starters.json",
+        "source_sha256": "70092369ed3ce21940326520ba96b59badf04c94aa13acf64a625f8206bc1edd"
+      },
+      "image_alt_audit": "The socks are coherent chair-leg covers and can stay. The empty-chair scene supplies no reason for a teacher-managed written request.",
+      "findings": [
+        {
+          "severity": "moderate",
+          "kind": "unmotivated-seat-message",
+          "field": "prompt",
+          "quote": "In uw klas staat een stoel met sokken. U wilt daar zitten. Schrijf een bericht aan de docent.",
+          "related_field": "model",
+          "related_quote": "Ik wil de stoel met sokken. Is deze stoel nog vrij?",
+          "explanation": "The task asks for a teacher-directed message about an available classroom chair without a seating-plan, reservation, photo or advance-planning context. The learner must invent a reason to write. The chair’s socks are a readable visual oddity and are not the defect."
+        }
+      ],
+      "mechanical_checks": {
+        "prompt_words": 29,
+        "model_words": 11,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:writing:batch074-reuzenbox:1",
+      "part": "writing",
+      "source": "content/batches/074-original.json",
+      "source_sha256": "fdf70fa86bba0509f790cf487cb7e96ce24f949b263fec2549a930202977df09",
+      "canonical_item_sha256": "42df6a303627feb37a6fac54c19b9523e50f5ad80a5afac404984ee980e111d3",
+      "verdict": "revise",
+      "semantic_coherence": 4,
+      "reason": "Sharing an absurdly oversized delivery with a friend supports a short contents-and-opinion message. The displayed title also supplies a picture-derived answer.",
+      "prompt_scene_reconstruction": {
+        "person": "The learner receives a delivery containing one spoon in a very large box.",
+        "intention": "Tell Roos what arrived and comment on the packaging.",
+        "medium": "A short informal written message.",
+        "recipient": "Roos; no special institutional role is necessary for sharing this personal news.",
+        "why": "Someone can tell a friend about excessive packaging. Unlike an instruction requiring a remedy from a seller, sharing a funny delivery does not require Roos to have supplied the item or have another special role.",
+        "scene": "A customer looks into a very large delivery box containing one ordinary spoon."
+      },
+      "title_audit": {
+        "verdict": "revise",
+        "disclosed_goals": "one",
+        "reason": "The title names lepel, the content the learner is asked to obtain from the picture. Groot repeats information already in the prompt; the new leak is the spoon."
+      },
+      "source_evidence": {
+        "title": "Een grote doos voor een lepel",
+        "prompt": "U krijgt een grote doos. Kijk naar het plaatje. Schrijf een bericht aan Roos. Zeg wat er in de doos zit. Zeg wat u van de doos vindt.",
+        "scene_alt": "Een vrouw kijkt in een heel grote open doos. Midden in de doos ligt één lepel.",
+        "criteria": [
+          [
+            "U zegt dat er een lepel in de doos zit.",
+            "Say that there is a spoon in the box."
+          ],
+          [
+            "U zegt wat u van de doos vindt.",
+            "Say what you think of the box."
+          ],
+          [
+            "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "Your message is understandable. Use short, simple sentences."
+          ]
+        ],
+        "sample": "In de doos zit een lepel. De lepel zijn klein.",
+        "quotes": [
+          "In de doos zit een lepel.",
+          null,
+          "In de doos zit een lepel."
+        ],
+        "model": "Er zit een lepel in de doos. Ik vind de doos erg groot.",
+        "starters": [
+          "In de doos zit …",
+          "Ik vind de doos …",
+          "Er is …"
+        ]
+      },
+      "criteria_audit": "The criteria ask for the spoon and an opinion about the box, matching the prompt. Commenting on the spoon’s size alone is correctly insufficient for the second goal.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 2,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model identifies the spoon and calls the box very large. Ik vind de doos erg groot is a natural opinion about the packaging.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "The contents and opinion fragments align and leave the object and opinion open.",
+        "source": "content/batches/074-starters.json",
+        "source_sha256": "70092369ed3ce21940326520ba96b59badf04c94aa13acf64a625f8206bc1edd"
+      },
+      "image_alt_audit": "Brief and alt agree about a spoon in a comically large box. The recipient is not placed beside the sender observing it.",
+      "findings": [
+        {
+          "severity": "minor",
+          "kind": "displayed-title-answer-leak",
+          "field": "title",
+          "quote": "Een grote doos voor een lepel",
+          "related_field": "prompt",
+          "related_quote": "U krijgt een grote doos. Kijk naar het plaatje. Schrijf een bericht aan Roos. Zeg wat er in de doos zit. Zeg wat u van de doos vindt.",
+          "explanation": "The title names lepel, the content the learner is asked to obtain from the picture. Groot repeats information already in the prompt; the new leak is the spoon. The live exercise header renders item.title, so this is a learner-visible scaffold, not private catalogue metadata. The required change concerns answer disclosure; it does not require harder Dutch."
+        }
+      ],
+      "mechanical_checks": {
+        "prompt_words": 28,
+        "model_words": 13,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    },
+    {
+      "id": "A1:writing:batch074-komhoed:1",
+      "part": "writing",
+      "source": "content/batches/074-original.json",
+      "source_sha256": "fdf70fa86bba0509f790cf487cb7e96ce24f949b263fec2549a930202977df09",
+      "canonical_item_sha256": "4eebce3405d4859c3d2e79499e4abd840f4ae1c3da99b906334afa7b8e32abcb",
+      "verdict": "pass",
+      "semantic_coherence": 5,
+      "reason": "A received playful portrait gives a natural reason to reply with an opinion and request another picture.",
+      "prompt_scene_reconstruction": {
+        "person": "The learner is Sabrina’s classmate and receives her playful photo.",
+        "intention": "React to the photo and ask Sabrina for another one.",
+        "medium": "A short written reply to a photo.",
+        "recipient": "Sabrina, the pictured person and sender of the photo.",
+        "why": "A classmate can respond to a funny portrait and ask for another. U zit met Sabrina in de klas conventionally establishes that they are classmates; it does not force both to be physically together at the moment of sending.",
+        "scene": "Sabrina poses with a bowl balanced on her head in an adult classroom."
+      },
+      "title_audit": {
+        "verdict": "pass",
+        "disclosed_goals": "none",
+        "reason": "The title gives a scene theme or repeats context already stated in the prompt; it does not supply a new exact answer to a production goal."
+      },
+      "source_evidence": {
+        "title": "Een kom als hoed",
+        "prompt": "U zit met Sabrina in de klas. U krijgt een foto van Sabrina. Ze draagt een kom op haar hoofd. Schrijf Sabrina een bericht. Zeg wat u van de foto vindt. Vraag om nog een foto.",
+        "scene_alt": "Sabrina staat in een klas met een omgekeerde kom op haar hoofd.",
+        "criteria": [
+          [
+            "U zegt wat u van de foto vindt.",
+            "Say what you think of the photo."
+          ],
+          [
+            "U vraagt Sabrina om nog een foto.",
+            "Ask Sabrina for another photo."
+          ],
+          [
+            "Uw bericht is begrijpelijk. Gebruik korte, eenvoudige zinnen.",
+            "Your message is understandable. Use short, simple sentences."
+          ]
+        ],
+        "sample": "Stuur je nog een foto? Ik willen die graag zien.",
+        "quotes": [
+          null,
+          "Stuur je nog een foto?",
+          "Stuur je nog een foto?"
+        ],
+        "model": "Ik vind je foto leuk. Stuur je nog een foto?",
+        "starters": [
+          "Ik vind je foto …",
+          "Stuur je nog …?",
+          "Ik vind …"
+        ]
+      },
+      "criteria_audit": "The criteria match an opinion about the photo and a request for another. The learner does not need to identify kom or explain the pose.",
+      "sample_quotes_audit": {
+        "verdict": "pass",
+        "omitted_content_goal": 1,
+        "one_null_quote": true,
+        "quotes_verbatim": true,
+        "reason": "The sample omits the indicated content goal and still conveys the other. Its deliberate beginner errors remain understandable; the quoted support is verbatim."
+      },
+      "model_audit": "The model gives a friendly opinion and uses Stuur je nog een foto? as an ordinary request. It does not ask the recipient to re-send the same image.",
+      "starter_audit": {
+        "verdict": "pass",
+        "reason": "The opinion and further-photo fragments fit the reply and leave their completions open.",
+        "source": "content/batches/074-starters.json",
+        "source_sha256": "70092369ed3ce21940326520ba96b59badf04c94aa13acf64a625f8206bc1edd"
+      },
+      "image_alt_audit": "A posed image with a bowl as a hat coherently represents the received funny portrait. The illustration is a drawing representing that photo, not an assertion that the asset itself must be photographic.",
+      "findings": [],
+      "mechanical_checks": {
+        "prompt_words": 36,
+        "model_words": 10,
+        "criteria_count": 3,
+        "starter_count": 3,
+        "starters_incomplete": true
+      }
+    }
+  ]
+}

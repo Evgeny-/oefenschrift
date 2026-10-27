@@ -1,12 +1,12 @@
 # Exercise blueprint
 
-What an exercise in this project must look like, part by part, for the DUO A2 exams, KNM and Staatsexamen NT2 Programma I (B1). Read this before writing, reviewing, generating media for, or grouping exercises. The analysis behind it is in `docs/research/exam-blueprints-2026-09-10.md`; the review rubric is `content/reviews/rubric.md`; the process is `docs/research/content-workflow.md`. B2 is out of scope.
+What an exercise in this project must look like, part by part, for A1 foundation practice, the DUO A2 exams, KNM and Staatsexamen NT2 Programma I (B1). Read this before writing, reviewing, generating media for, or grouping exercises. The analysis behind it is in `docs/research/exam-blueprints-2026-09-10.md`; the review rubric is `content/reviews/rubric.md`; the process is `docs/research/content-workflow.md`. B2 is out of scope. The A1 pilot was requested on 27 October 2026 and follows section 4.0.
 
 Facts about the official exams below were verified on 10 September 2026 in DUO's official practice player and in the CvTE openbare examens. When an official format changes, update this file first and the content after it.
 
 ## 1. Principles
 
-1. **Exam shape first.** Every exercise is an instance of one official task type, with the stimulus length, question count, option count, media and timing of that type. A learner who finishes our drills must not be surprised by anything in the real exam except the content.
+1. **Exam shape first.** A2, KNM and B1 exercises follow an official task type, with the stimulus length, question count, option count, media and timing of that type. A1 foundation practice follows its own teaching specification in section 4.0. Its lengths and counts are local authoring choices.
 2. **Original content.** Scenarios, texts, questions, options, images and audio are written and produced here. Nothing is copied or closely paraphrased from official practice exams, commercial courses or other sites. Official material is read for structure only.
 3. **Evidence and explanation.** Every closed question has a verbatim evidence quote in its stimulus, an explanation, and a rationale for each distractor. The official exams give no explanations; ours do.
 4. **Honest labels.** Levels are authoring targets (`targetLevelValidated: false`) until a teacher review or learner pilot says otherwise. No pass predictions, no "official" claims.
@@ -39,10 +39,10 @@ Common fields:
 | Field | Meaning |
 | --- | --- |
 | `id` | `<LEVEL>:<part>:batch<NNN>-<slug>:<version>`, for example `A2:listening:batch004-fietsenmaker:1`. KNM uses `A2:knm:…`. Slugs are lowercase ASCII, one topic word or two. Never reuse a slug within a part. |
-| `level`, `part` | `A2` or `B1`; `reading`, `listening`, `writing`, `speaking`, `knm`. |
-| `exam` (required, new) | `duo-a2`, `knm` or `nt2-i`. |
+| `level`, `part` | `A1`, `A2` or `B1`; `reading`, `listening`, `writing`, `speaking`, `knm`. A1 supports reading, listening, writing and speaking. |
+| `exam` (required, new) | `a1-practice`, `duo-a2`, `knm` or `nt2-i`. `a1-practice` names foundation practice. |
 | `taskType` (required, new) | one of the task types listed per part in section 4. |
-| `domain` (required, new) | A2 and KNM: `werk`, `opleiding`, `wonen-buurt`, `gezondheid`, `winkels-diensten`, `instanties`, `vervoer`, `vrije-tijd-familie`. B1: `werk`, `educatie`, `overig`. |
+| `domain` (required, new) | A1, A2 and KNM: `werk`, `opleiding`, `wonen-buurt`, `gezondheid`, `winkels-diensten`, `instanties`, `vervoer`, `vrije-tijd-familie`. B1: `werk`, `educatie`, `overig`. |
 | `textType` (B1 reading and listening, required) | `persuasief`, `descriptief`, `instructief`, `beschouwend`. |
 | `situation` (reading, listening, KNM scenes; required) | The one-line context shown before the stimulus. A2: a person and a source, "Sabrina krijgt een brief van haar werk." B1: the reader's position and the text's source, "U leest een interview uit een personeelsblad." / "U hoort een gesprek bij een ROC." |
 | `title` | Short Dutch title for catalogues. Not shown in exam mode. |
@@ -54,6 +54,42 @@ Closed questions (`questions[]`): `id`, `prompt`, `options` (`A`–`C` or `A`–
 Open tasks: `prompt`, `criteria` (`[[nl, en], …]`), `sample`, `quotes`, `model`, plus the per-part fields in section 4 and `rubric` (new): `a2-schrijven`, `a2-spreken`, `b1-schrijven`, `b1-spreken`.
 
 ## 4. Specifications per part
+
+### 4.0 A1 foundation pilot — `exam: a1-practice`
+
+The Council of Europe's [CEFR Companion Volume](https://rm.coe.int/common-european-framework-of-reference-forlanguages-learning-teaching/16809ea0d4), pages 54–55, describes A1 reading of very short texts and simple personal messages about familiar matters. Checked on 27 October 2026. This informs the authoring target; it does not validate our items. The [official Naar Nederland page](https://www.naarnederland.nl/leren-voor-het-examen), checked on the same date, identifies A1 reading and speaking within the basisexamen abroad. This pilot does not reproduce that exam or add KNS to the existing KNM bank.
+
+#### Reading — `part: reading`
+
+- Task type: `bericht`. One original everyday message of 25–60 words, with a short situation line. A set contains three messages about distinct activities or purposes.
+- Exactly two questions per message and three options A–C per question. Test explicit facts with `detail`, `time-place`, `quantity` or `person`; each answer follows from one short verbatim quote. Avoid inference, combined conditions and calculations.
+- Use familiar concrete words and short main clauses in the present tense. Aim for at most eight words per sentence on average, with none over twelve. Avoid idioms, abbreviations, implicit references and unnecessary unfamiliar words. Questions, options and explanations use the same simple language.
+- Distractors are familiar, plausible alternatives that do not match the directly stated answer. They may reuse a relevant nearby detail, but do not add people, objects, times or numbers to the message just to supply wrong choices. Unmentioned alternatives are allowed for this short A1 format. Record a rationale for each in the notes. Balance the six keys at two per letter.
+- Keep the shared metadata, originality, evidence, separate-author/reviewer and exact-hash integration requirements. Set `targetLevelValidated: false`. The first batch gets a separate fresh-context level-target check against these descriptors; no official item comparison or exam-equivalence verdict applies.
+- A1 supports reading, listening, writing and speaking. KNM remains separate from A1. Do not offer A1 mock exams or a level check from this small bank. Reading does not require media.
+
+#### Listening — `part: listening`
+
+Requested on 27 October 2026 for local testing with audio and pictures. The [CEFR Companion Volume](https://rm.coe.int/common-european-framework-of-reference-forlanguages-learning-teaching/16809ea0d4), printed pages 48 and 52, describes finding concrete information in familiar everyday speech and short recordings delivered very slowly and clearly. Checked on 27 October 2026. The limits below are local authoring choices and do not establish an official A1 exam format.
+
+- Task type: `gesprek`. One original conversation of 30–70 spoken words in four to six turns, with exactly two named speakers and two distinct voice roles from `config/voices.json`. Use `script` and derive `text` as `Speaker: text` lines. Count spoken words without speaker labels.
+- For new conversations, prefer 30–40 words in four short turns. The user found the first pilot too complex on 27 October 2026. Keep one everyday exchange, mostly sentences of three to seven words, and two clearly stated facts. Use concrete common words in the present tense. Avoid subordinate clauses, implicit references, correction chains and extra details added only to create confusion. Address adult beginners in an ordinary adult voice.
+- Each fragment has two questions, each with three options A–C. Apply the reading pilot's simple language, explicit evidence, situation-plausible distractor and balanced-key requirements. Avoid testing a fact that requires inference or two calculations. Spell out times and numbers in scripts.
+- Each question asks for one fact stated in one short turn. Keep prompts and options short. Avoid several similar names or competing times in the same exchange, and avoid questions about exceptions or what someone does not do. Reviewers must flag unnecessary memory load as well as unfamiliar language. Keep the broader 30–70-word envelope for previously reviewed material; the narrower target above guides new authoring.
+- Generate the fragment and each question's narration through `scripts/audio.ts` only after the exact script passes independent review. The A1 profile uses a role's explicit `a1Speed` when present; otherwise it multiplies the existing role speed by 0.82 with a 0.7 floor. Lieke, Ruben, Daan and Ruth use the auditioned 0.9 directly, with 0.9-second pauses between turns. Use stitched synthesis so the speed control applies. Record the profile, actual settings, source format, script hash, voice roles and transcription round trip in the audio manifest. These technical checks do not replace a specialist listening review.
+- Exactly one flat context illustration in the exercise house style, with a reviewed `brief` and Dutch `alt`. It shows the setting without supplying a tested colour, quantity, location, person or action. No text, signs or clock faces. Review the rendered image against every question before setting the manifest's review flag.
+- A set contains three conversations with different settings and purposes. Keep level validation false and A1 mock exams and level checks unavailable even when the reading and listening banks together supply enough questions.
+
+#### Speaking and writing foundation tasks
+
+The user expanded the local A1 practice bank to all four skills on 27 October 2026. The [CEFR Companion Volume](https://rm.coe.int/common-european-framework-of-reference-forlanguages-learning-teaching/16809ea0d4), printed pages 62 and 66, supports brief spoken phrases about people and places and isolated written phrases about concrete personal matters. Checked on 27 October 2026. The following task shapes and counts are local teaching choices, with no official exam-format claim or validated difficulty label.
+
+- Speaking uses `part: speaking`, `taskType: picture-describe`, `rubric: a1-spreken`, one clear illustration and two tiny content goals. Each goal can be met with one short sentence. Use `speakingSeconds: 20`, `prepSeconds: 0` as a recording guide, without timed preparation or a minimum speaking duration. Generate the printed prompt's narration only after review. Keep the single editable transcript and accept natural wording variants.
+- Writing uses `part: writing`, `taskType: bericht`, `rubric: a1-schrijven`, one illustration and a short practical message with two content goals. A response of two or three simple sentences is enough; do not require reasons, subordinate clauses, elaborate greetings or a connected narrative.
+- Both use three bilingual criteria: the two explicit content goals and understandable Dutch. The model contains 8–25 words. Prompts have at most 55 words, mostly short main clauses. A prepared sample omits exactly one content goal and has one null quote; its other quotes occur verbatim. Each optional sentence starter remains incomplete and does not provide the task's facts. Understandable beginner errors do not automatically fail the language goal.
+- Each new item has one reviewed illustration with a specific scene and purposeful visual detail. An open task may ask about visible details; its prompt, alt text, brief, criteria and model must agree. Closed reading and listening illustrations and their alts must not identify a correct answer or favour a distractor. Open picture tasks retain descriptive alt text with the equivalent pictured facts for accessibility; visible titles and starters must not supply the picture-derived goals.
+- Build three themed sets of three items per skill for this 36-item expansion. Each closed item has two mini questions; each open item has two small production goals. A1 remains foundation practice without a mock exam or level check.
+- Keep most scenes ordinary. The user wants about 15% lightly funny tasks across a program, five of the current 36 A1 exercises. For those tasks, use familiar objects and one surprising detail while keeping the words simple. No joke should require an idiom, cultural trivia, obscure noun or difficult explanation. Use the shared `stylePrefix` and visual references from `config/illustration.json`. Keep the established minimal flat style across every level. The user rejected the richer gouache experiment on 27 October 2026; playful scenes must not introduce texture, detailed backgrounds or a new visual style. If a reviewed scene brief contains earlier aesthetic directions, the current shared style takes precedence while task facts and answer exclusions remain fixed.
 
 ### 4.1 A2 Lezen — `exam: duo-a2`, `part: reading`
 
@@ -151,6 +187,8 @@ Requirements: `rubric: a2-schrijven`; a `model` answer; `sample` and `quotes` as
 
 ## 5. Questions, distractors, keys
 
+A coherent source comes first. Information included for a question must still serve the message or conversation. Do not satisfy distractor rules by inserting unrelated stocktaking or choices into the source. The short A1 format permits familiar unmentioned alternatives as specified in §4.0.
+
 - Prompts are one or two sentences; a persona prompt states the situation first and asks second.
 - Options are parallel in form and length; no option is a superset of another; no "alle antwoorden zijn goed".
 - One option is correct by the evidence quote. Each distractor is wrong for one nameable reason, recorded in the batch notes.
@@ -163,11 +201,13 @@ Requirements: `rubric: a2-schrijven`; a `model` answer; `sample` and `quotes` as
 All listening fragments, question audio, speaking instructions and speaking cues are generated with ElevenLabs from the reviewed script, after the batch passes review, never before.
 
 - **Voices.** `config/voices.json` maps voice roles to ElevenLabs voice IDs: `narrator` (instructions, questions, announcements), `f-young`, `f-adult`, `f-older`, `m-young`, `m-adult`, `m-older`. Scripts name roles, not voice IDs, so a voice can be replaced without touching content. Only voices verified as native Netherlands Dutch are allowed; Flemish voices are excluded; voices that add words that are not in the script (observed with one library voice in the audition of 10 September 2026) are excluded. The chosen voices are recorded in that file with the date of the audition.
-- **Dialogues.** Two different roles per conversation, never the same voice for both parties. Conversations use the dialogue endpoint (`eleven_v3`) in one request by default (decision of 10 September 2026: better turn-taking and level matching); single-speaker clips and any item with `audioMode: "stitched"` use per-turn `eleven_multilingual_v2` (`language_code: nl`) stitched with 0.45 s of silence. Every clip is loudness-normalised (EBU R128, −18 LUFS integrated) because the chosen voices differ in level. The manifest records the mode. Speaking pace for A2 is deliberate: prefer the slower voices for A2 fragments and the natural ones for B1.
+- **Dialogues.** Two different roles per conversation, never the same voice for both parties. The current default is per-turn `eleven_multilingual_v2` synthesis, stitched with 0.45 seconds of silence; A1 uses its separate profile above. The earlier `eleven_v3` dialogue default was withdrawn after room echo appeared. It remains an explicit per-item option; the v4 trial is an audition, not the production default. Level matching targets −18 LUFS with a −1.5 dBTP peak ceiling, so quiet turns can remain below the target. Record the actual model, settings and mode.
 - **Round trip.** Every generated clip is transcribed with Scribe (`scribe_v2`, `nld`) and compared with the script after number normalisation ("24" and "vierentwintig" match). A character error rate above 4% or a run of two or more inserted words blocks the clip; regenerate with a different seed or voice, and listen to any clip near the limit. The rate is stored in the manifest.
-- **Manifest.** `content/audio-manifest.json` records per clip: item id, file, role → voice id, model, settings, script hash, duration, WER. A changed script invalidates the clip.
-- **Quota.** The ElevenLabs Starter plan allows about 72,000 characters per month; an A2 listening launch bank with question audio needs roughly 25,000, a B1 one roughly 45,000. Plan batches per month or upgrade before the B1 bank.
-- **Delivery.** MP3 44.1 kHz 128 kbps in `public/audio/<hash>.mp3`; peaks and duration computed at generation time as today.
+- **Manifest.** `content/audio-manifest.json` records each clip's key, file, roles and voice IDs, model, actual settings, script hash, source format and sample rate, duration, waveform and transcription result. The legacy `wer` field stores the normalized character error rate. A changed script invalidates the clip. Inspect concrete additions and fillers even when the numeric threshold passes.
+- **Quota and scope.** Check the current account allowance before a large run. Use `--keys <file>` for exact existing job keys when replacing voices, so unrelated clips stay intact. Keep former assets needed by history. Source files must still pass their existing review hash gate.
+- **Delivery.** Current provider output is `mp3_44100_192` as configured in `config/voices.json`. Decode it to WAV for level matching and stitching, then encode the final mono 44.1 kHz, 192 kbps MP3 into `assets/audio/<hash>.mp3`; preparation copies it to the public audio path. Record both lossy stages. The earlier PCM fallback remains available and must be labelled with its real source rate rather than the final MP3 rate.
+
+Hanneke (`f-older`) uses the user-approved `spectral-v1` noise-reduction preset. Level-match each turn first, apply the preset to Hanneke alone, then enforce the peak/loudness ceiling again. Record the filter and processing stage in the manifest and cache identity. Ruth (`f-mature`) remains available for mature adult roles. Never apply one voice's treatment to the other conversation speaker.
 
 ## 7. Images
 
@@ -209,6 +249,7 @@ Avoid: political opinions and party politics; religious practice beyond the fact
 
 Level is an authoring target checked by a separate reviewer and a few automatic heuristics; neither is a validation.
 
+- A1 reading: the separate foundation targets in section 4.0 apply. Compare with the CEFR descriptors and distinguish this editorial judgment from learner calibration.
 - A2 stimuli: average sentence length under 12 words, no sentence over 18; subordinate clauses only with omdat, als, dat, wanneer, toen; present and perfect tense, simple future with gaan; numbers, days, prices explicit; at most one less common word per 50, explained by context.
 - B1 stimuli: average sentence length 12–18 words, none over 30; paragraphs with subheadings for reading; passive voice, conditionals, relative clauses, signal words (daarom, hoewel, terwijl, ondanks) in use; paraphrase between question and text.
 - Open-task models: A2 e-mail 45–70 words in four to eight sentences (the four bullets each need a sentence or two); A2 wijkkrant 25–45 words in three to five sentences; A2 form the open fields only, one short sentence each; A2 picture note 20–40 words, one sentence per picture; A2 speaking 25–45 words; all in main clauses with at most one subordinate clause per sentence and no sentence over 16 words. B1 zinstaak one correct clause of the required type, korte schrijftaak 120–180 words with signal words. The checker enforces 20–90 words for A2 models; the figures here are the editorial targets per task type.
@@ -219,7 +260,7 @@ Level is an authoring target checked by a separate reviewer and a few automatic 
 
 `content/blueprints/<exam>-<part>.json` declares the block counts, questions per block, option rules, timing, media and spread for each exam part. Sets are built from tags:
 
-- **Drill (oefenset):** one task type, usually one domain; A2 reading 3–4 texts, A2 listening 4 fragments, KNM 8–10 facts of one theme, A2 writing 1 task, A2 speaking one type × 4, B1 reading 2 texts, B1 listening 1 text, B1 writing 4 zinstaken or 2 longer tasks of one type, B1 speaking 4 korte or 3 middellange. Explanations after each item.
+- **Drill (oefenset):** one task type, usually one domain; A1 reading three short messages, A1 listening three conversations, A2 reading 3–4 texts, A2 listening 4 fragments, KNM 8–10 facts of one theme, A2 writing 1 task, A2 speaking one type × 4, B1 reading 2 texts, B1 listening 1 text, B1 writing 4 zinstaken or 2 longer tasks of one type, B1 speaking 4 korte or 3 middellange. Explanations after each item.
 - **Half form (deeltoets):** half the blueprint at half the time; explanations at the end.
 - **Mock (proefexamen):** the blueprint exactly, frozen membership, official time and playback rules, explanations only after submission. Two mocks per part at launch with no shared items.
 
@@ -231,7 +272,7 @@ Use Opus 5 for every role. Roles run in separate contexts so that the reviewer n
 
 1. **Brief.** The coordinator names the exam part, task types and counts, domains, the batch id and the subjects to avoid (section 9 plus the catalogue titles); `docs/briefs/author.md` carries the rest.
 2. **Author.** Writes `content/batches/<NNN>-original.json`, `<NNN>-notes.md` and, for open tasks, `<NNN>-starters.json`. Runs `npm run batch:check` until it reports no failures; checks invented organisation names on the web; warnings go into the notes.
-3. **Reviewer.** Fresh context, `docs/briefs/review.md`. Applies `content/reviews/rubric.md`, the per-part requirements and the level control in one pass: proves each key from the evidence, tests each distractor, judges level and exam likeness per item (the former separate level check). Small repairs are not requested but made: the reviewer writes `content/batches/<NNN>-proposed.json` (and `-proposed-starters.json` when a criterion changed) with every required and recommended edit applied, lists the edits in the review, and records the hash of the proposed file in `content/reviews/<NNN>-review.json`. An item that needs a new premise is rejected instead of rewritten.
+3. **Reviewer.** Fresh context, `docs/briefs/review.md`. First reads the source-only packet and persists the blocking meaning check before seeing answer material, then applies `content/reviews/rubric.md`, the per-part requirements and the level control: proves each key from the evidence, tests each distractor, judges level and exam likeness per item (the former separate level check). Small repairs are not requested but made: the reviewer writes `content/batches/<NNN>-proposed.json` (and `-proposed-starters.json` when a criterion changed) with every required and recommended edit applied, lists the edits in the review, and records the hash of the proposed file in `content/reviews/<NNN>-review.json`. An item that needs a new premise is rejected instead of rewritten.
 4. **Adoption.** `npm run batch:adopt <NNN>` moves the proposed files over the originals, verifies the review hash against the adopted bytes and runs the checker; the coordinator reads the diff the review lists. No separate reviser or re-review round: the reviewer has already read the edited items. A rejected item is dropped from the batch before adoption.
 5. **Level check.** Only for the first batch of a part or task type (calibration), as a separate fresh-context pass (`content/reviews/<NNN>-level-check.md`); later batches of the same shape rely on the reviewer's level column.
 6. **Media.** After the hash gate: `npm run audio:generate` (round-trip checked, retried once on a filler, manifest updated) and `npm run illustrate:generate` (house style from `config/illustration.json`); both run four generations at a time (`--concurrency`) and accept `--apply` to write the media fields into the catalogue; every picture is looked at on a contact sheet before `reviewed: true` in the manifest; `illustrate --redo <key>` redraws a drifted panel. Afterwards `npm run content:integrate -- --refresh-hints "<reason>"` re-records the starter-review hash (never `hints:refresh` alone, which can leave key order out of sync).

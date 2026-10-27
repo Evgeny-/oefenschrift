@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useStudyContext } from '../StudyContext';
 import { elapsed, addElapsed, formatMinutes } from '../domain/study';
 import { typeLabel } from '../domain/labels';
-import IssueReport from './IssueReport';
+import ExerciseReaction from './ExerciseReaction';
 
 export function Heading({ title, subtitle = undefined, dutch = false }) {
   return (
@@ -73,9 +73,10 @@ function useActiveSeconds(saved: number, persist: (delta: number) => void, ended
   }, [ended]);
   return ended ? saved : c.base + c.running;
 }
-export function Clock({ timer }) {
+export function Clock({ timer, visible = false }) {
   const { state, setting, t } = useStudyContext(),
     seconds = useActiveSeconds(timer.saved, timer.persist, timer.ended);
+  if (!visible) return null;
   return (
     <div className="session-clock">
       <button
@@ -112,7 +113,7 @@ export function Clock({ timer }) {
     </div>
   );
 }
-export function ExerciseHeader({ item, timer, questionId = null, tag = null }) {
+export function ExerciseHeader({ item, timer, questionId = null, tag = null, showClock = false }) {
   const { state, t, name } = useStudyContext(),
     type = typeLabel(item.taskType, state.settings.lang);
   const subtitle =
@@ -124,8 +125,12 @@ export function ExerciseHeader({ item, timer, questionId = null, tag = null }) {
       <div className="exercise-meta">
         <p>{subtitle + (tag ? ' · ' + tag : '')}</p>
         <div className="exercise-tools">
-          <Clock timer={timer} />
-          <IssueReport key={`${item.id}/${questionId || ''}`} item={item} questionId={questionId} />
+          <Clock timer={timer} visible={showClock} />
+          <ExerciseReaction
+            key={`${item.id}/${item.revision}/${questionId || ''}`}
+            item={item}
+            questionId={questionId}
+          />
         </div>
       </div>
     </div>

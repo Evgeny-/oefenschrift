@@ -28,8 +28,8 @@ export default function Terms() {
         <h2>{t('Oefenen, geen examen', 'Practice, not an exam')}</h2>
         <p>
           {t(
-            'De opgaven zijn zelf geschreven en lijken op de examenonderdelen, maar zijn geen examenvragen en geen kopie ervan. De moeilijkheid is niet vastgesteld door een NT2-docent of een onderzoek met cursisten. Een score op deze site zegt niets over je kans om te slagen, en de site doet daar ook geen uitspraak over. Opgaven kunnen fouten bevatten; meld ze via Meld een probleem, dan worden ze nagekeken.',
-            'The exercises are original, resemble the exam parts, but are not exam questions or copies of them. Their difficulty has not been established by an NT2 teacher or a learner study. A score here says nothing about your chance of passing, and the site makes no such claim. Exercises can contain mistakes; report them through Report a problem and they will be reviewed.',
+            'De opgaven zijn zelf geschreven en lijken op de examenonderdelen, maar zijn geen examenvragen en geen kopie ervan. De moeilijkheid is niet vastgesteld door een NT2-docent of een onderzoek met cursisten. Een score op deze site zegt niets over je kans om te slagen, en de site doet daar ook geen uitspraak over. Opgaven kunnen fouten bevatten. Kies het duimpje omlaag om daarna een probleem te melden, dan wordt het nagekeken.',
+            'The exercises are original, resemble the exam parts, but are not exam questions or copies of them. Their difficulty has not been established by an NT2 teacher or a learner study. A score here says nothing about your chance of passing, and the site makes no such claim. Exercises can contain mistakes. Choose the thumbs-down to report a problem afterwards so it can be reviewed.',
           )}
         </p>
         <h2>{t('AI-feedback en spraakherkenning', 'AI feedback and speech recognition')}</h2>

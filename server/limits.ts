@@ -7,7 +7,13 @@
 // through a semaphore so a burst waits briefly and then answers "busy" instead of piling
 // up sockets, temporary files and provider rate limits.
 export type Scope = 'address' | 'pass';
-export type Endpoint = 'feedback' | 'transcribe' | 'reports' | 'events';
+export type Endpoint =
+  | 'feedback'
+  | 'transcribe'
+  | 'reports'
+  | 'events'
+  | 'reactions'
+  | 'reactionReads';
 const MINUTE = 60_000,
   HOUR = 3_600_000,
   DAY = 86_400_000;
@@ -33,6 +39,14 @@ export const RULES: Record<Scope, Record<Endpoint, Rule[]>> = {
       [MINUTE, 120],
       [DAY, 3000],
     ],
+    reactions: [
+      [MINUTE, 120],
+      [DAY, 3000],
+    ],
+    reactionReads: [
+      [MINUTE, 1200],
+      [DAY, 12000],
+    ],
   },
   pass: {
     feedback: [
@@ -50,6 +64,14 @@ export const RULES: Record<Scope, Record<Endpoint, Rule[]>> = {
     events: [
       [MINUTE, 60],
       [DAY, 600],
+    ],
+    reactions: [
+      [MINUTE, 60],
+      [DAY, 600],
+    ],
+    reactionReads: [
+      [MINUTE, 180],
+      [DAY, 6000],
     ],
   },
 };

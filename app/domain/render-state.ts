@@ -1,5 +1,6 @@
 import { defaults, startSession, savedSetSession, flatten } from './study';
 import type { StudyState, Exercise, PracticeSet } from '../types';
+import { LEVELS } from '../types';
 
 import { PREFERENCES_COOKIE, readCookie } from './persistence';
 export { PREFERENCES_COOKIE } from './persistence';
@@ -8,7 +9,7 @@ export function readPreferences(cookie = ''): StudyState['settings'] {
   try {
     const raw = readCookie(cookie, PREFERENCES_COOKIE);
     const value = JSON.parse(decodeURIComponent(raw || '{}'));
-    if (['A2', 'B1', 'B2'].includes(value.level)) result.level = value.level;
+    if (LEVELS.includes(value.level)) result.level = value.level;
     if (['nl', 'en'].includes(value.lang)) result.lang = value.lang;
     if (['light', 'dark', 'system'].includes(value.theme)) result.theme = value.theme;
     result.clock = value.clock === true;

@@ -137,7 +137,18 @@ export function pageSeo(
             ],
     };
   };
-  if (route === 'home') return decorate(home[lang].title, home[lang].description, false);
+  if (route === 'home')
+    return level === 'A1'
+      ? decorate(
+          nl
+            ? 'Nederlands voor beginners: A1 oefenen | Oefenschrift'
+            : 'Dutch for beginners: A1 practice | Oefenschrift',
+          nl
+            ? 'Oefen Nederlands op A1 met korte opdrachten voor lezen, luisteren, schrijven en spreken. Met beeld, audio en oefenfeedback. Zonder account.'
+            : 'Practise Dutch at A1 through short reading, listening, writing and speaking tasks with pictures, audio and practice feedback. No account needed.',
+          false,
+        )
+      : decorate(home[lang].title, home[lang].description, false);
   const item = route.startsWith('exercise/')
     ? catalogue.find((item) => item.id === route.slice(9))
     : undefined;
@@ -158,8 +169,12 @@ export function pageSeo(
           : `${level} ${names[route]} practice`
         : route === 'check'
           ? nl
-            ? `Niveaucheck ${level}: tien vragen over lezen en luisteren`
-            : `Level check ${level}: ten questions on reading and listening`
+            ? level === 'A1'
+              ? 'Niveaucheck A1 niet beschikbaar'
+              : `Niveaucheck ${level}: tien vragen over lezen en luisteren`
+            : level === 'A1'
+              ? 'A1 level check unavailable'
+              : `Level check ${level}: ten questions on reading and listening`
           : names[route] || (nl ? 'Oefenen' : 'Practice');
   let description = nl
     ? 'Oefen Nederlands met zelfstandige opdrachten voor lezen, luisteren, schrijven en spreken. Onafhankelijke oefenopgaven voor je inburgering.'
@@ -183,15 +198,21 @@ export function pageSeo(
       ? 'Oefen Kennis van de Nederlandse Maatschappij met eigen vragen en uitleg. KNM staat los van je taalniveau.'
       : 'Practise Kennis van de Nederlandse Maatschappij (KNM) with original questions and explanations. KNM is independent of your language level.';
   else if (route === 'check')
-    description = nl
-      ? `Doe de gratis niveaucheck op ${level}: tien vragen over lezen en luisteren. Je ziet per onderdeel hoe je scoort en waar je het best begint. Geen examenuitslag.`
-      : `Take the free level check at ${level}: ten questions on reading and listening. See how you score per subject and where best to begin. Not an exam result.`;
+    description =
+      level === 'A1'
+        ? nl
+          ? 'Voor A1 zijn er korte oefeningen voor lezen, luisteren, schrijven en spreken. Een niveaucheck is voor A1 niet beschikbaar.'
+          : 'A1 offers short reading, listening, writing and speaking exercises. A level check is unavailable for A1.'
+        : nl
+          ? `Doe de gratis niveaucheck op ${level}: tien vragen over lezen en luisteren. Je ziet per onderdeel hoe je scoort en waar je het best begint. Geen examenuitslag.`
+          : `Take the free level check at ${level}: ten questions on reading and listening. See how you score per subject and where best to begin. Not an exam result.`;
   else if (route === 'about')
     description = nl
       ? 'Lees hoe onze onafhankelijke inburgeringsoefeningen worden gemaakt en nagekeken, wat de beperkingen zijn en hoe je een probleem kunt melden.'
       : 'Read how our independent inburgering exercises are made and reviewed, what their limitations are and how to report a problem.';
   const noindex =
     ['progress', 'session', 'privacy', 'terms', 'mock', 'check-result'].includes(route) ||
+    (level === 'A1' && route === 'check') ||
     (subject && !available.length);
   return decorate(title, description, noindex, item, set);
 }

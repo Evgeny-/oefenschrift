@@ -11,6 +11,7 @@ import { validateBatch } from '../scripts/batch-validation';
 import { checkContent } from '../scripts/content';
 import { validateExercise } from '../server/store';
 import { itemPassedReview } from '../scripts/content-review';
+import { meaningPacketHash } from '../scripts/meaning-review';
 
 const read = (path: string) => JSON.parse(readFileSync(path, 'utf8'));
 const catalogue = read('content/catalogue.json');
@@ -26,6 +27,39 @@ const writingSets = read('content/practice-sets.json').filter((set) =>
 );
 const clone = <T>(value: T): T => structuredClone(value);
 const sha = (value: string) => createHash('sha256').update(value).digest('hex');
+
+// Synthetic structural approval for integration control-flow tests only. It is
+// never an editorial judgment or a production content approval.
+function syntheticMeaningApproval(items: any[]) {
+  return {
+    review_contract_version: 2,
+    meaning_first: {
+      verdict: 'pass',
+      review_order: 'source-before-questions',
+      packet_sha256: meaningPacketHash(items),
+      independence_note: 'Synthetic source-first evidence for an isolated integration fixture.',
+    },
+    tone_balance: {
+      ordinary: items.length,
+      light_humor: 0,
+      target_share: 0.15,
+      scope_note: 'Ordinary synthetic fixtures isolate import behavior from editorial judgment.',
+    },
+    items: items.map((item) => ({
+      id: item.id,
+      verdict: 'pass',
+      meaning: {
+        verdict: 'pass',
+        coherence_rating: 5,
+        tone: 'ordinary',
+        situation_summary: `Synthetic fixture source ${item.id}: ${item.title}.`,
+        communicative_purpose: `Exercise ${item.id} supplies the import control-flow scenario.`,
+        contrivance_check: `Fixture ${item.id} has a synthetic approval so other import gates can be tested.`,
+        unsupported_assumptions: [],
+      },
+    })),
+  };
+}
 
 function errors(change: (items: any[]) => void) {
   const items = clone(batch);
@@ -156,6 +190,7 @@ test('a matching review hash cannot bypass the authoring contract at integration
     const source = JSON.stringify(items, null, 2) + '\n';
     writeFileSync('content/batches/004-original.json', source);
     const review = read('content/reviews/004-review.json');
+    Object.assign(review, syntheticMeaningApproval(items));
     review.source_sha256 = sha(source);
     writeFileSync('content/reviews/004-review.json', JSON.stringify(review));
     await assert.rejects(checkContent(true, 'test'), /legacy type field/);
@@ -190,12 +225,12 @@ test('replacement batches preserve final media across repeated imports', async (
     writeFileSync(
       'content/reviews/005-review.json',
       JSON.stringify({
+        ...syntheticMeaningApproval(replacements),
         source: 'content/batches/005-original.json',
         source_sha256: sha(source),
         batch_verdict: 'pass',
         ready_for_integration: true,
         replaces: replacements.map((item) => item.id),
-        items: replacements.map((item) => ({ id: item.id, verdict: 'pass' })),
       }),
     );
     await checkContent(true, 'test replacement');

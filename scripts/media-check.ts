@@ -23,6 +23,25 @@ export function mediaErrors(catalogue: any[], audio: any[], images: any[], exist
       errors.push(`${key}: audio transcription round trip has not passed`);
   }
   for (const item of catalogue) {
+    if (
+      item.level === 'A1' &&
+      item.part === 'listening' &&
+      !(
+        Array.isArray(item.images) &&
+        item.images.length === 1 &&
+        item.images.every(
+          (picture: any) =>
+            typeof picture?.brief === 'string' &&
+            picture.brief.trim() &&
+            typeof picture.alt === 'string' &&
+            picture.alt.trim() &&
+            picture.kind === 'drawing',
+        )
+      )
+    )
+      errors.push(
+        `${item.id}: A1 listening needs one generated context illustration with brief and alt`,
+      );
     if (item.script?.length)
       clip(`${item.id}#fragment`, item.audio, item.script.map((turn) => turn.text).join('\n'));
     if (item.part === 'listening' && item.intro)
