@@ -1,0 +1,2030 @@
+{
+  "review_id": "084-a1-listening-revision-independent-review-2026-10-28",
+  "review_contract_version": 2,
+  "source": "content/batches/084-original.json",
+  "proposed_source": "content/batches/084-proposed.json",
+  "source_sha256": "155591689023d5c1acdd8385c0d123a76a8b67ba8904e634a5abbefe58c20a10",
+  "review_type": "independent-ai-editorial",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-28T08:58:00Z",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "item_count": 16,
+  "question_count": 32,
+  "replaces": [
+    "A1:listening:batch078-gemeente-foto:1",
+    "A1:listening:batch078-kind-ziek:1",
+    "A1:listening:batch078-feest-zaterdag:1",
+    "A1:listening:batch078-bus-station:1",
+    "A1:listening:batch077-hond-banaan:1",
+    "A1:listening:batch078-eieren-taart:1",
+    "A1:listening:batch070-tas-kopen:1",
+    "A1:listening:batch070-potlood-lenen:1",
+    "A1:listening:batch072-grote-hoed:1",
+    "A1:listening:batch072-bloem-beker:1",
+    "A1:listening:batch077-dienst-ruilen:1",
+    "A1:listening:batch078-buren-sleutel:1",
+    "A1:listening:batch078-jas-passen:1",
+    "A1:listening:batch077-apotheek-pil:1",
+    "A1:listening:batch078-melk-zoeken:1",
+    "A1:listening:batch072-doos-oren:1"
+  ],
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "865e01ebaeed26cd70aac7af9cdc45fc921652141108df4b70f8bd838d718687",
+    "independence_note": "Fresh reviewer distinct from the author. Read only the source-only packet of the original (packet hash 8bc8089f67f2de9cd7dadca1b86742ec3a7ba83b1b43ab69b37b31ce5df8e0a9), docs/briefs/review.md, blueprint 4.0 and the rubric, then wrote item-specific findings and a turn function for every script turn before opening 084-original.json, the questions, keys or notes. The meaning pass was repeated on the proposed source; packet_sha256 is the hash of the packet rebuilt from the proposed bytes."
+  },
+  "blind_findings_source": "/private/tmp/claude-501/-Users-evgeny-nikiforov-Projects-inburgering/443fc2a5-9af7-43e8-a6a4-5672b1672268/scratchpad/084-blind.json",
+  "blind_turn_links_source": "/private/tmp/claude-501/-Users-evgeny-nikiforov-Projects-inburgering/443fc2a5-9af7-43e8-a6a4-5672b1672268/scratchpad/084-blind-turnlinks.json",
+  "final_meaning_recheck": "Repeated the meaning pass on all sixteen proposed sources after the repairs. The blind pass had flagged: eieren-taart (situation at Jamal's door against a brief drawing her alone in her kitchen; repaired), hond-banaan (access to the kitchen implied; accepted as ordinary pet-sitting), jas-passen (unanswered closing request and a coat the picture does not show; accepted, no green drawn), melk-zoeken (checkout question; accepted), bloem-beker (flower remark inside the order turn; accepted as small talk on a pictured object). The full pass then found four question and title leaks that the meaning pass cannot see (kind-ziek, dienst-ruilen, apotheek-pil, potlood-lenen) and two option-form cues (feest-zaterdag, bus-station); all repaired.",
+  "tone_balance": {
+    "ordinary": 14,
+    "light_humor": 2,
+    "target_share": 0.15,
+    "scope_note": "Revision batch 084 holds 14 ordinary and 2 light-humor items (hond-banaan, eieren-taart); 2 of 16 is 12.5 percent against the 15 percent program target, within the rounding allowance. These items replace published A1 listening items; the coordinator must add them to the combined count without counting replaced items twice."
+  },
+  "edits": [
+    {
+      "id": "A1:listening:batch078-kind-ziek:1",
+      "field": "questions.1.prompt",
+      "before": "Wat vraagt de juf over de dochter?",
+      "after": "Wat vraagt de juf?",
+      "reason": "The prompt said 'de dochter' and answered q1 ('Wie is er ziek?'), the same leak batch 078 had already repaired."
+    },
+    {
+      "id": "A1:listening:batch078-kind-ziek:1",
+      "field": "questions.1.options",
+      "before": "A Haar klas. / B Haar adres. / C Haar naam.",
+      "after": "A De klas. / B Het adres. / C De naam.",
+      "reason": "'Haar' would exclude the son option of q1; neutral nouns keep both questions independent."
+    },
+    {
+      "id": "A1:listening:batch078-feest-zaterdag:1",
+      "field": "questions.1.options",
+      "before": "A Een taart. / B Een boek. / C Bloemen.",
+      "after": "A Taart. / B Boeken. / C Bloemen.",
+      "reason": "The key was the only option without 'Een': a form cue. Bare nouns are natural Dutch answers and parallel."
+    },
+    {
+      "id": "A1:listening:batch078-bus-station:1",
+      "field": "questions.1.options",
+      "before": "C Met haar pinpas.",
+      "after": "C Met een pinpas.",
+      "reason": "The key was the only option with a possessive; now all three are equally plain."
+    },
+    {
+      "id": "A1:listening:batch070-potlood-lenen:1",
+      "field": "questions.1.prompt",
+      "before": "Waar legt Aya het potlood straks?",
+      "after": "Waar moet Aya het potlood leggen?",
+      "reason": "'straks' hinted at a later return and weakened q1; the new wording asks only for the place."
+    },
+    {
+      "id": "A1:listening:batch077-dienst-ruilen:1",
+      "field": "title",
+      "before": "Zaterdag werken",
+      "after": "Op het werk",
+      "reason": "The visible title gave away q1 ('Welke dag werkt Ahmed?' key Op zaterdag)."
+    },
+    {
+      "id": "A1:listening:batch077-apotheek-pil:1",
+      "field": "questions.1.prompt",
+      "before": "Wanneer neemt Kim de pil?",
+      "after": "Wanneer neemt Kim het medicijn?",
+      "reason": "'de pil' (singular) revealed q1's key (one pill); 'medicijn' is in the script and the A1 list."
+    },
+    {
+      "id": "A1:listening:batch078-eieren-taart:1",
+      "field": "images.0.brief",
+      "before": "Neighbour alone in her own plain kitchen with an empty mixing bowl and a baking tin on the table.",
+      "after": "Neighbour with an empty mixing bowl in a plain corridor outside a flat door; Jamal (short black hair, mustard yellow sweater) in his open doorway facing her; both whole figures; no eggs, cake, tin, flour, kitchen or street view.",
+      "reason": "The situation puts her at Jamal's door and the dialogue is addressed to him; a lone woman in her own kitchen contradicted both and showed no listener."
+    },
+    {
+      "id": "A1:listening:batch078-eieren-taart:1",
+      "field": "images.0.alt",
+      "before": "Een buurvrouw staat in haar keuken met een schaal.",
+      "after": "Een buurvrouw met een kom praat met een jonge man bij zijn deur.",
+      "reason": "Equivalent facts to the new brief; names neither eggs nor cake."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "verdict": "pass",
+      "command": "npm run batch:check -- content/batches/084-proposed.json",
+      "result": "Checked 16 items, 32 questions. Keys {\"C\":11,\"A\":11,\"B\":10}. Options 3 each. No failures, no warnings (info: all 16 already in the catalogue, a revision)."
+    },
+    "key_distribution": {
+      "A": 11,
+      "B": 10,
+      "C": 11
+    },
+    "key_runs": "No key appears three times in a row in file order; edits did not move any key.",
+    "exact_proposed_hash": "155591689023d5c1acdd8385c0d123a76a8b67ba8904e634a5abbefe58c20a10",
+    "full_final_source_read": true,
+    "every_distractor_audited": true,
+    "voice_pairing": "Roles and speaker order unchanged from the replaced items; every role exists in config/voices.json and each conversation has two different roles. m-shop with m-young (tas-kopen) and m-adult with f-young/f-mature are unchanged choices; no m-adult with f-adult.",
+    "numbers_and_times": "All numbers and times appear as words in every learner-visible field; no digits.",
+    "original_ids_preserved": true,
+    "pictures": "Thirteen unchanged pictures were opened and checked against the new scripts: none shows a keyed fact. Three redrawn briefs judged: eieren-taart edited, jas-passen and doos-oren pass."
+  },
+  "diversity_and_assembly": {
+    "verdict": "pass",
+    "evidence": "Sixteen distinct settings and purposes (passport counter, school call, party invitation, bus, pet care, egg loan, bag shop, classroom loan, bakery, cafe, shift cover, holiday key, coat shop, pharmacy, supermarket, gift small talk). Names repeat only as the same drawn person (Ahmed, Jamal) or in different roles (Kees in two items, no picture shared). Keys are balanced and nowhere three in a row."
+  },
+  "media_notes": {
+    "approval": "Sources, scripts and briefs only; no audio or picture is approved here.",
+    "regenerate": "No audio job beyond the author's list: every question edited here (kind-ziek q2, feest-zaterdag q2, bus-station q2, potlood-lenen q2, apotheek-pil q2) was already on the new-narration list, and the dienst-ruilen title is not spoken. Redraw eieren-taart (edited brief), jas-passen and doos-oren. Generate audio with --keys for exactly the author's jobs, from the adopted bytes.",
+    "voices": "Speaker roles unchanged; no new casting.",
+    "picture_risks": "eieren-taart: bowl empty, no eggs or cake, Jamal in the same traits as jas-passen. jas-passen: the house palette uses sage green; confirm no coat reads green. doos-oren: lid closed, box not held out. After drawing, record the reviewed pictures in the image manifest."
+  },
+  "limitations": [
+    "Independent AI editorial judgment; no teacher review, learner pilot, validated CEFR difficulty, official approval or exam-equivalence claim.",
+    "Audio and rendered pictures are not reviewed here.",
+    "Dutch practice claims (contactless bus payment, gemeente return visit, pharmacy dosing) are plausibility judgments from general knowledge; none is treated as an official procedure."
+  ],
+  "items": [
+    {
+      "id": "A1:listening:batch078-gemeente-foto:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 35,
+        "mean_sentence_words": 3.89,
+        "maximum_sentence_words": 7
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Kees has an appointment at the gemeente for a new passport; the clerk asks for his pasfoto, he did not bring it, and she tells him to return tomorrow with one.",
+        "communicative_purpose": "Learn what a passport counter asks for and what to do when a document is missing: a real civic errand for a newcomer.",
+        "contrivance_check": "Request, missing photo, consequence and acceptance form one chain; the photo is the one thing a passport application needs, and the situation line states the appointment, so no off-page event is needed. Remaining risk: a real clerk might ask for a new appointment; a same-office return the next day is plausible.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen. Ik kom voor een nieuw paspoort.",
+            "response_function": "Kees states his errand at the counter, which gives the clerk her task."
+          },
+          {
+            "turn": 2,
+            "quote": "Goedemorgen. Mag ik uw pasfoto?",
+            "response_function": "The clerk greets back and asks for the pasfoto that a passport application needs."
+          },
+          {
+            "turn": 3,
+            "quote": "Sorry, die heb ik niet bij me.",
+            "response_function": "Kees answers the question about the photo: he does not have it with him."
+          },
+          {
+            "turn": 4,
+            "quote": "Dan komt u morgen terug. Neem een pasfoto mee.",
+            "response_function": "The clerk draws the consequence of the missing photo: come back tomorrow with one."
+          },
+          {
+            "turn": 5,
+            "quote": "Goed, dat doe ik. Dank u wel.",
+            "response_function": "Kees accepts the instruction and thanks her, closing the visit."
+          }
+        ],
+        "spoken_word_count": 35,
+        "turn_count": 5
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "C",
+          "answer_text": "Een pasfoto.",
+          "evidence_quote": "Mag ik uw pasfoto?",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Een brief.",
+              "rationale": "A brief is common at a counter but is never mentioned; the clerk asks only for the pasfoto."
+            },
+            {
+              "option": "B",
+              "text": "Een formulier.",
+              "rationale": "A form is a familiar counter item and is not mentioned."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "A",
+          "answer_text": "Morgen.",
+          "evidence_quote": "Dan komt u morgen terug.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Vanmiddag.",
+              "rationale": "Same-day return is plausible after a missing document, but she says morgen."
+            },
+            {
+              "option": "C",
+              "text": "Maandag.",
+              "rationale": "A named weekday is a plausible appointment slot and is not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "Neither prompt contains the other's answer; title and situation name neither the photo nor the day; the alt shows only a man talking to a woman."
+      },
+      "picture_check": "Picture (not redrawn) was opened: man and clerk at an empty counter with a window, empty hands; no photo, passport, form or card; fits the new script.",
+      "voice_pair": [
+        "f-adult",
+        "m-older"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    },
+    {
+      "id": "A1:listening:batch078-kind-ziek:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 31,
+        "mean_sentence_words": 3.44,
+        "maximum_sentence_words": 6
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Yusuf phones the school in the morning to report that his daughter is ill; the juf asks the child's name, he gives it and says she is at home today and tomorrow, and the juf wishes her well.",
+        "communicative_purpose": "Report a child's absence to a school by phone: a routine parent task, with the name asked so the school can record it.",
+        "contrivance_check": "The juf's name question follows from a parent reporting an unnamed ill child; the stay-at-home line answers the unstated question how long, and the closing good wish follows the news. No off-page fact is needed.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen, met de school.",
+            "response_function": "The school answers the phone and invites the caller to speak."
+          },
+          {
+            "turn": 2,
+            "quote": "Hallo, met Yusuf. Mijn dochter is ziek.",
+            "response_function": "Yusuf names himself and reports why he calls: his daughter is ill."
+          },
+          {
+            "turn": 3,
+            "quote": "Wat jammer. Wat is haar naam?",
+            "response_function": "The school reacts with sympathy and asks which child, so the absence can be noted."
+          },
+          {
+            "turn": 4,
+            "quote": "Haar naam is Lotte. Ze is vandaag en morgen thuis.",
+            "response_function": "Yusuf answers the name question and adds how long she stays at home."
+          },
+          {
+            "turn": 5,
+            "quote": "Goed. Beterschap voor Lotte!",
+            "response_function": "The school accepts the report and wishes the child well."
+          }
+        ],
+        "spoken_word_count": 31,
+        "turn_count": 5
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "person",
+          "answer": "C",
+          "answer_text": "Zijn dochter.",
+          "evidence_quote": "Mijn dochter is ziek.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Zijn zoon.",
+              "rationale": "Son is the other child alternative; Yusuf says dochter."
+            },
+            {
+              "option": "B",
+              "text": "Zijn vrouw.",
+              "rationale": "A wife is another plausible ill family member; not mentioned."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "C",
+          "answer_text": "De naam.",
+          "evidence_quote": "Wat is haar naam?",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "De klas.",
+              "rationale": "A school may ask the class, but the juf only asks the name."
+            },
+            {
+              "option": "B",
+              "text": "Het adres.",
+              "rationale": "The address is a typical administrative question and is not asked."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "Edited: q2 asked 'over de dochter', which answered q1 ('Wie is er ziek?'). It now reads 'Wat vraagt de juf?' with neutral nouns (no 'haar'), so neither question reveals the other."
+      },
+      "picture_check": "Picture (not redrawn) was opened: Yusuf alone at home with a phone, a coat on a hook; no child, calendar or clock.",
+      "voice_pair": [
+        "f-mature",
+        "m-adult"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    },
+    {
+      "id": "A1:listening:batch078-feest-zaterdag:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 31,
+        "mean_sentence_words": 3.88,
+        "maximum_sentence_words": 6
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Maria phones her friend Kees to say she has her birthday on Saturday and to invite him; he accepts, asks the time, she says three o'clock at her home, and he promises flowers.",
+        "communicative_purpose": "Invite a friend to a birthday party and settle time and place: an everyday social call.",
+        "contrivance_check": "Every turn answers the previous: invitation, acceptance plus the missing time, time and place, then a guest's gift of flowers, which is the Dutch custom (the host provides the cake). No invented context.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hoi Kees. Ik ben zaterdag jarig. Kom je naar mijn feest?",
+            "response_function": "Maria phones with her news and invites Kees to the party."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, leuk! Hoe laat is het feest?",
+            "response_function": "Kees accepts and asks the missing detail, the time."
+          },
+          {
+            "turn": 3,
+            "quote": "Om drie uur, bij mij thuis.",
+            "response_function": "Maria answers the time and place."
+          },
+          {
+            "turn": 4,
+            "quote": "Fijn. Ik neem bloemen voor je mee.",
+            "response_function": "Kees confirms with a friendly offer to bring flowers as a birthday gift."
+          }
+        ],
+        "spoken_word_count": 31,
+        "turn_count": 4
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "B",
+          "answer_text": "Op zaterdag.",
+          "evidence_quote": "Ik ben zaterdag jarig.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Op vrijdag.",
+              "rationale": "Friday is a neighbouring weekday; Maria says zaterdag."
+            },
+            {
+              "option": "C",
+              "text": "Op zondag.",
+              "rationale": "Sunday is the other neighbouring weekday; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "C",
+          "answer_text": "Bloemen.",
+          "evidence_quote": "Ik neem bloemen voor je mee.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Taart.",
+              "rationale": "Birthday cake is the typical party item, but the host serves it; Kees brings flowers."
+            },
+            {
+              "option": "B",
+              "text": "Boeken.",
+              "rationale": "Books are a gift people give but are not mentioned."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "Edited: q2 key was 'Bloemen.' against 'Een taart.' and 'Een boek.', the only option without an article. Options are now bare, parallel nouns (Taart. / Boeken. / Bloemen.)."
+      },
+      "picture_check": "Picture (not redrawn) was opened: an older woman in an armchair on the phone beside a lamp; no cake, presents or flowers.",
+      "voice_pair": [
+        "f-older",
+        "m-older"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    },
+    {
+      "id": "A1:listening:batch078-bus-station:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 28,
+        "mean_sentence_words": 4.0,
+        "maximum_sentence_words": 6
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Zara boards a city bus, says she must go to the station, the driver confirms this bus goes there, she asks how to pay and he says by pinpas, which she has.",
+        "communicative_purpose": "Check a bus destination and the payment method before riding: a first-weeks transport situation.",
+        "contrivance_check": "Destination question, confirmation, payment question, answer and acknowledgement are one boarding exchange; the Dutch contactless bank-card payment is real and no extra event is needed. Remaining risk: the driver's line simplifies check-in.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hallo. Ik moet naar het station.",
+            "response_function": "Zara greets the driver and states her destination, asking implicitly whether this bus goes there."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, dat kan met deze bus.",
+            "response_function": "The driver confirms this bus goes to the station."
+          },
+          {
+            "turn": 3,
+            "quote": "Fijn, dank u. Hoe betaal ik?",
+            "response_function": "Zara thanks him and asks how to pay, the next practical step."
+          },
+          {
+            "turn": 4,
+            "quote": "U betaalt met uw pinpas, mevrouw.",
+            "response_function": "The driver answers how she pays."
+          },
+          {
+            "turn": 5,
+            "quote": "Goed, die heb ik.",
+            "response_function": "Zara confirms she has that card."
+          }
+        ],
+        "spoken_word_count": 28,
+        "turn_count": 5
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "B",
+          "answer_text": "Naar het station.",
+          "evidence_quote": "Ik moet naar het station.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Naar de markt.",
+              "rationale": "Market is a plausible city destination; Zara says station."
+            },
+            {
+              "option": "C",
+              "text": "Naar het ziekenhuis.",
+              "rationale": "Hospital is another plausible destination; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "C",
+          "answer_text": "Met een pinpas.",
+          "evidence_quote": "U betaalt met uw pinpas, mevrouw.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Met geld.",
+              "rationale": "Cash is what many learners expect on a bus; the driver says pinpas."
+            },
+            {
+              "option": "B",
+              "text": "Met een kaartje.",
+              "rationale": "A paper ticket is the other familiar expectation; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "Edited: the key 'Met haar pinpas.' was the only option with a possessive. Options are now Met geld. / Met een kaartje. / Met een pinpas. (equal length, no cue)."
+      },
+      "picture_check": "Picture (not redrawn) was opened: whole yellow bus at a shelter, Zara at the front door, driver at the wheel; no ticket, card, reader or destination display.",
+      "voice_pair": [
+        "f-young",
+        "m-adult"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    },
+    {
+      "id": "A1:listening:batch077-hond-banaan:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 39,
+        "mean_sentence_words": 4.33,
+        "maximum_sentence_words": 7
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "light-humor",
+        "situation_summary": "A neighbour who leaves tomorrow asks young Max to feed her dog; he asks how often and where the food is, and she tells him the times and the kitchen, adding that the dog likes a piece of banana.",
+        "communicative_purpose": "Arrange pet care with a neighbour: the practical details of when and where to feed.",
+        "contrivance_check": "Request, acceptance with a frequency question, answer, location question and answer are a normal handover; the banana is a harmless closing treat tip and the only gag. Residual risk accepted: Max reaching the kitchen implies a key, which is ordinary in pet-sitting.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Max, ik ga morgen weg. Wil je mijn hond eten geven?",
+            "response_function": "The neighbour announces she leaves tomorrow and asks Max to feed her dog."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, natuurlijk. Hoe vaak eet hij?",
+            "response_function": "Max agrees and asks how often the dog eats."
+          },
+          {
+            "turn": 3,
+            "quote": "In de ochtend en in de avond.",
+            "response_function": "The neighbour answers the frequency."
+          },
+          {
+            "turn": 4,
+            "quote": "Goed. Waar is zijn eten?",
+            "response_function": "Max accepts and asks where the food is."
+          },
+          {
+            "turn": 5,
+            "quote": "In de keuken. Een stukje banaan vindt hij ook lekker!",
+            "response_function": "The neighbour tells where the food is and adds a treat tip."
+          }
+        ],
+        "spoken_word_count": 39,
+        "turn_count": 5
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "B",
+          "answer_text": "Morgen.",
+          "evidence_quote": "ik ga morgen weg.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Vandaag.",
+              "rationale": "She leaves morgen, so vandaag is false."
+            },
+            {
+              "option": "C",
+              "text": "Maandag.",
+              "rationale": "Maandag is a plausible weekday and is not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "C",
+          "answer_text": "In de keuken.",
+          "evidence_quote": "In de keuken.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "In de tuin.",
+              "rationale": "A garden is a place a dog uses but the food is in the kitchen."
+            },
+            {
+              "option": "B",
+              "text": "In de badkamer.",
+              "rationale": "A bathroom is another room in a house and is not mentioned."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "Title names the dog food, not the room or the day; q1 asks about leaving, q2 about the food place; the alt shows a woman with a dog and a neighbour."
+      },
+      "picture_check": "Picture (not redrawn) was opened: woman at her front door with a small dog on a lead, Max in front of her; no banana, bowl, kitchen or suitcase.",
+      "voice_pair": [
+        "f-older",
+        "m-casual"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    },
+    {
+      "id": "A1:listening:batch078-eieren-taart:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 29,
+        "mean_sentence_words": 3.62,
+        "maximum_sentence_words": 8
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "light-humor",
+        "situation_summary": "A neighbour rings Jamal's door and asks to borrow ten eggs; he is surprised, learns she is baking a cake for the whole street, hands the eggs over and asks for a piece.",
+        "communicative_purpose": "Borrow ingredients from a neighbour and explain why: a friendly street exchange; the street cake is the light gag.",
+        "contrivance_check": "The large number is questioned, explained and rewarded with a request for a piece; the scene is at Jamal's door. The redrawn picture must match: it now shows her at his door with an empty bowl, not alone in her kitchen as the author's brief had it.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hoi Jamal. Mag ik tien eieren lenen?",
+            "response_function": "The neighbour greets Jamal and asks to borrow eggs."
+          },
+          {
+            "turn": 2,
+            "quote": "Zo veel? Wat maak je?",
+            "response_function": "Jamal reacts to the large number and asks what she is making."
+          },
+          {
+            "turn": 3,
+            "quote": "Ik maak een taart voor de hele straat.",
+            "response_function": "The neighbour explains the large amount: a cake for the street."
+          },
+          {
+            "turn": 4,
+            "quote": "Leuk! Hier zijn ze. Mag ik ook een stuk?",
+            "response_function": "Jamal hands over the eggs and asks for a piece in return."
+          }
+        ],
+        "spoken_word_count": 29,
+        "turn_count": 4
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "quantity",
+          "answer": "B",
+          "answer_text": "Tien eieren.",
+          "evidence_quote": "Mag ik tien eieren lenen?",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Zes eieren.",
+              "rationale": "Six eggs is a plausible amount for a cake; she asks for ten."
+            },
+            {
+              "option": "C",
+              "text": "Twaalf eieren.",
+              "rationale": "Twelve is a plausible dozen; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "person",
+          "answer": "B",
+          "answer_text": "Voor de hele straat.",
+          "evidence_quote": "Ik maak een taart voor de hele straat.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Voor haar hele familie.",
+              "rationale": "A cake for her family is plausible but she says the whole street."
+            },
+            {
+              "option": "C",
+              "text": "Voor haar kinderen.",
+              "rationale": "Children are a plausible cake audience; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "Title and situation name neither number nor recipients; the new alt shows a woman with a bowl and a young man at his door, no eggs or cake."
+      },
+      "picture_check": "Brief edited: author's new brief put her alone in her own kitchen, contradicting the situation ('bij de deur van Jamal') and showing no listener. New brief: neighbour with an empty mixing bowl in the corridor, Jamal in his open doorway, no eggs, cake, tin or kitchen. Alt now 'Een buurvrouw met een kom praat met een jonge man bij zijn deur.' Jamal's traits match jas-passen.",
+      "voice_pair": [
+        "f-older",
+        "m-young"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    },
+    {
+      "id": "A1:listening:batch070-tas-kopen:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 29,
+        "mean_sentence_words": 3.62,
+        "maximum_sentence_words": 7
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A customer says he needs a bag for work, the seller shows a black bag and says it is nice, the customer agrees and asks the price, and the seller answers thirty euros.",
+        "communicative_purpose": "Shop for a bag: find out what is on offer and how much it costs.",
+        "contrivance_check": "Offer of help, need and purpose, a concrete suggestion, interest and price follow one buying sequence; the seller names the colour himself, so the key rests on what the seller says.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag. Kan ik u helpen?",
+            "response_function": "The seller offers help."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, graag. Ik zoek een tas voor mijn werk.",
+            "response_function": "The customer names what he wants and why."
+          },
+          {
+            "turn": 3,
+            "quote": "Kijk, deze zwarte tas is mooi.",
+            "response_function": "The seller shows a matching bag."
+          },
+          {
+            "turn": 4,
+            "quote": "Ja, mooi! Wat kost hij?",
+            "response_function": "The customer likes it and asks the price."
+          },
+          {
+            "turn": 5,
+            "quote": "Hij kost dertig euro.",
+            "response_function": "The seller gives the price."
+          }
+        ],
+        "spoken_word_count": 29,
+        "turn_count": 5
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "C",
+          "answer_text": "Zwart.",
+          "evidence_quote": "deze zwarte tas is mooi.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Bruin.",
+              "rationale": "Brown is a common bag colour; the seller says zwart."
+            },
+            {
+              "option": "B",
+              "text": "Blauw.",
+              "rationale": "Blue is another common bag colour; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "quantity",
+          "answer": "A",
+          "answer_text": "Dertig euro.",
+          "evidence_quote": "Hij kost dertig euro.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Veertig euro.",
+              "rationale": "Forty euro is a plausible bag price; the seller says dertig."
+            },
+            {
+              "option": "C",
+              "text": "Vijftig euro.",
+              "rationale": "Fifty euro is a plausible bag price; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "Colour and price are asked in separate prompts and stated in separate turns; title says only that a bag is bought; the alt names no colour or price."
+      },
+      "picture_check": "Picture (not redrawn) was opened: customer and bearded seller at a counter with empty shelves; no bag, money or price label.",
+      "voice_pair": [
+        "m-shop",
+        "m-young"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    },
+    {
+      "id": "A1:listening:batch070-potlood-lenen:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 31,
+        "mean_sentence_words": 4.43,
+        "maximum_sentence_words": 6
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Aya has no pencil and asks her teacher to lend his; he agrees and says to bring it back after class, she thanks him and asks where to put it, and he says on his table.",
+        "communicative_purpose": "Borrow something in class and learn when and where to return it.",
+        "contrivance_check": "Request, permission with a return time, thanks and a practical follow-up question, answer: one borrowing exchange. The slight overlap of 'terugbrengen' and 'waar leg ik het' is a real practical question about where to leave it.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Sorry, ik heb geen potlood. Mag ik uw potlood lenen?",
+            "response_function": "Aya has no pencil and asks the teacher to lend his."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, natuurlijk. Breng het na de les terug.",
+            "response_function": "The teacher agrees and says when to return it."
+          },
+          {
+            "turn": 3,
+            "quote": "Dank u wel. Waar leg ik het straks?",
+            "response_function": "Aya thanks him and asks where to put it."
+          },
+          {
+            "turn": 4,
+            "quote": "Leg het op mijn tafel.",
+            "response_function": "The teacher tells her where."
+          }
+        ],
+        "spoken_word_count": 31,
+        "turn_count": 4
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "A",
+          "answer_text": "Na de les.",
+          "evidence_quote": "Breng het na de les terug.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Voor de les.",
+              "rationale": "Before the lesson is false; the teacher says na de les."
+            },
+            {
+              "option": "C",
+              "text": "In de pauze.",
+              "rationale": "The break is another plausible return time; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "C",
+          "answer_text": "Op de tafel.",
+          "evidence_quote": "Leg het op mijn tafel.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "In de tas.",
+              "rationale": "A bag is a classroom place; the teacher names his table."
+            },
+            {
+              "option": "B",
+              "text": "Op de stoel.",
+              "rationale": "A chair is a classroom place; not mentioned."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "Edited: q2 prompt said 'straks', which hints that the return is later and weakens q1; it now reads 'Waar moet Aya het potlood leggen?'."
+      },
+      "picture_check": "Picture (not redrawn) was opened: Aya and the teacher in front of an empty board, empty hands; no pencil, table or chair.",
+      "voice_pair": [
+        "f-young",
+        "m-older"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    },
+    {
+      "id": "A1:listening:batch072-grote-hoed:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 25,
+        "mean_sentence_words": 3.12,
+        "maximum_sentence_words": 5
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "At a bakery the baker asks what Ahmed wants; he orders two loaves, she hands them over and names five euros, and he says he pays by pinpas and thanks her.",
+        "communicative_purpose": "Buy bread and pay: the standard shop counter sequence.",
+        "contrivance_check": "'Wat mag het zijn?' is the baker's normal opener; order, handover with price and payment method follow in order. Nothing is added for the sake of the questions.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen. Wat mag het zijn?",
+            "response_function": "The baker asks what the customer wants."
+          },
+          {
+            "turn": 2,
+            "quote": "Goedemorgen. Twee broden, graag.",
+            "response_function": "Ahmed orders two loaves."
+          },
+          {
+            "turn": 3,
+            "quote": "Hier zijn uw broden. Dat is vijf euro.",
+            "response_function": "The baker hands them over and names the price."
+          },
+          {
+            "turn": 4,
+            "quote": "Ik betaal met mijn pinpas. Dank u wel.",
+            "response_function": "Ahmed says how he pays and thanks her."
+          }
+        ],
+        "spoken_word_count": 25,
+        "turn_count": 4
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "quantity",
+          "answer": "C",
+          "answer_text": "Twee broden.",
+          "evidence_quote": "Twee broden, graag.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Vier broden.",
+              "rationale": "Four loaves is a plausible order; he says twee."
+            },
+            {
+              "option": "B",
+              "text": "Drie broden.",
+              "rationale": "Three loaves is a plausible order; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "A",
+          "answer_text": "Met zijn pinpas.",
+          "evidence_quote": "Ik betaal met mijn pinpas.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Met geld.",
+              "rationale": "Cash is the familiar alternative; he says pinpas."
+            },
+            {
+              "option": "C",
+              "text": "Met zijn telefoon.",
+              "rationale": "Paying by phone is a plausible modern alternative; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "Quantity and payment are asked separately and stated in different turns; the title names the shop only."
+      },
+      "picture_check": "Picture (not redrawn) was opened: man and baker at an empty counter; no bread, card or money.",
+      "voice_pair": [
+        "f-mature",
+        "m-adult"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    },
+    {
+      "id": "A1:listening:batch072-bloem-beker:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 33,
+        "mean_sentence_words": 3.3,
+        "maximum_sentence_words": 5
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A server named Bas asks an older guest what she wants to drink, she orders tea, he offers food, she orders the soup and admires the flower on her table, and he says it comes from his garden.",
+        "communicative_purpose": "Order a drink and food in a café in the usual order and respond to a friendly remark.",
+        "contrivance_check": "Drinks first, then food, is the Dutch café order; the flower remark is prompted by the pictured flower and answered by Bas, so it does not float free. Remaining risk: it rides in the order turn, acceptable small talk.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag, mevrouw. Wat wilt u drinken?",
+            "response_function": "Bas greets the guest and asks what she wants to drink."
+          },
+          {
+            "turn": 2,
+            "quote": "Een kop thee, graag.",
+            "response_function": "The guest orders tea."
+          },
+          {
+            "turn": 3,
+            "quote": "Goed. Wilt u ook iets eten?",
+            "response_function": "Bas confirms and asks if she wants food as well."
+          },
+          {
+            "turn": 4,
+            "quote": "Ja, graag. Ik neem de soep. Wat een mooie bloem!",
+            "response_function": "The guest orders soup and remarks on the flower on the table."
+          },
+          {
+            "turn": 5,
+            "quote": "Dank u! Hij komt uit mijn tuin.",
+            "response_function": "Bas thanks her and says where the flower comes from."
+          }
+        ],
+        "spoken_word_count": 33,
+        "turn_count": 5
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "B",
+          "answer_text": "Thee.",
+          "evidence_quote": "Een kop thee, graag.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Koffie.",
+              "rationale": "Coffee is the usual café alternative; she orders thee."
+            },
+            {
+              "option": "C",
+              "text": "Water.",
+              "rationale": "Water is a plausible drink; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "A",
+          "answer_text": "Soep.",
+          "evidence_quote": "Ik neem de soep.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Pizza.",
+              "rationale": "Pizza is a café dish; she orders soep."
+            },
+            {
+              "option": "C",
+              "text": "Salade.",
+              "rationale": "Salad is a café dish; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "Questions ask drink and food; neither names the flower; the alt names the flower, which no question tests."
+      },
+      "picture_check": "Picture (not redrawn) was opened: older woman at a café table with a small yellow flower in a grey pot, Bas standing; no cups or food.",
+      "voice_pair": [
+        "f-older",
+        "m-young"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    },
+    {
+      "id": "A1:listening:batch077-dienst-ruilen:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 33,
+        "mean_sentence_words": 4.12,
+        "maximum_sentence_words": 7
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A colleague asks Ahmed to work on Saturday in her place because her sister has a birthday; he agrees and asks the start time, she says eight and thanks him, and he wishes her sister a nice party.",
+        "communicative_purpose": "Ask a colleague to cover a shift and fix the start time.",
+        "contrivance_check": "The request carries its reason (her sister's birthday); his question about the time follows his yes; the thanks and the party wish close it. No off-page event is needed.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Ahmed, kun jij zaterdag voor mij werken? Mijn zus is jarig.",
+            "response_function": "The colleague asks Ahmed to work on Saturday in her place and gives the reason."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, dat is goed. Hoe laat begin ik?",
+            "response_function": "Ahmed agrees and asks the start time."
+          },
+          {
+            "turn": 3,
+            "quote": "Om acht uur. Dank je wel, Ahmed!",
+            "response_function": "The colleague answers the time and thanks him."
+          },
+          {
+            "turn": 4,
+            "quote": "Geen dank. Fijn feest voor je zus!",
+            "response_function": "Ahmed answers the thanks and wishes her sister a good party."
+          }
+        ],
+        "spoken_word_count": 33,
+        "turn_count": 4
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "C",
+          "answer_text": "Op zaterdag.",
+          "evidence_quote": "kun jij zaterdag voor mij werken?",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Op vrijdag.",
+              "rationale": "Friday is a neighbouring weekday; the colleague says zaterdag."
+            },
+            {
+              "option": "B",
+              "text": "Op zondag.",
+              "rationale": "Sunday is the other neighbouring day; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "A",
+          "answer_text": "Om acht uur.",
+          "evidence_quote": "Om acht uur.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Om negen uur.",
+              "rationale": "Nine o'clock is a plausible start; she says acht."
+            },
+            {
+              "option": "C",
+              "text": "Om tien uur.",
+              "rationale": "Ten o'clock is a plausible start; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "Edited: title 'Zaterdag werken' answered q1 ('Welke dag werkt Ahmed?'). New neutral title 'Op het werk'."
+      },
+      "picture_check": "Picture (not redrawn) was opened: Ahmed and a young colleague standing in a staff room with a plant and a table; no calendar, clock or cake.",
+      "voice_pair": [
+        "f-young",
+        "m-adult"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    },
+    {
+      "id": "A1:listening:batch078-buren-sleutel:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 34,
+        "mean_sentence_words": 3.4,
+        "maximum_sentence_words": 6
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Ellen tells her neighbour she is going on holiday; he offers help, she asks him to keep her key and water her plants, he agrees and asks when she returns, and she says Sunday.",
+        "communicative_purpose": "Arrange neighbour help before a holiday and tell when she is back.",
+        "contrivance_check": "Holiday news, offer, two linked requests (the key is how he reaches the plants), acceptance with a return question and answer. 'Bewaren' fits keeping a key for a short time.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hallo buurman. Ik ga op vakantie.",
+            "response_function": "Ellen greets her neighbour and announces her holiday."
+          },
+          {
+            "turn": 2,
+            "quote": "Leuk! Kan ik iets voor u doen?",
+            "response_function": "The neighbour reacts and offers to help."
+          },
+          {
+            "turn": 3,
+            "quote": "Ja. Wilt u mijn sleutel bewaren? En mijn planten water geven?",
+            "response_function": "Ellen asks him to keep her key and water the plants."
+          },
+          {
+            "turn": 4,
+            "quote": "Ja, natuurlijk. Wanneer komt u terug?",
+            "response_function": "The neighbour accepts and asks when she returns."
+          },
+          {
+            "turn": 5,
+            "quote": "Ik kom zondag terug.",
+            "response_function": "Ellen gives the day."
+          }
+        ],
+        "spoken_word_count": 34,
+        "turn_count": 5
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "B",
+          "answer_text": "Haar sleutel.",
+          "evidence_quote": "Wilt u mijn sleutel bewaren?",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Haar post.",
+              "rationale": "Post is something neighbours may collect; Ellen asks for the key."
+            },
+            {
+              "option": "C",
+              "text": "Haar fiets.",
+              "rationale": "A bike is something neighbours may look after; not mentioned."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "A",
+          "answer_text": "Op zondag.",
+          "evidence_quote": "Ik kom zondag terug.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Op zaterdag.",
+              "rationale": "Saturday is a neighbouring weekday; she says zondag."
+            },
+            {
+              "option": "C",
+              "text": "Op maandag.",
+              "rationale": "Monday is a plausible return day; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "q1 asks what is kept, q2 when she returns; the alt names a suitcase, not the key or the day."
+      },
+      "picture_check": "Picture (not redrawn) was opened: Ellen with a suitcase at the neighbour's open door; no key, plants or calendar.",
+      "voice_pair": [
+        "f-mature",
+        "m-older"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    },
+    {
+      "id": "A1:listening:batch078-jas-passen:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 27,
+        "mean_sentence_words": 3.38,
+        "maximum_sentence_words": 7
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "In a clothes shop the assistant offers help; Jamal asks for a coat in size fifty, the assistant asks the colour, and he wants a green one and asks to try it on.",
+        "communicative_purpose": "Ask for the right size and colour of a coat and try it on.",
+        "contrivance_check": "Size, colour and trying on are the ordinary steps of buying a coat. The dialogue ends on his request, which is a natural cut. Risk noted: 'hem' refers to a green coat the assistant has yet to bring; the brief deliberately shows no green coat so the key is not drawn.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag. Kan ik u helpen?",
+            "response_function": "The seller offers help."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, graag. Ik zoek een jas in maat vijftig.",
+            "response_function": "Jamal asks for a coat in a size."
+          },
+          {
+            "turn": 3,
+            "quote": "Goed. Welke kleur wilt u?",
+            "response_function": "The seller asks which colour."
+          },
+          {
+            "turn": 4,
+            "quote": "Een groene jas, graag. Mag ik hem passen?",
+            "response_function": "Jamal gives the colour and asks to try it on."
+          }
+        ],
+        "spoken_word_count": 27,
+        "turn_count": 4
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "A",
+          "answer_text": "Maat vijftig.",
+          "evidence_quote": "Ik zoek een jas in maat vijftig.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Maat veertig.",
+              "rationale": "Size forty is a plausible man's size; he says vijftig."
+            },
+            {
+              "option": "C",
+              "text": "Maat zestig.",
+              "rationale": "Size sixty is a plausible larger size; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "C",
+          "answer_text": "Groen.",
+          "evidence_quote": "Een groene jas, graag.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Blauw.",
+              "rationale": "Blue is a common coat colour; not drawn and not said."
+            },
+            {
+              "option": "B",
+              "text": "Zwart.",
+              "rationale": "Black is a common coat colour; not drawn and not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "q1 asks size, q2 colour; neither prompt, the title or the alt names either; the new brief shows only yellow, red and grey coats."
+      },
+      "picture_check": "New brief judged: Jamal and the assistant as whole figures at a rail of yellow, red and grey coats, no green, blue or black, no labels. Fits the script; risk: the image style uses sage green widely, so the media check must confirm no green coat is drawn.",
+      "voice_pair": [
+        "f-adult",
+        "m-young"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    },
+    {
+      "id": "A1:listening:batch077-apotheek-pil:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 30,
+        "mean_sentence_words": 3.33,
+        "maximum_sentence_words": 6
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "At the pharmacy the assistant hands Kim her medicine; she asks how many pills a day and when to take it, and he says one pill after dinner with a glass of water.",
+        "communicative_purpose": "Understand how to take a medicine: dose and timing, a real safety task at a pharmacy.",
+        "contrivance_check": "Handover, dose question, answer, timing question and answer follow one instruction; dose and timing are separate, so no ambiguity remains. 'Hem' for the pill is colloquial and resolved by the previous turn.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag. Hier is uw medicijn.",
+            "response_function": "The assistant hands over the medicine."
+          },
+          {
+            "turn": 2,
+            "quote": "Dank u. Hoeveel pillen neem ik elke dag?",
+            "response_function": "Kim thanks him and asks how many pills a day."
+          },
+          {
+            "turn": 3,
+            "quote": "Elke dag één pil.",
+            "response_function": "The assistant answers the number."
+          },
+          {
+            "turn": 4,
+            "quote": "Goed. En wanneer neem ik hem?",
+            "response_function": "Kim accepts and asks when to take it."
+          },
+          {
+            "turn": 5,
+            "quote": "Na het avondeten. Met een glas water.",
+            "response_function": "The assistant gives the time and how."
+          }
+        ],
+        "spoken_word_count": 30,
+        "turn_count": 5
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "quantity",
+          "answer": "B",
+          "answer_text": "Eén pil.",
+          "evidence_quote": "Elke dag één pil.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Twee pillen.",
+              "rationale": "Two pills is a plausible dose; the assistant says een pil."
+            },
+            {
+              "option": "C",
+              "text": "Drie pillen.",
+              "rationale": "Three pills is a plausible dose; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "A",
+          "answer_text": "Na het avondeten.",
+          "evidence_quote": "Na het avondeten.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Na het ontbijt.",
+              "rationale": "After breakfast tests the meal; he says avondeten."
+            },
+            {
+              "option": "C",
+              "text": "Voor het avondeten.",
+              "rationale": "Before dinner tests the preposition; he says na."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "Edited: q2 asked 'de pil' in the singular, which revealed q1's key (one pill). It now asks about 'het medicijn'."
+      },
+      "picture_check": "Picture (not redrawn) was opened: assistant hands Kim a small closed paper bag; no pills, food or glass.",
+      "voice_pair": [
+        "f-mature",
+        "m-young"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    },
+    {
+      "id": "A1:listening:batch078-melk-zoeken:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 26,
+        "mean_sentence_words": 4.33,
+        "maximum_sentence_words": 7
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Luuk asks a supermarket worker where the milk is, she says next to the cheese, he thanks her and asks where the checkout is, and she says left by the door.",
+        "communicative_purpose": "Find a product and the checkout in a shop.",
+        "contrivance_check": "Where is the milk, where is the checkout: the two questions a shopper asks one worker, answered in turn. Minor risk: asking for the checkout after entering is slightly odd but plausible in a large shop.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Sorry, mevrouw. Waar is de melk?",
+            "response_function": "Luuk politely asks where the milk is."
+          },
+          {
+            "turn": 2,
+            "quote": "De melk staat naast de kaas.",
+            "response_function": "The worker tells where the milk is."
+          },
+          {
+            "turn": 3,
+            "quote": "Dank u. En waar is de kassa?",
+            "response_function": "Luuk thanks her and asks where the checkout is."
+          },
+          {
+            "turn": 4,
+            "quote": "De kassa is links, bij de deur.",
+            "response_function": "The worker tells where the checkout is."
+          }
+        ],
+        "spoken_word_count": 26,
+        "turn_count": 4
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "B",
+          "answer_text": "Naast de kaas.",
+          "evidence_quote": "De melk staat naast de kaas.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Naast het brood.",
+              "rationale": "Next to the bread is a plausible shelf; she says naast de kaas."
+            },
+            {
+              "option": "C",
+              "text": "Naast het water.",
+              "rationale": "Next to the water is a plausible shelf; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "A",
+          "answer_text": "Links.",
+          "evidence_quote": "De kassa is links, bij de deur.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Rechts.",
+              "rationale": "Right is the other direction; she says links."
+            },
+            {
+              "option": "C",
+              "text": "Achter.",
+              "rationale": "Achter (at the back) is another plausible place; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "Prompts ask milk and checkout separately; the title names the shop only; the alt names no product."
+      },
+      "picture_check": "Picture (not redrawn) was opened: Luuk and a worker in an aisle of plain boxes and tins; no milk, cheese, checkout or pointing.",
+      "voice_pair": [
+        "f-mature",
+        "m-young"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    },
+    {
+      "id": "A1:listening:batch072-doos-oren:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target (simplified profile)",
+        "validated": false,
+        "basis": "A1 list words only (checker passes), short present-tense main clauses, one everyday exchange, two facts each stated once; no official-exam comparison.",
+        "word_count": 27,
+        "mean_sentence_words": 3.86,
+        "maximum_sentence_words": 6
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A young neighbour notices a ribboned box under an older neighbour's arm and asks who it is for; he says his son, whose birthday is tomorrow, and that it holds a winter jumper.",
+        "communicative_purpose": "Make friendly small talk about a gift and learn who gets it and what is in it.",
+        "contrivance_check": "She sees a gift box, asks for whom, then what is inside; his answers (birthday, jumper) are everyday. The brief draws a closed lid, so 'what is in it' is a real question.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hallo buurman! Voor wie is die mooie doos?",
+            "response_function": "The neighbour greets and asks who the box is for."
+          },
+          {
+            "turn": 2,
+            "quote": "Voor mijn zoon. Hij is morgen jarig.",
+            "response_function": "The neighbour answers that it is for his son and why."
+          },
+          {
+            "turn": 3,
+            "quote": "Leuk! Wat zit er in de doos?",
+            "response_function": "The neighbour reacts and asks what is inside."
+          },
+          {
+            "turn": 4,
+            "quote": "Een trui voor de winter.",
+            "response_function": "The neighbour tells what is inside."
+          }
+        ],
+        "spoken_word_count": 27,
+        "turn_count": 4
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "person",
+          "answer": "A",
+          "answer_text": "Voor zijn zoon.",
+          "evidence_quote": "Voor mijn zoon.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Voor zijn vrouw.",
+              "rationale": "A wife is a plausible recipient; he says zoon."
+            },
+            {
+              "option": "C",
+              "text": "Voor zijn broer.",
+              "rationale": "A brother is a plausible recipient; not said."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "B",
+          "answer_text": "Een trui.",
+          "evidence_quote": "Een trui voor de winter.",
+          "evidence_is_verbatim": true,
+          "key_entailment": "The quoted words, spoken once in one turn, state exactly the keyed fact.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Een boek.",
+              "rationale": "A book is a common gift; he says trui."
+            },
+            {
+              "option": "C",
+              "text": "Een sjaal.",
+              "rationale": "A scarf is a winter garment and a common gift; he says trui."
+            }
+          ],
+          "option_category_check": "The three options answer the same question in parallel form; none is a superset or odd polarity out.",
+          "cue_check": "Key is not the longest or sole most specific option; no prompt word recurs only in the key; no other prompt, title or alt supplies the answer."
+        }
+      ],
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "image alt",
+          "question prompts",
+          "options"
+        ],
+        "evidence": "q1 asks the recipient, q2 the content; neither prompt contains the other; the alt names a gift but no person or content."
+      },
+      "picture_check": "New brief judged: older man carries the closed ribboned box low under one arm, not held out, young neighbour glances at it, both whole figures, lid hides contents, no family photos. Fits the script.",
+      "voice_pair": [
+        "f-young",
+        "m-older"
+      ],
+      "record_contract": {
+        "verdict": "pass",
+        "evidence": "exam a1-practice, taskType gesprek, domain unchanged from the replaced item, draft status, targetLevelValidated false, two three-option questions, text equals the script lines, no retired type field."
+      }
+    }
+  ]
+}

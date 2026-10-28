@@ -1,0 +1,487 @@
+{
+  "review_id": "086-a1-writing-revision-2026-10-28",
+  "source": "content/batches/086-original.json",
+  "proposed_source": "content/batches/086-proposed.json",
+  "source_sha256": "76d9e4697f8a31f233b0b990909c2ad648c4de95d73446c7ef6fe6d33eef0fb8",
+  "starters_source": "content/batches/086-starters.json",
+  "starters_sha256": "4f6fb8c0bd8a4a31306d8865f0e971cf8db45580af511b754df1e93b390c0091",
+  "starters_verdict": "pass",
+  "review_type": "independent AI editorial review of eight revised A1 foundation writing tasks",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-28T08:51:24Z",
+  "review_contract_version": 2,
+  "replaces": [
+    "A1:writing:batch074-ontbijttaart:1",
+    "A1:writing:batch074-appelui:1",
+    "A1:writing:batch074-fietsfeest:1",
+    "A1:writing:batch074-reuzenbox:1",
+    "A1:writing:batch074-stoelsokken:1",
+    "A1:writing:batch081-schoenen-klein:1",
+    "A1:writing:batch082-eten-zaterdag:1",
+    "A1:writing:batch082-markt-moeder:1"
+  ],
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "6ee30b459fbb64b4b013a6cfc839e78a1d80c55d2e383ab9c3fc869affd1dbdd",
+    "independence_note": "Fresh reviewer context, separate from the author. The blind packet built from the original (hash c881afab0cd3f8f8d8180decb7cd7ee9f654e86b7af6e0f38d1690faf9b748ff) was read first, together with the review brief, blueprint 4.0 and the rubric, and item-specific meaning findings were written into content/reviews/086-review.md before the original, starters or notes were opened. After the three edits the packet was rebuilt from the exact proposed bytes (only the schoenen-klein prompt changes the packet) and the meaning pass was repeated; the hash recorded here is that final packet."
+  },
+  "tone_balance": {
+    "ordinary": 7,
+    "light_humor": 1,
+    "target_share": 0.15,
+    "scope_note": "Seven ordinary tasks and one lightly funny task (reuzenbox: one spoon in a huge box). One of eight is 12.5%, below the rounded-up cap of two. The coordinator checks the combined program count; these eight replace published items, so the program count changes only if the replaced items were classified differently before."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 5,
+    "edited_by_reviewer": 3,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A1:writing:batch081-schoenen-klein:1",
+      "field": "prompt",
+      "before": "Een winkel stuurt u nieuwe schoenen. Thuis doet u ze aan. Kijk naar het plaatje. Vertel de winkel over de schoenen. Vraag om een andere maat.",
+      "after": "Een winkel stuurt u nieuwe schoenen. Thuis doet u ze aan. Kijk naar het plaatje. Wat is er met de schoenen? Vertel het de winkel. Vraag om een andere maat.",
+      "reason": "'Vertel de winkel over de schoenen' does not name the goal; a learner who writes that the shoes are nice and asks for another size does what the prompt says but misses criterion 1 (too small). Blueprint 4.0 requires the prompt to name each goal with a short direct question. The picture (frown, heel sticking out) supports the answer; criteria and model are unchanged and still match."
+    },
+    {
+      "id": "A1:writing:batch074-fietsfeest:1",
+      "field": "criteria[0][0]",
+      "before": "U zegt: uw fiets is kapot of de band is lek.",
+      "after": "U zegt: mijn fiets is kapot of ik heb een lekke band.",
+      "reason": "The criterion quoted the learner's own words with 'uw', which no learner would write about their own bicycle; it also did not accept the natural 'ik heb een lekke band'. 11 words, all on the A1 list."
+    },
+    {
+      "id": "A1:writing:batch074-ontbijttaart:1",
+      "field": "criteria[1][0]",
+      "before": "U zegt: ik drink graag thee, koffie of water.",
+      "after": "U zegt wat u wilt drinken: thee, koffie of water.",
+      "reason": "The literal phrase 'ik drink graag' made 'Ik wil koffie' or 'Een kopje thee' look like a miss; the criterion now accepts any answer to 'wat drink je?'."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npm run batch:check -- content/batches/086-proposed.json",
+      "result": "Checked 8 items, 0 questions. No failures, no warnings (info only: all eight IDs are in the catalogue and replaced)."
+    },
+    "open_task_contract": "pass: two content goals and the blueprint language criterion per item, models 6-16 words (8, 8, 8, 10, 12, 9, 10, 11), prompts 23-34 words with every sentence at most eight words, one illustration each, hidden criteria may name picture facts",
+    "samples_and_quotes": "pass: each sample omits exactly one content goal with one null quote and the other quotes occur verbatim; learner errors vary (is for zijn, het doos, heeft for is, blauw sjaal, word order, nodich)",
+    "starters": "pass: 24 fragments read against the final criteria; none supplies a picture fact or completes a criterion; no change needed",
+    "prompt_simplicity": "pass after edit: the schoenen prompt now names its first goal with a direct question; the others already do. The remaining 'Vraag: zal ik het meenemen?' repeats the model's second sentence in form, which A1 accepts because the ask is hard to phrase otherwise.",
+    "names": "pass: Selma, Hugo (appelui, fietsfeest), Lars, Amal appear once or twice in this batch, never in other A1 batches (081 and 082 are the batches being replaced); no voice names. Selma also occurs as the interviewee of an older A2 reading text; not an A1 reuse.",
+    "vocabulary_gate": "pass: batch:check enforces config/a1-vocabulary.json (including the uncommitted additions lek, band, toetje, bewaren)",
+    "full_final_source_read": "pass: every final field, brief, alt, sample, quote, model and starter read after the edits; the three unredrawn pictures (ontbijttaart, fietsfeest, stoelsokken) opened and compared with the final text",
+    "criteria_visibility": "pass: criteria are hidden until review, so they may name picture facts; every prompt names both goals independently of the criteria"
+  },
+  "diversity": {
+    "within_batch": "Eight purposes across leisure, shop, family, parcel, class, shoe return, a dinner and an errand; recipients differ (friend, two times brother, neighbour, classmate, shop, friend, mother).",
+    "set_assembly": "Keep the two Hugo items (appelui, fietsfeest) out of the same set, since a set uses different people; also keep appelui and markt-moeder apart (both are about buying fruit, one of them in a supermarket, one at a market)."
+  },
+  "media_notes": {
+    "voice_pairing": "Not applicable: writing.",
+    "pictures_not_redrawn": "ontbijttaart, fietsfeest and stoelsokken: current renders opened and compared; they fit the new text. The manifest alt for fietsfeest still says 'kapot'; the new alt 'lekke band' agrees with the render.",
+    "pictures_to_redraw": [
+      "appelui: three apples exactly, empty basket plainly empty",
+      "reuzenbox: box clearly taller than sofa, spoon visible, no person",
+      "schoenen-klein: exactly two shoes in the picture",
+      "eten-zaterdag: soup reads as soup, no dessert or bottle",
+      "markt-moeder: buyer reads as about 35 with no beard"
+    ]
+  },
+  "limitations": [
+    "AI editorial review against the local A1 foundation target; not validated CEFR difficulty or exam equivalence.",
+    "Redrawn pictures need their own review against these briefs once rendered.",
+    "A hem/het variant in the stoelsokken criterion ('zal ik de sjaal meenemen?') is left to the judge: the prompt itself says 'het', so 'zal ik het meenemen?' must count as meeting it."
+  ],
+  "items": [
+    {
+      "id": "A1:writing:batch074-ontbijttaart:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "fits the local foundation authoring target",
+        "targetLevelValidated": false,
+        "prompt_words": 33,
+        "model_words": 8,
+        "reason": "List words only, present tense, every prompt sentence at most eight words, two short direct goals; two short sentences meet both content goals. Criterion 2 widened so any drink passes."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Selma is having a birthday party today and sends a photo of her cake with unlit candles and two empty cups; the learner is a guest coming this afternoon.",
+        "communicative_purpose": "Compliment the cake and tell the host what to drink, so she can prepare it before the guest arrives.",
+        "contrivance_check": "A host photographing the finished cake and asking a guest what to serve is an everyday exchange. Unlit candles and two empty cups fit the hour before the visit; the prompt states that the birthday is today and the visit this afternoon, so no off-page event is needed.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Selma is not in the room; she has just sent a photo, and a short reply in the same chat is the normal answer to a photo and a question."
+      },
+      "evidence": {
+        "prompt": "Selma is vandaag jarig. Vanmiddag komt u bij haar. Ze stuurt een foto. Ze vraagt: wat drink je? Kijk naar het plaatje. Zeg iets over haar taart. Geef ook antwoord op haar vraag.",
+        "criteria": [
+          "U zegt iets over de taart: mooi, groot of lekker.",
+          "U zegt wat u wilt drinken: thee, koffie of water.",
+          "De ander begrijpt uw bericht. Kleine fouten zijn oké."
+        ],
+        "model": "Wat een mooie taart! Ik drink graag thee.",
+        "sample": "Hoi Selma! Ik drinkt graag koffie met melk.",
+        "quotes": [
+          null,
+          "Ik drinkt graag koffie met melk.",
+          "Ik drinkt graag koffie met melk."
+        ],
+        "sample_check": "Omits exactly one content goal (one null quote); every non-null quote occurs verbatim in the sample.",
+        "starters": [
+          "De taart is …",
+          "Ik drink graag …",
+          "Hoi Selma, …"
+        ],
+        "starters_check": "All three fragments are incomplete and neutral: none names a drink or a quality of the cake, and the greeting opener leaves the facts open.",
+        "picture": {
+          "alt": "Op de foto staat een grote taart op een tafel.",
+          "check": "Rendered picture checked: one tall white cake with fruit pieces and four unlit candles, two empty cups, no people or text. Matches brief, alt, prompt and both goals; alt keeps the cake fact; the cups are not named in the alt but are not needed for either goal."
+        }
+      }
+    },
+    {
+      "id": "A1:writing:batch074-appelui:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "fits the local foundation authoring target",
+        "targetLevelValidated": false,
+        "prompt_words": 29,
+        "model_words": 9,
+        "reason": "List words only, present tense, every prompt sentence at most eight words, two short direct goals; two short sentences meet both content goals."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The learner stands at a supermarket fruit table: crates of pears and bananas are full, a third crate holds only three red apples, and the brother wants six.",
+        "communicative_purpose": "Tell Hugo that only three apples are left and name other fruit he could take, so he can decide.",
+        "contrivance_check": "Hugo's wish for six apples gives a reason to count; three apples against six is a real shortfall, and naming pears or bananas is the natural offer. The crate itself shows what it holds, so nothing off-page is required.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Hugo is not in the shop, so the learner has to tell him by message what the shelf has; he cannot see the crates himself."
+      },
+      "evidence": {
+        "prompt": "U bent in de supermarkt. Uw broer Hugo wil zes appels. Kijk naar het plaatje. Hoeveel appels zijn er? Vertel het Hugo. Noem ook ander fruit in de winkel.",
+        "criteria": [
+          "U zegt: er zijn maar drie appels. Weinig is ook goed.",
+          "U noemt peren of bananen.",
+          "De ander begrijpt uw bericht. Kleine fouten zijn oké."
+        ],
+        "model": "Er zijn maar drie appels. Wil je ook peren?",
+        "sample": "Hallo Hugo. Er is maar drie appel.",
+        "quotes": [
+          "Er is maar drie appel.",
+          null,
+          "Er is maar drie appel."
+        ],
+        "sample_check": "Omits exactly one content goal (one null quote); every non-null quote occurs verbatim in the sample.",
+        "starters": [
+          "In de winkel zijn …",
+          "Wil je …?",
+          "Hoi Hugo, …"
+        ],
+        "starters_check": "Fragment one names the place and not the number; fragment two shapes the question to Hugo from the model without giving the fruit; neither completes a criterion.",
+        "picture": {
+          "alt": "In de supermarkt liggen peren en bananen. In een doos liggen maar drie appels.",
+          "check": "New brief (not yet rendered): three crates, exactly three red apples lying apart, no other apples, empty basket in front. Alt keeps the apple count and the other fruit. The rendered picture must be counted (three apples) and checked that the basket is plainly empty."
+        }
+      }
+    },
+    {
+      "id": "A1:writing:batch074-fietsfeest:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "fits the local foundation authoring target",
+        "targetLevelValidated": false,
+        "prompt_words": 23,
+        "model_words": 8,
+        "reason": "List words only, present tense, every prompt sentence at most eight words, two short direct goals; two short sentences meet both content goals."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A city bicycle stands by a house door with its front tyre completely flat; the brother wants to cycle together tomorrow.",
+        "communicative_purpose": "Tell Hugo what is wrong with the bicycle and suggest another day to cycle.",
+        "contrivance_check": "A flat tyre is a common, visible reason to cancel a ride. The prompt names the plan (cycling tomorrow) and the picture shows the cause, so nothing is invented.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Hugo is not at the house; a short message cancels tomorrow's plan and proposes a new day, which is how people do it."
+      },
+      "evidence": {
+        "prompt": "Uw broer Hugo wil morgen samen fietsen. Kijk naar het plaatje. Vertel Hugo: wat is er met uw fiets? Noem een andere dag.",
+        "criteria": [
+          "U zegt: mijn fiets is kapot of ik heb een lekke band.",
+          "U noemt een andere dag.",
+          "De ander begrijpt uw bericht. Kleine fouten zijn oké."
+        ],
+        "model": "Mijn fiets is kapot. Kunnen we zaterdag fietsen?",
+        "sample": "Hoi Hugo. Sorry, mijn fiets heeft kapot.",
+        "quotes": [
+          "mijn fiets heeft kapot.",
+          null,
+          "mijn fiets heeft kapot."
+        ],
+        "sample_check": "Omits exactly one content goal (one null quote); every non-null quote occurs verbatim in the sample.",
+        "starters": [
+          "Mijn fiets is …",
+          "Kunnen we … fietsen?",
+          "Sorry, …"
+        ],
+        "starters_check": "All three fragments are incomplete; 'Mijn fiets is …' accepts either 'kapot' or 'lek' and the day slot in the second is left open.",
+        "picture": {
+          "alt": "Uw fiets staat bij het huis. De fiets heeft een lekke band.",
+          "check": "Rendered picture checked: bicycle against a house wall, front wheel visibly squashed flat on the ground and rear wheel round. Alt now says 'lekke band' (the published manifest alt still says 'kapot'; the coordinator updates it at adoption), and the criterion accepts both."
+        }
+      }
+    },
+    {
+      "id": "A1:writing:batch074-reuzenbox:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "fits the local foundation authoring target",
+        "targetLevelValidated": false,
+        "prompt_words": 34,
+        "model_words": 11,
+        "reason": "List words only, present tense, every prompt sentence at most eight words, two short direct goals; two short sentences meet both content goals."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "light-humor",
+        "situation_summary": "At home an enormous open cardboard box taller than the sofa stands in the living room with a single spoon at the bottom; the neighbour who stored the parcel asks what is in it.",
+        "communicative_purpose": "Tell the neighbour what the parcel contained and say something about the box, such as that it is big, and thank her.",
+        "contrivance_check": "The neighbour kept the parcel, so her curiosity about the contents is natural, and the joke is only the size against the one spoon. 'U' is the recipient and 'ze' the neighbour, so pronouns are clear; the prompt supplies the whole chain (kept, opened at home, asked).",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "The neighbour is not at the learner's home and cannot see inside the box, so a written reply is how she learns what was in it; the thank-you starter fits her having kept the parcel."
+      },
+      "evidence": {
+        "prompt": "Uw buurvrouw bewaart een groot pakket voor u. Thuis maakt u het open. Ze vraagt: wat zit er in de doos? Kijk naar het plaatje. Vertel het haar. Zeg ook iets over de doos.",
+        "criteria": [
+          "U zegt: er zit een lepel in de doos.",
+          "U zegt iets over de doos: hij is groot.",
+          "De ander begrijpt uw bericht. Kleine fouten zijn oké."
+        ],
+        "model": "Er zit één lepel in! De doos is veel te groot.",
+        "sample": "Hallo! In het doos zit een lepel. Bedankt!",
+        "quotes": [
+          "In het doos zit een lepel.",
+          null,
+          "In het doos zit een lepel."
+        ],
+        "sample_check": "Omits exactly one content goal (one null quote); every non-null quote occurs verbatim in the sample.",
+        "starters": [
+          "In de doos zit …",
+          "De doos is …",
+          "Dank je wel …"
+        ],
+        "starters_check": "'In de doos zit …' and 'De doos is …' leave the spoon and the size open; 'Dank je wel …' is a neutral sign-off thanking for keeping the parcel and completes no criterion.",
+        "picture": {
+          "alt": "In de kamer staat een heel grote doos. Er ligt één lepel in.",
+          "check": "New brief (not yet rendered): no person, box clearly taller than the sofa, one ordinary spoon alone at the bottom, high angle. Risk: the spoon must be visible at display size; check the render. Alt keeps both pictured facts."
+        }
+      }
+    },
+    {
+      "id": "A1:writing:batch074-stoelsokken:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "fits the local foundation authoring target",
+        "targetLevelValidated": false,
+        "prompt_words": 32,
+        "model_words": 12,
+        "reason": "List words only, present tense, every prompt sentence at most eight words, two short direct goals; two short sentences meet both content goals."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A classroom after the lesson is empty; one chair carries a blue scarf and nothing else lies anywhere; Lars has gone home and asks whether anything lies on his chair.",
+        "communicative_purpose": "Tell Lars that a scarf lies on his chair and offer to take it with you.",
+        "contrivance_check": "Forgetting a scarf and asking a classmate who is still there to look is ordinary; the prompt states that the learner is still in the room and Lars is home, and offering to take the scarf follows from finding it. Only one chair holds an object, which the learner reads as Lars's chair.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Lars is at home and cannot look himself; a short message from the learner who is still in the room is exactly how he gets his answer and a way to get the scarf back."
+      },
+      "evidence": {
+        "prompt": "U bent nog in de klas. Lars is al thuis. Hij vraagt: ligt er iets op mijn stoel? Kijk naar het plaatje. Vertel Lars: wat ligt er? Vraag: zal ik het meenemen?",
+        "criteria": [
+          "U zegt: er ligt een sjaal op de stoel.",
+          "U vraagt Lars: zal ik de sjaal meenemen?",
+          "De ander begrijpt uw bericht. Kleine fouten zijn oké."
+        ],
+        "model": "Er ligt een blauwe sjaal op je stoel. Zal ik hem meenemen?",
+        "sample": "Hoi Lars! Er ligt een blauw sjaal op je stoel.",
+        "quotes": [
+          "Er ligt een blauw sjaal op je stoel.",
+          null,
+          "Er ligt een blauw sjaal op je stoel."
+        ],
+        "sample_check": "Omits exactly one content goal (one null quote); every non-null quote occurs verbatim in the sample.",
+        "starters": [
+          "Op je stoel ligt …",
+          "Zal ik …?",
+          "Hoi Lars, …"
+        ],
+        "starters_check": "'Op je stoel ligt …' leaves the object open; 'Zal ik …?' gives only the offer frame and not what is taken; the greeting opener is neutral.",
+        "picture": {
+          "alt": "In de lege klas ligt een blauwe sjaal op een stoel.",
+          "check": "Rendered picture checked: empty classroom, three chairs at tables, the foreground chair has a blue scarf draped over its back, nothing else on any chair or table. Matches brief, alt and both goals; no person."
+        }
+      }
+    },
+    {
+      "id": "A1:writing:batch081-schoenen-klein:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "fits the local foundation authoring target",
+        "targetLevelValidated": false,
+        "prompt_words": 30,
+        "model_words": 10,
+        "reason": "List words only, present tense, every prompt sentence at most eight words, two short direct goals; two short sentences meet both content goals."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "At home a woman on a sofa has one new yellow shoe on her right foot; her heel sticks out and she frowns; the second shoe lies in the open box on the floor.",
+        "communicative_purpose": "Tell the shop that the shoes are too small and ask for another size.",
+        "contrivance_check": "A shop sends shoes, one try-on shows they do not fit, and the next step is to ask for a larger size. The frown, the heel at the back and the unworn second shoe in the box carry the problem; no off-page event is needed.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "The shop sent the parcel and is not at the learner's house; a written message with 'u' is the normal way to ask for a different size, and the picture supplies the reason."
+      },
+      "evidence": {
+        "prompt": "Een winkel stuurt u nieuwe schoenen. Thuis doet u ze aan. Kijk naar het plaatje. Wat is er met de schoenen? Vertel het de winkel. Vraag om een andere maat.",
+        "criteria": [
+          "U zegt: de schoenen zijn te klein.",
+          "U vraagt om een andere maat.",
+          "De ander begrijpt uw bericht. Kleine fouten zijn oké."
+        ],
+        "model": "Mijn nieuwe schoenen zijn te klein. Heeft u maat 42?",
+        "sample": "Goedemiddag. De schoenen is te klein voor mij.",
+        "quotes": [
+          "De schoenen is te klein voor mij.",
+          null,
+          "De schoenen is te klein voor mij."
+        ],
+        "sample_check": "Omits exactly one content goal (one null quote); every non-null quote occurs verbatim in the sample.",
+        "starters": [
+          "De schoenen zijn …",
+          "Heeft u …?",
+          "Goedemiddag, …"
+        ],
+        "starters_check": "'De schoenen zijn …' does not give 'klein', 'Heeft u …?' gives only the question frame, and 'Goedemiddag, …' is a formal greeting that fits a shop.",
+        "picture": {
+          "alt": "Thuis doet een vrouw een nieuwe schoen aan. Hij is te klein.",
+          "check": "New brief (not yet rendered): whole figure, exactly two shoes in the picture (one on the right foot, one in the box), left foot bare. The render must be counted (two shoes) before review. The woman is drawn as the learner; this is an existing convention."
+        }
+      }
+    },
+    {
+      "id": "A1:writing:batch082-eten-zaterdag:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "fits the local foundation authoring target",
+        "targetLevelValidated": false,
+        "prompt_words": 25,
+        "model_words": 10,
+        "reason": "List words only, present tense, every prompt sentence at most eight words, two short direct goals; two short sentences meet both content goals."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A man with a short black beard in a green apron stirs a pot of orange soup in his kitchen; the table behind him has two plates, two spoons and two glasses; a guest named Amal is coming on Saturday.",
+        "communicative_purpose": "Answer Amal's offer to bring something: say what you cook and ask her to bring a dessert.",
+        "contrivance_check": "Amal asks what she can bring, and the host answers with the dish and a request for a dessert, which is what guests usually bring. The glasses on the table cover the drinks, so a dessert is the coherent request.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Amal is not in the kitchen; she has asked in a message what to bring, so the host answers in writing with the menu and the one thing he wants."
+      },
+      "evidence": {
+        "prompt": "Zaterdag eet Amal bij u. Ze vraagt: wat kan ik meenemen? Kijk naar het plaatje. Wat kookt u? Vertel het Amal. Vraag om een toetje.",
+        "criteria": [
+          "U zegt wat u kookt: soep.",
+          "U vraagt Amal om een toetje.",
+          "De ander begrijpt uw bericht. Kleine fouten zijn oké."
+        ],
+        "model": "Hoi Amal! Ik kook soep. Neem je een toetje mee?",
+        "sample": "Hoi Amal! Zaterdag ik kook soep.",
+        "quotes": [
+          "Zaterdag ik kook soep.",
+          null,
+          "Zaterdag ik kook soep."
+        ],
+        "sample_check": "Omits exactly one content goal (one null quote); every non-null quote occurs verbatim in the sample.",
+        "starters": [
+          "Ik kook …",
+          "Neem je … mee?",
+          "Hoi Amal, …"
+        ],
+        "starters_check": "'Ik kook …' leaves the dish open, 'Neem je … mee?' leaves what she brings open, and the greeting opener is neutral.",
+        "picture": {
+          "alt": "Een man kookt thuis soep. Op tafel staan twee borden en twee glazen.",
+          "check": "New brief (not yet rendered): pot of orange soup being stirred, two plates, two spoons, two glasses, no dessert, fruit or bottle. The render must read clearly as soup and show no dessert; the alt keeps both facts."
+        }
+      }
+    },
+    {
+      "id": "A1:writing:batch082-markt-moeder:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "fits the local foundation authoring target",
+        "targetLevelValidated": false,
+        "prompt_words": 26,
+        "model_words": 12,
+        "reason": "List words only, present tense, every prompt sentence at most eight words, two short direct goals; two short sentences meet both content goals."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "At an outdoor stall a man of about 35 in a dark blue jacket receives a paper bag of pears from the seller; his mother is at home.",
+        "communicative_purpose": "Tell his mother he is buying pears and ask what else she needs.",
+        "contrivance_check": "Someone at a market asking a person at home what to buy is a common errand message. The picture shows pears being bought and the prompt states that the mother is at home, so the learner has a purpose and an addressee.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "The mother is at home and cannot see the stall; a short message lets her add to the shopping while the learner is still there."
+      },
+      "evidence": {
+        "prompt": "U bent op de markt. Uw moeder is thuis. Kijk naar het plaatje. Schrijf uw moeder een bericht. Wat koopt u? Vraag wat zij nodig heeft.",
+        "criteria": [
+          "U zegt dat u peren koopt. Fruit is ook goed.",
+          "U vraagt wat uw moeder nodig heeft.",
+          "De ander begrijpt uw bericht. Kleine fouten zijn oké."
+        ],
+        "model": "Hoi mama. Ik koop peren op de markt. Wat heb jij nodig?",
+        "sample": "Hoi mama. Ik ben op de markt. Wat heb je nodich?",
+        "quotes": [
+          null,
+          "Wat heb je nodich?",
+          "Ik ben op de markt."
+        ],
+        "sample_check": "Omits exactly one content goal (one null quote); every non-null quote occurs verbatim in the sample.",
+        "starters": [
+          "Ik koop …",
+          "Wat heb jij …?",
+          "Hoi mama, …"
+        ],
+        "starters_check": "'Ik koop …' leaves the fruit open, 'Wat heb jij …?' gives the frame only, and 'Hoi mama, …' is a neutral greeting.",
+        "picture": {
+          "alt": "Op de markt koopt een man peren. De verkoper geeft hem een zak.",
+          "check": "New brief (not yet rendered): the buyer is now an adult of about 35, dark hair, no beard, so that a living mother is plausible; the seller is a woman, the alt says 'de verkoper' and agrees. Only pears on the stall."
+        }
+      }
+    }
+  ]
+}

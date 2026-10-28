@@ -1,0 +1,1317 @@
+{
+  "review_id": "083-independent-review-2026-10-28",
+  "review_contract_version": 2,
+  "source": "content/batches/083-original.json",
+  "proposed_source": "content/batches/083-proposed.json",
+  "source_sha256": "9fbe50b9abf1ef4a0487e5fca9eb6b2514faf775ab157437c05b784c848ea39f",
+  "author_notes_source": "content/batches/083-notes.md",
+  "review_type": "independent-ai-editorial",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-28T08:54:17.734Z",
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "item_count": 11,
+  "question_count": 22,
+  "replaces": [
+    "A1:reading:batch076-vuilnis-dinsdag:1",
+    "A1:reading:batch076-pas-klaar:1",
+    "A1:reading:batch076-medicijn:1",
+    "A1:reading:batch071-beer-dokter:1",
+    "A1:reading:batch075-nieuw-paspoort:1",
+    "A1:reading:batch076-geen-water:1",
+    "A1:reading:batch076-voetbal-zoon:1",
+    "A1:reading:batch071-koffer-les:1",
+    "A1:reading:batch076-ander-lokaal:1",
+    "A1:reading:batch075-kip-tuin:1",
+    "A1:reading:batch071-winkel-sok:1"
+  ],
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "cfc5f4c7c7e3d029837793cc61c55d3ae3a2aff90de483f5f672b2f6214109a1",
+    "independence_note": "Reviewer wrote item-specific meaning findings from the blind packet of 083-original.json (packet hash 1f6bc358...) before opening questions, keys, notes or earlier reviews, then repeated the meaning pass on the proposed sources and computed the packet hash from the proposed bytes. The reviewer did not author the batch."
+  },
+  "blind_findings": [
+    "vuilnis-dinsdag: coherent municipal notice; 'Niet meer op maandag' has a real purpose (pass).",
+    "pas-klaar: plausible library pass pick-up with ID; picture shows a blank card only (pass).",
+    "medicijn: 'er vanaf donderdag' is a normal stock message; no off-page event beyond having asked for the medicine (pass).",
+    "beer-dokter: ordinary appointment reminder (pass).",
+    "nieuw-paspoort: realistic collection by appointment, old passport handed in (pass).",
+    "geen-water: plausible huismeester notice; 'werk aan het water' is not natural Dutch (revise).",
+    "voetbal-zoon: plausible Saturday invitation; the place sentence reads loosely and the q2 prompt 'het voetbal' is odd (revise prompt).",
+    "koffer-les: plausible class trip; the name Tom is already used in a second A1 batch and clashes with Tim (revise name).",
+    "ander-lokaal: ordinary same-day classroom notice (pass).",
+    "kip-tuin: coherent light humour (pass).",
+    "winkel-sok: 'nu in de winkel' with 'vrijdag ophalen' contradicts itself (revise)."
+  ],
+  "final_meaning_recheck": "Meaning pass repeated on all eleven proposed sources; each follows from its sender's purpose with no invented off-page event, and the four edited items were re-read in full.",
+  "tone_balance": {
+    "ordinary": 10,
+    "light_humor": 1,
+    "target_share": 0.15,
+    "scope_note": "Batch 083 revises eleven A1 reading items and contributes one light-humor item (kip-tuin) and ten ordinary items; against the 30-item A1 reading bank (target about 4-5 light-humor) the coordinator must check the combined count with the other revised reading batches."
+  },
+  "edits": [
+    {
+      "id": "A1:reading:batch076-geen-water:1",
+      "field": "text",
+      "before": "Beste meneer, mevrouw,\n\nMaandag is er geen water in de flat. Dat is van acht tot twaalf uur. Er is dan werk aan het water. Zet een fles water klaar.\n\nMet vriendelijke groet,\nLeo, de huismeester",
+      "after": "Beste meneer, mevrouw,\n\nMaandag is er geen water in de flat. Dat is van acht tot twaalf uur. Zet een fles water klaar.\n\nMet vriendelijke groet,\nLeo, de huismeester",
+      "reason": "'Er is dan werk aan het water' is not natural Dutch (a Dutch notice says 'aan de waterleiding'); the notice works without a reason."
+    },
+    {
+      "id": "A1:reading:batch076-voetbal-zoon:1",
+      "field": "questions.q2.prompt",
+      "before": "Waar is het voetbal?",
+      "after": "Waar speelt haar zoon voetbal?",
+      "reason": "'Het voetbal' for the match is odd; the prompt now mirrors the evidence sentence 'Hij speelt bij de club.'"
+    },
+    {
+      "id": "A1:reading:batch071-koffer-les:1",
+      "field": "situation, text, q1 and q2 explanations, q2 prompt",
+      "before": "Tom",
+      "after": "Erik",
+      "reason": "Tom also signs A1:reading:batch069-lesboek (name rule: not reused across A1 batches) and Tom/Tim as two teachers in one batch invites confusion; Erik is unused in A1."
+    },
+    {
+      "id": "A1:reading:batch071-winkel-sok:1",
+      "field": "title, text, q1 prompt, evidence, explanation",
+      "before": {
+        "title": "Uw jas is er",
+        "text": "Beste klant,\n\nUw nieuwe jas is nu in de winkel. U kunt de jas vrijdag ophalen. De winkel is open tot zes uur. U betaalt veertig euro.\n\nMet vriendelijke groet,\nWinkel De Jas",
+        "q1": {
+          "id": "q1",
+          "skill": "time-place",
+          "prompt": "Wanneer kunt u de jas halen?",
+          "options": {
+            "A": "Op vrijdag.",
+            "B": "Op maandag.",
+            "C": "Op zaterdag."
+          },
+          "answer": "A",
+          "evidence": "U kunt de jas vrijdag ophalen.",
+          "explanation": "De winkel schrijft: U kunt de jas vrijdag ophalen."
+        }
+      },
+      "after": {
+        "title": "Uw nieuwe jas",
+        "text": "Beste klant,\n\nUw nieuwe jas is vrijdag in de winkel. U kunt de jas ophalen. De winkel is open tot zes uur. U betaalt veertig euro.\n\nMet vriendelijke groet,\nWinkel De Jas",
+        "q1": {
+          "id": "q1",
+          "skill": "time-place",
+          "prompt": "Wanneer is de jas in de winkel?",
+          "options": {
+            "A": "Op vrijdag.",
+            "B": "Op maandag.",
+            "C": "Op zaterdag."
+          },
+          "answer": "A",
+          "evidence": "Uw nieuwe jas is vrijdag in de winkel.",
+          "explanation": "De winkel schrijft: Uw nieuwe jas is vrijdag in de winkel."
+        }
+      },
+      "reason": "'Nu in de winkel' next to 'vrijdag ophalen' contradicts itself (why not today?). The day now belongs to the coat arriving; q1 follows and the key is still A."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "verdict": "pass",
+      "command": "npm run batch:check -- content/batches/083-proposed.json",
+      "result": "Checked 11 items, 22 questions; no failures or warnings."
+    },
+    "key_distribution": {
+      "A": 7,
+      "B": 8,
+      "C": 7
+    },
+    "every_distractor_audited": true,
+    "full_final_source_read": true,
+    "cross_question_cues_every_item": "pass for all eleven items",
+    "image_briefs_and_alts": "all eleven non-redrawn pictures opened and checked against the new texts; the three new briefs judged as designs only",
+    "web_checks": "Winkel De Jas: two searches on 28 October 2026 found no shop with that name."
+  },
+  "diversity_and_assembly": {
+    "verdict": "pass with set notes",
+    "evidence": "Domains: wonen-buurt 3, instanties 2, gezondheid 2, opleiding 2, winkels-diensten 1, vrije-tijd-familie 1. Senders: gemeente 2, library, pharmacy, huisarts, huismeester, friend, two teachers, neighbour, shop. Four messages are 'your thing is ready, collect it' (pas, medicijn, paspoort, jas) and two involve the library.",
+    "set_policy": "Coordinator: pas-klaar and medicijn share one set (both institution letters with a pick-up and an opening-hours question). Move one of them, for instance swap medicijn with geen-water so no set holds two pick-up letters. The nieuw-paspoort q2 and pas-klaar q1 both ask to bring a paspoort; they sit in different sets and are kept apart. Keys stay unchanged, so set key balance holds."
+  },
+  "media_notes": {
+    "approval": "Sources and briefs only; no rendered image approved.",
+    "regenerate": "Draw vuilnis-dinsdag, voetbal-zoon and koffer-les from the new briefs; rendered images need review against both questions. The other eight existing pictures were opened and fit the new texts (pas-klaar: the blank card shows no ID and favours neither key; geen-water: the bottle does not show the hours).",
+    "style": "Shared flat house style.",
+    "voices": "No audio in this batch."
+  },
+  "limitations": [
+    "Independent AI editorial judgment; no teacher review, learner pilot, validated CEFR difficulty or exam-equivalence claim.",
+    "Media generation and rendered-image inspection are separate; regenerate the packet file with npm run batch:review-source after adoption."
+  ],
+  "items": [
+    {
+      "id": "A1:reading:batch076-vuilnis-dinsdag:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target",
+        "validated": false,
+        "basis": "Everyday words from the A1 list, present tense, sentences of at most eight words. No comparison with an official exam.",
+        "word_count": 28,
+        "mean_sentence_words": 4.7,
+        "maximum_sentence_words": 8
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The gemeente tells residents that from November the rubbish is collected on Tuesday instead of Monday, and that the bag goes outside on Tuesday before eight.",
+        "communicative_purpose": "A resident knows which day the collection is and by what time the bag must be out, so the bag is not left for a week or put out late.",
+        "contrivance_check": "A change of collection day is a standard municipal notice; 'Niet meer op maandag' names the old day for a concrete reason (people used to put it out on Monday). Three weekdays appear, but the old one is the reason for the letter, not stock added for distractors.",
+        "unsupported_assumptions": [],
+        "image_text_link": "The man putting one bag outside his terraced house in plain daylight shows the instructed action without a day, a clock or a time, so neither key is shown.",
+        "source_links": [
+          {
+            "quote": "Vanaf november halen wij het afval op dinsdag. Niet meer op maandag.",
+            "function": "Announces the new day and contrasts it with the old one."
+          },
+          {
+            "quote": "Zet de zak dinsdag voor acht uur buiten.",
+            "function": "Tells the resident what to do and by when."
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "B",
+          "answer_text": "Op dinsdag.",
+          "evidence_quote": "Vanaf november halen wij het afval op dinsdag.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Op maandag.",
+              "rationale": "Monday is the old day named in the text ('Niet meer op maandag')."
+            },
+            {
+              "option": "C",
+              "text": "Op woensdag.",
+              "rationale": "Woensdag is a familiar weekday the letter never mentions."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "C",
+          "answer_text": "Voor acht uur.",
+          "evidence_quote": "Zet de zak dinsdag voor acht uur buiten.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Om twaalf uur.",
+              "rationale": "A clock time (twelve) that the letter does not give."
+            },
+            {
+              "option": "B",
+              "text": "In de avond.",
+              "rationale": "'In de avond' is the night-before habit; the letter says Tuesday before eight, so it is clearly false."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        }
+      ],
+      "cross_question_cue_audit": {
+        "verdict": "pass",
+        "evidence": "q1 asks for the day, q2 for the time; neither prompt or option repeats the other key. The title 'Een nieuwe dag' names no day."
+      },
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "message",
+          "all question prompts and options",
+          "explanations",
+          "image brief",
+          "Dutch alt"
+        ],
+        "evidence": "Title, situation, alt and picture brief give neither key. The man putting one bag outside his terraced house in plain daylight shows the instructed action without a day, a clock or a time, so neither key is shown."
+      },
+      "record_contract": {
+        "verdict": "pass",
+        "exam": "a1-practice",
+        "taskType": "bericht",
+        "domain": "wonen-buurt",
+        "evidence": "The message suits the domain and taskType bericht; status draft, targetLevelValidated false, exactly two questions with three options."
+      }
+    },
+    {
+      "id": "A1:reading:batch076-pas-klaar:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target",
+        "validated": false,
+        "basis": "Everyday words from the A1 list, present tense, at most eight words per sentence. No comparison with an official exam.",
+        "word_count": 33,
+        "mean_sentence_words": 4.7,
+        "maximum_sentence_words": 8
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The library writes a member that the new pas is ready to collect, that the member must bring a paspoort and when the library is open (ten to five).",
+        "communicative_purpose": "The member knows the pas can be collected, what ID to bring and at what hours to come.",
+        "contrivance_check": "Collecting a library pass with an identity document after registering is ordinary; 'Neem uw paspoort mee' follows from collecting a card. The sender signs 'de bibliotheek' and the situation names the library, so the sender is clear. The only residual risk is that 'in de bibliotheek' is a little stiff from the library itself.",
+        "unsupported_assumptions": [],
+        "image_text_link": "A blank card, an open envelope and a folded sheet on a table fit a letter about a card and show no book, building, day or time; the card shows no document, so it neither shows the key nor favours pinpas.",
+        "source_links": [
+          {
+            "quote": "Uw nieuwe pas is klaar. U kunt de pas ophalen in de bibliotheek.",
+            "function": "News and place of collection."
+          },
+          {
+            "quote": "Neem uw paspoort mee. Wij zijn open van tien tot vijf uur.",
+            "function": "What to bring and the opening hours."
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "A",
+          "answer_text": "Uw paspoort.",
+          "evidence_quote": "Neem uw paspoort mee.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Uw pinpas.",
+              "rationale": "A pinpas is another card people carry; the letter does not ask for it."
+            },
+            {
+              "option": "C",
+              "text": "Een pasfoto.",
+              "rationale": "A pasfoto is something people bring for a pass or passport; the letter does not mention it."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "B",
+          "answer_text": "Vanaf tien uur.",
+          "evidence_quote": "Wij zijn open van tien tot vijf uur.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Vanaf negen uur.",
+              "rationale": "An ordinary opening hour the letter does not give."
+            },
+            {
+              "option": "C",
+              "text": "Vanaf vijf uur.",
+              "rationale": "Five is the closing time from the same sentence (van/tot)."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        }
+      ],
+      "cross_question_cue_audit": {
+        "verdict": "pass",
+        "evidence": "q1 asks what to bring, q2 the opening hour; neither names the other key. The situation names the library, which neither question asks about."
+      },
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "message",
+          "all question prompts and options",
+          "explanations",
+          "image brief",
+          "Dutch alt"
+        ],
+        "evidence": "Title, situation, alt and picture brief give neither key. A blank card, an open envelope and a folded sheet on a table fit a letter about a card and show no book, building, day or time; the card shows no document, so it neither shows the key nor favours pinpas."
+      },
+      "record_contract": {
+        "verdict": "pass",
+        "exam": "a1-practice",
+        "taskType": "bericht",
+        "domain": "instanties",
+        "evidence": "The message suits the domain and taskType bericht; status draft, targetLevelValidated false, exactly two questions with three options."
+      }
+    },
+    {
+      "id": "A1:reading:batch076-medicijn:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target",
+        "validated": false,
+        "basis": "Everyday words from the A1 list; the shortest text of the batch (26 words), sentences of at most six words. No comparison with an official exam.",
+        "word_count": 26,
+        "mean_sentence_words": 4.3,
+        "maximum_sentence_words": 6
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The apotheek tells a customer that the medicine is available from Thursday, that it can be collected there and that the pharmacy is open until five.",
+        "communicative_purpose": "The customer knows from which day to collect the medicine and until what time the pharmacy is open.",
+        "contrivance_check": "'Er is vanaf donderdag' is the normal way a pharmacy reports that something that was not in stock will be available; the customer presupposes only the ordinary fact of having asked for the medicine. The text has no contradiction between 'ready' and a later day, and the closing time is the pharmacy's own hours.",
+        "unsupported_assumptions": [],
+        "image_text_link": "A folded paper bag and a pill box on a table fit a pharmacy collection and show no person, day or time.",
+        "source_links": [
+          {
+            "quote": "Uw medicijn is er vanaf donderdag. U kunt het bij ons ophalen.",
+            "function": "Says when the medicine is available and where to get it."
+          },
+          {
+            "quote": "Wij zijn open tot vijf uur.",
+            "function": "States the pharmacy's closing time."
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "C",
+          "answer_text": "Vanaf donderdag.",
+          "evidence_quote": "Uw medicijn is er vanaf donderdag.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Vanaf dinsdag.",
+              "rationale": "Dinsdag is a familiar weekday the message does not give."
+            },
+            {
+              "option": "B",
+              "text": "Vanaf zaterdag.",
+              "rationale": "Zaterdag is a familiar weekday the message does not give."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "A",
+          "answer_text": "Tot vijf uur.",
+          "evidence_quote": "Wij zijn open tot vijf uur.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Tot zes uur.",
+              "rationale": "A usual closing time the message does not give."
+            },
+            {
+              "option": "C",
+              "text": "Tot acht uur.",
+              "rationale": "A usual closing time the message does not give."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        }
+      ],
+      "cross_question_cue_audit": {
+        "verdict": "pass",
+        "evidence": "q1 asks which day, q2 for closing time; the title 'Uw medicijn' and the picture name neither."
+      },
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "message",
+          "all question prompts and options",
+          "explanations",
+          "image brief",
+          "Dutch alt"
+        ],
+        "evidence": "Title, situation, alt and picture brief give neither key. A folded paper bag and a pill box on a table fit a pharmacy collection and show no person, day or time."
+      },
+      "record_contract": {
+        "verdict": "pass",
+        "exam": "a1-practice",
+        "taskType": "bericht",
+        "domain": "gezondheid",
+        "evidence": "The message suits the domain and taskType bericht; status draft, targetLevelValidated false, exactly two questions with three options."
+      }
+    },
+    {
+      "id": "A1:reading:batch071-beer-dokter:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target",
+        "validated": false,
+        "basis": "Everyday words from the A1 list; eight words per sentence at most. No comparison with an official exam.",
+        "word_count": 31,
+        "mean_sentence_words": 4.4,
+        "maximum_sentence_words": 8
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The huisarts reminds a patient of tomorrow's ten o'clock appointment and asks them to phone before nine if they cannot come.",
+        "communicative_purpose": "The patient knows when to be at the doctor and what to do, and by when, if they cannot make it.",
+        "contrivance_check": "Reminders of a huisarts appointment with a request to cancel in time are everyday. The two times have different roles (appointment, latest moment to cancel) that the text states, and nothing in the message is stocked for distractors.",
+        "unsupported_assumptions": [],
+        "image_text_link": "An empty chair, a plant and a closed door suggest a doctor's practice waiting space and show no time, number or person.",
+        "source_links": [
+          {
+            "quote": "U heeft morgen een afspraak bij de huisarts. De afspraak is om tien uur.",
+            "function": "Reminds of the appointment and gives its time."
+          },
+          {
+            "quote": "Kunt u niet komen? Bel dan voor negen uur.",
+            "function": "Says what to do if the patient cannot come, and by when."
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "B",
+          "answer_text": "Om tien uur.",
+          "evidence_quote": "De afspraak is om tien uur.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Om negen uur.",
+              "rationale": "Nine is the call-by time from the text, tested against the appointment time."
+            },
+            {
+              "option": "C",
+              "text": "Om elf uur.",
+              "rationale": "Elf uur is a neighbouring hour not in the message."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "C",
+          "answer_text": "Voor negen uur.",
+          "evidence_quote": "Bel dan voor negen uur.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Voor tien uur.",
+              "rationale": "Ten is the appointment time; the text says to phone before nine, so it is clearly false."
+            },
+            {
+              "option": "B",
+              "text": "Voor twaalf uur.",
+              "rationale": "Twaalf uur is a plausible deadline the message does not give."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        }
+      ],
+      "cross_question_cue_audit": {
+        "verdict": "pass",
+        "evidence": "q1 asks the appointment time and q2 the latest time to phone; q2's prompt states only 'U kunt niet komen' and does not give q1's key. The title 'Morgen naar de dokter' gives no time."
+      },
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "message",
+          "all question prompts and options",
+          "explanations",
+          "image brief",
+          "Dutch alt"
+        ],
+        "evidence": "Title, situation, alt and picture brief give neither key. An empty chair, a plant and a closed door suggest a doctor's practice waiting space and show no time, number or person."
+      },
+      "record_contract": {
+        "verdict": "pass",
+        "exam": "a1-practice",
+        "taskType": "bericht",
+        "domain": "gezondheid",
+        "evidence": "The message suits the domain and taskType bericht; status draft, targetLevelValidated false, exactly two questions with three options."
+      }
+    },
+    {
+      "id": "A1:reading:batch075-nieuw-paspoort:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target",
+        "validated": false,
+        "basis": "Everyday words from the A1 list; sentences of at most eight words. No comparison with an official exam.",
+        "word_count": 35,
+        "mean_sentence_words": 5,
+        "maximum_sentence_words": 8
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The gemeente tells a resident that the new paspoort is ready, that there is an appointment on Tuesday at three and that the old paspoort must be brought.",
+        "communicative_purpose": "The resident knows the passport can be collected, on which day to go and what document to take along.",
+        "contrivance_check": "Collecting a passport at the gemeente by appointment while handing in the old one is real practice, so every sentence follows from the previous one. The sign-off is now the formal 'Met vriendelijke groet, de gemeente'.",
+        "unsupported_assumptions": [],
+        "image_text_link": "A town-hall waiting area with two people seen from behind fits the appointment at the gemeente and shows no passport, day or time.",
+        "source_links": [
+          {
+            "quote": "Uw nieuwe paspoort is klaar. U kunt het paspoort ophalen bij de gemeente.",
+            "function": "News and place of collection."
+          },
+          {
+            "quote": "U heeft dinsdag om drie uur een afspraak. Neem uw oude paspoort mee.",
+            "function": "The appointment and what to bring."
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "A",
+          "answer_text": "Op dinsdag.",
+          "evidence_quote": "U heeft dinsdag om drie uur een afspraak.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Op maandag.",
+              "rationale": "Maandag is a familiar weekday the letter does not give."
+            },
+            {
+              "option": "C",
+              "text": "Op donderdag.",
+              "rationale": "Donderdag is a familiar weekday the letter does not give."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "B",
+          "answer_text": "Uw oude paspoort.",
+          "evidence_quote": "Neem uw oude paspoort mee.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Een nieuwe pasfoto.",
+              "rationale": "A pasfoto is often brought for a passport; the letter does not ask for it."
+            },
+            {
+              "option": "C",
+              "text": "Uw oude pinpas.",
+              "rationale": "An old pinpas is a card with 'pas' in the name; the letter asks for the old paspoort."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        }
+      ],
+      "cross_question_cue_audit": {
+        "verdict": "pass",
+        "evidence": "q1 asks the day and q2 what to bring; the title 'Naar de gemeente' and the picture do not name either. The distractor 'pasfoto' is not a prompt word."
+      },
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "message",
+          "all question prompts and options",
+          "explanations",
+          "image brief",
+          "Dutch alt"
+        ],
+        "evidence": "Title, situation, alt and picture brief give neither key. A town-hall waiting area with two people seen from behind fits the appointment at the gemeente and shows no passport, day or time."
+      },
+      "record_contract": {
+        "verdict": "pass",
+        "exam": "a1-practice",
+        "taskType": "bericht",
+        "domain": "instanties",
+        "evidence": "The message suits the domain and taskType bericht; status draft, targetLevelValidated false, exactly two questions with three options."
+      }
+    },
+    {
+      "id": "A1:reading:batch076-geen-water:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "verdict": "within A1 foundation authoring target",
+        "validated": false,
+        "basis": "Everyday words from the A1 list; at most eight words per sentence. No comparison with an official exam.",
+        "word_count": 29,
+        "mean_sentence_words": 4.8,
+        "maximum_sentence_words": 8
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The huismeester tells the residents of a flat that on Monday from eight to twelve there is no water and that they should put a bottle of water ready.",
+        "communicative_purpose": "A resident knows on which day and during which hours the water is off and prepares a bottle.",
+        "contrivance_check": "A caretaker's notice about a planned water cut with a practical instruction is common in flats. The unnatural sentence 'Er is dan werk aan het water' was removed; no reason is needed for the notice to work, and no off-page event is assumed. Residual risk: 'Beste meneer, mevrouw' is a little formal for a huismeester.",
+        "unsupported_assumptions": [],
+        "image_text_link": "A water bottle beside a closed tap and sink fits 'zet een fles water klaar' and shows no day, hours or person.",
+        "source_links": [
+          {
+            "quote": "Maandag is er geen water in de flat. Dat is van acht tot twaalf uur.",
+            "function": "Gives the day and the hours."
+          },
+          {
+            "quote": "Zet een fles water klaar.",
+            "function": "Practical advice that follows from the cut."
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "C",
+          "answer_text": "Op maandag.",
+          "evidence_quote": "Maandag is er geen water in de flat.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Op zondag.",
+              "rationale": "Zondag is the day before Monday and is not given."
+            },
+            {
+              "option": "B",
+              "text": "Op dinsdag.",
+              "rationale": "Dinsdag is the day after Monday and is not given."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "A",
+          "answer_text": "Van acht tot twaalf.",
+          "evidence_quote": "Dat is van acht tot twaalf uur.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Van twaalf tot vier.",
+              "rationale": "Reuses twelve as a start; the letter says twelve is the end."
+            },
+            {
+              "option": "C",
+              "text": "Van vier tot acht.",
+              "rationale": "Reuses eight as an end; the letter says eight is the start."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        }
+      ],
+      "cross_question_cue_audit": {
+        "verdict": "pass",
+        "evidence": "q1 asks the day and q2 the hours; the title 'Geen water' is the news itself and neither tested fact."
+      },
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "message",
+          "all question prompts and options",
+          "explanations",
+          "image brief",
+          "Dutch alt"
+        ],
+        "evidence": "Title, situation, alt and picture brief give neither key. A water bottle beside a closed tap and sink fits 'zet een fles water klaar' and shows no day, hours or person."
+      },
+      "record_contract": {
+        "verdict": "pass",
+        "exam": "a1-practice",
+        "taskType": "bericht",
+        "domain": "wonen-buurt",
+        "evidence": "The message suits the domain and taskType bericht; status draft, targetLevelValidated false, exactly two questions with three options."
+      }
+    },
+    {
+      "id": "A1:reading:batch076-voetbal-zoon:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "verdict": "within A1 foundation authoring target",
+        "validated": false,
+        "basis": "Everyday words from the A1 list; the shortest sentences of the batch. No comparison with an official exam.",
+        "word_count": 24,
+        "mean_sentence_words": 3.4,
+        "maximum_sentence_words": 8
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A friend, Esra, invites you to watch her son play football at the club on Saturday at ten and to eat pizza together afterwards.",
+        "communicative_purpose": "The reader knows when and where to go to watch and that a meal follows, and can answer the invitation.",
+        "contrivance_check": "Youth football on Saturday morning followed by a shared meal is a normal invitation between friends; 'Hij speelt bij de club' states the place. The sender is a friend and signs with a first name and 'je' is used. Residual risk: the club is not named, which the friend would not need to do.",
+        "unsupported_assumptions": [],
+        "image_text_link": "The new picture of a boy kicking a ball on a plain grass field fits a football invitation and shows no goal, building, school, park, time or club, so it favours neither distractor place.",
+        "source_links": [
+          {
+            "quote": "Mijn zoon speelt zaterdag om tien uur voetbal.",
+            "function": "Day, time and activity."
+          },
+          {
+            "quote": "Hij speelt bij de club. Kom je kijken? Daarna eten we samen pizza.",
+            "function": "Place, the invitation and the follow-up."
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "B",
+          "answer_text": "Om tien uur.",
+          "evidence_quote": "Mijn zoon speelt zaterdag om tien uur voetbal.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Om negen uur.",
+              "rationale": "Nine is a usual Saturday-morning start the text does not give."
+            },
+            {
+              "option": "C",
+              "text": "Om twaalf uur.",
+              "rationale": "Twaalf uur is a usual match time the text does not give."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "C",
+          "answer_text": "Bij de club.",
+          "evidence_quote": "Hij speelt bij de club.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "In het park.",
+              "rationale": "A park is where children also play football; the text says the club."
+            },
+            {
+              "option": "B",
+              "text": "Bij de school.",
+              "rationale": "The school is a place with a field; the text says the club."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        }
+      ],
+      "cross_question_cue_audit": {
+        "verdict": "pass",
+        "evidence": "q1 asks the time and q2 the place; the prompt 'haar zoon' repeats the text only and no prompt names a key. The picture shows a boy, which is not tested. Edit: q2 prompt now mirrors the evidence verb."
+      },
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "message",
+          "all question prompts and options",
+          "explanations",
+          "image brief",
+          "Dutch alt"
+        ],
+        "evidence": "Title, situation, alt and picture brief give neither key. The new picture of a boy kicking a ball on a plain grass field fits a football invitation and shows no goal, building, school, park, time or club, so it favours neither distractor place."
+      },
+      "record_contract": {
+        "verdict": "pass",
+        "exam": "a1-practice",
+        "taskType": "bericht",
+        "domain": "vrije-tijd-familie",
+        "evidence": "The message suits the domain and taskType bericht; status draft, targetLevelValidated false, exactly two questions with three options."
+      }
+    },
+    {
+      "id": "A1:reading:batch071-koffer-les:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "verdict": "within A1 foundation authoring target",
+        "validated": false,
+        "basis": "Everyday words from the A1 list; sentences of at most eight words. Edit: teacher renamed Erik. No comparison with an official exam.",
+        "word_count": 24,
+        "mean_sentence_words": 4,
+        "maximum_sentence_words": 8
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The teacher tells the class that today they go to the library together, that he waits at the door at two and that they must bring a pen.",
+        "communicative_purpose": "A student knows where the class goes, at what time to be at the door and what to bring.",
+        "contrivance_check": "A language class visiting the library with a meeting time and 'neem een pen mee' is ordinary; 'bij de deur' reads as the door of the school after 'tot straks' (message the same day). No unrelated stock is added. Residual risk: which door is implicit, and neither question depends on it.",
+        "unsupported_assumptions": [],
+        "image_text_link": "Four adults walking along a street fit 'we gaan samen' and show no library, bag, pen, school or clock, so neither key is shown.",
+        "source_links": [
+          {
+            "quote": "Vandaag gaan we samen naar de bibliotheek.",
+            "function": "Announces the outing."
+          },
+          {
+            "quote": "Ik wacht om twee uur bij de deur. Neem een pen mee.",
+            "function": "Meeting time and what to bring."
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "A",
+          "answer_text": "Naar de bibliotheek.",
+          "evidence_quote": "Vandaag gaan we samen naar de bibliotheek.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Naar de supermarkt.",
+              "rationale": "A supermarket is a place a class may go; the text says the library."
+            },
+            {
+              "option": "C",
+              "text": "Naar het park.",
+              "rationale": "A park is a place a class may go; the text says the library."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "B",
+          "answer_text": "Om twee uur.",
+          "evidence_quote": "Ik wacht om twee uur bij de deur.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Om één uur.",
+              "rationale": "One o'clock is the hour before and is not given."
+            },
+            {
+              "option": "C",
+              "text": "Om drie uur.",
+              "rationale": "Three o'clock is the hour after and is not given."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        }
+      ],
+      "cross_question_cue_audit": {
+        "verdict": "pass",
+        "evidence": "q1 asks the place and q2 the time; q2's prompt gives only the teacher and the door, not the place. The title 'Les vandaag' names neither."
+      },
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "message",
+          "all question prompts and options",
+          "explanations",
+          "image brief",
+          "Dutch alt"
+        ],
+        "evidence": "Title, situation, alt and picture brief give neither key. Four adults walking along a street fit 'we gaan samen' and show no library, bag, pen, school or clock, so neither key is shown."
+      },
+      "record_contract": {
+        "verdict": "pass",
+        "exam": "a1-practice",
+        "taskType": "bericht",
+        "domain": "opleiding",
+        "evidence": "The message suits the domain and taskType bericht; status draft, targetLevelValidated false, exactly two questions with three options."
+      }
+    },
+    {
+      "id": "A1:reading:batch076-ander-lokaal:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target",
+        "validated": false,
+        "basis": "Everyday words from the A1 list; shortest text (23 words). No comparison with an official exam.",
+        "word_count": 23,
+        "mean_sentence_words": 3.8,
+        "maximum_sentence_words": 8
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The teacher tells the class that today's lesson is in another room, lokaal four, and starts at nine.",
+        "communicative_purpose": "Students know in which room to go and when the lesson starts.",
+        "contrivance_check": "A message about a changed classroom is what a teacher sends the same day ('vandaag', 'Tot straks'); every sentence helps students find the lesson. 'lokaal' is the usual word for a classroom.",
+        "unsupported_assumptions": [],
+        "image_text_link": "An empty classroom with tables, chairs and a blank board fits a lesson room and shows no number, door, person or time.",
+        "source_links": [
+          {
+            "quote": "De les is vandaag in een ander lokaal. Kom naar lokaal vier.",
+            "function": "Says that the room changed and which one it is."
+          },
+          {
+            "quote": "De les begint om negen uur. Tot straks!",
+            "function": "Start time and farewell."
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "C",
+          "answer_text": "In lokaal vier.",
+          "evidence_quote": "Kom naar lokaal vier.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "In lokaal twee.",
+              "rationale": "Two is a neighbouring number not in the message."
+            },
+            {
+              "option": "B",
+              "text": "In lokaal zes.",
+              "rationale": "Six is a neighbouring number not in the message."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "A",
+          "answer_text": "Om negen uur.",
+          "evidence_quote": "De les begint om negen uur.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Om acht uur.",
+              "rationale": "Eight is the hour before and is not given."
+            },
+            {
+              "option": "C",
+              "text": "Om tien uur.",
+              "rationale": "Ten is the hour after and is not given."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        }
+      ],
+      "cross_question_cue_audit": {
+        "verdict": "pass",
+        "evidence": "q1 asks the room and q2 the time; the title 'Een ander lokaal' contains no number or time."
+      },
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "message",
+          "all question prompts and options",
+          "explanations",
+          "image brief",
+          "Dutch alt"
+        ],
+        "evidence": "Title, situation, alt and picture brief give neither key. An empty classroom with tables, chairs and a blank board fits a lesson room and shows no number, door, person or time."
+      },
+      "record_contract": {
+        "verdict": "pass",
+        "exam": "a1-practice",
+        "taskType": "bericht",
+        "domain": "opleiding",
+        "evidence": "The message suits the domain and taskType bericht; status draft, targetLevelValidated false, exactly two questions with three options."
+      }
+    },
+    {
+      "id": "A1:reading:batch075-kip-tuin:1",
+      "verdict": "pass",
+      "level": {
+        "verdict": "within A1 foundation authoring target",
+        "validated": false,
+        "basis": "Everyday words from the A1 list; sentences of at most seven words. No comparison with an official exam.",
+        "word_count": 32,
+        "mean_sentence_words": 4,
+        "maximum_sentence_words": 7
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "light-humor",
+        "situation_summary": "A neighbour, Femke from number twelve, writes that a hen is walking in your garden eating your tomatoes, asks whether it is yours and says she is home until six.",
+        "communicative_purpose": "The reader learns about the hen, can tell Femke whether it is theirs and knows until what time she is at home.",
+        "contrivance_check": "A neighbour's note about an animal in the garden is plausible. The humour is one familiar animal in an unusual place; the question 'Is dat uw kip?' is natural for someone who sees the hen. 'U kunt mij bellen' assumes the neighbours know each other's number, which is ordinary.",
+        "unsupported_assumptions": [],
+        "image_text_link": "A brown hen on a lawn behind a terraced house shows the animal without tomatoes, a time or a person, so it favours neither distractor.",
+        "source_links": [
+          {
+            "quote": "Er loopt een kip in uw tuin. Is dat uw kip? De kip eet uw tomaten!",
+            "function": "The news, the question and the joke."
+          },
+          {
+            "quote": "Ik ben thuis tot zes uur. U kunt mij bellen.",
+            "function": "Availability and how to reach her."
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "B",
+          "answer_text": "Uw tomaten.",
+          "evidence_quote": "De kip eet uw tomaten!",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Uw bloemen.",
+              "rationale": "Flowers are in a garden; the text says tomatoes."
+            },
+            {
+              "option": "C",
+              "text": "Uw appels.",
+              "rationale": "Apples are another garden food; the text says tomatoes."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "C",
+          "answer_text": "Tot zes uur.",
+          "evidence_quote": "Ik ben thuis tot zes uur.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Tot vier uur.",
+              "rationale": "Four is a usual time the text does not give."
+            },
+            {
+              "option": "B",
+              "text": "Tot acht uur.",
+              "rationale": "Eight is a usual time the text does not give."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        }
+      ],
+      "cross_question_cue_audit": {
+        "verdict": "pass",
+        "evidence": "q1 asks what the hen eats and q2 until when she is at home; the title 'Is dat uw kip?' names neither tomatoes nor a time; the house number twelve is not offered as an option."
+      },
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "message",
+          "all question prompts and options",
+          "explanations",
+          "image brief",
+          "Dutch alt"
+        ],
+        "evidence": "Title, situation, alt and picture brief give neither key. A brown hen on a lawn behind a terraced house shows the animal without tomatoes, a time or a person, so it favours neither distractor."
+      },
+      "record_contract": {
+        "verdict": "pass",
+        "exam": "a1-practice",
+        "taskType": "bericht",
+        "domain": "wonen-buurt",
+        "evidence": "The message suits the domain and taskType bericht; status draft, targetLevelValidated false, exactly two questions with three options."
+      }
+    },
+    {
+      "id": "A1:reading:batch071-winkel-sok:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "verdict": "within A1 foundation authoring target",
+        "validated": false,
+        "basis": "Everyday words from the A1 list; sentences of at most eight words. No comparison with an official exam.",
+        "word_count": 32,
+        "mean_sentence_words": 4.6,
+        "maximum_sentence_words": 8
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A shop tells a customer that the new coat is in the shop on Friday, that they can collect it, that the shop is open until six and that it costs forty euro.",
+        "communicative_purpose": "The customer knows on which day the coat is in the shop and what to pay.",
+        "contrivance_check": "The original 'nu in de winkel' together with 'vrijdag ophalen' contradicted itself and was rewritten. Collecting an ordered coat and paying at the shop is ordinary. The shop name Winkel De Jas is plain and descriptive; two web searches (28 October 2026) found no shop of that name.",
+        "unsupported_assumptions": [],
+        "image_text_link": "A single coat on a rail in a quiet clothes shop fits the message and shows no price, person, day or time.",
+        "source_links": [
+          {
+            "quote": "Uw nieuwe jas is vrijdag in de winkel. U kunt de jas ophalen.",
+            "function": "Says when the coat is there and that it can be collected."
+          },
+          {
+            "quote": "De winkel is open tot zes uur. U betaalt veertig euro.",
+            "function": "Opening time and the price."
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "A",
+          "answer_text": "Op vrijdag.",
+          "evidence_quote": "Uw nieuwe jas is vrijdag in de winkel.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Op maandag.",
+              "rationale": "Monday is a shopping day the message does not give."
+            },
+            {
+              "option": "C",
+              "text": "Op zaterdag.",
+              "rationale": "Saturday is a shopping day the message does not give."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "quantity",
+          "answer": "B",
+          "answer_text": "Veertig euro.",
+          "evidence_quote": "U betaalt veertig euro.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "The quoted sentence states the keyed fact directly.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Dertig euro.",
+              "rationale": "Thirty euro is a neighbouring amount not given."
+            },
+            {
+              "option": "C",
+              "text": "Vijftig euro.",
+              "rationale": "Fifty euro is a neighbouring amount not given."
+            }
+          ],
+          "option_category_check": "All three options answer the same kind of question; no umbrella option and no odd polarity.",
+          "cue_check": "Options are parallel and short; the key is not the only longest or most detailed option; no prompt word recurs only in the key."
+        }
+      ],
+      "cross_question_cue_audit": {
+        "verdict": "pass",
+        "evidence": "q1 asks the day and q2 the price; the title 'Uw nieuwe jas' names neither. The six o'clock closing time is not tested."
+      },
+      "learner_visible_cue_audit": {
+        "verdict": "pass",
+        "fields_checked": [
+          "title",
+          "situation",
+          "message",
+          "all question prompts and options",
+          "explanations",
+          "image brief",
+          "Dutch alt"
+        ],
+        "evidence": "Title, situation, alt and picture brief give neither key. A single coat on a rail in a quiet clothes shop fits the message and shows no price, person, day or time."
+      },
+      "record_contract": {
+        "verdict": "pass",
+        "exam": "a1-practice",
+        "taskType": "bericht",
+        "domain": "winkels-diensten",
+        "evidence": "The message suits the domain and taskType bericht; status draft, targetLevelValidated false, exactly two questions with three options."
+      }
+    }
+  ]
+}

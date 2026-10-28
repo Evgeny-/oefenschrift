@@ -1,0 +1,754 @@
+{
+  "review_id": "085-a1-speaking-revision-2026-10-28",
+  "source": "content/batches/085-original.json",
+  "proposed_source": "content/batches/085-proposed.json",
+  "source_sha256": "cb29d9b9a98960512b94f26fd729fca72230da219152252ca73835af2db19902",
+  "starters_source": "content/batches/085-starters.json",
+  "starters_sha256": "d768193ae8d1e695fd18a4212d28c99811826fd5ecb85044673d2bab5e763fa8",
+  "starters_verdict": "pass",
+  "review_type": "independent AI editorial focused re-review of seven revised A1 foundation speaking items",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-10-28T08:49:58Z",
+  "review_contract_version": 2,
+  "replaces": [
+    "A1:speaking:batch080-vuilniszak:1",
+    "A1:speaking:batch080-kat-fruitschaal:1",
+    "A1:speaking:batch080-bakker-brood:1",
+    "A1:speaking:batch073-stofzuigerdans:1",
+    "A1:speaking:batch080-apotheek-tas:1",
+    "A1:speaking:batch079-markt-fruit:1",
+    "A1:speaking:batch079-fiets-mand:1"
+  ],
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "850639a575c07c6634bdcc6cf2f3ef0b207a7feb837e954b68f65d2f20e1d64b",
+    "independence_note": "Fresh reviewer context, separate from the author. Blind findings per item were written to content/reviews/085-review.md from the author's source-only packet (initial packet hash d0eecc004acaf37245c847232c870167cabd79d37dd11bff909c7b1befe6a90f, verified against the file) before criteria, models, samples, starters, notes or any earlier review were opened. After the repairs the meaning pass was repeated and the packet was rebuilt from the proposed bytes (the only packet change is the vuilniszak brief).",
+    "initial_packet_sha256": "d0eecc004acaf37245c847232c870167cabd79d37dd11bff909c7b1befe6a90f"
+  },
+  "tone_balance": {
+    "ordinary": 6,
+    "light_humor": 1,
+    "target_share": 0.15,
+    "scope_note": "This seven-item replacement batch contains 1 lightly funny task (kat-fruitschaal, a cat asleep in a fruit bowl) and 6 ordinary ones; the small-batch rounded cap is ceil(7 x 0.15) = 2. Stofzuigerdans is now ordinary (the dance is gone). The coordinator checks the combined A1 count across all batches."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 7,
+    "edited_by_reviewer": 3,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A1:speaking:batch080-vuilniszak:1",
+      "field": "images.0.brief",
+      "before": "sets one tied, clearly sage green rubbish bag on the floor right next to a light grey pedal bin",
+      "after": "sets one tied rubbish bag on the floor right next to a light grey pedal bin ... The bag is a definite leaf green, the strongest colour in the picture, so it reads as green and not grey; the cupboards are pale cream, not green.",
+      "reason": "Sage is a grey-green, the house palette uses sage for cupboards and bowls, and the bin is grey; the colour goal needs an unmistakable green."
+    },
+    {
+      "id": "A1:speaking:batch073-stofzuigerdans:1",
+      "field": "images.0.alt",
+      "before": "Sanne maakt de vloer schoon. Ze is in de keuken.",
+      "after": "Sanne maakt de vloer schoon met een stofzuiger. Ze is in de keuken.",
+      "reason": "The vacuum cleaner is a pictured fact and a goal-1 answer; open picture alts keep the pictured facts (12 words, within the 14-word limit)."
+    },
+    {
+      "id": "A1:speaking:batch073-stofzuigerdans:1",
+      "field": "criteria.1",
+      "before": [
+        "Zeg waar Sanne is: in de keuken.",
+        "Say where Sanne is: in the kitchen."
+      ],
+      "after": [
+        "Waar is Sanne? U zegt: in de keuken.",
+        "Where is Sanne? You say: in the kitchen."
+      ],
+      "reason": "Removes the visible 'Zeg waar' subordinate clause; matches the sibling criteria format ('Welk dier? U zegt: ...')."
+    },
+    {
+      "id": "A1:speaking:batch079-fiets-mand:1",
+      "field": "criteria.0",
+      "before": [
+        "Zeg dat de fiets groen is.",
+        "Say that the bicycle is green."
+      ],
+      "after": [
+        "Welke kleur heeft de fiets? U zegt: groen.",
+        "What colour is the bicycle? You say: green."
+      ],
+      "reason": "Removes the 'Zeg dat' subordinate clause; matches the sibling criteria format."
+    },
+    {
+      "id": "A1:speaking:batch079-fiets-mand:1",
+      "field": "criteria.1",
+      "before": [
+        "Zeg wat er in de mand zit: bloemen.",
+        "Say what is in the basket: flowers."
+      ],
+      "after": [
+        "Wat zit er in de mand? U zegt: bloemen.",
+        "What is in the basket? You say: flowers."
+      ],
+      "reason": "Removes the 'Zeg wat' subordinate clause; matches the sibling criteria format and the prompt's own question."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npm run batch:check -- content/batches/085-proposed.json",
+      "result": "Checked 7 items, 0 questions. No failures, no warnings (info: 7 of 7 items are already in the catalogue, a revision)."
+    },
+    "word_gate_vs_simplicity": "Word gate passes (schaal, bakkerij added by the coordinator); prompts 11-16 words with sentences of at most eight words, no subordinate clause in any prompt or criterion after the edits, alts at most 14 words, models 8-11 words.",
+    "open_task_contract": "pass: two explicit goals in each prompt, three bilingual criteria, models within 6-16 words, one null quote per sample, verbatim quotes",
+    "starters": "pass: 21 fragments read in task context; none names a colour, count, place, object, animal or action",
+    "names": "Ilse, Joost, Sanne and Dana each appear in one exercise of this batch; the other three items use unnamed roles.",
+    "pictures_opened": "The five pictures that are not redrawn (kat-fruitschaal, bakker-brood, stofzuigerdans, apotheek-tas, fiets-mand) were opened via content/image-manifest.json; each still matches its new text. The two new briefs (vuilniszak, markt-fruit) were judged as briefs.",
+    "full_final_source_read": "pass"
+  },
+  "diversity": {
+    "within_batch": "Seven different goal pairs (colour+place, animal+place, place+object, action+place, place+object, fruit+count, colour+contents) and seven domains-or-sub-scenes; one lightly funny item.",
+    "set_assembly": "Four of the seven scenes are kitchens (vuilniszak, kat-fruitschaal, stofzuigerdans, markt-fruit) and the redrawn vuilniszak woman wears the same mustard jumper as Sanne; the coordinator should keep these out of one set and may vary the vuilniszak jumper colour in the redraw. 'Waar?' appears as a goal in five of seven items, which is the A1 picture-task pattern."
+  },
+  "media_notes": {
+    "redraw": [
+      "vuilniszak (reviewer-edited brief)",
+      "markt-fruit (new brief)"
+    ],
+    "alt_update_only": [
+      "kat-fruitschaal",
+      "bakker-brood",
+      "stofzuigerdans",
+      "apotheek-tas",
+      "fiets-mand"
+    ],
+    "prompt_narration_changed": [
+      "apotheek-tas",
+      "markt-fruit",
+      "fiets-mand"
+    ],
+    "risks": [
+      "vuilniszak: one clearly green bag, closed light grey pedal bin, no other bag",
+      "markt-fruit: exactly four red apples, none in the bag or her hands, plain unprinted milk carton",
+      "apotheek-tas: pharmacy readable without sign or cross (criterion also accepts 'winkel')"
+    ],
+    "scope": "No generation or rendered-media approval performed; the two redrawn pictures need their own media review."
+  },
+  "limitations": [
+    "AI editorial review against the local A1 foundation authoring target, not validated CEFR difficulty or exam equivalence.",
+    "Rendered pictures need their own review, in particular the two redraws."
+  ],
+  "items": [
+    {
+      "id": "A1:speaking:batch080-vuilniszak:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "fits the simplified A1 profile; easier than A2 (no subordinate clause, prompt 13 words, every sentence at most eight words, model 9 words)",
+        "targetLevelValidated": false,
+        "prompt_words": 13,
+        "model_words": 9,
+        "reason": "Two concrete content goals, each met by one short main clause; no reason or narrative is required."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "A woman in a home kitchen bends down and puts one tied green rubbish bag on the floor next to a closed light grey pedal bin; a full bag waiting to go out.",
+        "communicative_purpose": "Name the bag's colour (green) and say where it stands (next to the bin, in the kitchen or on the floor), one short sentence each.",
+        "coherence_explanation": "A tied bag beside the kitchen bin is a normal Dutch household moment, and both questions ask about facts drawn in the one picture. No off-page event is needed. The old pavement-by-the-door scene is gone.",
+        "contrivance_check": "Exactly one bag, one bin, one woman; the colour and the position are separate facts. The title 'Het vuilnis' names a topic and supplies neither goal.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken picture description with no recipient invented and none needed; the prompt only says 'Kijk naar het plaatje.' and asks two questions about what is drawn.",
+        "tone": "ordinary",
+        "tone_reason": "Ordinary chore at home.",
+        "final_source_recheck": "Repeated on the proposed packet: the reviewer's brief change (definite leaf green, cream cupboards instead of sage) removes the grey-green risk and does not alter the scene."
+      },
+      "evidence": {
+        "prompt": "Kijk naar het plaatje. Welke kleur heeft de zak? Waar staat de zak?",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "goal 1",
+            "criterion_nl": "Welke kleur heeft de zak? U zegt: groen.",
+            "model_quote": "De zak is groen. Hij staat naast de prullenbak."
+          },
+          {
+            "goal": "goal 2",
+            "criterion_nl": "Waar? Naast de prullenbak, in de keuken of op de vloer.",
+            "model_quote": "De zak is groen. Hij staat naast de prullenbak."
+          }
+        ],
+        "sample": {
+          "text": "De zak is groene.",
+          "missing_content_goal": 2,
+          "missing_goal_description": "Omits goal 2 (Waar?).",
+          "quotes": [
+            "De zak is groene.",
+            null,
+            "De zak is groene."
+          ],
+          "quote_check": "One null quote for the omitted goal; the other quotes are verbatim substrings of the sample; the language criterion is met.",
+          "learner_error": "article/adjective agreement"
+        },
+        "starters": {
+          "verdict": "pass",
+          "values": [
+            "De zak is …",
+            "Hij staat …",
+            "Ik zie …"
+          ],
+          "check": "All three are incomplete, follow the criteria order and supply no colour, count, place, object, animal or action; the third is a neutral opening."
+        },
+        "title_and_cues": {
+          "verdict": "pass",
+          "title": "Het vuilnis",
+          "check": "Title names a person, household or topic only and does not supply either picture goal; no starter completes a goal."
+        },
+        "picture_alignment": {
+          "verdict": "pass",
+          "alt": "Een vrouw zet een groene zak naast de prullenbak in de keuken.",
+          "check": "Brief, alt, criteria and model agree: green bag, next to the pedal bin, in the kitchen. Alt (12 words) keeps both pictured facts. The picture is to be redrawn from the proposed brief.",
+          "rendered_media_review": "outside this source review"
+        },
+        "tags": {
+          "taskType": "picture-describe",
+          "domain": "wonen-buurt",
+          "verdict": "pass",
+          "reason": "Matches an A1 spoken picture description in this domain."
+        }
+      },
+      "residual_risk_or_acceptance_note": "Redraw must show a clearly green bag against the grey bin; check at display size. The bag must stand upright and be the only bag.",
+      "ratings": {
+        "language_simplicity": 5,
+        "clarity": 5,
+        "variety": 3,
+        "visual_interest": 4,
+        "task_illustration_fit": 5,
+        "basis": "Editorial source judgments; no rendered media or learner calibration is claimed."
+      }
+    },
+    {
+      "id": "A1:speaking:batch080-kat-fruitschaal:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "fits the simplified A1 profile; easier than A2 (no subordinate clause, prompt 12 words, every sentence at most eight words, model 10 words)",
+        "targetLevelValidated": false,
+        "prompt_words": 12,
+        "model_words": 10,
+        "reason": "Two concrete content goals, each met by one short main clause; no reason or narrative is required."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "A grey cat sleeps curled up in a wide green bowl full of apples and bananas on a kitchen table at Ilse's home.",
+        "communicative_purpose": "Name the animal (a cat) and say where it sleeps (in the bowl, among the fruit or on the table).",
+        "coherence_explanation": "The only oddity is a cat napping in the fruit bowl, a familiar animal in a surprising place that is drawn without strain (the existing picture shows it nestled in the bowl). Both questions refer to what is visible; the answer 'in de schaal' uses a list word.",
+        "contrivance_check": "One cat, one bowl, one table; animal and place are separate facts. The title 'Bij Ilse thuis' names a household, not the animal or the place.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken picture description with no recipient invented and none needed; the prompt only says 'Kijk naar het plaatje.' and asks two questions about what is drawn.",
+        "tone": "light-humor",
+        "tone_reason": "Light humour: a cat asleep in a fruit bowl, one familiar animal in a surprising place, said with list words.",
+        "final_source_recheck": "Source unchanged by the reviewer. The new criterion ('in de schaal') matches the existing rendered picture, which was opened and checked."
+      },
+      "evidence": {
+        "prompt": "Kijk naar het plaatje. Welk dier ziet u? Waar slaapt het dier?",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "goal 1",
+            "criterion_nl": "Welk dier? U zegt: een kat.",
+            "model_quote": "Ik zie een kat. De kat slaapt in de schaal."
+          },
+          {
+            "goal": "goal 2",
+            "criterion_nl": "Waar? In de schaal, tussen het fruit of op de tafel.",
+            "model_quote": "Ik zie een kat. De kat slaapt in de schaal."
+          }
+        ],
+        "sample": {
+          "text": "Hij slaap in de schaal.",
+          "missing_content_goal": 1,
+          "missing_goal_description": "Omits goal 1 (Welk dier?).",
+          "quotes": [
+            null,
+            "Hij slaap in de schaal.",
+            "Hij slaap in de schaal."
+          ],
+          "quote_check": "One null quote for the omitted goal; the other quotes are verbatim substrings of the sample; the language criterion is met.",
+          "learner_error": "verb form"
+        },
+        "starters": {
+          "verdict": "pass",
+          "values": [
+            "Ik zie een …",
+            "Het dier slaapt …",
+            "Het is …"
+          ],
+          "check": "All three are incomplete, follow the criteria order and supply no colour, count, place, object, animal or action; the third is a neutral opening."
+        },
+        "title_and_cues": {
+          "verdict": "pass",
+          "title": "Bij Ilse thuis",
+          "check": "Title names a person, household or topic only and does not supply either picture goal; no starter completes a goal."
+        },
+        "picture_alignment": {
+          "verdict": "pass",
+          "alt": "Een kat slaapt in een schaal met appels en bananen op de tafel.",
+          "check": "Brief unchanged and identical to the manifest; the rendered picture shows the cat inside the bowl. New alt (13 words) names the bowl, the fruit and the table. Alt-only update, no redraw.",
+          "rendered_media_review": "outside this source review"
+        },
+        "tags": {
+          "taskType": "picture-describe",
+          "domain": "wonen-buurt",
+          "verdict": "pass",
+          "reason": "Matches an A1 spoken picture description in this domain."
+        }
+      },
+      "residual_risk_or_acceptance_note": "None for the existing picture. A learner may say 'in de fruitschaal'; the criterion accepts the meaning.",
+      "ratings": {
+        "language_simplicity": 5,
+        "clarity": 4,
+        "variety": 3,
+        "visual_interest": 4,
+        "task_illustration_fit": 5,
+        "basis": "Editorial source judgments; no rendered media or learner calibration is claimed."
+      }
+    },
+    {
+      "id": "A1:speaking:batch080-bakker-brood:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "fits the simplified A1 profile; easier than A2 (no subordinate clause, prompt 13 words, every sentence at most eight words, model 11 words)",
+        "targetLevelValidated": false,
+        "prompt_words": 13,
+        "model_words": 11,
+        "reason": "Two concrete content goals, each met by one short main clause; no reason or narrative is required."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "Joost, a young baker with red hair, glasses and a white apron, stands in the bakery workroom holding a wooden tray with three golden loaves; a brick oven, a worktable and shelves with baskets are behind him.",
+        "communicative_purpose": "Say where Joost is (in the bakery, at the baker's or in the kitchen) and what he holds (bread).",
+        "coherence_explanation": "A baker carrying fresh loaves from the oven is an everyday working scene. The rendered picture shows an oven, a rack of baskets, a baker's peel and a flour bowl, so 'in de bakkerij' is readable; 'in de keuken' is accepted as a lenient but not the expected answer.",
+        "contrivance_check": "Place and object are separate facts; bread is the only thing in his hands. The title 'Joost' gives only a name.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken picture description with no recipient invented and none needed; the prompt only says 'Kijk naar het plaatje.' and asks two questions about what is drawn.",
+        "tone": "ordinary",
+        "tone_reason": "A baker with fresh bread is routine work.",
+        "final_source_recheck": "Source unchanged by the reviewer; the picture was opened and shows the bakery cues the criterion expects."
+      },
+      "evidence": {
+        "prompt": "Kijk naar het plaatje. Waar is Joost? Wat heeft hij in zijn handen?",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "goal 1",
+            "criterion_nl": "Waar? In de bakkerij, bij de bakker of in de keuken.",
+            "model_quote": "Joost is in de bakkerij. Hij heeft brood in zijn handen."
+          },
+          {
+            "goal": "goal 2",
+            "criterion_nl": "Wat heeft Joost? U zegt: brood.",
+            "model_quote": "Joost is in de bakkerij. Hij heeft brood in zijn handen."
+          }
+        ],
+        "sample": {
+          "text": "Joost heb brood.",
+          "missing_content_goal": 1,
+          "missing_goal_description": "Omits goal 1 (Waar?).",
+          "quotes": [
+            null,
+            "Joost heb brood.",
+            "Joost heb brood."
+          ],
+          "quote_check": "One null quote for the omitted goal; the other quotes are verbatim substrings of the sample; the language criterion is met.",
+          "learner_error": "verb form"
+        },
+        "starters": {
+          "verdict": "pass",
+          "values": [
+            "Joost is …",
+            "Hij heeft …",
+            "Ik zie …"
+          ],
+          "check": "All three are incomplete, follow the criteria order and supply no colour, count, place, object, animal or action; the third is a neutral opening."
+        },
+        "title_and_cues": {
+          "verdict": "pass",
+          "title": "Joost",
+          "check": "Title names a person, household or topic only and does not supply either picture goal; no starter completes a goal."
+        },
+        "picture_alignment": {
+          "verdict": "pass",
+          "alt": "Joost staat in de bakkerij. Hij heeft brood in zijn handen.",
+          "check": "Brief unchanged and identical to the manifest; the picture matches the alt 'Joost staat in de bakkerij. Hij heeft brood in zijn handen.' Alt-only update, no redraw.",
+          "rendered_media_review": "outside this source review"
+        },
+        "tags": {
+          "taskType": "picture-describe",
+          "domain": "werk",
+          "verdict": "pass",
+          "reason": "Matches an A1 spoken picture description in this domain."
+        }
+      },
+      "residual_risk_or_acceptance_note": "None; the picture reads as a bakery without a sign.",
+      "ratings": {
+        "language_simplicity": 5,
+        "clarity": 5,
+        "variety": 4,
+        "visual_interest": 4,
+        "task_illustration_fit": 5,
+        "basis": "Editorial source judgments; no rendered media or learner calibration is claimed."
+      }
+    },
+    {
+      "id": "A1:speaking:batch073-stofzuigerdans:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "fits the simplified A1 profile; easier than A2 (no subordinate clause, prompt 10 words, every sentence at most eight words, model 8 words)",
+        "targetLevelValidated": false,
+        "prompt_words": 10,
+        "model_words": 8,
+        "reason": "Two concrete content goals, each met by one short main clause; no reason or narrative is required."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "Sanne, a woman with short blond hair and round glasses, vacuums the floor of a small kitchen with an upright vacuum cleaner; sink, counter, kettle, plant and cupboards show the room.",
+        "communicative_purpose": "Say what Sanne does (she cleans or uses the vacuum cleaner) and where she is (in the kitchen).",
+        "coherence_explanation": "Cleaning a kitchen floor with a vacuum cleaner is an ordinary chore, no longer a dance. Both questions refer to drawn facts; the 'at work' detail is only in the brief, and the learner is not asked about it.",
+        "contrivance_check": "Action and place are separate facts. The title 'Sanne' names only the person.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken picture description with no recipient invented and none needed; the prompt only says 'Kijk naar het plaatje.' and asks two questions about what is drawn.",
+        "tone": "ordinary",
+        "tone_reason": "A routine cleaning chore.",
+        "final_source_recheck": "The reviewer's alt change adds the vacuum cleaner, which the picture shows and the criterion names; the scene is unchanged."
+      },
+      "evidence": {
+        "prompt": "Kijk naar het plaatje. Wat doet Sanne? Waar is Sanne?",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "goal 1",
+            "criterion_nl": "Wat doet Sanne? Ze maakt schoon of gebruikt de stofzuiger.",
+            "model_quote": "Sanne maakt schoon. Ze is in de keuken."
+          },
+          {
+            "goal": "goal 2",
+            "criterion_nl": "Waar is Sanne? U zegt: in de keuken.",
+            "model_quote": "Sanne maakt schoon. Ze is in de keuken."
+          }
+        ],
+        "sample": {
+          "text": "Sanne schoon maakt.",
+          "missing_content_goal": 2,
+          "missing_goal_description": "Omits goal 2 (Waar is Sanne?).",
+          "quotes": [
+            "Sanne schoon maakt.",
+            null,
+            "Sanne schoon maakt."
+          ],
+          "quote_check": "One null quote for the omitted goal; the other quotes are verbatim substrings of the sample; the language criterion is met.",
+          "learner_error": "verb position"
+        },
+        "starters": {
+          "verdict": "pass",
+          "values": [
+            "Sanne …",
+            "Ze is …",
+            "Ik zie …"
+          ],
+          "check": "All three are incomplete, follow the criteria order and supply no colour, count, place, object, animal or action; the third is a neutral opening."
+        },
+        "title_and_cues": {
+          "verdict": "pass",
+          "title": "Sanne",
+          "check": "Title names a person, household or topic only and does not supply either picture goal; no starter completes a goal."
+        },
+        "picture_alignment": {
+          "verdict": "pass",
+          "alt": "Sanne maakt de vloer schoon met een stofzuiger. Ze is in de keuken.",
+          "check": "Brief unchanged and identical to the manifest; rendered picture shows the woman vacuuming in a kitchen. Reviewer alt: 'Sanne maakt de vloer schoon met een stofzuiger. Ze is in de keuken.' (12 words). Alt-only update, no redraw.",
+          "rendered_media_review": "outside this source review"
+        },
+        "tags": {
+          "taskType": "picture-describe",
+          "domain": "werk",
+          "verdict": "pass",
+          "reason": "Matches an A1 spoken picture description in this domain."
+        }
+      },
+      "residual_risk_or_acceptance_note": "The picture shows nothing that says 'work'; the domain tag 'werk' rests on the brief only. Accepted, because the learner is never asked about it.",
+      "ratings": {
+        "language_simplicity": 5,
+        "clarity": 4,
+        "variety": 3,
+        "visual_interest": 4,
+        "task_illustration_fit": 5,
+        "basis": "Editorial source judgments; no rendered media or learner calibration is claimed."
+      }
+    },
+    {
+      "id": "A1:speaking:batch080-apotheek-tas:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "fits the simplified A1 profile; easier than A2 (no subordinate clause, prompt 14 words, every sentence at most eight words, model 11 words)",
+        "targetLevelValidated": false,
+        "prompt_words": 14,
+        "model_words": 11,
+        "reason": "Two concrete content goals, each met by one short main clause; no reason or narrative is required."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "A grey-haired woman in a terracotta coat steps out of the open door of a pharmacy onto the pavement, holding one small white paper bag by its handles.",
+        "communicative_purpose": "Say where the woman is (at the pharmacy, at the shop or in the street) and what she holds (a small bag).",
+        "coherence_explanation": "Leaving a pharmacy with the small white bag medicine is handed over in is typically Dutch. The prompt only asks about the picture; the removed car pretext needed an off-page mother and an unseen car.",
+        "contrivance_check": "Place and object are separate facts; her other hand is empty. The title 'De vrouw' names no goal.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken picture description with no recipient invented and none needed; the prompt only says 'Kijk naar het plaatje.' and asks two questions about what is drawn.",
+        "tone": "ordinary",
+        "tone_reason": "An everyday errand.",
+        "final_source_recheck": "Repeated on the proposed source: the prompt, criteria, model, alt and starter agree on 'de vrouw', the pharmacy and the small bag."
+      },
+      "evidence": {
+        "prompt": "Kijk naar het plaatje. Waar is de vrouw? Wat heeft ze in haar hand?",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "goal 1",
+            "criterion_nl": "Waar? Bij de apotheek, bij de winkel of op straat.",
+            "model_quote": "De vrouw is bij de apotheek. Ze heeft een klein zakje."
+          },
+          {
+            "goal": "goal 2",
+            "criterion_nl": "Wat heeft ze? U zegt: een zak, zakje of tasje.",
+            "model_quote": "De vrouw is bij de apotheek. Ze heeft een klein zakje."
+          }
+        ],
+        "sample": {
+          "text": "Ze heeft klein zakje in hand.",
+          "missing_content_goal": 1,
+          "missing_goal_description": "Omits goal 1 (Waar?).",
+          "quotes": [
+            null,
+            "Ze heeft klein zakje in hand.",
+            "Ze heeft klein zakje in hand."
+          ],
+          "quote_check": "One null quote for the omitted goal; the other quotes are verbatim substrings of the sample; the language criterion is met.",
+          "learner_error": "missing article"
+        },
+        "starters": {
+          "verdict": "pass",
+          "values": [
+            "De vrouw is …",
+            "Ze heeft …",
+            "Ik zie …"
+          ],
+          "check": "All three are incomplete, follow the criteria order and supply no colour, count, place, object, animal or action; the third is a neutral opening."
+        },
+        "title_and_cues": {
+          "verdict": "pass",
+          "title": "De vrouw",
+          "check": "Title names a person, household or topic only and does not supply either picture goal; no starter completes a goal."
+        },
+        "picture_alignment": {
+          "verdict": "pass",
+          "alt": "Een vrouw komt uit de apotheek. Ze heeft een klein zakje.",
+          "check": "Brief unchanged and identical to the manifest; the picture shows shelves of white boxes, a counter and the woman with a small white bag. Alt: 'Een vrouw komt uit de apotheek. Ze heeft een klein zakje.' Alt and prompt narration change, no redraw.",
+          "rendered_media_review": "outside this source review"
+        },
+        "tags": {
+          "taskType": "picture-describe",
+          "domain": "gezondheid",
+          "verdict": "pass",
+          "reason": "Matches an A1 spoken picture description in this domain."
+        }
+      },
+      "residual_risk_or_acceptance_note": "With no cross or sign, the shop could read as a generic shop; the criterion therefore also accepts 'bij de winkel'. A bag with handles may be called 'tasje' or 'zakje'; both are accepted.",
+      "ratings": {
+        "language_simplicity": 5,
+        "clarity": 4,
+        "variety": 4,
+        "visual_interest": 4,
+        "task_illustration_fit": 5,
+        "basis": "Editorial source judgments; no rendered media or learner calibration is claimed."
+      }
+    },
+    {
+      "id": "A1:speaking:batch079-markt-fruit:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "fits the simplified A1 profile; easier than A2 (no subordinate clause, prompt 13 words, every sentence at most eight words, model 9 words)",
+        "targetLevelValidated": false,
+        "prompt_words": 13,
+        "model_words": 9,
+        "reason": "Two concrete content goals, each met by one short main clause; no reason or narrative is required."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "At home after shopping, a woman with short curly black hair lifts a milk carton out of a cloth bag with bread in it that stands on the kitchen table; four red apples lie in a loose row beside the bag.",
+        "communicative_purpose": "Name the fruit on the table (apples) and say how many there are (four).",
+        "coherence_explanation": "Unpacking the shopping is a natural reason for apples, bread and milk to be on a table; the four apples belong to the shopping, where the old picture showed four loose bananas on an empty market table. Both questions refer to drawn facts.",
+        "contrivance_check": "Exactly one kind of fruit and a countable number; bread and milk are not fruit, so 'welk fruit' is unambiguous, and 'Hoeveel ziet u?' follows the fruit question. The title 'Boodschappen' names a topic, not the fruit or the number.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken picture description with no recipient invented and none needed; the prompt only says 'Kijk naar het plaatje.' and asks two questions about what is drawn.",
+        "tone": "ordinary",
+        "tone_reason": "Putting away groceries is routine.",
+        "final_source_recheck": "Repeated on the proposed packet: no reviewer change; the new brief is judged as a brief (see media notes)."
+      },
+      "evidence": {
+        "prompt": "Kijk naar het plaatje. Welk fruit ligt er op tafel? Hoeveel ziet u?",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "goal 1",
+            "criterion_nl": "Welk fruit? U zegt: appels.",
+            "model_quote": "Er liggen appels op tafel. Ik zie vier appels."
+          },
+          {
+            "goal": "goal 2",
+            "criterion_nl": "Hoeveel appels? U zegt: vier.",
+            "model_quote": "Er liggen appels op tafel. Ik zie vier appels."
+          }
+        ],
+        "sample": {
+          "text": "Er is appels op tafel.",
+          "missing_content_goal": 2,
+          "missing_goal_description": "Omits goal 2 (Hoeveel appels?).",
+          "quotes": [
+            "Er is appels op tafel.",
+            null,
+            "Er is appels op tafel."
+          ],
+          "quote_check": "One null quote for the omitted goal; the other quotes are verbatim substrings of the sample; the language criterion is met.",
+          "learner_error": "'er is' with a plural"
+        },
+        "starters": {
+          "verdict": "pass",
+          "values": [
+            "Er liggen …",
+            "Ik tel …",
+            "Ik zie …"
+          ],
+          "check": "All three are incomplete, follow the criteria order and supply no colour, count, place, object, animal or action; the third is a neutral opening."
+        },
+        "title_and_cues": {
+          "verdict": "pass",
+          "title": "Boodschappen",
+          "check": "Title names a person, household or topic only and does not supply either picture goal; no starter completes a goal."
+        },
+        "picture_alignment": {
+          "verdict": "pass",
+          "alt": "Op de tafel staat een tas met boodschappen. Naast de tas liggen vier appels.",
+          "check": "New brief: home kitchen table, cloth bag with bread, four apples in a loose row, woman lifting a plain milk carton. Alt (14 words): 'Op de tafel staat een tas met boodschappen. Naast de tas liggen vier appels.' keeps the bag, the fruit and the count. Redraw required.",
+          "rendered_media_review": "outside this source review"
+        },
+        "tags": {
+          "taskType": "picture-describe",
+          "domain": "winkels-diensten",
+          "verdict": "pass",
+          "reason": "Matches an A1 spoken picture description in this domain."
+        }
+      },
+      "residual_risk_or_acceptance_note": "Redraw must show exactly four apples, none in the bag or in her hands, and a milk carton with no print. The prompt 'Hoeveel ziet u?' is read as 'how many of that fruit'; the model answers it that way.",
+      "ratings": {
+        "language_simplicity": 5,
+        "clarity": 5,
+        "variety": 3,
+        "visual_interest": 4,
+        "task_illustration_fit": 5,
+        "basis": "Editorial source judgments; no rendered media or learner calibration is claimed."
+      }
+    },
+    {
+      "id": "A1:speaking:batch079-fiets-mand:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice",
+        "verdict": "fits the simplified A1 profile; easier than A2 (no subordinate clause, prompt 17 words, every sentence at most eight words, model 9 words)",
+        "targetLevelValidated": false,
+        "prompt_words": 17,
+        "model_words": 9,
+        "reason": "Two concrete content goals, each met by one short main clause; no reason or narrative is required."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "Dana, a woman in her fifties with short grey hair and a dark blue jacket, rides a green bicycle along a quiet street; a bunch of yellow and terracotta flowers stands upright in the front basket.",
+        "communicative_purpose": "Say what colour the bicycle is (green) and what is in the basket (flowers).",
+        "coherence_explanation": "A woman cycling with flowers in the front basket is a very ordinary Dutch scene. 'Wat zit er in de mand?' is the natural question and the flowers stand upright, as the alt now says.",
+        "contrivance_check": "Colour and contents are separate facts. The prompt's first sentence 'Dana fietst.' states only the action that the title 'Op straat' and the picture both show, and supplies neither goal.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken picture description with no recipient invented and none needed; the prompt only says 'Kijk naar het plaatje.' and asks two questions about what is drawn.",
+        "tone": "ordinary",
+        "tone_reason": "Cycling with flowers is everyday.",
+        "final_source_recheck": "Repeated on the proposed packet; the reviewer only normalised the criteria (no source meaning change)."
+      },
+      "evidence": {
+        "prompt": "Dana fietst. Kijk naar het plaatje. Welke kleur heeft de fiets? Wat zit er in de mand?",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "goal 1",
+            "criterion_nl": "Welke kleur heeft de fiets? U zegt: groen.",
+            "model_quote": "De fiets is groen. In de mand zitten bloemen."
+          },
+          {
+            "goal": "goal 2",
+            "criterion_nl": "Wat zit er in de mand? U zegt: bloemen.",
+            "model_quote": "De fiets is groen. In de mand zitten bloemen."
+          }
+        ],
+        "sample": {
+          "text": "In mand er zijn bloemen.",
+          "missing_content_goal": 1,
+          "missing_goal_description": "Omits goal 1 (Welke kleur heeft de fiets?).",
+          "quotes": [
+            null,
+            "In mand er zijn bloemen.",
+            "In mand er zijn bloemen."
+          ],
+          "quote_check": "One null quote for the omitted goal; the other quotes are verbatim substrings of the sample; the language criterion is met.",
+          "learner_error": "word order"
+        },
+        "starters": {
+          "verdict": "pass",
+          "values": [
+            "De fiets is …",
+            "In de mand …",
+            "Ik zie …"
+          ],
+          "check": "All three are incomplete, follow the criteria order and supply no colour, count, place, object, animal or action; the third is a neutral opening."
+        },
+        "title_and_cues": {
+          "verdict": "pass",
+          "title": "Op straat",
+          "check": "Title names a person, household or topic only and does not supply either picture goal; no starter completes a goal."
+        },
+        "picture_alignment": {
+          "verdict": "pass",
+          "alt": "Dana fietst op een groene fiets. In de mand staan bloemen.",
+          "check": "Brief unchanged and identical to the manifest; the rendered picture shows the green frame and flowers upright in a wicker basket. New alt 'Dana fietst op een groene fiets. In de mand staan bloemen.' Alt and prompt narration change, no redraw.",
+          "rendered_media_review": "outside this source review"
+        },
+        "tags": {
+          "taskType": "picture-describe",
+          "domain": "vervoer",
+          "verdict": "pass",
+          "reason": "Matches an A1 spoken picture description in this domain."
+        }
+      },
+      "residual_risk_or_acceptance_note": "The frame must read as green and not grey at display size; the existing picture does (leaf green).",
+      "ratings": {
+        "language_simplicity": 5,
+        "clarity": 5,
+        "variety": 4,
+        "visual_interest": 4,
+        "task_illustration_fit": 5,
+        "basis": "Editorial source judgments; no rendered media or learner calibration is claimed."
+      }
+    }
+  ]
+}
