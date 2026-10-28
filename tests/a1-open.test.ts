@@ -13,14 +13,18 @@ const writing = {
   taskType: 'bericht',
   rubric: 'a1-schrijven',
   domain: 'vrije-tijd-familie',
-  title: 'Softwaretest',
+  title: 'Een toets',
   status: 'draft',
   targetLevelValidated: false,
-  prompt: 'Schrijf een bericht aan een vriend. Zeg wat je eet. Vraag of je vriend komt.',
+  prompt:
+    'Kijk naar het plaatje. Schrijf een vriend een bericht. Zeg wat u eet. Vraag: kom je ook?',
   criteria: [
-    ['Je zegt wat je eet.', 'You say what you eat.'],
-    ['Je vraagt of je vriend komt.', 'You ask whether your friend is coming.'],
-    ['Je antwoord is begrijpelijk.', 'Your answer is understandable.'],
+    ['U zegt wat u eet.', 'Say what you eat.'],
+    ['U vraagt of uw vriend komt.', 'Ask whether your friend is coming.'],
+    [
+      'De ander begrijpt uw zinnen. Kleine fouten zijn oké.',
+      'The reader understands you. Small mistakes are fine.',
+    ],
   ],
   sample: 'Ik eten brood.',
   quotes: ['Ik eten brood.', null, 'Ik eten brood.'],
@@ -28,7 +32,7 @@ const writing = {
   images: [
     {
       brief: 'A synthetic software-test scene, not learner content. No text.',
-      alt: 'Een afbeelding voor een softwaretest.',
+      alt: 'Een tafel met brood.',
       kind: 'drawing',
     },
   ],
@@ -57,8 +61,10 @@ test('A1 open practice accepts tiny picture tasks with a separate foundation rub
 test('A1 open tasks bound production demands, criteria, visual stimulus and preparation', () => {
   for (const item of [writing, speaking]) {
     for (const change of [
-      { model: Array(26).fill('test').join(' ') },
-      { prompt: Array(56).fill('test').join(' ') },
+      { model: Array(17).fill('brood').join(' ') },
+      { prompt: Array(36).fill('brood').join(' ') },
+      { prompt: 'Schrijf een heel lang bericht met veel te veel woorden.' },
+      { model: 'Ik eet een broodje in de wachtkamer.' },
       { criteria: item.criteria.slice(0, 2), quotes: item.quotes.slice(0, 2) },
       { images: [] },
       { images: [...item.images, ...item.images] },

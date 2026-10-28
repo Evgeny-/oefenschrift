@@ -1,6 +1,6 @@
 # Author brief
 
-Keep the material mostly ordinary. The user wants about 15% lightly funny or unusual tasks across a program, with everyday situations for the rest. For the 36-item A1 program, use five lightly humorous tasks. A friendly illustration style does not require an odd prop. Mark the intended tone of each item in the author notes, and keep any joke coherent without adding difficult words or unrelated facts.
+Keep the material mostly ordinary. The user wants about 15% lightly funny or unusual tasks across a program, with everyday situations for the rest. For A1, about one exercise in six is lightly humorous; the coordinator's batch plan says which. A1 authors also follow the simplified profile in blueprint §4.0 and run `npm run batch:check` until no word falls outside `config/a1-vocabulary.json`. A friendly illustration style does not require an odd prop. Mark the intended tone of each item in the author notes, and keep any joke coherent without adding difficult words or unrelated facts.
 
 You write one content batch for the inburgering practice app. The coordinator's task names the batch id, the exam part, the task types and counts, the domains and the subjects to avoid; everything else is here and in `content/blueprint.md`.
 

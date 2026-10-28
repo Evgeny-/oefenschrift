@@ -35,3 +35,20 @@ Batch 071 changes six image briefs: hoed-les, winkel-sok, beer-dokter, taart-sta
 No listening audio in this batch.
 
 Previous JSON and Markdown reviews were verified against the archived snapshots in `content/reviews/history/2026-10-27-a1-meaning-before-tone/` before replacement. No adoption, integration, catalogue edit, provider call or media generation was performed. Rendered media and listening quality remain outside this source review.
+
+## Focused re-review, 28 October 2026
+
+Scope: the coordinator's post-integration edits to `plant-ogen` and `hoed-les`. The blind packet was read and meaning findings were persisted before any question or note was opened.
+
+| id | verdict | reason |
+| --- | --- | --- |
+| `A1:reading:batch071-plant-ogen:1` | pass | Farah/Hasan rename is consistent; `Kom maar kijken!` fits the kitchen invitation; keys A and C proved verbatim; title, alt and picture leak neither key. |
+| `A1:reading:batch071-hoed-les:1` | pass (edited) | New q2 key `Morgen.` is proved by `Noor is morgen jarig.`; two cue leaks repaired. |
+
+Reviewer edits (hoed-les):
+
+- `title` → `Een verjaardag in de les`. The coordinator title `Een kaart voor Noor` answered q1 `Voor wie is de kaart?`.
+- `questions[1].prompt` → `Wanneer is de verjaardag?`. `Wanneer is Noor jarig?` named Noor as the birthday person and so cued q1.
+- `questions[1].explanation` → `De verjaardag is morgen. Sara schrijft: Noor is morgen jarig.` This matches the new wording.
+
+Keys remain A=6, B=6, C=6. `npm run batch:check` on the proposed file reports no failures or warnings. Images and briefs are unchanged; no picture needs redrawing. Note: Noor is also the learner in `koffer-les` (also opleiding), which was left unchanged. Hashes are listed in the JSON `revisions` entry.

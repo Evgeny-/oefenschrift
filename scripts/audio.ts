@@ -296,6 +296,8 @@ const normalise = (s: string) =>
     .toLowerCase()
     // The transcriber sometimes writes the emergency number as a hundred-and-twelve.
     .replace(/\b(?:één|een) ?honderd ?twaalf\b/g, 'één één twee')
+    // It also writes "drie euro" as "€ 3"; the script always says the amount before "euro".
+    .replace(/€\s*(\d+)/g, '$1 euro')
     .replace(/\d+/g, (d) => dutchNumber(+d))
     .replace(/[^a-zà-ÿ ]/g, ' ')
     .replace(/\s+/g, ' ')

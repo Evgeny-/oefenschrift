@@ -3,7 +3,7 @@
   "review_contract_version": 2,
   "source": "content/batches/071-original.json",
   "proposed_source": "content/batches/071-proposed.json",
-  "source_sha256": "52885cb9bf887f392ec1927d8fc9897e3276fca8968191855bb39842b847e382",
+  "source_sha256": "ee195218beb1b2e1f5748277ae568bf0c0db35c91e6d741ecc68d556d7c238e3",
   "authored_source": "var/a1-tone-balance-2026-10-27/071-authored.json",
   "authored_source_sha256": "52885cb9bf887f392ec1927d8fc9897e3276fca8968191855bb39842b847e382",
   "author_notes_source": "var/a1-tone-balance-2026-10-27/notes.md",
@@ -28,8 +28,8 @@
   "meaning_first": {
     "verdict": "pass",
     "review_order": "source-before-questions",
-    "packet_sha256": "7b1006a0a81749ec2f6b27a00fd7c418f0eeffc2d616715f3cea1abe5ff43b91",
-    "independence_note": "Fresh reviewer distinct from author. Read only AGENTS.md, review brief, rubric, relevant blueprint sections, voice/illustration config and the two supplied source-only packets. No author/full-item files, notes, catalogue, questions, keys, criteria or previous reviews opened before persisting this report."
+    "packet_sha256": "d4cf01eb6d35c07f81eaea65be299598af18d796c2fc1c4a25205b9df9d6059c",
+    "independence_note": "Focused re-review on 28 October 2026 in a fresh context, separate from the coordinator who made the post-integration edits. The blind packets were rebuilt from the coordinator-edited originals (071 packet 065a563c725c1b7c3c569296995759f36e935abb94fc1241616fd2896af44254) and item-specific meaning findings for the six changed items were written to a scratch file before any question, key, criterion, model, starter, note or earlier review was opened. After the reviewer repairs, the source-only packet was rebuilt from the exact proposed bytes and re-read; the hash recorded here is that final packet."
   },
   "blind_findings_source": "var/a1-tone-balance-2026-10-27/071-blind-findings.json",
   "final_packet_source": "var/a1-tone-balance-2026-10-27/071-final-meaning-packet.json",
@@ -306,27 +306,27 @@
         "verdict": "within A1 foundation authoring target",
         "validated": false,
         "basis": "Concrete familiar words, short main clauses and two directly stated single facts; no official-exam comparison.",
-        "word_count": 31,
-        "mean_sentence_words": 5.2,
+        "word_count": 28,
+        "mean_sentence_words": 4.8,
         "maximum_sentence_words": 8
       },
       "meaning": {
         "verdict": "pass",
         "coherence_rating": 5,
         "tone": "light-humor",
-        "situation_summary": "Omar nodigt collega Lina vanuit de keuken uit voor koffie en vertelt over een plant met papieren ogen.",
-        "communicative_purpose": "Lina vragen naar de keuken te komen met haar eigen beker; Omar kondigt daarnaast een foto van de versierde kantoorplant aan.",
-        "contrivance_check": "De papieren ogen zijn een begrijpelijke versiering en het ene grappige detail. De koffie-uitnodiging blijft praktisch. Er is geen levende plant of ongenoemde wedstrijd nodig.",
+        "situation_summary": "Hasan staat in de keuken op het werk en vraagt collega Farah om koffie te komen drinken; de kantoorplant heeft nu papieren ogen.",
+        "communicative_purpose": "Farah naar de werkkeuken halen met haar eigen beker, met de versierde plant als extra reden om nu te komen kijken.",
+        "contrivance_check": "De nieuwe slotzin Kom maar kijken! sluit aan op de uitnodiging naar de keuken; de vroegere fotobelofte botste daarmee en is weg. De papieren ogen zijn één begrijpelijke grap van collega’s, geen bedacht evenement. Er worden geen voorwerpen opgesomd om afleiders te voeden.",
         "unsupported_assumptions": [],
-        "image_text_link": "De plant met papieren ogen toont het gedeelde nieuwtje; het beeld hoeft de keuken of beker niet te tonen om bij het bericht te passen.",
+        "image_text_link": "De plant met twee papieren ogen toont het gedeelde nieuwtje. Het beeld laat geen beker, jas, tas, keuken, tuin of winkel zien en verraadt dus geen sleutel.",
         "source_links": [
           {
             "quote": "Kom je koffie drinken? Ik ben in de keuken. Neem je beker mee.",
-            "function": "De uitnodiging noemt de ontmoetingsplek en wat Lina nodig heeft voor haar koffie."
+            "function": "De uitnodiging noemt waar Hasan is en wat Farah voor haar koffie nodig heeft; beide feiten worden getoetst."
           },
           {
-            "quote": "Onze plant heeft nu grote ogen van papier. Ik stuur je straks een foto!",
-            "function": "Het bericht deelt een concrete kleine verrassing op hun gedeelde werkplek; de aangekondigde foto toont precies die versiering."
+            "quote": "Onze plant heeft nu grote ogen van papier. Kom maar kijken!",
+            "function": "Het grappige nieuwtje geeft een tweede reden om naar de keuken te komen; kijken veronderstelt dat de plant daar staat, wat bij de uitnodiging past."
           }
         ]
       },
@@ -338,17 +338,17 @@
           "answer": "A",
           "answer_text": "Haar beker.",
           "evidence_quote": "Neem je beker mee.",
-          "key_entailment": "The requested cup is named directly in the imperative.",
+          "key_entailment": "Neem je beker mee directly names the cup Farah must bring.",
           "distractors": [
             {
               "option": "B",
               "text": "Haar jas.",
-              "rationale": "A coat could be brought to work, but Omar requests the cup."
+              "rationale": "A coat could be brought to work, but Hasan asks Farah to bring her cup."
             },
             {
               "option": "C",
               "text": "Haar tas.",
-              "rationale": "A bag could be brought to work, but it is not the requested object."
+              "rationale": "A bag is a familiar thing to carry at work, but the message names only the cup."
             }
           ],
           "option_category_check": "All three options answer this same question category; no superset, mixed polarity or singularly qualified answer.",
@@ -361,17 +361,17 @@
           "answer": "C",
           "answer_text": "In de keuken.",
           "evidence_quote": "Ik ben in de keuken.",
-          "key_entailment": "Omar explicitly says that he is in the kitchen.",
+          "key_entailment": "Hasan states his location directly: Ik ben in de keuken.",
           "distractors": [
             {
               "option": "A",
               "text": "In de tuin.",
-              "rationale": "A garden is another familiar meeting place; it conflicts with the kitchen stated here."
+              "rationale": "A garden is another place to drink coffee; the message says kitchen and the picture shows no setting."
             },
             {
               "option": "B",
               "text": "In de winkel.",
-              "rationale": "A shop is another familiar place; the message names the kitchen instead."
+              "rationale": "A shop is a familiar place to be at midday; Hasan names the kitchen."
             }
           ],
           "option_category_check": "All three options answer this same question category; no superset, mixed polarity or singularly qualified answer.",
@@ -380,7 +380,7 @@
       ],
       "cross_question_cue_audit": {
         "verdict": "pass",
-        "evidence": "q1 asks what to bring; q2 names Omar only and asks his location. Neither question or its options gives the other requested fact."
+        "evidence": "q1 asks what Farah brings, q2 where Hasan is. Neither prompt or option names a cup or kitchen outside its own key; the explanations restate only their own evidence."
       },
       "learner_visible_cue_audit": {
         "verdict": "pass",
@@ -389,9 +389,10 @@
           "situation",
           "all question prompts and options",
           "image brief",
-          "Dutch alt"
+          "Dutch alt",
+          "rendered image"
         ],
-        "evidence": "The title and situation establish the scene without either requested fact. The reviewed image brief excludes the keyed objects, locations, persons, times or quantities as applicable; its alt supplies none of the two keys. q1 asks what to bring; q2 names Omar only and asks his location. Neither question or its options gives the other requested fact."
+        "evidence": "Title De plant heeft ogen and alt Een plant met grote ogen van papier name only the joke, not the cup or the kitchen. The rendered picture (monstera in a terracotta pot with two paper eyes, plain background) shows no setting or object from either key."
       },
       "record_contract": {
         "verdict": "pass",
@@ -411,7 +412,7 @@
     },
     {
       "id": "A1:reading:batch071-hoed-les:1",
-      "verdict": "pass",
+      "verdict": "pass (edited)",
       "level": {
         "verdict": "within A1 foundation authoring target",
         "validated": false,
@@ -424,19 +425,19 @@
         "verdict": "pass",
         "coherence_rating": 5,
         "tone": "ordinary",
-        "situation_summary": "Docent Sara schrijft Sami wat de klas morgen voor de jarige Noor gaat doen.",
-        "communicative_purpose": "Sami voorbereiden op het samen maken van een verjaardagskaart en hem potloden laten meenemen.",
-        "contrivance_check": "Kaart, potloden, tekening en lied horen bij dezelfde gezamenlijke verjaardagsactiviteit. De tekst somt geen ongerelateerde spullen op.",
+        "situation_summary": "Docent Sara vertelt cursist Sami dat klasgenoot Noor morgen jarig is en dat de groep dan een kaart maakt en zingt.",
+        "communicative_purpose": "Sami vooraf laten weten wat er morgen in de les gebeurt, zodat hij zijn potloden meeneemt en een bloem voor de kaart kan tekenen.",
+        "contrivance_check": "Jarig, kaart, potloden, bloem tekenen en zingen vormen één volgorde van dezelfde verjaardagsactiviteit; elke zin volgt uit de vorige. Er is geen extra feest, dag of persoon toegevoegd voor de afleiders Vandaag en Zaterdag.",
         "unsupported_assumptions": [],
-        "image_text_link": "De kaart met bloem laat het aangekondigde werk zien. Het is gewone verjaardagsvoorbereiding.",
+        "image_text_link": "De gevouwen kaart met een gele tulp toont het aangekondigde knutselwerk. Er staan geen namen, dagen of mensen op, dus het beeld beantwoordt geen van beide vragen.",
         "source_links": [
           {
-            "quote": "Noor is morgen jarig. We maken een kaart voor Noor. Neem je potloden mee.",
-            "function": "De verjaardag verklaart de kaart; het maken van de kaart verklaart het verzoek om potloden."
+            "quote": "Noor is morgen jarig. We maken een kaart voor Noor.",
+            "function": "De verjaardag morgen is de reden voor de kaart; beide feiten worden getoetst."
           },
           {
-            "quote": "Je kunt een bloem tekenen. Daarna zingen we voor haar.",
-            "function": "De bloem is een concrete mogelijkheid voor de kaart en het zingen sluit aan bij dezelfde verjaardag. Haar verwijst naar Noor."
+            "quote": "Neem je potloden mee. Je kunt een bloem tekenen. Daarna zingen we voor haar.",
+            "function": "Praktische voorbereiding (potloden, tekening) en de afsluiting van de viering; haar verwijst naar Noor."
           }
         ]
       },
@@ -466,49 +467,51 @@
         },
         {
           "id": "q2",
-          "verdict": "pass",
-          "skill": "detail",
+          "verdict": "pass (edited)",
+          "skill": "time-place",
           "answer": "B",
-          "answer_text": "Zijn potloden.",
-          "evidence_quote": "Neem je potloden mee.",
-          "key_entailment": "Sara explicitly requests pencils.",
+          "answer_text": "Morgen.",
+          "evidence_quote": "Noor is morgen jarig.",
+          "key_entailment": "The birthday is stated as morgen; jarig is paraphrased as verjaardag in the prompt.",
           "distractors": [
             {
               "option": "A",
-              "text": "Zijn boeken.",
-              "rationale": "Books fit a lesson but are not what this message requests."
+              "text": "Vandaag.",
+              "rationale": "A reader who links the message to a party today may choose it; the message says morgen and closes with Tot morgen!."
             },
             {
               "option": "C",
-              "text": "Zijn broodjes.",
-              "rationale": "Bread rolls could fit a birthday gathering, but the request names pencils."
+              "text": "Zaterdag.",
+              "rationale": "A familiar weekday for a birthday; the message never names a weekday."
             }
           ],
-          "option_category_check": "All three options answer this same question category; no superset, mixed polarity or singularly qualified answer.",
-          "cue_check": "Parallel option form; key is not the sole most detailed or longest option by word count; prompt supplies no unique key word."
+          "option_category_check": "All three options are day expressions of one word; no superset, mixed polarity or qualified answer.",
+          "cue_check": "Equal length options; the key is not the odd form out. The prompt word verjaardag does not occur in the source or in any option. Wording changed by the reviewer from Wanneer is Noor jarig? so that q2 no longer names Noor as the birthday person and thereby cue q1."
         }
       ],
       "cross_question_cue_audit": {
-        "verdict": "pass",
-        "evidence": "The card-recipient question and the material-to-bring question share the school activity without naming the other key. A flower card does not identify its recipient or pencils."
+        "verdict": "pass (after edit)",
+        "evidence": "The coordinator version asked Wanneer is Noor jarig?, which told a test-wise learner that Noor has the birthday and so pointed to Voor Noor in q1 (who gets a birthday card). The q2 prompt now asks Wanneer is de verjaardag? without a name. q1 names no day."
       },
       "learner_visible_cue_audit": {
-        "verdict": "pass",
+        "verdict": "pass (after edit)",
         "fields_checked": [
           "title",
           "situation",
           "all question prompts and options",
+          "explanations",
           "image brief",
-          "Dutch alt"
+          "Dutch alt",
+          "rendered image"
         ],
-        "evidence": "The title and situation establish the scene without either requested fact. The reviewed image brief excludes the keyed objects, locations, persons, times or quantities as applicable; its alt supplies none of the two keys. The card-recipient question and the material-to-bring question share the school activity without naming the other key. A flower card does not identify its recipient or pencils."
+        "evidence": "The coordinator title Een kaart voor Noor answered q1 Voor wie is de kaart? outright. Title is now Een verjaardag in de les, which names neither the recipient nor the day. Situation names Sami and Sara only. Picture and alt show a card with a flower: no name, day or person."
       },
       "record_contract": {
         "verdict": "pass",
         "exam": "a1-practice",
         "taskType": "bericht",
         "domain": "opleiding",
-        "evidence": "The actual source fits this everyday domain and the named short-message/conversation task type. Draft status, false level validation and exactly two three-option questions are present. No retired type, generated media or authored revision field."
+        "evidence": "Bericht from a teacher about a class activity fits domain opleiding. Draft status, false level validation and exactly two three-option questions. q2 skill time-place matches a when-question."
       },
       "editorial_ratings": {
         "language_simplicity": 5,
@@ -1288,6 +1291,47 @@
         "task_illustration_fit": 4,
         "scope_note": "Editorial judgment of planned source and illustration brief; no rendered-image approval or learner calibration."
       }
+    }
+  ],
+  "previous_adopted_source_sha256": "52885cb9bf887f392ec1927d8fc9897e3276fca8968191855bb39842b847e382",
+  "revisions": [
+    {
+      "date": "2026-10-28",
+      "reviewer": "focused re-review",
+      "items": [
+        "A1:reading:batch071-plant-ogen:1",
+        "A1:reading:batch071-hoed-les:1"
+      ],
+      "previous_sha256": "52885cb9bf887f392ec1927d8fc9897e3276fca8968191855bb39842b847e382",
+      "coordinator_edited_sha256": "3c373d6249eb349b57831219e7d323aba843d07ea0d8bab8393adc8a78157c42",
+      "re_reviewed_sha256": "ee195218beb1b2e1f5748277ae568bf0c0db35c91e6d741ecc68d556d7c238e3",
+      "blind_packet_sha256": "065a563c725c1b7c3c569296995759f36e935abb94fc1241616fd2896af44254",
+      "final_packet_sha256": "d4cf01eb6d35c07f81eaea65be299598af18d796c2fc1c4a25205b9df9d6059c",
+      "verdict": "pass",
+      "edits": [
+        {
+          "id": "A1:reading:batch071-hoed-les:1",
+          "field": "title",
+          "before": "Een kaart voor Noor",
+          "after": "Een verjaardag in de les",
+          "reason": "The title answered q1 Voor wie is de kaart?."
+        },
+        {
+          "id": "A1:reading:batch071-hoed-les:1",
+          "field": "questions[1].prompt",
+          "before": "Wanneer is Noor jarig?",
+          "after": "Wanneer is de verjaardag?",
+          "reason": "Naming Noor as the birthday person cued q1; verjaardag also paraphrases jarig."
+        },
+        {
+          "id": "A1:reading:batch071-hoed-les:1",
+          "field": "questions[1].explanation",
+          "before": "Noor is morgen jarig. Dan maken ze de kaart.",
+          "after": "De verjaardag is morgen. Sara schrijft: Noor is morgen jarig.",
+          "reason": "Match the new prompt wording and quote the evidence, as q1 does."
+        }
+      ],
+      "note": "Read the blind packet first and persisted item meaning before opening questions or notes. Then read the full items, the coordinator section of 071-notes.md, git diff against HEAD and the rendered images 11d3360f7841800c and 85b3c271d7195f23. plant-ogen passes unchanged: Farah/Hasan rename consistent in situation, text, prompts and explanations; Kom maar kijken! fits the kitchen invitation; keys A and C proved verbatim; title, alt and picture leak neither key. hoed-les: text unchanged and coherent; new q2 key Morgen proved by Noor is morgen jarig; two cue leaks repaired (title and q2 wording). Keys remain A=6, B=6, C=6. npm run batch:check on the proposed file: 9 items, 18 questions, no failures or warnings. Residual note for the coordinator: the name Noor is also the learner in 071-koffer-les (both opleiding); not changed here."
     }
   ]
 }

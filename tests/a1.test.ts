@@ -16,25 +16,32 @@ import { mediaErrors } from '../scripts/media-check';
 // Synthetic contract data, never integrated into the learner catalogue.
 const item: Exercise = {
   id: 'A1:reading:batch999-contract:1',
-  title: 'Softwaretest',
+  title: 'Een toets',
   level: 'A1',
   part: 'reading',
   revision: 'a1-test-revision',
   exam: 'a1-practice',
   taskType: 'bericht',
   domain: 'opleiding',
-  situation: 'U leest een bericht voor een softwaretest.',
+  situation: 'U leest een bericht voor een toets.',
   status: 'ai-editorially-reviewed',
   targetLevelValidated: false,
-  text: 'Dit bericht is voor een softwaretest. Het staat alleen in deze test. De tekst is kort. Er zijn twee vragen. Elke vraag heeft drie antwoorden. Kies één antwoord.',
+  text: 'Dit bericht is voor een toets. Het staat alleen in deze toets. De tekst is kort. Er zijn twee vragen. Elke vraag heeft drie antwoorden. Kies één antwoord.',
+  images: [
+    {
+      brief: 'A synthetic contract scene, not learner content. No text.',
+      alt: 'Een tafel met papier.',
+      kind: 'drawing',
+    },
+  ],
   questions: [
     {
       id: 'q1',
-      prompt: 'Waarvoor is dit bericht?',
-      options: { A: 'Een softwaretest.', B: 'Een taalles.', C: 'Een examen.' },
+      prompt: 'Waar is dit bericht voor?',
+      options: { A: 'Een toets.', B: 'Een les.', C: 'Een feest.' },
       answer: 'A',
-      evidence: 'Dit bericht is voor een softwaretest.',
-      explanation: 'Het bericht zegt dat het voor een softwaretest is.',
+      evidence: 'Dit bericht is voor een toets.',
+      explanation: 'Het bericht is voor een toets.',
       skill: 'detail',
     },
     {
@@ -43,7 +50,7 @@ const item: Exercise = {
       options: { A: 'Eén.', B: 'Twee.', C: 'Drie.' },
       answer: 'B',
       evidence: 'Er zijn twee vragen.',
-      explanation: 'In de tekst staat dat er twee vragen zijn.',
+      explanation: 'In de tekst staat: er zijn twee vragen.',
       skill: 'quantity',
     },
   ],
@@ -52,18 +59,10 @@ const bank = [item],
   voices = JSON.parse(readFileSync('config/voices.json', 'utf8'));
 const failures = (value: Exercise) => validateBatch([value], [], voices, false).failures;
 const script = [
-  {
-    speaker: 'Tester',
-    role: 'f-adult',
-    text: 'Dit gesprek is voor een softwaretest. Wij testen het geluid.',
-  },
-  { speaker: 'Recorder', role: 'm-adult', text: 'Goed. Ik hoor uw stem. Er zijn twee vragen.' },
-  {
-    speaker: 'Tester',
-    role: 'f-adult',
-    text: 'De opname staat alleen in deze test. Zij blijft hier.',
-  },
-  { speaker: 'Recorder', role: 'm-adult', text: 'Dank u. Dan kunnen wij nu met de test beginnen.' },
+  { speaker: 'Tester', role: 'f-adult', text: 'Dit gesprek is voor een toets. Wij luisteren.' },
+  { speaker: 'Recorder', role: 'm-adult', text: 'Goed. Ik hoor u goed. Er zijn twee vragen.' },
+  { speaker: 'Tester', role: 'f-adult', text: 'Het gesprek is alleen voor deze toets.' },
+  { speaker: 'Recorder', role: 'm-adult', text: 'Dank u. Wij beginnen nu met de toets.' },
 ];
 const listening: Exercise = {
   ...item,
@@ -72,20 +71,20 @@ const listening: Exercise = {
   taskType: 'gesprek',
   script,
   text: script.map((turn) => `${turn.speaker}: ${turn.text}`).join('\n'),
-  situation: 'U hoort een gesprek voor een softwaretest.',
+  situation: 'U hoort een gesprek voor een toets.',
   images: [
     {
       brief:
         'An empty recording room with abstract equipment. No people, quantities, text or signs.',
-      alt: 'Een ruimte voor opnames.',
+      alt: 'Een lege kamer.',
       kind: 'drawing',
     },
   ],
   questions: [
     {
       ...item.questions[0],
-      prompt: 'Waarvoor is dit gesprek?',
-      evidence: 'Dit gesprek is voor een softwaretest.',
+      prompt: 'Waar is dit gesprek voor?',
+      evidence: 'Dit gesprek is voor een toets.',
     },
     item.questions[1],
   ],
@@ -108,12 +107,24 @@ test('A1 supports short reading messages with its own practice contract', () => 
     assert.ok(exerciseMetadataErrors(changed).length, JSON.stringify(change));
     assert.throws(() => validateExercise(changed));
   }
-  for (const words of [24, 61])
+  for (const words of [19, 46])
     assert.ok(
-      failures({ ...item, text: Array(words).fill('test').join(' ') }).some((f) =>
-        f.includes('25–60'),
+      failures({ ...item, text: Array(words).fill('toets').join(' ') }).some((f) =>
+        f.includes('20–45'),
       ),
     );
+  assert.ok(
+    failures({
+      ...item,
+      text: item.text + ' Dit is een heel lange zin met veel te veel woorden.',
+    }).some((f) => f.includes('sentence over 8')),
+  );
+  assert.ok(
+    failures({ ...item, situation: 'U leest een bericht over de wachtkamer.' }).some((f) =>
+      f.includes('wachtkamer'),
+    ),
+  );
+  assert.ok(failures({ ...item, images: [] }).some((f) => f.includes('one context picture')));
   assert.ok(
     failures({ ...item, questions: item.questions.slice(0, 1) }).some((f) =>
       f.includes('2–2 questions'),
@@ -172,19 +183,24 @@ test('A1 conversations require a bounded two-voice script and one context illust
 test('A1 listening counts spoken words without transcript speaker labels', () => {
   const sized = (wordCount: number) => {
     const value = structuredClone(listening);
-    value.script = value.script.map((turn, i) => ({
-      ...turn,
-      text: Array(i === 0 ? wordCount - 3 : 1)
-        .fill('test')
-        .join(' '),
-    }));
+    // Spread the words over four turns in sentences of five, inside the A1 turn limits.
+    value.script = value.script.map((turn, i) => {
+      const share = Math.floor(wordCount / 4) + (i < wordCount % 4 ? 1 : 0);
+      const tokens = Array(share).fill('toets');
+      return {
+        ...turn,
+        text: tokens
+          .map((token, j) => (j % 5 === 4 || j === share - 1 ? token + '.' : token))
+          .join(' '),
+      };
+    });
     value.text = value.script.map((turn) => `${turn.speaker}: ${turn.text}`).join('\n');
-    value.questions = value.questions.map((question) => ({ ...question, evidence: 'test' }));
+    value.questions = value.questions.map((question) => ({ ...question, evidence: 'toets' }));
     return value;
   };
-  for (const count of [30, 70]) assert.deepEqual(failures(sized(count)), []);
-  for (const count of [29, 71])
-    assert.ok(failures(sized(count)).some((failure) => failure.includes('30–70')));
+  for (const count of [24, 40]) assert.deepEqual(failures(sized(count)), []);
+  for (const count of [23, 41])
+    assert.ok(failures(sized(count)).some((failure) => failure.includes('24–40')));
   const extraQuestion = {
     ...listening,
     questions: [...listening.questions, { ...listening.questions[0], id: 'q3' }],

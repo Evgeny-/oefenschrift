@@ -35,3 +35,20 @@ Starters SHA-256: `2cbe18cd55665a7bab261f95147c6368c437b87f374581268c1b81143fc5d
 Final source packet SHA-256: `c28167392d73f4fc968e9bf99e90283f580b796f71d5f8e291ec693b262949a1`
 
 No teacher validation, learner calibration or official exam comparison is claimed.
+
+## Focused re-review, 28 October 2026
+
+Scope: the coordinator's post-integration edits to `schoenlunch`, `tuinfilm`, `komhoed` and `stoelsokken`, plus the komhoed starter. The blind packet was read and meaning findings were persisted before any criterion, model, starter or note was opened. All four items pass after the repairs listed below. All four are ordinary in tone.
+
+Reviewer edits:
+
+- `schoenlunch.prompt` → `U luncht op het werk. Julio is nu bij de bakker. Hij stuurt u een bericht: wat heb jij al voor de lunch? Kijk naar het plaatje. Schrijf Julio een bericht terug. Zeg wat er in uw tas zit. Vraag hem om brood mee te nemen.` The coordinator wording did not say Julio asked in writing.
+- `schoenlunch.model` → `In mijn tas zit een banaan. Neem je brood voor mij mee?` The old model could be read as Julio bringing his own bread.
+- `tuinfilm.prompt` adds `thuis` and `Zeg hoe laat hij begint.`. `Kies zelf een tijd` alone did not ask the learner to write the time.
+- `tuinfilm.criteria[0]` → `U zegt dat de film in de tuin is. Buiten is ook goed.` This makes `In de tuin` pass.
+- `stoelsokken.prompt`: `U wilt de blauwe stoel.` became `U wilt de stoel bij de tafel. Kijk naar de foto.` The prompt had printed the first goal.
+- `stoelsokken.criteria[0]` adds `De stoel bij de tafel is ook goed.`.
+- `stoelsokken.criteria[1]` → `U vraagt of die stoel nog vrij is.` The prompt never asked for `morgen`.
+- `komhoed.prompt` → `U bent thuis. Sabrina stuurt u een foto uit de tekenles. Op de foto maakt ze een tekening. …`. The unchanged picture shows Sabrina drawing, not a photo of the finished sheet.
+
+The reviewer did not change the starters file. The coordinator's komhoed starter `Ik vind je tekening …` passes. The tuinfilm and stoelsokken starters were re-reviewed against their changed criteria and pass. Prompt lengths are 46, 40, 44 and 34 words; model lengths are 12, 11, 11 and 10. Samples and quotes are unchanged, and each sample still omits exactly one goal. `npm run batch:check` reports no failures or warnings. Images and briefs are unchanged. Hashes are listed in the JSON `revisions` entry.

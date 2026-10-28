@@ -298,9 +298,10 @@ export function OpenExercise({ item }) {
           {/* The exam's speaking tasks show only the instruction with its pictures, table or spoken
               question, and a picture note or zinstaak only its material; the requirements would
               give the words away, so they appear at review time. The prompt itself must name
-              everything they check. */}
+              everything they check. A1 writing names picture facts in its criteria, so it waits too. */}
           {(!(
             item.part === 'speaking' ||
+            (item.level === 'A1' && item.part === 'writing') ||
             item.taskType === 'picture-note' ||
             item.taskType === 'zinstaak' ||
             (item.taskType === 'deelschrijftaak' && item.images?.length)

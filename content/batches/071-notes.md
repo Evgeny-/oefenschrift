@@ -150,3 +150,12 @@ No failures, no warnings.
 ```
 
 Additional author checks verified the exact 9-item/18-question count, unique IDs, no repeated reading slug, three distinct option strings per question and verbatim containment of every evidence quote. No integration or self-review verdict was produced. A separate reviewer must read the complete final source, make any repairs in a proposed copy and record the exact passing SHA-256 before adoption.
+
+## Coordinator revision, 28 October 2026
+
+A post-integration audit of the A1 bank found two repetition and coherence problems. Only the fields below changed; IDs, keys, images and briefs are unchanged.
+
+- `plant-ogen`: Lina and Omar already meet in the work kitchen in `069-kopjes`, so the persona pair is now Farah and Hasan (situation, greeting, signature, both prompts and explanations). The closing line `Ik stuur je straks een foto!` contradicted the invitation to come to the kitchen; it is now `Kom maar kijken!`. Keys and evidence stay `Neem je beker mee.` (A) and `Ik ben in de keuken.` (C).
+- `hoed-les`: the title `Morgen in de les` duplicated `069-lesboek`; it is now `Een kaart voor Noor`. Question 2 asked `Wat moet Sami meenemen?`, the fourth "meenemen" question in twelve reading messages. It now asks `Wanneer is Noor jarig?` (skill `time-place`), key B `Morgen.`, evidence `Noor is morgen jarig.` Distractors: A `Vandaag.` is the nearby familiar day word a reader may assume for a message about a party; C `Zaterdag.` is a familiar weekday that the message never names. The picture (a card with a flower) shows no day clue. Question 1's explanation no longer restates the birthday day, so it cannot leak question 2. Keys remain six per letter across the batch.
+
+The focused re-reviewer repaired this revision further before adoption; see the `revisions` entry and edit list in `content/reviews/071-review.json` for the final wording.

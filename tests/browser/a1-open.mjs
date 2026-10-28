@@ -173,13 +173,9 @@ async function inspectTask(item) {
     `!document.querySelector('.exercise-heading .session-clock')&&!document.querySelector('.clock-button')`,
     'A1 ' + item.part + ' practice has no header timer',
   );
-  const requirements =
-    item.part === 'writing' ? item.criteria.map((criterion) => criterion[1]) : [];
   await check(
-    `JSON.stringify([...document.querySelectorAll('.task-brief .requirements li')].map(li=>li.textContent))===${JSON.stringify(JSON.stringify(requirements))}`,
-    item.part === 'writing'
-      ? 'Writing shows its two content goals and language criterion'
-      : 'Speaking leaves the picture facts for the learner until review',
+    `!document.querySelector('.task-brief .requirements li')`,
+    'A1 ' + item.part + ' leaves the picture facts for the learner until review',
   );
   const before = await evaluate(`document.querySelector('#open-answer')?.value??null`);
   await check(
@@ -235,11 +231,10 @@ async function selfReview(item, draft, edit = false) {
     `${draftMatches(item, draft)}&&JSON.stringify([...document.querySelectorAll('.evaluation .criterion span')].map(span=>span.textContent))===${JSON.stringify(JSON.stringify(item.criteria.map((criterion) => criterion[1])))}`,
     'Self-review shows the three A1 criteria and retains the draft',
   );
-  if (item.part === 'speaking')
-    await check(
-      `document.querySelectorAll('.task-brief .requirements li').length===3`,
-      'Speaking criteria become visible during review',
-    );
+  await check(
+    `document.querySelectorAll('.task-brief .requirements li').length===3`,
+    'A1 criteria become visible during review',
+  );
   if (edit) {
     await click('[data-action="edit-answer"]');
     await check(

@@ -1,5 +1,6 @@
 import { SKILLS } from '../app/domain/exercise-types';
 import { exerciseMetadataErrors } from '../app/domain/exercise-schema';
+import { simpleA1Failures } from './a1-vocabulary';
 // Shared authoring and integration checks for content/blueprint.md.
 export function validateBatch(batch: any[], catalogue: any[], voices: any, batchChecks = true) {
   const failures: string[] = [],
@@ -9,8 +10,8 @@ export function validateBatch(batch: any[], catalogue: any[], voices: any, batch
     warn = (s: string) => warnings.push(s);
   const words = (s: string) => s.trim().split(/\s+/).filter(Boolean).length;
   const LENGTH = {
-    reading: { A1: [25, 60], A2: [100, 250], B1: [400, 700] },
-    listening: { A1: [30, 70], A2: [60, 210], B1: [150, 900] },
+    reading: { A1: [20, 45], A2: [100, 250], B1: [400, 700] },
+    listening: { A1: [24, 40], A2: [60, 210], B1: [150, 900] },
   };
   const QUESTIONS = {
     reading: { A1: [2, 2], A2: [2, 3], B1: [5, 7] },
@@ -75,6 +76,7 @@ export function validateBatch(batch: any[], catalogue: any[], voices: any, batch
     if (String(item.id).split(':').slice(0, 2).join(':') !== `${level}:${part}`)
       fail(`${tag}: id level and subject must match the exercise`);
     failures.push(...exerciseMetadataErrors(item));
+    if (level === 'A1') failures.push(...simpleA1Failures(item));
 
     if (['reading', 'listening', 'knm'].includes(part)) {
       const text = item.text;
@@ -162,7 +164,7 @@ export function validateBatch(batch: any[], catalogue: any[], voices: any, batch
             fail(`${tag}: text must equal the script joined as "Speaker: text" lines`);
           const spoken = item.script.map((t: any) => t?.text || '').join(' ');
           const n = words(spoken);
-          const [minimum, maximum] = level === 'A1' ? [30, 70] : [60, 210];
+          const [minimum, maximum] = level === 'A1' ? [24, 40] : [60, 210];
           if (n < minimum || n > maximum)
             fail(
               `${tag}: spoken script has ${n} words; ${level} fragments are ${minimum}–${maximum} words`,
@@ -297,7 +299,7 @@ export function validateBatch(batch: any[], catalogue: any[], voices: any, batch
             fail(`${qt}: each criterion is [Dutch, English]`);
       if (!item.rubric || !/^(a1|a2|b1)-(schrijven|spreken)$/.test(item.rubric))
         fail(`${qt}: rubric must name the level and schrijven or spreken`);
-      if (typeof item.model !== 'string' || words(item.model) < 8)
+      if (typeof item.model !== 'string' || words(item.model) < (level === 'A1' ? 6 : 8))
         fail(`${qt}: model answer missing or too short`);
       if (typeof item.sample !== 'string' || !item.sample.trim()) fail(`${qt}: sample missing`);
       if (
@@ -323,8 +325,8 @@ export function validateBatch(batch: any[], catalogue: any[], voices: any, batch
         if (Array.isArray(item.questions) && item.questions.length)
           fail(`${qt}: A1 open tasks do not use closed questions`);
         const mw = words(item.model);
-        if (mw < 8 || mw > 25) fail(`${qt}: A1 model answers need 8–25 words`);
-        if (words(item.prompt) > 55) fail(`${qt}: A1 prompts need at most 55 words`);
+        if (mw < 6 || mw > 16) fail(`${qt}: A1 model answers need 6–16 words`);
+        if (words(item.prompt) > 35) fail(`${qt}: A1 prompts need at most 35 words`);
         if (
           !Array.isArray(item.images) ||
           item.images.length !== 1 ||

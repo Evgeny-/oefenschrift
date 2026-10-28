@@ -35,7 +35,7 @@ Every item receives an individual verdict and evidence. A batch is ready for int
 
 For the playful A1 expansion, reviewers also rate language simplicity, clarity, variety, visual interest and fit between task and illustration from 1 to 5. These are editorial ratings, separate from the pass/revise/reject gate and from human difficulty validation. Humour must remain understandable with familiar words, and closed-task pictures must not reveal either key.
 
-The program should be mostly ordinary, with about 15% lightly humorous tasks. For the current 36-item expansion that means five. Reviewers classify each scene and count the mix independently; ordinary tasks still deserve clear, appealing graphics. Small-batch rounding does not replace the coordinator's combined program count.
+The program should be mostly ordinary, with about 15% lightly humorous tasks (about one in six A1 exercises). A1 items also pass the simplified profile in blueprint §4.0: list words only, sentences of at most eight words and real premises. Reviewers classify each scene and count the mix independently; ordinary tasks still deserve clear, appealing graphics. Small-batch rounding does not replace the coordinator's combined program count.
 
 ## Meaning-first evidence
 

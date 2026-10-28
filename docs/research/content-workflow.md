@@ -4,7 +4,7 @@
 
 This process applies to original reading, listening, writing, speaking, and KNM practice. The author creates a batch and may revise it. A separate reviewer evaluates the final source independently and never edits the author’s batch. Editorial review cannot validate CEFR difficulty, predict exam results, or establish equivalence with an official inburgering exam.
 
-The A1 foundation practice bank requested on 27 October 2026 uses blueprint section 4.0 and `exam: a1-practice`. Its shorter texts and question counts are local teaching choices informed by the CEFR. It uses the same editorial and hash gates. Its expanded specification includes simple speaking and writing tasks, one reviewed illustration per new item and audio for listening and spoken prompts. A1 mock exams and level checks remain unavailable. The 27 October expansion has nine items per skill, grouped into three sets of three.
+The A1 foundation practice bank requested on 27 October 2026 uses blueprint section 4.0 and `exam: a1-practice`. Its shorter texts and question counts are local teaching choices informed by the CEFR. It uses the same editorial and hash gates. Its expanded specification includes simple speaking and writing tasks, one reviewed illustration per new item and audio for listening and spoken prompts. A1 mock exams and level checks remain unavailable. The 27 October expansion had nine items per skill. The rebuild of 28 October 2026 rewrote all A1 items in a simpler profile (blueprint §4.0, `config/a1-vocabulary.json`) and grows the bank to 30 reading, 30 listening, 24 speaking and 24 writing exercises in sets of three.
 
 ## 1. Define the batch
 
@@ -48,7 +48,7 @@ After the last edit, calculate SHA-256 from the exact source JSON. The review JS
 
 New and changed source bytes require review contract version 2, the final blind-packet hash and item-specific meaning evidence. `batch:adopt`, integration and file-based media generation reject missing or failed meaning checks. Frozen historical source hashes through batch 068 retain their earlier contracts; all A1 sources are excluded. These structural gates check that evidence is supplied; they cannot certify the judgment itself.
 
-Reviewers also classify each source as ordinary or lightly humorous and record exact tone counts. Keep around 15% funny tasks across the program; the current 36-item A1 expansion uses five. The gate caps humor per batch with upward rounding for small groups, while the coordinator checks the full program's mix.
+Reviewers also classify each source as ordinary or lightly humorous and record exact tone counts. Keep around 15% funny tasks across the program, about one in six A1 exercises. The gate caps humor per batch with upward rounding for small groups, while the coordinator checks the full program's mix.
 
 Set `ready_for_integration: true` only when every item passes, the batch checks succeed, and the recorded hash matches the current file. Any later byte change invalidates the gate and requires a new hash plus a focused rereview.
 

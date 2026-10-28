@@ -2,12 +2,12 @@
   "review_id": "074-a1-tone-balance-2026-10-27-v2",
   "source": "content/batches/074-original.json",
   "proposed_source": "content/batches/074-proposed.json",
-  "source_sha256": "50ebeb07b9885faa13d6c43905789aac818f74bbc6e80de1ea4bae4100397b4e",
-  "previous_adopted_source_sha256": "967022271a413071c519b40372e93bd1b5ddd40986a796a9e3320f8ec9f302ab",
+  "source_sha256": "bb8aeffa123639c0d0fd774331d2b7fb1133ec85ec98ab6db67704c334dde307",
+  "previous_adopted_source_sha256": "50ebeb07b9885faa13d6c43905789aac818f74bbc6e80de1ea4bae4100397b4e",
   "author_source": "var/a1-tone-balance-2026-10-27/074-authored.json",
   "author_source_sha256": "90477436db4b118b85395774e8ec537d6089a9fb56a4ffa6261cda7f3e91e32a",
   "starters_source": "content/batches/074-starters.json",
-  "starters_sha256": "2cbe18cd55665a7bab261f95147c6368c437b87f374581268c1b81143fc5dafc",
+  "starters_sha256": "1f83538ea1ad0b99d0673e77e7dca105ec0561b3014a13473f03855845d3b2f7",
   "starters_verdict": "pass",
   "review_type": "independent AI editorial review of a revised A1 foundation batch",
   "rubric": "content/reviews/rubric.md",
@@ -16,8 +16,8 @@
   "meaning_first": {
     "verdict": "pass",
     "review_order": "source-before-questions",
-    "packet_sha256": "c28167392d73f4fc968e9bf99e90283f580b796f71d5f8e291ec693b262949a1",
-    "independence_note": "Fresh reviewer context, separate from the author. Persisted var/a1-tone-balance-2026-10-27/074-blind-findings.json with the initial packet hash before opening full items, starters or author notes. After allowed local repairs, reread the complete final source-only packet and the complete final proposed source. Initial blind findings remain unchanged.",
+    "packet_sha256": "603c667b119cd5564a159a18c0758da5f6a4143449b14ca142d517366e22c6b8",
+    "independence_note": "Focused re-review on 28 October 2026 in a fresh context, separate from the coordinator who made the post-integration edits. The blind packets were rebuilt from the coordinator-edited originals (074 packet 8a6a1f37268ec8a7e9def6487ea479ef0861d761daeea5072c7e009f5854f17c) and item-specific meaning findings for the six changed items were written to a scratch file before any question, key, criterion, model, starter, note or earlier review was opened. After the reviewer repairs, the source-only packet was rebuilt from the exact proposed bytes and re-read; the hash recorded here is that final packet.",
     "initial_packet_sha256": "2cbc27fe6766858c0df759d8abc99b1d01702c5e4a498ad964c973f6e8794d90",
     "initial_findings": "var/a1-tone-balance-2026-10-27/074-blind-findings.json",
     "final_packet": "var/a1-tone-balance-2026-10-27/074-final-meaning-packet.json"
@@ -225,30 +225,30 @@
   "items": [
     {
       "id": "A1:writing:batch074-schoenlunch:1",
-      "verdict": "pass",
+      "verdict": "pass (edited)",
       "level": {
         "target": "A1 foundation practice",
         "verdict": "fits the local foundation authoring target",
         "targetLevelValidated": false,
-        "prompt_words": 36,
-        "model_words": 10,
+        "prompt_words": 46,
+        "model_words": 12,
         "reason": "Two concrete content goals can be met in two short main-clause sentences; no reason, connected narrative or minimum speech length is required."
       },
       "meaning": {
         "verdict": "pass",
         "coherence_rating": 5,
-        "situation_summary": "At work, the learner finds a banana in the lunch bag, wants bread with lunch and expects Julio later.",
-        "communicative_purpose": "Tell the arriving person what is already in the bag and ask him to bring bread.",
-        "coherence_explanation": "Julio’s stated later arrival gives the request a practical use. The banana and empty plate fit a work lunch. The task does not need an unstated shopping trip or a second person at the table.",
-        "contrivance_check": "A banana belongs in a lunch bag. The learner explicitly wants bread with lunch and Julio comes later, so a request for him to bring bread serves the stated meal. No shoe, missed shopping trip or co-present recipient must be invented.",
+        "situation_summary": "The learner eats lunch at work with only a banana in the bag and an empty plate; colleague Julio is at the bakery and messages to ask what the learner already has.",
+        "communicative_purpose": "Answer Julio’s question with the bag contents and use his bakery visit to ask for bread.",
+        "coherence_explanation": "Julio’s question exists so he knows what to buy; the banana answers it and the empty plate shows why bread is wanted. Every goal follows from his message.",
+        "contrivance_check": "The bakery trip and Julio’s own question supply the reason for both goals. The coordinator wording Julio gaat nu naar de bakker. Hij vraagt left open whether he asked face to face, which would make a written reply odd; the reviewer made him already at the bakery and sending a message.",
         "unsupported_assumptions": [],
-        "medium_and_recipient_check": "A short message to Julio is useful because he will arrive later and can bring the requested bread. He is absent from the picture, and the prompt establishes why the learner contacts him.",
+        "medium_and_recipient_check": "Julio is away at the bakery and writes first, so a written reply to him is the natural medium; he is not in the picture.",
         "tone": "ordinary",
-        "tone_reason": "A banana in a lunch bag and a request for bread are ordinary lunch planning.",
-        "final_source_recheck": "Reread the complete final source-only packet after the title and image-brief repairs; both goals remain grounded in its stated prompt and picture facts."
+        "tone_reason": "A colleague buying bread for lunch is ordinary workday routine.",
+        "final_source_recheck": "Re-read the rebuilt final packet: prompt, picture (woman opening a brown bag with a yellow banana, empty blue plate) and alt agree."
       },
       "evidence": {
-        "prompt": "U bent op het werk. Julio komt straks. U wilt brood bij uw lunch. Kijk naar het plaatje. Schrijf Julio een bericht. Zeg wat er in uw tas zit. Vraag hem om brood mee te nemen.",
+        "prompt": "U luncht op het werk. Julio is nu bij de bakker. Hij stuurt u een bericht: wat heb jij al voor de lunch? Kijk naar het plaatje. Schrijf Julio een bericht terug. Zeg wat er in uw tas zit. Vraag hem om brood mee te nemen.",
         "prompt_criteria_model_alignment": [
           {
             "goal": "Name the food in the pictured bag.",
@@ -256,9 +256,9 @@
             "model_quote": "In mijn tas zit een banaan."
           },
           {
-            "goal": "Ask Julio to bring bread.",
+            "goal": "Ask Julio to bring bread from the bakery.",
             "criterion_nl": "U vraagt Julio om brood mee te nemen.",
-            "model_quote": "Neem je brood mee?"
+            "model_quote": "Neem je brood voor mij mee?"
           }
         ],
         "sample": {
@@ -280,7 +280,7 @@
             "Neem je … mee?",
             "Ik zie …"
           ],
-          "check": "Each fragment remains incomplete. The first two follow the requested goals in order and provide no missing picture fact. The third offers a general language start without adding a required content goal."
+          "check": "In mijn tas zit … leaves the banana to the picture; Neem je … mee? fits the bread request and the new model; Ik zie … is a neutral opener. None completes a goal."
         },
         "title_and_cues": {
           "verdict": "pass",
@@ -299,7 +299,7 @@
           "verdict": "pass",
           "reason": "The format matches a short practical written message, and the domain matches the stated recipient and activity."
         },
-        "residual_risk_or_acceptance_note": "The banana must remain visible inside the bag; do not add Julio to the scene."
+        "residual_risk_or_acceptance_note": "Model changed from Neem je brood mee? to Neem je brood voor mij mee? so it cannot be read as Julio bringing his own bread."
       },
       "ratings": {
         "language_simplicity": 5,
@@ -573,39 +573,39 @@
     },
     {
       "id": "A1:writing:batch074-tuinfilm:1",
-      "verdict": "pass",
+      "verdict": "pass (edited)",
       "level": {
         "target": "A1 foundation practice",
         "verdict": "fits the local foundation authoring target",
         "targetLevelValidated": false,
-        "prompt_words": 35,
+        "prompt_words": 40,
         "model_words": 11,
         "reason": "Two concrete content goals can be met in two short main-clause sentences; no reason, connected narrative or minimum speech length is required."
       },
       "meaning": {
         "verdict": "pass",
         "coherence_rating": 5,
-        "situation_summary": "The learner will show a film in the garden tonight at nine, and Sabrina asks where and when.",
-        "communicative_purpose": "Reply to Sabrina’s two practical questions about the film.",
-        "coherence_explanation": "Sabrina’s explicit question creates the reason to provide the two details. The screen and projector in the brief make the outdoor film setup coherent without an invented device.",
-        "contrivance_check": "A white outdoor screen and a projector are both stated in the final brief, so the garden film has the equipment it needs. Sabrina explicitly asks for location and time. Answering garden and nine o’clock adds no unrelated facts or invented device.",
+        "situation_summary": "The learner hosts a film evening at home tonight; the picture shows a white cloth between two garden trees with a projector, and friend Sabrina asks where and at what time.",
+        "communicative_purpose": "Tell an invited friend the garden location seen in the picture and a start time the learner chooses.",
+        "coherence_explanation": "Sabrina is a guest who is not there yet, so she needs both facts. Thuis makes the garden the learner’s own; the screen and projector make the outdoor setting clear without a clock or invented device.",
+        "contrivance_check": "Location now comes from the picture rather than being printed in the prompt, and the time is the learner’s choice because the scene has no clock. The pictured woman (short curly hair, blue jumper) is unnamed and differs from cast Sabrina, so the learner is not texting someone who already sees the screen.",
         "unsupported_assumptions": [],
-        "medium_and_recipient_check": "A message directly answers Sabrina’s stated question. The recipient and information need are explicit, and no co-present person is asked to read a message about what she already sees.",
+        "medium_and_recipient_check": "Sabrina asks two direct questions before the evening; a written answer to her is the obvious reply. She is not the person shown at the screen.",
         "tone": "ordinary",
-        "tone_reason": "A garden film screening with an ordinary screen and projector is a plausible leisure event.",
-        "final_source_recheck": "Reread the complete final source-only packet after the title and image-brief repairs; both goals remain grounded in its stated prompt and picture facts."
+        "tone_reason": "A home film night in the garden is a plausible leisure plan.",
+        "final_source_recheck": "Re-read the rebuilt final packet: thuis, the garden screen and Sabrina’s two questions give each goal one source."
       },
       "evidence": {
-        "prompt": "U kijkt vanavond een film in uw tuin. De film begint om negen uur. Sabrina vraagt waar en hoe laat. Schrijf haar een bericht. Zeg waar de film is. Zeg hoe laat de film begint.",
+        "prompt": "U kijkt vanavond thuis een film met vrienden. Kijk naar het plaatje. Sabrina vraagt: waar is de film? Hoe laat begint hij? Schrijf Sabrina een bericht. Zeg waar de film is. Zeg hoe laat hij begint. Kies zelf een tijd.",
         "prompt_criteria_model_alignment": [
           {
-            "goal": "State the garden location.",
-            "criterion_nl": "U zegt dat de film in uw tuin is.",
+            "goal": "State the garden location from the picture.",
+            "criterion_nl": "U zegt dat de film in de tuin is. Buiten is ook goed.",
             "model_quote": "De film is in mijn tuin."
           },
           {
-            "goal": "State the nine o’clock start.",
-            "criterion_nl": "U zegt dat de film om negen uur begint.",
+            "goal": "Give a start time of the learner’s choice.",
+            "criterion_nl": "U noemt een tijd voor de film.",
             "model_quote": "We beginnen om negen uur."
           }
         ],
@@ -628,18 +628,18 @@
             "We beginnen om …",
             "Wij gaan …"
           ],
-          "check": "Each fragment remains incomplete. The first two follow the requested goals in order and provide no missing picture fact. The third offers a general language start without adding a required content goal."
+          "check": "De film is … leaves the place open; We beginnen om … leaves the chosen time open; Wij gaan … is neutral. None supplies the garden."
         },
         "title_and_cues": {
           "verdict": "pass",
           "title": "Vanavond een film",
-          "check": "The title introduces the situation. No title or optional starter supplies a picture-derived content answer; facts supplied directly by the writing situation remain legitimate message content."
+          "check": "The title names the event and evening, not the garden or a start time."
         },
         "picture_alignment": {
           "verdict": "pass",
           "alt": "Een vrouw zit in een tuin voor een groot wit doek tussen twee bomen.",
-          "check": "The garden and screening equipment support the prompt. The title names only the general event; the learner must still supply where and when.",
-          "rendered_media_review": "outside this source review"
+          "check": "Rendered picture c1e915a29eb3dd4c shows the garden at dusk, cloth between trees and projector on a stool; the alt keeps the garden for screen-reader users as required for open tasks.",
+          "rendered_media_review": "looked at during this focused re-review; unchanged brief"
         },
         "tags": {
           "taskType": "bericht",
@@ -647,7 +647,7 @@
           "verdict": "pass",
           "reason": "The format matches a short practical written message, and the domain matches the stated recipient and activity."
         },
-        "residual_risk_or_acceptance_note": "The garden location and nine o’clock time are already stated; no clock image or movie knowledge is needed."
+        "residual_risk_or_acceptance_note": "Criterion 1 now says de tuin instead of uw tuin so In de tuin passes; Zeg hoe laat hij begint was added because Kies zelf een tijd alone did not tell the learner to write the time."
       },
       "ratings": {
         "language_simplicity": 5,
@@ -747,39 +747,39 @@
     },
     {
       "id": "A1:writing:batch074-stoelsokken:1",
-      "verdict": "pass",
+      "verdict": "pass (edited)",
       "level": {
         "target": "A1 foundation practice",
         "verdict": "fits the local foundation authoring target",
         "targetLevelValidated": false,
-        "prompt_words": 38,
+        "prompt_words": 44,
         "model_words": 11,
         "reason": "Two concrete content goals can be met in two short main-clause sentences; no reason, connected narrative or minimum speech length is required."
       },
       "meaning": {
         "verdict": "pass",
-        "coherence_rating": 5,
-        "situation_summary": "The teacher sends a classroom photo and lets the learner choose a chair for tomorrow; the learner wants the blue chair.",
-        "communicative_purpose": "Identify the preferred chair and ask the teacher whether it remains available.",
-        "coherence_explanation": "The explicit advance choice explains contacting the teacher about a chair. Stating a preference before checking its availability is a coherent reservation exchange. The task needs no invented disability, seating rule or classroom event.",
-        "contrivance_check": "The teacher expressly sends a classroom photo and permits an advance chair choice for tomorrow. Naming the desired blue chair and asking about availability therefore follow from the situation. No special seating need or off-page reservation rule has to be supplied.",
+        "coherence_rating": 4,
+        "situation_summary": "A course starts tomorrow; the teacher sends a photo of the classroom and lets everyone pick a chair, and the learner wants the chair beside the table.",
+        "communicative_purpose": "Reserve a chosen seat by naming it to the teacher and checking that nobody has taken it yet.",
+        "coherence_explanation": "The teacher’s photo and the explicit everyone-chooses rule explain why a learner writes about a chair before the first lesson. Naming it and asking if it is free is the whole reservation exchange.",
+        "contrivance_check": "Seat choice before a course is a little unusual but is stated in the prompt, so no off-page rule is needed. Coordinator wording printed U wilt de blauwe stoel and so supplied the first goal; the prompt now says the chair by the table and the colour comes from the photo, matching the tuinfilm repair.",
         "unsupported_assumptions": [],
-        "medium_and_recipient_check": "A message replies to the teacher’s photo and invitation to choose for tomorrow. The learner has a reason to ask this recipient about availability before attending class.",
+        "medium_and_recipient_check": "The teacher started the exchange by sending the photo and asking for choices; replying by message before tomorrow is the only way to claim a seat in time.",
         "tone": "ordinary",
-        "tone_reason": "The photo shows ordinary classroom chairs. Advance selection is expressly part of the situation and contains no comic action.",
-        "final_source_recheck": "Reread the complete final source-only packet after the title and image-brief repairs; both goals remain grounded in its stated prompt and picture facts."
+        "tone_reason": "Two ordinary empty classroom chairs and a seating question.",
+        "final_source_recheck": "Re-read the rebuilt final packet: the blue chair stands by the table and the grey one farther away, in brief, alt and rendered image."
       },
       "evidence": {
-        "prompt": "De docent stuurt een foto van de klas. U mag nu een stoel kiezen voor morgen. U wilt de blauwe stoel. Schrijf de docent een bericht. Zeg welke stoel u wilt. Vraag of die stoel nog vrij is.",
+        "prompt": "Morgen begint uw cursus. De docent stuurt een foto van de klas. Iedereen kiest een stoel. U wilt de stoel bij de tafel. Kijk naar de foto. Schrijf de docent een bericht. Zeg welke stoel u wilt. Vraag of die stoel nog vrij is.",
         "prompt_criteria_model_alignment": [
           {
-            "goal": "Say that the learner wants the blue chair.",
-            "criterion_nl": "U zegt dat u de blauwe stoel wilt.",
+            "goal": "Identify the chosen chair (blue, or by the table).",
+            "criterion_nl": "U zegt dat u de blauwe stoel wilt. De stoel bij de tafel is ook goed.",
             "model_quote": "Ik wil de blauwe stoel."
           },
           {
             "goal": "Ask whether that chair is still free.",
-            "criterion_nl": "U vraagt of die stoel morgen nog vrij is.",
+            "criterion_nl": "U vraagt of die stoel nog vrij is.",
             "model_quote": "Is die stoel morgen nog vrij?"
           }
         ],
@@ -802,7 +802,7 @@
             "Is die stoel morgen …?",
             "Ik wil …"
           ],
-          "check": "Each fragment remains incomplete. The first two follow the requested goals in order and provide no missing picture fact. The third offers a general language start without adding a required content goal."
+          "check": "Re-reviewed with the changed criteria. Ik wil de … stoel. leaves the colour to the photo; Is die stoel morgen …? leaves vrij open and its morgen is optional extra; Ik wil … is neutral."
         },
         "title_and_cues": {
           "verdict": "pass",
@@ -812,8 +812,8 @@
         "picture_alignment": {
           "verdict": "pass",
           "alt": "In een klas staat een blauwe stoel bij een tafel. Verderop staat een grijze stoel.",
-          "check": "The blue foreground chair and grey second chair support the selection. The alt preserves both colours. The required preferred colour is already stated in the prompt, so this is a short message task rather than a concealed visual test.",
-          "rendered_media_review": "outside this source review"
+          "check": "Rendered picture 08d396b8a1c06ead: blue chair beside a table with a closed notebook, grey chair farther back. The prompt’s stoel bij de tafel picks out the blue one unambiguously; the alt keeps the colour for screen-reader users.",
+          "rendered_media_review": "looked at during this focused re-review; unchanged brief"
         },
         "tags": {
           "taskType": "bericht",
@@ -821,7 +821,7 @@
           "verdict": "pass",
           "reason": "The format matches a short practical written message, and the domain matches the stated recipient and activity."
         },
-        "residual_risk_or_acceptance_note": "Availability concerns tomorrow from the prompt context. A short ‘Is die stoel nog vrij?’ is sufficient in context; no repeated day word is a separate goal."
+        "residual_risk_or_acceptance_note": "Criterion 2 no longer requires morgen, which the prompt never asked for; the model may still include it."
       },
       "ratings": {
         "language_simplicity": 5,
@@ -921,35 +921,35 @@
     },
     {
       "id": "A1:writing:batch074-komhoed:1",
-      "verdict": "pass",
+      "verdict": "pass (edited)",
       "level": {
         "target": "A1 foundation practice",
         "verdict": "fits the local foundation authoring target",
         "targetLevelValidated": false,
-        "prompt_words": 27,
+        "prompt_words": 34,
         "model_words": 10,
         "reason": "Two concrete content goals can be met in two short main-clause sentences; no reason, connected narrative or minimum speech length is required."
       },
       "meaning": {
         "verdict": "pass",
         "coherence_rating": 5,
-        "situation_summary": "The learner is at home and receives a photo of Sabrina drawing a flower in an art class.",
-        "communicative_purpose": "Respond to Sabrina’s shared photo and request another photo.",
-        "coherence_explanation": "The received photo supplies a natural reason for a short social reply. Giving an opinion and asking for another photo stay within the same exchange. No particular opinion or unseen relationship must be invented.",
-        "contrivance_check": "Sabrina sends a photo from a drawing class while the learner is at home. Drawing a flower with a pencil is an ordinary class activity. Giving a photo opinion and asking for another photo form a plausible reply without an invented bowl costume or new event.",
+        "situation_summary": "At home, the learner gets a photo from Sabrina’s drawing class showing her at work on a flower drawing.",
+        "communicative_purpose": "React to the drawing with an opinion and ask Sabrina for another photo, for example once the drawing is finished.",
+        "coherence_explanation": "Sabrina shares her hobby remotely; commenting on the drawing and asking to see more is a normal friendly reply. A photo of her mid-drawing gives the request for another photo a natural reason.",
+        "contrivance_check": "The coordinator text called it a foto van haar tekening, but the picture shows Sabrina drawing, not a flat photo of the sheet. The reviewer reworded to a foto uit de tekenles on which she is making a drawing, so prompt, brief, alt and picture agree. No extra event is needed.",
         "unsupported_assumptions": [],
-        "medium_and_recipient_check": "The prompt explicitly separates the learner at home from Sabrina in her class. Messaging is the established medium for responding to the photo.",
+        "medium_and_recipient_check": "Sabrina is in class and the learner at home, and she sent the photo first; replying by message is the established channel.",
         "tone": "ordinary",
         "tone_reason": "An adult drawing a flower in a class is an ordinary hobby scene.",
-        "final_source_recheck": "Reread the complete final source-only packet after the title and image-brief repairs; both goals remain grounded in its stated prompt and picture facts."
+        "final_source_recheck": "Re-read the rebuilt final packet: the drawing and the photo are now distinct things, matching the comment-on-the-drawing goal and the another-photo goal."
       },
       "evidence": {
-        "prompt": "U bent thuis. Sabrina stuurt u een foto uit haar tekenles. Schrijf Sabrina een bericht. Zeg wat u van de foto vindt. Vraag om nog een foto.",
+        "prompt": "U bent thuis. Sabrina stuurt u een foto uit de tekenles. Op de foto maakt ze een tekening. Schrijf Sabrina een bericht. Zeg wat u van de tekening vindt. Vraag om nog een foto.",
         "prompt_criteria_model_alignment": [
           {
-            "goal": "Say what the learner thinks of the photo.",
-            "criterion_nl": "U zegt wat u van de foto vindt.",
-            "model_quote": "Ik vind je foto leuk."
+            "goal": "Give an opinion on the drawing.",
+            "criterion_nl": "U zegt wat u van de tekening vindt.",
+            "model_quote": "Ik vind je tekening mooi."
           },
           {
             "goal": "Ask Sabrina for another photo.",
@@ -960,7 +960,7 @@
         "sample": {
           "text": "Stuur je nog een foto? Ik willen die graag zien.",
           "missing_content_goal": 1,
-          "missing_goal_description": "Say what the learner thinks of the photo.",
+          "missing_goal_description": "Give an opinion on the drawing.",
           "quotes": [
             null,
             "Stuur je nog een foto?",
@@ -972,11 +972,11 @@
         "starters": {
           "verdict": "pass",
           "values": [
-            "Ik vind je foto …",
+            "Ik vind je tekening …",
             "Stuur je nog …?",
             "Ik vind …"
           ],
-          "check": "Each fragment remains incomplete. The first two follow the requested goals in order and provide no missing picture fact. The third offers a general language start without adding a required content goal."
+          "check": "Coordinator starter 1 Ik vind je tekening … stays incomplete: the learner still supplies the opinion word. Stuur je nog …? leaves the photo request open; Ik vind … is neutral."
         },
         "title_and_cues": {
           "verdict": "pass",
@@ -986,8 +986,8 @@
         "picture_alignment": {
           "verdict": "pass",
           "alt": "Sabrina zit in een klas en tekent een bloem op papier.",
-          "check": "The brief and alt agree on Sabrina drawing a flower in class. The learner chooses an opinion; the title introduces the sender without completing either speech act.",
-          "rendered_media_review": "outside this source review"
+          "check": "Rendered picture ea1cd7acbe7e6fdd shows Sabrina (long dark hair, green jumper) drawing a small flower with a pencil, a jar of pencils beside her: a photo of her at work, as the prompt now says.",
+          "rendered_media_review": "looked at during this focused re-review; unchanged brief"
         },
         "tags": {
           "taskType": "bericht",
@@ -995,7 +995,7 @@
           "verdict": "pass",
           "reason": "The format matches a short practical written message, and the domain matches the stated recipient and activity."
         },
-        "residual_risk_or_acceptance_note": "Accept any understandable photo opinion. No evaluation of drawing skill or guessed lesson event is required."
+        "residual_risk_or_acceptance_note": "Accept any understandable opinion of the drawing; no flower naming is required."
       },
       "ratings": {
         "language_simplicity": 5,
@@ -1007,5 +1007,102 @@
       }
     }
   ],
-  "final_change_manifest": "var/a1-tone-balance-2026-10-27/074-final-change-manifest.json"
+  "final_change_manifest": "var/a1-tone-balance-2026-10-27/074-final-change-manifest.json",
+  "revisions": [
+    {
+      "date": "2026-10-28",
+      "reviewer": "focused re-review",
+      "items": [
+        "A1:writing:batch074-schoenlunch:1",
+        "A1:writing:batch074-tuinfilm:1",
+        "A1:writing:batch074-komhoed:1",
+        "A1:writing:batch074-stoelsokken:1"
+      ],
+      "previous_sha256": "50ebeb07b9885faa13d6c43905789aac818f74bbc6e80de1ea4bae4100397b4e",
+      "previous_starters_sha256": "2cbe18cd55665a7bab261f95147c6368c437b87f374581268c1b81143fc5dafc",
+      "coordinator_edited_sha256": "3eb280d83899c04749db313752f8ad4218c62d8ba65c5b74c41d0e37a93125a9",
+      "re_reviewed_sha256": "bb8aeffa123639c0d0fd774331d2b7fb1133ec85ec98ab6db67704c334dde307",
+      "starters_sha256": "1f83538ea1ad0b99d0673e77e7dca105ec0561b3014a13473f03855845d3b2f7",
+      "blind_packet_sha256": "8a6a1f37268ec8a7e9def6487ea479ef0861d761daeea5072c7e009f5854f17c",
+      "final_packet_sha256": "603c667b119cd5564a159a18c0758da5f6a4143449b14ca142d517366e22c6b8",
+      "verdict": "pass",
+      "edits": [
+        {
+          "id": "A1:writing:batch074-schoenlunch:1",
+          "field": "prompt",
+          "before": "U luncht op het werk. Julio gaat nu naar de bakker. Hij vraagt: wat heb jij bij je lunch? Kijk naar het plaatje. Schrijf Julio een bericht. Zeg wat er in uw tas zit. Vraag hem om brood mee te nemen.",
+          "after": "U luncht op het werk. Julio is nu bij de bakker. Hij stuurt u een bericht: wat heb jij al voor de lunch? Kijk naar het plaatje. Schrijf Julio een bericht terug. Zeg wat er in uw tas zit. Vraag hem om brood mee te nemen.",
+          "reason": "Make the written medium explicit (Julio is away and writes first) and give his question its purpose (what do you already have)."
+        },
+        {
+          "id": "A1:writing:batch074-schoenlunch:1",
+          "field": "model",
+          "before": "In mijn tas zit een banaan. Neem je brood mee?",
+          "after": "In mijn tas zit een banaan. Neem je brood voor mij mee?",
+          "reason": "Neem je brood mee? can be read as Julio bringing his own bread."
+        },
+        {
+          "id": "A1:writing:batch074-tuinfilm:1",
+          "field": "prompt",
+          "before": "U kijkt vanavond een film met vrienden. Kijk naar het plaatje. Sabrina vraagt: waar is de film? Hoe laat begint hij? Schrijf Sabrina een bericht. Zeg waar de film is. Kies zelf een tijd.",
+          "after": "U kijkt vanavond thuis een film met vrienden. Kijk naar het plaatje. Sabrina vraagt: waar is de film? Hoe laat begint hij? Schrijf Sabrina een bericht. Zeg waar de film is. Zeg hoe laat hij begint. Kies zelf een tijd.",
+          "reason": "thuis makes the garden the learner’s own (model says mijn tuin); Kies zelf een tijd alone did not instruct the learner to write the time that criterion 2 checks."
+        },
+        {
+          "id": "A1:writing:batch074-tuinfilm:1",
+          "field": "criteria[0]",
+          "before": [
+            "U zegt dat de film in uw tuin is. Buiten is ook goed.",
+            "Say that the film is in your garden. Outside is also fine."
+          ],
+          "after": [
+            "U zegt dat de film in de tuin is. Buiten is ook goed.",
+            "Say that the film is in the garden. Outside is also fine."
+          ],
+          "reason": "A learner who writes In de tuin from the picture must meet the criterion."
+        },
+        {
+          "id": "A1:writing:batch074-stoelsokken:1",
+          "field": "prompt",
+          "before": "Morgen begint uw cursus. De docent stuurt een foto van de klas. Iedereen kiest een stoel. U wilt de blauwe stoel. Schrijf de docent een bericht. Zeg welke stoel u wilt. Vraag of die stoel nog vrij is.",
+          "after": "Morgen begint uw cursus. De docent stuurt een foto van de klas. Iedereen kiest een stoel. U wilt de stoel bij de tafel. Kijk naar de foto. Schrijf de docent een bericht. Zeg welke stoel u wilt. Vraag of die stoel nog vrij is.",
+          "reason": "The prompt printed the first goal (blauwe stoel), the same copy-only flaw the coordinator fixed in tuinfilm; the colour now comes from the photo."
+        },
+        {
+          "id": "A1:writing:batch074-stoelsokken:1",
+          "field": "criteria[0]",
+          "before": [
+            "U zegt dat u de blauwe stoel wilt.",
+            "Say that you want the blue chair."
+          ],
+          "after": [
+            "U zegt dat u de blauwe stoel wilt. De stoel bij de tafel is ook goed.",
+            "Say that you want the blue chair. The chair by the table is also fine."
+          ],
+          "reason": "Accept the prompt’s own description as well as the colour from the photo."
+        },
+        {
+          "id": "A1:writing:batch074-stoelsokken:1",
+          "field": "criteria[1]",
+          "before": [
+            "U vraagt of die stoel morgen nog vrij is.",
+            "Ask whether that chair is still available tomorrow."
+          ],
+          "after": [
+            "U vraagt of die stoel nog vrij is.",
+            "Ask whether that chair is still free."
+          ],
+          "reason": "The prompt asks Vraag of die stoel nog vrij is without morgen; a learner following it must meet the criterion."
+        },
+        {
+          "id": "A1:writing:batch074-komhoed:1",
+          "field": "prompt",
+          "before": "U bent thuis. Sabrina stuurt u een foto van haar tekening uit de tekenles. Schrijf Sabrina een bericht. Zeg wat u van de tekening vindt. Vraag om nog een foto.",
+          "after": "U bent thuis. Sabrina stuurt u een foto uit de tekenles. Op de foto maakt ze een tekening. Schrijf Sabrina een bericht. Zeg wat u van de tekening vindt. Vraag om nog een foto.",
+          "reason": "The unchanged picture shows Sabrina drawing, not a photo of the finished sheet; prompt, brief, alt and picture now agree."
+        }
+      ],
+      "note": "Read the blind packet first and persisted item meaning before opening criteria, models, starters or notes. Then read the full items, the coordinator section of 074-notes.md, git diff against HEAD (including starters) and the rendered images 2e37e6ed9569b8d9, c1e915a29eb3dd4c, 08d396b8a1c06ead and ea1cd7acbe7e6fdd. Checked per item: prompt at most 55 words (46, 40, 44, 34), two explicit goals with matching criteria, model 10 to 12 words meeting every criterion, sample still omitting exactly one goal with one null quote and other quotes verbatim (unchanged samples and quotes), starters incomplete and aligned (starters file unchanged by the reviewer; stoelsokken and tuinfilm starters re-reviewed against their changed criteria), titles and starters supplying no picture-derived goal, alts retaining the pictured facts, A1 language. All four pass after the repairs listed. Tone unchanged: all four ordinary. npm run batch:check on the proposed file: 9 items, no failures or warnings. Images and briefs unchanged, so no picture needs redrawing; writing tasks have no narration."
+    }
+  ]
 }

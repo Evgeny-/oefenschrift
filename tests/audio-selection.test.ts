@@ -103,7 +103,7 @@ test('a targeted MP3 generation updates one reviewed job and preserves unselecte
   const directory = mkdtempSync(join(tmpdir(), 'audio-selection-run-'));
   let generatedToken = '';
   try {
-    const batchFile = 'content/batches/070-original.json';
+    const batchFile = 'content/batches/077-original.json';
     const items = JSON.parse(readFileSync(batchFile, 'utf8'));
     const selectedKey = `${items[0].id}#${items[0].questions[0].id}`;
     const keys = join(directory, 'keys.json');
@@ -174,7 +174,7 @@ globalThis.fetch = async (url,init) => {
       { encoding: 'utf8', env: { ...process.env, ELEVENLABS_API_KEY: 'synthetic-test-key' } },
     );
     assert.equal(result.status, 0, result.stderr + result.stdout);
-    assert.match(result.stdout, /1 selected clips of 9/);
+    assert.match(result.stdout, new RegExp(`1 selected clips of ${items.length * 3} `));
     assert.match(result.stdout, /1 generated, 0 failed/);
     const manifest = JSON.parse(readFileSync(join(directory, 'audio-manifest.json'), 'utf8'));
     assert.equal(manifest.length, 2);

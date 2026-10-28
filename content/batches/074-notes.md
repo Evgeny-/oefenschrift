@@ -99,3 +99,14 @@ npm run batch:check content/batches/074-original.json
 Checked 9 items, 0 questions. Keys: {}. Options: {}.
 No failures, no warnings.
 ```
+
+## Coordinator revision, 28 October 2026
+
+A post-integration audit found three writing tasks whose purpose or wording was weaker than the rest of the bank, and one premise that needed its reason in the source. IDs, images, briefs, samples and quotes are unchanged.
+
+- `schoenlunch`: the old prompt asked the learner to tell Julio what was in the bag without a reason. Julio now goes to the bakery and asks what the learner has with lunch, so naming the banana answers his question and the bread request uses his trip. Criteria and model unchanged.
+- `tuinfilm`: the old prompt stated both answers (`in uw tuin`, `om negen uur`), so the learner only copied them. The place now comes from the picture (garden; `buiten` accepted) and the learner chooses a time. Criterion 2 is now `U noemt een tijd voor de film.` The sample still omits the place and its time quote `We beginnen om negen uur.` stays verbatim; the model is unchanged and still meets both goals.
+- `komhoed`: Sabrina sends a photo of her drawing, and a natural reply comments on the drawing rather than the photo. Prompt, criterion 1, model (`Ik vind je tekening mooi. Stuur je nog een foto?`) and starter 1 (`Ik vind je tekening …`) now say `tekening`. The sample still omits the opinion goal.
+- `stoelsokken`: the prompt now states that a course starts tomorrow and that everyone chooses a chair, which gives the teacher's photo and the learner's request a reason. Criteria, model and sample unchanged.
+
+The focused re-reviewer repaired this revision further before adoption; see the `revisions` entry and edit list in `content/reviews/074-review.json` for the final wording.

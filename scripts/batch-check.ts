@@ -3,8 +3,9 @@
 //   tsx scripts/batch-check.ts content/batches/004-original.json
 //
 // Exit code 1 on any failure. Warnings do not fail the batch but are printed for the reviewer.
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { validateBatch } from './batch-validation';
+import { unknownWords } from './a1-vocabulary';
 
 const file = process.argv[2];
 if (!file) {
@@ -20,6 +21,21 @@ const { failures, warnings, revisions, totalQuestions, keyCounts, optionCounts }
   catalogue,
   voices,
 );
+
+// Optional A1 sentence starters sit beside the batch and follow the same word list.
+const startersFile = file.replace(/-(original|proposed)\.json$/, (_, kind) =>
+  kind === 'proposed' ? '-proposed-starters.json' : '-starters.json',
+);
+if (startersFile !== file && existsSync(startersFile)) {
+  const starters = JSON.parse(readFileSync(startersFile, 'utf8'));
+  for (const item of batch.filter((entry: any) => entry?.level === 'A1')) {
+    const unknown = unknownWords(starters[item.id] || []);
+    if (unknown.length)
+      failures.push(
+        `${item.id}: starter words outside config/a1-vocabulary.json: ${unknown.join(', ')}`,
+      );
+  }
+}
 
 console.log(
   `Checked ${batch.length} items, ${totalQuestions} questions. Keys: ${JSON.stringify(keyCounts)}. Options: ${JSON.stringify(optionCounts)}.`,
