@@ -55,6 +55,22 @@ test('A2 texts may hold one unlisted word per 50 words; questions may hold none'
   assert.match(a2VocabularyIssues(hardQuestion).failures.join('\n'), /kapstok/);
 });
 
+test('A2 cognates and plain words pass; addresses are not words; really hard words fail', () => {
+  const easy = reading(
+    'De woningcorporatie accepteert het certificaat. De thermostaat is kapot. Kijk op www.deberk.nl/storing of mail info@deberk.nl.',
+  );
+  assert.deepEqual(a2VocabularyIssues(easy).failures, []);
+  assert.doesNotMatch(
+    a2VocabularyIssues(easy).warnings.join('\n'),
+    /deberk|thermostaat|certificaat/,
+  );
+  const hard = reading(
+    'De winkel is open.',
+    'Wanneer moet Karim uiterlijk terecht bij de toonbank?',
+  );
+  assert.match(a2VocabularyIssues(hard).failures.join('\n'), /terecht, toonbank, uiterlijk/);
+});
+
 test('A2 word gate leaves earlier reviewed batches and KNM alone', () => {
   const legacy = { ...reading('Een kapstok en een sokkel.'), id: 'A2:reading:batch020-gate:1' };
   assert.deepEqual(a2VocabularyIssues(legacy), { failures: [], warnings: [] });

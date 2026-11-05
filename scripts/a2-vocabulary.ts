@@ -184,6 +184,9 @@ export function a2StrictText(item: any): string[] {
   return texts.filter((text): text is string => typeof text === 'string' && !!text.trim());
 }
 
+// Web and e-mail addresses are names, not words to learn (www.deberk.nl, info@deberk.nl, versebloem.nl).
+const ADDRESS =
+  /(?:https?:\/\/|www\.)\S+|[\w.+-]+@[\w-]+(?:\.[\w-]+)+|[\p{L}\d-]+(?:\.[\p{L}\d-]+)*\.(?:nl|com|org|eu|net|be)\b(?:\/\S*)?/gu;
 const tokenise = (sentence: string) => sentence.match(/[\p{L}\d][\p{L}\d'’-]*/gu) || [];
 const sentencesOf = (text: string) => text.split(/(?<=[.!?:])\s+|\n+/);
 // Names: capitals inside a sentence, listed names, and a sentence-initial word the item also writes
@@ -203,7 +206,7 @@ export function a2Check(texts: string[], context: string[] = texts) {
     compounds = new Set<string>();
   for (const text of texts)
     for (const sentence of sentencesOf(text))
-      for (const raw of tokenise(sentence)) {
+      for (const raw of tokenise(sentence.replace(ADDRESS, ' '))) {
         const token = raw.replace(/’/g, "'").replace(/['-]+$/, '');
         if (!token || proper.has(token) || /^\p{Lu}[\p{Lu}\d-]+$/u.test(token)) continue;
         const parts = token.includes('-') && !a2Word(token) ? token.split('-') : [token];
