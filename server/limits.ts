@@ -78,11 +78,31 @@ export const RULES: Record<Scope, Record<Endpoint, Rule[]>> = {
 type Window = { start: number; n: number };
 const counters = new Map<string, Window[]>();
 let sweepAt = 0;
+// Teacher mode gives each learner profile on a device its own pass allowance. A pass may
+// name a limited number of profiles a day; further ones share the plain pass allowance,
+// and the address ceilings above stay the real budget for a classroom.
+export const PROFILES_PER_PASS = 40;
+const profilesByPass = new Map<string, { start: number; ids: Set<string> }>();
+export function passKey(pass: string, profile: unknown, now = Date.now()) {
+  if (typeof profile !== 'string' || !/^[a-z0-9]{8,16}$/.test(profile)) return pass;
+  let entry = profilesByPass.get(pass);
+  if (!entry || now - entry.start >= DAY) {
+    entry = { start: now, ids: new Set() };
+    profilesByPass.set(pass, entry);
+  }
+  if (!entry.ids.has(profile)) {
+    if (entry.ids.size >= PROFILES_PER_PASS) return pass;
+    entry.ids.add(profile);
+  }
+  return `${pass}/${profile}`;
+}
 // Keys whose longest window has passed are dropped once an hour, so memory stays bounded
 // by the number of clients seen in the last day.
 function sweep(now: number) {
   if (now < sweepAt) return;
   sweepAt = now + HOUR;
+  for (const [pass, entry] of profilesByPass)
+    if (now - entry.start >= DAY) profilesByPass.delete(pass);
   for (const [key, windows] of counters)
     if (windows.every((w, i) => !w || now - w.start >= (ruleFor(key)[i]?.[0] ?? DAY)))
       counters.delete(key);
@@ -140,6 +160,7 @@ export function remaining(scope: Scope, key: string, endpoint: Endpoint, now = D
 }
 export function resetLimits() {
   counters.clear();
+  profilesByPass.clear();
   sweepAt = 0;
 }
 // Provider concurrency. acquire resolves with a release function, or null when the wait

@@ -3,6 +3,9 @@ import { LEVELS } from './types';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import useStudy, { rememberPreferences } from './useStudy';
+import useProfiles from './useProfiles';
+import { MAIN_PROFILE } from './domain/profiles';
+import { Teachers, ProfileSwitcher } from './components/Teachers';
 import { StudyContext } from './StudyContext';
 import { startSession, matchesSet, savedSetSession, flatten } from './domain/study';
 import { unitLabel } from './domain/labels';
@@ -75,8 +78,11 @@ export default function App({
       ),
     ),
     { state, setState, saved } = study;
+  const profiles = useProfiles(study.ready, study.profile, study.switchProfile);
   const [api, setApi] = useState<ServiceStatus | null>(services);
-  const statusRequest = useRef<AbortController | null>(null);
+  const statusRequest = useRef<AbortController | null>(null),
+    profileRef = useRef(study.profile);
+  profileRef.current = study.profile;
   // A refused paid call switches the interface to self-review or typing immediately and
   // re-reads the status, which also brings a service back once it is available again.
   const refreshApi = useCallback(
@@ -98,7 +104,15 @@ export default function App({
       statusRequest.current?.abort();
       const controller = new AbortController();
       statusRequest.current = controller;
-      fetch(withBase('/api/status'), { signal: controller.signal })
+      // Each teacher-mode profile has its own allowance for the paid services.
+      const profile = profileRef.current;
+      fetch(
+        withBase(
+          '/api/status' +
+            (profile === MAIN_PROFILE ? '' : `?profile=${encodeURIComponent(profile)}`),
+        ),
+        { signal: controller.signal },
+      )
         .then((r) => (r.ok ? r.json() : { feedback: false }))
         .then((status) => {
           if (!controller.signal.aborted) setApi(status);
@@ -114,7 +128,6 @@ export default function App({
       setApi({ feedback: false });
       return;
     }
-    refreshApi();
     const onVisible = () => {
       if (!document.hidden) refreshApi();
     };
@@ -124,6 +137,10 @@ export default function App({
       statusRequest.current?.abort();
     };
   }, []);
+  // The status (and with it the allowance shown) follows the profile in use.
+  useEffect(() => {
+    if (study.ready && window.location.protocol !== 'file:') refreshApi();
+  }, [study.ready, study.profile]);
   const t = (nl, en) => (state.settings.lang === 'nl' ? nl : en),
     name = (part) => {
       const label = labels[part] || labels.reading;
@@ -154,6 +171,13 @@ export default function App({
       };
     });
     go(`set/${set.id}`);
+  };
+  // Switching learner opens their start page, where they continue their own work, unless
+  // the teacher is on the class page.
+  const switchStudent = (id) => {
+    if (!profiles.select(id)) return false;
+    if (route !== 'teachers') go('home');
+    return true;
   };
   const open = (item) => {
     if (
@@ -312,6 +336,8 @@ export default function App({
     <Privacy />
   ) : route === 'terms' ? (
     <Terms />
+  ) : route === 'teachers' ? (
+    <Teachers />
   ) : route === 'home' ? (
     <Home />
   ) : route === 'check' ? (
@@ -340,6 +366,8 @@ export default function App({
         practiceSets,
         practiceSet,
         startSet,
+        profiles,
+        switchStudent,
       }}
     >
       <a
@@ -355,6 +383,7 @@ export default function App({
       <div className="app-shell" data-hydrated={study.ready || undefined}>
         <aside className="sidebar">
           <Wordmark />
+          {profiles.teacher && <ProfileSwitcher />}
           <LevelNavigation
             label={t('Niveau', 'Level')}
             value={state.settings.level}
@@ -443,7 +472,8 @@ export default function App({
             </p>
           )}
           <main id="main-content" tabIndex={-1}>
-            {screen}
+            {/* A switch of learner starts every screen afresh, without the last one's state. */}
+            <React.Fragment key={study.generation}>{screen}</React.Fragment>
           </main>
           <footer className="footer">
             <span className="unofficial">

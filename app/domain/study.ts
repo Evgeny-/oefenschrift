@@ -133,10 +133,10 @@ export function validSession(a, catalogue) {
     typeof a.answers === 'object'
   );
 }
-export function restore(storage, catalogue) {
+export function restore(storage, catalogue, key = STORAGE_KEY) {
   const state = defaults();
   try {
-    const parsed = readStudy(storage);
+    const parsed = readStudy(storage, key);
     if (!parsed || ![1, 2].includes(parsed.version)) return state;
     if (LEVELS.includes(parsed.settings?.level)) state.settings.level = parsed.settings.level;
     if (['nl', 'en'].includes(parsed.settings?.lang)) state.settings.lang = parsed.settings.lang;
@@ -229,9 +229,9 @@ export function restore(storage, catalogue) {
   } catch {}
   return state;
 }
-export function save(storage, state) {
+export function save(storage, state, key = STORAGE_KEY) {
   try {
-    return writeStored(storage, STORAGE_KEY, JSON.stringify(state));
+    return writeStored(storage, key, JSON.stringify(state));
   } catch {
     return false;
   }

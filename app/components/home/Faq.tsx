@@ -42,6 +42,20 @@ export default function Faq() {
       </>,
     ],
     [
+      t('Kan ik dit met mijn klas gebruiken?', 'Can I use this with my class?'),
+      <>
+        {t(
+          'Ja. Oefenen leerlingen om de beurt op één apparaat, zet dan ',
+          'Yes. If learners take turns on one device, turn on ',
+        )}
+        <AppLink to="teachers">{t('docentmodus', 'teacher mode')}</AppLink>
+        {t(
+          ' aan: elke leerling krijgt een eigen profiel en jij ziet per leerling de voortgang.',
+          ': each learner gets a profile of their own and you see each learner’s progress.',
+        )}
+      </>,
+    ],
+    [
       t(
         'Wat gebeurt er met mijn antwoorden en opnames?',
         'What happens with my answers and recordings?',

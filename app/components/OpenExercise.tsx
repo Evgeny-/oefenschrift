@@ -140,7 +140,8 @@ function TaskStimulus({ item, t }) {
 }
 
 export function OpenExercise({ item }) {
-  const { state, setState, t, name, go, api, refreshApi, practiceSet, ready } = useStudyContext(),
+  const { state, setState, t, name, go, api, refreshApi, practiceSet, ready, profile } =
+      useStudyContext(),
     [rawResult, setResult] = useState(null),
     [busy, setBusy] = useState(false),
     [captureBusy, setCaptureBusy] = useState(false),
@@ -215,6 +216,7 @@ export function OpenExercise({ item }) {
           lang: state.settings.lang,
           speech_confirmed: true,
           visitor: visitorId(),
+          profile,
         },
         { signal: controller.signal },
       );

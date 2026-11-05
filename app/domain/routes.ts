@@ -10,6 +10,7 @@ const pages = new Set([
   'about',
   'privacy',
   'terms',
+  'teachers',
 ]);
 export const levelPages = new Set([
   'reading',

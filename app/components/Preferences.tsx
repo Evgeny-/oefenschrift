@@ -4,6 +4,7 @@ import { useStudyContext } from '../StudyContext';
 import { Segments, ThemeIcon, LanguageFlag } from './Controls';
 import SegmentLinks from './SegmentLinks';
 import { withBase } from '../domain/base';
+import AppLink from './AppLink';
 
 // The language choice links to this page in the other language (/en or the plain path),
 // so the two versions point at each other for readers and crawlers alike.
@@ -46,6 +47,10 @@ function Choices({ prefix = '' }) {
         ]}
         onChange={(value) => setting('theme', value)}
       />
+      {/* Teacher mode is for a few; a quiet link beside the device settings finds it. */}
+      <AppLink className="text-button teachers-link" to="teachers">
+        {t('Voor docenten', 'For teachers')}
+      </AppLink>
     </>
   );
 }

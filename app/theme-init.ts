@@ -1,9 +1,10 @@
 import { readPreferences } from './domain/render-state';
 import { resolveTheme } from './domain/theme';
 import { readStudy } from './domain/persistence';
+import { activeProfile, profileSlot } from './domain/profiles';
 let preference = readPreferences(document.cookie).theme;
 try {
-  const s = readStudy(localStorage);
+  const s = readStudy(localStorage, profileSlot(activeProfile(localStorage)));
   if (s?.settings?.theme) preference = s.settings.theme;
 } catch {}
 document.documentElement.dataset.theme = resolveTheme(

@@ -6,6 +6,8 @@ import {
   CONCURRENCY,
   inFlightCount,
   limited,
+  passKey,
+  PROFILES_PER_PASS,
   remaining,
   resetLimits,
   RULES,
@@ -133,4 +135,24 @@ test('the session pass is signed, expires after a day, renews after twelve hours
   } finally {
     delete process.env.OEFENSCHRIFT_ADMIN_SECRET;
   }
+});
+
+test('each teacher-mode profile has its own pass allowance, up to a ceiling per pass', () => {
+  resetLimits();
+  const now = 1_000_000;
+  assert.equal(passKey('p1', undefined, now), 'p1');
+  assert.equal(passKey('p1', 'main', now), 'p1');
+  assert.equal(passKey('p1', '../other', now), 'p1');
+  const anna = passKey('p1', 'abcdef123456', now);
+  assert.equal(anna, 'p1/abcdef123456');
+  const [, max] = RULES.pass.feedback.at(-1)!;
+  for (let i = 0; i < max; i++) limited('pass', anna, 'feedback', now + i * MINUTE);
+  assert.equal(remaining('pass', anna, 'feedback', now + max * MINUTE), 0);
+  assert.equal(remaining('pass', passKey('p1', 'bcdef1234567', now), 'feedback', now), max);
+  for (let i = 0; i < PROFILES_PER_PASS + 5; i++)
+    passKey('p2', `profile${String(i).padStart(4, '0')}`, now);
+  assert.equal(passKey('p2', 'zzzzzzzzzzzz', now), 'p2');
+  assert.equal(passKey('p2', 'profile0001', now), 'p2/profile0001');
+  // A new day starts a new list.
+  assert.equal(passKey('p2', 'zzzzzzzzzzzz', now + DAY), 'p2/zzzzzzzzzzzz');
 });

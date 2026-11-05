@@ -542,6 +542,15 @@ export function Progress() {
         )}
       </p>
       <ProgressTransfer />
+      <p className="note teacher-link">
+        {t('Docent? ', 'Teacher? ')}
+        <AppLink to="teachers">
+          {t(
+            'Laat meerdere leerlingen op dit apparaat oefenen, elk met een eigen voortgang.',
+            'Let several learners practise on this device, each with their own progress.',
+          )}
+        </AppLink>
+      </p>
     </>
   );
 }

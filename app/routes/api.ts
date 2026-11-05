@@ -2,7 +2,14 @@ import { getStore, StoreError } from '../../server/store';
 import { exerciseReaction, ReactionError } from '../../server/reactions';
 import { configuration, sharedFeedback, transcribe, ServiceError } from '../../server/services';
 import { guard, serviceStatus } from '../../server/availability';
-import { acquire, addressKey, limited, remaining, type Endpoint } from '../../server/limits';
+import {
+  acquire,
+  addressKey,
+  limited,
+  passKey,
+  remaining,
+  type Endpoint,
+} from '../../server/limits';
 import {
   assertOrigin,
   clientAddress,
@@ -49,13 +56,14 @@ export function loader({ request, params }) {
   assertOrigin(request);
   if (params.service === 'status') {
     const now = Date.now(),
-      pass = ensurePass(request, now);
+      pass = ensurePass(request, now),
+      profile = new URL(request.url).searchParams.get('profile');
     const headers = migrationHeaders(request, now);
     if (pass.header) headers.append('Set-Cookie', pass.header);
     return Response.json(
       {
         ...serviceStatus(now),
-        remaining: allowance(pass.id, now),
+        remaining: allowance(passKey(pass.id, profile, now), now),
         reports: true,
         model: configuration().feedback_model,
       },
@@ -99,9 +107,9 @@ export async function action({ request, params }) {
   // this browser or of the shared address) is a different message from a burst:
   // self-review for the rest of the day rather than a short wait.
   const address = addressKey(clientAddress(request));
-  const throttled = (endpoint: Endpoint = service) => {
+  const throttled = (endpoint: Endpoint = service, key = pass) => {
     const exceeded =
-      limited('address', address, endpoint, now) || limited('pass', pass, endpoint, now);
+      limited('address', address, endpoint, now) || limited('pass', key, endpoint, now);
     if (!exceeded) return null;
     const daily = exceeded.window >= 86_400_000;
     return wait(
@@ -177,8 +185,9 @@ export async function action({ request, params }) {
     return refused(error);
   }
   // Then the windows, so a refusal while the service is off costs no allowance, and last
-  // the semaphore: a burst waits a few seconds for a slot, then hears "busy".
-  const refusal = throttled();
+  // the semaphore: a burst waits a few seconds for a slot, then hears "busy". A teacher-mode
+  // profile counts against its own pass allowance.
+  const refusal = throttled(service, passKey(pass, body?.profile, now));
   if (refusal) return refusal;
   const release = await acquire(provider);
   if (!release)

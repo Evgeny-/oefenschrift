@@ -41,10 +41,8 @@ export function readStored(storage, name: string, accepts = (value: string) => !
   }
   return null;
 }
-export function readStudy(storage) {
-  const raw = readStored(storage, STORAGE_KEY, (value) =>
-    [1, 2].includes(JSON.parse(value)?.version),
-  );
+export function readStudy(storage, key = STORAGE_KEY) {
+  const raw = readStored(storage, key, (value) => [1, 2].includes(JSON.parse(value)?.version));
   return raw === null ? null : JSON.parse(raw);
 }
 export function writeStored(storage, name: string, value: string) {

@@ -14,7 +14,7 @@ export default function SpeakingRecorder({
   onBusy,
   inputToggle,
 }) {
-  const { t, api, refreshApi } = useStudyContext();
+  const { t, api, refreshApi, profile } = useStudyContext();
   const [phase, setPhase] = useState('idle'),
     [blob, setBlob] = useState(null),
     [preview, setPreview] = useState(null),
@@ -94,6 +94,7 @@ export default function SpeakingRecorder({
           mime: recording.type || 'audio/webm',
           audio: btoa(binary),
           visitor: visitorId(),
+          profile,
         },
         { signal: controller.signal },
       );

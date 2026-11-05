@@ -1,5 +1,6 @@
 import { createContext, useContext } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
+import type { ProfilesApi } from './useProfiles';
 import type { StudyState, Exercise, PracticeSet, ServiceStatus, Session, Language } from './types';
 export interface StudyContextValue {
   state: StudyState;
@@ -26,6 +27,13 @@ export interface StudyContextValue {
   start: (ids: string[], mode?: string) => void;
   open: (item: Exercise) => void;
   startSet: (set: PracticeSet, restart?: boolean) => void;
+  // Teacher mode: the profile in use (MAIN_PROFILE outside it) and the registry.
+  profile: string;
+  generation: number;
+  switchProfile: (id: string) => void;
+  profiles: ProfilesApi;
+  // Selects a learner and opens their start page (or stays on the class page).
+  switchStudent: (id: string) => boolean;
 }
 export const StudyContext = createContext<StudyContextValue>(null);
 export const useStudyContext = () => useContext(StudyContext);

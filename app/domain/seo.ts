@@ -16,6 +16,7 @@ export const subjectNames: Record<Language, Record<string, string>> = {
     about: 'Over de oefeningen',
     privacy: 'Privacy',
     terms: 'Gebruiksvoorwaarden',
+    teachers: 'Voor docenten',
   },
   en: {
     reading: 'Reading',
@@ -30,6 +31,7 @@ export const subjectNames: Record<Language, Record<string, string>> = {
     about: 'About the exercises',
     privacy: 'Privacy',
     terms: 'Terms of use',
+    teachers: 'For teachers',
   },
 };
 const home = {
@@ -206,6 +208,10 @@ export function pageSeo(
         : nl
           ? `Doe de gratis niveaucheck op ${level}: tien vragen over lezen en luisteren. Je ziet per onderdeel hoe je scoort en waar je het best begint. Geen examenuitslag.`
           : `Take the free level check at ${level}: ten questions on reading and listening. See how you score per subject and where best to begin. Not an exam result.`;
+  else if (route === 'teachers')
+    description = nl
+      ? 'Docentmodus: laat meerdere leerlingen op één apparaat oefenen, elk met een eigen profiel, en volg per leerling de voortgang. Zonder account; alles blijft in de browser.'
+      : 'Teacher mode: let several learners practise on one device, each with a profile of their own, and follow each learner’s progress. No account; everything stays in the browser.';
   else if (route === 'about')
     description = nl
       ? 'Lees hoe onze onafhankelijke inburgeringsoefeningen worden gemaakt en nagekeken, wat de beperkingen zijn en hoe je een probleem kunt melden.'
@@ -225,6 +231,7 @@ export function sitemapPaths(catalogue: Exercise[], sets: PracticeSet[]) {
   };
   add('home');
   add('about');
+  add('teachers');
   for (const item of catalogue) {
     add(item.part, item.level === 'KNM' ? 'A2' : item.level);
     add('exercise/' + item.id);

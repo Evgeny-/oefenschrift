@@ -184,7 +184,8 @@ try {
       `JSON.stringify([...document.querySelectorAll('.storage-table code')].map(el=>el.textContent))`,
     ),
   );
-  assert.equal(names.length, 7);
+  assert.equal(names.length, 8);
+  assert.ok(names.includes('oefenschrift.profiles'));
   assert.ok(names.every((name) => name.startsWith('oefenschrift')));
   await send('browsingContext.setViewport', { context, viewport: { width: 390, height: 844 } });
   assert.ok(

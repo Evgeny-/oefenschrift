@@ -13,6 +13,7 @@ import {
   VISITOR_KEY,
   SESSION_KEY,
 } from '../domain/persistence';
+import { PROFILES_KEY } from '../domain/profiles';
 // The privacy notice for the public service. Facts that belong to the operator (name,
 // contact) come from content/site.json; everything else describes what the code does.
 const rows = [
@@ -29,8 +30,8 @@ const rows = [
   {
     name: PASS_COOKIE,
     what: [
-      'Een willekeurig, ondertekend sessienummer waarmee de server het gebruik van AI-feedback en spraakherkenning per browser begrenst. Bevat geen gegevens over jou en is niet leesbaar voor scripts.',
-      'A random, signed session number the server uses to limit AI feedback and speech recognition per browser. Holds no data about you and is not readable by scripts.',
+      'Een willekeurig, ondertekend sessienummer waarmee de server het gebruik van AI-feedback en spraakherkenning per browser (in docentmodus per profiel) begrenst. Bevat geen gegevens over jou en is niet leesbaar voor scripts.',
+      'A random, signed session number the server uses to limit AI feedback and speech recognition per browser (per profile in teacher mode). Holds no data about you and is not readable by scripts.',
     ],
     life: ['24 uur', '24 hours'],
   },
@@ -49,6 +50,18 @@ const storage = [
     what: [
       'Je voortgang, resultaten, concepten en transcripties (browseropslag)',
       'Your progress, results, drafts and transcripts (browser storage)',
+    ],
+    life: ['Tot je ze wist', 'Until you clear it'],
+  },
+  {
+    name: PROFILES_KEY,
+    what: [
+      'Alleen in docentmodus: de namen van de profielen op dit apparaat en welk profiel actief is. De voortgang van elk extra profiel staat in een eigen sleutel die begint met ' +
+        STORAGE_KEY +
+        '@.',
+      'Teacher mode only: the names of the profiles on this device and which one is active. Each additional profile keeps its progress under its own key starting with ' +
+        STORAGE_KEY +
+        '@.',
     ],
     life: ['Tot je ze wist', 'Until you clear it'],
   },
@@ -77,7 +90,7 @@ export default function Privacy() {
     <>
       <Heading
         title={t('Privacy', 'Privacy')}
-        subtitle={t('Bijgewerkt op 27 oktober 2026', 'Updated 27 October 2026')}
+        subtitle={t('Bijgewerkt op 5 november 2026', 'Updated 5 November 2026')}
       />
       <div className="privacy-document">
         <p>
@@ -114,6 +127,12 @@ export default function Privacy() {
           {t(
             'Je voortgang, resultaten, concepten en transcripties die je als antwoord gebruikt, worden in deze browser bewaard en niet naar de server gestuurd. Op de pagina Voortgang kun je ze exporteren of wissen; het wissen van de sitegegevens in je browser verwijdert alles.',
             'Your progress, results, drafts and transcripts used as answers are saved in this browser and never sent to the server. The Progress page lets you export or delete them; clearing site data in your browser removes everything.',
+          )}
+        </p>
+        <p>
+          {t(
+            'In docentmodus kunnen meerdere leerlingen op één apparaat oefenen, elk met een eigen profiel. De namen en de voortgang van die profielen blijven ook in deze browser. Met AI-feedback en spraakherkenning stuurt de browser alleen een willekeurig profielnummer mee, zodat elk profiel een eigen dagtegoed heeft; de naam gaat nooit naar de server. Een profiel verwijderen wist ook de voortgang ervan.',
+            'In teacher mode several learners can practise on one device, each with a profile of their own. The names and progress of those profiles also stay in this browser. With AI feedback and speech recognition the browser sends only a random profile number, so each profile has its own daily allowance; the name never reaches the server. Deleting a profile also deletes its progress.',
           )}
         </p>
         <h2>{t('Cookies en browseropslag', 'Cookies and browser storage')}</h2>

@@ -454,7 +454,7 @@ try {
   );
   await navigate('/privacy');
   await check(
-    `document.querySelector('h1').textContent==='Privacy'&&document.querySelectorAll('.storage-table tbody tr').length===7&&document.body.innerText.includes('oefenschrift_pass')&&!!document.querySelector('.footer-links a[href="/en/terms"]')`,
+    `document.querySelector('h1').textContent==='Privacy'&&document.querySelectorAll('.storage-table tbody tr').length===8&&document.body.innerText.includes('oefenschrift_pass')&&document.body.innerText.includes('oefenschrift.profiles')&&!!document.querySelector('.footer-links a[href="/en/terms"]')`,
     'The privacy page lists every cookie and storage item, and the footer links the terms',
   );
   await navigate('/terms');
