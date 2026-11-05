@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { a2VocabularyIssues, a2Word } from '../scripts/a2-vocabulary';
+import { a2VocabularyIssues, a2Word, batchNumberOf } from '../scripts/a2-vocabulary';
 
 test('A2 word gate accepts listed words in their usual forms', () => {
   for (const word of [
@@ -71,9 +71,15 @@ test('A2 cognates and plain words pass; addresses are not words; really hard wor
   assert.match(a2VocabularyIssues(hard).failures.join('\n'), /terecht, toonbank, uiterlijk/);
 });
 
-test('A2 word gate leaves earlier reviewed batches and KNM alone', () => {
-  const legacy = { ...reading('Een kapstok en een sokkel.'), id: 'A2:reading:batch020-gate:1' };
-  assert.deepEqual(a2VocabularyIssues(legacy), { failures: [], warnings: [] });
+test('A2 word gate checks older ids in a revision batch, not in their historical file', () => {
+  const legacy = {
+    ...reading('De winkel is open.', 'Waar hangt de kapstok?'),
+    id: 'A2:reading:batch020-gate:1',
+  };
+  assert.deepEqual(a2VocabularyIssues(legacy, 20).failures, []);
+  assert.match(a2VocabularyIssues(legacy, 96).failures.join('\n'), /kapstok/);
+  assert.equal(batchNumberOf('content/batches/096-original.json'), 96);
+  assert.equal(batchNumberOf('096-review.json'), 96);
   const knm = { ...reading('Een kapstok.'), id: 'A2:knm:batch999-gate:1', part: 'knm' };
-  assert.deepEqual(a2VocabularyIssues(knm), { failures: [], warnings: [] });
+  assert.deepEqual(a2VocabularyIssues(knm, 999), { failures: [], warnings: [] });
 });

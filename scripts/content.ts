@@ -3,6 +3,7 @@ import { existsSync } from 'node:fs';
 import { readFile, readdir, realpath, rename, writeFile } from 'node:fs/promises';
 import { resolve, sep } from 'node:path';
 import { validateBatch } from './batch-validation';
+import { batchNumberOf } from './a2-vocabulary';
 import { itemPassedReview } from './content-review';
 import { meaningReviewErrors } from './meaning-review';
 
@@ -153,7 +154,8 @@ export async function checkContent(write = false, refreshHints = '') {
         });
       if (item.imageBrief && previousImages[0]?.file) {
         if (previousImages[0].brief === item.imageBrief) {
-          previous.images = [previousImages[0]];
+          // Keep the drawing, but take a reviewed change to its alt text.
+          previous.images = [{ ...previousImages[0], alt: item.imageAlt ?? previousImages[0].alt }];
           delete previous.imageBrief;
           delete previous.imageAlt;
         } else delete previous.images; // a changed brief means a new drawing
@@ -178,7 +180,13 @@ export async function checkContent(write = false, refreshHints = '') {
     if (!effective.length) continue;
     // The original full batch was balanced at review. A surviving subset of a
     // partially superseded batch is checked per item, without imposing new key quotas.
-    const checked = validateBatch(effective, catalogue, voices, effective.length === items.length);
+    const checked = validateBatch(
+      effective,
+      catalogue,
+      voices,
+      effective.length === items.length,
+      batchNumberOf(filename),
+    );
     requireValue(
       !checked.failures.length,
       `${filename}: authoring checks failed during integration:\n${checked.failures.join('\n')}`,

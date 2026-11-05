@@ -7,8 +7,6 @@ import { readFileSync } from 'node:fs';
 
 const a1 = JSON.parse(readFileSync('config/a1-vocabulary.json', 'utf8'));
 const a2 = JSON.parse(readFileSync('config/a2-vocabulary.json', 'utf8'));
-// The gate covers batches from this number on; earlier batches keep their reviewed wording.
-export const A2_VOCABULARY_FROM_BATCH = 87;
 
 const split = (value: unknown) => String(value || '').split(/\s+/);
 const listed = [
@@ -151,14 +149,23 @@ export function a2Word(token: string): 'listed' | 'compound' | undefined {
   return undefined;
 }
 
-export function a2VocabularyApplies(item: any): boolean {
-  const batch = Number(String(item?.id || '').match(/:batch(\d{3})-/)?.[1]);
+// The gate covers A2 reading, listening, writing and speaking items in batches from this number on,
+// including revision batches that rewrite older ids (096-099 brought every older A2 item in line on
+// 5 November 2026). Superseded historical batch files keep their reviewed wording; KNM is exempt.
+export const A2_VOCABULARY_FROM_BATCH = 87;
+
+export function a2VocabularyApplies(item: any, batchNumber?: number): boolean {
+  const fromId = Number(String(item?.id || '').match(/:batch(\d{3})-/)?.[1]);
   return (
     item?.level === 'A2' &&
     ['reading', 'listening', 'writing', 'speaking'].includes(item.part) &&
-    batch >= A2_VOCABULARY_FROM_BATCH
+    Math.max(fromId || 0, batchNumber || 0) >= A2_VOCABULARY_FROM_BATCH
   );
 }
+
+// The batch number of a batch or review file name such as 096-original.json or 096-review.json.
+export const batchNumberOf = (file: string) =>
+  Number(file.match(/(?:^|\/)(\d{3})-[\w-]+\.json$/)?.[1]) || undefined;
 
 // The stimulus a learner reads or hears; it may hold a few context-explained words.
 export function a2Stimulus(item: any): string[] {
@@ -226,10 +233,10 @@ const wordCount = (texts: string[]) =>
     .split(/\s+/)
     .filter((word) => /[\p{L}\d]/u.test(word)).length;
 
-export function a2VocabularyIssues(item: any) {
+export function a2VocabularyIssues(item: any, batchNumber?: number) {
   const failures: string[] = [],
     warnings: string[] = [];
-  if (!a2VocabularyApplies(item)) return { failures, warnings };
+  if (!a2VocabularyApplies(item, batchNumber)) return { failures, warnings };
   const tag = item.id;
   const stimulus = a2Stimulus(item),
     strict = a2StrictText(item);

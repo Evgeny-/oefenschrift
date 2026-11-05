@@ -3,7 +3,15 @@ import { exerciseMetadataErrors } from '../app/domain/exercise-schema';
 import { simpleA1Failures } from './a1-vocabulary';
 import { a2VocabularyIssues } from './a2-vocabulary';
 // Shared authoring and integration checks for content/blueprint.md.
-export function validateBatch(batch: any[], catalogue: any[], voices: any, batchChecks = true) {
+// batchNumber is the number of the batch file being checked (096-original.json → 96); a revision batch
+// applies the A2 word gate to the older ids it rewrites.
+export function validateBatch(
+  batch: any[],
+  catalogue: any[],
+  voices: any,
+  batchChecks = true,
+  batchNumber?: number,
+) {
   const failures: string[] = [],
     warnings: string[] = [],
     revisions: string[] = [];
@@ -79,7 +87,7 @@ export function validateBatch(batch: any[], catalogue: any[], voices: any, batch
     failures.push(...exerciseMetadataErrors(item));
     if (level === 'A1') failures.push(...simpleA1Failures(item));
     if (level === 'A2') {
-      const vocabulary = a2VocabularyIssues(item);
+      const vocabulary = a2VocabularyIssues(item, batchNumber);
       failures.push(...vocabulary.failures);
       warnings.push(...vocabulary.warnings);
     }

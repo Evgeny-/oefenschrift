@@ -1,0 +1,152 @@
+{
+  "review_id": "099-a2-speaking-hard-words-2026-11-05",
+  "source": "content/batches/099-original.json",
+  "proposed_source": "content/batches/099-proposed.json",
+  "source_sha256": "ff28150beefc59058bade2fb2eacbd5d3a8afbe8b23507621931b547a42bd60a",
+  "starters_source": "content/batches/099-starters.json",
+  "starters_sha256": "4c24f880a53d5ded9a0d4e66ae04a22b906506a4c3f86453c6edb5c4f9a78677",
+  "starters_verdict": "pass",
+  "review_type": "independent AI editorial review of four A2 speaking items revised to remove words too hard for A2",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-05T15:11:43Z",
+  "reviewer": "Independent AI reviewer (Claude Sonnet), separate from the author agent.",
+  "review_contract_version": 2,
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:speaking:batch009-rijbewijs:1",
+    "A2:speaking:batch009-kleermaker:1",
+    "A2:speaking:batch026-koken-buurvrouw:1",
+    "A2:speaking:batch027-keuken:1"
+  ],
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "5f18fc30a33aef3be14955a0f8493f47ef81bbd974b575801ccc078700e06c3a",
+    "independence_note": "Fresh reviewer context, separate from the author. The blind packet built from the original (hash 5f18fc30a33aef3be14955a0f8493f47ef81bbd974b575801ccc078700e06c3a) was read first, with the review brief, blueprint section 10 and the rubric, and item-specific findings were written into content/reviews/099-review.md before the full batch, starters or notes were opened. No edit was needed, so the proposed file is byte-identical to the original and the packet hash is unchanged."
+  },
+  "tone_balance": {
+    "ordinary": 4,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All four tasks are ordinary (driving licence, tailor, cooking for a neighbour, family kitchen) and replace published items of unchanged tone; the program count does not change. The coordinator checks the combined count."
+  },
+  "counts": {
+    "pass": 4,
+    "edited_by_reviewer": 0,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/099-proposed.json: 4 items, no failures, no warnings (info only: all four ids are in the catalogue).",
+    "a2_gate": "a2gate.ts on the proposed file: no failures, no warnings.",
+    "diff_against_sources": "Against 067-original (current source), only: rijbewijs images[1].alt and model; kleermaker images[1].alt and model; koken-buurvrouw images[0].alt; keuken model. Prompts, cues (none), criteria, samples, quotes, titles and all image briefs are byte-identical, so no promptAudio changes and pictures stay.",
+    "prompt_vs_criteria": "unchanged: each criterion is traceable to the prompt (one per picture; for keuken see, two actions, opinion).",
+    "models": "pass: 40, 45, 43 and 39 words, all main clauses, longest sentence 12 words; each model still meets every criterion; each sample still misses exactly the criterion it missed before.",
+    "alts": "pass: alts keep pictured facts without the hard words; alt 2 of kleermaker and alt 1 of koken-buurvrouw are less specific than before (no hem, no stove) but still true to the briefs and leak nothing a title does not already say.",
+    "starters": "pass: 099-starters.json equals the current hint entries; none supplies a criterion or a hard word.",
+    "full_final_source_read": "pass: every field, alt, brief, sample, quote, model and starter read."
+  },
+  "media_notes": {
+    "audio": "No audio change: prompts are unchanged and no item has a cue, so promptAudio stays.",
+    "pictures": "pictures kept, briefs unchanged in all four items; only alts changed (rijbewijs picture 2, kleermaker picture 2, koken-buurvrouw picture 1).",
+    "regenerate": []
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "kleermaker: \"Zij meet hoe lang de broek moet zijn\" paraphrases the pinning in the picture rather than describing it literally; the model is at the 45-word upper end.",
+    "keuken starters name the people (Fatima, haar zoon, haar dochter) before the criterion asks for actions; inherited from the source batch and left unchanged."
+  ],
+  "items": [
+    {
+      "id": "A2:speaking:batch009-rijbewijs:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 speaking (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Picture sequence of three, model 40 words in 5 sentences (longest 11), inside the 25-45 target. The model sentence about parking lost 'tussen twee pionnen' and still covers criterion 2; sample misses criterion 3 only.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Picture sequence of three, model 40 words in 5 sentences (longest 11), inside the 25-45 target. The model sentence about parking lost 'tussen twee pionnen' and still covers criterion 2; sample misses criterion 3 only.",
+      "evidence": "Criteria 1-3 are one per picture and follow the prompt's 'Vertel iets over alle plaatjes'. Sample quotes 'Modibo heeft rijles. Hij zit in de auto met de instructeur.' (c1), 'Daarna oefent hij parkeren.' (c2), null (nothing about the licence or success). Alt 2 now states the car and the watching instructor; the brief (cones, pavement) is untouched.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Three pictures show Modibo's driving test path: a lesson with the instructor beside him, reversing into a bay between two cones with the instructor watching from the pavement, and holding up a small pink licence card while the instructor applauds.",
+        "communicative_purpose": "Tell the three-step story of getting a driving licence in the order of the pictures.",
+        "contrivance_check": "Lesson, parking manoeuvre and success are the ordinary steps to a licence; the title names the goal, the card is pictured, and nothing off-page is needed.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "A recorded spoken picture story to the app's listener is the usual A2 speaking format; one narrator tells what the same man does in each picture, so no recipient is invented."
+      }
+    },
+    {
+      "id": "A2:speaking:batch009-kleermaker:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 speaking (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Picture sequence of three, model 45 words in 6 sentences (longest 12), at the top of the 25-45 target. 'Zij meet hoe lang de broek moet zijn' is a plain A2 reading of a tailor marking the hem.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Picture sequence of three, model 45 words in 6 sentences (longest 12), at the top of the 25-45 target. 'Zij meet hoe lang de broek moet zijn' is a plain A2 reading of a tailor marking the hem.",
+      "evidence": "One criterion per picture. Sample quotes 'Hasan kijkt in de spiegel en hij ziet dat de broek is te lang.' (c1, error 'is te lang'), null (c2: nothing about the tailor), 'Hij haalt de broek later op bij de winkel.' (c3). Model covers all three with the tailor's work now in 'Zij meet hoe lang de broek moet zijn.' Alt 2 'werkt aan de broek' fits the brief (pinning the hem).",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Hasan looks in the mirror at trousers that are far too long, gets the hem marked by a tailor on a low platform, and collects the shortened trousers in a paper bag at the counter.",
+        "communicative_purpose": "Tell the three steps of getting trousers shortened in picture order.",
+        "contrivance_check": "Too-long trousers, a fitting at the tailor and collection are the standard steps of the errand named in the title; each picture shows one of them.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "A recorded spoken picture story to the listener is the usual speaking format; one narrator tells what Hasan does in each picture."
+      }
+    },
+    {
+      "id": "A2:speaking:batch026-koken-buurvrouw:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 speaking (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Picture sequence of three, model 43 words in 7 short sentences (longest 11). Only alt 1 changed ('op het fornuis' to 'in de keuken'); the model never used the hard word.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Picture sequence of three, model 43 words in 7 short sentences (longest 11). Only alt 1 changed ('op het fornuis' to 'in de keuken'); the model never used the hard word.",
+      "evidence": "One criterion per picture. Sample quotes 'Fatima kookt soep in het keuken.' (c1, error het keuken), 'Dan zij brengt de pan naar de buurvrouw. De buurvrouw doet de deur open.' (c2, word order error), null (nothing about eating together). Alt 1 still tells a woman stirring a pan, with the kitchen setting.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Fatima cooks in her kitchen, carries the covered pot to mevrouw Bakker's door where the neighbour opens and smiles, and they eat together at the neighbour's table.",
+        "communicative_purpose": "Tell the neighbourly sequence cook, bring, share in picture order.",
+        "contrivance_check": "Cooking for a neighbour and eating together is a normal gesture; the prompt names the neighbour and the pictures show her at the door and at the table.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "A recorded spoken picture story to the listener; the narrator describes what Fatima does in each picture, so no recipient is invented."
+      }
+    },
+    {
+      "id": "A2:speaking:batch027-keuken:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 speaking (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Picture description, model 39 words in 6 sentences (longest 8). The model's first action now reads 'Fatima kookt en roert in een grote pan', still a clear action for criterion 2; sample misses criterion 3 only.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Picture description, model 39 words in 6 sentences (longest 8). The model's first action now reads 'Fatima kookt en roert in een grote pan', still a clear action for criterion 2; sample misses criterion 3 only.",
+      "evidence": "Criteria: see (c1), two actions (c2), opinion (c3). Sample quotes 'Ik zie Fatima in de keuken met haar kinderen.' (c1), 'Haar zoon snijdt groente en haar dochter zetten de borden op tafel.' (c2, error zetten), null (no opinion). The alt keeps all three pictured actions.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "In a busy home kitchen Fatima stirs a big pot, her teenage son cuts vegetables and her daughter lays plates on the table; the prompt asks what the speaker sees, two actions and an opinion on cooking together.",
+        "communicative_purpose": "Describe a lively family scene and give a personal view on cooking together.",
+        "contrivance_check": "A family cooking the evening meal needs no invented context: three people, three visible tasks and a prompt that asks for the speaker's own opinion.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "A recorded spoken picture description with an opinion question, given to the listener as in the A2 speaking part; the opinion is the speaker's own, so no recipient is needed."
+      }
+    }
+  ]
+}

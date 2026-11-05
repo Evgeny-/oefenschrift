@@ -1,0 +1,597 @@
+{
+  "review_id": "096-a2-reading-word-revision-2026-11-05",
+  "source": "content/batches/096-original.json",
+  "proposed_source": "content/batches/096-proposed.json",
+  "source_sha256": "6d79d6591484f03cedf9326470d1011d4bea3ea5ee3deff4453cff30aa50cc4d",
+  "review_type": "independent AI editorial review of 16 revised A2 reading items (hard-word replacements checked against the source items)",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-05T15:10:22Z",
+  "reviewer": "Independent AI reviewer (Sonnet 5.5), separate from the author agent; AI editorial review, not human validation.",
+  "review_contract_version": 2,
+  "replaces": [
+    "A2:reading:p1:1",
+    "A2:reading:batch001-pakketpunt:1",
+    "A2:reading:batch002-wasserette:1",
+    "A2:reading:batch003-lift:1",
+    "A2:reading:batch003-bibliobus:1",
+    "A2:reading:batch004-parkeervergunning:1",
+    "A2:reading:batch004-telefoon:1",
+    "A2:reading:batch004-bloedprikken:1",
+    "A2:reading:batch004-verwarming:1",
+    "A2:reading:batch021-terugbrengen:1",
+    "A2:reading:batch021-ketel:1",
+    "A2:reading:batch021-weekmarkt:1",
+    "A2:reading:batch020-loonstrook-uitleg:1",
+    "A2:reading:batch020-voetbalseizoen:1",
+    "A2:reading:batch020-tandartsregels:1",
+    "A2:reading:batch020-politiebureau:1"
+  ],
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "c1972d71e92c727e088d83f58fea753e1ba8118034578ddd9ea948c9fe7adde3",
+    "independence_note": "The blind packet of the author file (hash 27d471af347a19cc920a24d3bab627e33d72fd3293564e7f87628cf2624a0259) was read first, with the brief, rubric and blueprint section 10, and item findings were written to content/reviews/096-review.md before the full batch, notes or source items were opened. After the edits the packet was rebuilt from the exact proposed bytes (changed items: telefoon, terugbrengen, parkeervergunning, ketel, loonstrook) and the meaning pass repeated; the hash recorded here is that final packet."
+  },
+  "tone_balance": {
+    "ordinary": 16,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All sixteen are ordinary service texts (shop, municipality, health, housing, club). They replace published items that were classified the same way, so the program count does not change; the coordinator checks the combined A2 count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 11,
+    "edited_by_reviewer": 5,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:reading:batch004-telefoon:1",
+      "field": "text (price table row)",
+      "before": "Nieuwe oplaadingang – 35 euro – in 2 dagen",
+      "after": "Gaatje voor de oplader repareren – 35 euro – in 2 dagen",
+      "reason": "\"Oplaadingang\" is not standard Dutch. \"Gaatje\" and \"oplader\" are on the list; row, price and time are unchanged."
+    },
+    {
+      "id": "A2:reading:batch004-telefoon:1",
+      "field": "text (Saturday paragraph) and q2 evidence",
+      "before": "Bij een oplaadingang of waterschade bellen wij u als de telefoon klaar is.",
+      "after": "Bij het gaatje voor de oplader of bij waterschade bellen wij u als de telefoon klaar is.",
+      "reason": "Same repair named the same way; evidence still verbatim from the text."
+    },
+    {
+      "id": "A2:reading:batch004-telefoon:1",
+      "field": "q2 options.C",
+      "before": "Een nieuwe oplaadingang.",
+      "after": "Het gaatje voor de oplader repareren.",
+      "reason": "Matches the table row; still the wrong (not same-day) repair, key A unchanged."
+    },
+    {
+      "id": "A2:reading:batch004-telefoon:1",
+      "field": "q2 explanation",
+      "before": "Een scherm of oplaadingang neemt de winkel wel aan, ... en bij een oplaadingang belt de winkel ...",
+      "after": "Een scherm of het gaatje voor de oplader neemt de winkel wel aan, ... en bij het gaatje voor de oplader belt de winkel ...",
+      "reason": "Follows the wording change."
+    },
+    {
+      "id": "A2:reading:batch021-terugbrengen:1",
+      "field": "text, q1 options.B, q1 evidence, q1 explanation",
+      "before": "cadeaubon",
+      "after": "waardebon",
+      "reason": "A cadeaubon is a gift voucher; a shop gives a waardebon (store credit) for a late return. \"Waardebon\" is a transparent compound of listed words and the text explains it in the next sentence."
+    },
+    {
+      "id": "A2:reading:batch004-parkeervergunning:1",
+      "field": "text (heading)",
+      "before": "Betreft: uw parkeervergunning",
+      "after": "Onderwerp: uw parkeervergunning",
+      "reason": "\"Betreft\" is on the notA2 list; \"onderwerp\" is listed and is an equally normal letter heading. No question used it."
+    },
+    {
+      "id": "A2:reading:batch021-ketel:1",
+      "field": "text (heading)",
+      "before": "Betreft: controle van uw cv-ketel",
+      "after": "Onderwerp: controle van uw cv-ketel",
+      "reason": "Same reason."
+    },
+    {
+      "id": "A2:reading:batch020-loonstrook-uitleg:1",
+      "field": "text (heading)",
+      "before": "Betreft: uw loonstrook",
+      "after": "Onderwerp: uw loonstrook",
+      "reason": "Same reason."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npx tsx scripts/batch-check.ts content/batches/096-proposed.json",
+      "result": "Checked 16 items, 41 questions. No failures; 3 long-sentence warnings from unpunctuated table rows and headings (telefoon, bloedprikken, ketel), same as in the sources."
+    },
+    "a2_word_gate": {
+      "command": "npx tsx scratchpad/a2gate.ts content/batches/096-proposed.json",
+      "result": "No failures. Remaining warnings are single unlisted text words within the allowance and no question depends on them: fietsatelier, beschikbaar, bepaald, waterschade, verzendkosten, stenen, kwekerij, spoed. \"Betreft\" no longer occurs. Transparent compounds judged fine: nummerbord, voetbalsokken, waardebon, webwinkel, woningcorporatie."
+    },
+    "source_diff": "pass: every item diffed against its source item (latest earlier batch file with the same id; lift and bibliobus against batch 039 as named in the notes). Only hard-word replacements and their consequences differ: evidence rebuilt verbatim from the text, explanations adjusted, keys, option counts, ids, skills, titles and situations otherwise unchanged. Small unannounced change accepted: verwarming q1 prompt \"het eerste\" to \"eerst\" (corrects the grammar).",
+    "pictures_and_briefs": "No item has a picture, image brief or alt; nothing to compare.",
+    "speaking_and_listening": "Not applicable: reading only.",
+    "author_flags": "(a) oplaadingang replaced by \"gaatje voor de oplader repareren\" in table, Saturday paragraph, q2 option, evidence, explanation. (b) voetbalseizoen: \"voetbalsokken\" bought by parents and the removed rule do not harm realism; q2 keeps one key (D). (c) cadeaubon changed to waardebon; \"met een lege maag komen\" and \"webwinkel\" judged natural. (d) \"Betreft\" replaced by \"Onderwerp\" in three headings."
+  },
+  "items": [
+    {
+      "id": "A2:reading:p1:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Repair-shop pick-up notice, 3 questions: a weekday and time check (shop closed Wednesday), a fallback rule (lost bon means ID) and a purpose item. Only an explanation changed; unchanged difficulty. Text 125 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 125,
+        "key_proofs": [
+          {
+            "question": "q1 A",
+            "quote": "Op woensdag is onze winkel dicht. Vanaf donderdag zijn we weer open, van 9.00 tot 18.00 uur.",
+            "distractors": "B uses the closed Wednesday, C and D mix the Tuesday window with the Thursday opening."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A bicycle shop tells Mrs Bakker that her bike is ready (new rear tyre, brakes checked), that she can collect it on Tuesday 12 May 13.00-18.00, that the shop is closed on Wednesday and reopens on Thursday at 9.00, what to bring (bon, otherwise ID), the price of 32 euro and how to pay.",
+        "communicative_purpose": "Mrs Bakker plans when to collect her bike and what to carry with her.",
+        "contrivance_check": "Every paragraph answers a pick-up question (when, what to show, how to pay, who may collect); the staff-brings-it-outside detail is a normal shop service and no question depends on a forced fact.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch001-pakketpunt:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Parcel notice, 2 questions (time at the pick-up point, what to do before the deadline). One noun replaced (\"afzender\" to \"webwinkel\"); text length and structure unchanged. Text 130 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 130,
+        "key_proofs": [
+          {
+            "question": "q2 C",
+            "quote": "Kunt u niet op tijd komen? Vraag de winkel vóór maandag om het pakket langer te bewaren.",
+            "distractors": "A names the web shop but moves the request to after Monday; B is the cost of sending a new parcel."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A courier failed to deliver a parcel on Tuesday; it now waits in a shop next to the supermarket from Wednesday 13 May (12.00-19.00) until Monday 18 May with a code and ID, after which it goes back to the web shop.",
+        "communicative_purpose": "Mr El Amrani learns where, when and with what to collect the parcel and what to do if he is late.",
+        "contrivance_check": "The missed delivery explains why the parcel is in a shop; the supermarket opening time is a real trap and not an invented extra. \"Webwinkel\" is the natural origin of a parcel handled by a pick-up point and needs no off-page event.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch002-wasserette:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Laundrette instructions, 2 questions with a sequence and a payment rule. Only a q1 explanation changed. Text 124 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 124,
+        "key_proofs": [
+          {
+            "question": "q1 C",
+            "quote": "Voor dekens en grote hoeveelheden was gebruikt u de grote machines achter in de winkel. ... Kies eerst een vrije machine en onthoud het nummer.",
+            "distractors": "A is a dryer, B the small machines for ordinary laundry."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A refurbished laundrette explains where small and large machines and dryers stand, how to choose a machine, pay at the pay machine by card, buy detergent at the desk with cash and call help with the bell.",
+        "communicative_purpose": "Farah finds out which machine to take for a blanket and where cash works.",
+        "contrivance_check": "The layout (small left, large at the back, dryers right) and the two payment points (card machine, cash desk) are exactly what a returning customer needs; no off-page event is required.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch003-lift:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Caretaker letter, 3 questions (deadline, conditional rule, purpose). \"Beheerder\" to \"huismeester\" in situation, text, quote and one option; \"kondigt aan\" to \"vertelt over\". Structure unchanged. Text 123 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 123,
+        "key_proofs": [
+          {
+            "question": "q2 A",
+            "quote": "Gebruik de lift pas als de monteur het bord bij de deur heeft weggehaald.",
+            "distractors": "B treats 16.00 as the end of the work; C invents an action with the sign."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The caretaker tells residents that on Tuesday 17 March a lift part is replaced, the lift is out from 8.00, the engineer tests it at 16.00 and a sign marks when it may be used; the stairs stay open; people who cannot climb stairs should call before Monday 15.00.",
+        "communicative_purpose": "Residents arrange help, keep the hall free and plan parcels and bikes around the repair day.",
+        "contrivance_check": "The sign on the door, the test at 16.00 and the neighbour help all follow from the repair; the parcel advice is a normal consequence of a blocked hall.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch003-bibliobus:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Short service notice, 2 questions (time, rule). Only the q1 prompt changed (\"terecht\" to \"komen\"). Text 131 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 131,
+        "key_proofs": [
+          {
+            "question": "q1 C",
+            "quote": "Vanaf donderdag 4 juni staat de bibliobus van 15.30 tot 17.00 uur op het dorpsplein.",
+            "distractors": "A is the old start, B mixes the new time with a holiday."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The library bus now stands at the village square from 15.30 to 17.00 on Thursday 4 June because the driver first visits a school; returning needs no pass, lending does, a lost pass is replaced against an ID; books can be reserved for the next Thursday; no bus on holidays.",
+        "communicative_purpose": "Jari learns the new time and what to bring for returning and lending.",
+        "contrivance_check": "The later time is explained by the school visit; reservations and the holiday list are ordinary bus-library rules.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch004-parkeervergunning:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Municipal letter, 3 questions (action and deadline, sequence, purpose). \"Kenteken\" to \"nummerbord van de nieuwe auto\"; heading \"Betreft\" to \"Onderwerp\" (reviewer edit). The letter register is kept. Text 165 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 165,
+        "key_proofs": [
+          {
+            "question": "q1 C",
+            "quote": "Wilt u ook volgend jaar in uw buurt parkeren? Verleng dan uw vergunning vóór 1 december.",
+            "distractors": "B is only for a new car, A is after the end date, D is the opposite of the instruction."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The parking department tells Karim Aziz that his Vogelbuurt permit ends on 31 December, that he must renew before 1 December online with DigiD or at the desk after an appointment, the price (96 euro or 8 a month), what to do with a new car or no car.",
+        "communicative_purpose": "Karim renews his permit in time and picks the right channel.",
+        "contrivance_check": "A permit with an end date, a renewal deadline and two ways to renew is a standard municipal letter; the new-car and no-car paragraphs are the usual exceptions.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch004-telefoon:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Shop folder with price table, 3 questions (rule with a cut-off, Saturday exception, payment moment). The charging-port row was reworded by the reviewer to \"gaatje voor de oplader\"; same row, price and time. Text 173 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 173,
+        "key_proofs": [
+          {
+            "question": "q2 A",
+            "quote": "Op zaterdag doen wij alleen batterijen.",
+            "distractors": "B waits until Monday, C is a two-day repair."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A phone shop lists repairs with price and time (screen same day, battery 1 hour, charging-port repair 2 days, water damage check 3 days), explains the 12.00 cut-off, Saturday handling, payment at pick-up with the bon and a six-month guarantee.",
+        "communicative_purpose": "Julio chooses a repair and knows when to come back and what to bring.",
+        "contrivance_check": "Table plus cut-off plus Saturday exception is how a repair shop folder reads; the guarantee and opening hours are normal. The Saturday paragraph is dense but not contradictory: batteries are done at once, other repairs are taken in with the stated waiting times.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch004-bloedprikken:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Timetable with rules, 2 questions (place matching a work window, what is allowed when fasting). \"Nuchter\" with its definition became a direct instruction. Text 152 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 152,
+        "key_proofs": [
+          {
+            "question": "q2 B",
+            "quote": "Water drinken mag wel. Koffie en thee mogen niet.",
+            "distractors": "A is tea, explicitly not allowed; C is eating, not allowed after midnight."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A timetable of three blood-draw places with days and hours, a no-appointment rule, what to bring, a fasting instruction (nothing to eat from midnight, water yes, coffee and tea no), children only at the hospital and results sent to the GP.",
+        "communicative_purpose": "Mr De Vries picks a place that fits his work hours; Fatima knows what she may take before the test.",
+        "contrivance_check": "Three places with different hours make the matching question work; the fasting rule belongs to blood tests and needs no extra context.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch004-verwarming:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Card with three steps and escalation, 2 questions (sequence, case rule). Only \"woningstichting\" to \"woningcorporatie\" and one prompt wording. Text 161 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 161,
+        "key_proofs": [
+          {
+            "question": "q1 C",
+            "quote": "1. Kijk op de thermostaat.",
+            "distractors": "A is step 3, B comes after all steps."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A housing corporation card for a broken heating: three checks (thermostat, water pressure, reset), then report online, a phone number for no hot water, and a warning never to repair the boiler or call an own mechanic.",
+        "communicative_purpose": "Karim and Fatima know which step to take first and when to use the website or the phone.",
+        "contrivance_check": "The ordered checks, the report page and the emergency number for missing hot water follow one logic: from the simplest check to an emergency.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch021-terugbrengen:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Shop rules, 3 questions (time-limited rule, exclusion, deadline). \"Tegoedbon\" became \"waardebon\" (a transparent compound) instead of the author's \"cadeaubon\", which is a gift voucher; q3 explanation lightly reworded. Text 182 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 182,
+        "key_proofs": [
+          {
+            "question": "q1 B",
+            "quote": "Brengt u het kledingstuk na 14 dagen terug? Dan krijgt u geen geld terug. U kunt het kledingstuk wel ruilen. Of u krijgt een waardebon.",
+            "distractors": "A is the within-14-days rule, C the after-30-days rule."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A clothing shop explains returns: money back within 14 days (on the account in 5 working days), after 14 days exchange or a waardebon, nothing after 30 days, with receipt, unworn with tag; underwear, socks and swimwear never; online purchases returned free in the shop.",
+        "communicative_purpose": "Roos and others learn what they get back depending on how long ago they bought the item.",
+        "contrivance_check": "The 14 and 30 day limits plus the exclusions are the standard content of a return policy; \"Met deze bon koopt u later iets anders in onze winkel\" explains the waardebon in the text.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch021-ketel:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Letter, 2 questions (what to do when absent, purpose). Only an explanation changed (\"kondigt aan\"); heading \"Betreft\" to \"Onderwerp\" (reviewer edit). Text 180 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 180,
+        "key_proofs": [
+          {
+            "question": "q1 B",
+            "quote": "Kunt u op 14 april niet thuis zijn? Bel dan vóór dinsdag 7 april naar 0299 88 12 12.",
+            "distractors": "A is too late, C is for heating problems, D contradicts the 45 euro rule."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A housing corporation announces the yearly boiler check on Tuesday 14 April 8.00-12.00, free, an adult must be home, call before 7 April to move it, 45 euro for a wasted visit.",
+        "communicative_purpose": "Karim keeps or moves the appointment and gives access to the boiler.",
+        "contrivance_check": "Yearly boiler checks by a housing corporation are real; the cost of a missed visit explains why the letter asks to call first.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch021-weekmarkt:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Newspaper item, 3 questions (location on a date, news point, cause). \"Opknappen\" became \"mooier maken\"; the next sentence says what is done. Text 159 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 159,
+        "key_proofs": [
+          {
+            "question": "q3 A",
+            "quote": "De gemeente gaat het Marktplein in het centrum mooier maken. ... Op het plein kan dan geen markt staan.",
+            "distractors": "B reverses the size comparison, C and D are consequences or extras."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The Saturday market moves for half a year to the station square because the market square is renovated; 35 instead of 40 stalls, five go to the Wednesday market, parking costs 2 euro an hour and the market master advises coming by bike.",
+        "communicative_purpose": "Karim learns where the market is on a given Saturday and why.",
+        "contrivance_check": "Renovation of the square, a smaller replacement square and fewer stalls are one chain of cause and effect; the Kerkplein is mentioned only to show it is too small.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch020-loonstrook-uitleg:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "HR letter, 3 questions (term meaning, deadline rule, purpose). \"Loonheffing\" became \"Belasting\" with a definition in the same style as the other lines; heading \"Betreft\" to \"Onderwerp\" (reviewer edit). Text 176 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 176,
+        "key_proofs": [
+          {
+            "question": "q1 B",
+            "quote": "Nettoloon: het bedrag dat u op uw rekening krijgt.",
+            "distractors": "A is the amount before tax, C is the tax line."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A nursery company tells staff that the payslip goes online from January, how to log in, what bruto, belasting, reiskosten and netto mean, holiday pay in May, and that errors reported before the 10th are corrected that month.",
+        "communicative_purpose": "Sabrina learns where the payslip is and how to read and correct it.",
+        "contrivance_check": "The definition list answers a real worker question; the correction deadline is a normal payroll rule.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch020-voetbalseizoen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Club e-mail, 3 questions (time for an away match, what to buy, purpose). Shin guards became football socks and the rule sentence about playing without them was removed. The question keeps one clear key. Text 146 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 146,
+        "key_proofs": [
+          {
+            "question": "q2 D",
+            "quote": "Voetbalschoenen en voetbalsokken koopt u zelf.",
+            "distractors": "A is supplied by the club, B Karim already bought, C is contradicted."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The trainer writes to parents: season starts 5 September, Wednesday training, Saturday matches (away: meet 8.15 at the clubhouse), club shirt and shorts, parents buy boots and socks, fee 125 euro, driving rota, parents' evening on 31 August.",
+        "communicative_purpose": "Karim knows when to be where and what to buy for his son.",
+        "contrivance_check": "Club e-mails list training, matches, kit, fee and driving duties; clubs commonly issue shirt and shorts and leave boots and socks to parents, so the message stays realistic without the shin-guard rule.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch020-tandartsregels:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Rule list, 3 questions (cancel time arithmetic, late arrival, weekend pain). \"Van tevoren/uiterlijk\" became \"vóór uw afspraak/op zijn laatst\"; the arithmetic is the same. Text 165 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 165,
+        "key_proofs": [
+          {
+            "question": "q1 A",
+            "quote": "Zeg dan minstens 24 uur vóór uw afspraak af.",
+            "distractors": "B is less than 24 hours before, C and D are on the day."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A dental practice lists six rules: cancel at least 24 hours before the appointment or pay 35 euro, arrive five minutes early, more than ten minutes late means a new appointment, documents, children, payment, and a pain procedure.",
+        "communicative_purpose": "Mrs Bakker and Mr De Vries know what the practice expects.",
+        "contrivance_check": "Each rule matches a practical patient problem; the pain numbers (workday and weekend) are separate because the practice is closed on weekends.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch020-politiebureau:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to the unchanged source (hard words replaced, structure and questions as before)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Opening hours with rules, 2 questions. \"Voorwerpen\" became \"spullen\"; the explanation uses the text's own example. Text 156 words; A2 word gate: no failures.",
+      "evidence": {
+        "words": 156,
+        "key_proofs": [
+          {
+            "question": "q2 B",
+            "quote": "Kijk op www.westerhout.nl/gevonden, de website van de gemeente. Daar staan alle gevonden spullen.",
+            "distractors": "A is the wrong place, C is the website for reporting."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The police station lists its hours, three ways to report a theft (online with DigiD, by appointment, without appointment only on Tuesday and Thursday mornings), what to bring, where lost property is listed (municipal website) and the 112 emergency number.",
+        "communicative_purpose": "Mr De Vries finds when he can report a stolen bike; Mrs Bakker learns that lost keys are not a police matter.",
+        "contrivance_check": "Separating reporting a crime from lost property is a real source of confusion; the sentence pointing to the municipality website resolves it.",
+        "unsupported_assumptions": []
+      }
+    }
+  ],
+  "media_notes": {
+    "audio_to_regenerate": "None. Reading items have no script audio and no question audio.",
+    "pictures": "Pictures kept, briefs unchanged: none of the sixteen items has a picture or a brief."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "The Saturday paragraph of the phone folder (\"doen wij alleen batterijen\" next to \"andere reparaties nemen wij wel aan\") was already in the source and was left as is; it is dense but consistent.",
+    "Word difficulty is judged against config/a2-vocabulary.json plus reviewer judgment; no learner calibration."
+  ]
+}

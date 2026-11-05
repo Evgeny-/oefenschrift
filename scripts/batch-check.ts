@@ -6,7 +6,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { validateBatch } from './batch-validation';
 import { unknownWords } from './a1-vocabulary';
-import { a2Check, a2StrictText, a2VocabularyApplies } from './a2-vocabulary';
+import { a2Check, a2StrictText, a2VocabularyApplies, batchNumberOf } from './a2-vocabulary';
 
 const file = process.argv[2];
 if (!file) {
@@ -17,10 +17,13 @@ const batch = JSON.parse(readFileSync(file, 'utf8'));
 const catalogue = JSON.parse(readFileSync('content/catalogue.json', 'utf8'));
 const voices = JSON.parse(readFileSync('config/voices.json', 'utf8'));
 
+const batchNumber = batchNumberOf(file);
 const { failures, warnings, revisions, totalQuestions, keyCounts, optionCounts } = validateBatch(
   batch,
   catalogue,
   voices,
+  true,
+  batchNumber,
 );
 
 // Optional A1 sentence starters sit beside the batch and follow the same word list.
@@ -37,7 +40,7 @@ if (startersFile !== file && existsSync(startersFile)) {
       );
   }
   // New A2 starters follow the A2 word gate with no allowance.
-  for (const item of batch.filter((entry: any) => a2VocabularyApplies(entry))) {
+  for (const item of batch.filter((entry: any) => a2VocabularyApplies(entry, batchNumber))) {
     const { unknown } = a2Check(starters[item.id] || [], [
       ...(starters[item.id] || []),
       ...a2StrictText(item),

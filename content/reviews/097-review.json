@@ -1,0 +1,410 @@
+{
+  "review_id": "097-a2-listening-hard-words-2026-11-05",
+  "source": "content/batches/097-original.json",
+  "proposed_source": "content/batches/097-proposed.json",
+  "source_sha256": "27c48747fc03f6f7284e5ed2ce4a5861186c60279a51f1ce88adf83938b90e5e",
+  "review_type": "independent AI editorial review of eight A2 listening items revised to remove words too hard for A2",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-05T15:09:42Z",
+  "reviewer": "Independent AI reviewer (Claude Sonnet), separate from the author agent; edits proposed in 097-proposed.json only.",
+  "review_contract_version": 2,
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:listening:batch002-bakker:1",
+    "A2:listening:batch005-training:1",
+    "A2:listening:batch005-parkeervergunning:1",
+    "A2:listening:batch005-werkdag:1",
+    "A2:listening:batch005-computercursus:1",
+    "A2:listening:batch022-kinderopvang:1",
+    "A2:listening:batch023-cv-workshop:1",
+    "A2:listening:batch023-verjaardagstaart:1"
+  ],
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "8f40e871382a54bcc535ef7bf6ad8e57254afe007aa799075ec05b20de686440",
+    "independence_note": "Fresh reviewer context, separate from the author. The blind packet built from the original (hash e999758df227a903666a5b496e9a0b9ec2f701e21e51c39980535a344ad20c16) was read first, with the review brief, blueprint section 10 and the rubric, and item-specific findings were written into content/reviews/097-review.md before the full batch, notes or sources were opened. After the one speaker-label edit the packet was rebuilt from the exact proposed bytes (only the training script labels change the packet) and the meaning pass was repeated; the hash recorded here is that final packet."
+  },
+  "tone_balance": {
+    "ordinary": 8,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All eight listening items are ordinary everyday scenes (bakery, work, municipality, library, childcare, job centre). These replace published items with unchanged tone, so the program count does not change; the coordinator checks the combined count."
+  },
+  "counts": {
+    "pass": 7,
+    "edited_by_reviewer": 1,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:listening:batch005-training:1",
+      "field": "script[*].speaker and text (speaker label)",
+      "before": "Leidinggevende: ...",
+      "after": "Chef: ...",
+      "reason": "The author replaced the hard word everywhere except the five speaker labels, so the transcript still showed it; labels are not voiced, so the fragment clip text is unchanged, but integration drops the clip and the audio run regenerates it, which the owner accepts. Transcript rebuilt from the script."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/097-proposed.json: 8 items, 22 questions, no failures, no warnings (info only: all eight ids are in the catalogue).",
+    "a2_gate": "a2gate.ts on the proposed file: no failures; one warning (parkeervergunning: der, uploaden; allowed 2, no question depends on them).",
+    "diff_against_sources": "Every difference between each item and its source item is a hard-word replacement or a consequence of one (evidence rebuilt verbatim, explanation or option adjusted, transcript rebuilt from the script). bakker was diffed against its current source 042-original; its older 002 version differs by design. Picture briefs and imageBrief fields are byte-identical to the sources; only alts changed.",
+    "hard_words_gone": "leidinggevende, kinderdagverblijf, kentekenbewijs, gevorderden, uiterlijk, terechtkunnen, ontbreken no longer appear in any learner-visible field of the proposed file.",
+    "answer_keys": "Unchanged; each key is proven by a verbatim evidence quote from the final transcript and has one defensible answer. cv-workshop q3 options are parallel and the key is not the longest.",
+    "spoken_naturalness": "pass: the changed turns (papieren van uw auto; Dat kan tot en met vrijdag; een moeilijkere cursus; van de kinderopvang) read naturally aloud and contain no digits.",
+    "full_final_source_read": "pass: all fields of the proposed file were read after the edit."
+  },
+  "media_notes": {
+    "script_audio_to_regenerate": [
+      "A2:listening:batch005-training:1 (label renamed; spoken text unchanged, clip dropped on integration)",
+      "A2:listening:batch005-parkeervergunning:1",
+      "A2:listening:batch005-computercursus:1",
+      "A2:listening:batch022-kinderopvang:1",
+      "A2:listening:batch023-cv-workshop:1"
+    ],
+    "question_audio_to_regenerate": [
+      "A2:listening:batch005-training:1 q3",
+      "A2:listening:batch022-kinderopvang:1 q3",
+      "A2:listening:batch023-cv-workshop:1 q3 (options changed; prompt unchanged)"
+    ],
+    "no_audio_change": [
+      "A2:listening:batch002-bakker:1",
+      "A2:listening:batch005-werkdag:1",
+      "A2:listening:batch023-verjaardagstaart:1"
+    ],
+    "pictures": "pictures kept, briefs unchanged (training, computercursus, cv-workshop, verjaardagstaart); only alts changed in training and verjaardagstaart.",
+    "voices": "Roles are unchanged from the sources; every conversation keeps two distinct roles (training f-adult / m-adult, verjaardagstaart f-young / m-shop). Use --keys with exactly the clips above."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "The word gate is list-based; whether papieren van uw auto is the form every sender would use is an editorial judgment.",
+    "Regenerated audio needs its own transcription round trip."
+  ],
+  "items": [
+    {
+      "id": "A2:listening:batch002-bakker:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable to the source and to the existing items of the same task type",
+        "reason": "Voicemail, 11 sentences of about 8 words; the later 'Wilt u toch aardbeien? Dan ... zaterdag' invites a careful listener to separate the two offers. Only the explanation of q1 changed; spoken text identical to the source.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Voicemail, 11 sentences of about 8 words; the later 'Wilt u toch aardbeien? Dan ... zaterdag' invites a careful listener to separate the two offers. Only the explanation of q1 changed; spoken text identical to the source.",
+      "evidence": "q1 B from 'De aardbeien zijn vandaag niet gekomen.' (box, chocolate and tips note are all mentioned as present or offered); q2 C from 'Wilt u vóór vijf uur terugbellen?' (pickup and paying come after). Keys B, C; key not the longest.",
+      "replacement_change": "Explanation of q1 now 'De aardbeien zijn niet gekomen.' (hard word 'ontbreken' removed); key unchanged.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Karim gets a voicemail from the baker: the strawberries for his Friday cake did not arrive; a chocolate cake at the same price or a strawberry cake on Saturday.",
+        "communicative_purpose": "Make Karim choose between chocolate now and strawberries on Saturday, and call back before five so the baker can plan.",
+        "contrivance_check": "A missing delivery is a normal reason for a baker to call; the offered options, the ready box and the callback deadline are all in the message, nothing off-page is needed.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag Karim, u spreekt met de bakker. U heeft voor vrijdag een aardbeientaart besteld. De aardbeien zijn vandaag niet gekomen. Ik kan voor dezelfde prijs een chocoladetaart maken. Wilt u toch aardbeien? Dan kan ik uw taart zaterdag maken. De taartdoos staat al klaar, dus u hoeft geen doos mee te brengen. Wilt u vóór vijf uur terugbellen? Dan hoor ik graag welke taart u wilt. We sluiten daarna de winkel. Bij het ophalen kunt u aan de kassa betalen. U krijgt dan ook een briefje met tips om de taart thuis te bewaren.",
+            "response_function": "The baker greets Karim, explains the missing strawberries, offers chocolate or a Saturday strawberry cake, asks for a call back before five and gives pickup and payment details."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch005-training:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable to the source and to the existing items of the same task type",
+        "reason": "Ten short turns, average 9 words; the day swap (Tuesday refused, Thursday agreed) is the only memory load. Now speaks of 'chef' everywhere; the speaker label is renamed to match.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Ten short turns, average 9 words; the day swap (Tuesday refused, Thursday agreed) is the only memory load. Now speaks of 'chef' everywhere; the speaker label is renamed to match.",
+      "evidence": "q1 B from 'Dan doen we donderdag.' (Tuesday is refused, 'vandaag' only for the roster); q2 C from 'Je werkschoenen, want je gaat ook oefenen.' (laptop and lunch are explicitly not needed or provided, certificate comes later); q3 A from 'Ik wil graag dat jij die volgt.' Keys B, C, A.",
+      "replacement_change": "'leidinggevende' replaced by 'chef' in situation, q1 and q3 explanations, q3 prompt and imageAlt; speaker label 'Leidinggevende' renamed 'Chef' in the script and transcript (reviewer edit).",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Karim's female chef asks him to follow a forklift safety training; Tuesday clashes with a client job, so it becomes Thursday, half past nine to three, with work shoes to bring.",
+        "communicative_purpose": "Agree a date for the training and tell Karim what to bring, so he is in the roster and prepared.",
+        "contrivance_check": "The Tuesday conflict has a stated reason (a day at a client in Utrecht) and the move to Thursday follows from it; shoes follow from 'je gaat ook oefenen'.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Karim, heb je even? Ik wil iets met je bespreken.",
+            "response_function": "Chef opens by asking for a moment, so Karim knows a work matter follows."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja hoor. Wat is er?",
+            "response_function": "Karim agrees and asks what it is about."
+          },
+          {
+            "turn": 3,
+            "quote": "Er komt een training over veilig werken met de heftruck. Ik wil graag dat jij die volgt. Kun je dinsdag?",
+            "response_function": "Chef states the reason (a forklift safety training), asks Karim to follow it and proposes Tuesday."
+          },
+          {
+            "turn": 4,
+            "quote": "Dinsdag werk ik de hele dag bij een klant in Utrecht. Dat wordt lastig.",
+            "response_function": "Karim refuses Tuesday with a reason, he works at a client in Utrecht all day."
+          },
+          {
+            "turn": 5,
+            "quote": "Dan doen we donderdag. De training is van half tien tot drie uur, in de kantine op de eerste verdieping.",
+            "response_function": "Chef accepts the reason and moves the training to Thursday with hours and place."
+          },
+          {
+            "turn": 6,
+            "quote": "Prima. Moet ik iets meenemen?",
+            "response_function": "Karim accepts Thursday and asks what to bring."
+          },
+          {
+            "turn": 7,
+            "quote": "Je werkschoenen, want je gaat ook oefenen. Een laptop is niet nodig. En voor de lunch zorgen wij.",
+            "response_function": "Chef answers: work shoes because there is practice; no laptop; lunch provided."
+          },
+          {
+            "turn": 8,
+            "quote": "Oké. Zet je de training in mijn rooster?",
+            "response_function": "Karim accepts and asks the chef to enter the training in his roster."
+          },
+          {
+            "turn": 9,
+            "quote": "Dat doe ik vandaag nog. Na de training krijg je een certificaat.",
+            "response_function": "Chef confirms she will do it today and adds the certificate after the training."
+          },
+          {
+            "turn": 10,
+            "quote": "Mooi. Bedankt!",
+            "response_function": "Karim closes with thanks."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch005-parkeervergunning:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable to the source and to the existing items of the same task type",
+        "reason": "One-turn voicemail of about 120 words, sentences of about 8 words; 'papieren van uw auto' replaces the hard word and is understood from 'één document'. Two unlisted words (der in a surname, uploaden) are within the allowance and no question depends on them.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "One-turn voicemail of about 120 words, sentences of about 8 words; 'papieren van uw auto' replaces the hard word and is understood from 'één document'. Two unlisted words (der in a surname, uploaden) are within the allowance and no question depends on them.",
+      "evidence": "q1 B from 'Op donderdag is de balie langer open, tot acht uur 's avonds.' (five and nine are the normal hours); q2 C from 'U betaalt pas als de vergunning klaar is.'; q3 D from 'Maar wij missen nog één document: een kopie van de papieren van uw auto.' Keys B, C, D.",
+      "replacement_change": "Spoken phrase 'het kentekenbewijs van uw auto' became 'de papieren van uw auto', with the q3 evidence rebuilt verbatim and the explanation adjusted.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Hasan hears a municipal voicemail: his parking-permit request lacks a copy of his car papers; he can upload it or bring it to the desk, open until five and until eight on Thursday.",
+        "communicative_purpose": "Get Hasan to send the missing document within two weeks so the municipality can finish the permit, and tell him payment comes later.",
+        "contrivance_check": "The request, the missing document, both delivery routes and the payment moment all come from the message itself; the Thursday evening opening is the competing detail for q1.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag, u spreekt met Ilse van der Berg van de gemeente Rietburg. Dit bericht is voor meneer Hasan Demir. U hebt een parkeervergunning aangevraagd voor de Lindenstraat. Uw rijbewijs en uw huurcontract hebben wij goed ontvangen. Maar wij missen nog één document: een kopie van de papieren van uw auto. U kunt de kopie uploaden op onze website. U kunt de kopie ook brengen naar de balie in het stadhuis. De balie is open van negen tot vijf uur. Op donderdag is de balie langer open, tot acht uur 's avonds. Stuurt u het document binnen twee weken? Anders kunnen wij de aanvraag niet afmaken. Betalen hoeft u nu nog niet. U betaalt pas als de vergunning klaar is. Hebt u vragen? Bel dan naar 0345 12 34 56. Een fijne dag.",
+            "response_function": "The municipal employee names herself and the addressee, says one document (a copy of the car papers) is missing, gives two ways to hand it in with desk hours, a two-week limit and the payment moment."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch005-werkdag:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable to the source and to the existing items of the same task type",
+        "reason": "One-turn explanation of about 170 words, short sentences; the many locations are the load, as in the source. Only the q3 explanation changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "One-turn explanation of about 170 words, short sentences; the many locations are the load, as in the source. Only the q3 explanation changed.",
+      "evidence": "q1 A from 'Bel mij dan voor zeven uur 's ochtends.' (message explicitly refused); q2 D from 'De kantine is op de eerste verdieping, naast de keuken.'; q3 C from 'De sleutel van je kastje haal je bij de receptie.' Keys A, D, C.",
+      "replacement_change": "q3 explanation 'bij de teamleider kan hij terecht met vragen' became 'naar de teamleider gaat hij met vragen'; no learner-visible hard word remains.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "On his first day in a hotel Modibo gets an explanation from team leader Bram: entrance, card reader, locker key, canteen, breaks and the rule to phone when sick.",
+        "communicative_purpose": "Prepare Modibo for his first shifts: where to enter, how hours are recorded, where things are, how to call in sick.",
+        "contrivance_check": "A team leader walking a new hire through the day is ordinary; each rule is given with its reason (hours counted by the pass, messages read too late).",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen Modibo, welkom bij hotel De Zilvermeeuw. Ik ben Bram, je teamleider. Ik leg je even een paar dingen uit. Je komt altijd binnen door de personeelsingang, aan de achterkant van het hotel. Naast die deur hangt een klein apparaat. Daar houd je je pas tegenaan, als je begint en als je klaar bent. Vergeet dat niet, want zo weten wij je uren. Je werkkleding ligt in de kleedkamer. De sleutel van je kastje haal je bij de receptie. De kantine is op de eerste verdieping, naast de keuken. Daar kun je koffie en thee pakken, dat is gratis. In de ochtend heb je een pauze van een kwartier. De lunchpauze duurt een half uur. Nog één ding: ben je ziek? Bel mij dan voor zeven uur 's ochtends. Stuur geen berichtje, want dat lees ik vaak te laat. Heb je vragen? Kom dan gewoon naar mij toe.",
+            "response_function": "The team leader welcomes Modibo and explains the first-day routine: entrance, card reader, work clothes, locker key, canteen, breaks and how to report sick."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch005-computercursus:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable to the source and to the existing items of the same task type",
+        "reason": "One-turn advert of about 150 words with numbers (20, 40, ten, eight); the advert is easy structurally. The harder course is now 'een moeilijkere cursus', natural after 'te makkelijk'.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "One-turn advert of about 150 words with numbers (20, 40, ten, eight); the advert is easy structurally. The harder course is now 'een moeilijkere cursus', natural after 'te makkelijk'.",
+      "evidence": "q1 C from 'Hebt u een stadspas? Dan is de cursus gratis.' (20 and 40 euro are prices without the pass and of the harder course); q2 B from 'De groep is klein: maximaal tien mensen.' (eight lessons, 20 and 40 euro). Keys C, B.",
+      "replacement_change": "Spoken 'een cursus voor gevorderden' became 'een moeilijkere cursus'; q1 explanation follows; script audio must be regenerated.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A radio advertisement for the library's beginners computer course: eight Tuesday-morning lessons for 20 euro, free with a city pass, starting 6 October.",
+        "communicative_purpose": "Persuade listeners to enrol at the library desk or by phone, and to mention the harder evening course for 40 euro.",
+        "contrivance_check": "A library advertising its own course with price, group size and a pass discount is a normal radio spot; the harder course is introduced by the question whether this one is too easy.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Wilt u beter leren werken met de computer? Kom dan naar de cursus Computer voor Beginners in bibliotheek De Leeszaal aan de Stationsweg. In acht lessen leert u e-mailen, informatie zoeken op internet en formulieren invullen, bijvoorbeeld voor de gemeente. De lessen zijn op dinsdagochtend, van tien tot twaalf uur. De groep is klein: maximaal tien mensen. De docent, Meral, helpt u rustig, stap voor stap. Een laptop hoeft u niet mee te nemen. De bibliotheek heeft laptops voor iedereen. De cursus kost 20 euro voor acht lessen. Hebt u een stadspas? Dan is de cursus gratis. De volgende cursus begint op dinsdag 6 oktober. Wilt u meedoen? Kom dan naar de balie van de bibliotheek, of bel 0345 55 88 20. Vol is vol, dus wacht niet te lang. Is de cursus voor beginners te makkelijk voor u? Dan is er ook een moeilijkere cursus, op donderdagavond. Die kost 40 euro.",
+            "response_function": "The presenter advertises the beginners computer course: content, day and time, group size, price, pass discount, start date, how to enrol and the harder evening course."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch022-kinderopvang:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable to the source and to the existing items of the same task type",
+        "reason": "One-turn voicemail of about 150 words, sentences of 6-9 words; competing details (open till half seven, eating this morning) are explicit. 'Kinderopvang' is a listed word.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "One-turn voicemail of about 150 words, sentences of 6-9 words; competing details (open till half seven, eating this morning) are explicit. 'Kinderopvang' is a listed word.",
+      "evidence": "q1 A from 'Ik bel omdat Lina ziek is. Ze heeft koorts, achtendertig en een half.'; q2 C from 'Kunt u niet weg van uw werk? Dan mag oma haar ook halen.'; q3 B from 'Lina mag pas weer komen als ze een hele dag geen koorts meer heeft.' Keys A, C, B.",
+      "replacement_change": "'kinderdagverblijf' replaced by 'kinderopvang' in title, situation, spoken turn, q2 explanation and q3 prompt; speaker label renamed in the same way.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Jolien from Lina's childcare group phones Karim: Lina has a fever of 38.5 and must go home, grandma may fetch her, and Lina stays home tomorrow.",
+        "communicative_purpose": "Get Lina collected soon, learn who will come, and tell Karim when Lina may return.",
+        "contrivance_check": "Fever, the house rule, the pick-up list including grandma and the request to call back are connected by cause and effect in one message.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hallo Karim, met Jolien van de kinderopvang, van de groep van Lina. Ik bel omdat Lina ziek is. Ze heeft koorts, achtendertig en een half. Vanochtend heeft ze nog goed gegeten en gespeeld. Maar na het slapen was ze warm en huilde ze veel. Nu ligt ze rustig bij mij op schoot. Bij koorts moeten kinderen naar huis, dat is onze regel. Kunt u Lina zo snel mogelijk ophalen? Wij zijn open tot half zeven, maar zo lang kan Lina niet blijven. Wij kunnen haar ook niet thuisbrengen. Kunt u niet weg van uw werk? Dan mag oma haar ook halen. Oma staat op uw lijst, dus dat is goed. Lina mag pas weer komen als ze een hele dag geen koorts meer heeft. Morgen blijft ze dus thuis. Belt u mij even terug? Dan weet ik wie er komt. Dank u wel, en beterschap voor Lina.",
+            "response_function": "Jolien reports Lina's fever, asks Karim to collect her soon, offers grandma as an alternative, states the return rule and asks for a call back."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch023-cv-workshop:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable to the source and to the existing items of the same task type",
+        "reason": "One-turn explanation of about 157 words, short sentences; the day of the course versus the deadline for enrolling is the intended confusion. 'tot en met vrijdag' is plain A2.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "One-turn explanation of about 157 words, short sentences; the day of the course versus the deadline for enrolling is the intended confusion. 'tot en met vrijdag' is plain A2.",
+      "evidence": "q1 D from 'Hebt u nog geen cv? Dat is geen probleem. Dan maakt u het in de workshop.'; q2 A from 'Neem wel uw diploma's mee, want die zetten we op het cv.'; q3 C from 'Meld u dan aan bij de balie beneden. Dat kan tot en met vrijdag.' Keys D, A, C.",
+      "replacement_change": "'uiterlijk vrijdag' became the sentence 'Dat kan tot en met vrijdag'; q3 options now 'Tot en met dinsdag/donderdag/vrijdag'; evidence rebuilt verbatim.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "At the werkplein, adviser Ruben explains a two-morning CV workshop to Sabrina: Tuesday and Thursday, room four, diplomas to bring, free, enrol by Friday.",
+        "communicative_purpose": "Let Sabrina decide to join, and tell her what to bring and how to enrol.",
+        "contrivance_check": "Sabrina is job-hunting and the adviser pitches a free workshop; the follow-up appointment after the workshop is part of the same offer.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen Sabrina, ik ben Ruben. Ik leg u even de workshop uit. De workshop heet Een goed cv. De workshop duurt twee ochtenden, volgende week dinsdag en donderdag, van negen tot twaalf uur. De workshop is hier in het gebouw, in zaal vier op de tweede verdieping. Op dinsdag kijken we naar uw cv. Hebt u al een cv? Neem het dan mee op papier. Hebt u nog geen cv? Dat is geen probleem. Dan maakt u het in de workshop. Neem wel uw diploma's mee, want die zetten we op het cv. Een laptop is niet nodig. Die is er voor iedereen. Op donderdag schrijven we samen een sollicitatiebrief. De workshop is gratis. Er kunnen maximaal tien mensen meedoen. Wilt u meedoen? Meld u dan aan bij de balie beneden. Dat kan tot en met vrijdag. Na de workshop maak ik een afspraak met u. Dan bespreken we uw nieuwe cv. Hebt u nu nog vragen?",
+            "response_function": "The adviser explains the workshop to Sabrina: schedule, room, what to bring, the content of each morning, cost, capacity, deadline to enrol and the follow-up appointment."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch023-verjaardagstaart:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable to the source and to the existing items of the same task type",
+        "reason": "Ten turns, average about 11 words, numbers spoken in full (twaalf, zesendertig, vierentwintig); comparable to the existing shop gesprekken. Only an alt changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Ten turns, average about 11 words, numbers spoken in full (twaalf, zesendertig, vierentwintig); comparable to the existing shop gesprekken. Only an alt changed.",
+      "evidence": "q1 C from 'Die is voor twaalf personen en kost zesendertig euro.' (24 is the small cake, 10 the deposit, 60 the age); q2 B from 'Maar de taart is pas om elf uur klaar.'; q3 A from 'U betaalt nu tien euro.' Keys C, B, A.",
+      "replacement_change": "Picture alt 'bij de toonbank van een bakkerij' became 'in een bakkerij'; brief unchanged.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Roos orders a chocolate cake for twelve people at a bakery for her father's sixtieth birthday and agrees to collect it on Saturday after eleven with a deposit of ten euro.",
+        "communicative_purpose": "Order the right size, add a text and agree the pickup time and the payment.",
+        "contrivance_check": "The seller's size recommendation follows from the number of guests; the later opening time versus ready time and the deposit all answer Roos's direct questions.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag. Ik wil graag een taart bestellen. Mijn vader wordt zaterdag zestig.",
+            "response_function": "Roos opens the order: a cake for her father's sixtieth birthday on Saturday."
+          },
+          {
+            "turn": 2,
+            "quote": "Wat leuk. Voor hoeveel personen moet de taart zijn?",
+            "response_function": "The seller reacts and asks the number of people, the basis for choosing a size."
+          },
+          {
+            "turn": 3,
+            "quote": "Voor twaalf personen.",
+            "response_function": "Roos answers the question: twelve people."
+          },
+          {
+            "turn": 4,
+            "quote": "Dan is de grote taart het beste. Die is voor twaalf personen en kost zesendertig euro. De kleine taart is voor acht personen en kost vierentwintig euro.",
+            "response_function": "The seller recommends the large cake for twelve and names both sizes with prices."
+          },
+          {
+            "turn": 5,
+            "quote": "De grote graag, van chocolade. En kan er een tekst op?",
+            "response_function": "Roos chooses the large chocolate cake and asks about a text on it."
+          },
+          {
+            "turn": 6,
+            "quote": "Ja, dat kan. Welke tekst wilt u?",
+            "response_function": "The seller says it can be done and asks which text."
+          },
+          {
+            "turn": 7,
+            "quote": "Hartelijk gefeliciteerd, papa. Kan ik de taart zaterdag ophalen? Het liefst zo vroeg mogelijk.",
+            "response_function": "Roos gives the text and asks to collect on Saturday as early as possible."
+          },
+          {
+            "turn": 8,
+            "quote": "Zaterdag zijn wij open vanaf acht uur. Maar de taart is pas om elf uur klaar. Komt u dus na elf uur.",
+            "response_function": "The seller gives opening and ready time and says to come after eleven."
+          },
+          {
+            "turn": 9,
+            "quote": "Dat is goed. Moet ik nu al betalen?",
+            "response_function": "Roos accepts and asks whether she has to pay now."
+          },
+          {
+            "turn": 10,
+            "quote": "U betaalt nu tien euro. De rest betaalt u zaterdag, als u de taart ophaalt. Tot zaterdag.",
+            "response_function": "The seller names the deposit now, the rest on Saturday, and says goodbye."
+          }
+        ]
+      }
+    }
+  ]
+}

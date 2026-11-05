@@ -1,0 +1,105 @@
+{
+  "review_id": "098-a2-writing-hard-words-2026-11-05",
+  "source": "content/batches/098-original.json",
+  "proposed_source": "content/batches/098-proposed.json",
+  "source_sha256": "e9fb59c156e6ccdf505d1e3c68169dfe00de9b474f223e6a95579e81ec927a77",
+  "starters_source": "content/batches/098-starters.json",
+  "starters_sha256": "50adf993b7110abe79fd7da56959560c17a2b33a5b8dc09aef853d64228b286d",
+  "starters_verdict": "pass",
+  "review_type": "independent AI editorial review of two A2 writing items revised to remove words too hard for A2",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-05T15:10:32Z",
+  "reviewer": "Independent AI reviewer (Claude Sonnet), separate from the author agent.",
+  "review_contract_version": 2,
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A2:writing:batch002-sleutel:1",
+    "A2:writing:batch008-huur:1"
+  ],
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "c62c36d6e3360736455fa102422df267e69cc853f2c3adaff0ed4d1bf73de586",
+    "independence_note": "Fresh reviewer context, separate from the author. The blind packet built from the original (hash c62c36d6e3360736455fa102422df267e69cc853f2c3adaff0ed4d1bf73de586) was read first, with the review brief, blueprint section 10 and the rubric, and item-specific findings were written into content/reviews/098-review.md before the full batch, starters or notes were opened. No edit was needed, so the proposed file is byte-identical to the original and the packet hash is unchanged."
+  },
+  "tone_balance": {
+    "ordinary": 2,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "Both tasks are ordinary (a found key, ending a rental) and replace published items of unchanged tone; the program count does not change. The coordinator checks the combined count."
+  },
+  "counts": {
+    "pass": 2,
+    "edited_by_reviewer": 0,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/098-proposed.json: 2 items, no failures, no warnings (info only: both ids are in the catalogue).",
+    "a2_gate": "a2gate.ts on the proposed file: no failures, no warnings.",
+    "diff_against_sources": "Against 064-original (current source): sleutel differs only in situation (beheerder to huismeester), prompt (huismeester; kenmerk to iets wat de eigenaar herkent), criteria[1] (nl and en) and adequacyNote; huur differs only in prompt, scaffold.to and scaffold.salutation (woonstichting to woningcorporatie). Sample, quotes and model unchanged; sample still misses exactly one criterion and the model meets all.",
+    "criteria_vs_prompt": "sleutel: the prompt names place, appearance and contact, matching the three criteria and the three open fields. huur: the visible prompt only names the purpose and the e-mail; the four content points live in the criteria, as in the source batch 064 (unchanged by this replacement, so left alone and noted as a limitation).",
+    "starters": "pass: 098-starters.json equals the current hint entries; the kenmerk criterion rewording does not change its meaning, so \"Aan de sleutel zit ….\" still fits; no starter supplies a criterion or a hard word.",
+    "meerijden": "Not in this batch and untouched.",
+    "full_final_source_read": "pass: every field, scaffold, criterion, sample, quote, model and starter read."
+  },
+  "media_notes": {
+    "audio": "None: writing.",
+    "pictures": "No pictures in either item; nothing to regenerate. Pictures kept, briefs unchanged (none exist).",
+    "regenerate": []
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "huur: the visible prompt does not list the four content points (address, reason, date, keys question); this is inherited from batch 064 and out of scope for a word replacement.",
+    "The fictional name Woningcorporatie De Brug and the address info@woningcorporatiedebrug.nl were web-checked by the author only; the reviewer did not repeat the search."
+  ],
+  "items": [
+    {
+      "id": "A2:writing:batch002-sleutel:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 writing (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Form with three one-sentence open fields; model 32 words in 3 sentences (longest 12), comparable to the other A2 form items. The prompt asks the same three things as before; 'iets wat de eigenaar herkent' replaces 'kenmerk' and is explained by the sentence before it.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Form with three one-sentence open fields; model 32 words in 3 sentences (longest 12), comparable to the other A2 form items. The prompt asks the same three things as before; 'iets wat de eigenaar herkent' replaces 'kenmerk' and is explained by the sentence before it.",
+      "evidence": "Criteria 1-3 map one-to-one on the prompt's three instructions and form fields. Sample quotes: 'Ik heb de sleutel in de hal van mijn flat gevonden.' (c1), 'Er zit een rood ring aan de sleutel.' (c2, with the deliberate learner error 'rood ring'), null for c3 (no contact route). Model meets all three. Starter 'Aan de sleutel zit ….' fits c2 without supplying the detail.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The learner found a key in their flat building and fills in the caretaker's found-property form: where it was found, what it looks like (something the owner will recognise), how the owner can make contact.",
+        "communicative_purpose": "Get the key back to its owner: the caretaker needs the place, an identifying detail and a contact route.",
+        "contrivance_check": "A caretaker with a lost-property form is a normal setup for a block of flats; the invented name, e-mail and place are an announced exercise device (no real data), not an off-page event.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "A form from the huismeester is the medium the prompt names, the caretaker is the recipient who passes the information on to the owner, and the three open fields ask exactly for the three facts the owner needs."
+      }
+    },
+    {
+      "id": "A2:writing:batch008-huur:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 writing (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Formal four-point e-mail; model 57 words in 7 sentences (longest 12). Only the organisation word changed: 'woningcorporatie' is a cognate on the A2 list. The sample misses c4 only (confirmation asked, not keys).",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Formal four-point e-mail; model 57 words in 7 sentences (longest 12). Only the organisation word changed: 'woningcorporatie' is a cognate on the A2 list. The sample misses c4 only (confirmation asked, not keys).",
+      "evidence": "Criteria: address (c1), reason (c2), end date (c3), keys question (c4). Sample quotes 'Ik huur de woning aan de Lindehof 18 in Zwolle.', 'Ik ga verhuizen naar Utrecht, omdat ik daar een nieuwe baan heb.', 'Vanaf 1 december huur ik de woning niet meer.', null (the closing question asks for a confirmation, not about the keys). Model meets all four with 'Wanneer moet ik de sleutels inleveren?'. Starters cover c1-c4 and only give sentence openings.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A tenant of the fictitious Woningcorporatie De Brug writes an e-mail to end the rental: address, reason, end date and a question about handing in the keys.",
+        "communicative_purpose": "Give notice of the end of the rental in writing and learn when to hand in the keys.",
+        "contrivance_check": "Ending a lease is a real reason to write; the scaffold gives the corporation's general address and greeting, and the criteria say the address, reason and date are invented by the learner. The name De Brug was web-checked by the author and does not match a known corporation.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "E-mail to the landlord's general address is the usual first written route for giving notice, and the recipient is the party that must receive it; the formal Beste medewerker / Met vriendelijke groet frame fits that."
+      }
+    }
+  ]
+}
