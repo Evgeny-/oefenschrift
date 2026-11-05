@@ -151,10 +151,14 @@ export class ContentStore {
             .run(JSON.stringify(item), hash, now, item.id);
         }
       }
+      // A set that joins an existing database is dated, so the catalogue can call it new for a
+      // week (app/domain/new-sets.ts); the first seed stays undated.
+      const seeded = this.db.prepare('SELECT 1 FROM practice_sets LIMIT 1').get(),
+        added = new Date().toISOString();
       for (const set of sets)
         this.db
           .prepare('INSERT OR IGNORE INTO practice_sets VALUES(?,?)')
-          .run(set.id, JSON.stringify(set));
+          .run(set.id, JSON.stringify(seeded ? { ...set, added } : set));
       this.db.exec('COMMIT');
     } catch (e) {
       this.db.exec('ROLLBACK');

@@ -3,6 +3,7 @@ import { useStudyContext } from '../../StudyContext';
 import { mediaUrl } from '../../domain/base';
 import { NavIcon } from '../Controls';
 import AppLink from '../AppLink';
+import { isNewSet } from '../../domain/new-sets';
 
 // What each exam part asks, in one line. The counts come from the catalogue at the
 // chosen level (KNM is level-independent), so the page never promises more than exists.
@@ -24,7 +25,8 @@ export default function Subjects() {
           const items = itemsFor(part),
             sets = practiceSets.filter(
               (set) => set.part === part && (part === 'knm' || set.level === level),
-            );
+            ),
+            fresh = sets.filter((set) => isNewSet(set)).length;
           return (
             <AppLink className={`home-subject home-subject--${part}`} key={part} to={part}>
               <h3>
@@ -56,7 +58,7 @@ export default function Subjects() {
                 </span>
                 <small>
                   {items.length
-                    ? `${sets.length} ${sets.length === 1 ? t('oefenset', 'practice set') : t('oefensets', 'practice sets')}`
+                    ? `${sets.length} ${sets.length === 1 ? t('oefenset', 'practice set') : t('oefensets', 'practice sets')}${fresh ? ` · ${fresh} ${t('nieuw', 'new')}` : ''}`
                     : t('Binnenkort', 'Coming soon')}
                 </small>
               </span>

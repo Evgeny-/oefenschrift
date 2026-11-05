@@ -39,6 +39,8 @@ export interface PracticeSet {
   part: Part;
   number: number;
   ids: string[];
+  // ISO time the server first published the set; absent for sets from the first seed.
+  added?: string;
 }
 export interface Session {
   ids: string[];

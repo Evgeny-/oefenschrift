@@ -145,6 +145,24 @@
   line-height: 1.6;
   font-weight: 600;
 }
+/* A set published in the last week: a small yellow dot and a muted word, never a filled badge. */
+.entry-new {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-left: 0.625rem;
+  color: var(--muted);
+  font-size: var(--text-small);
+  font-weight: 400;
+  vertical-align: 0.0625rem;
+}
+.entry-new::before {
+  content: '';
+  width: 0.4375rem;
+  height: 0.4375rem;
+  border-radius: 50%;
+  background: var(--action);
+}
 .exercise-entry small {
   display: block;
   margin-top: 0.375rem;

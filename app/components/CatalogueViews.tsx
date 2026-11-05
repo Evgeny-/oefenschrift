@@ -10,6 +10,7 @@ import AppLink from './AppLink';
 import useSelectionIndicator from './useSelectionIndicator';
 import { mediaUrl } from '../domain/base';
 import A1PracticeOnly from './A1PracticeOnly';
+import { isNewSet } from '../domain/new-sets';
 function ListFilters({ filter, onChange, includeAll = true, includeDrafts = false }) {
   const { t } = useStudyContext(),
     indicator = useSelectionIndicator(filter);
@@ -158,6 +159,7 @@ function PracticeSetList({ sets, restart = false }) {
               <span className="exercise-entry-copy">
                 <h3>
                   {t('Oefenset', 'Practice set')} {set.number}
+                  {isNewSet(set) && <span className="entry-new">{t('Nieuw', 'New')}</span>}
                 </h3>
                 <span className="entry-texts" lang="nl" translate="no">
                   {items.map((item) => item.title).join(' · ')}
