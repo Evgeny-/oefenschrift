@@ -1,6 +1,7 @@
 import { SKILLS } from '../app/domain/exercise-types';
 import { exerciseMetadataErrors } from '../app/domain/exercise-schema';
 import { simpleA1Failures } from './a1-vocabulary';
+import { a2VocabularyIssues } from './a2-vocabulary';
 // Shared authoring and integration checks for content/blueprint.md.
 export function validateBatch(batch: any[], catalogue: any[], voices: any, batchChecks = true) {
   const failures: string[] = [],
@@ -77,6 +78,11 @@ export function validateBatch(batch: any[], catalogue: any[], voices: any, batch
       fail(`${tag}: id level and subject must match the exercise`);
     failures.push(...exerciseMetadataErrors(item));
     if (level === 'A1') failures.push(...simpleA1Failures(item));
+    if (level === 'A2') {
+      const vocabulary = a2VocabularyIssues(item);
+      failures.push(...vocabulary.failures);
+      warnings.push(...vocabulary.warnings);
+    }
 
     if (['reading', 'listening', 'knm'].includes(part)) {
       const text = item.text;

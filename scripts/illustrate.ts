@@ -6,13 +6,18 @@ import { requireReviewedMedia } from './media-review';
 //   tsx scripts/illustrate.ts --generate            generate missing images into assets/images and update the manifest
 //   tsx scripts/illustrate.ts --generate --apply    also write image fields into content/catalogue.json
 //   tsx scripts/illustrate.ts --file x.json --generate --out tmp/images
+//   tsx scripts/illustrate.ts --generate --engine api   use the paid image API instead of the local model
+//
+// The default engine is the one in config/illustration.json (`engine`). Since 5 November 2026 that is the
+// local Z-Image Turbo model through mflux (scripts/illustrate-local.py, run with uv): free, about 50 s a
+// picture on the coordinator's Mac, one queue per run so the model loads once.
 //
 // An item asks for a picture with `imageBrief` (one still) or `images: [{brief, alt, kind}]` entries without a
 // file. Briefs are scene descriptions in English; `alt` (Dutch, no answer revealed) is written by the author.
 // The generated PNG is kept in content/images-source (ignored by git); the served file is a 600 px WebP.
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 type ImageSpec = {
@@ -57,6 +62,12 @@ const OUT = option('--out', 'assets/images'),
   SOURCE_DIR = option('--source-dir', 'content/images-source');
 const services = JSON.parse(readFileSync('config/services.json', 'utf8'));
 const style = JSON.parse(readFileSync(option('--style', 'config/illustration.json'), 'utf8'));
+const ENGINE = option('--engine', style.engine || 'api');
+if (!['api', 'local'].includes(ENGINE))
+  throw new Error(`Unknown --engine ${ENGINE}; use api or local.`);
+const local = style.local || {};
+const MODEL = ENGINE === 'local' ? local.model : style.model,
+  QUALITY = ENGINE === 'local' ? `${local.steps} steps` : style.quality;
 
 function apiKey(): string {
   const path = environmentSetting('CREDENTIALS_FILE') || services.credentials_file;
@@ -75,6 +86,56 @@ function expandCast(brief: string): string {
   for (const [name, traits] of Object.entries(style.cast || {}))
     if (name !== 'note' && brief.includes(name)) notes.push(`${name} is ${traits}.`);
   return notes.length ? `${brief} ${notes.join(' ')}` : brief;
+}
+// The local model draws what a brief names, including objects in a "no clock" list, and leaves people
+// small in empty space under the house prefix alone. Its prompt therefore drops exclusion sentences
+// (the style already forbids text), puts the scene first and adds the configured framing.
+function localBrief(brief: string): string {
+  return brief
+    .split(/(?<=\.)\s+/)
+    .filter((sentence) => !/^no\b/i.test(sentence.trim()))
+    .join(' ')
+    .replace(/[;,]\s*no [^.;]*(?=[.;]|$)/gi, '')
+    .trim();
+}
+function promptFor(brief: string): string {
+  if (ENGINE !== 'local') return `${style.stylePrefix} ${expandCast(brief)}`;
+  const prefix = String(style.stylePrefix).replace(local.styleFrom, local.styleTo);
+  return `${expandCast(localBrief(brief))} ${local.framing} Style: ${prefix}`;
+}
+function drawLocally(queue: { id: string; prompt: string; seed: number; size: string }[]) {
+  if (!queue.length) return;
+  const path = resolve(SOURCE_DIR, 'local-queue.jsonl');
+  writeFileSync(
+    path,
+    queue
+      .map(({ id, prompt, seed, size }) => {
+        const [width, height] = size.split('x').map(Number);
+        return JSON.stringify({ id, prompt, seed, width, height });
+      })
+      .join('\n') + '\n',
+  );
+  console.log(`Drawing ${queue.length} pictures with ${local.model} (about a minute each)…`);
+  try {
+    execFileSync(
+      'uv',
+      [
+        'run',
+        '--no-project',
+        '--with',
+        local.package || 'mflux',
+        'python',
+        'scripts/illustrate-local.py',
+        path,
+        SOURCE_DIR,
+        local.hfModel,
+        String(local.steps),
+      ],
+      { stdio: 'inherit' },
+    );
+  } catch {
+    console.log('  the local run reported failures; pictures without a file are listed below');
+  }
 }
 async function generate(key: string, prompt: string, size: string): Promise<Buffer> {
   const response = await fetch('https://api.openai.com/v1/images/generations', {
@@ -135,7 +196,7 @@ async function run() {
     : {};
   const list = jobs(items);
   console.log(
-    `${list.length} images to make for ${items.length} items (model ${style.model}, ${style.quality}).`,
+    `${list.length} images to make for ${items.length} items (${ENGINE} engine, model ${MODEL}, ${QUALITY}).`,
   );
   if (!GENERATE) {
     for (const j of list)
@@ -144,27 +205,42 @@ async function run() {
       );
     return;
   }
-  const key = apiKey();
+  const key = ENGINE === 'api' ? apiKey() : '';
   mkdirSync(OUT, { recursive: true });
   mkdirSync(SOURCE_DIR, { recursive: true });
   let generated = 0,
     failures = 0;
+  const plans = new Map(
+    list.map((job) => {
+      const size = style.sizes[job.kind] || style.sizes.still;
+      const prompt = promptFor(job.spec.brief!);
+      // A redo gets a fresh attempt number (and locally a new seed) so its files do not collide.
+      const attempt = REDO.has(job.key) ? (manifest[job.key]?.attempt || 1) + 1 : 1;
+      const seed = ENGINE === 'local' ? Number(local.seed || 7) + attempt - 1 : undefined;
+      const token = sha(
+        JSON.stringify({
+          prompt,
+          size,
+          model: MODEL,
+          quality: QUALITY,
+          ...(attempt > 1 ? { attempt } : {}),
+          ...(seed !== undefined ? { seed } : {}),
+        }),
+      ).slice(0, 16);
+      return [job.key, { size, prompt, attempt, seed, token }];
+    }),
+  );
+  if (ENGINE === 'local')
+    drawLocally(
+      list
+        .filter((job) => job.spec.alt)
+        .map((job) => plans.get(job.key)!)
+        .filter(({ token }) => !existsSync(resolve(SOURCE_DIR, `${token}.png`)))
+        .map(({ token, prompt, seed, size }) => ({ id: token, prompt, seed: seed!, size })),
+    );
   // Pictures are independent: a few generate at once.
   await pool(list, CONCURRENCY, async (job) => {
-    const size = style.sizes[job.kind] || style.sizes.still;
-    const prefix = style.stylePrefix;
-    const prompt = `${prefix} ${expandCast(job.spec.brief!)}`;
-    // A redo gets a fresh attempt number so that its files do not collide with the first drawing.
-    const attempt = REDO.has(job.key) ? (manifest[job.key]?.attempt || 1) + 1 : 1;
-    const token = sha(
-      JSON.stringify({
-        prompt,
-        size,
-        model: style.model,
-        quality: style.quality,
-        ...(attempt > 1 ? { attempt } : {}),
-      }),
-    ).slice(0, 16);
+    const { size, prompt, attempt, seed, token } = plans.get(job.key)!;
     const png = resolve(SOURCE_DIR, `${token}.png`),
       webp = resolve(OUT, `${token}.webp`),
       file = `images/${token}.webp`;
@@ -174,6 +250,8 @@ async function run() {
       return;
     }
     try {
+      if (ENGINE === 'local' && !(existsSync(png) && statSync(png).size > 0))
+        throw new Error('the local model produced no picture');
       if (!existsSync(png)) writeFileSync(png, await generate(key, prompt, size));
       if (!existsSync(webp))
         execFileSync('cwebp', [
@@ -194,9 +272,10 @@ async function run() {
         kind: job.spec.kind || 'drawing',
         brief: job.spec.brief,
         prompt_sha256: sha(prompt),
-        model: style.model,
-        quality: style.quality,
+        model: MODEL,
+        quality: QUALITY,
         size,
+        ...(ENGINE === 'local' ? { engine: 'local', seed } : {}),
         ...(attempt > 1 ? { attempt } : {}),
         reviewed: false,
       };

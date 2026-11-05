@@ -1,0 +1,279 @@
+{
+  "review_id": "091-a2-writing-2026-11-05",
+  "source": "content/batches/091-original.json",
+  "proposed_source": "content/batches/091-proposed.json",
+  "source_sha256": "22a48c7310f4e6ee4d598df46fc4376242f9a75e5bc7d57c20d965862c7aed00",
+  "starters_source": "content/batches/091-starters.json",
+  "starters_sha256": "78ea8904a60cdd7fdce039e4a0f337dd14e09d6fea6dbe6ad07d8ce59f76ca1d",
+  "starters_verdict": "pass",
+  "review_type": "independent AI editorial review of eight new A2 writing items",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-05T12:40:00Z",
+  "review_contract_version": 2,
+  "reviewer": "Independent AI reviewer (fresh context, separate from the Opus author)",
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "09a53f6ea4eb1a3f2229c3bffa243fc08823e1b639b116a7fa78dcd26f956865",
+    "independence_note": "Blind findings were written to content/reviews/091-review.md from the source-only packet (initial hash a975b85ff7d615241e1d4dc7b0bb09e4a559a2cb76acf5fe839199b5e6015dc1) before criteria, samples, starters or notes were opened. The packet was rebuilt from the proposed bytes after one edit (the packet hash changed from a975b85f to 09a53f6e because picture briefs are part of the packet)."
+  },
+  "tone_balance": {
+    "ordinary": 7,
+    "light_humor": 1,
+    "target_share": 0.15,
+    "scope_note": "7 ordinary tasks and 1 lightly funny (collega-kantoor, a very large plant); small-batch cap is ceil(8 x 0.15) = 2. The coordinator checks the combined A2 count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 8,
+    "edited_by_reviewer": 1,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:writing:batch091-oppas-briefje:1",
+      "field": "images.0-2.brief",
+      "before": "A girl of about seven with short curly black hair and an orange dress",
+      "after": "A girl of about nine with short curly black hair and an orange dress",
+      "reason": "Leila is a groep-6 pupil (about nine) in ouderavond-afmelden; one name should mean one age. Traits stay identical across all three briefs."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npx tsx scripts/batch-check.ts content/batches/091-proposed.json",
+      "result": "Checked 8 items, no failures; 5 compound warnings (zwemleraar, meerijden, wijkkrant, keukentafel, leegmaken) all judged transparent at A2."
+    },
+    "word_gate": "No unlisted word in strict fields; listed words in context (zwemdiploma, verpleegkundige, vliegveld, vaatwasser) are acceptable for A2 learners.",
+    "names": "Hotel Kanaalzicht / hotelkanaalzicht.nl and De Wilgenboog / bsdewilgenboog.nl searched on 5 Nov 2026: no exact business or school found (near names De Wilgenhoek and De Wilgen exist); acceptable as a fictional e-mail domain.",
+    "dates": "26 November 2026 is a Thursday; 11 June 2027 is a Friday.",
+    "open_task_contract": "Criteria cover exactly what each prompt asks; one null quote per sample, other quotes verbatim; models at section 10 lengths."
+  },
+  "diversity": {
+    "within_batch": "Three e-mails (leave, school, friend), two forms (pool, staff outing), one wijkkrant, two picture notes (home, office).",
+    "set_assembly": "Keep zwemles-inschrijven away from batch008-sportclub and verhuizen-helpen away from batch008-kast in the same set."
+  },
+  "media_notes": {
+    "pictures": "Redraw oppas-briefje (age nine in the edited briefs) and generate collega-kantoor; check traits across panels on the contact sheet. Alts list pictured facts, acceptable for open tasks.",
+    "audio": "None."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Organisation names were checked with a web search only; no registry lookup.",
+    "Pictures were judged as briefs, not as rendered images."
+  ],
+  "items": [
+    {
+      "id": "A2:writing:batch091-vakantiedagen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch008-contract and batch008-kast: three criteria, model 60 words in 7 sentences, longest 14",
+        "targetLevelValidated": false,
+        "reason": "Three stated points, one reason with omdat at most; the A2 gate passes with no unlisted word."
+      },
+      "level_reason": "Three stated points, one reason with omdat at most; the A2 gate passes with no unlisted word.",
+      "evidence": {
+        "criteria_vs_prompt": "Prompt gives December and the chef; criteria ask days, reason and cover, all producible by a learner who follows the prompt.",
+        "sample": "Omits the colleague (null quote 3); error omdat-clause order.",
+        "starters": "Three fragments in criteria order; none names a day, reason or colleague."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A kitchen employee at a hotel needs three December days off and must request them from chef Pieter de Groot by e-mail, as the prompt says is the rule at this workplace.",
+        "communicative_purpose": "Get leave approved: name three days, give a reason and name a colleague who covers the work.",
+        "contrivance_check": "The e-mail rule is stated in the prompt, so no off-page motive is needed. The covering colleague is the learner's own idea (Bedenk zelf) and the hotel domain was searched and not found.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Employee to chef: e-mail is the stated workplace channel; formal 'Beste meneer De Groot' and u fit a superior."
+      }
+    },
+    {
+      "id": "A2:writing:batch091-ouderavond-afmelden:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch008-groep (four bullets); model 55 words, 7 sentences, longest 12",
+        "targetLevelValidated": false,
+        "reason": "Four criteria with a transfer from the prompt, a request and a question; no vocabulary obstacle."
+      },
+      "level_reason": "Four criteria with a transfer from the prompt, a request and a question; no vocabulary obstacle.",
+      "evidence": {
+        "criteria_vs_prompt": "The prompt states the date and the cancelling need; criteria cover cannot-come, reason, other moment and a question.",
+        "sample": "Omits the other moment (null quote 3); errors in inversion and vind/vindt.",
+        "starters": "Four fragments; the one with 'niet komen' repeats only a fact given in the prompt."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A parent cannot attend the ten-minute parent talk on Thursday 26 November for a child in groep 6 and writes to juf Esther.",
+        "communicative_purpose": "Cancel, give a reason, propose another moment and ask one question about Leila.",
+        "contrivance_check": "The fixed ten-minute slot in the prompt creates the need to reschedule; nothing is invented. Cancellation plus a question about the child gives a second real purpose.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Parent to class teacher by e-mail: primary schools routinely arrange talks by e-mail; 'juf Esther' with u and 'Met vriendelijke groet' is normal parent-teacher register, so the author's doubt is resolved as acceptable."
+      }
+    },
+    {
+      "id": "A2:writing:batch091-verhuizen-helpen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch008-kast; model 54 words, 8 sentences, longest 11",
+        "targetLevelValidated": false,
+        "reason": "Informal register, four concrete bullets, simple modal questions."
+      },
+      "level_reason": "Informal register, four concrete bullets, simple modal questions.",
+      "evidence": {
+        "criteria_vs_prompt": "All four criteria follow from a request for help with a move.",
+        "sample": "Omits what to bring (null quote 3); ik verhuist error.",
+        "starters": "Four short fragments with no content supplied."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A learner moves within the city without a removal firm and asks friend Zeynep to help on a chosen day.",
+        "communicative_purpose": "Ask for help, set day and time, ask her to bring something and offer a favour in return.",
+        "contrivance_check": "Doing a move 'met hulp van vrienden' is stated in the prompt; the thing to bring and the favour are the learner's own. Closest existing item is batch008-kast (one wardrobe); this asks for a whole day, so it is accepted as distinct.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Friend to friend by e-mail with 'Hoi' and 'Groetjes'; a plan with date, time and a favour is reasonable to write down."
+      }
+    },
+    {
+      "id": "A2:writing:batch091-zwemles-inschrijven:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch008-sportclub and batch008-nieuwe-patient; model 34 words, 3 sentences, longest 12",
+        "targetLevelValidated": false,
+        "reason": "Three open fields with one short sentence each."
+      },
+      "level_reason": "Three open fields with one short sentence each.",
+      "evidence": {
+        "criteria_vs_prompt": "Three criteria map one-to-one to the three open fields.",
+        "sample": "Omits swimming ability (null quote 2); split compound and spreek error.",
+        "starters": "Three fragments, none states a day or ability."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A parent registers six-year-old Abdel, who has no swimming diploma yet, for lessons at the local pool using a form.",
+        "communicative_purpose": "Fill the open fields: days and times, whether he swims a little, and something the teacher should know.",
+        "contrivance_check": "A pool form with ability and notes fields is standard; the prompt says the learner invents some data. The sportclub form is similar in form type but its open fields differ.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Parent to pool via a registration form; formal labels with u."
+      }
+    },
+    {
+      "id": "A2:writing:batch091-bedrijfsuitje:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch008-sportclub; model 41 words, 5 sentences, longest 11",
+        "targetLevelValidated": false,
+        "reason": "Choice plus three short open answers; the lift field needs two sentences."
+      },
+      "level_reason": "Choice plus three short open answers; the lift field needs two sentences.",
+      "evidence": {
+        "criteria_vs_prompt": "Four criteria match the choice and three open fields.",
+        "sample": "Omits the idea (null quote 4); station de/het error.",
+        "starters": "Four fragments; 'wil ... meerijden' can be negated, so it does not force a yes."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "An employee signs up for the company outing on Friday 11 June 2027 (a Friday), which has an activity followed by a meal.",
+        "communicative_purpose": "Choose an activity, give food wishes, say whether a lift is wanted and where to be picked up, and add an idea for next time.",
+        "contrivance_check": "Activity then meal in the prompt justifies the choice and food fields; a lift question is common on outing forms. The two-part lift label is slightly dense but answerable with a no.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Employee to employer through a form; fields are plausible for an HR sign-up."
+      }
+    },
+    {
+      "id": "A2:writing:batch091-mijn-werk:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch008-reizen; model 41 words, 5 sentences, longest 10",
+        "targetLevelValidated": false,
+        "reason": "Three guiding questions and minimum three sentences."
+      },
+      "level_reason": "Three guiding questions and minimum three sentences.",
+      "evidence": {
+        "criteria_vs_prompt": "Criteria ask what, where and what is liked; all are natural from the prompt.",
+        "sample": "Omits place (null quote 2); collega's is error.",
+        "starters": "Starters follow the working-now route only; the wished-work route can ignore them (note, no change)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A neighbourhood-paper issue on work invites residents to write about their job or the job they would like.",
+        "communicative_purpose": "Say what work, where and what is liked, in at least three sentences.",
+        "contrivance_check": "The either-or in the prompt lets learners without a job take part; nothing needs inventing beyond personal answers.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Resident to neighbours through the wijkkrant, a stated monthly paper open to everyone."
+      }
+    },
+    {
+      "id": "A2:writing:batch091-oppas-briefje:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch008-restaurant and -supermarkt; model 35 words, 6 sentences, longest 9",
+        "targetLevelValidated": false,
+        "reason": "Three pictures, three clauses, simple imperative and modal forms."
+      },
+      "level_reason": "Three pictures, three clauses, simple imperative and modal forms.",
+      "evidence": {
+        "criteria_vs_prompt": "Prompt asks what Wesley must do this evening, three things; criteria are hidden and match the pictures.",
+        "sample": "Omits the book (null quote 2); finite verb after modal error.",
+        "starters": "Order words only; none names the pictured objects.",
+        "picture_traits": "Wesley and Leila traits repeated verbatim in all three briefs; Leila age changed from seven to nine in all three."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A parent works until 22:00; babysitter Wesley collects Leila at three and has a key; the parent leaves a note on the kitchen table listing what to do in the evening.",
+        "communicative_purpose": "Tell Wesley three things from the pictures: pasta, reading together and brushing teeth.",
+        "contrivance_check": "Writer and reader are never together, so a note is needed. The pictures supply all three tasks and the prompt names none, so nothing leaks. Leila drawn at about nine to match item 2 (groep 6).",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Parent to babysitter by a paper note; informal 'Hoi Wesley' fits."
+      }
+    },
+    {
+      "id": "A2:writing:batch091-collega-kantoor:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch008-supermarkt; model 34 words, 5 sentences, longest 11",
+        "targetLevelValidated": false,
+        "reason": "Three pictures, one short clause each."
+      },
+      "level_reason": "Three pictures, one short clause each.",
+      "evidence": {
+        "criteria_vs_prompt": "The prompt asks for three things tomorrow; pictures show them.",
+        "sample": "Omits the post (null quote 3); planten staat error.",
+        "starters": "Order words and modals only.",
+        "picture_traits": "Abdel traits repeated verbatim in all three briefs."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "light-humor",
+        "situation_summary": "A colleague is away on training tomorrow; Abdel is off today, so the writer leaves a note on his desk listing three tasks.",
+        "communicative_purpose": "Tell Abdel to water the plants, empty the dishwasher and take the post to reception.",
+        "contrivance_check": "Abdel being off today explains the desk note; each task is an ordinary office duty. The only humour is a very large plant, harmless and not needed for the criteria.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Colleague to colleague by desk note; informal 'Hoi Abdel' suits peers."
+      }
+    }
+  ]
+}

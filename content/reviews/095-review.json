@@ -1,0 +1,469 @@
+{
+  "review_id": "095-a2-speaking-2026-11-05",
+  "source": "content/batches/095-original.json",
+  "proposed_source": "content/batches/095-proposed.json",
+  "source_sha256": "8f96942fc91d3c658a14288ef98f78c18114cd99bea8d8c09afc91fdf25dde2e",
+  "starters_source": "content/batches/095-starters.json",
+  "starters_sha256": "b4a9564f43fa0399e4e0ada1fc8637e6637bb60f77107e12f337fda5899dbf18",
+  "starters_verdict": "pass",
+  "review_type": "independent AI editorial review of eight new A2 speaking items",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-05T12:32:44Z",
+  "review_contract_version": 2,
+  "reviewer": "Independent AI editorial reviewer (Sonnet), fresh context, separate from the batch author",
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "8e8fdbc3a4ed0c474b5a6f967552cade3e8c39a30450940cacc760f481d18145",
+    "independence_note": "Blind per-item findings were written to content/reviews/095-review.md from the source-only packet (hash 8e8fdbc3a4ed0c474b5a6f967552cade3e8c39a30450940cacc760f481d18145) before criteria, samples, models, starters or notes were opened. The proposed batch changes no packet field, so the rebuilt packet hash is identical."
+  },
+  "tone_balance": {
+    "ordinary": 8,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All eight tasks are ordinary everyday scenes; the plan allows at most one lightly humorous speaking item per batch and none was needed. The coordinator checks the combined A2 count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 8,
+    "edited_by_reviewer": 1,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:speaking:batch095-strand-familie:1",
+      "field": "starters[1]",
+      "before": "Chantal … en haar man …",
+      "after": "Het gezin … en …",
+      "reason": "The starter told the learner that a husband is in the picture and so partly supplied the 'two things the family does' criterion; the new frame names no person."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/095-proposed.json: 8 items, 0 failures; one warning (slug 'ouderavond' also used by B1 reading batch003, a different part and topic: accepted).",
+    "word_gate": "No unlisted words or compounds were reported in prompts, cues, criteria, models, alts or starters; herkennen, balie, id-kaart, pasfoto, geldig, tweedehands are on the list and explained by the scene.",
+    "open_task_contract": "pass: every printed prompt (video: cue plus prompt) asks for each hidden criterion; counts ('twee') appear in the prompt; both picture-choose prompts end with 'Zeg ook iets over het andere plaatje.'; one null quote per sample; quotes verbatim; models 40-43 words; speakingSeconds 40, prepSeconds 10.",
+    "names": "Six names, each in one item; no voice name or old cast name.",
+    "full_final_source_read": "pass"
+  },
+  "diversity": {
+    "within_batch": "Eight different domains and purposes (route giving, desk visit, school talk, beach day, GP booking, bike purchase, birthday, library).",
+    "set_assembly": "Keep the two choose items and the two sequences apart in a four-item drill only if the set is mixed; the two video-answer cues are f-older and m-young, distinct voices."
+  },
+  "media_notes": {
+    "voices": "reiziger-weg cue f-older (Hanneke, spectral-v1 preset applies); baliemedewerker cue m-young (Ruben); prompts read by the narrator.",
+    "pictures": "Check at display size: used versus new bike in tweedehands-nieuw (rust, worn saddle); child's drawings on the ouderavond table; Maaike's ponytail and orange jumper and Mustafa's beard and son's curly hair consistent across panels; blank screens, no text."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Level verdicts are editorial comparisons with existing A2 items, not learner data.",
+    "No rendered media were reviewed; pictures and audio are outside this source review."
+  ],
+  "items": [
+    {
+      "id": "A2:speaking:batch095-reiziger-weg:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 speaking",
+        "verdict": "comparable to existing A2 video-answer items (e.g. the bus-stop question); slightly more demanding because directions need left/right and a landmark",
+        "targetLevelValidated": false,
+        "prompt_words": 31,
+        "model_words": 43,
+        "reason": "Two-part cue plus one added detail, all in main clauses; model 43 words, sentences at most 10 words."
+      },
+      "evidence": {
+        "prompt": "U bent op het station van uw stad. Een vrouw met een koffer stelt u een vraag. U hoort de vraag. Geef antwoord. Zeg ook hoe zij het gemeentehuis kan herkennen.",
+        "cue": "Pardon, ik ben hier niet bekend. Hoe loop ik van het station naar het gemeentehuis, en hoe lang duurt dat?",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "route",
+            "criterion_nl": "Zeg hoe de vrouw naar het gemeentehuis kan lopen.",
+            "model_quote": "U loopt rechtdoor tot de brug. Na de brug gaat u naar rechts."
+          },
+          {
+            "goal": "duration",
+            "criterion_nl": "Zeg hoe lang het lopen duurt.",
+            "model_quote": "Het is ongeveer tien minuten lopen."
+          },
+          {
+            "goal": "landmark (prompt)",
+            "criterion_nl": "Zeg hoe zij het gemeentehuis kan herkennen.",
+            "model_quote": "Het gemeentehuis is een groot wit gebouw aan een plein."
+          }
+        ],
+        "sample": {
+          "missing_content_goal": 2,
+          "quote_check": "Quote 2 is null (no duration); quotes 1 and 3 are verbatim in the sample.",
+          "learner_error": "verb second after a fronted phrase; missing article"
+        },
+        "starters": "pass: three open frames (route, duration, building) that name no answer",
+        "title_and_cues": "Title 'Een reiziger op het station' gives the setting only; the printed prompt does not repeat the cue question and asks the one extra detail.",
+        "picture_alignment": "Still of one woman about 70 with a suitcase; alt reveals no answer."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "An older woman with a small suitcase asks a stranger in the station hall of the learner's own town how to walk to the town hall and how long it takes.",
+        "communicative_purpose": "Give a short route, a duration and a landmark so a visitor finds the gemeentehuis.",
+        "contrivance_check": "A visitor asking a local the way from the station is routine; the learner invents the route, so no off-page fact is forced. 'hoe zij het gemeentehuis kan herkennen' is what a helper adds to directions.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken answer to the woman standing in front of the learner; the prompt says she asks a question and the learner answers her directly."
+      }
+    },
+    {
+      "id": "A2:speaking:batch095-baliemedewerker:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 speaking",
+        "verdict": "comparable to existing A2 video-answer items at a desk (e.g. the huisarts assistant question)",
+        "targetLevelValidated": false,
+        "prompt_words": 28,
+        "model_words": 40,
+        "reason": "Cue of 14 words in two parts, prompt asks one extra detail; model 40 words, sentences at most 10 words; the only less common words (id-kaart, pasfoto, geldig) are on the A2 list."
+      },
+      "evidence": {
+        "prompt": "U bent in het gemeentehuis. U staat bij de balie. Een medewerker stelt u een vraag. U hoort de vraag. Geef antwoord. Zeg ook wat u hebt meegenomen.",
+        "cue": "Goedemorgen, welkom bij de gemeente. Waarvoor komt u vandaag, en hebt u een afspraak?",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "purpose",
+            "criterion_nl": "Zeg waarvoor u komt.",
+            "model_quote": "Ik kom voor een nieuwe id-kaart."
+          },
+          {
+            "goal": "appointment",
+            "criterion_nl": "Zeg of u een afspraak hebt.",
+            "model_quote": "Ja, ik heb een afspraak om half tien."
+          },
+          {
+            "goal": "brought (prompt)",
+            "criterion_nl": "Zeg wat u hebt meegenomen.",
+            "model_quote": "Ik heb mijn oude id-kaart en een nieuwe pasfoto meegenomen."
+          }
+        ],
+        "sample": {
+          "missing_content_goal": 2,
+          "quote_check": "Quote 2 null (no word about an appointment); the others are verbatim.",
+          "learner_error": "missing article; participle not at the end"
+        },
+        "starters": "pass: 'Ik kom voor …', 'Een afspraak heb ik …', 'Ik heb … meegenomen.' name no purpose or document",
+        "title_and_cues": "Title names only the place; cue and prompt do not overlap.",
+        "picture_alignment": "Still of a young man at a wide desk with a blank screen; alt reveals no answer."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A young gemeente employee at the counter greets a visitor and asks why they came and whether they have an appointment.",
+        "communicative_purpose": "State a reason for the visit, say whether an appointment exists and name the documents brought.",
+        "contrivance_check": "A first desk greeting at a town hall always asks purpose and appointment; bringing papers is a real part of such a visit and the learner chooses the purpose, so no personal data is requested.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken answer to the employee shown in the still; the learner stands at his desk, so the medium and recipient are given by the scene."
+      }
+    },
+    {
+      "id": "A2:speaking:batch095-ouderavond:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 speaking",
+        "verdict": "comparable to existing A2 picture-describe items (e.g. the school-yard and gym items)",
+        "targetLevelValidated": false,
+        "prompt_words": 37,
+        "model_words": 41,
+        "reason": "Prompt carries the three asks (see, two table objects, opinion) in short main clauses; model 41 words, all sentences at most 9 words."
+      },
+      "evidence": {
+        "prompt": "Sophie heeft een zoon van zeven. Vanavond is er ouderavond op zijn school. Vertel wat u ziet. Noem twee dingen die u op de tafel ziet. Vertel ook wat u van een ouderavond vindt. Gebruik het plaatje.",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "scene",
+            "criterion_nl": "Vertel wat u op het plaatje ziet.",
+            "model_quote": "Ik zie Sophie en de leraar in de klas."
+          },
+          {
+            "goal": "two table objects",
+            "criterion_nl": "Noem minstens twee dingen die u op de tafel ziet.",
+            "model_quote": "Op de tafel liggen tekeningen en een schrift."
+          },
+          {
+            "goal": "opinion",
+            "criterion_nl": "Zeg wat u van een ouderavond vindt.",
+            "model_quote": "Ik vind een ouderavond belangrijk."
+          }
+        ],
+        "sample": {
+          "missing_content_goal": 2,
+          "quote_check": "Quote 2 null (only drawings, one object); quotes 1 and 3 verbatim.",
+          "learner_error": "missing 'naar'; missing article"
+        },
+        "starters": "pass: 'Ik zie Sophie en …' repeats a name the prompt gives; 'Op de tafel zie ik … en …' leaves the objects open",
+        "title_and_cues": "Title 'Ouderavond op school' repeats the prompt's occasion and names no table object.",
+        "picture_alignment": "Alt keeps pictured facts (drawings, notebook, two coffees) as open-task alts must. Teacher is a man, against the role stereotype."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Sophie, a mother of a seven-year-old, sits with the male teacher at a small classroom table over a child's drawings, a notebook and two coffees on the evening of the ouderavond.",
+        "communicative_purpose": "Describe the scene, name two table objects and give an opinion about parents' evenings.",
+        "contrivance_check": "Prompt states the occasion (ouderavond for her son's school) so a parent with a teacher and drawings fits; the three table objects are all pictured, so nothing is invented.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken description to no invented recipient; prompt says 'Gebruik het plaatje' and the opinion question is about the learner's own view."
+      }
+    },
+    {
+      "id": "A2:speaking:batch095-strand-familie:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 speaking",
+        "verdict": "comparable to existing A2 picture-describe items",
+        "targetLevelValidated": false,
+        "prompt_words": 38,
+        "model_words": 42,
+        "reason": "Count 'twee' is in the prompt; model 42 words in four sentences, none over 12 words."
+      },
+      "evidence": {
+        "prompt": "Het is een warme zaterdag. Chantal en haar gezin hebben een vrije dag. Vertel wat u ziet. Noem twee dingen die het gezin doet. Vertel ook wat u van een dag aan het strand vindt. Gebruik het plaatje.",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "scene",
+            "criterion_nl": "Vertel wat u op het plaatje ziet.",
+            "model_quote": "Ik zie Chantal en haar gezin op het strand."
+          },
+          {
+            "goal": "two activities",
+            "criterion_nl": "Noem minstens twee dingen die het gezin doet.",
+            "model_quote": "Chantal zit op een handdoek en leest een boek. Haar man en haar zoon spelen met een bal bij het water."
+          },
+          {
+            "goal": "opinion",
+            "criterion_nl": "Zeg wat u van een dag aan het strand vindt.",
+            "model_quote": "Een dag aan het strand vind ik heerlijk, want ik zwem graag."
+          }
+        ],
+        "sample": {
+          "missing_content_goal": 3,
+          "quote_check": "Quote 3 null (no opinion); quote 2 spans two sentences, both verbatim.",
+          "learner_error": "verb agreement; 'familie' for 'gezin'"
+        },
+        "starters": "edited: starter 2 'Chantal … en haar man …' revealed that a husband is in the picture; now 'Het gezin … en …'",
+        "title_and_cues": "Title 'Een vrije dag met het gezin' names neither place nor activity.",
+        "picture_alignment": "Alt keeps the pictured facts (towel, book, ball, basket)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Chantal sits reading on a towel while her husband and son play ball by the water; a basket stands beside the towel on a sunny beach.",
+        "communicative_purpose": "Describe the scene, name two things the family does and give an opinion about a beach day.",
+        "contrivance_check": "A Saturday at the beach with a picnic basket and a ball is a normal family day; 'strand' is not given away before the opinion question, and the two activities are pictured.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken description with no invented recipient; the opinion asks the learner's own view."
+      }
+    },
+    {
+      "id": "A2:speaking:batch095-afspraak-bellen-online:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 speaking",
+        "verdict": "comparable to existing A2 picture-choose items (e.g. phoning or visiting the gemeente)",
+        "targetLevelValidated": false,
+        "prompt_words": 33,
+        "model_words": 42,
+        "reason": "Choice, reason and other picture are asked in the three fixed sentences; model 42 words, longest sentence 11 words."
+      },
+      "evidence": {
+        "prompt": "U wilt een afspraak maken bij de huisarts. Belt u liever, of maakt u de afspraak liever online? Kies een van de plaatjes. Vertel ook waarom. Zeg ook iets over het andere plaatje.",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "choice",
+            "criterion_nl": "Zeg welk plaatje u kiest: bellen of online.",
+            "model_quote": "Ik kies het eerste plaatje. Ik bel liever naar de huisarts."
+          },
+          {
+            "goal": "reason",
+            "criterion_nl": "Geef een reden.",
+            "model_quote": "Dan kan ik mijn vraag meteen stellen."
+          },
+          {
+            "goal": "other picture",
+            "criterion_nl": "Zeg ook iets over het andere plaatje.",
+            "model_quote": "Online een afspraak maken, op het tweede plaatje, is ook handig."
+          }
+        ],
+        "sample": {
+          "missing_content_goal": 2,
+          "quote_check": "Quote 2 null (choice and other picture, no reason); quotes 1 and 3 verbatim.",
+          "learner_error": "verb second: 'Op plaatje twee de man zit'"
+        },
+        "starters": "pass: 'Ik kies plaatje …', 'Dat vind ik beter, want …', 'Op het andere plaatje …' supply no reason",
+        "title_and_cues": "Title 'Bellen of online bij de huisarts' only restates the choice the prompt already states.",
+        "picture_alignment": "Pair briefs repeat Vincent's three traits verbatim and differ only in phone versus laptop; alts name the medium, which the open task allows."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The same man at the same kitchen table with a cup of tea: in one picture on the phone, in the other typing on a laptop; the learner chooses how to book a GP appointment.",
+        "communicative_purpose": "Choose phoning or online, give a reason and say something about the other way.",
+        "contrivance_check": "Booking with the huisarts by phone or website is a real choice; both pictures show the same person and table, differing only in the medium.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken answer to the printed question; no recipient is needed or invented."
+      }
+    },
+    {
+      "id": "A2:speaking:batch095-tweedehands-nieuw:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 speaking",
+        "verdict": "comparable to existing A2 picture-choose items (e.g. train or car)",
+        "targetLevelValidated": false,
+        "prompt_words": 32,
+        "model_words": 40,
+        "reason": "Prompt is the standard choose pattern with a concrete need ('voor elke dag'); model 40 words, sentences at most 9 words."
+      },
+      "evidence": {
+        "prompt": "U zoekt een fiets voor elke dag. Koopt u liever een tweedehands fiets of een nieuwe fiets? Kies een van de plaatjes. Vertel ook waarom. Zeg ook iets over het andere plaatje.",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "choice",
+            "criterion_nl": "Zeg welk plaatje u kiest: tweedehands of nieuw.",
+            "model_quote": "Ik kies het eerste plaatje, de tweedehands fiets."
+          },
+          {
+            "goal": "reason",
+            "criterion_nl": "Geef een reden.",
+            "model_quote": "Die is veel goedkoper."
+          },
+          {
+            "goal": "other picture",
+            "criterion_nl": "Zeg ook iets over het andere plaatje.",
+            "model_quote": "De nieuwe fiets op het tweede plaatje is mooi."
+          }
+        ],
+        "sample": {
+          "missing_content_goal": 3,
+          "quote_check": "Quote 3 null (no word on the new bike); quotes 1 and 2 verbatim.",
+          "learner_error": "wrong article: 'naar de station'"
+        },
+        "starters": "pass: 'Ik koop liever een … fiets.' repeats the prompt's two options; 'Op het andere plaatje …' is neutral",
+        "title_and_cues": "Title 'Een fiets kopen' names the object only.",
+        "picture_alignment": "Roel's traits verbatim in both briefs; pair differs only in the bike's condition; risk: the used look must read at display size (rust spots, faded paint)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Roel stands in a bicycle shop beside the same dark blue city bike, once old with rust and a worn saddle, once brand new and shiny; the learner picks which to buy.",
+        "communicative_purpose": "Choose second-hand or new, give a reason and comment on the other bike.",
+        "contrivance_check": "Bicycle shops commonly sell both used and new bikes, so one shop with one model fits; price, rust and wear are pictured reasons, none invented.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken answer to the printed question without any invented recipient."
+      }
+    },
+    {
+      "id": "A2:speaking:batch095-verjaardag-voorbereiden:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 speaking",
+        "verdict": "comparable to existing A2 picture-sequence items (e.g. a woman has a skirt shortened)",
+        "targetLevelValidated": false,
+        "prompt_words": 17,
+        "model_words": 42,
+        "reason": "One criterion per picture; model 42 words, sentences at most 11 words; no subordinate clauses."
+      },
+      "evidence": {
+        "prompt": "Maaike is zaterdag jarig. Kijk naar de plaatjes. Vertel wat Maaike doet. Vertel iets over alle plaatjes.",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "picture 1",
+            "criterion_nl": "Vertel wat Maaike op het eerste plaatje doet.",
+            "model_quote": "Ze koopt een taart met aardbeien."
+          },
+          {
+            "goal": "picture 2",
+            "criterion_nl": "Vertel wat Maaike op het tweede plaatje doet.",
+            "model_quote": "Op het tweede plaatje hangt ze thuis ballonnen boven de tafel."
+          },
+          {
+            "goal": "picture 3",
+            "criterion_nl": "Vertel wat Maaike op het derde plaatje doet.",
+            "model_quote": "Op het derde plaatje doet ze de deur open."
+          }
+        ],
+        "sample": {
+          "missing_content_goal": 2,
+          "quote_check": "Quote 2 null (balloons omitted); quotes 1 and 3 verbatim.",
+          "learner_error": "verb ending: 'Ze koop'"
+        },
+        "starters": "pass: three order frames 'Op het eerste/tweede/derde plaatje …'",
+        "title_and_cues": "Title 'Maaike is jarig' repeats the prompt's occasion and names no panel action.",
+        "picture_alignment": "Maaike's four traits verbatim in all three panels; one action per panel; cake and strawberries repeat."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Maaike collects a strawberry cake from the baker, hangs balloons above the table at home, then opens the door to two friends with flowers and a present, for her Saturday birthday.",
+        "communicative_purpose": "Narrate three birthday preparation steps in order, one sentence or more per picture.",
+        "contrivance_check": "Buying the cake, decorating and welcoming guests is the natural order of an adult's own party; the cake in picture two links the panels, so nothing is added off-page.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken narration with no recipient invented."
+      }
+    },
+    {
+      "id": "A2:speaking:batch095-bibliotheek-lid:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 speaking",
+        "verdict": "comparable to existing A2 picture-sequence items (e.g. the library book sequence)",
+        "targetLevelValidated": false,
+        "prompt_words": 27,
+        "model_words": 43,
+        "reason": "One criterion per picture; model 43 words, longest sentence 12 words."
+      },
+      "evidence": {
+        "prompt": "Het is zaterdag. Mustafa gaat met zijn zoon naar de bibliotheek. Kijk naar de plaatjes. Vertel wat Mustafa en zijn zoon doen. Vertel iets over alle plaatjes.",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "picture 1",
+            "criterion_nl": "Vertel wat Mustafa en zijn zoon op het eerste plaatje doen.",
+            "model_quote": "De jongen wordt lid en krijgt een pasje."
+          },
+          {
+            "goal": "picture 2",
+            "criterion_nl": "Vertel wat Mustafa en zijn zoon op het tweede plaatje doen.",
+            "model_quote": "Op het tweede plaatje kiezen ze samen boeken."
+          },
+          {
+            "goal": "picture 3",
+            "criterion_nl": "Vertel wat Mustafa en zijn zoon op het derde plaatje doen.",
+            "model_quote": "Ze lezen samen een boek."
+          }
+        ],
+        "sample": {
+          "missing_content_goal": 3,
+          "quote_check": "Quote 3 null (no reading at home); quotes 1 and 2 verbatim.",
+          "learner_error": "agreement and verb second: 'Ze wordt lid', 'Daarna ze kiezen'"
+        },
+        "starters": "pass: order frames only",
+        "title_and_cues": "Title 'Samen naar de bibliotheek' gives the place already in the prompt, no panel action.",
+        "picture_alignment": "Mustafa's and his son's traits verbatim in all three panels; the 'Het is zaterdag' prompt is compatible with the evening panel."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "On a Saturday Mustafa takes his son to the library, where a librarian gives the boy a card, then they pick picture books, and in the evening they read together on the sofa at home.",
+        "communicative_purpose": "Narrate three steps (membership, choosing books, reading together) in order.",
+        "contrivance_check": "A child's library card, choosing books and reading together form one believable family outing; the picture book with a plain cover recurs in panels two and three.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken narration with no recipient invented."
+      }
+    }
+  ],
+  "coordinator_note": "2026-11-05: starters_verdict normalised from \"pass (edited)\" to \"pass\", the value the integration gate reads; the reviewer passed the starters after the strand-familie edit recorded under edits. No reviewed bytes changed."
+}

@@ -6,6 +6,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { validateBatch } from './batch-validation';
 import { unknownWords } from './a1-vocabulary';
+import { a2Check, a2StrictText, a2VocabularyApplies } from './a2-vocabulary';
 
 const file = process.argv[2];
 if (!file) {
@@ -34,6 +35,15 @@ if (startersFile !== file && existsSync(startersFile)) {
       failures.push(
         `${item.id}: starter words outside config/a1-vocabulary.json: ${unknown.join(', ')}`,
       );
+  }
+  // New A2 starters follow the A2 word gate with no allowance.
+  for (const item of batch.filter((entry: any) => a2VocabularyApplies(entry))) {
+    const { unknown } = a2Check(starters[item.id] || [], [
+      ...(starters[item.id] || []),
+      ...a2StrictText(item),
+    ]);
+    if (unknown.length)
+      failures.push(`${item.id}: starter words outside the A2 list: ${unknown.join(', ')}`);
   }
 }
 

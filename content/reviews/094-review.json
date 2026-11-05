@@ -1,0 +1,318 @@
+{
+  "review_id": "094-a2-speaking-2026-11-05",
+  "source": "content/batches/094-original.json",
+  "proposed_source": "content/batches/094-proposed.json",
+  "source_sha256": "e856094345855769dc11e15dfda1726f875c4b3849945b91e10f71303e3eab65",
+  "starters_source": "content/batches/094-starters.json",
+  "starters_sha256": "d0c863f505ec9f41dc79bf708f1b33f64ead49586e17b7c2e5a459d964c25892",
+  "starters_verdict": "pass",
+  "review_type": "independent AI editorial review of eight new A2 speaking items (two per task type)",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-05T12:32:54Z",
+  "review_contract_version": 2,
+  "reviewer": "Independent AI reviewer (Claude Sonnet 5.5), separate from the batch author; no sub-agents used",
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "24b6bbf544b7d6d31cf191966a9b6d445b7f32600b24f4c1e4cb2e0c8a999a08",
+    "independence_note": "Blind findings per item were written to content/reviews/094-review.md from the author's source-only packet (hash d9cf253986e6835f5771e5942732eb70eac66517e1d56fbe92812407179c3b29) before the full batch, starters, notes or plan assignment were opened. After the three edits the packet was rebuilt from the proposed bytes and the meaning check repeated for the changed items.",
+    "initial_packet_sha256": "d9cf253986e6835f5771e5942732eb70eac66517e1d56fbe92812407179c3b29"
+  },
+  "tone_balance": {
+    "ordinary": 8,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All eight speaking tasks are ordinary everyday scenes; the plan allows at most one lightly humorous item per speaking batch and none is needed here. The coordinator checks the combined A2 count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 5,
+    "edited_by_reviewer": 3,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:speaking:batch094-docent-vakantie:1",
+      "field": "criteria.0",
+      "before": "Zeg waar u in de vakantie naartoe gaat.",
+      "after": "Zeg waar u in de vakantie naartoe gaat, of dat u thuis blijft.",
+      "reason": "A learner who stays home must still be able to meet the criterion honestly; resolves the author's doubt."
+    },
+    {
+      "id": "A2:speaking:batch094-docent-vakantie:1",
+      "field": "criteria.2",
+      "before": "Zeg met wie u op vakantie gaat.",
+      "after": "Zeg met wie u op vakantie gaat, of met wie u thuis bent.",
+      "reason": "Same reason; the prompt still asks 'met wie u op vakantie gaat' and the alternative only widens what counts."
+    },
+    {
+      "id": "A2:speaking:batch094-fietsenstalling:1",
+      "field": "model",
+      "before": "... Dennis loopt met zijn fiets en zoekt een plek. Hij kijkt ook op zijn horloge. ...",
+      "after": "... Dennis loopt met zijn fiets en kijkt op zijn horloge. Hij zoekt een plek voor zijn fiets. ...",
+      "reason": "The model now shows the two drawn actions first; 'zoekt een plek' is an inference and stays only as an extra. 42 words."
+    },
+    {
+      "id": "A2:speaking:batch094-vakantie-strand-stad:1",
+      "field": "prompt",
+      "before": "U gaat deze zomer een week op vakantie.",
+      "after": "U gaat een week op vakantie.",
+      "reason": "'Deze zomer' ties the task to a season that may be past; nothing else changes."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npx tsx scripts/batch-check.ts content/batches/094-proposed.json",
+      "result": "Checked 8 items, 0 questions. No failures, no warnings."
+    },
+    "hidden_criteria": "Every criterion is asked in the prompt or cue; counts ('twee') are in the prompts; both choose prompts end with 'Zeg ook iets over het andere plaatje.'; no cue question is repeated in a prompt.",
+    "quotes": "One null quote per sample; all other quotes are verbatim substrings.",
+    "models": "All models are 40-44 words, A2 main clauses.",
+    "word_gate": "No vocabulary warnings; no compounds reported.",
+    "names": "Faisal, Saida, Dennis, Eline once each; no voice or older cast names.",
+    "cue_roles": "m-shop (repairer) and f-adult (teacher) exist in config/voices.json; no m-adult/f-adult pairing.",
+    "personal_data": "Nothing asks for real personal data.",
+    "full_final_source_read": "pass"
+  },
+  "diversity": "Against 59 existing A2 speaking items the topics are new (repair shop counter, end-of-course holiday talk, physiotherapy, station bicycle parking, beach vs city, cook vs takeaway, first day at work, washing machine leak); nearest overlaps (Thuis of in een restaurant vieren, Karim gaat op vakantie) differ in purpose.",
+  "media_notes": {
+    "risks": [
+      "fietsenstalling: rows must read as full and the plain watch must be visible",
+      "fysiotherapie: only a ball and one small weight should appear",
+      "eerste-werkdag panel 2: the blank card on a cord must be clear",
+      "vakantie-strand-stad: same man and shirt in both pictures",
+      "koken-afhalen: same woman and cardigan in both pictures"
+    ],
+    "scope": "No rendered media reviewed; all briefs follow the plan's picture rule."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Rendered pictures and cue audio need their own review."
+  ],
+  "items": [
+    {
+      "id": "A2:speaking:batch094-fietsenmaker-vraag:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken practice",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Cue of 21 words with one two-part question, like batch003-monteur and batch009-abonnement; extra move is a question about the price. Model 40 words, sentences at most 10 words."
+      },
+      "evidence": {
+        "prompt": "Uw fiets is kapot. ... Geef antwoord. Vraag ook wat de reparatie kost.",
+        "cue_vs_prompt": "Prompt asks only the extra detail; the cue question (fault, when needed) is not printed.",
+        "criteria_alignment": "Three criteria = two cue parts + price question, each asked in cue or prompt.",
+        "sample": "Misses 'wanneer' (null quote 2); quotes 1 and 3 verbatim.",
+        "model": "40 words; 'De remmen werken niet goed' / 'morgen weer nodig' / 'wat kost de reparatie ongeveer'.",
+        "starters": "pass: 'Mijn … is kapot.', 'Ik heb de fiets … weer nodig.', 'En hoeveel …?' supply no fault, time or price."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A customer leaves a faulty bicycle at a repair shop; the repairer, standing by the bike on its stand, asks what is wrong and when it is needed again.",
+        "communicative_purpose": "Explain a fault, give a day/time when the bike is needed, and ask what the repair costs, the three things anyone says at a repair counter.",
+        "contrivance_check": "Fault, deadline and price are the natural content of a drop-off and nothing off-page is needed; 'kapot' leaves the fault free so no detail is forced.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken answer to the repairer at his counter; he asks, the learner replies face to face and asks the price back, which is exactly what a customer does."
+      }
+    },
+    {
+      "id": "A2:speaking:batch094-docent-vakantie:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Spreken practice",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Cue 22 words, two-part question as in batch009-vakantie/batch027-taalcafe-oefenen; model 43 words, longest sentence 8 words, present tense only."
+      },
+      "evidence": {
+        "prompt": "Het is bijna zomervakantie. ... Zeg ook met wie u op vakantie gaat.",
+        "cue_vs_prompt": "Prompt adds only 'met wie'; where/what are in the cue.",
+        "criteria_alignment": "Criteria 1 and 3 now allow staying at home; criterion 2 'wat u daar gaat doen' is unchanged and is answerable at home too.",
+        "sample": "Misses a destination (null quote 1); the other quotes verbatim.",
+        "model": "Poland, family village, walks, own book; 43 words.",
+        "starters": "pass: three openings that name no place, activity or person."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "After the last lesson before summer the language teacher, standing by the whiteboard, asks the learner where they go in the holidays and what they will do there.",
+        "communicative_purpose": "Small talk with a teacher: give a destination, an activity and who goes along.",
+        "contrivance_check": "Teachers really ask this in the last lesson. The author's doubt about learners who stay home is resolved by edited criteria 1 and 3, which accept 'thuis blijven'; no travel is forced.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken reply to the teacher in the classroom at the end of class; a pupil answers a question put to them directly."
+      }
+    },
+    {
+      "id": "A2:speaking:batch094-fysiotherapie:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken practice",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Same pattern as the batch026/027 describe items: scene, two named things, opinion; model 44 words, longest sentence 8."
+      },
+      "evidence": {
+        "prompt": "Saida heeft pijn in haar schouder. ... Vertel wat u ziet. Noem twee dingen die Saida bij de oefening gebruikt. ... van elke dag bewegen vindt. Gebruik het plaatje.",
+        "criteria_alignment": "Scene / two things / opinion; the count 'twee' is in the prompt.",
+        "sample": "Names only the ball (null quote 2); 'Ze zit op een groot bal en de man kijken naar haar.' verbatim.",
+        "model": "ball and weight named; opinion with a reason; 44 words.",
+        "starters": "pass: 'Saida gebruikt … en …' names no object.",
+        "title": "'Bij de fysiotherapeut' repeats the prompt setting and supplies neither object."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Saida, who has a sore shoulder, sits on a large blue exercise ball and holds a small weight while a young male physiotherapist stands beside her holding her elbow.",
+        "communicative_purpose": "Describe the scene, name the two objects Saida uses (ball, weight) and give an opinion on exercising daily.",
+        "contrivance_check": "Two objects are drawn and named in the brief and alt; a shoulder exercise with a light weight is a normal physio exercise, and no unseen event is needed. Opinion is about a general habit, not the physio.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken picture description; no recipient is claimed and none is needed."
+      }
+    },
+    {
+      "id": "A2:speaking:batch094-fietsenstalling:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Spreken practice",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Same pattern as batch026-regen / batch027-bus-fiets; model 42 words after edit, longest sentence 11."
+      },
+      "evidence": {
+        "prompt": "Dennis gaat met de trein naar zijn werk. Vertel wat u ziet. Noem twee dingen die Dennis doet. ...",
+        "criteria_alignment": "Scene / two actions / opinion, count in prompt.",
+        "sample": "Says 'loopt met zijn fiets' and 'kijkt op zijn horloge' but no opinion (null quote 3).",
+        "model": "Edited so both drawn actions come first in one sentence; 'zoekt een plek' follows as extra.",
+        "starters": "pass: 'Dennis … en hij …' gives no action.",
+        "title": "'Dennis bij het station' repeats the prompt setting and no action."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Dennis walks his bicycle through a covered station bicycle parking whose places are all taken, glances at his watch, and a train waits at the platform behind.",
+        "communicative_purpose": "Describe the scene, name two things Dennis does (walks with the bike, looks at the watch) and say what you think of cycling to the station.",
+        "contrivance_check": "Hurry, full rows and a waiting train explain each other without outside context. The inferred 'looks for a place' is a plausible bonus, not required: two drawn actions already satisfy 'twee dingen'.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken picture description; no recipient claimed or needed."
+      }
+    },
+    {
+      "id": "A2:speaking:batch094-vakantie-strand-stad:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Spreken practice",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Same shape as the other A2 choose items (e.g. 'Met de trein of met de auto'); model 42 words, longest sentence 11."
+      },
+      "evidence": {
+        "prompt": "U gaat een week op vakantie. Gaat u liever naar het strand of naar een stad? Vertel ook waarom. Kies een van de plaatjes. Zeg ook iets over het andere plaatje.",
+        "criteria_alignment": "Choice / reason / other picture, last asked explicitly.",
+        "sample": "Chooses the beach with when and who but no reason (null quote 2).",
+        "model": "Picks the beach, reasons, then comments on the city; 42 words.",
+        "starters": "pass: 'Ik kies het plaatje met …' names neither place."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "One man, same shirt and backpack, either sits on a towel at the beach looking at the sea or walks up to look at old houses in a sunny city street.",
+        "communicative_purpose": "Pick beach or city for a week away, give a reason and say something about the other picture.",
+        "contrivance_check": "Beach versus city is a familiar real holiday decision; the pair differs only in place, and the prompt names both options just as the criterion needs. The reviewer removed the seasonal 'deze zomer'.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken answer; the learner states a personal preference, no addressee needed."
+      }
+    },
+    {
+      "id": "A2:speaking:batch094-koken-afhalen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken practice",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Same shape as 'Thuis of in een restaurant vieren'; model 44 words, longest sentence 10, only main clauses."
+      },
+      "evidence": {
+        "prompt": "U komt na een lange werkdag thuis en u hebt honger. Kookt u liever zelf, of haalt u eten bij een restaurant? ... Zeg ook iets over het andere plaatje.",
+        "criteria_alignment": "Choice / reason / other picture.",
+        "sample": "Chooses the restaurant with a reason; last sentence is about the chosen option, so no quote for criterion 3 (null).",
+        "model": "Cooking chosen, takeaway discussed; 44 words.",
+        "starters": "pass: 'Ik kies het … plaatje.' gives no choice."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The same woman in the evening either chops vegetables at home with a pan on the stove or takes a paper bag with two food boxes from a cook at a restaurant counter.",
+        "communicative_purpose": "Choose cooking or picking up food after a long workday, say why and say something about the other picture.",
+        "contrivance_check": "A weekday dinner decision after work is ordinary; the pair differs in the dinner choice only; nothing off-page is needed beyond hunger, which the prompt states.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken answer about personal preference; no recipient needed."
+      }
+    },
+    {
+      "id": "A2:speaking:batch094-eerste-werkdag:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken practice",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Same shape as the A2 sequence items (batch027-sollicitatiegesprek); model 42 words, longest sentence 11."
+      },
+      "evidence": {
+        "prompt": "Faisal heeft een nieuwe baan ... Vertel wat Faisal doet. Vertel iets over alle plaatjes.",
+        "criteria_alignment": "One per panel.",
+        "sample": "Skips panel 1 (null quote 1); quotes 2 and 3 verbatim.",
+        "model": "Reception name, pass, handshake; 42 words.",
+        "starters": "pass: order words only.",
+        "panel_risk": "Panel 2 must show the blank card clearly (author doubt 5); judged as a media risk."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Faisal arrives at the reception desk of an office, receives a staff pass on a cord from the receptionist and then shakes hands with a new colleague at an open-plan desk.",
+        "communicative_purpose": "Narrate three steps of a first day at work, one criterion per picture.",
+        "contrivance_check": "Reception, pass, colleagues is the real order of a first day; the three panels keep Faisal's traits verbatim and the same building. Title and prompt state it is his first day, which is context for the learner and does not name a panel.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken narration; no recipient claimed."
+      }
+    },
+    {
+      "id": "A2:speaking:batch094-wasmachine-kapot:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken practice",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Same shape as the sequence items; model 42 words, longest 11, simple present only."
+      },
+      "evidence": {
+        "prompt": "Eline doet thuis de was. Kijk naar de plaatjes. Vertel wat er gebeurt. Vertel iets over alle plaatjes.",
+        "criteria_alignment": "One 'gebeurt' criterion per panel; the prompt uses gebeurt because the repairman acts in panel 3.",
+        "sample": "Stops after the call (null quote 3); quotes 1 and 2 verbatim.",
+        "model": "water, repairman called, towel, repair; 42 words.",
+        "starters": "pass: 'Eerst …', 'Daarna …', 'Op het laatste plaatje …'."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Eline finds a puddle in front of the washing machine in her bathroom, phones someone while a towel lies on the floor, and a repairman then repairs the machine as she watches from the doorway.",
+        "communicative_purpose": "Narrate discovery, call and repair of a household fault, one criterion per picture.",
+        "contrivance_check": "Leak, phone, repairman is a recognisable cause-effect chain. The call's recipient is not drawn, but the next panel makes 'monteur' the obvious reading and a learner who says someone else still meets the criterion.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken narration; no recipient claimed."
+      }
+    }
+  ]
+}

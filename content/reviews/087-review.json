@@ -1,0 +1,650 @@
+{
+  "review_id": "087-a2-reading-2026-11-05",
+  "source": "content/batches/087-original.json",
+  "proposed_source": "content/batches/087-proposed.json",
+  "source_sha256": "dc28f710cdd04e676ea97a2be7c6edadbd898c5747ab7e9528e9e8a48cad8bfa",
+  "review_type": "independent AI editorial review of 12 new A2 reading items (krant, rooster, folder, regels, advertentie, brief, email, bericht)",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-05T12:49:31Z",
+  "review_contract_version": 2,
+  "reviewer": "Independent AI reviewer (Sonnet) working in a separate context from the batch author; blind packet findings were written before any answer material was opened.",
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "97773d1e1d6c25f8f739670ddda037251def6ef6efb3d4abc9fafa4435a59445",
+    "independence_note": "Blind findings for all twelve sources were written to content/reviews/087-review.md from the original-bytes packet (10c5ef55...) before questions, notes or the plan assignment were opened; the packet was rebuilt from the proposed bytes after repairs (three text edits, meaning unchanged) and that hash is recorded here."
+  },
+  "tone_balance": {
+    "ordinary": 11,
+    "light_humor": 1,
+    "target_share": 0.15,
+    "scope_note": "One lightly humorous item (retour-ontvangen, the customer's quoted reason) and eleven ordinary ones; small-batch cap ceil(12 x 0.15) = 2. The plan asks for about one in eight; the combined program count remains the coordinator's check."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 12,
+    "edited_by_reviewer": 6,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:listening:batch089-huiswerk-juf:1",
+      "field": "title",
+      "before": "Lezen oefenen met Merel",
+      "after": "Een gesprek met de juf",
+      "reason": "The old title named reading practice and gave away the purpose of q1 and the advice of q2."
+    },
+    {
+      "id": "A2:listening:batch089-woning-bekijken:1",
+      "field": "script[6].text",
+      "before": "Hij is op de vierde verdieping, maar er is een lift. De huur is achthonderdvijftig euro per maand. Gas en stroom zijn apart. Dat is ongeveer honderd euro per maand.",
+      "after": "Hij is op de vierde verdieping, maar er is een lift. De huur is achthonderdvijftig euro per maand. Gas en stroom zijn apart. Dat is ongeveer honderd euro per maand. Samen is dat ongeveer negenhonderdvijftig euro.",
+      "reason": "The EUR 950 distractor was only implied by arithmetic; the landlord now says the total once, so the distractor is anchored in the script and the question still asks only for the rent."
+    },
+    {
+      "id": "A2:listening:batch089-woning-bekijken:1",
+      "field": "script[8].text",
+      "before": "Ja, neem uw laatste loonstrook mee. Dan zie ik dat u de huur kunt betalen. Het huurcontract maken we later, als u de woning wilt.",
+      "after": "Ja, neem uw laatste loonstrook mee. Dan zie ik dat u de huur kunt betalen. Geld hoeft u nog niet mee te nemen. Het huurcontract maken we later, als u de woning wilt.",
+      "reason": "Distractor C (money for the first rent) was wrong only by silence; the landlord now excludes it."
+    },
+    {
+      "id": "A2:listening:batch089-woning-bekijken:1",
+      "field": "questions[0].options.C",
+      "before": "Donderdag om zes uur.",
+      "after": "Zaterdag om half zes.",
+      "reason": "The key was the only Saturday option while both distractors shared 'Donderdag'; C now mixes the Saturday with the Thursday time, so the key is not the odd one out."
+    },
+    {
+      "id": "A2:listening:batch089-woning-bekijken:1",
+      "field": "questions[0].explanation",
+      "before": "Donderdag om half zes kan niet, want Agnieszka werkt tot zes uur. Daarom zegt de verhuurder: zaterdag om tien uur 's ochtends. Dat is goed voor Agnieszka.",
+      "after": "Donderdag om half zes kan niet, want Agnieszka werkt tot zes uur. Daarom zegt de verhuurder: zaterdag om tien uur 's ochtends. Dat is goed voor Agnieszka. Zaterdag om half zes wordt niet genoemd.",
+      "reason": "Explanation covers the new distractor."
+    },
+    {
+      "id": "A2:listening:batch089-woning-bekijken:1",
+      "field": "questions[1].explanation",
+      "before": "De huur is achthonderdvijftig euro per maand. Gas en stroom zijn apart: dat is ongeveer honderd euro. Negenhonderdvijftig euro is de huur met gas en stroom samen.",
+      "after": "De huur is achthonderdvijftig euro per maand. Gas en stroom zijn apart: dat is ongeveer honderd euro. Negenhonderdvijftig euro is de huur met gas en stroom samen; de vraag gaat alleen over de huur.",
+      "reason": "Explanation follows the new total sentence."
+    },
+    {
+      "id": "A2:listening:batch089-woning-bekijken:1",
+      "field": "questions[2].prompt",
+      "before": "Wat moet Agnieszka zaterdag meenemen?",
+      "after": "Wat moet Agnieszka meenemen?",
+      "reason": "The old prompt said 'zaterdag' and gave away the day asked in q1."
+    },
+    {
+      "id": "A2:listening:batch089-woning-bekijken:1",
+      "field": "questions[2].explanation",
+      "before": "De verhuurder zegt: neem uw laatste loonstrook mee. Het huurcontract maken ze later. Over geld meenemen zegt de verhuurder niets.",
+      "after": "De verhuurder zegt: neem uw laatste loonstrook mee. Geld hoeft ze nog niet mee te nemen. Het huurcontract maken ze later.",
+      "reason": "Explanation follows the added sentence."
+    },
+    {
+      "id": "A2:listening:batch089-fysio-verzet:1",
+      "field": "questions[1].options.A",
+      "before": "Een handdoek en een korte broek.",
+      "after": "Een handdoek.",
+      "reason": "The key was the longest and most specific option (two items); it now names the one item that every listener hears first and is the shortest option."
+    },
+    {
+      "id": "A2:listening:batch089-fysio-verzet:1",
+      "field": "questions[1].explanation",
+      "before": "Stefan moet een handdoek en makkelijke kleding meenemen, en een korte broek is handig. De brief van de huisarts heeft de praktijk al. De oefeningen doet hij bij de fysiotherapeut.",
+      "after": "Stefan moet een handdoek meenemen, en makkelijke kleding. De brief van de huisarts heeft de praktijk al. De oefeningen doet hij bij de fysiotherapeut.",
+      "reason": "Explanation follows the new key."
+    },
+    {
+      "id": "A2:listening:batch089-fysio-verzet:1",
+      "field": "questions[2].prompt",
+      "before": "Stefan kan donderdag niet. Wat moet hij doen?",
+      "after": "De nieuwe afspraak past niet. Wat moet Stefan doen?",
+      "reason": "The old prompt said 'donderdag' and repeated the answer of q1."
+    },
+    {
+      "id": "A2:listening:batch089-toernooi-sporthal:1",
+      "field": "questions[2].prompt",
+      "before": "Wat krijgen alle spelers gratis in de kantine?",
+      "after": "Waar is de lunch?",
+      "reason": "Q3 'free sandwich' had soup and fruit as distractors that were wrong only by silence; replaced by the author's own alternative with three anchored places, key moved to C for balance."
+    },
+    {
+      "id": "A2:listening:batch089-toernooi-sporthal:1",
+      "field": "questions[2].answer",
+      "before": "A",
+      "after": "C",
+      "reason": "Q3 'free sandwich' had soup and fruit as distractors that were wrong only by silence; replaced by the author's own alternative with three anchored places, key moved to C for balance."
+    },
+    {
+      "id": "A2:listening:batch089-toernooi-sporthal:1",
+      "field": "questions[2].evidence",
+      "before": "Alle spelers krijgen een gratis broodje.",
+      "after": "Vanaf twaalf uur is er lunch in de kantine, boven.",
+      "reason": "Q3 'free sandwich' had soup and fruit as distractors that were wrong only by silence; replaced by the author's own alternative with three anchored places, key moved to C for balance."
+    },
+    {
+      "id": "A2:listening:batch089-toernooi-sporthal:1",
+      "field": "questions[2].skill",
+      "before": "detail",
+      "after": "time-place",
+      "reason": "Q3 'free sandwich' had soup and fruit as distractors that were wrong only by silence; replaced by the author's own alternative with three anchored places, key moved to C for balance."
+    },
+    {
+      "id": "A2:listening:batch089-toernooi-sporthal:1",
+      "field": "questions[2].explanation",
+      "before": "Alle spelers krijgen een gratis broodje. Soep en fruit zijn er ook in de kantine, maar de omroeper zegt alleen dat het broodje gratis is.",
+      "after": "De lunch is vanaf twaalf uur in de kantine, boven. In zaal één zijn de wedstrijden en de prijzen. Achter de sporthal is de parkeerplaats.",
+      "reason": "Q3 'free sandwich' had soup and fruit as distractors that were wrong only by silence; replaced by the author's own alternative with three anchored places, key moved to C for balance."
+    },
+    {
+      "id": "A2:listening:batch089-toernooi-sporthal:1",
+      "field": "questions[2].options",
+      "before": {
+        "A": "Een broodje.",
+        "B": "Een kom soep.",
+        "C": "Een stuk fruit."
+      },
+      "after": {
+        "A": "In zaal één.",
+        "B": "Achter de sporthal.",
+        "C": "In de kantine."
+      },
+      "reason": "Three places anchored in the script (zaal één, parking behind the hall, kantine)."
+    },
+    {
+      "id": "A2:listening:batch089-intake-taalschool:1",
+      "field": "script[0].text",
+      "before": "Welkom bij onze taalschool. U begint met een intake: een korte toets en een gesprek. Eerst maakt u de toets op de computer. Die duurt ongeveer twintig minuten. Daarna praat u met een docent. Zij vraagt naar uw doel. Wilt u Nederlands leren voor uw werk, of voor het examen? Na het gesprek kiest de docent een groep voor u. De lessen zijn twee keer per week. U kunt kiezen. Er zijn lessen op dinsdag- en donderdagochtend, van negen tot twaalf. En er zijn lessen op maandag- en woensdagavond, van zeven tot tien. Een cursus duurt twaalf weken en kost vijfhonderdveertig euro. De toets en het gesprek zijn gratis. Werkt u? Vraag dan uw werkgever om de cursus te betalen. Veel bedrijven doen dat. Betaalt u zelf? Dan mag u in drie keer betalen, dus drie keer honderdtachtig euro. Hebt u nog vragen? Anders kunt u nu met de toets beginnen.",
+      "after": "Welkom bij onze taalschool. U begint met een eerste afspraak: een korte toets en een gesprek. Eerst maakt u de toets op de computer. Die duurt ongeveer twintig minuten. Daarna praat u met een docent. Zij vraagt naar uw doel. Wilt u Nederlands leren voor uw werk, of voor het examen? Na het gesprek kiest de docent een groep voor u. De lessen zijn twee keer per week. U kunt kiezen. Er zijn lessen op dinsdag- en donderdagochtend, van negen tot twaalf. En er zijn lessen op maandag- en woensdagavond, van zeven tot tien. Een cursus duurt twaalf weken en kost vijfhonderdveertig euro. De toets en het gesprek zijn gratis. Werkt u? Vraag dan uw werkgever om de cursus te betalen. Veel bedrijven doen dat. Betaalt u zelf? Dan mag u in drie keer betalen, dus drie keer honderdtachtig euro. Hebt u nog vragen? Anders kunt u nu met de toets beginnen.",
+      "reason": "'intake' is a loan word that is not transparent from its parts at A2; plain phrase used."
+    },
+    {
+      "id": "A2:listening:batch089-intake-taalschool:1",
+      "field": "questions[1].explanation",
+      "before": "De medewerker zegt: werkt u? Vraag dan uw werkgever om de cursus te betalen. De docent kiest alleen een groep. De docent en de taalschool betalen de cursus niet.",
+      "after": "De medewerker zegt: werkt u? Vraag dan uw werkgever om de cursus te betalen. De docent kiest alleen een groep voor u. De school vraagt het geld; zij is niet degene die voor u betaalt.",
+      "reason": "The old explanation claimed things the script does not say."
+    },
+    {
+      "id": "A2:listening:batch089-rijschool-reclame:1",
+      "field": "questions[1].prompt",
+      "before": "Ingrid werkt op werkdagen tot zeven uur 's avonds. Kan ze na haar werk les krijgen?",
+      "after": "Ingrid werkt tot zes uur. Tot hoe laat kan ze op werkdagen les krijgen?",
+      "reason": "Old options mixed 'Ja' with two 'Nee' answers (key was the polarity odd one out); now three parallel times."
+    },
+    {
+      "id": "A2:listening:batch089-rijschool-reclame:1",
+      "field": "questions[1].options",
+      "before": {
+        "A": "Nee, alleen op zaterdag.",
+        "B": "Ja, tot negen uur 's avonds.",
+        "C": "Nee, de rijschool is 's avonds dicht."
+      },
+      "after": {
+        "A": "Tot zes uur.",
+        "B": "Tot negen uur.",
+        "C": "Tot zeven uur."
+      },
+      "reason": "Parallel times; B is the key."
+    },
+    {
+      "id": "A2:listening:batch089-rijschool-reclame:1",
+      "field": "questions[1].explanation",
+      "before": "De rijschool geeft op werkdagen les tot negen uur 's avonds. Na zeven uur kan Ingrid dus nog les krijgen. Zaterdag kan ook, maar niet alleen zaterdag.",
+      "after": "De rijschool geeft op werkdagen les tot negen uur 's avonds. Ingrid werkt tot zes uur, dus na haar werk kan ze nog les krijgen. Op zondag is de rijschool dicht.",
+      "reason": "Explanation follows the new options."
+    },
+    {
+      "id": "A2:listening:batch089-rijschool-reclame:1",
+      "field": "images[0].brief",
+      "before": "A small white car on a quiet street with trees. A woman of about 45 (dark hair, blue jumper) sits behind the wheel. A driving instructor (man of about 60, white hair, light blue shirt) sits next to her and points ahead. No text.",
+      "after": "A small white car on a quiet street with trees. Ingrid (woman of about 50, short blond hair, blue blouse) sits behind the wheel. A driving instructor (man of about 60, white hair, light blue shirt) sits next to her and points ahead. No text.",
+      "reason": "Ingrid is named in the situation and is drawn in item 1; the picture keeps her three traits."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npx tsx scripts/batch-check.ts content/batches/087-proposed.json",
+      "result": "Checked 12 items, 34 questions. Keys A9 B9 C9 D7 (26/26/26/21%). Options 3:20, 4:14 (41% four-option). No failures; warnings reviewed (compounds judged transparent; sentence-length warnings are table/list merges; m2 is one unlisted token explained by context)."
+    },
+    "question_mix": "Persona question in every text; purpose question in gezondheidscentrum, schoolstraat, huur-omhoog, stagegesprek, retour-ontvangen (five of twelve).",
+    "tables": "vakantiesport, stagedagen, fietsles and consultatiebureau use text lines with ' – ' separators and a header line, as in batch021-zwemrooster.",
+    "changed_premises": "werkplaatsregels (gloves off at machines), ziekmelden (company doctor after a week; no doctor's note) and retour-ontvangen (return label deducted) state nothing untrue for Dutch practice: employers may not ask the nature of the illness, loose gloves are a machine-entanglement hazard, and a seller who has told the consumer may charge return costs.",
+    "originality": "ziekmelden: no reference text for A2 reading is held locally, so overlap with the official practice exam could not be compared; the text is a garden-centre procedure with its own details (reception fallback, privacy line, holiday rule, company doctor) and nothing was copied. retour-ontvangen: one near-repeat of batch021-terugbrengen was reworded.",
+    "slugs": "consultatiebureau (KNM batch006) and ziekmelden (speaking batch027) are in other parts; the plan fixes them and the rule is per part, so they stay.",
+    "vocabulary": "Hard-in-context flags: retouretiket (key of 12 q2, explained by the next sentences), terugkomdag (defined in the text), huurtoeslag and bedrijfsarts (no key depends on them), m2 (one unlisted token)."
+  },
+  "diversity": {
+    "within_batch": "Eight task types, seven domains; ziekmelden and stagedagen both contain a sick-call rule but for different organisations and procedures; kamer-te-huur and huur-omhoog are both housing but advert versus landlord letter.",
+    "catalogue": "No clash with the 43 existing A2 reading titles; closest are batch021-terugbrengen (policy versus single confirmation) and batch004-ramen (krant)."
+  },
+  "items": [
+    {
+      "id": "A2:reading:batch087-gezondheidscentrum:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading, krant",
+        "verdict": "comparable",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Newspaper item, 159 words, average sentence about 8 words; two dates and two registration routes to combine, like the existing krant items (batch004-ramen, batch021-weekmarkt).",
+      "evidence": {
+        "questions": {
+          "q1": "Key C: 'Bent u daar patiënt? Dan hoeft u niets te doen. U gaat vanzelf mee'; A and B are the new-patient routes.",
+          "q2": "Key B: on 11 January only the website works ('vanaf maandag 4 januari'); the desk starts 1 February (A), Kerkstraat is the old practice (C), the letter is for old patients (D).",
+          "q3": "Key A: opening sentence; B and C are not stated, the opposite of 'gaat vanzelf mee'."
+        },
+        "option_counts": [
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "B",
+          "A"
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A neighbourhood paper tells residents that Gezondheidscentrum Wilgenkamp opens on 1 February 2027 and replaces the Kerkstraat practice, with old patients moving automatically and new ones registering by website from 4 January or at the desk from 1 February.",
+        "communicative_purpose": "Residents learn whether they must act (no, if already patient; yes, if new) and where to register and park.",
+        "contrivance_check": "Every detail (pharmacy in the building, bus 5, thirty parking places, GP quote about collecting medicine) serves a patient's decision; nothing is added only for distractors.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch087-schoolstraat:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading, krant",
+        "verdict": "comparable",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Krant, 195 words, average about 9; weekday exception plus a residents rule is a two-detail combination of the usual A2 size.",
+      "evidence": {
+        "questions": {
+          "q1": "Key B: Wednesday closure 'van 12.00 tot 12.30 uur' also applies to residents ('Ook bewoners kunnen dan niet met de auto de straat in of uit'); 12.15 is the end of lessons, 14.30 the normal afternoon slot.",
+          "q2": "Key C: 'Parkeer dan op de parkeerplaats bij de sporthal'; the pavement is the problem described and the gate is the closure.",
+          "q3": "Key A: opening sentence; edited B 'de hele dag dicht' is false (twice half an hour), C the car park already exists, D the evening is for parents' questions."
+        },
+        "option_counts": [
+          3,
+          4
+        ],
+        "keys": [
+          "B",
+          "C",
+          "A"
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A paper reports that from 11 January 2027 the Populierstraat is closed to cars for half an hour at school start and end, with a shorter Wednesday, because cars on the pavement endanger children; parents park at the sporthal car park, with a three-month trial and a parents' evening.",
+        "communicative_purpose": "Parents and residents learn the closing times, the alternative parking and the trial.",
+        "contrivance_check": "The danger of cars on the pavement explains the measure; the car park, trial and meeting evening are the normal elements of such a gemeente announcement.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch087-vakantiesport:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading, rooster",
+        "verdict": "comparable",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Rooster with a five-column text table in the format of batch021-zwemrooster; two age ranges and a deadline to combine; similar to existing rooster items.",
+      "evidence": {
+        "questions": {
+          "q1": "Key D: only 'Dansen – 6 tot en met 12 jaar' fits both a 7- and an 11-year-old; voetbal stops at 9, klimmen starts at 8, sportdag starts at 8.",
+          "q2": "Key B: 'Neem sportschoenen en iets te drinken mee'; the roll is in the price, the helmet is for climbing.",
+          "q3": "Key C: 'tot en met vrijdag 8 oktober'; 9 October is too late. Edited distractor B is false because judo is '4 tot en met 7 jaar' and the son is 7."
+        },
+        "option_counts": [
+          3,
+          4
+        ],
+        "keys": [
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A sports hall publishes its autumn-holiday programme for children: six activities with age band, day, time and price, a registration deadline of Friday 8 October, and what to bring.",
+        "communicative_purpose": "Parents pick an activity that fits the age of their children and register in time.",
+        "contrivance_check": "The table is the natural form of such a programme; helm for climbing and the lunch on the sports day explain the 'what to bring' lines.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch087-stagedagen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading, rooster",
+        "verdict": "slightly harder",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Rooster with table plus a numbered procedure, 207 words; three questions that each need the table and a rule (week row, weekday, stage versus school day) make it a little heavier than batch020-politiebureau; still direct facts.",
+      "evidence": {
+        "questions": {
+          "q1": "Key A: table row '15 tot en met 19 maart – woensdag 17 maart: terugkomdag'; the text defines the terugkomdag as a school day.",
+          "q2": "Key D: 3 March lies in an internship week; step 1 is 'Bel vóór 8.30 uur je begeleider'; the app is the school-day route, e-mail is step 2, 'appje' is excluded.",
+          "q3": "Key B: 9 February is a Tuesday in a school-day slot; 'Meld je dan vóór 8.30 uur af in de app van school'; D belongs to missed internship days."
+        },
+        "option_counts": [
+          3,
+          4
+        ],
+        "keys": [
+          "A",
+          "D",
+          "B"
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A school gives vocational students a six-week internship timetable (school days, internship days, a holiday week, one return day) and says whom to call or message when ill on an internship day or on a school day.",
+        "communicative_purpose": "A student knows where he must be on each day and how to report sick correctly.",
+        "contrivance_check": "The sick rules belong with an internship schedule; the extra-day rule explains why missing a day matters. The 'je' register is natural from a school to students.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch087-fietsles:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading, folder",
+        "verdict": "comparable",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Folder with a four-row group table, 224 words; choose the group by level and a clash with work, then recall the registration route; same shape as batch004-stadsbus.",
+      "evidence": {
+        "questions": {
+          "q1": "Key D: Grace cycles a little (experience groups, Wed 19.00 or Sat 10.00); she works on Wednesday evening so only Saturday remains; A and C are the beginner groups.",
+          "q2": "Key A: 'Bel ... van maandag tot en met vrijdag tussen 9.00 en 12.00 uur'; e-mail and website are explicitly excluded."
+        },
+        "option_counts": [
+          3,
+          4
+        ],
+        "keys": [
+          "D",
+          "A"
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A community centre offers a ten-lesson cycling course for adults in two levels (with a women-only beginners group), 25 euro, free bikes and helmets, registration only by phone.",
+        "communicative_purpose": "Adults decide which group fits and learn that they must phone on weekday mornings.",
+        "contrivance_check": "The reason for phone-only registration ('wij willen eerst even met u praten') is given in the text; nothing is added for options.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch087-consultatiebureau:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading, folder",
+        "verdict": "comparable",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Folder with a six-row age table, 206 words; one unlisted word (consultatiebureau) explained in the next two sentences and not used in any question; row lookup plus a rescheduling rule.",
+      "evidence": {
+        "questions": {
+          "q1": "Key C (edited prompt names the age): table row '6 maanden – wegen, meten en een gesprek over eten'; 3 and 11 months have a prik, 4 weeks the first talk, 2 years talking and playing.",
+          "q2": "Key B: ill on the day -> 'Kom dan niet. Bel ons die ochtend'; the app move needs two working days' notice (C) and going anyway is the opposite (A)."
+        },
+        "option_counts": [
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "B"
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A child health clinic tells parents of 0 to 4-year-olds that visits are free, lists what happens at six ages, and explains how to move an appointment (two working days ahead, by app or phone) or what to do when the child is ill on the day.",
+        "communicative_purpose": "Parents know what each visit involves and how to change or cancel one.",
+        "contrivance_check": "Both rescheduling rules (planned move versus illness on the day) answer different real situations; the table says it shows 'een paar' visits.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch087-werkplaatsregels:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading, regels",
+        "verdict": "comparable",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Regels, 196 words, average about 7; reversed glove condition and rules applied to a person, like batch003-kantine; compounds are transparent.",
+      "evidence": {
+        "questions": {
+          "q1": "Key A: 'Draag handschoenen als je planken tilt ... Werk je met de zaag of een andere machine? Doe dan je handschoenen uit.' B is the reversed condition, C and D are absolute.",
+          "q2": "Key C: 'Meld het altijd bij de teamleider'; the office (B) is for phone calls.",
+          "q3": "Key B: 'Geef dan het nummer van ons kantoor'; with the added sentence that the call can come during work, waiting for the break (C) fails and A breaks rule 3."
+        },
+        "option_counts": [
+          3,
+          4
+        ],
+        "keys": [
+          "A",
+          "C",
+          "B"
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A furniture workshop gives new staff six rules: safety shoes, gloves for lifting but off at the machine, phone in the locker with the office number for urgent calls, breaks in the canteen, report every injury to the team leader, switch off machines.",
+        "communicative_purpose": "A new worker knows how to work safely and who to tell.",
+        "contrivance_check": "The glove rule carries its reason (a glove can catch in the machine); each rule is a normal workshop rule.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch087-ziekmelden:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading, regels",
+        "verdict": "comparable",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Regels, 151 words, average about 7; procedural steps with a persona; same difficulty as batch003-kantine and batch020-tandartsregels.",
+      "evidence": {
+        "questions": {
+          "q1": "Key D: 'Bel uw teamleider vóór 8.00 uur. Een appje of een e-mail is niet genoeg.' Reception is only the fallback.",
+          "q2": "Key A: 'Vertel ook: hoe lang bent u ongeveer ziek? Uw ziekte hoeft u niet te noemen.' B is explicitly not needed.",
+          "q3": "Key C: 'Wordt u ziek in uw vakantie? Bel dan ook uw teamleider.'"
+        },
+        "option_counts": [
+          3,
+          4
+        ],
+        "keys": [
+          "D",
+          "A",
+          "C"
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A garden centre tells staff how to call in sick: phone the team leader before eight, reception if there is no answer, say how long, stay reachable, call again when better, company doctor after a week, report illness during holidays.",
+        "communicative_purpose": "An employee follows the correct procedure and knows what he does not have to say.",
+        "contrivance_check": "The reception fallback is explained by the shift-cover reason; the privacy line (illness need not be named) matches Dutch practice.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch087-kamer-te-huur:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading, advertentie",
+        "verdict": "comparable",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Advertentie, 174 words with a list; rule application (pet, minimum term) and order of steps; same as batch004-magazijn in demand.",
+      "evidence": {
+        "questions": {
+          "q1": "Key D: 'Huisdieren mogen ook niet, want onze zoon is allergisch'; a worker may rent (A is a true reason but wrong conclusion), B is false.",
+          "q2": "Key C: 'Stuur een berichtje ... Vertel daarin: wie bent u'; the viewing on 9 January is for invited people.",
+          "q3": "Key A: 'voor minstens een jaar'; five months is too short. Edited B contradicts 'goed voor een student'."
+        },
+        "option_counts": [
+          3,
+          4
+        ],
+        "keys": [
+          "D",
+          "C",
+          "A"
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A family with two children advertises an attic room for 495 euro including utilities from 1 February 2027, for at least a year, for a student or a worker, no smoking and no pets, to be answered by message with a viewing on 9 January.",
+        "communicative_purpose": "A possible tenant checks whether he or she qualifies and how to react.",
+        "contrivance_check": "The pet ban has a stated reason (allergic son); the message-not-call rule has one too (the family works in the daytime).",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch087-huur-omhoog:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading, brief",
+        "verdict": "comparable",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Brief, 177 words, average about 8; amounts, a payment-method condition and options; same as batch004-parkeervergunning.",
+      "evidence": {
+        "questions": {
+          "q1": "Key B: 'Dit jaar gaat uw huur op 1 juli omhoog'; huurtoeslag and a talk are possibilities, not the reason for the letter.",
+          "q2": "Key C: 'Uw huur vanaf 1 juli: 708,00 euro per maand' and 'Betaalt u de huur elke maand zelf? Betaal dan vanaf juli het nieuwe bedrag.'",
+          "q3": "Key D: 'U kunt ook een gesprek met ons aanvragen.' Huurtoeslag is a second route, deliberately not offered; A is the objection route, B is excluded by phone hours, C applies only to debit payers."
+        },
+        "option_counts": [
+          3,
+          4
+        ],
+        "keys": [
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A landlord informs tenants that the rent rises on 1 July 2027 from 683,40 to 708,00 euro (24,60 more), says tenants with automatic debit need do nothing, offers help (rent benefit, a talk), and gives an objection route and phone hours.",
+        "communicative_purpose": "A tenant learns the new amount, what to do about payment and where to get help.",
+        "contrivance_check": "The arithmetic agrees (683,40 + 24,60 = 708,00) and the notice period (22 April to 1 July) is plausible.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch087-stagegesprek:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading, email",
+        "verdict": "comparable",
+        "targetLevelValidated": false
+      },
+      "level_reason": "E-mail, 146 words, average about 7; date arithmetic and a sequence of duties, like batch004-praktijkles.",
+      "evidence": {
+        "questions": {
+          "q1": "Key B: 'wil graag met je kennismaken. Misschien kun je daar je stage doen'; the internship does not start on 21 January (C).",
+          "q2": "Key A: 'Kun je niet op 21 januari? Laat het me dan vóór maandag 18 januari weten. Bel het zorgcentrum niet zelf.'",
+          "q3": "Key C: 'Stuur me die dag nog een berichtje'; the contract is arranged by the mentor afterwards."
+        },
+        "option_counts": [
+          3,
+          4
+        ],
+        "keys": [
+          "B",
+          "A",
+          "C"
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A mentor tells her student that a care home wants to meet her for a possible internship, gives day, time, address, whom to ask for, what to bring and wear, asks for a message afterwards and says to tell her if the date fails.",
+        "communicative_purpose": "The student prepares the interview and reports back to the mentor.",
+        "contrivance_check": "Each instruction is the normal content of such an e-mail; the mentor arranging the contract explains why feedback is requested.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch087-retour-ontvangen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading, bericht",
+        "verdict": "comparable",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Bericht, 151 words, average about 8; one subtraction and one validity date; the retouretiket in the key is explained in the next sentences.",
+      "evidence": {
+        "questions": {
+          "q1": "Key A: 'Uw pakket is op dinsdag 17 november bij ons aangekomen'; nothing is sent back or exchanged.",
+          "q2": "Key D: 'U hebt ons retouretiket gebruikt. Dat kost 4,95 euro. Dat bedrag halen wij van uw geld af.' Delivery was free (A).",
+          "q3": "Key B: 'tot en met 31 december 2026'; January 2027 is too late."
+        },
+        "option_counts": [
+          3,
+          4
+        ],
+        "keys": [
+          "A",
+          "D",
+          "B"
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "light-humor",
+        "situation_summary": "A webshop confirms that it received a returned XL jumper, quotes the customer's reason (too big for two people), deducts the 4,95 euro return label from 59,95 and refunds 55,00 within five working days, adding a 10 percent code valid to 31 December 2026.",
+        "communicative_purpose": "The customer learns that the return arrived, how much she gets back and how to use the code.",
+        "contrivance_check": "The refund sum follows exactly from the stated prices and the code has a stated validity; the humour is only the customer's quoted sentence.",
+        "unsupported_assumptions": []
+      }
+    }
+  ],
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Organisation names were checked by the author, not re-searched by the reviewer.",
+    "School holiday dates for 2027 come from the author's secondary sources."
+  ]
+}

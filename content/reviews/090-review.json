@@ -1,0 +1,541 @@
+{
+  "review_id": "090-a2-listening-2026-11-05",
+  "source": "content/batches/090-original.json",
+  "proposed_source": "content/batches/090-proposed.json",
+  "source_sha256": "ca35cec555f87898060e5de4bca35d054576e6363c5465473b4f06197927a102",
+  "review_type": "independent AI editorial review of 12 new A2 listening exercises (blind packet first, repairs applied in a proposed copy)",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-05T12:50:00Z",
+  "reviewer": "Independent AI reviewer (Claude Sonnet), fresh context, separate from the author; did not see the author's reasoning.",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "5cb4fd175e6da7f7027b872d61b69ff35c97f52c80daa18ae823cf82c90faad2",
+    "independence_note": "Blind findings per item were written to content/reviews/090-review.md from the source-only packet of the original (hash 7d872994804f81f20c5dbc481ed1a10a00fc39095fada1d40e8603a449208368) before questions, notes or the plan assignment were opened. After repairs the packet was rebuilt from the proposed bytes and the meaning pass repeated for the changed scripts (adres-wijzigen, school-ziek-kind, afvalpas-uitleg, ziekenhuis-parkeren).",
+    "initial_packet_sha256": "7d872994804f81f20c5dbc481ed1a10a00fc39095fada1d40e8603a449208368"
+  },
+  "tone_balance": {
+    "ordinary": 12,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All 12 sources are ordinary everyday scenes. The author labelled buren-keuken lightly humorous because of the neighbour's remark about waking at six; the reviewer sees ordinary warmth, not a joke. The batch contributes 0 lightly funny tasks (cap ceil(12 x 0.15) = 2); the plan allows about one in eight, so the coordinator should check the combined A2 count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 12,
+    "edited_by_reviewer": 6,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:listening:batch090-adres-wijzigen:1",
+      "field": "script turn 7 / text; q1 evidence",
+      "before": "Zonder huurcontract kan ik uw adres niet veranderen.",
+      "after": "Zonder huurcontract kan ik uw adres nu niet veranderen.",
+      "reason": "Keeps the clerk's statement about this visit instead of a general rule (no legal claim)."
+    },
+    {
+      "id": "A2:listening:batch090-adres-wijzigen:1",
+      "field": "questions.0.options.C",
+      "before": "Mehmet heeft de sleutel nog niet gekregen.",
+      "after": "Mehmet verhuist pas over een maand.",
+      "reason": "Old C was a true statement and could be defended as a reason; new C is clearly false (he moves on 14 November) and anchored in the date talk."
+    },
+    {
+      "id": "A2:listening:batch090-adres-wijzigen:1",
+      "field": "questions.0.explanation",
+      "before": "... Op negen november krijgt hij alleen de sleutel/ (sleutel sentence)",
+      "after": "... Hij verhuist op zaterdag veertien november, dus niet pas over een maand.",
+      "reason": "Explanation follows the new option C and the edited evidence."
+    },
+    {
+      "id": "A2:listening:batch090-uitnodiging-gesprek:1",
+      "field": "questions.1.options.A",
+      "before": "Naar de chef van de keuken.",
+      "after": "Naar iemand van de keuken.",
+      "reason": "Key was the longest and the only option naming a role; options are now parallel ('iemand van ...') and the answer still needs the sentence about the chef."
+    },
+    {
+      "id": "A2:listening:batch090-school-ziek-kind:1",
+      "field": "script turn 1 / text",
+      "before": "Ik sta voor de klas, dus ik neem niet op.",
+      "after": "Ik sta zo weer voor de klas, dus ik neem niet op.",
+      "reason": "A teacher who is phoning cannot already be standing in front of the class."
+    },
+    {
+      "id": "A2:listening:batch090-bus-voor-trein:1",
+      "field": "questions.1.prompt",
+      "before": "Youssef heeft al een treinkaartje naar Apeldoorn. Wat moet hij doen?",
+      "after": "Youssef heeft al een kaartje voor Apeldoorn. Wat moet hij dit weekend doen?",
+      "reason": "'treinkaartje' recurred only in the key; 'kaartje' now occurs in prompt, A and D."
+    },
+    {
+      "id": "A2:listening:batch090-bus-voor-trein:1",
+      "field": "questions.1.options",
+      "before": "A Een nieuw kaartje kopen. / B Tot maandagochtend wachten. / C De trein naar Zwolle nemen. / D Zijn treinkaartje gebruiken.",
+      "after": "A Een nieuw kaartje kopen. / B Tot maandag wachten. / C De trein naar Zwolle nemen. / D Zijn kaartje gebruiken.",
+      "reason": "Key no longer shares a rare word with the prompt only and is no longer the longest option."
+    },
+    {
+      "id": "A2:listening:batch090-afvalpas-uitleg:1",
+      "field": "script turn 1 / text",
+      "before": " Is een container vol? Zet uw zak er dan niet naast. Meld het in de app van de gemeente.",
+      "after": "(removed)",
+      "reason": "Unasked extra rule; removed to lower the memory load of the longest uitleg in the A2 bank (168 to about 150 words)."
+    },
+    {
+      "id": "A2:listening:batch090-ziekenhuis-parkeren:1",
+      "field": "script turn 1 / text",
+      "before": "Bus acht rijdt",
+      "after": "Bus twaalf rijdt",
+      "reason": "'acht' also named the daily cap (acht euro); bus number changed to reduce number confusion."
+    },
+    {
+      "id": "A2:listening:batch090-ziekenhuis-parkeren:1",
+      "field": "questions.1.explanation",
+      "before": "Bij het station begint bus acht.",
+      "after": "Bij het station begint bus twaalf.",
+      "reason": "Follows the changed bus number."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npx tsx scripts/batch-check.ts content/batches/090-proposed.json",
+      "result": "Checked 12 items, 28 questions. No failures; 8 vocabulary warnings judged (see vocabulary)."
+    },
+    "vocabulary": "Compounds judged transparent for A2: keukenbedrijf, hoofdpijn, lesauto, museumwinkel, busstation, grasveld, binnenlopen, zwemplas (with 'Zwemt u graag buiten?' and 'Zwemmen is gratis'). badmeester is half transparent but explained by 'let een badmeester op de zwemmers' and appears in no prompt or option; kept. garderobe is the one allowed unlisted word, explained twice, and q3 avoids it. knieën is explained by 'zoals een kat'. Listed words remain hard in context: patiënten (item 10) is acceptable because the news item repeats 'bezoekers'.",
+    "key_balance": "A 8, B 8, C 9, D 3 of 28 (D exists only in six four-option questions); no key letter three times in a row; no key is the longest option after the edits to uitnodiging q2 and bus q2.",
+    "voices": "Two different roles in each dialogue (f-adult+m-young, m-casual+f-older, m-adult+f-young); no m-adult with f-adult. Monologues: f-adult, m-older, narrator x2, f-mature, m-adult, presenter x2, f-young; gender fits the drawn person (male physio m-adult).",
+    "names": "Web search on 5 Nov 2026 for 'Hotel De Groene Kade' and 'Kapper Kort en Krul' found no business with these names (nearest: De Groene Afslag, De Kade Groningen). Each recurring name appears in at most two items.",
+    "realism": "Gemeente item: the clerk states a requirement for this visit ('nu niet'), no deadline or legal claim. Calendar checked: 9 and 14 November 2026 are Monday and Saturday; 12 June 2027 is a Saturday."
+  },
+  "items": [
+    {
+      "id": "A2:listening:batch090-adres-wijzigen:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Dialogue of 130 words with one refusal and two dates; comparable to existing gesprek items (mean 136 words), the date pair is the extra step.",
+      "evidence": "Q1 key D: the clerk says zonder huurcontract she cannot change the address now; A (appointment) is stated true at the start, B (id-kaart) is handed over, C (moves in a month) is false since he moves on 14 November. Q2 key B: 'vanaf veertien november'; A is the key day, C the appointment day, neither is the effective date. Date spoken once each in one turn, resolved in the next.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Mehmet is going to move and wants to register the new address at the gemeente desk; the clerk needs the rental contract he left at home, so he must rebook and learns which date counts.",
+        "communicative_purpose": "He leaves knowing what to bring, that he must rebook online and that the moving day (not the key day) is the date to give.",
+        "contrivance_check": "The date question is raised by Mehmet himself because he has two real dates (key and move); no off-page event is needed. Remaining risk: Desk visit with a missing document; the clerk's rule is stated for this visit only ('nu niet').",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen. U hebt om tien uur een afspraak. Waar komt u voor?",
+            "response_function": "Opens the appointment and asks the purpose of the visit."
+          },
+          {
+            "turn": 2,
+            "quote": "Goedemorgen. Ik ga verhuizen. Ik wil mijn nieuwe adres doorgeven.",
+            "response_function": "States the purpose and so answers the clerk's question."
+          },
+          {
+            "turn": 3,
+            "quote": "Dat kan hier. Mag ik eerst uw paspoort of id-kaart?",
+            "response_function": "Accepts and asks for the first required document."
+          },
+          {
+            "turn": 4,
+            "quote": "Ja, hier is mijn id-kaart.",
+            "response_function": "Hands over the id-kaart as asked."
+          },
+          {
+            "turn": 5,
+            "quote": "Dank u. Ik heb ook het huurcontract van de nieuwe woning nodig.",
+            "response_function": "Thanks him and adds the second required document."
+          },
+          {
+            "turn": 6,
+            "quote": "Sorry, dat ligt nog thuis. Is mijn id-kaart niet genoeg?",
+            "response_function": "Apologises, explains the contract is at home and asks if the id-kaart is enough."
+          },
+          {
+            "turn": 7,
+            "quote": "Nee, helaas niet. Zonder huurcontract kan ik uw adres nu niet veranderen. Maak een nieuwe afspraak op de website. Neem dan het contract mee.",
+            "response_function": "Answers his question with a refusal, the reason and the next step."
+          },
+          {
+            "turn": 8,
+            "quote": "Dat doe ik. Welke datum moet ik dan geven? Ik krijg de sleutel op maandag negen november. Maar ik verhuis pas op zaterdag veertien november.",
+            "response_function": "Accepts and raises the date problem the new appointment creates (key day or moving day)."
+          },
+          {
+            "turn": 9,
+            "quote": "Geef de dag van de verhuizing. Uw nieuwe adres geldt dan vanaf veertien november.",
+            "response_function": "Answers the date question: the moving day counts."
+          },
+          {
+            "turn": 10,
+            "quote": "Goed. Dan maak ik vandaag nog een nieuwe afspraak.",
+            "response_function": "Closes by confirming the plan he has just been given."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch090-buren-keuken:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "156 words against a 136 mean; many times and days but each in a separate sentence, so slightly demanding yet comparable.",
+      "evidence": "Q1 key A: 'maandag en dinsdag ... veel lawaai'; B is the quiet fitting days, C the container. Q2 key D: 'vanaf vijf uur'; A (wakker), B (start) and C (stop) are other clock times in the dialogue. Option order has no pattern.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Kevin rings his neighbour's bell to warn her about a week of kitchen building, the noisy and quiet days, the start time and whom to call.",
+        "communicative_purpose": "She can plan around the noise and knows to call the firm by day and Kevin after five.",
+        "contrivance_check": "Warnings before building work are normal neighbour courtesy; the container and the note are mentioned only as part of that warning. Remaining risk: Neighbour courtesy; one warm remark (awake at six) is not a joke.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag, buurvrouw. Hebt u even tijd? Ik wil u iets vertellen.",
+            "response_function": "Greets and asks for a moment of attention before the news."
+          },
+          {
+            "turn": 2,
+            "quote": "Natuurlijk, Kevin. Wat is er?",
+            "response_function": "Agrees and asks what is going on."
+          },
+          {
+            "turn": 3,
+            "quote": "Wij krijgen volgende week een nieuwe keuken. Daarom is er een paar dagen veel lawaai.",
+            "response_function": "Gives the news and its consequence (noise)."
+          },
+          {
+            "turn": 4,
+            "quote": "Wat leuk voor jullie! Op welke dagen is dat?",
+            "response_function": "Reacts warmly and asks for the days."
+          },
+          {
+            "turn": 5,
+            "quote": "Op maandag en dinsdag halen de mannen de oude keuken eruit. Dan hoort u veel lawaai. Op woensdag en donderdag zetten ze de nieuwe keuken neer. Dat is veel rustiger.",
+            "response_function": "Answers with the noisy and the quieter days."
+          },
+          {
+            "turn": 6,
+            "quote": "En hoe laat beginnen ze?",
+            "response_function": "Asks the follow-up about start time."
+          },
+          {
+            "turn": 7,
+            "quote": "Om half acht. Ze stoppen om vier uur. Sorry, het is vroeg.",
+            "response_function": "Gives start and stop times and apologises."
+          },
+          {
+            "turn": 8,
+            "quote": "Dat is geen probleem, hoor. Ik ben elke dag om zes uur al wakker.",
+            "response_function": "Reassures him, which closes the apology."
+          },
+          {
+            "turn": 9,
+            "quote": "Gelukkig. Er staat ook de hele week een container voor ons huis. En hier is een briefje met twee telefoonnummers. Hebt u overdag een probleem? Bel dan de baas van het keukenbedrijf. Overdag ben ik zelf op mijn werk. Vanaf vijf uur kunt u mij bellen.",
+            "response_function": "Adds the container, the note with numbers and the call arrangement."
+          },
+          {
+            "turn": 10,
+            "quote": "Prima. Dank je wel dat je het komt vertellen.",
+            "response_function": "Thanks him for telling her."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch090-uitnodiging-gesprek:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "150 words, three questions, simple facts in sequence; comparable to batch023-verjaardagstaart or garage.",
+      "evidence": "Q1 key C: 'dinsdag om twee uur', accepted next turn; A is the declined time, B the end of her work. Q2 key A: chef van de keuken, now parallel 'iemand van' options; B is the guests' reception, C the caller. Q3 key B: id and diplomas; A is what the hotel already has, C mixes one correct and one unneeded.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A hotel HR employee phones Joyce to invite her to an interview for a kitchen vacancy, moves the time to suit her work and explains the entrance and documents.",
+        "communicative_purpose": "Joyce ends with a fixed time, a route to the right door and a list of what to bring.",
+        "contrivance_check": "The side entrance is explained by the guests' reception at the main door; the documents follow from her asking. Remaining risk: Standard invitation call; every turn answers the previous one.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag, u spreekt met personeelszaken van Hotel De Groene Kade. Spreek ik met Joyce de Bruin?",
+            "response_function": "Identifies the caller and checks who is on the line."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, dat ben ik. Goedemiddag.",
+            "response_function": "Confirms her identity and greets."
+          },
+          {
+            "turn": 3,
+            "quote": "U hebt gereageerd op onze vacature in de keuken. We willen u graag uitnodigen voor een gesprek. Kunt u volgende week dinsdag om tien uur?",
+            "response_function": "States the reason (vacancy) and proposes a time."
+          },
+          {
+            "turn": 4,
+            "quote": "Op dinsdag werk ik tot twaalf uur. Kan het ook later op de dag?",
+            "response_function": "Declines the first time and asks for a later one."
+          },
+          {
+            "turn": 5,
+            "quote": "Dat kan. Wat vindt u van dinsdag om twee uur?",
+            "response_function": "Offers a later time."
+          },
+          {
+            "turn": 6,
+            "quote": "Dat is goed. Waar moet ik zijn?",
+            "response_function": "Accepts and asks where to go."
+          },
+          {
+            "turn": 7,
+            "quote": "Het hotel is aan de Havenstraat, nummer acht. Neem niet de grote ingang, want daar is de receptie voor de gasten. Neem de deur aan de zijkant, bij de keuken. Vraag daar naar de chef van de keuken. Het gesprek is met haar.",
+            "response_function": "Gives the address, entrance and person to ask for."
+          },
+          {
+            "turn": 8,
+            "quote": "Goed. Moet ik iets meenemen?",
+            "response_function": "Accepts and asks what to bring."
+          },
+          {
+            "turn": 9,
+            "quote": "Ja, neem uw paspoort of id-kaart mee, en uw diploma’s. Uw cv en uw sollicitatiebrief hebben we al.",
+            "response_function": "Lists documents to bring and what is already received."
+          },
+          {
+            "turn": 10,
+            "quote": "Prima. Dank u wel voor het bellen.",
+            "response_function": "Thanks him and closes the call."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch090-school-ziek-kind:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "121 words against a voicemail mean of 122; one condition (cannot collect) adds a step.",
+      "evidence": "Q1 key C: 'Ze voelt zich niet goed'; A is negated ('Koorts heeft ze niet'), B misreads 'mag niet alleen lopen'. Q2 key A: call the school number; B is explicitly refused, C forbidden.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A teacher leaves a voicemail for Ilham: Fenna has a headache, wants to go home and must be collected, or Ilham must name someone else through the school number.",
+        "communicative_purpose": "Ilham knows to come or to call the school office with a name.",
+        "contrivance_check": "The child's state is limited to a headache without fever; the school number instruction follows from the teacher being in class. Remaining risk: A school phones a parent about a sick child, an everyday event.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hallo, met juf Danielle van groep vijf. Ik bel over Fenna. Ze voelt zich niet goed. Ze heeft sinds de pauze hoofdpijn. Koorts heeft ze niet. Ze heeft water gedronken en even gerust, maar het gaat niet beter. Ze wil graag naar huis. Kunt u haar komen ophalen? Ze mag niet alleen naar huis lopen. Ze is nu niet meer in de klas. Ze wacht bij de balie bij de hoofdingang. Kunt u zelf niet komen? Dan kan iemand anders haar ophalen, bijvoorbeeld opa of een buurvrouw. Bel dan wel even terug en zeg de naam van die persoon. Bel het nummer van de school, niet mijn eigen telefoon. Ik sta zo weer voor de klas, dus ik neem niet op. Tot straks.",
+            "response_function": "One voicemail turn: reports the sick child, asks for collection and gives the call-back instruction."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch090-rijles-verzet:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "100 words; q1 combines the two slots with a stated work conflict, easier than the mean voicemail in length.",
+      "evidence": "Q1 key C: Joyce works Friday morning, so the Monday slot; A is the cancelled lesson, B clashes. Q2 key B: 'Bel me dan na zes uur'; A applies only when she can choose a slot, C is the cancelled day.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A driving instructor leaves Joyce a voicemail: Thursday's lesson is cancelled because the lesson car is serviced, with two other slots and a fallback call.",
+        "communicative_purpose": "Joyce can choose a new slot by text or call after six.",
+        "contrivance_check": "A garage visit explains the cancellation; the meeting point is a plain reminder. Remaining risk: Cancellation voicemail with alternatives.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hoi Joyce, met Bart, je instructeur. Ik bel over je rijles van donderdag om vier uur. Die les gaat helaas niet door. De lesauto moet donderdag naar de garage voor onderhoud. Ik heb twee andere tijden voor je. Vrijdag om half negen ’s ochtends, of maandag om vijf uur ’s middags. De les duurt gewoon een uur. We beginnen op dezelfde plek als altijd, bij de bushalte voor het station. Kies je vrijdag of maandag? Stuur me dan vandaag een berichtje. Kun je allebei niet? Bel me dan na zes uur. Dan zoeken we samen een andere dag. Tot snel!",
+            "response_function": "One voicemail turn: cancels the lesson, gives two options, the meeting place and how to answer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch090-museum-sluit:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "84 words with a time key; shorter than the omroep mean (109) but three questions; comparable.",
+      "evidence": "Q1 key C: 'tot tien over vijf'; A is the café, B the halls, D a mishearing of 'over een kwartier'. Q2 key C: café 'al dicht'; A and B are still open. Q3 key A: 'Haal die dan nu op'; B misuses 'morgen open', C the closed café.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A museum announces closing in a quarter of an hour: café closed, collect coats, shop open ten minutes longer, opening tomorrow.",
+        "communicative_purpose": "Visitors know what to do before leaving.",
+        "contrivance_check": "Each sentence is an action or fact a visitor needs; no off-page event. Remaining risk: Closing announcement; short but plain.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Beste bezoekers, over een kwartier gaat het museum dicht. Om vijf uur sluiten alle zalen. Het café op de eerste verdieping is al dicht, sinds half vijf. Hebt u een jas of een tas in de garderobe? Haal die dan nu op. De garderobe is beneden, naast de ingang. Wilt u nog iets kopen? De museumwinkel bij de uitgang blijft tien minuten langer open, tot tien over vijf. Morgen is het museum weer open vanaf tien uur. Bedankt voor uw bezoek, en tot ziens.",
+            "response_function": "One announcement turn: closing times, cloakroom, shop and opening tomorrow."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch090-bus-voor-trein:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "105 words, typical omroep; one place and one time fact.",
+      "evidence": "Q1 key C: 'dertig minuten langer'; A is the walk, B the bus interval. Q2 key D after the prompt change: 'Uw treinkaartje is ook geldig in de bus'; A is declared unnecessary, B wrong time, C wrong direction. 'kaartje' now appears in prompt, A and D.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A station announcement says weekend trains between Deventer and Apeldoorn are replaced by buses, from the back of the station, with extra time and the train ticket valid.",
+        "communicative_purpose": "Travellers know where to go, how long it takes and that their ticket works.",
+        "contrivance_check": "Real towns on a real line; the closure is fictional but generally typical. Remaining risk: Replacement transport notice; the 'niet voor het station' phrase is clarified by the next sentence.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Dames en heren, dit weekend rijden er geen treinen tussen Deventer en Apeldoorn. Er is werk aan het spoor. Daarom rijden er van zaterdagochtend tot en met zondagavond bussen in plaats van treinen. De bussen vertrekken niet voor het station. Ze vertrekken van het busstation aan de achterkant van het station. Volg de gele borden. Het is vijf minuten lopen. Er gaat elk kwartier een bus. Uw reis naar Apeldoorn duurt ongeveer dertig minuten langer. U hoeft geen nieuw kaartje te kopen. Uw treinkaartje is ook geldig in de bus. De treinen naar Zwolle rijden dit weekend gewoon. Op maandagochtend rijden alle treinen weer normaal.",
+            "response_function": "One announcement turn: closure, where the replacement buses leave, extra time and ticket validity."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch090-afvalpas-uitleg:1",
+      "verdict": "pass (edited)",
+      "level": "harder",
+      "level_reason": "150 words after the trim against an uitleg mean of 138, with colours, prices and a source; a little harder than existing uitleg items. Flag: use in the later position of a set.",
+      "evidence": "Q1 key B: 'blauwe container is voor papier en karton'; A is waste, C PMD, D glass. Q2 key C: replacement pass tien euro; A first pass free, B extra pass. Q3 key A: pass 'met de post'; B is declared unnecessary, C only for replacements. Spoken length cut from 168 to about 150 words.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A gemeente employee explains at a residents' evening that three new containers arrive on 1 December, which waste goes where, and how the pass works and costs.",
+        "communicative_purpose": "Residents learn the colours, how they receive the pass and what extra or replacement passes cost.",
+        "contrivance_check": "Every sentence is part of a pass-based container introduction; the closing question suits a meeting. Remaining risk: Information-heavy but a normal municipal briefing; unasked extra rule removed.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedenavond allemaal. Vanaf één december staan er drie nieuwe containers in uw straat. Het grootste deel zit onder de straat. U ziet alleen het bovenste stuk. De grijze container is voor gewoon afval. De blauwe container is voor papier en karton. De oranje container is voor plastic, blik en pakken van melk of sap. Glas brengt u, net als nu, naar de glasbak bij de supermarkt. Voor de grijze container hebt u een pas nodig. Houd de pas tegen de container. Dan gaat hij open. Elke woning krijgt één pas, en die is gratis. U krijgt de pas deze week met de post. U hoeft dus niet naar het gemeentehuis. Wilt u een extra pas, bijvoorbeeld voor uw partner? Die kost vijf euro. Bent u uw pas kwijt? Dan kost een nieuwe pas tien euro. Die vraagt u aan op de website van de gemeente. Hebt u nog vragen?",
+            "response_function": "One explanation turn to residents: containers, pass, prices and how to get a pass."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch090-fysio-oefeningen:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "144 words against a mean of 138; numbers are separated by their roles.",
+      "evidence": "Q1 key B: two exercises two times a day; A hears 'één keer 's ochtends', C counts exercises, D repetitions. Q2 key A: stop that exercise only; B over-generalises, C ignores the rule.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A physiotherapist gives Mehmet two floor exercises and a daily walk for his back, with frequency, a stop rule and a follow-up in two weeks.",
+        "communicative_purpose": "Mehmet can do the exercises at home and knows when to stop.",
+        "contrivance_check": "Only common back-pain advice; no diagnosis. Remaining risk: Treatment-end instructions; plain steps.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Mehmet, ik geef u drie oefeningen voor thuis. Ze zijn goed voor uw rug. Bij de eerste oefening ligt u op uw rug op de vloer. Uw voeten staan op de vloer. Beweeg uw benen langzaam naar links en dan naar rechts. Bij de tweede oefening zit u op handen en knieën, zoals een kat. Maak uw rug rond, en daarna weer plat. Doe deze twee oefeningen twee keer per dag, één keer ’s ochtends en één keer ’s avonds. Doe elke oefening tien keer. De derde oefening is wandelen. Wandel elke dag een halfuur, niet te snel. Een beetje pijn is normaal. Maar voelt u veel pijn bij een oefening? Stop dan meteen met die oefening. De andere oefeningen doet u gewoon. Over twee weken ziet u mij weer. Dan kijken we samen naar uw rug. Maak die afspraak straks bij de balie.",
+            "response_function": "One explanation turn to the patient: exercises, frequency, stop rule and follow-up."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch090-ziekenhuis-parkeren:1",
+      "verdict": "pass (edited)",
+      "level": "harder",
+      "level_reason": "122 words but nine numbers (prices, date, bus frequencies) and a persona question; slightly harder than the nieuws items (mean 144 words, fewer figures). Flag.",
+      "evidence": "Q1 key B: 'vanaf februari ... één euro per uur'; A is the current price, C the daily cap. Q2 key C: garage 'naast de hoofdingang'; A is the closing car park, B where the bus starts. Q3 key A: evening half-hourly; B is daytime, C Sunday. Bus number changed to twaalf so it no longer sounds like acht euro.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A local radio item: hospital parking gets cheaper from 1 February, a garage will open by the main entrance, the old car park closes, and bus twelve frequencies are given.",
+        "communicative_purpose": "Listeners learn the new price, where to park and how often the bus runs.",
+        "contrivance_check": "One hospital, one theme (getting there and parking); the bus is the hospital's own request. Remaining risk: Local news bundle; number load is the main risk.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "En dan het nieuws uit onze stad. Parkeren bij het ziekenhuis wordt goedkoper voor patiënten en bezoekers. Dat geldt vanaf één februari. Nu betalen ze twee euro vijftig per uur. Vanaf februari is dat één euro per uur. Voor een hele dag betaalt u nooit meer dan acht euro. Ook komt er een nieuwe parkeergarage, naast de hoofdingang. Daar is plaats voor veel meer auto’s. De oude parkeerplaats aan de achterkant gaat dicht. Het ziekenhuis vraagt mensen om ook met de bus te komen. Bus twaalf rijdt van het station naar het ziekenhuis. Overdag gaat er elke tien minuten een bus. ’s Avonds gaat er elk halfuur een bus, en op zondag elk uur. Voor medewerkers van het ziekenhuis verandert er niets.",
+            "response_function": "One news turn: new prices, garage, closed car park and bus frequencies."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch090-nieuwe-zwemplas:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "123 words, ordinary news with two plain facts asked.",
+      "evidence": "Q1 key B: weekend lifeguard; A is the opening hours, C the reverse. 'badmeester' is not in any option and the prompt says 'iemand'. Q2 key C: dogs on the lawn on a lead; strand and water are explicitly forbidden.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A radio news item announces a new free outdoor swimming lake with opening date and hours, a weekend lifeguard, a dog rule, a bicycle route and parking price.",
+        "communicative_purpose": "Listeners know when it opens, who watches the swimmers, where dogs may go and how to get there.",
+        "contrivance_check": "A local opening item naturally lists hours, rules and routes; none is invented for a distractor. Remaining risk: Seasonal local news; light warmth only.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Zwemt u graag buiten? Dan hebben we goed nieuws. Op zaterdag twaalf juni gaat de nieuwe zwemplas achter het sportpark open. De plas ligt ongeveer vier kilometer van het centrum. Zwemmen is gratis. Er is een klein strand en een groot grasveld. De zwemplas is elke dag open, van negen uur ’s ochtends tot negen uur ’s avonds. Op zaterdag en zondag let een badmeester op de zwemmers. Door de week is er geen badmeester. Honden mogen niet op het strand en niet in het water. Op het grasveld mogen ze wel komen, aan de lijn. Vanaf het centrum is er een nieuw fietspad naar de plas. Fietsen duurt ongeveer een kwartier. Komt u met de auto? Parkeren kost vijf euro per dag.",
+            "response_function": "One news turn: opening date, hours, lifeguard, dogs, travel and parking."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch090-kapsalon-reclame:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "122 words against a reclame mean of 149; price and hours load is normal for an advert, easier in length.",
+      "evidence": "Q1 key B: Saturday only with an appointment; A is the weekday rule, C the late evening. Q2 key A: children up to twelve pay twelve euro; B and C are adult prices.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A new hairdresser advertises walk-in on weekdays, Saturday by appointment, three prices, late opening on Thursday, a free drink in the first month and its address.",
+        "communicative_purpose": "Listeners know when and how to come and what it costs.",
+        "contrivance_check": "An advert lists exactly these practical items; the child price is a normal offer. Remaining risk: Radio advert for a shop; no absurd claim.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Nieuw in de Lindestraat: kapper Kort en Krul. Wilt u snel naar de kapper, zonder afspraak? Dat kan bij ons. Van maandag tot en met vrijdag kunt u gewoon binnenlopen. Op zaterdag is het altijd erg druk. Daarom werken we op zaterdag alleen met een afspraak. Die maakt u op onze website of in de winkel. Knippen kost bij ons vierentwintig euro. Wassen en knippen kost dertig euro. Kinderen tot twaalf jaar betalen twaalf euro. Werkt u overdag? Op donderdag zijn we open tot negen uur ’s avonds. De andere dagen zijn we open tot zes uur. En de hele eerste maand krijgt u bij ons een gratis kopje koffie of thee. Kort en Krul, Lindestraat zes, naast de bakker. Tot snel!",
+            "response_function": "One advert turn: walk-in and appointment rules, prices, hours, offer and address."
+          }
+        ]
+      }
+    }
+  ],
+  "media_notes": [
+    "Conversations: all voice pairs differ and fit age and gender; Hanneke (f-older) in buren-keuken uses the spectral-v1 preset for her turns only.",
+    "Stills show no tested fact: no documents or dates (adres), no clock/door (uitnodiging), no coats (museum), no bus or ticket (bus), no dog or lifeguard (zwemplas), no child or price (kapper). In afvalpas the three containers are grey, blue and orange but not linked to a waste type; q1 asks for the colour, so the coordinator should check the contact sheet that no sign or symbol appears on a container.",
+    "Recurring people keep verbatim traits: Mehmet (items 1, 9), Joyce (3, 5), Youssef (7, 10).",
+    "Fysio still: alt says the physiotherapist sits next to Mehmet while the brief says kneels; harmless, but the picture should not show a countable repetition."
+  ],
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "The invented-name web check was one combined search; no business listing database was queried.",
+    "Gemeente procedure is judged generally plausible, not checked against every municipality.",
+    "Audio and pictures do not exist yet; media review is still required after generation."
+  ]
+}

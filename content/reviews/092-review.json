@@ -1,0 +1,312 @@
+{
+  "review_id": "092-a2-writing-2026-11-05",
+  "source": "content/batches/092-original.json",
+  "proposed_source": "content/batches/092-proposed.json",
+  "source_sha256": "f5c19540b4b564d432cac97257ebebc8ea9621d67fe326e48a875871e85f71c2",
+  "starters_source": "content/batches/092-starters.json",
+  "starters_sha256": "5567f4083d7382b666d6a0c7b904a3c5ccee5112f8f1ec58716a0b1c4a689904",
+  "starters_verdict": "pass",
+  "review_type": "independent AI editorial review of eight new A2 writing items (3 email, 2 form, 2 wijkkrant, 1 picture-note)",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-05T12:35:55Z",
+  "review_contract_version": 2,
+  "reviewer": "Independent AI reviewer (Claude Sonnet 5.5), separate context from the batch author",
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "6080a1abbf5282065c6bf9e8d328397c67d883e8f0af5b50d70d7a12760024e4",
+    "independence_note": "Fresh reviewer context. The blind packet was built from the author's original bytes and the findings were written to content/reviews/092-review.md before opening the full batch, starters or notes. The only change (weekend criteria, sample, quotes, model, starters) lies outside the packet fields, so the packet rebuilt from the proposed bytes has the same hash."
+  },
+  "tone_balance": {
+    "ordinary": 8,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All eight sources are ordinary everyday scenes; the cat joke in buurman-vakantie lives in the model answer only. The small-batch cap is ceil(8 x 0.15) = 2, so the batch is within range; the coordinator checks the combined A2 program count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 7,
+    "edited_by_reviewer": 1,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:writing:batch092-weekend:1",
+      "field": "criteria",
+      "before": [
+        "Wat doet u meestal op zaterdag en zondag?",
+        "Met wie bent u dan meestal?",
+        "Wat is voor u het fijnste moment van het weekend?"
+      ],
+      "after": [
+        "Wat hebt u vorig weekend gedaan?",
+        "Wat is voor u het fijnste moment van het weekend?",
+        "Wat gaat u volgend weekend doen?"
+      ],
+      "reason": "The first two questions (usual activities, company) followed the official practice booklet weekend wijkkrant too closely (blueprint 1.2); the new set uses past, favourite moment and future with gaan."
+    },
+    {
+      "id": "A2:writing:batch092-weekend:1",
+      "field": "sample",
+      "before": "In het weekend slaap ik lang en op zaterdag ga ik naar de markt. Mijn zus en haar kinderen komen vaak op zondag bij ons. Dan wij maken samen een groot ontbijt.",
+      "after": "Vorig weekend ben ik naar mijn zus gegaan. Het fijnste moment was zaterdagavond, want wij hebben samen gekookt. Daarna wij hebben film gekeken.",
+      "reason": "Rebuilt for the new criteria: criterion 3 omitted (null), other quotes verbatim, one typical word-order error."
+    },
+    {
+      "id": "A2:writing:batch092-weekend:1",
+      "field": "quotes",
+      "before": [
+        "In het weekend slaap ik lang en op zaterdag ga ik naar de markt.",
+        "Mijn zus en haar kinderen komen vaak op zondag bij ons.",
+        null
+      ],
+      "after": [
+        "Vorig weekend ben ik naar mijn zus gegaan.",
+        "Het fijnste moment was zaterdagavond, want wij hebben samen gekookt.",
+        null
+      ],
+      "reason": "Derived from the new sample."
+    },
+    {
+      "id": "A2:writing:batch092-weekend:1",
+      "field": "model",
+      "before": "Op zaterdag doe ik boodschappen en maak ik het huis schoon. Op zondag gaan we vaak naar het park of naar mijn ouders. Ik ben dan met mijn man en onze dochter. Het fijnste moment is zondagochtend, want dan ontbijten we lang samen.",
+      "after": "Vorig weekend ben ik naar mijn zus gegaan. Wij hebben samen gekookt en veel gepraat. Het fijnste moment van het weekend is de zondagochtend, want dan ontbijten wij lang. Volgend weekend ga ik met mijn man naar het park.",
+      "reason": "Meets all three new criteria in 40 words and 4 sentences (target 25-45, 3-5); all words on the A2 list."
+    },
+    {
+      "id": "A2:writing:batch092-weekend:1",
+      "field": "starters (092-proposed-starters.json)",
+      "before": [
+        "Op zaterdag …",
+        "Ik ben dan meestal met …",
+        "Het fijnste moment van het weekend is …"
+      ],
+      "after": [
+        "Vorig weekend ben ik …",
+        "Het fijnste moment van het weekend is …",
+        "Volgend weekend ga ik …"
+      ],
+      "reason": "One partial starter per new criterion, supplying no activity, person or place."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/092-proposed.json: 8 items, no failures, 5 compound warnings judged transparent (bestelnummer, dichtgaat, wijkkrant x2, tomatenplanten).",
+    "prettier": "proposed files pass prettier --check",
+    "quotes": "one null quote per sample, others verbatim (checker)",
+    "a2_word_gate": "passes; no unlisted words in texts; first edit attempt with \"bezocht\" failed the gate and was replaced",
+    "originality": "weekend questions replaced to move away from the official practice booklet weekend task; other items have no official counterpart found in the structure notes",
+    "invented_names": "Bestelhoek, Elektro Kortman and Woonbureau Lindenhoek rely on the author's web checks of 5 November 2026; not independently re-searched (no web access used)."
+  },
+  "items": [
+    {
+      "id": "A2:writing:batch092-pakket-niet-ontvangen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 writing (authoring target)",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Formal webshop e-mail with four criteria (order, problem, places searched, remedy), model 57 words in 7 sentences; same load as the older shop e-mails (schoenen, bezorging). Comparable."
+      },
+      "level_reason": "Formal webshop e-mail with four criteria (order, problem, places searched, remedy), model 57 words in 7 sentences; same load as the older shop e-mails (schoenen, bezorging). Comparable.",
+      "evidence": {
+        "summary": "Sample omits criterion 3 (no place searched); quotes 1, 2, 4 verbatim; errors \"Vorige week ik heb\" and \"terug betalen\". Model meets all four criteria incl. \"Ik heb al bij mijn buren gevraagd\".",
+        "criteria_check": "Prompt asks for every criterion; criteria cover what the prompt asks and accept natural wording; model meets every criterion at the section 10 length."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A customer sees on the Bestelhoek site that yesterday's parcel was delivered, but nothing arrived, and writes to the webshop customer service.",
+        "communicative_purpose": "Get the shop to investigate the parcel and send a new one or refund, by telling order, problem, places searched and the wanted remedy.",
+        "contrivance_check": "The only given facts are the site's delivered status and the missing parcel; what was ordered, where the learner looked and the remedy are learner-supplied via Bedenk zelf. No off-page event needed; criterion 2 passes on a fact the prompt gives, which is the accepted official form.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "E-mail to klantenservice@bestelhoek.nl is how one reaches a webshop; formal salutation and closing match a stranger at a company."
+      }
+    },
+    {
+      "id": "A2:writing:batch092-raam-kapot:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 writing (authoring target)",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Formal e-mail to a private landlord; three Bedenk-zelf criteria; model 59 words in 7 sentences, longest 13. Comparable to the older repair/favour e-mails. The overlap with B1 speaking slaapkamerraam is a different part and level and is accepted."
+      },
+      "level_reason": "Formal e-mail to a private landlord; three Bedenk-zelf criteria; model 59 words in 7 sentences, longest 13. Comparable to the older repair/favour e-mails. The overlap with B1 speaking slaapkamerraam is a different part and level and is accepted.",
+      "evidence": {
+        "summary": "Sample omits criterion 3 (no day or time); error \"hij gaat niet dicht\". Model gives Sinds zondag, cold at night and an appointment on Tuesday 9-12.",
+        "criteria_check": "Prompt asks for every criterion; criteria cover what the prompt asks and accept natural wording; model meets every criterion at the section 10 length."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A tenant's bedroom window will not close properly and the tenant writes to the landlady, Annelies Kramer, who sends a repairman for defects.",
+        "communicative_purpose": "Report the defect, say why it matters and arrange a repairman visit.",
+        "contrivance_check": "The prompt states the sending-a-repairman routine, so the e-mail has a result; since-when, the reason it is a problem and the appointment time are learner-invented and flagged as such.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "A private landlord is reached by e-mail; \"Beste mevrouw Kramer\" and \"Met vriendelijke groet\" fit a formal, non-intimate relationship."
+      }
+    },
+    {
+      "id": "A2:writing:batch092-buurman-feest:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 writing (authoring target)",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Informal e-mail with four criteria; model 58 words in 8 sentences, longest 11. Slightly more content than a plain request (age, end time, invitation, music arrangement) but all in short main clauses. Comparable."
+      },
+      "level_reason": "Informal e-mail with four criteria; model 58 words in 8 sentences, longest 11. Slightly more content than a plain request (age, end time, invitation, music arrangement) but all in short main clauses. Comparable.",
+      "evidence": {
+        "summary": "Sample omits criterion 4 (music); error \"Jullie kan\". Model rewritten by the author away from the prompt wording; criterion 3 quote \"Jullie kan ook komen voor een drankje.\" verbatim.",
+        "criteria_check": "Prompt asks for every criterion; criteria cover what the prompt asks and accept natural wording; model meets every criterion at the section 10 length."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The writer turns up a birthday party at home next Saturday and e-mails the next-door neighbours Jeroen and Tamara with details and an invitation.",
+        "communicative_purpose": "Warn the neighbours about the party, say when it ends, invite them and offer a way to ask for quieter music.",
+        "contrivance_check": "Occasion, day and neighbours are given in the prompt; the age, end time and music arrangement are learner-invented. The noise criterion is a considerate-neighbour act that fits the party, not a forced fact.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Neighbours who live next door are not beside the writer at the moment of writing; a message they can keep before an evening party is normal, and \"Hoi ... Groetjes\" matches the informal relationship."
+      }
+    },
+    {
+      "id": "A2:writing:batch092-woning-zoeken:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 writing (authoring target)",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Form with three open fields, one short sentence each; model 41 words in 3 sentences, longest 16 (at the §10 limit). Comparable to the sportclub and tandarts forms; the two-part district field is a little more demanding."
+      },
+      "level_reason": "Form with three open fields, one short sentence each; model 41 words in 3 sentences, longest 16 (at the §10 limit). Comparable to the sportclub and tandarts forms; the two-part district field is a little more demanding.",
+      "evidence": {
+        "summary": "Sample omits criterion 2: it answers when (voor de zomer) not why; errors \"drie persoon\" and \"omdat mijn werk is daar\". Model answers fields in order.",
+        "criteria_check": "Prompt asks for every criterion; criteria cover what the prompt asks and accept natural wording; model meets every criterion at the section 10 length."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A person who wants another rental home registers as a house seeker on the website of Woonbureau Lindenhoek, filling in personal data, a home type and three open questions.",
+        "communicative_purpose": "Register with the landlord and give household size, reason for moving and preferred district with reason, so suitable homes can be offered.",
+        "contrivance_check": "The prompt gives the wish to move and the landlord; household, reason and district are learner-invented. The choice field has no criterion, which is acceptable because it is a plain tick.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "A registration form on a landlord's website is the normal way to join a waiting list; no recipient is invented."
+      }
+    },
+    {
+      "id": "A2:writing:batch092-klacht-winkel:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 writing (authoring target)",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Complaint form with three open fields; model 32 words in 3 sentences, longest 11. Comparable to the other A2 forms; the prompt explains what Elektro Kortman sells with listed words."
+      },
+      "level_reason": "Complaint form with three open fields; model 32 words in 3 sentences, longest 11. Comparable to the other A2 forms; the prompt explains what Elektro Kortman sells with listed words.",
+      "evidence": {
+        "summary": "Sample omits criterion 3 (it ends with a use remark); errors \"gekoopt\" and \"de scherm\". Model (stofzuiger, repair or replace) meets all three.",
+        "criteria_check": "Prompt asks for every criterion; criteria cover what the prompt asks and accept natural wording; model meets every criterion at the section 10 length."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A customer bought an appliance at Elektro Kortman a few weeks ago, it now works badly, and the customer files the shop's online complaint form.",
+        "communicative_purpose": "Report what was bought and when, what is wrong and what the shop should do (repair, replace).",
+        "contrivance_check": "The prompt gives the shop, that the appliance misbehaves and the form; product, date, fault and remedy are learner-invented. Nothing off-page is needed.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "A web complaint form is the standard channel; the choice field (shop or website) is a plain tick with no criterion."
+      }
+    },
+    {
+      "id": "A2:writing:batch092-weekend:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 writing (authoring target)",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Wijkkrant piece, three guiding questions, minimum three sentences, model 40 words in 4 sentences (25-45, 3-5). Comparable to the other wijkkrant items; past, favourite moment and near future gives tense variety."
+      },
+      "level_reason": "Wijkkrant piece, three guiding questions, minimum three sentences, model 40 words in 4 sentences (25-45, 3-5). Comparable to the other wijkkrant items; past, favourite moment and near future gives tense variety.",
+      "evidence": {
+        "summary": "Reviewer replaced the original questions (usual activities, company) because they followed the official practice booklet weekend task too closely; new questions: vorig weekend, fijnste moment, volgend weekend. Sample omits question 3; error \"Daarna wij hebben\".",
+        "criteria_check": "Prompt asks for every criterion; criteria cover what the prompt asks and accept natural wording; model meets every criterion at the section 10 length."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The neighbourhood newspaper asks residents to write about their weekend and the learner writes a short personal piece.",
+        "communicative_purpose": "Contribute a short personal text: last weekend, best weekend moment and next weekend's plan.",
+        "contrivance_check": "Everything asked is personal experience the learner knows; the three questions are not answered by the prompt. No invented context.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "A resident writing for the local newspaper at its invitation is a plausible, low-stakes personal text; the opening line is the standard wijkkrant form."
+      }
+    },
+    {
+      "id": "A2:writing:batch092-nederlands-leren:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 writing (authoring target)",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Wijkkrant piece with questions where/how, what is hard, a tip; model 42 words in 4 sentences. Comparable to the other wijkkrant items; \"cursisten\" is a listed word and clear for the readers."
+      },
+      "level_reason": "Wijkkrant piece with questions where/how, what is hard, a tip; model 42 words in 4 sentences. Comparable to the other wijkkrant items; \"cursisten\" is a listed word and clear for the readers.",
+      "evidence": {
+        "summary": "Sample omits question 1 (first sentence is a general remark); error \"moelijk\". Model: taalschool, radio, speaking is hard, tip to speak daily.",
+        "criteria_check": "Prompt asks for every criterion; criteria cover what the prompt asks and accept natural wording; model meets every criterion at the section 10 length."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The neighbourhood newspaper asks readers for a short text on learning Dutch and the learner writes about their own learning.",
+        "communicative_purpose": "Describe where and how they learn Dutch, what is hard and a tip for fellow learners.",
+        "contrivance_check": "The topic is the learner's own daily reality; the prompt names only the subject, so place, difficulty and tip are the learner's own. No assumption beyond learning Dutch.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "A learner contributing to the neighbourhood paper on a theme the paper chose is plausible; the Dutch-learning topic suits readers who also learn."
+      }
+    },
+    {
+      "id": "A2:writing:batch092-buurman-vakantie:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 writing (authoring target)",
+        "verdict": "comparable",
+        "targetLevelValidated": false,
+        "reason": "Picture note: three pictures, three sentences, model 38 words in 5 sentences, longest 10. Somewhat easier than an e-mail because the pictures supply the content; comparable to the older picture notes."
+      },
+      "level_reason": "Picture note: three pictures, three sentences, model 38 words in 5 sentences, longest 10. Somewhat easier than an e-mail because the pictures supply the content; comparable to the older picture notes.",
+      "evidence": {
+        "summary": "Traits \"a man of about forty with short black hair and a blue jumper\" are verbatim in all three briefs; each ends with \"No text.\" Sample omits criterion 2 (post); error \"moet\". Light joke only in the model (cat asks for more).",
+        "criteria_check": "Prompt asks for every criterion; criteria cover what the prompt asks and accept natural wording; model meets every criterion at the section 10 length."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The writer goes on holiday for two weeks in July, neighbour Kerem will visit daily, and the writer leaves a key and a note; three drawings show him feeding a grey cat, taking post from the mat and watering tomato plants on a balcony.",
+        "communicative_purpose": "Tell Kerem the three chores shown, so the house, cat and plants are looked after while the writer is away.",
+        "contrivance_check": "The prompt gives the holiday, the key and the daily visits; the pictures give the chores. Kerem is the actor in the pictures, so no message to a person beside the writer; the cat is inferred from the pictures, not assumed.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "A note with the key in the neighbour's letterbox is exactly how such a favour is arranged; \"Hoi Kerem ... Groetjes\" matches an informal neighbour."
+      }
+    }
+  ],
+  "media_notes": "Only buurman-vakantie has pictures: three separate drawings of one man (a man of about forty with short black hair and a blue jumper) copied verbatim in all briefs; one clear action each (feeding the grey cat, picking up blank envelopes from the mat, watering tomato plants with a green watering can); no text requested. Contact-sheet check should confirm the envelopes read as post on a mat and the tomatoes are clearly red.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Invented organisation names rely on the author's web check; the reviewer did not repeat it.",
+    "Level verdicts are editorial comparisons with existing catalogue items of the same task type, not learner data."
+  ]
+}

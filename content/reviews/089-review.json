@@ -1,0 +1,715 @@
+{
+  "review_id": "089-a2-listening-2026-11-05",
+  "source": "content/batches/089-original.json",
+  "proposed_source": "content/batches/089-proposed.json",
+  "source_sha256": "7fd175ce536dd05edf9e9350cc3bde4948fbb6dda52aad58591c3bf4c56967d6",
+  "review_type": "independent AI editorial review of twelve new A2 listening items (meaning-first, then full item pass)",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-05T12:50:57Z",
+  "reviewer": "Independent AI reviewer (Claude Sonnet 5.5), separate from the author, working from the blind source packet first.",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "da4b86f0d77a76cf04e2ba21a7afda34d61046f8c21cd9da1dea2c9eda2b5d2b",
+    "independence_note": "Fresh reviewer context, separate from the author. The blind findings were written to content/reviews/089-review.md from the original source-only packet (hash 4c162252cda9374196231a6c239c71afc14aa5723803ab3ce605a01729118339) before questions, keys, notes or the plan assignment were opened. After the repairs the meaning pass was repeated on the changed items (woning-bekijken, intake-taalschool, huiswerk-juf title, rijschool still) and the packet rebuilt from the proposed bytes.",
+    "initial_packet_sha256": "4c162252cda9374196231a6c239c71afc14aa5723803ab3ce605a01729118339"
+  },
+  "tone_balance": {
+    "ordinary": 11,
+    "light_humor": 1,
+    "target_share": 0.15,
+    "scope_note": "One of twelve items is lightly funny (rijschool-reclame, the roundabout joke), 11 are ordinary; the small-batch rounded cap is ceil(12 x 0.15) = 2. The plan caps humour at about one in eight. The coordinator checks the combined A2 count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 6,
+    "edited_by_reviewer": 6,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:listening:batch089-huiswerk-juf:1",
+      "field": "title",
+      "before": "Lezen oefenen met Merel",
+      "after": "Een gesprek met de juf",
+      "reason": "The old title named reading practice and gave away the purpose (q1) and the advice (q2)."
+    },
+    {
+      "id": "A2:listening:batch089-woning-bekijken:1",
+      "field": "script[6].text",
+      "before": "Hij is op de vierde verdieping, maar er is een lift. De huur is achthonderdvijftig euro per maand. Gas en stroom zijn apart. Dat is ongeveer honderd euro per maand.",
+      "after": "Hij is op de vierde verdieping, maar er is een lift. De huur is achthonderdvijftig euro per maand. Gas en stroom zijn apart. Dat is ongeveer honderd euro per maand. Samen is dat ongeveer negenhonderdvijftig euro.",
+      "reason": "The EUR 950 distractor was only implied by arithmetic. The landlord now says the total once, so the distractor is anchored while q2 still asks only for the rent."
+    },
+    {
+      "id": "A2:listening:batch089-woning-bekijken:1",
+      "field": "script[8].text",
+      "before": "Ja, neem uw laatste loonstrook mee. Dan zie ik dat u de huur kunt betalen. Het huurcontract maken we later, als u de woning wilt.",
+      "after": "Ja, neem uw laatste loonstrook mee. Dan zie ik dat u de huur kunt betalen. Geld hoeft u nog niet mee te nemen. Het huurcontract maken we later, als u de woning wilt.",
+      "reason": "Distractor C (money for the first rent) was wrong only by silence; the landlord now excludes it."
+    },
+    {
+      "id": "A2:listening:batch089-woning-bekijken:1",
+      "field": "questions[0].explanation",
+      "before": "Donderdag om half zes kan niet, want Agnieszka werkt tot zes uur. Daarom zegt de verhuurder: zaterdag om tien uur 's ochtends. Dat is goed voor Agnieszka.",
+      "after": "Donderdag om half zes kan niet, want Agnieszka werkt tot zes uur. Daarom zegt de verhuurder: zaterdag om tien uur 's ochtends. Dat is goed voor Agnieszka. Zaterdag om half zes wordt niet genoemd.",
+      "reason": "Explanation covers the new distractor."
+    },
+    {
+      "id": "A2:listening:batch089-woning-bekijken:1",
+      "field": "questions[0].options.C",
+      "before": "Donderdag om zes uur.",
+      "after": "Zaterdag om half zes.",
+      "reason": "The key was the only Saturday option while both distractors shared Donderdag (odd one out); C now mixes Saturday with the Thursday time."
+    },
+    {
+      "id": "A2:listening:batch089-woning-bekijken:1",
+      "field": "questions[1].explanation",
+      "before": "De huur is achthonderdvijftig euro per maand. Gas en stroom zijn apart: dat is ongeveer honderd euro. Negenhonderdvijftig euro is de huur met gas en stroom samen.",
+      "after": "De huur is achthonderdvijftig euro per maand. Gas en stroom zijn apart: dat is ongeveer honderd euro. Negenhonderdvijftig euro is de huur met gas en stroom samen; de vraag gaat alleen over de huur.",
+      "reason": "Explanation follows the new total sentence."
+    },
+    {
+      "id": "A2:listening:batch089-woning-bekijken:1",
+      "field": "questions[2].prompt",
+      "before": "Wat moet Agnieszka zaterdag meenemen?",
+      "after": "Wat moet Agnieszka meenemen?",
+      "reason": "The old prompt said 'zaterdag' and gave away the answer of q1."
+    },
+    {
+      "id": "A2:listening:batch089-woning-bekijken:1",
+      "field": "questions[2].explanation",
+      "before": "De verhuurder zegt: neem uw laatste loonstrook mee. Het huurcontract maken ze later. Over geld meenemen zegt de verhuurder niets.",
+      "after": "De verhuurder zegt: neem uw laatste loonstrook mee. Geld hoeft ze nog niet mee te nemen. Het huurcontract maken ze later.",
+      "reason": "Explanation follows the added sentence."
+    },
+    {
+      "id": "A2:listening:batch089-fysio-verzet:1",
+      "field": "questions[1].explanation",
+      "before": "Stefan moet een handdoek en makkelijke kleding meenemen, en een korte broek is handig. De brief van de huisarts heeft de praktijk al. De oefeningen doet hij bij de fysiotherapeut.",
+      "after": "Stefan moet een handdoek meenemen, en makkelijke kleding. De brief van de huisarts heeft de praktijk al. De oefeningen doet hij bij de fysiotherapeut.",
+      "reason": "Explanation follows the new key."
+    },
+    {
+      "id": "A2:listening:batch089-fysio-verzet:1",
+      "field": "questions[1].options.A",
+      "before": "Een handdoek en een korte broek.",
+      "after": "Een handdoek.",
+      "reason": "The key was the longest and most specific option; it is now the shortest."
+    },
+    {
+      "id": "A2:listening:batch089-fysio-verzet:1",
+      "field": "questions[2].prompt",
+      "before": "Stefan kan donderdag niet. Wat moet hij doen?",
+      "after": "De nieuwe afspraak past niet. Wat moet Stefan doen?",
+      "reason": "The old prompt said 'donderdag' and repeated the answer of q1."
+    },
+    {
+      "id": "A2:listening:batch089-toernooi-sporthal:1",
+      "field": "questions[2].prompt",
+      "before": "Wat krijgen alle spelers gratis in de kantine?",
+      "after": "Waar is de lunch?",
+      "reason": "The free-sandwich question had distractors (soup, fruit) that were wrong only by silence; replaced by the author's own alternative with three places anchored in the script."
+    },
+    {
+      "id": "A2:listening:batch089-toernooi-sporthal:1",
+      "field": "questions[2].answer",
+      "before": "A",
+      "after": "C",
+      "reason": "Key moves from A to C."
+    },
+    {
+      "id": "A2:listening:batch089-toernooi-sporthal:1",
+      "field": "questions[2].evidence",
+      "before": "Alle spelers krijgen een gratis broodje.",
+      "after": "Vanaf twaalf uur is er lunch in de kantine, boven.",
+      "reason": "Evidence for the new question (verbatim in text)."
+    },
+    {
+      "id": "A2:listening:batch089-toernooi-sporthal:1",
+      "field": "questions[2].explanation",
+      "before": "Alle spelers krijgen een gratis broodje. Soep en fruit zijn er ook in de kantine, maar de omroeper zegt alleen dat het broodje gratis is.",
+      "after": "De lunch is vanaf twaalf uur in de kantine, boven. In zaal één zijn de wedstrijden en de prijzen. Achter de sporthal is de parkeerplaats.",
+      "reason": "Explanation for the new question."
+    },
+    {
+      "id": "A2:listening:batch089-toernooi-sporthal:1",
+      "field": "questions[2].skill",
+      "before": "detail",
+      "after": "time-place",
+      "reason": "Skill follows the new question (place)."
+    },
+    {
+      "id": "A2:listening:batch089-toernooi-sporthal:1",
+      "field": "questions[2].options.A",
+      "before": "Een broodje.",
+      "after": "In zaal één.",
+      "reason": "Three anchored places; key moved to C for balance."
+    },
+    {
+      "id": "A2:listening:batch089-toernooi-sporthal:1",
+      "field": "questions[2].options.B",
+      "before": "Een kom soep.",
+      "after": "Achter de sporthal.",
+      "reason": "Three anchored places; key moved to C for balance."
+    },
+    {
+      "id": "A2:listening:batch089-toernooi-sporthal:1",
+      "field": "questions[2].options.C",
+      "before": "Een stuk fruit.",
+      "after": "In de kantine.",
+      "reason": "Three anchored places; key moved to C for balance."
+    },
+    {
+      "id": "A2:listening:batch089-intake-taalschool:1",
+      "field": "script[0].text",
+      "before": "Welkom bij onze taalschool. U begint met een intake: een korte toets en een gesprek. Eerst maakt u de toets op de computer. Die duurt ongeveer twintig minuten. Daarna praat u met een docent. Zij vraagt naar uw doel. Wilt u Nederlands leren voor uw werk, of voor het examen? Na het gesprek kiest de docent een groep voor u. De lessen zijn twee keer per week. U kunt kiezen. Er zijn lessen op dinsdag- en donderdagochtend, van negen tot twaalf. En er zijn lessen op maandag- en woensdagavond, van zeven tot tien. Een cursus duurt twaalf weken en kost vijfhonderdveertig euro. De toets en het gesprek zijn gratis. Werkt u? Vraag dan uw werkgever om de cursus te betalen. Veel bedrijven doen dat. Betaalt u zelf? Dan mag u in drie keer betalen, dus drie keer honderdtachtig euro. Hebt u nog vragen? Anders kunt u nu met de toets beginnen.",
+      "after": "Welkom bij onze taalschool. U begint met een eerste afspraak: een korte toets en een gesprek. Eerst maakt u de toets op de computer. Die duurt ongeveer twintig minuten. Daarna praat u met een docent. Zij vraagt naar uw doel. Wilt u Nederlands leren voor uw werk, of voor het examen? Na het gesprek kiest de docent een groep voor u. De lessen zijn twee keer per week. U kunt kiezen. Er zijn lessen op dinsdag- en donderdagochtend, van negen tot twaalf. En er zijn lessen op maandag- en woensdagavond, van zeven tot tien. Een cursus duurt twaalf weken en kost vijfhonderdveertig euro. De toets en het gesprek zijn gratis. Werkt u? Vraag dan uw werkgever om de cursus te betalen. Veel bedrijven doen dat. Betaalt u zelf? Dan mag u in drie keer betalen, dus drie keer honderdtachtig euro. Hebt u nog vragen? Anders kunt u nu met de toets beginnen.",
+      "reason": "'intake' is a loan word that is not transparent at A2; plain phrase used. Doubt in the author's notes resolved."
+    },
+    {
+      "id": "A2:listening:batch089-intake-taalschool:1",
+      "field": "questions[1].explanation",
+      "before": "De medewerker zegt: werkt u? Vraag dan uw werkgever om de cursus te betalen. De docent kiest alleen een groep. De docent en de taalschool betalen de cursus niet.",
+      "after": "De medewerker zegt: werkt u? Vraag dan uw werkgever om de cursus te betalen. De docent kiest alleen een groep voor u. De school vraagt het geld; ze betaalt de cursus niet voor u.",
+      "reason": "The old explanation claimed things the script does not say; now it only uses what the script says."
+    },
+    {
+      "id": "A2:listening:batch089-rijschool-reclame:1",
+      "field": "questions[1].prompt",
+      "before": "Ingrid werkt op werkdagen tot zeven uur 's avonds. Kan ze na haar werk les krijgen?",
+      "after": "Ingrid werkt tot zes uur. Tot hoe laat kan ze op werkdagen les krijgen?",
+      "reason": "Old options mixed one 'Ja' with two 'Nee' answers (key was the polarity odd one out); now three parallel times."
+    },
+    {
+      "id": "A2:listening:batch089-rijschool-reclame:1",
+      "field": "questions[1].explanation",
+      "before": "De rijschool geeft op werkdagen les tot negen uur 's avonds. Na zeven uur kan Ingrid dus nog les krijgen. Zaterdag kan ook, maar niet alleen zaterdag.",
+      "after": "De rijschool geeft op werkdagen les tot negen uur 's avonds. Ingrid werkt tot zes uur, dus na haar werk kan ze nog les krijgen. Op zondag is de rijschool dicht.",
+      "reason": "Explanation follows the new options."
+    },
+    {
+      "id": "A2:listening:batch089-rijschool-reclame:1",
+      "field": "questions[1].options.A",
+      "before": "Nee, alleen op zaterdag.",
+      "after": "Tot zes uur.",
+      "reason": "Parallel times."
+    },
+    {
+      "id": "A2:listening:batch089-rijschool-reclame:1",
+      "field": "questions[1].options.B",
+      "before": "Ja, tot negen uur 's avonds.",
+      "after": "Tot negen uur.",
+      "reason": "Parallel times; B stays the key."
+    },
+    {
+      "id": "A2:listening:batch089-rijschool-reclame:1",
+      "field": "questions[1].options.C",
+      "before": "Nee, de rijschool is 's avonds dicht.",
+      "after": "Tot zeven uur.",
+      "reason": "Parallel times."
+    },
+    {
+      "id": "A2:listening:batch089-rijschool-reclame:1",
+      "field": "images[0].brief",
+      "before": "A small white car on a quiet street with trees. A woman of about 45 (dark hair, blue jumper) sits behind the wheel. A driving instructor (man of about 60, white hair, light blue shirt) sits next to her and points ahead. No text.",
+      "after": "A small white car on a quiet street with trees. Ingrid (woman of about 50, short blond hair, blue blouse) sits behind the wheel. A driving instructor (man of about 60, white hair, light blue shirt) sits next to her and points ahead. No text.",
+      "reason": "Ingrid is named in the situation and drawn in item 1; the picture keeps her three traits."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npx tsx scripts/batch-check.ts content/batches/089-proposed.json",
+      "result": "Checked 12 items, 35 questions. Keys A 10, B 11, C 12, D 2; options 3:27, 4:8. 5 compound warnings (leesuur, basketbaldag, personeelspas, lentebeurt, autorijden/rijscholen/rijschool), no failures."
+    },
+    "a2_words": "Every word of every script is on the A2 list or a transparent compound; 'intake' replaced. Compounds judged: leesuur (lees + uur, glossed by the next sentence), basketbaldag (basketbal + dag), personeelspas (personeel + pas, 'pas' repeated in options), lentebeurt (lente + beurt, glossed by the list of checks), rijschool and autorijden (rijles is listed). Listed words that are still demanding in context: loonstrook, verdieping, rotonde, monteur, zenuwachtig; each is explained by context and no question depends on it alone.",
+    "key_balance": "A 10 (29%), B 11 (31%), C 12 (34%), D 2 (6%, of 8 four-option questions). No letter above 40% or below 20% among A-C. Keys never repeat three times in a row.",
+    "option_shape": "Key is not the longest option in any question after the edits (fysio q2 and rijschool q2 repaired); no polarity or day-pattern odd one out remains (woning q1, rijschool q2 repaired). Prompts no longer leak other keys (woning q3, fysio q3, huiswerk title repaired).",
+    "script_as_speech": "Numbers, times and prices in words; no fillers; no meaning that depends on punctuation. Voice pairings: m-young + f-adult, m-adult + f-mature, m-older + f-young; never m-adult with f-adult; two different roles in each conversation.",
+    "names": "Each name at most twice; no voice names or older cast used as characters. Organisations Trapkracht and Zijspiegel were searched by the author (notes section 9); I did not repeat a web search, they are generic enough and the coordinator may wish to do a quick check."
+  },
+  "diversity": "Three gesprek (work, school, housing), two voicemail (physio, library), two omroep (tram, sports hall), two uitleg (printer, language school), one nieuws, two reclame. None repeats an A2 listening title in the catalogue; items 5 and 10 (both library) should go to different practice sets; item 4 and 090 fysio-oefeningen, item 12 and 090 rijles-verzet likewise.",
+  "media_notes": {
+    "voices": "All conversations use two different roles. Item 7 keeps m-casual (a club volunteer on the hall microphone) and item 11 keeps m-shop (the shop owner presenting his own shop); both are deliberate and switching to narrator or presenter is a safe fallback if the audition sounds off. Item 6 narrator. Roles used: m-young 2, f-adult 2, m-adult 2, f-mature 2, presenter 2.",
+    "pictures": "No still shows a tested fact. Item 12's still now draws Ingrid with her item-1 traits (short blond hair, blue blouse). Agnieszka, Stefan and Naima keep three traits in both of their pictures. Rendered pictures need their own contact-sheet review.",
+    "audio": "Audio must be generated with --keys for exactly the 12 new clips and the new question audio; item 3 and item 9 scripts changed during review, so generate only from the proposed bytes."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Level verdicts compare script length and sentence statistics with the existing A2 listening items of the same type, not learner data.",
+    "Organisation names were not independently web-checked in this review.",
+    "Rendered audio and pictures need their own review."
+  ],
+  "items": [
+    {
+      "id": "A2:listening:batch089-vakantie-aanvragen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable (upper end)",
+        "reason": "166 words and nine turns, average sentence 7 words; comparable to the longer existing gesprek items (mean 136, max 168). The difficulty is tracking two overlapping date ranges, as intended; vocabulary stays on the list.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "166 words and nine turns, average sentence 7 words; comparable to the longer existing gesprek items (mean 136, max 168). The difficulty is tracking two overlapping date ranges, as intended; vocabulary stays on the list.",
+      "evidence": "q1 B from 'Dan ben je vrij van maandag vijf juli tot en met zondag achttien juli' (A is the first request, C only the accepted first week, D mixes start and end); q2 C from 'In die week zijn er al twee collega's op vakantie' (fifteen days left and 'Goed dat je het nu al vraagt' exclude A and B); q3 A from 'Zet de dagen vandaag nog in de app' (paper form excluded explicitly, rooster is Ingrid's job tomorrow). Keys B, C, A; key not longest.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A warehouse employee asks his manager for two weeks in July 2027 to visit family; she accepts one week, refuses the week of 19 July because two colleagues are away, and moves him a week earlier.",
+        "communicative_purpose": "Get leave approved and the days registered: the exchange ends with agreed dates and an instruction to enter them in the app.",
+        "contrivance_check": "The refusal has a stated cause (two colleagues already away, too few people in the warehouse), the fix is a week earlier, and the date arithmetic is correct for 2027; nothing off-page is needed.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Ingrid, heb je even tijd? Het gaat over mijn vakantie in juli volgend jaar.",
+            "response_function": "Rachid opens the talk and names the topic (holiday in July) so the manager can make time."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja hoor, ga zitten. Goed dat je het nu al vraagt. Welke weken wil je vrij?",
+            "response_function": "Ingrid agrees to talk and asks which weeks he wants."
+          },
+          {
+            "turn": 3,
+            "quote": "Ik wil graag twee weken naar mijn familie. Van maandag twaalf juli tot en met zondag vijfentwintig juli.",
+            "response_function": "Rachid answers the question with his request: two weeks, 12 to 25 July, to see family."
+          },
+          {
+            "turn": 4,
+            "quote": "Even kijken in de planning. De eerste week is goed. Maar de week van negentien juli lukt niet. In die week zijn er al twee collega's op vakantie. Met jou erbij hebben we te weinig mensen in het magazijn.",
+            "response_function": "Ingrid checks the planning, accepts the first week and refuses the second with a reason."
+          },
+          {
+            "turn": 5,
+            "quote": "Dat begrijp ik. Kan ik dan een week eerder gaan?",
+            "response_function": "Rachid accepts the reason and asks whether an earlier week works."
+          },
+          {
+            "turn": 6,
+            "quote": "Ja, in de week van vijf juli is nog niemand weg. Dan ben je vrij van maandag vijf juli tot en met zondag achttien juli. Heb je daarvoor genoeg vakantiedagen?",
+            "response_function": "Ingrid offers 5 to 18 July because nobody is away and checks his leave balance."
+          },
+          {
+            "turn": 7,
+            "quote": "Ja, ik heb er nog vijftien.",
+            "response_function": "Rachid answers the balance question: fifteen days left."
+          },
+          {
+            "turn": 8,
+            "quote": "Mooi. Zet de dagen vandaag nog in de app. Dan zet ik ze morgen in het rooster. Een formulier op papier is niet meer nodig.",
+            "response_function": "Ingrid approves and tells him to enter the days in the app today, with no paper form."
+          },
+          {
+            "turn": 9,
+            "quote": "Dat doe ik meteen. Dank je wel, Ingrid.",
+            "response_function": "Rachid agrees to do it at once and thanks her."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch089-huiswerk-juf:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable to slightly harder",
+        "reason": "178 words, ten turns and several numbers (kwartier, uur, half drie, twaalf uur, zes weken); the longest script of the batch, above the longest existing gesprek (168). Each tested fact is said once and plainly, so memory load rather than language is the risk. Kept at 178 words because every sentence is short (average 6.5).",
+        "targetLevelValidated": false
+      },
+      "level_reason": "178 words, ten turns and several numbers (kwartier, uur, half drie, twaalf uur, zes weken); the longest script of the batch, above the longest existing gesprek (168). Each tested fact is said once and plainly, so memory load rather than language is the risk. Kept at 178 words because every sentence is short (average 6.5).",
+      "evidence": "q1 B from 'Ja. Ze vindt lezen moeilijk.' (the teacher says 'moe' only about a whole hour; the library is her tip); q2 A from 'Kunt u elke dag samen met haar lezen? Een kwartier is genoeg.' (B is 'Een uur is te lang', C the Wednesday library hour, D the pages they take turns on); q3 C from 'van half drie tot half vier' (A is the end of school on Wednesday, B the end of the hour). Keys B, A, C.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A father asks his daughter's groep-4 teacher for help because the girl finds reading hard and avoids books; the teacher advises a quarter of an hour a day, taking turns by page, and the library's Wednesday reading hour.",
+        "communicative_purpose": "A parent obtains concrete help for a child: a daily routine and a free Wednesday activity that fits his schedule.",
+        "contrivance_check": "The father's problem comes first, the advice answers it, and his question about practising elsewhere produces the library offer; his remark about school ending at twelve is a real planning step.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Juf, hebt u even tijd? Ik heb een vraag over Merel.",
+            "response_function": "Johan asks the teacher for a moment and announces a question about Merel."
+          },
+          {
+            "turn": 2,
+            "quote": "Natuurlijk. Gaat het over het lezen?",
+            "response_function": "The teacher agrees and guesses the topic (reading)."
+          },
+          {
+            "turn": 3,
+            "quote": "Ja. Ze vindt lezen moeilijk. Thuis pakt ze nooit een boek. Ze zegt dat lezen niet leuk is.",
+            "response_function": "Johan confirms and describes the problem: Merel finds reading hard and does not pick up books."
+          },
+          {
+            "turn": 4,
+            "quote": "Dat zie ik in de klas ook. Merel leest nog langzaam. Dat is niet erg, maar ze moet veel oefenen. Kunt u elke dag samen met haar lezen? Een kwartier is genoeg. Een uur is te lang, dan wordt ze moe.",
+            "response_function": "The teacher confirms from school, calls it normal and gives the first advice: read together daily for a quarter of an hour."
+          },
+          {
+            "turn": 5,
+            "quote": "Elke dag een kwartier, dat lukt wel. Hoe doen we dat?",
+            "response_function": "Johan accepts the routine and asks how to do it."
+          },
+          {
+            "turn": 6,
+            "quote": "Kies samen een boek over dieren, daar houdt ze van. Eerst leest u een pagina, daarna leest Merel een pagina. Dan is het niet te zwaar voor haar.",
+            "response_function": "The teacher gives method: a book about animals, taking turns by page."
+          },
+          {
+            "turn": 7,
+            "quote": "Goed idee. Kan ze ook ergens anders oefenen?",
+            "response_function": "Johan approves and asks for an extra place to practise."
+          },
+          {
+            "turn": 8,
+            "quote": "Ja. In de bibliotheek is er elke woensdag een leesuur voor kinderen, van half drie tot half vier. Een vrijwilliger leest dan met een klein groepje. Voor kinderen is dat gratis.",
+            "response_function": "The teacher names the free library reading hour on Wednesday with its time."
+          },
+          {
+            "turn": 9,
+            "quote": "Op woensdag is ze om twaalf uur uit school. Dan kan ik haar daarna brengen.",
+            "response_function": "Johan checks the day against Merel's school hours and says he can bring her."
+          },
+          {
+            "turn": 10,
+            "quote": "Fijn. Over zes weken praten we weer over Merel.",
+            "response_function": "The teacher approves and sets a follow-up talk in six weeks."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch089-woning-bekijken:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "146 words (152 after the repair), ten turns, average 6.5; comparable to existing gesprek items. A phone call with a day swap, a rent and a document: standard A2 information structure.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "146 words (152 after the repair), ten turns, average 6.5; comparable to existing gesprek items. A phone call with a day swap, a rent and a document: standard A2 information structure.",
+      "evidence": "q1 A from 'Ja, zaterdag om tien uur 's ochtends' (B is the refused Thursday slot; C now mixes Saturday with the Thursday time half zes); q2 C from 'De huur is achthonderdvijftig euro per maand' (A is the energy cost, B the total the landlord now states); q3 B from 'neem uw laatste loonstrook mee' (A the later contract, C excluded by 'Geld hoeft u nog niet mee te nemen'). Keys A, C, B.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A landlord phones a woman who answered his advertisement; they agree a viewing on Saturday at ten after she cannot do Thursday, and he gives floor, lift, rent, energy and the payslip to bring.",
+        "communicative_purpose": "Arrange a viewing and get the facts needed to decide whether to come.",
+        "contrivance_check": "The Thursday slot fails for a stated reason (she works until six), Saturday is the repair, and her questions about the floor, rent and what to bring are the normal viewer questions.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag, spreek ik met Agnieszka? U hebt gereageerd op mijn advertentie voor de woning aan de Lindelaan.",
+            "response_function": "The landlord identifies her and the advertisement for the flat on the Lindelaan."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, dat klopt. Fijn dat u belt. Is de woning nog vrij?",
+            "response_function": "Agnieszka confirms and asks whether the flat is still free."
+          },
+          {
+            "turn": 3,
+            "quote": "Ja, hij is nog vrij. U kunt hem donderdag om half zes komen bekijken.",
+            "response_function": "The landlord says it is free and offers Thursday half past five."
+          },
+          {
+            "turn": 4,
+            "quote": "Donderdag werk ik tot zes uur. Kan het ook in het weekend?",
+            "response_function": "Agnieszka declines because she works until six and asks for a weekend slot."
+          },
+          {
+            "turn": 5,
+            "quote": "Ja, zaterdag om tien uur 's ochtends. Is dat goed?",
+            "response_function": "The landlord offers Saturday at ten and checks agreement."
+          },
+          {
+            "turn": 6,
+            "quote": "Ja, dat is goed. Op welke verdieping is de woning? En hoeveel is de huur?",
+            "response_function": "Agnieszka accepts and asks floor and rent."
+          },
+          {
+            "turn": 7,
+            "quote": "Hij is op de vierde verdieping, maar er is een lift. De huur is achthonderdvijftig euro per maand. Gas en stroom zijn apart. Dat is ongeveer honderd euro per maand. Samen is dat ongeveer negenhonderdvijftig euro.",
+            "response_function": "The landlord answers floor, lift, rent, energy costs and the total."
+          },
+          {
+            "turn": 8,
+            "quote": "Moet ik zaterdag iets meenemen?",
+            "response_function": "Agnieszka asks what to bring."
+          },
+          {
+            "turn": 9,
+            "quote": "Ja, neem uw laatste loonstrook mee. Dan zie ik dat u de huur kunt betalen. Geld hoeft u nog niet mee te nemen. Het huurcontract maken we later, als u de woning wilt.",
+            "response_function": "The landlord says payslip, no money yet, contract later."
+          },
+          {
+            "turn": 10,
+            "quote": "Goed, dat doe ik. Tot zaterdag!",
+            "response_function": "Agnieszka agrees and closes the call."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch089-fysio-verzet:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "125 words, one speaker, average 7.4; same size as existing voicemails (mean 122). Many facts but each tied to one question.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "125 words, one speaker, average 7.4; same size as existing voicemails (mean 122). Many facts but each tied to one question.",
+      "evidence": "q1 D from 'Die is op donderdag, om kwart over vier' (A the old appointment, B the end of phone hours, C the old day with the new time); q2 A from 'Neem daarom een handdoek mee' (key is now the shortest option; B is excluded by 'Die hoeft u dus niet mee te nemen', C by the exercises being done at the practice); q3 B from 'Bel ons dan terug. Dat kan elke werkdag tussen acht en twaalf uur.' Keys D, A, B.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A physiotherapy practice leaves a voicemail: the therapist is on a course on Tuesday, so the first appointment moves to Thursday at 16.15; bring a towel and easy clothes, the GP letter is already in, and call back if Thursday fails.",
+        "communicative_purpose": "Tell the patient the new time, what to bring and how to change it, so he does not turn up on Tuesday.",
+        "contrivance_check": "The change has a stated cause (course), the instructions follow from the first appointment (knee check, exercises), and the closing call-back option is the normal practice.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen, dit is een bericht voor Stefan. U spreekt met de assistente van de fysiotherapeut. U hebt dinsdag om half tien uw eerste afspraak bij ons. Helaas is de fysiotherapeut dinsdag op cursus. Daarom hebben we een nieuwe afspraak voor u gemaakt. Die is op donderdag, om kwart over vier. Bij de eerste afspraak kijkt de fysiotherapeut goed naar uw knie. U gaat ook een paar oefeningen doen. Neem daarom een handdoek mee, en makkelijke kleding. Een korte broek is handig. De brief van uw huisarts hebben we al ontvangen. Die hoeft u dus niet mee te nemen. Kunt u donderdag niet? Bel ons dan terug. Dat kan elke werkdag tussen acht en twaalf uur. Dan kijken we samen naar een andere dag. Tot donderdag!",
+            "response_function": "The assistant names the patient and practice, gives the old Tuesday time, explains the course, and states the new Thursday time, what to bring, that the GP letter is received and how to call back."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch089-boek-gereserveerd:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "120 words, one speaker, average 8.1; shorter than most existing voicemails with similar number density (seven days, three weeks, two days, opening hours).",
+        "targetLevelValidated": false
+      },
+      "level_reason": "120 words, one speaker, average 8.1; shorter than most existing voicemails with similar number density (seven days, three weeks, two days, opening hours).",
+      "evidence": "q1 C from 'Het blijft zeven dagen voor u liggen' (A the transfer time, B the loan period); q2 A from 'Bel ons dan even, dan brengen wij het boek naar Noord' (B and C contradict it); q3 B from 'Op donderdag blijven we langer open, tot acht uur 's avonds' while Monday and Saturday close at six. Keys C, A, B.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A library employee phones a member that his reserved book on gardening is ready at the desk for seven days, can be moved to the Noord branch in two days, and states the opening hours.",
+        "communicative_purpose": "Tell the member the book is ready, for how long, and how to get it.",
+        "contrivance_check": "A reservation call has a natural cause and content; the Noord offer fits a member who lives nearer the other branch; no off-page event is needed.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hallo, dit is een bericht voor Bayu. U spreekt met de bibliotheek aan het Marktplein. U hebt een boek gereserveerd, het boek over tuinieren. Dat boek is nu binnen. Het ligt voor u klaar bij de balie, naast de ingang. Het blijft zeven dagen voor u liggen. Daarna gaat het naar de volgende persoon op de lijst. U mag het boek drie weken lenen. Woont u dichter bij de bibliotheek in Noord? Dan kunt u het boek ook daar ophalen. Bel ons dan even, dan brengen wij het boek naar Noord. Dat duurt twee dagen. Wij zijn van maandag tot zaterdag open, van tien tot zes uur. Op donderdag blijven we langer open, tot acht uur 's avonds. Tot ziens!",
+            "response_function": "The employee names the member and library, says the gardening book is ready at the desk for seven days, the loan period, the Noord option with a two-day transfer and the opening hours."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch089-tram-omleiding:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "97 words, average 8.2, shortest of the batch and two questions only; comparable to the short existing omroep items (mean 109).",
+        "targetLevelValidated": false
+      },
+      "level_reason": "97 words, average 8.2, shortest of the batch and two questions only; comparable to the short existing omroep items (mean 109).",
+      "evidence": "q1 C from 'De laatste halte is vandaag halte Wilgenplein... Stap dan uit bij de laatste halte en neem bus achttien' (A the station the tram skips, B where the bus waits); q2 A from 'Uw reis duurt ongeveer tien minuten langer' (B the bus frequency, C the bus number). Keys C, A.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "In a tram, an announcer says that track work stops the tram before the station; passengers for the station get off at Wilgenplein and take bus eighteen across the street, ten minutes longer, with the same ticket.",
+        "communicative_purpose": "Redirect passengers who want the station so they do not ride the tram to the end for nothing.",
+        "contrivance_check": "Cause (track work), alternative (bus), cost (ten minutes), ticket validity and tomorrow's return form a normal diversion announcement.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Beste reizigers. Vandaag is er werk aan het spoor bij het station. Daarom rijdt deze tram vandaag niet naar het station. De laatste halte is vandaag halte Wilgenplein. Gaat u naar het station? Stap dan uit bij de laatste halte en neem bus achttien. Die bus staat aan de overkant van de straat. Hij rijdt elke vijf minuten en stopt voor de ingang van het station. Uw reis duurt ongeveer tien minuten langer. Met uw kaartje voor de tram mag u ook met de bus mee. Morgen rijdt de tram weer gewoon naar het station. Goede reis!",
+            "response_function": "The announcer warns passengers about the track work, the shortened route, the last stop, the bus to take and where it stands, its frequency, the extra ten minutes and the valid ticket, and closes politely."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch089-toernooi-sporthal:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "116 words, one speaker, average 7.3; comparable to the longer existing omroep items. Three clock times (twelve, three, four) are spoken once each with a topic marker ('Dan iets anders').",
+        "targetLevelValidated": false
+      },
+      "level_reason": "116 words, one speaker, average 7.3; comparable to the longer existing omroep items. Three clock times (twelve, three, four) are spoken once each with a topic marker ('Dan iets anders').",
+      "evidence": "q1 B from 'Zet hem dan meteen op de parkeerplaats achter de sporthal' (A is the full car park, C reversed by 'moet de weg vrij blijven'); q2 C from 'Om vier uur krijgen de teams hun prijzen' (A lunch, B last matches); q3 (new) C from 'Vanaf twaalf uur is er lunch in de kantine, boven' (A zaal een is matches and prizes, B the car park behind the hall). Keys B, C, C.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "During a children's basketball day an announcer asks the owner of a red car to move it behind the hall because the entrance must stay free, then gives lunch time and place, the last matches and the prizes.",
+        "communicative_purpose": "Clear the entrance and tell parents the programme of the afternoon.",
+        "contrivance_check": "The car request has a safety reason (ambulance), the topic switch is announced aloud, and the rest is the day's programme.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen allemaal, en welkom bij onze basketbaldag voor kinderen. Eerst een vraag. Er staat een rode auto voor de ingang van de sporthal. Is dat uw auto? Zet hem dan meteen op de parkeerplaats achter de sporthal. Daar is nog genoeg plek. De parkeerplaats naast de ingang is al vol. Voor de ingang moet de weg vrij blijven, ook voor een ambulance. Dan iets anders. Vanaf twaalf uur is er lunch in de kantine, boven. Er zijn broodjes, soep en fruit. Alle spelers krijgen een gratis broodje. Om drie uur beginnen de laatste wedstrijden, in zaal één. Om vier uur krijgen de teams hun prijzen, ook in zaal één. Alle ouders zijn welkom. Fijne dag allemaal!",
+            "response_function": "The announcer welcomes everyone, asks the red car's owner to move it behind the hall with reason, then gives lunch, matches and prize times and invites parents."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch089-printer-uitleg:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "131 words, one speaker, average 6.9, imperative and je-forms; comparable to existing workplace uitleg (batch005-werkdag, koffiegeld).",
+        "targetLevelValidated": false
+      },
+      "level_reason": "131 words, one speaker, average 6.9, imperative and je-forms; comparable to existing workplace uitleg (batch005-werkdag, koffiegeld).",
+      "evidence": "q1 B from 'Houd je personeelspas tegen dit vakje' (A and C are later steps, D only when the paper has run out); q2 A from 'Printen in kleur mag alleen als je chef het goed vindt' (B is for a broken printer, C contradicts); q3 C from 'Nieuw papier ligt in de kast naast de printer' (A the kitchen is where the printer stands, B reception is for breakdowns). Keys B, A, C.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "On her first day Agnieszka's colleague shows her the corridor printer: send the file, pass at the reader, choose the file, green button, colour only with the chef's permission, paper in the cupboard, report a breakdown at reception.",
+        "communicative_purpose": "Teach a new employee to print and where to turn for permission, paper and repairs.",
+        "contrivance_check": "A first-day demonstration is a normal reason for this explanation, the order of steps mirrors the actual use, and colour rule, paper and breakdown are the usual follow-up questions.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Agnieszka, ik laat je even de printer zien. Hij staat hier in de gang, naast de keuken. Eerst stuur je je document vanaf je computer naar de printer. Daarna loop je naar de printer. Houd je personeelspas tegen dit vakje, aan de voorkant. Nu zie je je documenten op het scherm. Kies je document en druk op de groene knop. Dan print hij. Printen in kleur mag alleen als je chef het goed vindt. Kleur is erg duur. Gewoon zwart printen mag altijd. Is het papier op? Nieuw papier ligt in de kast naast de printer, op de onderste plank. Werkt de printer niet? Zeg het dan bij de receptie. Zij bellen de monteur. Probeer hem niet zelf te repareren. Heb je nog vragen? Mijn bureau is hier om de hoek.",
+            "response_function": "The colleague shows the printer's place, the steps, the colour rule, paper, breakdown and offers help for more questions."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch089-intake-taalschool:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable to slightly harder",
+        "reason": "151 words, one speaker, average 7.3; uitleg mean is 138. The fact density is high (twenty minutes, two groups, twelve weeks, EUR 540, three times EUR 180, employer), but every tested fact is stated once with its competing value elsewhere. 'intake' replaced by 'eerste afspraak' (edit).",
+        "targetLevelValidated": false
+      },
+      "level_reason": "151 words, one speaker, average 7.3; uitleg mean is 138. The fact density is high (twenty minutes, two groups, twelve weeks, EUR 540, three times EUR 180, employer), but every tested fact is stated once with its competing value elsewhere. 'intake' replaced by 'eerste afspraak' (edit).",
+      "evidence": "q1 C from 'lessen op maandag- en woensdagavond, van zeven tot tien' (A, B and D combine days with the wrong part of the day); q2 A from 'Vraag dan uw werkgever om de cursus te betalen' (the teacher only picks a group, the school asks the money); q3 B from 'drie keer honderdtachtig euro' (A the whole course, C the free test and talk). Keys C, A, B.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A language school employee explains to a new student what happens first (computer test, talk with a teacher), the two class patterns, price, and how an employer or instalments can pay.",
+        "communicative_purpose": "Inform an enrolling student enough to choose a group and a way to pay.",
+        "contrivance_check": "Desk explanation follows the order of the enrolment process; the employer and instalment options answer the question every student has.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Welkom bij onze taalschool. U begint met een eerste afspraak: een korte toets en een gesprek. Eerst maakt u de toets op de computer. Die duurt ongeveer twintig minuten. Daarna praat u met een docent. Zij vraagt naar uw doel. Wilt u Nederlands leren voor uw werk, of voor het examen? Na het gesprek kiest de docent een groep voor u. De lessen zijn twee keer per week. U kunt kiezen. Er zijn lessen op dinsdag- en donderdagochtend, van negen tot twaalf. En er zijn lessen op maandag- en woensdagavond, van zeven tot tien. Een cursus duurt twaalf weken en kost vijfhonderdveertig euro. De toets en het gesprek zijn gratis. Werkt u? Vraag dan uw werkgever om de cursus te betalen. Veel bedrijven doen dat. Betaalt u zelf? Dan mag u in drie keer betalen, dus drie keer honderdtachtig euro. Hebt u nog vragen? Anders kunt u nu met de toets beginnen.",
+            "response_function": "The employee explains the first appointment, test, talk, group choice, class days, the course length and price, payment by employer or in three parts, and invites questions before the test."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch089-bibliotheek-verhuist:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "139 words, one speaker, average 8.8; comparable to existing nieuws (mean 144). Two Saturdays and two durations; spelled dates are plain.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "139 words, one speaker, average 8.8; comparable to existing nieuws (mean 144). Two Saturdays and two durations; spelled dates are plain.",
+      "evidence": "q1 B from 'zaterdag drieëntwintig januari... van tien tot vier uur' (A and D use the date of the last day in the old building, C the end time); q2 C from 'Dan mag u ze na de opening terugbrengen. U betaalt dan geen boete' (A the closed library, B reversed); q3 A from 'Dan betaalt u het eerste jaar niets' (B the café is only announced, C is about borrowed books). Keys B, C, A.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A radio item announces that the library moves from the Kerkstraat to a bigger building next to the station: last open Saturday 9 January, closed two weeks, books may be returned after opening without a fine, opening party on 23 January with a free first year for new members.",
+        "communicative_purpose": "Tell residents when the library is closed and what that means for their books and a new membership.",
+        "contrivance_check": "Move, reason (too small), closure and consequences for borrowers form a normal local news item; both dates are Saturdays in 2027 and two weeks apart.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "En dan het nieuws uit de stad. De bibliotheek gaat verhuizen. Het oude gebouw aan de Kerkstraat is te klein geworden. De nieuwe bibliotheek komt in een groot gebouw naast het station. Daar is veel meer ruimte, ook om te studeren. Er komt ook een café. Op zaterdag negen januari is de oude bibliotheek voor de laatste keer open. Daarna is de bibliotheek twee weken dicht, want alle boeken gaan naar het nieuwe gebouw. Moeten uw boeken terug als de bibliotheek dicht is? Dan mag u ze na de opening terugbrengen. U betaalt dan geen boete. De nieuwe bibliotheek gaat open op zaterdag drieëntwintig januari. Die dag is er een groot feest, van tien tot vier uur. Er is muziek, en voor de kinderen is er voorlezen. Wordt u die dag lid? Dan betaalt u het eerste jaar niets.",
+            "response_function": "The newsreader reports the move, the reasons, the closure dates, the fine waiver, the opening date and party, and the free year."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch089-fietsenwinkel-reclame:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable (easier on length)",
+        "reason": "127 words, one speaker, average 7.5; existing reclame average 149 words. Prices (fifty, thirty-five, twenty) are the competing numbers, clearly different.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "127 words, one speaker, average 7.5; existing reclame average 149 words. Prices (fifty, thirty-five, twenty) are the competing numbers, clearly different.",
+      "evidence": "q1 B from 'Nu betaalt u maar vijfendertig euro' (A is the tyre price, C the normal price); q2 D from 'Brengt u uw fiets voor tien uur? Dan is hij om vijf uur klaar' (A is the service length, B the drop-off limit, C contradicts same-day repair); q3 C from 'een gratis kop koffie of thee' (A tyre paid separately, B costs thirty-five). Keys B, D, C.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A radio advertisement for a bicycle shop's spring service: fixed price in March and April, what is checked, waiting with free coffee, repairs within a day, parts extra.",
+        "communicative_purpose": "Persuade listeners to bring their bike in and give the practical terms.",
+        "contrivance_check": "Spring check, price, free coffee and next-day repair are what a real shop would advertise; the slogan is a pun, not an absurd premise.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Is uw fiets klaar voor de lente? Kom dan naar Fietsenwinkel Trapkracht in de Molenstraat. In maart en april doen wij een lentebeurt voor een vaste prijs. Wij controleren uw remmen, uw licht en uw banden. En we maken uw fiets schoon. Normaal kost een beurt vijftig euro. Nu betaalt u maar vijfendertig euro. De beurt duurt ongeveer een half uur. U kunt erbij wachten, met een gratis kop koffie of thee. Is er iets kapot? Dan repareren wij het binnen één dag. Brengt u uw fiets voor tien uur? Dan is hij om vijf uur klaar. Een nieuwe band of een nieuwe lamp betaalt u apart. Een band kost bijvoorbeeld twintig euro. Een afspraak maken is niet nodig. Fietsenwinkel Trapkracht: wij houden u op de fiets!",
+            "response_function": "The shop owner advertises the spring service, its price against the normal price, duration, free coffee, repair terms, parts and walk-in service, and the slogan."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch089-rijschool-reclame:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "easier on length, comparable in language",
+        "reason": "115 words, one speaker, average 7.3; existing reclame average 149. One joke line needs no cultural knowledge.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "115 words, one speaker, average 7.3; existing reclame average 149. One joke line needs no cultural knowledge.",
+      "evidence": "q1 A from 'De eerste les kost maar vijfentwintig euro' (B is an age, C the later price); q2 (rebuilt) B from 'U kunt les krijgen op werkdagen tot negen uur 's avonds' (A is her work end time, C is not stated as a limit); q3 C from 'Onze instructeurs zijn rustig en vriendelijk' (A is said of other schools, B is the learner in the joke, D contradicted by 'Op zondag zijn wij dicht'). Keys A, B, C.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "light-humor",
+        "situation_summary": "A radio advertisement of a driving school for adult and nervous learners: cheap first lesson, normal lesson price, evening and Saturday lessons, closed on Sunday, calm instructors, with a small joke about taking the roundabout three times.",
+        "communicative_purpose": "Reassure adult learners and give price and times.",
+        "contrivance_check": "The one joke is a small exaggeration about a nervous learner and is not needed for any answer; the rest is concrete.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Wilt u leren autorijden, maar bent u een beetje zenuwachtig? Dan is Rijschool Zijspiegel iets voor u. Veel rijscholen zijn vooral voor jonge mensen. Wij geven vooral les aan volwassenen. Bent u veertig of zestig? Het is nooit te laat! Onze instructeurs zijn rustig en vriendelijk. Ze hebben veel ervaring met zenuwachtige leerlingen. Rijdt u drie keer rond de rotonde? Geen probleem. De vierde keer neemt u gewoon de goede weg. De eerste les kost maar vijfentwintig euro. Daarna betaalt u vijfenvijftig euro voor een les van een uur. U kunt les krijgen op werkdagen tot negen uur 's avonds, en op zaterdag. Op zondag zijn wij dicht. Rijschool Zijspiegel: wij rijden met u mee.",
+            "response_function": "The presenter addresses nervous adult learners, contrasts other schools, offers calm instructors, makes the roundabout joke, gives prices, lesson times, the Sunday closure and the slogan."
+          }
+        ]
+      }
+    }
+  ]
+}

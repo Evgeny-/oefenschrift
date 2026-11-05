@@ -1,0 +1,524 @@
+{
+  "review_id": "093-a2-speaking-2026-11-05",
+  "source": "content/batches/093-original.json",
+  "proposed_source": "content/batches/093-proposed.json",
+  "source_sha256": "b2a6b74fb09ad17bca3190b10fad1515cf40f8905c606124940bdde4be1ded46",
+  "starters_source": "content/batches/093-starters.json",
+  "starters_sha256": "3135dc73cd1aeb6d7a8568e4609f32ff576f9774753c45209d5b56cdda4e046e",
+  "starters_verdict": "pass",
+  "review_type": "independent AI editorial review of eight new A2 speaking items",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-05T12:33:11Z",
+  "reviewer": "Independent AI reviewer (Sonnet), separate context from the author",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "b4ceab95d685ed248ddd71d71c4be071ef1c915bc2d0ef8f47a493d803b7d3ed",
+    "initial_packet_sha256": "fc0551343b4f08b630ff5d496b148a86facfc8d20f33d2532a654b465b29214c",
+    "independence_note": "Blind findings per item were written to content/reviews/093-review.md from the source-only packet of the original (hash fc055134...) before the full batch, starters, notes or plan assignment were opened. After the edits the packet was rebuilt from the proposed bytes; only the buurman-hond cue and the boodschappen-online panel 3 brief changed."
+  },
+  "tone_balance": {
+    "ordinary": 7,
+    "light_humor": 1,
+    "target_share": 0.15,
+    "scope_note": "One lightly humorous task (buurman-hond, the dog that stops at every tree) and seven ordinary ones; rounding cap for 8 items is ceil(8 x 0.15) = 2. The coordinator checks the combined A2 speaking program count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 8,
+    "edited_by_reviewer": 2,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:speaking:batch093-buurman-hond:1",
+      "field": "cue.text",
+      "before": "Kun jij zaterdag met hem wandelen, en hoe laat kom je hem halen?",
+      "after": "Kun jij zaterdag met Bobbie wandelen, en hoe laat kom je hem halen?",
+      "reason": "Heard once, the first 'hem' could be taken for Henk; the name makes the dog the object of the favour. Still one question with two parts, 33 words."
+    },
+    {
+      "id": "A2:speaking:batch093-boodschappen-online:1",
+      "field": "images.2.brief",
+      "before": "takes milk, cheese and vegetables out of a shopping bag and puts them into an open fridge",
+      "after": "takes milk, cheese and vegetables out of a plastic crate on the counter and puts them into an open fridge",
+      "reason": "Panel 2 delivers crates; unpacking from a bag broke the picture chain (the author flagged it). The alt is unchanged and stays true."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npx tsx scripts/batch-check.ts content/batches/093-proposed.json",
+      "result": "Checked 8 items, 0 questions. No failures, no warnings (no unlisted word, no compound reported)."
+    },
+    "open_task_contract": "pass: the prompt (or the spoken cue plus prompt) asks for every hidden criterion; counts appear in the prompt; picture-choose ends with 'Zeg ook iets over het andere plaatje.'; models 38-44 words; one null quote per sample, verbatim quotes",
+    "leak_check": "pass: titles, situation lines and starters give away no pictured fact; cue and prompt do not repeat each other",
+    "names": "Henk in two items (buurman-hond, boodschappen-online), the other names in one; no voice names or old cast; no organisation named, so no web check was needed.",
+    "cast_traits": "Henk, Gülsen, the repairer, Ayoub and the gift pair keep their traits verbatim across their briefs.",
+    "roles": "Cues use m-older and f-mature, existing roles in config/voices.json; each cue has a single speaker."
+  },
+  "diversity": {
+    "within_batch": "Two of each type; eight distinct topics across werk, winkels, buurt, vrije tijd and vervoer. Mirjam and Henk both have a cue about a weekend-style favour or chat but differ in purpose.",
+    "set_assembly": "kantoor-thuiswerken is close to existing alleen-samen (new job, work setting); keep them out of one set. bouwmarkt shares the 'two things he buys' operation with kassa. The dog-neighbour Henk recurs in boodschappen-online (an older man, same dog); acceptable, but do not put both in one set of four."
+  },
+  "media_notes": {
+    "audio": "Two cues: Henk (m-older) and Mirjam (f-mature), different voices; promptAudio narrator. 'Bobbie' should be checked in the transcription round trip.",
+    "pictures": [
+      "boodschappen-online panel 3 redrawn from the edited brief: the crate must be visible, no bag",
+      "fiets-lek: front tyre clearly flat in panel 1; repairer identical in panels 2-3",
+      "cadeau-kiezen pair: only the gift differs; kantoor-thuiswerken pair: Ayoub identical, blank laptop screens",
+      "bouwmarkt: show at least two clearly separate pots of paint; vergadering: coffee, biscuits and water visible"
+    ],
+    "scope": "No media generated or reviewed."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Level verdicts compare with existing A2 speaking items from the catalogue, not with official DUO items, which were not re-opened.",
+    "Rendered pictures and audio need their own review."
+  ],
+  "items": [
+    {
+      "id": "A2:speaking:batch093-buurman-hond:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing A2 video-answers (cursuskeuze, ochtenddienst): one cue with two parts plus one prompt detail; the model has no subordinate clause",
+        "targetLevelValidated": false,
+        "prompt_words": 30,
+        "model_words": 40,
+        "reason": "Cue of four short sentences, two answerable parts in one question; the extra detail (place) is a third, easy idea."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "Henk, who has a sore knee, asks the learner to walk his small dog Bobbie on Saturday and at what time the learner will fetch it; the learner answers at his door.",
+        "communicative_purpose": "Agree or decline the favour, name the time and the place of the walk, as one would with a neighbour.",
+        "coherence_explanation": "Reason (knee) is stated in the cue, the dog is on the still, the question follows from the reason. The dog joke ('stopt bij elke boom') is a single clause; the question works without it.",
+        "contrivance_check": "Reason (knee) is stated in the cue, the dog is on the still, the question follows from the reason. The dog joke ('stopt bij elke boom') is a single clause; the question works without it.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken answer to a neighbour who stands in front of the learner; a real exchange, no invented history.",
+        "tone": "light-humor",
+        "tone_reason": "One clause about a dog that stops at every tree."
+      },
+      "evidence": {
+        "prompt": "U komt thuis. Uw buurman Henk staat bij zijn voordeur. Hij stelt u een vraag. U hoort de vraag. Geef antwoord. Zeg ook waar u met de hond gaat wandelen.",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "cue part 1",
+            "criterion_nl": "Zeg of u zaterdag met de hond kunt wandelen.",
+            "model_quote": "Ja hoor, dat doe ik graag."
+          },
+          {
+            "goal": "cue part 2",
+            "criterion_nl": "Zeg hoe laat u de hond komt halen.",
+            "model_quote": "Ik kom hem zaterdag om tien uur halen."
+          },
+          {
+            "goal": "prompt detail",
+            "criterion_nl": "Zeg waar u met de hond gaat wandelen.",
+            "model_quote": "Ik ga met Bobbie naar het park bij de school."
+          }
+        ],
+        "sample": {
+          "text": "Ja, dat is goed, ik hou van honden. Ik ga met Bobbie naar het park bij de kanaal. Daar hij kan lekker lopen.",
+          "missing_content_goal": 2,
+          "quotes": [
+            "Ja, dat is goed, ik hou van honden.",
+            null,
+            "Ik ga met Bobbie naar het park bij de kanaal."
+          ],
+          "quote_check": "One null quote for the omitted goal; the other quotes are verbatim substrings of the sample."
+        },
+        "starters": "pass: starters leave the content open and follow the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch093-collega-weekend:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing A2 video-answers; perfect-tense narration about a weekend is slightly more open than the choice-type cues, within A2",
+        "targetLevelValidated": false,
+        "prompt_words": 29,
+        "model_words": 38,
+        "reason": "Cue 29 words; two answerable parts; the third criterion is one easy detail."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "On Monday morning in the office kitchen Mirjam says she worked in the garden all weekend and asks what the learner did and whether it was fun.",
+        "communicative_purpose": "Tell what you did at the weekend, whether you liked it and with whom.",
+        "coherence_explanation": "Monday small talk between colleagues: Mirjam first shares her own weekend, then asks; the prompt's 'met wie' follows from any answer and asks for no real personal data.",
+        "contrivance_check": "Monday small talk between colleagues: Mirjam first shares her own weekend, then asks; the prompt's 'met wie' follows from any answer and asks for no real personal data.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken answer to a colleague standing in front of the learner at work; ordinary and believable.",
+        "tone": "ordinary",
+        "tone_reason": "Everyday weekend small talk."
+      },
+      "evidence": {
+        "prompt": "Het is maandagochtend. U bent op uw werk. Uw collega Mirjam stelt u een vraag. U hoort de vraag. Geef antwoord. Zeg ook met wie u dat hebt gedaan.",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "cue part 1",
+            "criterion_nl": "Zeg wat u dit weekend hebt gedaan.",
+            "model_quote": "Zaterdag ben ik met de trein naar mijn broer in Utrecht gegaan."
+          },
+          {
+            "goal": "cue part 2",
+            "criterion_nl": "Zeg of u het leuk vond.",
+            "model_quote": "Ik vond het heel leuk, want ik zie hem niet vaak."
+          },
+          {
+            "goal": "prompt detail",
+            "criterion_nl": "Zeg met wie u dat hebt gedaan.",
+            "model_quote": "We hebben met zijn kinderen in het park gespeeld."
+          }
+        ],
+        "sample": {
+          "text": "Ik ben naar de markt gegaan en ik heb veel groente kopen. Het was leuk, maar het regent de hele dag.",
+          "missing_content_goal": 3,
+          "quotes": [
+            "Ik ben naar de markt gegaan en ik heb veel groente kopen.",
+            "Het was leuk, maar het regent de hele dag.",
+            null
+          ],
+          "quote_check": "One null quote for the omitted goal; the other quotes are verbatim substrings of the sample."
+        },
+        "starters": "pass: starters leave the content open and follow the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch093-bouwmarkt:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to kassa (same two-things-plus-opinion shape); the opinion topic is concrete and the model uses listed words only",
+        "targetLevelValidated": false,
+        "prompt_words": 29,
+        "model_words": 40,
+        "reason": "Three objects pictured, only two required; opinion topic named in the prompt."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "Sander pushes a trolley with two pots of paint, a bucket and a lamp past a paint shelf in a DIY store, planning a job at home.",
+        "communicative_purpose": "Describe the scene, name two things Sander buys and say what you think of doing jobs at home yourself.",
+        "coherence_explanation": "Paint, bucket and lamp are one ordinary home-improvement shopping trip; the prompt's 'klus thuis' explains why he is in the shop without naming it.",
+        "contrivance_check": "Paint, bucket and lamp are one ordinary home-improvement shopping trip; the prompt's 'klus thuis' explains why he is in the shop without naming it.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken picture description; no recipient needed.",
+        "tone": "ordinary",
+        "tone_reason": "Common home-improvement shopping."
+      },
+      "evidence": {
+        "prompt": "Sander wil thuis een klus doen. Vertel wat u ziet. Noem twee dingen die Sander koopt. Vertel ook wat u van zelf klussen in huis vindt. Gebruik het plaatje.",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "see",
+            "criterion_nl": "Vertel wat u op het plaatje ziet.",
+            "model_quote": "Ik zie Sander in de bouwmarkt. Hij duwt een winkelwagen."
+          },
+          {
+            "goal": "two things",
+            "criterion_nl": "Noem minstens twee dingen die Sander koopt.",
+            "model_quote": "Hij koopt twee potten verf, een emmer en een lamp."
+          },
+          {
+            "goal": "opinion",
+            "criterion_nl": "Zeg wat u van zelf klussen in huis vindt.",
+            "model_quote": "Zelf klussen vind ik leuk. Het is goedkoper en ik leer er veel van."
+          }
+        ],
+        "sample": {
+          "text": "Sander is in een groot winkel. Hij heeft twee potten verf en een lamp in de wagen. Hij wil zijn kamer schilderen, denk ik.",
+          "missing_content_goal": 3,
+          "quotes": [
+            "Sander is in een groot winkel.",
+            "Hij heeft twee potten verf en een lamp in de wagen.",
+            null
+          ],
+          "quote_check": "One null quote for the omitted goal; the other quotes are verbatim substrings of the sample."
+        },
+        "starters": "pass: starters leave the content open and follow the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch093-vergadering:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing A2 picture-describe items (kassa, wachtkamer); table objects are common listed words",
+        "targetLevelValidated": false,
+        "prompt_words": 32,
+        "model_words": 41,
+        "reason": "Four people, laptop and three table items; the table question is easy."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "Inge and three colleagues sit at a meeting table, Inge points at a laptop, and there are coffee cups, a plate of biscuits and a bottle of water.",
+        "communicative_purpose": "Describe the meeting, name two table items and say what you think of meetings at work.",
+        "coherence_explanation": "Coffee, biscuits and water are typical for a meeting; the laptop gives Inge a visible action, nothing needs off-page explanation.",
+        "contrivance_check": "Coffee, biscuits and water are typical for a meeting; the laptop gives Inge a visible action, nothing needs off-page explanation.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken picture description; no recipient needed.",
+        "tone": "ordinary",
+        "tone_reason": "Standard team meeting."
+      },
+      "evidence": {
+        "prompt": "Inge werkt bij een groot bedrijf. Vertel wat u ziet. Noem twee dingen die u op de tafel ziet. Vertel ook wat u van vergaderingen op het werk vindt. Gebruik het plaatje.",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "see",
+            "criterion_nl": "Vertel wat u op het plaatje ziet.",
+            "model_quote": "Ik zie Inge en drie collega's aan een tafel. Ze hebben een vergadering."
+          },
+          {
+            "goal": "two things",
+            "criterion_nl": "Noem minstens twee dingen die u op de tafel ziet.",
+            "model_quote": "Op de tafel staan koffie, koekjes en een fles water."
+          },
+          {
+            "goal": "opinion",
+            "criterion_nl": "Zeg wat u van vergaderingen op het werk vindt.",
+            "model_quote": "Ik vind vergaderingen soms lang. Maar samen praten is wel belangrijk."
+          }
+        ],
+        "sample": {
+          "text": "Inge en haar collega's zitten in een kamer. Ze praten over de werk. Ik vind vergaderingen niet zo leuk, omdat ze duren te lang.",
+          "missing_content_goal": 2,
+          "quotes": [
+            "Inge en haar collega's zitten in een kamer.",
+            null,
+            "Ik vind vergaderingen niet zo leuk, omdat ze duren te lang."
+          ],
+          "quote_check": "One null quote for the omitted goal; the other quotes are verbatim substrings of the sample."
+        },
+        "starters": "pass: starters leave the content open and follow the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch093-cadeau-kiezen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing A2 picture-choose items (alleen-samen, bakkerij); everyday choice with easy reasons",
+        "targetLevelValidated": false,
+        "prompt_words": 33,
+        "model_words": 39,
+        "reason": "Two pictures differ only in the gift; the prompt names both options."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "A colleague has a birthday tomorrow; two pictures show a woman handing her either a bunch of flowers or a box of chocolates at the colleague's desk.",
+        "communicative_purpose": "Choose flowers or chocolates, give a reason and say something about the other picture.",
+        "coherence_explanation": "A small birthday gift for a colleague is ordinary workplace behaviour; the two pictures differ only in the gift.",
+        "contrivance_check": "A small birthday gift for a colleague is ordinary workplace behaviour; the two pictures differ only in the gift.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken choice with reasons; the recipient is the examiner-style listener, no real-world addressee is needed.",
+        "tone": "ordinary",
+        "tone_reason": "Birthday gift for a colleague."
+      },
+      "evidence": {
+        "prompt": "Een collega is morgen jarig. U wilt haar een klein cadeau geven. Geeft u liever bloemen of chocolaatjes? Kies een van de plaatjes. Vertel ook waarom. Zeg ook iets over het andere plaatje.",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "choice",
+            "criterion_nl": "Zeg welk plaatje u kiest: de bloemen of de chocolaatjes.",
+            "model_quote": "Ik kies het eerste plaatje, de bloemen."
+          },
+          {
+            "goal": "reason",
+            "criterion_nl": "Geef een reden.",
+            "model_quote": "Mijn collega kan ze op haar bureau zetten. Dan heeft ze de hele week iets moois."
+          },
+          {
+            "goal": "other picture",
+            "criterion_nl": "Zeg ook iets over het andere plaatje.",
+            "model_quote": "De chocolaatjes op het tweede plaatje zijn ook lekker."
+          }
+        ],
+        "sample": {
+          "text": "Ik kies de doos chocolaatjes, plaatje twee. Op het eerste plaatje ziet ik een bos bloemen. Die zijn ook mooi.",
+          "missing_content_goal": 2,
+          "quotes": [
+            "Ik kies de doos chocolaatjes, plaatje twee.",
+            null,
+            "Op het eerste plaatje ziet ik een bos bloemen."
+          ],
+          "quote_check": "One null quote for the omitted goal; the other quotes are verbatim substrings of the sample."
+        },
+        "starters": "pass: starters leave the content open and follow the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch093-kantoor-thuiswerken:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to alleen-samen and klas-thuis; close in shape to alleen-samen (see set notes) but the choice is the place of work",
+        "targetLevelValidated": false,
+        "prompt_words": 33,
+        "model_words": 44,
+        "reason": "Pictures differ in place; reasons are easy to find."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "A new job allows a free choice between working at the office next to two colleagues or at the kitchen table at home; two pictures of Ayoub with the same laptop.",
+        "communicative_purpose": "Choose office or home, give a reason and say something about the other picture.",
+        "coherence_explanation": "Hybrid-work choice is a normal topic for a new job; both pictures show the same man and laptop.",
+        "contrivance_check": "Hybrid-work choice is a normal topic for a new job; both pictures show the same man and laptop.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken choice with reasons; no addressee needed.",
+        "tone": "ordinary",
+        "tone_reason": "Everyday work-place choice."
+      },
+      "evidence": {
+        "prompt": "U hebt een nieuwe baan. U mag zelf kiezen: op kantoor werken of thuis. Waar werkt u liever? Kies een van de plaatjes. Vertel ook waarom. Zeg ook iets over het andere plaatje.",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "choice",
+            "criterion_nl": "Zeg welk plaatje u kiest: op kantoor of thuis.",
+            "model_quote": "Ik kies het tweede plaatje. Ik werk liever thuis."
+          },
+          {
+            "goal": "reason",
+            "criterion_nl": "Geef een reden.",
+            "model_quote": "Dan hoef ik niet elke dag een uur in de trein te zitten. Thuis is het ook rustig."
+          },
+          {
+            "goal": "other picture",
+            "criterion_nl": "Zeg ook iets over het andere plaatje.",
+            "model_quote": "Op het eerste plaatje zie je een kantoor met collega's. Dat is gezellig, maar vaak ook druk."
+          }
+        ],
+        "sample": {
+          "text": "Ik werk liever op kantoor, het eerste plaatje. Daar kan ik met mijn collega's praten en ik leer veel van hun.",
+          "missing_content_goal": 3,
+          "quotes": [
+            "Ik werk liever op kantoor, het eerste plaatje.",
+            "Daar kan ik met mijn collega's praten en ik leer veel van hun.",
+            null
+          ],
+          "quote_check": "One null quote for the omitted goal; the other quotes are verbatim substrings of the sample."
+        },
+        "starters": "pass: starters leave the content open and follow the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch093-fiets-lek:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing A2 picture-sequence items (tandartsbezoek, kapper); each panel is one clear action",
+        "targetLevelValidated": false,
+        "prompt_words": 23,
+        "model_words": 41,
+        "reason": "Three single actions in one story."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "Gülsen finds her front tyre flat at home, walks the bike to a small bicycle shop where the repairer waits, then cycles away smiling.",
+        "communicative_purpose": "Tell what Gülsen does in each of the three pictures.",
+        "coherence_explanation": "Flat tyre, repair shop, riding away is a complete causal chain with one person and one setting per panel.",
+        "contrivance_check": "Flat tyre, repair shop, riding away is a complete causal chain with one person and one setting per panel.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken narration of three pictures; no addressee needed.",
+        "tone": "ordinary",
+        "tone_reason": "Ordinary bicycle repair."
+      },
+      "evidence": {
+        "prompt": "Gülsen gaat elke ochtend met de fiets naar haar werk. Kijk naar de plaatjes. Vertel wat Gülsen doet. Vertel iets over alle plaatjes.",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "picture 1",
+            "criterion_nl": "Vertel wat Gülsen op het eerste plaatje doet.",
+            "model_quote": "Op het eerste plaatje wil Gülsen naar haar werk. Maar haar fiets heeft een lekke band."
+          },
+          {
+            "goal": "picture 2",
+            "criterion_nl": "Vertel wat Gülsen op het tweede plaatje doet.",
+            "model_quote": "Op het tweede plaatje loopt ze met de fiets naar de fietsenmaker."
+          },
+          {
+            "goal": "picture 3",
+            "criterion_nl": "Vertel wat Gülsen op het derde plaatje doet.",
+            "model_quote": "Op het derde plaatje is de band weer heel. Ze fietst blij weg."
+          }
+        ],
+        "sample": {
+          "text": "Gülsen wil naar haar werk gaan, maar haar fiets is kapot. De band is lek. Op het laatste plaatje ze fietst weer naar haar werk.",
+          "missing_content_goal": 2,
+          "quotes": [
+            "Gülsen wil naar haar werk gaan, maar haar fiets is kapot.",
+            null,
+            "Op het laatste plaatje ze fietst weer naar haar werk."
+          ],
+          "quote_check": "One null quote for the omitted goal; the other quotes are verbatim substrings of the sample."
+        },
+        "starters": "pass: starters leave the content open and follow the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch093-boodschappen-online:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to tandartsbezoek; three clear actions, all in Henk's house",
+        "targetLevelValidated": false,
+        "prompt_words": 21,
+        "model_words": 39,
+        "reason": "Order, delivery, putting away are linked by cause and effect."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "Henk, who has almost no food left, orders groceries on his laptop, takes two crates from a delivery man at the front door and puts milk, cheese and vegetables in the fridge.",
+        "communicative_purpose": "Tell what Henk does in each of the three pictures.",
+        "coherence_explanation": "Ordering online and having it delivered is an ordinary choice for an older man; panel 3 now unpacks from the delivered crate, so the objects match panel 2.",
+        "contrivance_check": "Ordering online and having it delivered is an ordinary choice for an older man; panel 3 now unpacks from the delivered crate, so the objects match panel 2.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken narration of three pictures; no addressee needed. Henk is also the neighbour of buurman-hond; the repeat is allowed (same traits verbatim, two items).",
+        "tone": "ordinary",
+        "tone_reason": "Everyday grocery delivery."
+      },
+      "evidence": {
+        "prompt": "Henk heeft bijna geen eten meer in huis. Kijk naar de plaatjes. Vertel wat Henk doet. Vertel iets over alle plaatjes.",
+        "prompt_criteria_model_alignment": [
+          {
+            "goal": "picture 1",
+            "criterion_nl": "Vertel wat Henk op het eerste plaatje doet.",
+            "model_quote": "Op het eerste plaatje zit Henk thuis achter zijn laptop. Hij bestelt boodschappen op internet."
+          },
+          {
+            "goal": "picture 2",
+            "criterion_nl": "Vertel wat Henk op het tweede plaatje doet.",
+            "model_quote": "Op het tweede plaatje brengt een bezorger twee kratten."
+          },
+          {
+            "goal": "picture 3",
+            "criterion_nl": "Vertel wat Henk op het derde plaatje doet.",
+            "model_quote": "Op het derde plaatje zet Henk melk en kaas in de koelkast."
+          }
+        ],
+        "sample": {
+          "text": "Er komt een man met boodschappen bij Henk. Hij brengt twee bakken. Dan Henk zet het eten in de koelkast.",
+          "missing_content_goal": 1,
+          "quotes": [
+            null,
+            "Er komt een man met boodschappen bij Henk.",
+            "Dan Henk zet het eten in de koelkast."
+          ],
+          "quote_check": "One null quote for the omitted goal; the other quotes are verbatim substrings of the sample."
+        },
+        "starters": "pass: starters leave the content open and follow the criteria in order"
+      }
+    }
+  ]
+}

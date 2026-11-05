@@ -1,0 +1,746 @@
+{
+  "review_id": "088-a2-reading-2026-11-05",
+  "source": "content/batches/088-original.json",
+  "proposed_source": "content/batches/088-proposed.json",
+  "source_sha256": "15f9ac9955b405431dc5fc6d2e6bd1e3ad9c42cb1e4659087fc1546531c060a7",
+  "review_type": "independent AI editorial review of 12 new A2 reading items (duo-a2), meaning-first",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-05T12:53:44Z",
+  "reviewer": "Independent AI reviewer (Sonnet-class), fresh context, separate from the author",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "798907fb7c27bc0cb4fba3bc4bd2ee42dd97aa9394d5681687ffee2811950900",
+    "independence_note": "Fresh reviewer context. Blind findings per text were written to content/reviews/088-review.md from the source-only packet (original packet hash 406fb39a16771a71bd0a317324c2c41cdb589f2bb6a3e7d1fa1ffa8f4613be42) before questions, keys, notes or the plan assignment were opened. After the repairs the meaning pass was repeated on the changed texts (school, wijkagent, oppas, water, cadeau, kinderboerderij title and situation) and the packet was rebuilt from the proposed bytes.",
+    "initial_packet_sha256": "406fb39a16771a71bd0a317324c2c41cdb589f2bb6a3e7d1fa1ffa8f4613be42"
+  },
+  "tone_balance": {
+    "ordinary": 11,
+    "light_humor": 1,
+    "target_share": 0.15,
+    "scope_note": "One lightly humorous text (cadeau-collega: the noisy old bicycle and the fake meeting) and eleven ordinary ones, 8% of the batch, inside the plan's 'about one in eight'. The coordinator checks the A2 total."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 12,
+    "edited_by_reviewer": 11,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:reading:batch088-hardloopwedstrijd:1",
+      "field": "questions.0.prompt",
+      "before": "Hamid woont in de Havenweg. Hij gaat op zondag 21 maart met de auto naar zijn zus. Tot hoe laat kan hij met de auto weg?",
+      "after": "Hamid woont in de Havenweg. Hij wil op zondag 21 maart met de auto naar zijn zus. Tot hoe laat kan hij vertrekken?",
+      "reason": "Paraphrase the text ('met de auto weg') rather than echo it."
+    },
+    {
+      "id": "A2:reading:batch088-school-verbouwing:1",
+      "field": "text",
+      "before": "Basisschool De Schommel krijgt een nieuw gebouw\n\nHet gebouw van basisschool De Schommel in de Lindelaan is 60 jaar oud. Het is te klein voor de 280 leerlingen. In de winter is het binnen ook vaak koud. Daarom krijgt de school een nieuw gebouw op dezelfde plek. Het oude gebouw gaat deze zomer weg. Het nieuwe gebouw is in de zomer van 2028 klaar.\n\nEen jaar in de Sportlaan\nIn het schooljaar 2027-2028 krijgen de kinderen les in een tijdelijk gebouw. Dat staat in de Sportlaan, naast sporthal Noord. Dat is ongeveer 2 kilometer van de Lindelaan. Het schooljaar begint op maandag 30 augustus. De lessen beginnen om 8.30 uur, zoals nu.\n\nDe schoolbus\nWoont u meer dan 1 kilometer van de Sportlaan? Dan mag uw kind gratis met de schoolbus. De bus vertrekt elke schooldag om 8.05 uur bij de oude school in de Lindelaan. Om 8.15 uur is de bus bij de Sportlaan. Na school, om 14.15 uur, rijdt de bus terug. Meld uw kind vóór 1 juni aan voor de bus.\n\nAvond voor ouders\nOp dinsdag 9 maart is er een avond voor ouders in sporthal Noord. U ziet dan tekeningen van de nieuwe school. U kunt ook vragen stellen. De avond begint om 19.30 uur.",
+      "after": "Basisschool De Schommel krijgt een nieuw gebouw\n\nHet gebouw van basisschool De Schommel in de Lindelaan is 60 jaar oud. Het is te klein voor de 280 leerlingen. In de winter is het binnen ook vaak koud. Daarom krijgt de school een nieuw gebouw op dezelfde plek. Na deze zomer staat het oude gebouw er niet meer. Dan bouwen wij het nieuwe. Dat is in de zomer van 2028 klaar.\n\nEen jaar in de Sportlaan\nIn het schooljaar 2027-2028 krijgen de kinderen les in een tijdelijk gebouw. Dat staat in de Sportlaan, naast sporthal Noord. Dat is ongeveer 2 kilometer van de Lindelaan. Het schooljaar begint op maandag 30 augustus. De lessen beginnen om 8.30 uur, zoals nu.\n\nDe schoolbus\nWoont u meer dan 1 kilometer van de Sportlaan? Dan mag uw kind gratis met de schoolbus. De bus vertrekt elke schooldag om 8.05 uur bij de oude school in de Lindelaan. Om 8.15 uur is de bus bij de Sportlaan. Na school, om 14.15 uur, rijdt de bus terug. Meld uw kind vóór 1 juni aan voor de bus.\n\nAvond voor ouders\nOp dinsdag 9 maart is er een avond voor ouders in sporthal Noord. U ziet dan tekeningen van de nieuwe school. U kunt ook vragen stellen. De avond begint om 19.30 uur.",
+      "reason": "'het gebouw gaat weg' is unclear for an A2 learner; say plainly that it is replaced ('bouwen' is now listed)."
+    },
+    {
+      "id": "A2:reading:batch088-school-verbouwing:1",
+      "field": "questions.2.options",
+      "before": {
+        "A": "De school gaat een jaar dicht.",
+        "B": "Naast de school komt een sporthal.",
+        "C": "De lessen beginnen na de zomer later.",
+        "D": "De school krijgt een nieuw gebouw."
+      },
+      "after": {
+        "A": "De school is een jaar dicht voor alle kinderen.",
+        "B": "De lessen beginnen na de zomer later dan nu.",
+        "C": "De kinderen gaan een jaar naar een ander gebouw."
+      },
+      "reason": "The key repeated the headline word for word, which made the purpose question trivial. The key is now a paraphrase of the second paragraph; the sporthal distractor is dropped (3 options, better 3/4 mix)."
+    },
+    {
+      "id": "A2:reading:batch088-school-verbouwing:1",
+      "field": "questions.2.answer",
+      "before": "D",
+      "after": "C",
+      "reason": "Key moved with the options."
+    },
+    {
+      "id": "A2:reading:batch088-school-verbouwing:1",
+      "field": "questions.2.evidence",
+      "before": "Daarom krijgt de school een nieuw gebouw op dezelfde plek.",
+      "after": "In het schooljaar 2027-2028 krijgen de kinderen les in een tijdelijk gebouw.",
+      "reason": "Evidence for the new key."
+    },
+    {
+      "id": "A2:reading:batch088-school-verbouwing:1",
+      "field": "questions.2.explanation",
+      "before": "Het bericht vertelt dat de school een nieuw gebouw krijgt, en waar de kinderen dan een jaar les krijgen. De school gaat niet dicht, sporthal Noord is er al, en de lessen beginnen om 8.30 uur, zoals nu.",
+      "after": "Het bericht vertelt dat de kinderen een jaar les krijgen in een tijdelijk gebouw in de Sportlaan. De school gaat niet dicht en de lessen beginnen om 8.30 uur, zoals nu.",
+      "reason": "Explanation matches the new options."
+    },
+    {
+      "id": "A2:reading:batch088-feestdagen-huisarts:1",
+      "field": "questions.2.options",
+      "before": {
+        "A": "De huisartsenpraktijk.",
+        "B": "De apotheek.",
+        "C": "De huisartsenpost.",
+        "D": "Het nummer 112."
+      },
+      "after": {
+        "A": "De huisartsenpraktijk.",
+        "B": "De apotheek.",
+        "C": "De huisartsenpost.",
+        "D": "De hulpdienst, 112."
+      },
+      "reason": "Parallel options: 'Het nummer 112' was a number among people and places."
+    },
+    {
+      "id": "A2:reading:batch088-feestdagen-huisarts:1",
+      "field": "questions.2.prompt",
+      "before": "De dochter van Olga is op donderdag 31 december om 15.00 uur ziek. Zij heeft hoge koorts. Wie belt Olga?",
+      "after": "Wie moet Olga bellen?",
+      "reason": "'Wie belt Olga?' could be read as who calls her; the prompt now asks whom she should call."
+    },
+    {
+      "id": "A2:reading:batch088-oudergesprekken:1",
+      "field": "questions.1.prompt",
+      "before": "Patrick werkt elke dag tot 17.30 uur. Zijn dochter zit in groep 7. Wat kan hij doen?",
+      "after": "Patrick werkt elke dag tot 17.30 uur. Zijn dochter zit in groep 7. Hoe krijgt hij een gesprek op een andere dag?",
+      "reason": "'Wat kan hij doen?' made 'niets doen, de school kiest een tijd' partly defensible; the prompt now asks for a different day, which the school's own choice does not give."
+    },
+    {
+      "id": "A2:reading:batch088-wijkagent:1",
+      "field": "text",
+      "before": "Politie Westerhout\nUw wijkagent in Westerhout-Oost\n\nIk ben Tessa van Dam. Ik ben de wijkagent in Westerhout-Oost. Ik ben bijna elke dag in de wijk. Ik loop of fiets door de straten en ik praat met bewoners, scholen en winkels.\n\nWaarvoor kunt u bij mij komen?\n- Uw buren maken 's nachts vaak veel lawaai.\n- Er ligt veel afval op straat.\n- Auto's rijden te hard bij een school of een speeltuin.\n- U ziet iets in de buurt en u vindt het niet veilig.\n\nSpreekuur\nU kunt zonder afspraak langskomen.\nPlaats – Dag – Tijd\nWijkcentrum Oost, Ploegstraat 4 – dinsdag – 10.00 tot 11.30 uur\nBibliotheek Oost – donderdag – 16.00 tot 17.00 uur\nPolitiebureau, Stationsplein 6 – zaterdag – 11.00 tot 12.00 uur\n\nWilt u aangifte doen, bijvoorbeeld van een gestolen fiets? Dat kan niet bij het spreekuur. U doet aangifte op het politiebureau of op internet.\n\nHebt u direct hulp nodig van de politie, de brandweer of een ambulance? Bel dan altijd 112.",
+      "after": "Politie Westerhout\nUw wijkagent in Westerhout-Oost\n\nIk ben Tessa van Dam. Ik ben de wijkagent in Westerhout-Oost. Ik ben bijna elke dag in de wijk. Ik loop of fiets door de straten en ik praat met bewoners, scholen en winkels.\n\nWaarvoor kunt u bij mij komen?\n- Uw buren maken 's nachts vaak veel lawaai.\n- Er ligt veel afval op straat.\n- Auto's rijden te hard bij een school of een speeltuin.\n- U ziet iets in de buurt en u vindt het niet veilig.\n\nSpreekuur\nU kunt zonder afspraak langskomen.\nPlaats – Dag – Tijd\nWijkcentrum Oost, Ploegstraat 4 – dinsdag – 10.00 tot 11.30 uur\nBibliotheek Oost – donderdag – 16.00 tot 17.00 uur\nPolitiebureau, Stationsplein 6 – zaterdag – 11.00 tot 12.00 uur\n\nWilt u aangifte doen, bijvoorbeeld van een gestolen fiets? Dat kan niet bij het spreekuur. U doet aangifte op het politiebureau, op internet of per telefoon.\n\nHebt u direct hulp nodig van de politie, de brandweer of een ambulance? Bel dan altijd 112.",
+      "reason": "Factual accuracy: aangifte can also be made by phone; the text claimed only two ways."
+    },
+    {
+      "id": "A2:reading:batch088-kinderboerderij:1",
+      "field": "title",
+      "before": "Dieren kijken in het park",
+      "after": "Een kinderboerderij in het park",
+      "reason": "The title was vague; 'kinderboerderij' is now on the word list."
+    },
+    {
+      "id": "A2:reading:batch088-kinderboerderij:1",
+      "field": "situation",
+      "before": "Elif leest een folder over dieren in het Stadspark.",
+      "after": "Elif leest een folder van een kinderboerderij.",
+      "reason": "Names the source instead of vague 'dieren'."
+    },
+    {
+      "id": "A2:reading:batch088-kinderboerderij:1",
+      "field": "questions.0.prompt",
+      "before": "Elif wil op maandag 9 november met haar kinderen naar De Gele Haan. Kan dat?",
+      "after": "Elif wil in november met haar kinderen naar De Gele Haan. Wanneer kan dat?",
+      "reason": "The old yes/no question made the only 'Nee' the key (odd polarity out) and named the date in the prompt. The learner now must place November in the winter row."
+    },
+    {
+      "id": "A2:reading:batch088-kinderboerderij:1",
+      "field": "questions.0.options",
+      "before": {
+        "A": "Ja, want het is elke dag open.",
+        "B": "Ja, maar alleen van 10.00 tot 16.00 uur.",
+        "C": "Nee, want op maandag is het dan dicht."
+      },
+      "after": {
+        "A": "Elke dag, van 9.00 tot 17.00 uur.",
+        "B": "Elke dag, van 10.00 tot 16.00 uur.",
+        "C": "Dinsdag tot en met zondag, van 9.00 tot 17.00 uur.",
+        "D": "Dinsdag tot en met zondag, van 10.00 tot 16.00 uur."
+      },
+      "reason": "Each distractor is wrong in exactly one of days or hours."
+    },
+    {
+      "id": "A2:reading:batch088-kinderboerderij:1",
+      "field": "questions.0.answer",
+      "before": "C",
+      "after": "D",
+      "reason": "Key moved with the options."
+    },
+    {
+      "id": "A2:reading:batch088-kinderboerderij:1",
+      "field": "questions.0.explanation",
+      "before": "9 november is in de winter. Dan is De Gele Haan open van dinsdag tot en met zondag, van 10.00 tot 16.00 uur. Op maandag is het dicht. Elke dag open is alleen in de zomer.",
+      "after": "In november is het winter. In de winter is De Gele Haan open van dinsdag tot en met zondag, van 10.00 tot 16.00 uur. Elke dag open is alleen in de zomer.",
+      "reason": "Explanation matches the new question."
+    },
+    {
+      "id": "A2:reading:batch088-camping-regels:1",
+      "field": "questions.1.options",
+      "before": {
+        "A": "De hele vakantie naast zijn tent.",
+        "B": "Eerst bij zijn tent, daarna bij de ingang.",
+        "C": "Meteen bij de ingang, ook met alle spullen."
+      },
+      "after": {
+        "A": "Bij zijn tent, tot hij weer vertrekt.",
+        "B": "Eerst bij zijn tent, daarna bij de ingang.",
+        "C": "Eerst bij de ingang, daarna bij zijn tent."
+      },
+      "reason": "The key was the only two-step option and the prompt hinted at it. All options now have comparable shape; the reversed order is a nearby false reading."
+    },
+    {
+      "id": "A2:reading:batch088-camping-regels:1",
+      "field": "questions.1.explanation",
+      "before": "Bij aankomst mag Koen even naar zijn plek rijden voor zijn spullen. Daarna zet hij de auto op de parkeerplaats bij de ingang. De auto mag niet de hele vakantie bij de tent staan.",
+      "after": "Bij aankomst mag Koen even naar zijn plek rijden voor zijn spullen. Daarna zet hij de auto op de parkeerplaats bij de ingang. Eerst naar de ingang kan niet: de spullen moeten naar de tent.",
+      "reason": "Explanation covers the reversed-order distractor."
+    },
+    {
+      "id": "A2:reading:batch088-oppas-gezocht:1",
+      "field": "text",
+      "before": "Oppas gezocht voor twee kinderen\n\nHallo! Ik ben Tessa. Mijn man en ik hebben een dochter van 6 en een zoon van 3. Op dinsdag- en donderdagavond werken wij allebei. Ik werk in het ziekenhuis en mijn man in een restaurant. Daarom zoeken wij een oppas voor die avonden, van 17.30 tot 21.30 uur.\n\nWat doe je?\nOm 17.30 uur haal je de kinderen op bij de opvang. Die is vijf minuten lopen van ons huis. Thuis geef je ze eten. Het eten staat al klaar in de koelkast. Daarna speel je met ze en lees je een boek voor. Om 19.30 uur gaan ze naar bed. Daarna mag je tv kijken of studeren.\n\nWie zoeken wij?\nJe bent 18 jaar of ouder. Je hebt ervaring met kleine kinderen, bijvoorbeeld als oppas of in de kinderopvang. Je kunt tot de zomer elke dinsdag en donderdag komen.\n\nWat krijg je?\nJe krijgt 10 euro per uur. Je mag ook gratis mee-eten.\n\nReageren?\nStuur een berichtje naar 06 41 87 23 59. Schrijf in je bericht je leeftijd en je ervaring. Daarna kom je op een zaterdag een uur bij ons thuis. Dan zie je de kinderen en ons huis.\n\nTessa",
+      "after": "Oppas gezocht voor twee kinderen\n\nHallo! Ik ben Tessa. Mijn man en ik hebben een dochter van 6 en een zoon van 3. Op dinsdag- en donderdagavond werken wij allebei. Ik werk in het ziekenhuis en mijn man in een restaurant. Daarom zoeken wij een oppas voor die avonden, van 17.30 tot 21.30 uur.\n\nWat doe je?\nOm 17.30 uur haal je de kinderen op bij de opvang. Die is vijf minuten lopen van ons huis. Thuis geef je ze eten. Het eten staat al klaar in de koelkast. Daarna speel je met ze en lees je een boek voor. Om 19.30 uur gaan ze naar bed. Daarna mag je tv kijken of studeren.\n\nWie zoeken wij?\nJe bent 18 jaar of ouder. Je hebt ervaring met kleine kinderen, bijvoorbeeld als oppas of in de kinderopvang. Je kunt tot de zomer elke dinsdag en donderdag komen.\n\nWat krijg je?\nJe krijgt 10 euro per uur. Je mag ook gratis mee-eten.\n\nReageren?\nStuur een berichtje naar 06 12 34 56 78. Schrijf in je bericht je leeftijd en je ervaring. Daarna kom je op een zaterdag een uur bij ons thuis. Dan zie je de kinderen en ons huis.\n\nTessa",
+      "reason": "Mobile number looked real; use the clearly fictitious pattern already used in the catalogue."
+    },
+    {
+      "id": "A2:reading:batch088-oppas-gezocht:1",
+      "field": "questions.0.options",
+      "before": {
+        "A": "Ja, want hij heeft ervaring met kleine kinderen.",
+        "B": "Ja, maar alleen op dinsdag en donderdag.",
+        "C": "Nee, want hij is nog geen 18 jaar."
+      },
+      "after": {
+        "A": "Nee, want hij werkt niet in de kinderopvang.",
+        "B": "Ja, want hij heeft ervaring met kleine kinderen.",
+        "C": "Nee, want hij is nog geen 18 jaar."
+      },
+      "reason": "The key was the only 'Nee'. Now two options start with 'Nee'; the new distractor is wrong because the text says 'bijvoorbeeld als oppas'."
+    },
+    {
+      "id": "A2:reading:batch088-oppas-gezocht:1",
+      "field": "questions.0.explanation",
+      "before": "Tessa zoekt een oppas van 18 jaar of ouder. Jesse is 17 jaar. Hij heeft wel ervaring met kleine kinderen, maar hij is te jong.",
+      "after": "Tessa zoekt een oppas van 18 jaar of ouder. Jesse is 17 jaar, dus hij is te jong. Zijn ervaring is goed: oppas of kinderopvang zijn maar voorbeelden.",
+      "reason": "Explanation covers both Jesse's experience and the new distractor."
+    },
+    {
+      "id": "A2:reading:batch088-chauffeur-gezocht:1",
+      "field": "questions.0.options",
+      "before": {
+        "A": "Ja, want de baan is op vier andere dagen.",
+        "B": "Nee, want de baan is ook op woensdag.",
+        "C": "Nee, want zij heeft geen ervaring als chauffeur."
+      },
+      "after": {
+        "A": "Ja, want de baan is op vier andere dagen.",
+        "B": "Ja, maar alleen als zij ervaring als chauffeur heeft.",
+        "C": "Nee, want de baan is ook op woensdag."
+      },
+      "reason": "The key was the only 'Ja'. The new distractor reverses the stated condition (experience is 'niet nodig')."
+    },
+    {
+      "id": "A2:reading:batch088-water-onderbreking:1",
+      "field": "text",
+      "before": "Waterbedrijf Westerhout\nAan de bewoners van de Kastanjelaan, nummer 1 tot en met 48\n\nOnderwerp: geen water op dinsdag 19 januari\n\nBeste bewoner,\n\nOnder de Kastanjelaan liggen oude leidingen voor het water. Wij vervangen die leidingen door nieuwe. Daarom hebt u op dinsdag 19 januari van 8.00 tot ongeveer 16.00 uur geen water in huis.\n\nWat kunt u doen?\n- Vul op maandag 18 januari een paar flessen met water. Dan hebt u water om te drinken en te koken.\n- Vul ook een emmer met water voor de wc.\n- Zet op 19 januari de wasmachine en de vaatwasser niet aan.\n\nNa het werk\nNa 16.00 uur komt het water terug. Het water kan dan een paar minuten bruin zijn. Dat is niet gevaarlijk. Laat de koude kraan een paar minuten lopen. Dan wordt het water weer helder. Zet pas daarna uw wasmachine aan. Anders worden uw witte kleren bruin.\n\nIs het water na een uur nog bruin? Bel ons dan: 0299 61 40 00.\n\nWij weten dat dit vervelend is. Dank u wel!\n\nMet vriendelijke groet,\n\nWaterbedrijf Westerhout",
+      "after": "Waterbedrijf Westerhout\nAan de bewoners van de Kastanjelaan, nummer 1 tot en met 48\n\nOnderwerp: geen water op dinsdag 19 januari\n\nBeste bewoner,\n\nOnder de Kastanjelaan liggen oude leidingen voor het water. Wij vervangen die leidingen door nieuwe. Daarom hebt u op dinsdag 19 januari van 8.00 tot ongeveer 16.00 uur geen water in huis.\n\nWat kunt u doen?\n- Vul op maandag 18 januari een paar flessen met water. Dan hebt u water om te drinken en te koken.\n- Vul ook een emmer met water voor de wc.\n- Zet op 19 januari de wasmachine en de vaatwasser niet aan.\n\nNa het werk\nNa 16.00 uur komt het water terug. Het water kan dan een paar minuten bruin zijn. Dat is niet gevaarlijk. Laat de koude kraan een paar minuten lopen. Dan is het water weer schoon. Zet pas daarna uw wasmachine aan. Anders worden uw witte kleren bruin.\n\nIs het water na een uur nog bruin? Bel ons dan: 0299 61 40 00.\n\nWij weten dat dit vervelend is. Dank u wel!\n\nMet vriendelijke groet,\n\nWaterbedrijf Westerhout",
+      "reason": "'helder' is too hard for A2 (author doubt resolved); 'schoon' is plain."
+    },
+    {
+      "id": "A2:reading:batch088-water-onderbreking:1",
+      "field": "questions.1.prompt",
+      "before": "Wanneer moet Jesse een paar flessen met water vullen?",
+      "after": "Jesse wil op dinsdag 19 januari om 10.00 uur thee zetten. Wanneer moet hij water in flessen doen?",
+      "reason": "The prompt repeated 'een paar flessen met water vullen' from the letter; it now paraphrases and gives a reason to choose."
+    },
+    {
+      "id": "A2:reading:batch088-cadeau-collega:1",
+      "field": "text",
+      "before": "Van: Elif\nAan: alle collega's van de klantenservice, behalve Patrick\nOnderwerp: Patrick wordt 50!\n\nHoi allemaal,\n\nOp vrijdag 12 maart wordt Patrick 50 jaar. Hij zegt al weken: 'Geen feest en geen cadeau!' Maar wij doen het toch. Hij weet nog van niets, dus zeg niets tegen hem.\n\nWij geven Patrick samen een cadeaubon van de fietsenwinkel. Zijn fiets is even oud als zijn baan hier: 25 jaar. Wij horen hem elke ochtend al als hij nog op de parkeerplaats is.\n\nDoe je mee? Doe dan geld in een envelop en schrijf je naam erop. Geef de envelop tot en met dinsdag 9 maart af bij de receptie. Iedereen kiest zelf het bedrag. Vijf euro is ook goed.\n\nBij de receptie ligt ook een grote kaart. Daar kun je tot en met dinsdag 9 maart iets op schrijven. Vraag erom bij de receptie.\n\nOp vrijdag 12 maart om 10.00 uur is er taart in de kantine. Ik zeg tegen Patrick dat er dan een vergadering is. Kom dus allemaal op tijd!\n\nGroetjes,\nElif",
+      "after": "Van: Elif\nAan: alle collega's van de klantenservice, behalve Patrick\nOnderwerp: Patrick wordt 50!\n\nHoi allemaal,\n\nOp vrijdag 12 maart wordt Patrick 50 jaar. Hij zegt al weken: 'Geen feest en geen cadeau!' Maar wij doen het toch. Hij weet nog van niets, dus zeg niets tegen hem.\n\nWij geven Patrick samen een cadeaubon van de fietsenwinkel. Zijn fiets is even oud als zijn baan hier: 25 jaar. De fiets maakt veel lawaai. Wij horen hem elke ochtend al op de parkeerplaats. Met de bon kan hij een nieuwe fiets kopen.\n\nDoe je mee? Doe dan geld in een envelop en schrijf je naam erop. Geef de envelop tot en met dinsdag 9 maart af bij de receptie. Iedereen kiest zelf het bedrag. Vijf euro is ook goed.\n\nBij de receptie ligt ook een grote kaart. Daar kun je tot en met dinsdag 9 maart iets op schrijven. Vraag erom bij de receptie.\n\nOp vrijdag 12 maart om 10.00 uur is er taart in de kantine. Ik zeg tegen Patrick dat er dan een vergadering is. Kom dus allemaal op tijd!\n\nGroetjes,\nElif",
+      "reason": "'hem' had two possible referents (bike or Patrick); the joke is now explicit and the point of the gift voucher is stated."
+    },
+    {
+      "id": "A2:reading:batch088-cadeau-collega:1",
+      "field": "questions.1.options",
+      "before": {
+        "A": "Op vrijdag 5 maart.",
+        "B": "Op dinsdag 9 maart.",
+        "C": "Op vrijdag 12 maart."
+      },
+      "after": {
+        "A": "Op maandag 8 maart.",
+        "B": "Op dinsdag 9 maart.",
+        "C": "Op vrijdag 12 maart.",
+        "D": "Op vrijdag 5 maart."
+      },
+      "reason": "The key was the only date not in the text. A fourth option (8 maart, the first day of the holiday) removes the odd-one-out pattern."
+    },
+    {
+      "id": "A2:reading:batch088-cadeau-collega:1",
+      "field": "questions.1.answer",
+      "before": "A",
+      "after": "D",
+      "reason": "Key moved with the options."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npx tsx scripts/batch-check.ts content/batches/088-proposed.json",
+      "result": "Checked 12 items, 30 questions. No failures; 18 warnings, all judged (see a2_words). Keys A7 B8 C8 D7; options 3:16, 4:14."
+    },
+    "a2_words": "Compounds judged transparent: hardloopwedstrijd, schoolbus, schooljaar, wijkkrant, herhaalrecept(en) (explained by the sentence before it), kerstdag, nieuwjaarsdag (parenthesis names them), kinderfeestje, toiletgebouw, inburgeringsexamen, toetsdag, waterbedrijf. Unlisted: groothandel (explained by the next sentence, no question depends on it) and leidingen (explained by 'voor het water', no question depends on it). 'helder' was listed but too hard and is replaced by 'schoon'. 'Kinderboerderij' now appears in title and situation. Long-sentence warnings are table lines and unpunctuated headings, not real sentences.",
+    "exam_shape": "All texts 155-209 words (existing A2 reading average 154, maximum 224); two or three questions each; persona questions in all 12 texts, purpose questions in 5; tables as 'A – B – C' text lines with a header line, as in the rooster items.",
+    "facts": "Weekdays verified for 2026-2027: 24 Dec 2026 Thursday, 18 Dec Friday, 12 Dec Saturday, 18-19 Jan 2027 Monday-Tuesday, 29 Jan Friday, 8 Feb Monday, 9 Mar Tuesday, 12 Mar Friday, 21 Mar Sunday, 30 Aug 2027 Monday, 9 Nov 2026 Monday. The 112 sentences are correct. versebloem.nl does not resolve (DNS), so the invented address is free; the other invented names and numbers were not web-searched by this reviewer.",
+    "distractors": "Every distractor anchored in the text and clearly false; polarity-odd keys in kinderboerderij q1, oppas q1 and chauffeur q1 repaired; the cadeau q2 key was the only date not in the text and now has a second absent date beside it.",
+    "full_final_source_read": "pass"
+  },
+  "diversity": {
+    "within_batch": "Twelve distinct purposes and settings; four tables (huisarts, ouder, wijkagent, kinderboerderij) plus two time rules. Name use: each named person occurs in at most two items (Hamid, Koen, Olga, Patrick, Tessa, Elif, Malika, Jesse; Tessa the officer and Tessa the parent are different people).",
+    "against_catalogue": "Overlaps in theme only: chauffeur-gezocht beside 'Werken in een bloemenwinkel' (a delivery driver for a wholesaler is a different job), huisarts hours beside 'Hulp als de huisarts dicht is' and 'Openingstijden van het politiebureau' (different organisations and tasks). Acceptable."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Invented organisations, phone numbers and e-mail addresses were checked only for plausibility and, for versebloem.nl, DNS; the coordinator may search the web for the school, camp and firm names.",
+    "The huisartsenpost number 0900 234 56 70 is invented and must stay so.",
+    "No media exists yet; reading items need none."
+  ],
+  "items": [
+    {
+      "id": "A2:reading:batch088-hardloopwedstrijd:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable (upper end): 182 words in four short paragraphs, as long as the longest existing krant items; q2 adds one trap (the Markt stop stays closed after 15.00), q3 is a plain purpose item",
+        "targetLevelValidated": false
+      },
+      "level_reason": "comparable (upper end): 182 words in four short paragraphs, as long as the longest existing krant items; q2 adds one trap (the Markt stop stays closed after 15.00), q3 is a plain purpose item",
+      "evidence": {
+        "words": 182,
+        "key_proofs": [
+          {
+            "question": "q1 A",
+            "quote": "Woont u in een van deze straten? Dan kunt u tot 9.00 uur met de auto weg.",
+            "distractors": "10.00 (children's run), 11.00 (start) and 15.00 (closing) are all in the text and are other event times."
+          },
+          {
+            "question": "q2 B",
+            "quote": "De halte Markt is de hele dag dicht, ook na 15.00 uur. Stap die dag in of uit bij de halte Station.",
+            "distractors": "A repeats the usual stop; C misreads the diversion as cancelled."
+          },
+          {
+            "question": "q3 C",
+            "quote": "Van 9.00 tot 15.00 uur zijn veel straten in het centrum dicht voor auto's.",
+            "distractors": "A needs runners (not said); B makes the diversion permanent ('alleen op die zondag')."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A town newspaper tells residents and bus passengers what changes on Sunday 21 March because of the Stadsloop: streets closed 9.00-15.00, residents may drive out until 9.00, buses 4 and 7 use the Ringweg and stop at Station, the Markt stop is closed all day.",
+        "communicative_purpose": "Reader plans the Sunday: leave the street by car before nine, board the bus at Station, come by bike or on foot.",
+        "contrivance_check": "Every number serves a decision a resident or passenger must make; the children's run and the food stalls are normal event facts and no question depends on a forced detail.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch088-school-verbouwing:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable: 209 words, three plain sections; q1 compares 2 km with 'meer dan 1 kilometer', q2 picks one of three times in a short timetable",
+        "targetLevelValidated": false
+      },
+      "level_reason": "comparable: 209 words, three plain sections; q1 compares 2 km with 'meer dan 1 kilometer', q2 picks one of three times in a short timetable",
+      "evidence": {
+        "words": 215,
+        "key_proofs": [
+          {
+            "question": "q1 B",
+            "quote": "Woont u meer dan 1 kilometer van de Sportlaan? Dan mag uw kind gratis met de schoolbus.",
+            "distractors": "A uses the irrelevant old-school proximity; C contradicts 'gratis'."
+          },
+          {
+            "question": "q2 A",
+            "quote": "De bus vertrekt elke schooldag om 8.05 uur bij de oude school in de Lindelaan.",
+            "distractors": "8.15 is the arrival, 8.30 the first lesson."
+          },
+          {
+            "question": "q3 C (edited)",
+            "quote": "In het schooljaar 2027-2028 krijgen de kinderen les in een tijdelijk gebouw.",
+            "distractors": "A: school is not closed; B: lessons start at 8.30 'zoals nu'. The key now paraphrases instead of repeating the headline."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A wijkkrant item tells parents that a 60-year-old primary school (too small, cold) is replaced; for the school year 2027-2028 the children use a temporary building in the Sportlaan, a free bus runs for children living more than 1 km away, and an evening for parents is on 9 March.",
+        "communicative_purpose": "Parents learn where the children go next year, who may use the bus (register before 1 June) and when to see the drawings.",
+        "contrivance_check": "The bus rule, the departure time and the meeting each answer a question a parent would ask; no off-page event is needed. 'Deze zomer' is anchored by the March meeting.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch088-feestdagen-huisarts:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable: 155 words, a seven-row table in the Dag - Openingstijd line format of the existing rooster items plus two short paragraphs; q2 combines two dates, q3 picks the right service",
+        "targetLevelValidated": false
+      },
+      "level_reason": "comparable: 155 words, a seven-row table in the Dag - Openingstijd line format of the existing rooster items plus two short paragraphs; q2 combines two dates, q3 picks the right service",
+      "evidence": {
+        "words": 155,
+        "key_proofs": [
+          {
+            "question": "q1 B",
+            "quote": "maandag 28 tot en met woensdag 30 december – open van 8.00 tot 17.00 uur",
+            "distractors": "12.00 belongs to 24 and 31 December; the practice is not closed on the 30th."
+          },
+          {
+            "question": "q2 A",
+            "quote": "Bestel een herhaalrecept vóór vrijdag 18 december. Dan liggen uw medicijnen vóór kerst klaar bij de apotheek.",
+            "distractors": "24 December and 4 January are other dates in the text; 28 December is too late (she runs out on the 27th). 'Misschien pas in januari' makes later orders risky."
+          },
+          {
+            "question": "q3 C",
+            "quote": "Is de praktijk dicht en kunt u niet wachten? Bel dan de huisartsenpost: 0900 234 56 70.",
+            "distractors": "On 31 December at 15.00 the practice is closed (open until 12.00); 112 is only for danger to life, the apotheek is no doctor."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A GP practice lists its opening hours from 24 December to 4 January, says to call the huisartsenpost when it is closed and 112 for danger to life, and asks patients with daily medicine to order a repeat prescription before Friday 18 December.",
+        "communicative_purpose": "Patients know when they can come, whom to call at night or on holidays, and by when to order medicine.",
+        "contrivance_check": "Hours, the emergency route and the order deadline are the three things a practice really announces before the holidays; the invented number 0900 234 56 70 is written in the grouped way used in the exam.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch088-oudergesprekken:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable (upper end): 209 words, a four-row table with one two-block row; q1 needs two rows, q2 the e-mail rule",
+        "targetLevelValidated": false
+      },
+      "level_reason": "comparable (upper end): 209 words, a four-row table with one two-block row; q1 needs two rows, q2 the e-mail rule",
+      "evidence": {
+        "words": 209,
+        "key_proofs": [
+          {
+            "question": "q1 D",
+            "quote": "groep 1 en 2 – maandag 8 februari ...; groep 6 en 7 – woensdag 10 februari ...",
+            "distractors": "Each distractor keeps one right day (Monday or Wednesday) and swaps the other for the Tuesday or Thursday group."
+          },
+          {
+            "question": "q2 B (prompt edited)",
+            "quote": "Kunt u niet op de dag van uw kind? Stuur dan een e-mail aan de leerkracht. Samen zoekt u een ander moment.",
+            "distractors": "A and C are the slots of groups 3-5 and 8; D (school picks) gives a time on the group's own day, so it does not give 'een andere dag'."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A primary school gives the February schedule for ten-minute parent talks per group, asks parents to choose a time on the website before 29 January (the school picks one otherwise), offers an e-mail to the teacher for another day, notes that group 8 children attend, and offers an interpreter.",
+        "communicative_purpose": "Parents find the day for each child, book a slot in time and know what to do when the day does not fit.",
+        "contrivance_check": "Schedule, booking rule, fallback, group 8 and interpreter are the normal contents of such a letter; nothing is added for distractors.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch088-wijkagent:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable: 168 words, folder with a three-row table (Plaats - Dag - Tijd); q1 needs to rule out two slots against working hours",
+        "targetLevelValidated": false
+      },
+      "level_reason": "comparable: 168 words, folder with a three-row table (Plaats - Dag - Tijd); q1 needs to rule out two slots against working hours",
+      "evidence": {
+        "words": 170,
+        "key_proofs": [
+          {
+            "question": "q1 C",
+            "quote": "Politiebureau, Stationsplein 6 – zaterdag – 11.00 tot 12.00 uur",
+            "distractors": "Tuesday 10.00-11.30 and Thursday 16.00-17.00 fall inside Malika's working hours (9.00-17.30)."
+          },
+          {
+            "question": "q2 B",
+            "quote": "Ik ben Tessa van Dam. Ik ben de wijkagent in Westerhout-Oost.",
+            "distractors": "Aangifte and cars at schools are only examples; nothing says the bureau's times changed."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The police introduce neighbourhood officer Tessa van Dam in first person: what residents can bring to her, three walk-in hours (Tuesday, Thursday, Saturday), that aangifte is not taken at the spreekuur (police station, internet or phone), and that 112 is for immediate danger.",
+        "communicative_purpose": "Residents learn who the officer is, when to find her and which route to use for aangifte or an emergency.",
+        "contrivance_check": "The first-person voice suits a local officer's leaflet; the topics (noise, litter, speeding near a school) are ordinary neighbourhood matters; the 112 sentence is correct: police, fire brigade or ambulance, when help is needed directly.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch088-kinderboerderij:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable to slightly harder: 201 words; q1 asks the learner to place November in the winter row, q2 is a count-plus-multiplication quantity item (8 children x 6 euro)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "comparable to slightly harder: 201 words; q1 asks the learner to place November in the winter row, q2 is a count-plus-multiplication quantity item (8 children x 6 euro)",
+      "evidence": {
+        "words": 201,
+        "key_proofs": [
+          {
+            "question": "q1 D (edited)",
+            "quote": "winter (1 oktober tot en met 31 maart) – dinsdag tot en met zondag – 10.00 tot 16.00 uur",
+            "distractors": "Each distractor changes one element: the summer days or the summer hours."
+          },
+          {
+            "question": "q2 D",
+            "quote": "U betaalt 6 euro per kind, ook voor het jarige kind.",
+            "distractors": "42 omits the birthday child, 36 counts six, 6 is one child."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A city farm folder in the Stadspark lists free entry, summer and winter hours in a table, rules for feeding goats and for dogs, and a children's party (two hours, 6-12 children, 6 euro per child including the birthday child, booking two weeks ahead).",
+        "communicative_purpose": "Parents decide when to visit and how to book a party, and learn what not to bring.",
+        "contrivance_check": "Goat feed from the farm shop, no dogs and a fixed party price are typical leaflet rules; the party paragraph is a separate paid service that belongs in the same folder.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch088-camping-regels:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable: 196 words, five numbered rules; both questions are persona rule-application with one exception to apply (late departure; arrival by car)",
+        "targetLevelValidated": false
+      },
+      "level_reason": "comparable: 196 words, five numbered rules; both questions are persona rule-application with one exception to apply (late departure; arrival by car)",
+      "evidence": {
+        "words": 196,
+        "key_proofs": [
+          {
+            "question": "q1 A",
+            "quote": "Wilt u later weg? Vraag het dan de dag ervoor bij de receptie. Dat kost 10 euro extra.",
+            "distractors": "B contradicts 'later weg' being possible; C ignores the 12.00 rule."
+          },
+          {
+            "question": "q2 B (options edited)",
+            "quote": "Bij aankomst en vertrek mag u even naar uw plek rijden.",
+            "distractors": "A keeps the car at the tent all holiday; C reverses the order and cannot unload at the tent."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A small campsite lists five rules: quiet 23.00-8.00, cars at the entrance car park except for loading on arrival and departure, dogs on a lead, rubbish in the entrance containers, leave before 12.00 (later costs 10 euro and must be asked the day before) and the reception hours.",
+        "communicative_purpose": "Guests know what is expected and the exceptions to the car and departure rules.",
+        "contrivance_check": "Each rule is a normal house rule with a reason in the text (children play); the exceptions are the only tested points.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch088-taaltoets-dag:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable: 168 words, six numbered rules; q1 and q3 need a small calculation with a time or date, q2 is a detail with a near-miss option",
+        "targetLevelValidated": false
+      },
+      "level_reason": "comparable: 168 words, six numbered rules; q1 and q3 need a small calculation with a time or date, q2 is a detail with a near-miss option",
+      "evidence": {
+        "words": 168,
+        "key_proofs": [
+          {
+            "question": "q1 A",
+            "quote": "Na 9.30 uur mag u niet meer naar binnen. U maakt de toets dan een andere keer.",
+            "distractors": "B and C assume entry after the start."
+          },
+          {
+            "question": "q2 D",
+            "quote": "Neem uw identiteitskaart of paspoort mee. Een foto van uw kaart op uw telefoon is niet genoeg.",
+            "distractors": "A is excluded in the same sentence; B is forbidden; C is provided free."
+          },
+          {
+            "question": "q3 B",
+            "quote": "Binnen twee weken krijgt u de uitslag per e-mail.",
+            "distractors": "12 December plus two weeks is 26 December, so on 21 December it is too early to call."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A language school gives the rules for a placement test on Saturday 12 December (not an exam): arrive at 9.15, no entry after 9.30, bring ID, phone off in a bag, no dictionary, break at 10.30, result by e-mail within two weeks.",
+        "communicative_purpose": "Test takers prepare what to bring, be on time and know when to worry about the result.",
+        "contrivance_check": "All six rules concern the morning of the test; the note that it is not an inburgeringsexamen clarifies purpose without adding a plot.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch088-oppas-gezocht:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable: 199 words, a friendly advertisement with headed sections; q1 tests the age condition against a tempting experience cue, q2 is a two-step quantity",
+        "targetLevelValidated": false
+      },
+      "level_reason": "comparable: 199 words, a friendly advertisement with headed sections; q1 tests the age condition against a tempting experience cue, q2 is a two-step quantity",
+      "evidence": {
+        "words": 199,
+        "key_proofs": [
+          {
+            "question": "q1 C (options edited)",
+            "quote": "Je bent 18 jaar of ouder.",
+            "distractors": "A: the text says 'bijvoorbeeld als oppas of in de kinderopvang', so not working in a childcare centre is no obstacle; B: Jesse has experience but not the age."
+          },
+          {
+            "question": "q2 C",
+            "quote": "Je krijgt 10 euro per uur.",
+            "distractors": "Two evenings of four hours is 8 hours, 80 euro; 40 is one evening, 20 is two times 10."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A mother (hospital) and father (restaurant) look for a sitter for their two children (6 and 3) on Tuesday and Thursday evenings from 17.30 to 21.30: collect from the opvang, give the ready meal, play, read, bed at 19.30; 18 or older with experience; 10 euro per hour; apply by message and visit on a Saturday.",
+        "communicative_purpose": "Candidates see tasks, requirements and pay and know how to react.",
+        "contrivance_check": "The parents' evening shifts explain why a sitter is needed on those two evenings; the Saturday visit is a believable first meeting.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch088-chauffeur-gezocht:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable: 194 words, sectioned advertisement; q1 matches working days, q2 is a how-to-apply item with four nearby actions",
+        "targetLevelValidated": false
+      },
+      "level_reason": "comparable: 194 words, sectioned advertisement; q1 matches working days, q2 is a how-to-apply item with four nearby actions",
+      "evidence": {
+        "words": 194,
+        "key_proofs": [
+          {
+            "question": "q1 A (options edited)",
+            "quote": "Vier dagen per week: op maandag, dinsdag, donderdag en vrijdag.",
+            "distractors": "B puts the job on Wednesday; the new B reverses the 'ervaring: fijn, maar niet nodig' condition."
+          },
+          {
+            "question": "q2 B",
+            "quote": "Stuur een korte e-mail met je cv naar werk@versebloem.nl.",
+            "distractors": "Phoning is only for a question, 5.00 is the loading time, and flower shops are the customers."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A flower wholesaler seeks a driver for four mornings a week: load at 5.00, leave at 6.00, deliver to 40 flower shops, back around 13.00; licence B, able to lift; 15.50 euro per hour; paid trial day; apply by e-mail with a cv, or phone after 14.00 with a question.",
+        "communicative_purpose": "Job seekers judge whether they fit and apply the right way.",
+        "contrivance_check": "The morning start follows from delivering fresh flowers; calling after 14.00 fits a shift that ends around 13.00.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch088-water-onderbreking:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable: 180 words, a formal letter with three headed parts; q1 picks the first action after the water returns, q2 a date, q3 the purpose",
+        "targetLevelValidated": false
+      },
+      "level_reason": "comparable: 180 words, a formal letter with three headed parts; q1 picks the first action after the water returns, q2 a date, q3 the purpose",
+      "evidence": {
+        "words": 180,
+        "key_proofs": [
+          {
+            "question": "q1 C",
+            "quote": "Het water kan dan een paar minuten bruin zijn. Dat is niet gevaarlijk. Laat de koude kraan een paar minuten lopen.",
+            "distractors": "Calling is only for water that is brown after an hour; washing comes after the tap has run."
+          },
+          {
+            "question": "q2 A (prompt edited)",
+            "quote": "Vul op maandag 18 januari een paar flessen met water.",
+            "distractors": "The outage starts at 8.00 on the 19th, and the water returns after 16.00, which is too late for tea at 10.00."
+          },
+          {
+            "question": "q3 D",
+            "quote": "Daarom hebt u op dinsdag 19 januari van 8.00 tot ongeveer 16.00 uur geen water in huis.",
+            "distractors": "The brown water is not dangerous, the work is under the street, and washing machine use is only advice."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A water company tells the residents of Kastanjelaan 1-48 that the water is off on Tuesday 19 January from 8.00 to about 16.00 because old pipes are replaced; fill bottles and a bucket on Monday, leave machines off, and after the work let the cold tap run until the brown water is clean before washing.",
+        "communicative_purpose": "Residents prepare for a day without water and handle the brown water afterwards.",
+        "contrivance_check": "Advice before and after follows from the outage; the fixed phone number is for water that is still brown after an hour.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:reading:batch088-cadeau-collega:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 reading (duo-a2)",
+        "verdict": "comparable: 185 words, informal e-mail with dates and two actions; q2 now needs the holiday week to be placed before the deadline",
+        "targetLevelValidated": false
+      },
+      "level_reason": "comparable: 185 words, informal e-mail with dates and two actions; q2 now needs the holiday week to be placed before the deadline",
+      "evidence": {
+        "words": 183,
+        "key_proofs": [
+          {
+            "question": "q1 C",
+            "quote": "Doe dan geld in een envelop en schrijf je naam erop. Geef de envelop tot en met dinsdag 9 maart af bij de receptie.",
+            "distractors": "A and D name the wrong person or place and moment, B would spoil the surprise."
+          },
+          {
+            "question": "q2 D (options edited)",
+            "quote": "Daar kun je tot en met dinsdag 9 maart iets op schrijven.",
+            "distractors": "8 March is the first holiday day; 9 and 12 March are holiday days too."
+          },
+          {
+            "question": "q3 D",
+            "quote": "Wij geven Patrick samen een cadeaubon van de fietsenwinkel.",
+            "distractors": "The meeting is fake, the party is not cancelled, and nobody is asked to bake."
+          }
+        ]
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "light-humor",
+        "situation_summary": "Elif e-mails everyone in customer service except Patrick: for his 50th birthday on Friday 12 March they give a voucher for the bicycle shop (his bike is 25 years old and noisy), money goes in a named envelope to reception by Tuesday 9 March, a big card lies there, and cake in the canteen at 10.00 under the cover of a fake meeting.",
+        "communicative_purpose": "Colleagues join the gift, sign the card by the deadline and keep the surprise.",
+        "contrivance_check": "Leaving the birthday person off the recipient list is how a real surprise is organised; the squeaking bike is the one mild joke and now explains the voucher.",
+        "unsupported_assumptions": []
+      }
+    }
+  ]
+}
