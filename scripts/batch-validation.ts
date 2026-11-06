@@ -495,9 +495,16 @@ export function validateBatch(
   }
 
   if (totalQuestions && batchChecks) {
+    // Four three-option questions cannot stay under 40%: one letter is always the key twice.
+    // A small batch may reach the most even split its size allows, never more.
+    const letters = Math.min(4, ...Object.keys(optionCounts).map(Number));
+    const most = Math.max(0.4, Math.ceil(totalQuestions / letters) / totalQuestions);
     for (const [k, c] of Object.entries(keyCounts)) {
       const share = c / totalQuestions;
-      if (share > 0.4) fail(`answer key ${k} is ${(share * 100).toFixed(0)}% of keys (max 40%)`);
+      if (share > most + 1e-9)
+        fail(
+          `answer key ${k} is ${(share * 100).toFixed(0)}% of keys (max ${(most * 100).toFixed(0)}%)`,
+        );
       if (share < 0.2 && totalQuestions >= 10 && ['A', 'B', 'C'].includes(k))
         fail(`answer key ${k} is ${(share * 100).toFixed(0)}% of keys (min 20%)`);
     }

@@ -161,7 +161,7 @@ Requirements: `rubric: a2-schrijven`; a `model` answer; `sample` and `quotes` as
 ### 4.5 KNM — `exam: knm`, `part: knm`
 
 - `taskType: feit`. One picture (`images[0]`; a drawing in the house style of §7, a photo only for a real place, document or object), a fact card `text` of at most thirty words shown after answering, one question of at most twenty words, three options, `questionAudio` for the question and each option, `theme` (1–8) and `eindterm` (for example `6.3.2`) from the July 2025 list, `sourceUrl`, `sourceNote`, `sourceReviewedAt`.
-- Question forms: a direct fact ("Wanneer was de Holocaust?"), a persona fact ("Erik woont in een sociale huurwoning. Wat is dat?"), a yes/no with qualification ("Is belastingaangifte doen verplicht in Nederland?" — "Ja, dat is vaak verplicht."). No behaviour questions ("Wat kan hij het beste doen?").
+- Question forms: a direct fact ("Wanneer was de Holocaust?"), a persona fact ("Erik woont in een sociale huurwoning. Wat is dat?"), a yes/no with qualification ("Is belastingaangifte doen verplicht in Nederland?" — "Ja, dat is vaak verplicht."). No behaviour questions ("Wat kan hij het beste doen?"). A yes/no item that keys an exception or a condition follows the rules in §5.
 - Options are short noun phrases or short sentences at A2; one is correct by the cited source; the two others are plausible confusions (another institution, another rule, another period).
 - Coverage: every eindterm at least twice in the launch bank; blocks assembled per theme.
 - Retire an item immediately when the cited rule changes; re-check all time-sensitive items yearly.
@@ -208,7 +208,11 @@ A coherent source comes first. Information included for a question must still se
 - Options are parallel in form and length; no option is a superset of another; no "alle antwoorden zijn goed".
 - One option is correct by the evidence quote. Each distractor is wrong for one nameable reason, recorded in the batch notes.
 - Do not signal the key: no longer, more specific or more hedged option; no repeating a word from the prompt only in the key.
-- Balance keys per batch and per mock form (no letter above 40%, none below 20%).
+- Rules, exceptions and terms (learner data of 6 November 2026; batch 100 rewrote the three cases below):
+  - When the key is an exception or a condition, the prompt states that condition or asks for it ("Wanneer …?"). Never key an exception the prompt does not set up while a distractor states the general rule as "nooit" or "altijd": a learner who knows the rule then answers wrong (033 schoolvakantie: 10 of 13 first attempts chose the "nooit" rule).
+  - Every distractor is false as a statement about the Netherlands, not only as an answer to the prompt. A literal reading of a term that also happens to be true fails (033 passief kiesrecht: "Het recht om niet te hoeven stemmen", while voting is not compulsory).
+  - The options differ in exactly what the prompt asks. Two options that give the same answer to the prompt and differ only in an added clause leave a coin toss (032 vuurwerk: "Nee, sterretjes zijn ook verboden" against "Nee, sterretjes mogen wel" for a question about vuurpijlen).
+- Balance keys per batch and per mock form (no letter above 40%, none below 20%). A batch too small for that, such as four three-option questions, may reach its most even split (2/1/1) and no further; the 20% floor applies from ten questions.
 - Explanations quote or paraphrase the evidence and say why the tempting distractor fails.
 
 ## 6. Audio

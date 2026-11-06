@@ -1,0 +1,170 @@
+{
+  "review_id": "100-a2-knm-replacement-2026-11-06",
+  "source": "content/batches/100-original.json",
+  "proposed_source": "content/batches/100-proposed.json",
+  "source_sha256": "7647971d98a9365f0bb5ee0725fc559ffc934a54a3fde3c160981128b4a9b57c",
+  "review_type": "independent AI editorial review of 4 replaced A2 KNM items, with facts re-verified against primary Dutch government pages opened on 2026-11-06",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-06T00:00:00Z",
+  "reviewer": "Independent AI reviewer (Sonnet 5.5), separate from the author agent; AI editorial review, not human validation.",
+  "review_contract_version": 2,
+  "replaces": [
+    "A2:knm:batch033-schoolvakantie:1",
+    "A2:knm:batch033-passief-kiesrecht:1",
+    "A2:knm:batch032-vuurwerk:1",
+    "A2:knm:batch033-basisbeurs:1"
+  ],
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "d138fef126bb0fc426e82deaf86b690b4e1dfa572a6016d5954bb09999afa04b",
+    "independence_note": "The blind packet of the author file (hash d138fef1...a04b) was read first, with the brief, rubric and blueprint sections, and per-item findings were written to content/reviews/100-review.md before the full batch, notes, spec, base or any source was opened. The proposed file is byte-identical to the original, so the final packet rebuilt from the proposed bytes has the same hash and the meaning pass stands unchanged."
+  },
+  "tone_balance": {
+    "ordinary": 4,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All four are ordinary civic-fact scenes (school leave, voting rights, fireworks law, study grant) and replace published items classified the same way, so the program count does not change; the coordinator checks the combined count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 4,
+    "edited_by_reviewer": 0,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npm run batch:check content/batches/100-proposed.json: 4 items, keys B2/C1/A1, no failures, no warnings (info: 4 of 4 already in the catalogue, revision)",
+    "batch_review_source": "packet_sha256 d138fef126bb0fc426e82deaf86b690b4e1dfa572a6016d5954bb09999afa04b",
+    "image_briefs_and_alts_identical_to_base": true,
+    "card_word_counts": [
+      29,
+      30,
+      30,
+      30
+    ],
+    "prompt_word_counts": [
+      20,
+      10,
+      13,
+      17
+    ],
+    "options_per_question": 3,
+    "rule_condition_set_up": true,
+    "rule_distractors_false_about_NL": true,
+    "rule_options_differ_in_what_is_asked": true,
+    "answer_signals": "key not longest in any item; no prompt word recurs only in the key; no absolutes (nooit/altijd) in options",
+    "level_vs_official_knm": "comparable for all four",
+    "spec_error_confirmed": "consumer rockets were removed from the consumer list on 1 December 2020 (Stcrt. 2020, 45847); the general consumer ban took effect on 1 August 2026 (Stb. 2026, 168)",
+    "duplication": "no other KNM item tests these facts"
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch033-schoolvakantie:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": {
+        "quote": "Kunnen ouders door hun werk in geen enkele schoolvakantie weg? Dan kan de directeur maximaal tien dagen vrij geven",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/leerplicht/leerplicht-schoolvakanties",
+          "https://wetten.overheid.nl/BWBR0002628/"
+        ],
+        "access_date": "2026-11-06",
+        "summary": "Rijksoverheid (opened 2026-11-06): 'De directeur mag uw kind vrij geven voor maximaal 10 dagen per schooljaar. Dit mag 1 keer in een schooljaar.' Leerplichtwet art. 13a lid 2: 'ten hoogste tien dagen per schooljaar'. Distractors: 'Geen enkele dag' is false once the work condition holds; 'Zo lang als Fatima zelf wil' is false (permission and cap). All options are durations; no nooit/altijd. Card 29 words, prompt 20."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Fatima cannot take a holiday in any school break because of her work; the picture shows her and her daughter Amina at home next to a packed suitcase and a wall calendar. The question asks how long Amina may be away outside the school holidays.",
+        "communicative_purpose": "A working parent learns that the director can grant at most ten days, once per school year, and that longer absence is not allowed.",
+        "contrivance_check": "The work condition is stated in the prompt itself, so the exception is set up and no off-page event is needed. The suitcase and calendar fit the trip and do not show ten days.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch033-passief-kiesrecht:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": {
+        "quote": "Passief kiesrecht is het recht om gekozen te worden",
+        "sources": [
+          "https://www.kiesraad.nl/verkiezingen/tweede-kamer/stemmen/kiesgerechtigdheid",
+          "https://www.rijksoverheid.nl/themas/overheid-en-democratie/gemeenten/burgemeesters",
+          "https://wetten.overheid.nl/BWBR0005416/"
+        ],
+        "access_date": "2026-11-06",
+        "summary": "Kiesraad (opened 2026-11-06): 'Het passief kiesrecht is het recht om gekozen te worden.' Distractor B is false about the Netherlands: Rijksoverheid 'Burgemeesters': 'Een burgemeester wordt benoemd door de Koning en de minister ... op basis van een aanbeveling van de gemeenteraad'; Gemeentewet art. 61 lid 1. Distractor A is the meaning of actief kiesrecht, wrong for this term. Card 30 words, prompt 10."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Sem sits at a school desk with an open textbook and reads about the term 'passief kiesrecht'; the question asks what it means.",
+        "communicative_purpose": "A resident meets the term in civic education and learns the difference between the right to vote and the right to be elected.",
+        "contrivance_check": "A pupil meeting this term in a textbook is ordinary, and the closed book shows no definition. The term is quoted in the prompt, so no condition is hidden and no off-page event is needed.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch032-vuurwerk:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": {
+        "quote": "Sinds 1 augustus 2026 mogen consumenten alleen klein vuurwerk afsteken, zoals sterretjes.",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/vuurwerk/regels-vuurwerk",
+          "https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/vuurwerk/vraag-en-antwoord/vuurwerk/welk-vuurwerk-afsteken",
+          "https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/vuurwerk/maatregelen-voor-minder-gewonden-en-schade-door-vuurwerk",
+          "https://zoek.officielebekendmakingen.nl/stb-2026-168.html",
+          "https://zoek.officielebekendmakingen.nl/stcrt-2020-45847.html"
+        ],
+        "access_date": "2026-11-06",
+        "summary": "Rijksoverheid (opened 2026-11-06): 'Voor consumenten geldt een vuurwerkverbod. Alleen klein vuurwerk, zoals sterretjes, is nog toegestaan.'; 'Sinds 1 augustus 2026 is er een landelijk vuurwerkverbod voor consumenten.'; Staatsblad 2026, 168: in werking 1 augustus 2026. Distractor B false (F1 allowed all year); distractor C false (no consumer rockets; removed from the consumer list by Stcrt. 2020, 45847 on 1 December 2020, so the spec's 'until 2026' was wrong for rockets). Key is not the longest option; 'Ook' does not leak. Card 30 words, prompt 13."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Modibo stands on a balcony on a dark evening, looking over terraced houses with no fireworks in view. He wants to set off fireworks at Oud en Nieuw and the question asks what he may set off himself.",
+        "communicative_purpose": "A private person planning New Year's Eve learns that only small F1 fireworks such as sterretjes are legal for consumers.",
+        "contrivance_check": "The night balcony fits the New Year setting and shows no fireworks, so no option is revealed. 'Zelf' marks him as a consumer, which accounts for the sentence about associations in the card. No off-page event is needed.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch033-basisbeurs:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "evidence": {
+        "quote": "Haalt de student binnen tien jaar een diploma? Dan wordt de beurs een gift",
+        "sources": [
+          "https://duo.nl/particulier/studiefinanciering/basisbeurs.jsp",
+          "https://duo.nl/particulier/studiefinanciering/gift-of-terugbetalen.jsp"
+        ],
+        "access_date": "2026-11-06",
+        "summary": "DUO (opened 2026-11-06, updated 5 November 2026): 'De prestatiebeurs wordt omgezet in een gift als u binnen 10 jaar uw diploma behaalt. Lukt dit niet, dan moet u het totale bedrag met rente terugbetalen.'; 'als u uitwonend bent, is de beurs hoger dan wanneer u bij (een van) uw ouders thuis woont' (living with parents changes only the amount, so distractor A is false); no work condition exists (distractor C false). Options are three parallel conditions. Edge cases (first-year stop, illness) are not offered. Card 30 words, prompt 17."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Roos sits in a library with a laptop and a stack of books and receives a basisbeurs from DUO for hbo. The question asks when she does not have to pay it back.",
+        "communicative_purpose": "A student learns that the basisbeurs becomes a gift if the diploma is obtained within ten years, and otherwise must be repaid with interest.",
+        "contrivance_check": "A library and laptop are an ordinary student scene that says nothing about repayment. 'Wanneer' asks for the condition, so the key is set up by the prompt. No off-page event is needed.",
+        "unsupported_assumptions": []
+      }
+    }
+  ],
+  "media_notes": "Pictures are kept: every images array is identical to the base. Alts reveal no key. Question text changed in all four, so question audio must be regenerated with exact job keys (audio --keys). No new pictures. Pictures were not rendered by the reviewer.",
+  "limitations": [
+    "AI editorial review; no learner validation.",
+    "Time-sensitive: consumer fireworks ban (since 1 August 2026) and DUO pages (updated 5 November 2026) need re-checking yearly and before New Year.",
+    "Basisbeurs explanation omits the first-year-stop and illness exceptions on purpose; the prompt does not ask for them.",
+    "Eindterm mapping taken from the author's reading of Regeling inburgering 2021 Bijlage 2; not re-opened.",
+    "Pictures not inspected."
+  ]
+}

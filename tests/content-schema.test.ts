@@ -125,6 +125,30 @@ test('author checks catch structural failures beyond catalogue labels', () => {
   );
 });
 
+test('a small batch may reach its most even key split but no further', () => {
+  const knm = read('content/batches/055-original.json');
+  const keyed = (keys: string) =>
+    validateBatch(
+      keys.split('').map((key, index) => {
+        const item = clone(knm[index]);
+        const question = item.questions[0];
+        const current = question.options[question.answer];
+        question.options[question.answer] = question.options[key];
+        question.options[key] = current;
+        question.answer = key;
+        return item;
+      }),
+      catalogue,
+      voices,
+    ).failures.filter((s) => s.includes('of keys'));
+  // Four three-option questions always repeat a letter: 2/1/1 is as even as it gets.
+  assert.deepEqual(keyed('BCAB'), []);
+  assert.ok(keyed('BBAB').some((s) => s.includes('max 50%')));
+  // From five questions on, the 40% cap applies unchanged.
+  assert.ok(keyed('BCABB').some((s) => s.includes('max 40%')));
+  assert.deepEqual(keyed('BCABA'), []);
+});
+
 async function fixture(run: (directory: string) => Promise<void>, openTasks = false) {
   const cwd = process.cwd();
   const directory = mkdtempSync(join(tmpdir(), 'content-contract-'));
