@@ -184,7 +184,9 @@ try {
     'An answer is saved only in the learner’s own profile',
   );
   await chooseLearner('Anna');
-  await wait(`location.pathname==='/'`);
+  // The address changes before the start page renders, so wait for its heading too (CI once
+  // checked in between and failed).
+  await wait(`location.pathname==='/'&&document.querySelector('main h1')`);
   await check(
     `location.pathname==='/'&&document.querySelector('main h1')`,
     'Switching mid-exercise opens the next learner’s start page',
