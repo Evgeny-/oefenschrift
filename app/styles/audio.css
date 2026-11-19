@@ -200,9 +200,11 @@ summary {
   margin: 0.5rem 0;
   font-size: var(--text-body);
 }
+/* Labels keep their natural width while they are short, but a label that is a whole question
+   wraps at 55% so the answer lines stay inside the brief (a max-content column pushed them out). */
 .form-fields {
   display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: fit-content(55%) minmax(0, 1fr);
   gap: 0.45rem 1rem;
   margin: 0.75rem 0;
   font-size: var(--text-small);

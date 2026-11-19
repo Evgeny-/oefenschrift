@@ -123,6 +123,7 @@ try {
         'reactions',
         'refinement',
         'translation',
+        'forms',
         'home-sample',
         'a1',
         'a1-listening',
