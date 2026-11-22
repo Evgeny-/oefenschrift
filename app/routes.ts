@@ -2,6 +2,7 @@ import { index, layout, route } from '@react-router/dev/routes';
 export default [
   route('sitemap.xml', 'routes/sitemap.ts'),
   route('robots.txt', 'routes/robots.ts'),
+  route('api/words', 'routes/words-api.ts'),
   route('api/:service', 'routes/api.ts'),
   route('api/ops/:resource/:id?', 'routes/admin-api.ts'),
   route('ops/login', 'routes/admin-login.tsx'),

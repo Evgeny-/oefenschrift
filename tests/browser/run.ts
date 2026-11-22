@@ -129,6 +129,7 @@ try {
         'a1-listening',
         'a1-open',
         'teachers',
+        'words',
       ]) {
     console.log(`\nFirefox: ${test}`);
     const child = spawn(process.execPath, [`tests/browser/${test}.mjs`], {

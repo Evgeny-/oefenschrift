@@ -26,6 +26,9 @@ const validId = (id: unknown): id is string =>
   typeof id === 'string' && (id === MAIN_PROFILE || profileIdPattern.test(id));
 export const profileSlot = (id: string) =>
   id === MAIN_PROFILE ? STORAGE_KEY : `${STORAGE_KEY}@${id}`;
+// The word lists keep each learner's marked words in a key of their own beside it.
+export const WORDS_KEY = 'oefenschrift.words.v1';
+export const wordsSlot = (id: string) => (id === MAIN_PROFILE ? WORDS_KEY : `${WORDS_KEY}@${id}`);
 export function cleanName(name: unknown) {
   return String(name ?? '')
     .replace(/\s+/g, ' ')
@@ -124,7 +127,7 @@ export function removeProfile(storage, current: Profiles, id: string): Profiles 
   const next = { ...current, list: current.list.filter((p) => p.id !== id) };
   if (!writeProfiles(storage, next)) return null;
   const slot = profileSlot(id);
-  for (const key of [slot, ...(legacyNames[slot] || [])])
+  for (const key of [slot, wordsSlot(id), ...(legacyNames[slot] || [])])
     try {
       storage.removeItem(key);
     } catch {}

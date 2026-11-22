@@ -36,6 +36,10 @@ import Wordmark from './components/Wordmark';
 import site from '../content/site.json';
 import useDisclosureMotion from './components/useDisclosureMotion';
 import { withBase } from './domain/base';
+import WordLists from './components/words/WordLists';
+import type { WordsPage } from './domain/words';
+import { practiceMode, practiceSearch } from './domain/word-practice';
+import { isNewSection } from './domain/new-sets';
 const labels = {
   reading: ['Lezen', 'Reading'],
   listening: ['Luisteren', 'Listening'],
@@ -44,6 +48,7 @@ const labels = {
   knm: ['KNM', 'KNM'],
   mock: ['Proefexamen', 'Practice test'],
   progress: ['Voortgang', 'Progress'],
+  words: ['Woorden', 'Words'],
 };
 export default function App({
   catalogue,
@@ -51,12 +56,14 @@ export default function App({
   initialState,
   services,
   renderedAt,
+  words,
 }: {
   catalogue: Exercise[];
   practiceSets: PracticeSetDefinition[];
   initialState: any;
   services: ServiceStatus;
   renderedAt: number;
+  words?: WordsPage;
 }) {
   const location = useLocation(),
     navigate = useNavigate();
@@ -222,7 +229,11 @@ export default function App({
     ? practiceSets.find((set) => set.id === route.slice(4))
     : null;
   const setReady = practiceSet && matchesSet(state.active, practiceSet);
-  const page = practiceSet?.part || opened?.part || (route === 'session' ? 'mock' : route);
+  const wordList = route.startsWith('words/');
+  const page =
+    practiceSet?.part ||
+    opened?.part ||
+    (route === 'session' ? 'mock' : wordList ? 'words' : route);
   // The page in a given language: the same route, only the /en prefix differs.
   const pathIn = (language) =>
     (route === 'missing'
@@ -245,7 +256,13 @@ export default function App({
       navigate(pathIn(value));
     }
   };
-  const backPart = practiceSet?.part || opened?.part || (route === 'session' ? 'mock' : null),
+  const backPart =
+      practiceSet?.part ||
+      opened?.part ||
+      (route === 'session' ? 'mock' : wordList ? 'words' : null),
+    // A round of word cards goes back to the practice choice (and mode) it was started from.
+    practiceParams = new URLSearchParams(location.search),
+    practiceRound = route === 'words/practice' && practiceParams.has('list'),
     runningCheck =
       route === 'check' && state.settings.level !== 'A1' ? checkInProgress(state) : null;
   // Icon motion follows a real section change, never the initial page load.
@@ -338,6 +355,8 @@ export default function App({
     <Terms />
   ) : route === 'teachers' ? (
     <Teachers />
+  ) : route === 'words' || wordList ? (
+    <WordLists route={route} data={words} />
   ) : route === 'home' ? (
     <Home />
   ) : route === 'check' ? (
@@ -422,9 +441,9 @@ export default function App({
             </nav>
             <nav
               className="utility-nav"
-              aria-label={t('Oefenen en voortgang', 'Practice and progress')}
+              aria-label={t('Woorden, oefenen en voortgang', 'Words, practice and progress')}
             >
-              {['mock', 'progress'].map((part) => (
+              {['words', 'mock', 'progress'].map((part) => (
                 <AppLink
                   className="nav-link"
                   key={part}
@@ -436,6 +455,7 @@ export default function App({
                   <span className="nav-label" data-label={name(part)}>
                     {name(part)}
                   </span>
+                  {isNewSection(part) && <span className="nav-new">{t('Nieuw', 'New')}</span>}
                 </AppLink>
               ))}
             </nav>
@@ -445,8 +465,15 @@ export default function App({
         <div className="workspace">
           {backPart ? (
             <div className="toolbar">
-              <AppLink className="back" to={backPart}>
-                ← {t('Terug naar', 'Back to')} {name(backPart)}
+              <AppLink
+                className="back"
+                to={practiceRound ? 'words/practice' : backPart}
+                search={
+                  practiceRound ? practiceSearch(practiceMode(practiceParams.get('mode'))) : ''
+                }
+              >
+                ← {t('Terug naar', 'Back to')}{' '}
+                {practiceRound ? t('oefenen', 'practice') : name(backPart)}
               </AppLink>
               {position && <span className="set-position">{position}</span>}
             </div>

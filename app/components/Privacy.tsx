@@ -14,7 +14,7 @@ import {
   SESSION_KEY,
   VOLUME_KEY,
 } from '../domain/persistence';
-import { PROFILES_KEY } from '../domain/profiles';
+import { PROFILES_KEY, WORDS_KEY } from '../domain/profiles';
 // The privacy notice for the public service. Facts that belong to the operator (name,
 // contact) come from content/site.json; everything else describes what the code does.
 const rows = [
@@ -73,6 +73,14 @@ const storage = [
       'The playback volume and whether sound is muted',
     ],
     life: ['Tot je het wist', 'Until you clear it'],
+  },
+  {
+    name: WORDS_KEY,
+    what: [
+      'Bij Woorden: Mijn lijst, je weergave-instellingen en je oefenvoortgang per woord (wanneer het terugkomt, hoe vaak goed en opnieuw)',
+      'Under Words: My list, your view settings and your practice progress per word (when it comes back, how often right and again)',
+    ],
+    life: ['Tot je ze wist', 'Until you clear it'],
   },
   {
     name: VISITOR_KEY,
@@ -134,8 +142,8 @@ export default function Privacy() {
         <h2>{t('Op je apparaat', 'On your device')}</h2>
         <p>
           {t(
-            'Je voortgang, resultaten, concepten en transcripties die je als antwoord gebruikt, worden in deze browser bewaard en niet naar de server gestuurd. Op de pagina Voortgang kun je ze exporteren of wissen; het wissen van de sitegegevens in je browser verwijdert alles.',
-            'Your progress, results, drafts and transcripts used as answers are saved in this browser and never sent to the server. The Progress page lets you export or delete them; clearing site data in your browser removes everything.',
+            'Je voortgang, resultaten, concepten en transcripties die je als antwoord gebruikt, worden in deze browser bewaard en niet naar de server gestuurd. Op de pagina Voortgang kun je ze exporteren of wissen; het wissen van de sitegegevens in je browser verwijdert alles. Ook de woorden die je bij Woorden op Mijn lijst zet en wat je met de kaartjes hebt geoefend, blijven alleen in deze browser.',
+            'Your progress, results, drafts and transcripts used as answers are saved in this browser and never sent to the server. The Progress page lets you export or delete them; clearing site data in your browser removes everything. The words you put on My list under Words and what you practised with the cards also stay only in this browser.',
           )}
         </p>
         <p>

@@ -9,6 +9,7 @@ import { Chevron, NavIcon, ReasonIcon } from './Controls';
 import { checkDate, checkLine } from './LevelCheck';
 import site from '../../content/site.json';
 import Subjects from './home/Subjects';
+import Words from './home/Words';
 import SampleQuestion from './home/SampleQuestion';
 import Faq from './home/Faq';
 const parts = ['reading', 'listening', 'writing', 'speaking', 'knm'];
@@ -188,6 +189,7 @@ export default function Home() {
         </section>
       )}
       <Subjects />
+      <Words />
       {(previewSample || !Object.values(state.records).some((record) => record.completed)) && (
         <SampleQuestion />
       )}
