@@ -268,7 +268,7 @@ function dutchNumber(n: number): string {
 }
 // Spoken form of a script: what the voice is asked to say and what the transcript is compared with.
 // Phone numbers are read digit by digit with pauses (pairs come back regrouped and misheard), 112 as
-// "één één twee", and clock times as Dutch speakers say them ("17.00 uur" is "vijf uur").
+// "één één twee" (and 999 or 911 the same way), and clock times as Dutch speakers say them ("17.00 uur" is "vijf uur").
 const DIGITS = ['nul', 'één', 'twee', 'drie', 'vier', 'vijf', 'zes', 'zeven', 'acht', 'negen'];
 function spokenTime(h: number, m: number): string {
   const hour = h % 12 === 0 ? 12 : h % 12,
@@ -288,7 +288,8 @@ export function spoken(text: string): string {
         .join(', '),
     )
     .replace(/\b0\d{8,9}\b/g, (n) => [...n].map((d) => DIGITS[+d]).join(' '))
-    .replace(/\b112\b/g, 'één één twee')
+    // Emergency numbers are said digit by digit; 999 and 911 appear only as other countries' numbers.
+    .replace(/\b(?:112|911|999)\b/g, (n) => [...n].map((d) => DIGITS[+d]).join(' '))
     .replace(/\b(\d{1,2})[.:](\d{2})\s*u(?:ur)?\b/g, (_, h, m) => spokenTime(+h, +m))
     .replace(/\b(\d{1,2})[.:](\d{2})\b/g, (_, h, m) => spokenTime(+h, +m));
 }

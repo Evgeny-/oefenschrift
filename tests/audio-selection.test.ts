@@ -5,7 +5,7 @@ import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { audioOption, parseAudioKeys, selectAudioJobs } from '../scripts/audio-selection';
-import { reusableClip } from '../scripts/audio';
+import { reusableClip, spoken } from '../scripts/audio';
 
 test('exact key selection preserves source order and leaves every unselected job unchanged', () => {
   const jobs = [
@@ -257,4 +257,11 @@ globalThis.fetch = async (url,init) => {
         rmSync(resolve('tmp/audio', generatedToken + suffix), { force: true });
     rmSync(directory, { recursive: true, force: true });
   }
+});
+
+test('emergency numbers are spoken digit by digit, other numbers are left alone', () => {
+  assert.equal(spoken('Bel 112.'), 'Bel één één twee.');
+  assert.equal(spoken('Het nummer 999.'), 'Het nummer negen negen negen.');
+  assert.equal(spoken('Het nummer 911.'), 'Het nummer negen één één.');
+  assert.equal(spoken('Het kost 1999 euro.'), 'Het kost 1999 euro.');
 });
