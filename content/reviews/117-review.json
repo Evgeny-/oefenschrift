@@ -1,0 +1,764 @@
+{
+  "review_id": "117-a2-knm-theme1-2026-11-22",
+  "review_contract_version": 2,
+  "source": "content/batches/117-original.json",
+  "proposed_source": "content/batches/117-proposed.json",
+  "source_sha256": "49a7b802ffad91c8a3831d7c89ec22ec0a2ee1f2b5e39caba4447703124340c7",
+  "review_type": "independent AI editorial review of 13 new A2 KNM items (theme 1), with facts re-verified on primary Dutch government pages opened on 2026-11-22",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T15:37:15Z",
+  "reviewer": "Independent AI reviewer (Sonnet 5.5), separate from the author agent; AI editorial review, not human validation.",
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "f8d8c3188b55ad0219d6c2ed874acd6878d80b208ae094739a3f9e494cb3e332",
+    "independence_note": "The blind packet of the author file (hash 11c0b37e3e22e43fa44a4ffd88564a924316ab596052218a67daa5951503049c) was read first and per-item findings were written to content/reviews/117-review.md before the full batch, notes or assignment were opened. After the repairs the packet was rebuilt from the proposed bytes (hash recorded here) and the meaning pass was repeated for the changed items (netwerken-werk, kansrijk-verdwijnt, diplomawaardering-werkgever, scholing-gemeente, loonheffingskorting-een-werkgever, bbz-bedrijfskapitaal)."
+  },
+  "tone_balance": {
+    "ordinary": 13,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "KNM items are never jokes; all 13 are ordinary civic and work scenes. The coordinator checks the combined program count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 2,
+    "edited_by_reviewer": 11,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:knm:batch117-map-routes:1",
+      "field": "sourceUrl",
+      "before": "https://www.rijksoverheid.nl/onderwerpen/inburgeren-in-nederland/nieuwe-wet-inburgering",
+      "after": "https://www.rijksoverheid.nl/themas/migratie-en-reizen/inburgeren-in-nederland/nieuwe-wet-inburgering",
+      "reason": "The original URL redirects; the canonical live page is cited."
+    },
+    {
+      "id": "A2:knm:batch117-map-routes:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Wet inburgering 2021' (page title 'Wet inburgering 2021 | Rijksoverheid.nl'), opened 2026-11-22: 'de Module Arbeidsmarkt & Participatie (MAP) (uitsluitend voor de B1- en Z-route);'. The page lists the MAP among the municipal offer; the onderwijsroute is not named in that sentence, 'uitsluitend' excludes it.",
+      "after": "Rijksoverheid, 'Wet inburgering 2021', opened 2026-11-22, section on the inburgeringsaanbod: 'de Module Arbeidsmarkt & Participatie (MAP) (uitsluitend voor de B1- en Z-route);'. The same page lists the three leerroutes (B1-route, onderwijsroute, zelfredzaamheidsroute), so the onderwijsroute is excluded by 'uitsluitend'.",
+      "reason": "Quote checked verbatim against the live page; route names added."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "title",
+      "before": "Werk vinden via netwerken",
+      "after": "Vacatures vinden via netwerken",
+      "reason": "The card now states a UWV fact about vacancies, not advice."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "text",
+      "before": "Netwerken is een belangrijke manier om werk te vinden. Uw netwerk zijn de mensen die u kent, ook online. Vertel veel mensen dat u werk zoekt.",
+      "after": "Ongeveer 70 procent van de vacatures wordt ingevuld via netwerken. Uw netwerk zijn de mensen die u kent, ook online.",
+      "reason": "The original quoted an interview (\"volgens Pieter\") and advice. UWV states plainly that about 70% of vacancies are filled through networks."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "questions.prompt",
+      "before": "Wat is een belangrijke manier om werk te vinden?",
+      "after": "Hoe worden volgens UWV de meeste vacatures ingevuld?",
+      "reason": "Asks the stated fact; no behaviour or advice question."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "questions.options",
+      "before": {
+        "A": "Netwerken, ook online.",
+        "B": "Alleen via de gemeente.",
+        "C": "Alleen via een uitzendbureau."
+      },
+      "after": {
+        "A": "Via netwerken, ook online.",
+        "B": "Via de gemeente.",
+        "C": "Via advertenties in de krant."
+      },
+      "reason": "The \"alleen\" absolutes were distractors no learner would choose; the new ones are plain and false for \"de meeste\"."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "questions.evidence",
+      "before": "Netwerken is een belangrijke manier om werk te vinden",
+      "after": "Ongeveer 70 procent van de vacatures wordt ingevuld via netwerken",
+      "reason": "Verbatim in the new card."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "questions.explanation",
+      "before": "UWV noemt netwerken een belangrijke manier om werk te vinden, in persoon of online. Vertel veel mensen dat u werk zoekt. De gemeente en uitzendbureaus helpen ook, maar het is niet de enige weg.",
+      "after": "UWV schrijft dat ongeveer 70 procent van de vacatures via netwerken wordt ingevuld. Dat zijn de mensen die u kent, ook online. Via de gemeente of een advertentie in de krant gaat het minder vaak.",
+      "reason": "Rewritten for the new fact."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "imageBrief",
+      "before": "A young man (early twenties, short black hair, green jacket) shakes hands with an older woman (grey bob, blue blouse) at a small cafe table, two cups of coffee between them. No text.",
+      "after": "A young man (early twenties, short black hair, green jacket) sits at a table with a laptop and a notebook, a window behind him. No text.",
+      "reason": "The handshake and coffee scene showed the key (networking); the new picture shows only a person looking for work."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "imageAlt",
+      "before": "Een jonge man geeft een oudere vrouw een hand aan een tafeltje in een café.",
+      "after": "Een jonge man zit aan een tafel met een laptop en een schrift.",
+      "reason": "Matches the new picture and reveals no key."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "sourceUrl",
+      "before": "https://www.uwv.nl/nl/ervaringsverhalen/het-nieuwe-solliciteren",
+      "after": "https://www.uwv.nl/nl/ervaringsverhalen/werk-vinden-wees-online-vindbaar",
+      "reason": "The earlier page (2023, \"kan verouderd zijn\") only had an anecdote; this UWV page states the figure in its own text."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "sourceNote",
+      "before": "UWV, 'Spontaan, informeel en via-via solliciteren' (page title 'Spontaan, informeel en via-via solliciteren | UWV'), opened 2026-11-22: 'Netwerken, in levenden lijve of online, blijft volgens Pieter een belangrijke manier om werk te vinden.' and 'Het helpt als je in je eigen omgeving aan veel mensen laat weten dat je op zoek bent.' The statement comes from an experience story published by UWV.",
+      "after": "UWV, 'Werk zoeken? Wees online vindbaar' (page dated 30 januari 2024), opened 2026-11-22: 'Ongeveer 70% van de vacatures wordt vervuld door online en fysiek netwerken.' It is an editorial page around an expert interview; the sentence is stated by UWV, not quoted from the expert. Re-check yearly (figure).",
+      "reason": "Verbatim quote, with the page type and the yearly check recorded."
+    },
+    {
+      "id": "A2:knm:batch117-kansrijk-verdwijnt:1",
+      "field": "text",
+      "before": "De lijst met kansrijke beroepen verandert elk jaar. Een beroep gaat van de lijst als de vraag naar medewerkers afneemt. Of als veel werkzoekenden dat beroep willen.",
+      "after": "De lijst met kansrijke beroepen verandert elk jaar. Een beroep gaat van de lijst als werkgevers minder medewerkers zoeken. Of als veel mensen dat beroep willen doen.",
+      "reason": "\"vraag ... afneemt\" and \"populairder\" are harder than A2; plain wording keeps the source meaning."
+    },
+    {
+      "id": "A2:knm:batch117-kansrijk-verdwijnt:1",
+      "field": "questions.options",
+      "before": {
+        "A": "De vraag naar medewerkers neemt toe.",
+        "B": "Er zijn minder werkzoekenden.",
+        "C": "De vraag naar medewerkers neemt af."
+      },
+      "after": {
+        "A": "Werkgevers zoeken meer medewerkers.",
+        "B": "Er zijn minder werkzoekenden.",
+        "C": "Werkgevers zoeken minder medewerkers."
+      },
+      "reason": "Plain A2 wording for the tested reason."
+    },
+    {
+      "id": "A2:knm:batch117-kansrijk-verdwijnt:1",
+      "field": "questions.evidence",
+      "before": "als de vraag naar medewerkers afneemt",
+      "after": "als werkgevers minder medewerkers zoeken",
+      "reason": "Verbatim in the new card."
+    },
+    {
+      "id": "A2:knm:batch117-kansrijk-verdwijnt:1",
+      "field": "questions.explanation",
+      "before": "UWV schrijft dat elk jaar beroepen van de lijst verdwijnen, bijvoorbeeld omdat de vraag naar medewerkers afneemt. Ook als een beroep populairder wordt onder werkzoekenden kan het verdwijnen. Meer vraag of minder werkzoekenden maakt de kans op werk juist groter.",
+      "after": "UWV schrijft dat een beroep van de lijst kan gaan als er minder vraag naar medewerkers is. Of als het beroep populairder wordt. Meer vacatures of minder werkzoekenden maken de kans op werk juist groter.",
+      "reason": "Plain wording, still says why the tempting distractors fail."
+    },
+    {
+      "id": "A2:knm:batch117-kansrijk-verdwijnt:1",
+      "field": "sourceNote",
+      "before": "UWV, 'Kansrijke beroepen: beroepen met goede kansen op werk', opened 2026-11-22: 'Ieder jaar verdwijnen er ook beroepen van de lijst met kansrijke beroepen. Dat komt bijvoorbeeld doordat de vraag naar medewerkers afneemt. Of doordat een beroep populairder wordt onder werkzoekenden.' (quote as read through the page fetch; the list is updated every year).",
+      "after": "UWV, 'Kansrijke beroepen: beroepen met goede kansen op werk', opened 2026-11-22: 'Ieder jaar verdwijnen er ook beroepen van de lijst met kansrijke beroepen. Dat komt bijvoorbeeld doordat de vraag naar medewerkers afneemt. Of doordat een beroep populairder wordt onder werkzoekenden.' Verbatim on the live page. Re-check yearly (the list changes every year).",
+      "reason": "Quote confirmed verbatim on the live page."
+    },
+    {
+      "id": "A2:knm:batch117-diplomawaardering-werkgever:1",
+      "field": "text",
+      "before": "Een diplomawaardering is een advies aan een werkgever, geen besluit. U hebt het voor werk alleen nodig als uw werkgever daarom vraagt.",
+      "after": "Een diplomawaardering is een advies aan een werkgever, geen besluit. Is uw diploma goed genoeg voor de baan? Dan hebt u het alleen nodig als uw werkgever daarom vraagt.",
+      "reason": "The page says the employer-only rule applies when the diploma meets the job requirement; otherwise you apply. The card now carries that condition."
+    },
+    {
+      "id": "A2:knm:batch117-diplomawaardering-werkgever:1",
+      "field": "questions.prompt",
+      "before": "Imane heeft een diploma uit het buitenland en zoekt werk. Wanneer heeft zij een diplomawaardering nodig?",
+      "after": "Het buitenlandse diploma van Imane is goed genoeg voor de baan. Wanneer heeft zij een diplomawaardering nodig?",
+      "reason": "The prompt sets up the condition under which the key holds (blueprint 5)."
+    },
+    {
+      "id": "A2:knm:batch117-diplomawaardering-werkgever:1",
+      "field": "questions.explanation",
+      "before": "Voor werk is een diplomawaardering alleen nodig als de werkgever erom vraagt. Het is een advies aan de werkgever, geen besluit. Zij hoeft het dus niet vooraf te hebben, en het land van het diploma maakt niet uit.",
+      "after": "Is het diploma goed genoeg voor de baan, dan is een diplomawaardering alleen nodig als de werkgever erom vraagt. Het is een advies aan de werkgever, geen besluit. Het land van het diploma maakt niet uit.",
+      "reason": "Matches the conditional rule on the page."
+    },
+    {
+      "id": "A2:knm:batch117-diplomawaardering-werkgever:1",
+      "field": "sourceNote",
+      "before": "NederlandWereldwijd (Rijksoverheid), 'Diplomawaardering voor werk in Nederland', opened 2026-11-22: 'diplomawaardering is alleen nodig als uw werkgever daarom vraagt.' and 'Een diplomawaardering is een advies aan uw toekomstige werkgever, geen besluit.' (as read through the page fetch).",
+      "after": "NederlandWereldwijd (Ministerie van Buitenlandse Zaken), 'Diplomawaardering voor werk in Nederland', opened 2026-11-22: 'Een diplomawaardering is een advies aan uw toekomstige werkgever, geen besluit.' and, under 'Heb ik het nodig?', 'Voldoet uw diploma aan de opleidingseis van de baan in Nederland?' - 'Ja: diplomawaardering is alleen nodig als uw werkgever daarom vraagt'. Verbatim on the live page.",
+      "reason": "Quote and condition verbatim."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "text",
+      "before": "Krijgt u bijstand van de gemeente? Dan kan de gemeente u scholing aanbieden. Zo wordt uw kans op werk groter.",
+      "after": "Krijgt u een uitkering van de gemeente? Dan kan de gemeente u scholing aanbieden om uw kans op werk te vergroten.",
+      "reason": "Now states the purpose, which is what eindterm 1.1.5 (belang van scholing) names; the condition is on the page."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "questions.prompt",
+      "before": "Imane krijgt bijstand en wil haar kans op werk vergroten. Wie kan haar scholing aanbieden?",
+      "after": "Imane krijgt een uitkering van de gemeente. Wat is het doel als de gemeente haar scholing aanbiedt?",
+      "reason": "The item now tests the importance of scholing, not who offers it (the gemeente key repeated other items)."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "questions.options",
+      "before": {
+        "A": "De Belastingdienst.",
+        "B": "De Kamer van Koophandel.",
+        "C": "De gemeente."
+      },
+      "after": {
+        "A": "Haar kans op werk wordt groter.",
+        "B": "Haar uitkering wordt hoger.",
+        "C": "Zij hoeft niet meer te solliciteren."
+      },
+      "reason": "Distractors false: scholing does not raise the uitkering, and the duty to look for work stays."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "questions.answer",
+      "before": "C",
+      "after": "A",
+      "reason": "New key."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "questions.evidence",
+      "before": "Dan kan de gemeente u scholing aanbieden",
+      "after": "om uw kans op werk te vergroten",
+      "reason": "Verbatim in the card."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "questions.explanation",
+      "before": "Wie een uitkering van de gemeente heeft, werkt samen met de gemeente aan werk. De gemeente kan scholing aanbieden om de kans op werk te vergroten. De Belastingdienst en de Kamer van Koophandel doen dat niet.",
+      "after": "De gemeente biedt scholing aan om de kans op werk te vergroten. Scholing maakt de uitkering niet hoger. Een uitkering van de gemeente blijft bij de plicht om werk te zoeken horen.",
+      "reason": "Explains the purpose and why both distractors fail."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "sourceUrl",
+      "before": "https://rijksoverheid.nl/onderwerpen/werken-met-arbeidsbeperking/vraag-en-antwoord/hoe-verloopt-mijn-re-integratietraject-via-de-gemeente",
+      "after": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/werken-met-arbeidsbeperking/hoe-verloopt-mijn-re-integratietraject-via-de-gemeente",
+      "reason": "Canonical URL after redirect."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Hoe verloopt mijn re-integratietraject via de gemeente?', opened 2026-11-22: 'Dan zijn u en uw gemeente samen verantwoordelijk voor uw re-integratie (terugkeer naar werk).' and 'De gemeente kan u scholing aanbieden om uw kans op werk te vergroten.' The page sits under 'werken met arbeidsbeperking'; the sentence is general for a gemeente uitkering. The page fetch did not show the sentence that opens the condition; the item says bijstand, which is the gemeente uitkering. The fact card shortens 'om uw kans op werk te vergroten' to the result sentence.",
+      "after": "Rijksoverheid, 'Hoe verloopt mijn re-integratietraject via de gemeente?', opened 2026-11-22: 'Krijgt u een uitkering van de gemeente? Dan zijn u en uw gemeente samen verantwoordelijk voor uw re-integratie (terugkeer naar werk). De gemeente biedt u voorzieningen aan zoals scholing, werk of begeleiding.' and 'De gemeente kan u scholing aanbieden om uw kans op werk te vergroten.' The condition and the purpose are both on the page. The page also says 'U bent verplicht gebruik te maken van voorzieningen die de gemeente voor u nodig vindt.'",
+      "reason": "Verbatim, with the opening condition that the author could not read."
+    },
+    {
+      "id": "A2:knm:batch117-taken-functie-horeca:1",
+      "field": "questions.explanation",
+      "before": "Een werkgever mag eisen stellen die bij de taken van de baan horen. Een horecamedewerker moet uren kunnen staan. Vragen over ziektes of kinderwens horen niet bij de taken en mogen niet.",
+      "after": "Een werkgever mag vragen of u de taken van de baan kunt doen. Een horecamedewerker moet uren kunnen staan. Vragen over ziektes of over kinderen krijgen hoort daar niet bij.",
+      "reason": "Plainer words than \"kinderwens\"/\"eisen stellen\"."
+    },
+    {
+      "id": "A2:knm:batch117-taken-functie-horeca:1",
+      "field": "sourceUrl",
+      "before": "https://www.rijksoverheid.nl/onderwerpen/gelijke-behandeling-op-het-werk/vraag-en-antwoord/welke-vragen-mogen-niet-gesteld-worden-tijdens-een-sollicitatiegesprek",
+      "after": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/gelijke-behandeling-op-het-werk/welke-vragen-mogen-niet-gesteld-worden-tijdens-een-sollicitatiegesprek",
+      "reason": "Canonical URL after redirect."
+    },
+    {
+      "id": "A2:knm:batch117-wia-na-twee-jaar:1",
+      "field": "sourceUrl",
+      "before": "https://www.rijksoverheid.nl/onderwerpen/ziekteverzuim-van-het-werk/regels-en-verplichtingen-bij-ziekte",
+      "after": "https://www.rijksoverheid.nl/themas/werk/ziekteverzuim-van-het-werk/regels-en-verplichtingen-bij-ziekte",
+      "reason": "Canonical URL after redirect."
+    },
+    {
+      "id": "A2:knm:batch117-ww-beschikbaar:1",
+      "field": "sourceUrl",
+      "before": "https://www.rijksoverheid.nl/onderwerpen/ww-uitkering/vraag-en-antwoord/wanneer-heb-ik-recht-op-een-ww-uitkering",
+      "after": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/ww-uitkering/wanneer-heb-ik-recht-op-een-ww-uitkering",
+      "reason": "Canonical URL after redirect."
+    },
+    {
+      "id": "A2:knm:batch117-proeftijd-vast:1",
+      "field": "sourceUrl",
+      "before": "https://www.rijksoverheid.nl/onderwerpen/arbeidsovereenkomst-en-cao/vraag-en-antwoord/hoelang-duurt-een-proeftijd",
+      "after": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/arbeidsovereenkomst-en-cao/hoelang-duurt-een-proeftijd",
+      "reason": "Canonical URL after redirect."
+    },
+    {
+      "id": "A2:knm:batch117-proeftijd-vast:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Hoelang duurt mijn proeftijd?', opened 2026-11-22: 'De proeftijd kan maximaal 2 maanden duren bij:' (vast contract; tijdelijk contract van 2 jaar of langer) and 'De proeftijd mag maximaal 1 maand duren bij:' (tijdelijk contract van meer dan 6 maanden en korter dan 2 jaar; tijdelijk contract zonder einddatum). Older cached versions of the page said 1 month for vast; the live page says 2 months.",
+      "after": "Rijksoverheid, 'Hoelang duurt mijn proeftijd?', opened 2026-11-22 (live page, not a cached copy): 'De proeftijd kan maximaal 2 maanden duren bij: een vast dienstverband; een tijdelijk arbeidscontract voor 2 jaar of langer.' and 'De proeftijd mag maximaal 1 maand duren bij: een tijdelijk arbeidscontract van meer dan 6 maanden maar korter dan 2 jaar; een tijdelijk arbeidscontract zonder einddatum.' Confirmed: vast = maximaal 2 maanden.",
+      "reason": "Live page confirmed two months for a permanent contract."
+    },
+    {
+      "id": "A2:knm:batch117-or-voorstellen:1",
+      "field": "questions.explanation",
+      "before": "De OR mag de ondernemer ongevraagd voorstellen doen over werk en bedrijf. Dat heet het initiatiefrecht. De OR neemt geen collega's aan en ontslaat ze niet; dat doet de werkgever.",
+      "after": "De OR mag de directie ongevraagd voorstellen doen over werk en bedrijf. Nieuwe collega's aannemen of collega's ontslaan doet de werkgever, niet de OR.",
+      "reason": "Drops the term \"initiatiefrecht\" and \"ondernemer\", which are harder than A2."
+    },
+    {
+      "id": "A2:knm:batch117-loonheffingskorting-een-werkgever:1",
+      "field": "text",
+      "before": "Met loonheffingskorting betaalt u minder belasting over uw loon. U kunt de korting maar bij één werkgever tegelijk laten toepassen.",
+      "after": "De werkgever houdt loonheffing in op uw loon. Met loonheffingskorting houdt hij minder in. U kunt de korting bij maar één werkgever tegelijk laten toepassen.",
+      "reason": "Ties the fact to the eindterm (inhouding op het salaris) and explains the term."
+    },
+    {
+      "id": "A2:knm:batch117-loonheffingskorting-een-werkgever:1",
+      "field": "questions.evidence",
+      "before": "maar bij één werkgever tegelijk",
+      "after": "bij maar één werkgever tegelijk",
+      "reason": "Verbatim in the new card."
+    },
+    {
+      "id": "A2:knm:batch117-loonheffingskorting-een-werkgever:1",
+      "field": "sourceNote",
+      "before": "Belastingdienst, 'Loonheffingskorting met een bijbaan', opened 2026-11-22: 'Je vraagt deze korting aan bij je werkgever of uitkeringsinstantie.' and 'Vraag dan bij 1 werkgever de loonheffingskorting aan.' and 'Als je bij iedere werkgever loonheffingskorting aanvraagt, krijg je te veel korting op je belasting.' (jongeren page; the rule is the same for everyone). The page says banen na elkaar in één jaar are different, so the prompt says 'tegelijk'.",
+      "after": "Belastingdienst, 'Loonheffingskorting met een bijbaan', opened 2026-11-22: 'Werk je tegelijkertijd bij meer dan 1 werkgever? Of heb je een uitkering en tegelijkertijd een baan? Vraag dan bij 1 werkgever de loonheffingskorting aan. Als je bij iedere werkgever loonheffingskorting aanvraagt, krijg je te veel korting op je belasting.' and 'Je vraagt deze korting aan bij je werkgever of uitkeringsinstantie. Die betaalt dan minder belasting'. The page is in the jongeren section; the Belastingdienst states the same rule for all employees. Maps to 1.2.3 through the inhouding of loonheffing by the werkgever; loose but defensible.",
+      "reason": "Verbatim quotes; mapping noted."
+    },
+    {
+      "id": "A2:knm:batch117-discriminatie-melden-bureau:1",
+      "field": "questions.options",
+      "before": {
+        "A": "Bij het UWV.",
+        "B": "Bij Discriminatie.nl.",
+        "C": "Bij DUO."
+      },
+      "after": {
+        "A": "Bij het UWV.",
+        "B": "Bij Discriminatie.nl.",
+        "C": "Bij de Belastingdienst."
+      },
+      "reason": "DUO is an obscure distractor; the Belastingdienst is a familiar institution that takes no discrimination reports."
+    },
+    {
+      "id": "A2:knm:batch117-discriminatie-melden-bureau:1",
+      "field": "questions.explanation",
+      "before": "U meldt discriminatie op Discriminatie.nl, de website van de antidiscriminatiebureaus. Het UWV en DUO nemen geen meldingen over discriminatie aan.",
+      "after": "U meldt discriminatie op Discriminatie.nl, de website van de antidiscriminatiebureaus. Het UWV en de Belastingdienst nemen geen meldingen over discriminatie aan.",
+      "reason": "Matches the new distractor."
+    },
+    {
+      "id": "A2:knm:batch117-discriminatie-melden-bureau:1",
+      "field": "sourceUrl",
+      "before": "https://www.rijksoverheid.nl/onderwerpen/discriminatie-en-racisme/vraag-en-antwoord/wat-kan-ik-doen-als-ik-gediscrimineerd-word",
+      "after": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/discriminatie-en-racisme/wat-kan-ik-doen-als-ik-gediscrimineerd-word",
+      "reason": "Canonical URL after redirect."
+    },
+    {
+      "id": "A2:knm:batch117-discriminatie-melden-bureau:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Ik ben slachtoffer van discriminatie. Wat kan ik doen?', opened 2026-11-22: 'Bent u gediscrimineerd? Dan kunt u dit melden op Discriminatie.nl.' and 'Discriminatie.nl is de website van antidiscriminatiebureaus.' The page does not mention work specifically; the rule applies to every kind of discrimination. Batch 109 asks where to get advice (vakbond or Juridisch Loket); this item asks where to report.",
+      "after": "Rijksoverheid, 'Ik ben slachtoffer van discriminatie. Wat kan ik doen?', opened 2026-11-22: 'Bent u gediscrimineerd? Dan kunt u dit melden op Discriminatie.nl. U kunt hier ook terecht voor hulp of advies.' and 'Discriminatie.nl is de website van antidiscriminatiebureaus.' The page is general (it also names the politie and the College voor de Rechten van de Mens, neither offered as an option); it does not mention work, which the prompt supplies. Eindterm 1.3.1 names organisations.",
+      "reason": "Verbatim; the page is general and the mapping is recorded."
+    },
+    {
+      "id": "A2:knm:batch117-verplichte-zorgverzekering-zzp:1",
+      "field": "id",
+      "before": "A2:knm:batch117-verplichte-zorgverzekering-zzp:1",
+      "after": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "reason": "The item is replaced: the basiszorgverzekering duty applies to everyone in the Netherlands, not only zzp-ers, and the zzp page announces a pending AOV change. The new fact is stable and fits eindterm 1.4.1 (uitkering, bedrijf starten); the slug now matches."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "title",
+      "before": "Verplichte verzekering voor zzp'ers",
+      "after": "Geld om een bedrijf te starten",
+      "reason": "New fact."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "text",
+      "before": "Een zzp'er moet een basiszorgverzekering hebben. Andere verzekeringen, zoals een bedrijfsverzekering, zijn niet verplicht.",
+      "after": "Start u een bedrijf? Dan kunt u bedrijfskapitaal aanvragen. Dat is geld voor uw bedrijf, meestal een lening. U vraagt het aan bij de sociale dienst van uw gemeente.",
+      "reason": "Fact stated on the Rijksoverheid Bbz page."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "questions.prompt",
+      "before": "Thomas begint als zzp'er. Welke verzekering is voor hem wettelijk verplicht?",
+      "after": "Thomas krijgt bijstand en start een eigen bedrijf. Waar kan hij bedrijfskapitaal aanvragen?",
+      "reason": "Persona sets up the uitkering condition of eindterm 1.4.1."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "questions.options",
+      "before": {
+        "A": "Een basiszorgverzekering.",
+        "B": "Een bedrijfsverzekering.",
+        "C": "Een opstalverzekering."
+      },
+      "after": {
+        "A": "Bij de Kamer van Koophandel.",
+        "B": "Bij de Belastingdienst.",
+        "C": "Bij de gemeente."
+      },
+      "reason": "Two familiar institutions that do not give bedrijfskapitaal; key is the shortest."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "questions.answer",
+      "before": "A",
+      "after": "C",
+      "reason": "New key."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "questions.evidence",
+      "before": "moet een basiszorgverzekering hebben",
+      "after": "bij de sociale dienst van uw gemeente",
+      "reason": "Verbatim in the card."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "questions.explanation",
+      "before": "Wie in Nederland woont of werkt, moet een basiszorgverzekering hebben. Een bedrijfsverzekering en een opstalverzekering zijn niet wettelijk verplicht.",
+      "after": "U vraagt bedrijfskapitaal aan bij de sociale dienst van uw gemeente. Meestal is het een lening. De Kamer van Koophandel en de Belastingdienst geven geen bedrijfskapitaal.",
+      "reason": "Matches the new fact."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "sourceUrl",
+      "before": "https://ondernemersplein.overheid.nl/wetten-en-regels/verzekeringen-voor-zzpers/",
+      "after": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/bijstand-voor-zelfstandigen-bbz/kan-ik-als-startende-zelfstandige-bedrijfskapitaal-lenen-of-krijgen",
+      "reason": "New source."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "sourceNote",
+      "before": "Ondernemersplein (RVO), 'Verzekeringen voor zzp'er', opened 2026-11-22: 'Als u in Nederland woont of werkt, moet u een basiszorgverzekering af te sluiten.' and 'Alle andere verzekeringen zijn niet wettelijk verplicht.' The page lists 'een bedrijfsverzekering' and an opstalverzekering as optional. It also announces a pending change ('Zelfstandigen verplicht verzekerd tegen arbeidsongeschiktheid', date 'nog niet bekend'), so no AOV option is used. Check yearly.",
+      "after": "Rijksoverheid, 'Kan ik als (startende) zelfstandige bedrijfskapitaal lenen of krijgen?', opened 2026-11-22: 'U vraagt het bedrijfskapitaal aan bij de sociale dienst van uw gemeente.', 'Meestal ontvangt u bedrijfskapitaal als lening.' and, in the table, 'Startende zelfstandige met bijstandsuitkering'. No amounts are used. Re-check yearly (Bbz rules and amounts change).",
+      "reason": "Verbatim quotes."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/117-proposed.json: 13 items, keys A5/B4/C4, no failures, no warnings",
+    "batch_review_source": "packet_sha256 f8d8c3188b55ad0219d6c2ed874acd6878d80b208ae094739a3f9e494cb3e332",
+    "every_source_opened_2026_11_22": "Opened with curl or WebFetch; werk.nl blocked automated access (login redirect), so UWV and Rijksoverheid pages were used instead.",
+    "card_word_counts_max": 29,
+    "prompt_word_counts_max": 17,
+    "options_per_question": 3,
+    "keys": "A5 B4 C4 (38% max); the key is never the longest and never the only option sharing a prompt word",
+    "rules": "conditions are set up in the prompt (diplomawaardering, loonheffingskorting \"tegelijk\", bbz persona); no nooit/altijd options; no yes/no or behaviour questions",
+    "duplication": "No new item repeats a fact of the two existing items of its eindterm; checked against content/catalogue.json."
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch117-map-routes:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Direct route fact; A and C each contain the onderwijsroute, so only B is right; the Z-route term is the tested vocabulary.",
+      "evidence": {
+        "quote": "De MAP is alleen voor de B1-route en de Z-route",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/migratie-en-reizen/inburgeren-in-nederland/nieuwe-wet-inburgering"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid Wet inburgering 2021 page: \"de Module Arbeidsmarkt & Participatie (MAP) (uitsluitend voor de B1- en Z-route)\". The same page lists the three leerroutes, so the onderwijsroute is excluded."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A learner in a municipal course is told which inburgering routes include the MAP; two adults at a table with a laptop and a notebook show a classroom setting without any route.",
+        "communicative_purpose": "Learn which of the three routes carry the MAP module.",
+        "contrivance_check": "Question and card are one statement about routes; the picture shows only a study setting.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Direct fact with a UWV statistic; options are plain routes to work and only the network one fits \"de meeste\".",
+      "evidence": {
+        "quote": "Ongeveer 70 procent van de vacatures wordt ingevuld via netwerken",
+        "sources": [
+          "https://www.uwv.nl/nl/ervaringsverhalen/werk-vinden-wees-online-vindbaar"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "UWV page \"Werk zoeken? Wees online vindbaar\" (30 januari 2024): \"Ongeveer 70% van de vacatures wordt vervuld door online en fysiek netwerken.\" Replaces the anecdote (\"volgens Pieter\"). Re-check yearly."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A job seeker sees at a desk with laptop and notebook; the card says UWV reports most vacancies are filled through networks, including online.",
+        "communicative_purpose": "Know that networking is the main way vacancies are filled.",
+        "contrivance_check": "Picture was redrawn as a neutral desk scene so it no longer shows the key; the 70 percent figure is the one stated fact.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch117-kansrijk-verdwijnt:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Cause question with two plain reasons; wording simplified from afneemt/populairder to plain A2.",
+      "evidence": {
+        "quote": "als werkgevers minder medewerkers zoeken",
+        "sources": [
+          "https://www.uwv.nl/nl/arbeidsmarktinformatie/kansen-beroep/kansrijke-beroepen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "UWV kansrijke beroepen page: \"Dat komt bijvoorbeeld doordat de vraag naar medewerkers afneemt. Of doordat een beroep populairder wordt onder werkzoekenden.\" Verbatim on the live page."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A woman walks along a street with small shops; the card explains why a profession leaves the yearly UWV list.",
+        "communicative_purpose": "Understand that the list of promising jobs changes with employer demand.",
+        "contrivance_check": "The distractor \"minder werkzoekenden\" is false because the page names more popularity, which makes chances smaller.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch117-diplomawaardering-werkgever:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Conditional rule now set up in the prompt, as blueprint 5 requires; options differ only in when.",
+      "evidence": {
+        "quote": "alleen nodig als uw werkgever daarom vraagt",
+        "sources": [
+          "https://www.nederlandwereldwijd.nl/buitenlands-diploma-in-nederland/diplomawaardering-werk"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "NederlandWereldwijd: \"Voldoet uw diploma aan de opleidingseis van de baan in Nederland?\" - \"Ja: diplomawaardering is alleen nodig als uw werkgever daarom vraagt\"; \"Een diplomawaardering is een advies aan uw toekomstige werkgever, geen besluit.\""
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Imane has a foreign diploma that is good enough for the job and asks when she needs an assessment; she sits with a laptop and a rolled certificate.",
+        "communicative_purpose": "Learn that the assessment is advice to the employer, needed only on request when the diploma suffices.",
+        "contrivance_check": "The old prompt keyed an exception without setting up the condition; the card and prompt now say the diploma is good enough.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Now tests the purpose of scholing (eindterm 1.1.5) with a persona; distractors are false statements about bijstand.",
+      "evidence": {
+        "quote": "om uw kans op werk te vergroten",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/werken-met-arbeidsbeperking/hoe-verloopt-mijn-re-integratietraject-via-de-gemeente"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid re-integratie page: \"Krijgt u een uitkering van de gemeente? Dan zijn u en uw gemeente samen verantwoordelijk voor uw re-integratie\" and \"De gemeente kan u scholing aanbieden om uw kans op werk te vergroten.\" Condition and purpose are both on the page."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Imane receives a gemeente uitkering and is offered training; she sits in a classroom with a notebook and a teacher at a blank board.",
+        "communicative_purpose": "Know that scholing from the gemeente is meant to improve chances on the labour market.",
+        "contrivance_check": "The source says \"kan\" so the card does not claim that scholing is always offered; the earlier who-question repeated the gemeente key of other items.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch117-taken-functie-horeca:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Persona fact with parallel options; distractors are questions the page says may not be asked.",
+      "evidence": {
+        "quote": "uren staand kunnen werken",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/gelijke-behandeling-op-het-werk/welke-vragen-mogen-niet-gesteld-worden-tijdens-een-sollicitatiegesprek"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid sollicitatievragen page: \"Als horecamedewerker moet u een aantal uren (bijvoorbeeld 4 uur) achter elkaar staand werken.\" and the employer may ask \"of u in staat bent deze taken uit te voeren\"; health and private questions are not allowed."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Orlando applies for a hospitality job and is shown wiping a table; the card says the employer may ask about the job tasks, for example standing for hours.",
+        "communicative_purpose": "Learn which question an employer may ask at a job interview.",
+        "contrivance_check": "The prompt asks what may be asked, not what to do, so it is not a behaviour question.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch117-wia-na-twee-jaar:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Time fact with three clearly different periods.",
+      "evidence": {
+        "quote": "Na twee jaar ziekte kan een werknemer een WIA-uitkering krijgen",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/werk/ziekteverzuim-van-het-werk/regels-en-verplichtingen-bij-ziekte"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid regels bij ziekte: \"Na 2 jaar ziekte (wachttijd) kan de zieke werknemer in aanmerking komen voor een uitkering. Het gaat dan om een (gedeeltelijke) arbeidsongeschiktheidsuitkering (WIA-uitkering). UWV bekijkt of hij hier recht op heeft.\""
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Karin is ill at home on a sofa; the card gives the two-year waiting period and says UWV decides on the WIA.",
+        "communicative_purpose": "Know after how long a sick employee can ask for a WIA benefit.",
+        "contrivance_check": "Calm picture, no medical detail; the card names UWV so the exchange has a real organisation behind it.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch117-ww-beschikbaar:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "One stated WW condition; distractors are conditions that do not exist; the keyed option is the shortest.",
+      "evidence": {
+        "quote": "direct beschikbaar zijn voor betaald werk",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/ww-uitkering/wanneer-heb-ik-recht-op-een-ww-uitkering"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid WW page: \"U heeft recht op een WW-uitkering als u: ... direct beschikbaar bent voor betaald werk\". The page lists other conditions too (wekeneis); no option states one of them."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Ufuk is out of work and applies for WW; he sits at a table with a laptop and a notebook.",
+        "communicative_purpose": "Know that a WW benefit requires being directly available for work.",
+        "contrivance_check": "The tested condition is the plain one; the other true conditions are not offered as distractors.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch117-proeftijd-vast:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Number fact with three distinct values; confirmed against the live page.",
+      "evidence": {
+        "quote": "Bij een vast contract duurt de proeftijd maximaal twee maanden",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/arbeidsovereenkomst-en-cao/hoelang-duurt-een-proeftijd"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Live Rijksoverheid page \"Hoelang duurt mijn proeftijd?\": \"De proeftijd kan maximaal 2 maanden duren bij: een vast dienstverband; een tijdelijk arbeidscontract voor 2 jaar of langer.\" One month applies to shorter temporary contracts."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Jelle signs a permanent contract and sits at a desk with a sheet and a pen; the card gives the maximum probation period.",
+        "communicative_purpose": "Know the maximum probation period for a permanent contract.",
+        "contrivance_check": "Older cached copies said one month; the live page says two months, so the key is two.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch117-or-voorstellen:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Direct right of the OR; both distractors are tasks of the employer.",
+      "evidence": {
+        "quote": "mag zelf voorstellen doen aan de directie",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/werk/ondernemingsraad/vraag-en-antwoord/ondernemingsraad/rechten-ondernemingsraad-or"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid rechten OR: \"De OR mag de ondernemer ongevraagd voorstellen doen over alle sociale, organisatorische, financiële en economische zaken.\""
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Four colleagues talk in a factory canteen; the card says the works council may make proposals to management unasked.",
+        "communicative_purpose": "Learn one right of the works council.",
+        "contrivance_check": "The picture shows colleagues in a workplace, not a council meeting, so it does not reveal the key.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch117-loonheffingskorting-een-werkgever:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Persona fact with a clear numerical rule; mapping to 1.2.3 is loose but explained in the card.",
+      "evidence": {
+        "quote": "bij maar één werkgever tegelijk",
+        "sources": [
+          "https://www.belastingdienst.nl/wps/wcm/connect/nl/jongeren/content/loonheffingskorting-met-een-bijbaan"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Belastingdienst jongerenpagina: \"Werk je tegelijkertijd bij meer dan 1 werkgever? ... Vraag dan bij 1 werkgever de loonheffingskorting aan. Als je bij iedere werkgever loonheffingskorting aanvraagt, krijg je te veel korting op je belasting.\""
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Sevda has two side jobs at once and looks at a paper at her kitchen table; the card ties the korting to what the employer withholds.",
+        "communicative_purpose": "Know that the tax credit can be used at one employer at a time.",
+        "contrivance_check": "The prompt says \"tegelijk\", because jobs one after another follow another rule on the page.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch117-discriminatie-melden-bureau:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Persona fact; options are three institutions, one of which takes discrimination reports.",
+      "evidence": {
+        "quote": "Dan kunt u dit melden op Discriminatie.nl",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/discriminatie-en-racisme/wat-kan-ik-doen-als-ik-gediscrimineerd-word"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid: \"Bent u gediscrimineerd? Dan kunt u dit melden op Discriminatie.nl.\" and \"Discriminatie.nl is de website van antidiscriminatiebureaus.\" The page also names politie and the College voor de Rechten van de Mens; neither is an option."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Ufuk is discriminated against at work; the picture shows him in a warehouse with no incident; the card names the reporting website.",
+        "communicative_purpose": "Know where to report discrimination.",
+        "contrivance_check": "Written calmly with no description of the incident.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Persona fact with a stable rule; replaced the basiszorgverzekering item, which was not specific to zzp-ers.",
+      "evidence": {
+        "quote": "bij de sociale dienst van uw gemeente",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/bijstand-voor-zelfstandigen-bbz/kan-ik-als-startende-zelfstandige-bedrijfskapitaal-lenen-of-krijgen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid Bbz page: \"U vraagt het bedrijfskapitaal aan bij de sociale dienst van uw gemeente.\" and \"Meestal ontvangt u bedrijfskapitaal als lening.\" Table row: \"Startende zelfstandige met bijstandsuitkering\"."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Thomas receives bijstand and wants to start a business; he works at a home desk with a laptop; the card says where to apply for business capital.",
+        "communicative_purpose": "Know that the gemeente helps starters on a benefit with capital.",
+        "contrivance_check": "The explained term bedrijfskapitaal is the only new word; no amounts are used.",
+        "unsupported_assumptions": []
+      }
+    }
+  ],
+  "media_notes": "Pictures are drawn later by the coordinator. Netwerken-werk got a new neutral brief (the handshake scene showed the key); bbz-bedrijfskapitaal keeps the Thomas home-office brief. Imane (two items) and Ufuk (two items) repeat their three traits verbatim. All alts reveal no key. Question audio is needed for all 13 items (use --keys).",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Time-sensitive: re-check yearly the UWV 70 percent figure (netwerken-werk), the kansrijke-beroepenlijst, the proeftijd maxima, the MAP and Bbz rules and the loonheffingskorting rule; the zzp AOV law is pending and no item depends on it.",
+    "The netwerken-werk source is an editorial page around a UWV interview, dated 2024; a plainer official page could not be opened (werk.nl blocks automated access).",
+    "Source pages were read as text, not as a human reading them in a browser."
+  ]
+}

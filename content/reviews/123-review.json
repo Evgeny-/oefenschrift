@@ -1,0 +1,79 @@
+{
+  "review_id": "123-a2-writing-picture-brief-revision-2026-11-22",
+  "source": "content/batches/123-original.json",
+  "source_sha256": "afcc92f9ba30ee108622f4e4fce6b9e7d1e882b030daf6738ce67afed65ea121",
+  "review_type": "independent AI editorial focused re-review of one revised A2 writing item (first picture brief changed; compared field by field with its source in content/batches/115-original.json)",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T20:00:00Z",
+  "reviewer": "Independent AI reviewer (Sonnet 5.5), separate from the author agent; AI editorial review, not human validation.",
+  "review_contract_version": 2,
+  "replaces": ["A2:writing:batch115-schoonmaker-briefje:1"],
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "e1169aadc31a3702826329a8ea8e88c2b4c7d8000170d0bd092485e482a8abed",
+    "independence_note": "The source-only packet of the exact author bytes (hash e1169aadc31a3702826329a8ea8e88c2b4c7d8000170d0bd092485e482a8abed, identical to the author's content/batches/123-meaning-packet.json) was read first and the findings were fixed in content/reviews/123-review.md before the author notes, criteria, sample, model and the batch 115 source were opened. No file was edited, so the packet needed no rebuild after the review."
+  },
+  "tone_balance": {
+    "ordinary": 1,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "One ordinary household note; it replaces a published ordinary item with the same id, so the program count and tone mix do not change. The coordinator checks the combined A2 count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": { "pass": 1, "edited_by_reviewer": 0, "revise": 0, "reject": 0 },
+  "edits": [],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npx tsx scripts/batch-check.ts content/batches/123-original.json",
+      "result": "Checked 1 item, no failures; one warning (compounds keukentafel and wasmand), unchanged from batch 115 and judged transparent at A2 there. Info line: the item is already in the catalogue, so this is a revision."
+    },
+    "source_diff": {
+      "against": "content/batches/115-original.json, item A2:writing:batch115-schoonmaker-briefje:1",
+      "result": "pass: the only differing path is images[0].brief. Replacing the new brief with the old one makes the 123 item serialise byte-identically (key order included) to the 115 item, so title, prompt, scaffold, criteria, sample, quotes, model, images[0].alt and kind, images[1] and images[2] are unchanged."
+    },
+    "meaning_packet": "The packet hash was recomputed with meaningPacketHash from scripts/meaning-review.ts on the exact bytes (e1169aad...) and equals the author's packet file.",
+    "brief_check": {
+      "new_brief": "An empty room on a dry, sunny day. A tall window with a white frame. The glass is covered on the inside with grey dirt, dust smudges and fingerprints, so it looks cloudy and dirty. A plain white curtain hangs open at one side. No rain, no water drops, no people, no animals. No text.",
+      "local_model": "localBrief in scripts/illustrate.ts drops the sentences that begin with \"No\" (the exclusion sentence and \"No text.\") and no mid-sentence \", no\" clause is present. What the local model receives is: \"An empty room on a dry, sunny day. A tall window with a white frame. The glass is covered on the inside with grey dirt, dust smudges and fingerprints, so it looks cloudy and dirty. A plain white curtain hangs open at one side.\" The fix therefore does not depend on the negations: the positive wording (empty room, dry sunny day, dirt on the glass) already removes the person and the rain. \"No text\" is lost for the local model, as for every other brief, and the house prefix carries it.",
+      "api_engine": "The negations are kept for the API fallback. They name things the failed drawings drew (rain, a person), which is the intended use for that engine; the blueprint warning about excluded objects applies to the local model, which does not see them.",
+      "criterion_1": "Criterion 1 needs the learner to see that the window is dirty. A whole pane clouded by grey dirt, dust smudges and fingerprints on a plain window is a clearer picture of that fact than streaks, which the old drawings read as rain.",
+      "no_leak_or_favour": "The brief adds only atmosphere (empty, dry, sunny) and the one panel fact (dirty window). It names no oven, laundry, cleaning tool or action, and does not tell the learner the word or the chore; criterion 1 and the prompt (\"Schrijf wat zij vandaag moet doen\") still leave the learner to name it. Panels 2 and 3 are unchanged and keep the same structure (one object state each).",
+      "alt_consistency": "The alt \"Een raam met veel vuil op het glas.\" still states exactly the pictured fact. It does not mention the empty room, the sun or the curtain, which are not task facts; no change needed.",
+      "house_style": "No text, no people, one object, flat and low detail. Fingerprints and smudges are fine detail for a flat style; the coordinator's contact-sheet check must confirm the dirt reads as dirt at display size and not as frosted glass or fog."
+    },
+    "speaking_and_listening": "Not applicable: writing only, no audio.",
+    "starters": "Criteria are unchanged, so the reviewed sentence starters for this id stay valid; no starters source is attached to this review."
+  },
+  "items": [
+    {
+      "id": "A2:writing:batch115-schoonmaker-briefje:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Schrijven (DUO), picture note",
+        "verdict": "unchanged from batch 115: three pictures, three requests plus thanks, model about 30 words",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Only the first picture brief changed; prompt, criteria, sample and model are byte-identical to the item passed in review 115, so the language level and task size are unchanged.",
+      "evidence": {
+        "criteria_vs_prompt": "Unchanged. Criterion 1 (Hind cleans the window or windows) now has a picture that is meant to show a dirty window, which is the fact the criterion traces to.",
+        "brief_vs_alt": "Brief and alt agree: a window whose glass is dirty.",
+        "sample": "\"Er zit veel vuil op\" in the sample matches the pictured fact."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A household leaves a note on the kitchen table for Hind, who cleans the home every Thursday while the writer is at work; three pictures show a dirty window, a dirty oven and a basket of laundry next to a washing machine.",
+        "communicative_purpose": "The writer lists three chores for today and thanks Hind, so she knows what to do without being met.",
+        "contrivance_check": "A note is how one instructs a cleaner who works alone in an empty home; each panel is one chore and the dirty window is a normal one. The empty-room picture adds no off-page event and the first panel no longer pictures a person at a window.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Household to its weekly cleaner: a note on the kitchen table, first name Hind with \"Beste Hind\" and je-forms, polite requests and thanks. The medium is the natural one when the recipient is alone in the home."
+      }
+    }
+  ],
+  "media_notes": "images[0] needs a new drawing because its brief changed (new image hash); panels 2 and 3 keep their drawings. Draw only after this review passes, with the coordinator's usual illustrate command. Before reviewed is set, look at the rendered panel against the checklist: no text, no person, glass clearly dirty (not frosted, foggy or rainy), curtain present. If a sixth drawing still fails, the author's fallback of a closer crop of the glass alone is sound, but would change the brief again and needs a new hash and focused re-review.",
+  "limitations": "AI editorial review does not validate CEFR difficulty or official exam equivalence. A brief cannot guarantee what the image model draws; only the rendered picture can be judged, and that check is still to come."
+}

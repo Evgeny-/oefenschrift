@@ -1,0 +1,780 @@
+{
+  "review_id": "118-a2-knm-batch-g-2026-11-22",
+  "source": "content/batches/118-original.json",
+  "proposed_source": "content/batches/118-proposed.json",
+  "source_sha256": "f7dd5f05e04388b2cd1fd327c39654bb4ad241ee9533496ef30f20c9bc4ffd64",
+  "review_type": "independent AI editorial review of 13 new A2 KNM items (theme 4 and eindtermen 3.2.1 and 3.2.2), with every sourceUrl opened on 2026-11-22",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T15:36:45Z",
+  "reviewer": "Independent AI reviewer (Sonnet 5.5), separate from the author agent; AI editorial review, not human validation.",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "6414c9c9510f4da3050a7c4afe1a175e306cc5efc19cb42a65d86cf8d7675167",
+    "independence_note": "The blind packet of the author file (hash 2cc3c2c0...aafa06) was read first, with the brief, rubric and blueprint sections, and per-item findings were written to content/reviews/118-review.md before the full batch, the notes or the plan assignment were opened. After the repairs the packet was rebuilt from the proposed bytes (hash 6414c9c9...5167) and the meaning pass was repeated for the changed items (apotheek-controle prompt, dossier-logging, consultatiebureau options); no meaning issue appeared."
+  },
+  "tone_balance": {
+    "ordinary": 12,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All twelve are ordinary civic-fact scenes; KNM items are never jokes, so this batch adds no light humor and the coordinator checks the combined program count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 4,
+    "edited_by_reviewer": 8,
+    "revise": 0,
+    "reject": 0,
+    "rejected_removed": 1
+  },
+  "edits": [
+    {
+      "id": "A2:knm:batch117-map-routes:1",
+      "field": "sourceUrl",
+      "before": "https://www.rijksoverheid.nl/onderwerpen/inburgeren-in-nederland/nieuwe-wet-inburgering",
+      "after": "https://www.rijksoverheid.nl/themas/migratie-en-reizen/inburgeren-in-nederland/nieuwe-wet-inburgering",
+      "reason": "The original URL redirects; the canonical live page is cited."
+    },
+    {
+      "id": "A2:knm:batch117-map-routes:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Wet inburgering 2021' (page title 'Wet inburgering 2021 | Rijksoverheid.nl'), opened 2026-11-22: 'de Module Arbeidsmarkt & Participatie (MAP) (uitsluitend voor de B1- en Z-route);'. The page lists the MAP among the municipal offer; the onderwijsroute is not named in that sentence, 'uitsluitend' excludes it.",
+      "after": "Rijksoverheid, 'Wet inburgering 2021', opened 2026-11-22, section on the inburgeringsaanbod: 'de Module Arbeidsmarkt & Participatie (MAP) (uitsluitend voor de B1- en Z-route);'. The same page lists the three leerroutes (B1-route, onderwijsroute, zelfredzaamheidsroute), so the onderwijsroute is excluded by 'uitsluitend'.",
+      "reason": "Quote checked verbatim against the live page; route names added."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "title",
+      "before": "Werk vinden via netwerken",
+      "after": "Vacatures vinden via netwerken",
+      "reason": "The card now states a UWV fact about vacancies, not advice."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "text",
+      "before": "Netwerken is een belangrijke manier om werk te vinden. Uw netwerk zijn de mensen die u kent, ook online. Vertel veel mensen dat u werk zoekt.",
+      "after": "Ongeveer 70 procent van de vacatures wordt ingevuld via netwerken. Uw netwerk zijn de mensen die u kent, ook online.",
+      "reason": "The original quoted an interview (\"volgens Pieter\") and advice. UWV states plainly that about 70% of vacancies are filled through networks."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "questions.prompt",
+      "before": "Wat is een belangrijke manier om werk te vinden?",
+      "after": "Hoe worden volgens UWV de meeste vacatures ingevuld?",
+      "reason": "Asks the stated fact; no behaviour or advice question."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "questions.options",
+      "before": {
+        "A": "Netwerken, ook online.",
+        "B": "Alleen via de gemeente.",
+        "C": "Alleen via een uitzendbureau."
+      },
+      "after": {
+        "A": "Via netwerken, ook online.",
+        "B": "Via de gemeente.",
+        "C": "Via advertenties in de krant."
+      },
+      "reason": "The \"alleen\" absolutes were distractors no learner would choose; the new ones are plain and false for \"de meeste\"."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "questions.evidence",
+      "before": "Netwerken is een belangrijke manier om werk te vinden",
+      "after": "Ongeveer 70 procent van de vacatures wordt ingevuld via netwerken",
+      "reason": "Verbatim in the new card."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "questions.explanation",
+      "before": "UWV noemt netwerken een belangrijke manier om werk te vinden, in persoon of online. Vertel veel mensen dat u werk zoekt. De gemeente en uitzendbureaus helpen ook, maar het is niet de enige weg.",
+      "after": "UWV schrijft dat ongeveer 70 procent van de vacatures via netwerken wordt ingevuld. Dat zijn de mensen die u kent, ook online. Via de gemeente of een advertentie in de krant gaat het minder vaak.",
+      "reason": "Rewritten for the new fact."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "imageBrief",
+      "before": "A young man (early twenties, short black hair, green jacket) shakes hands with an older woman (grey bob, blue blouse) at a small cafe table, two cups of coffee between them. No text.",
+      "after": "A young man (early twenties, short black hair, green jacket) sits at a table with a laptop and a notebook, a window behind him. No text.",
+      "reason": "The handshake and coffee scene showed the key (networking); the new picture shows only a person looking for work."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "imageAlt",
+      "before": "Een jonge man geeft een oudere vrouw een hand aan een tafeltje in een café.",
+      "after": "Een jonge man zit aan een tafel met een laptop en een schrift.",
+      "reason": "Matches the new picture and reveals no key."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "sourceUrl",
+      "before": "https://www.uwv.nl/nl/ervaringsverhalen/het-nieuwe-solliciteren",
+      "after": "https://www.uwv.nl/nl/ervaringsverhalen/werk-vinden-wees-online-vindbaar",
+      "reason": "The earlier page (2023, \"kan verouderd zijn\") only had an anecdote; this UWV page states the figure in its own text."
+    },
+    {
+      "id": "A2:knm:batch117-netwerken-werk:1",
+      "field": "sourceNote",
+      "before": "UWV, 'Spontaan, informeel en via-via solliciteren' (page title 'Spontaan, informeel en via-via solliciteren | UWV'), opened 2026-11-22: 'Netwerken, in levenden lijve of online, blijft volgens Pieter een belangrijke manier om werk te vinden.' and 'Het helpt als je in je eigen omgeving aan veel mensen laat weten dat je op zoek bent.' The statement comes from an experience story published by UWV.",
+      "after": "UWV, 'Werk zoeken? Wees online vindbaar' (page dated 30 januari 2024), opened 2026-11-22: 'Ongeveer 70% van de vacatures wordt vervuld door online en fysiek netwerken.' It is an editorial page around an expert interview; the sentence is stated by UWV, not quoted from the expert. Re-check yearly (figure).",
+      "reason": "Verbatim quote, with the page type and the yearly check recorded."
+    },
+    {
+      "id": "A2:knm:batch117-kansrijk-verdwijnt:1",
+      "field": "text",
+      "before": "De lijst met kansrijke beroepen verandert elk jaar. Een beroep gaat van de lijst als de vraag naar medewerkers afneemt. Of als veel werkzoekenden dat beroep willen.",
+      "after": "De lijst met kansrijke beroepen verandert elk jaar. Een beroep gaat van de lijst als werkgevers minder medewerkers zoeken. Of als veel mensen dat beroep willen doen.",
+      "reason": "\"vraag ... afneemt\" and \"populairder\" are harder than A2; plain wording keeps the source meaning."
+    },
+    {
+      "id": "A2:knm:batch117-kansrijk-verdwijnt:1",
+      "field": "questions.options",
+      "before": {
+        "A": "De vraag naar medewerkers neemt toe.",
+        "B": "Er zijn minder werkzoekenden.",
+        "C": "De vraag naar medewerkers neemt af."
+      },
+      "after": {
+        "A": "Werkgevers zoeken meer medewerkers.",
+        "B": "Er zijn minder werkzoekenden.",
+        "C": "Werkgevers zoeken minder medewerkers."
+      },
+      "reason": "Plain A2 wording for the tested reason."
+    },
+    {
+      "id": "A2:knm:batch117-kansrijk-verdwijnt:1",
+      "field": "questions.evidence",
+      "before": "als de vraag naar medewerkers afneemt",
+      "after": "als werkgevers minder medewerkers zoeken",
+      "reason": "Verbatim in the new card."
+    },
+    {
+      "id": "A2:knm:batch117-kansrijk-verdwijnt:1",
+      "field": "questions.explanation",
+      "before": "UWV schrijft dat elk jaar beroepen van de lijst verdwijnen, bijvoorbeeld omdat de vraag naar medewerkers afneemt. Ook als een beroep populairder wordt onder werkzoekenden kan het verdwijnen. Meer vraag of minder werkzoekenden maakt de kans op werk juist groter.",
+      "after": "UWV schrijft dat een beroep van de lijst kan gaan als er minder vraag naar medewerkers is. Of als het beroep populairder wordt. Meer vacatures of minder werkzoekenden maken de kans op werk juist groter.",
+      "reason": "Plain wording, still says why the tempting distractors fail."
+    },
+    {
+      "id": "A2:knm:batch117-kansrijk-verdwijnt:1",
+      "field": "sourceNote",
+      "before": "UWV, 'Kansrijke beroepen: beroepen met goede kansen op werk', opened 2026-11-22: 'Ieder jaar verdwijnen er ook beroepen van de lijst met kansrijke beroepen. Dat komt bijvoorbeeld doordat de vraag naar medewerkers afneemt. Of doordat een beroep populairder wordt onder werkzoekenden.' (quote as read through the page fetch; the list is updated every year).",
+      "after": "UWV, 'Kansrijke beroepen: beroepen met goede kansen op werk', opened 2026-11-22: 'Ieder jaar verdwijnen er ook beroepen van de lijst met kansrijke beroepen. Dat komt bijvoorbeeld doordat de vraag naar medewerkers afneemt. Of doordat een beroep populairder wordt onder werkzoekenden.' Verbatim on the live page. Re-check yearly (the list changes every year).",
+      "reason": "Quote confirmed verbatim on the live page."
+    },
+    {
+      "id": "A2:knm:batch117-diplomawaardering-werkgever:1",
+      "field": "text",
+      "before": "Een diplomawaardering is een advies aan een werkgever, geen besluit. U hebt het voor werk alleen nodig als uw werkgever daarom vraagt.",
+      "after": "Een diplomawaardering is een advies aan een werkgever, geen besluit. Is uw diploma goed genoeg voor de baan? Dan hebt u het alleen nodig als uw werkgever daarom vraagt.",
+      "reason": "The page says the employer-only rule applies when the diploma meets the job requirement; otherwise you apply. The card now carries that condition."
+    },
+    {
+      "id": "A2:knm:batch117-diplomawaardering-werkgever:1",
+      "field": "questions.prompt",
+      "before": "Imane heeft een diploma uit het buitenland en zoekt werk. Wanneer heeft zij een diplomawaardering nodig?",
+      "after": "Het buitenlandse diploma van Imane is goed genoeg voor de baan. Wanneer heeft zij een diplomawaardering nodig?",
+      "reason": "The prompt sets up the condition under which the key holds (blueprint 5)."
+    },
+    {
+      "id": "A2:knm:batch117-diplomawaardering-werkgever:1",
+      "field": "questions.explanation",
+      "before": "Voor werk is een diplomawaardering alleen nodig als de werkgever erom vraagt. Het is een advies aan de werkgever, geen besluit. Zij hoeft het dus niet vooraf te hebben, en het land van het diploma maakt niet uit.",
+      "after": "Is het diploma goed genoeg voor de baan, dan is een diplomawaardering alleen nodig als de werkgever erom vraagt. Het is een advies aan de werkgever, geen besluit. Het land van het diploma maakt niet uit.",
+      "reason": "Matches the conditional rule on the page."
+    },
+    {
+      "id": "A2:knm:batch117-diplomawaardering-werkgever:1",
+      "field": "sourceNote",
+      "before": "NederlandWereldwijd (Rijksoverheid), 'Diplomawaardering voor werk in Nederland', opened 2026-11-22: 'diplomawaardering is alleen nodig als uw werkgever daarom vraagt.' and 'Een diplomawaardering is een advies aan uw toekomstige werkgever, geen besluit.' (as read through the page fetch).",
+      "after": "NederlandWereldwijd (Ministerie van Buitenlandse Zaken), 'Diplomawaardering voor werk in Nederland', opened 2026-11-22: 'Een diplomawaardering is een advies aan uw toekomstige werkgever, geen besluit.' and, under 'Heb ik het nodig?', 'Voldoet uw diploma aan de opleidingseis van de baan in Nederland?' - 'Ja: diplomawaardering is alleen nodig als uw werkgever daarom vraagt'. Verbatim on the live page.",
+      "reason": "Quote and condition verbatim."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "text",
+      "before": "Krijgt u bijstand van de gemeente? Dan kan de gemeente u scholing aanbieden. Zo wordt uw kans op werk groter.",
+      "after": "Krijgt u een uitkering van de gemeente? Dan kan de gemeente u scholing aanbieden om uw kans op werk te vergroten.",
+      "reason": "Now states the purpose, which is what eindterm 1.1.5 (belang van scholing) names; the condition is on the page."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "questions.prompt",
+      "before": "Imane krijgt bijstand en wil haar kans op werk vergroten. Wie kan haar scholing aanbieden?",
+      "after": "Imane krijgt een uitkering van de gemeente. Wat is het doel als de gemeente haar scholing aanbiedt?",
+      "reason": "The item now tests the importance of scholing, not who offers it (the gemeente key repeated other items)."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "questions.options",
+      "before": {
+        "A": "De Belastingdienst.",
+        "B": "De Kamer van Koophandel.",
+        "C": "De gemeente."
+      },
+      "after": {
+        "A": "Haar kans op werk wordt groter.",
+        "B": "Haar uitkering wordt hoger.",
+        "C": "Zij hoeft niet meer te solliciteren."
+      },
+      "reason": "Distractors false: scholing does not raise the uitkering, and the duty to look for work stays."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "questions.answer",
+      "before": "C",
+      "after": "A",
+      "reason": "New key."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "questions.evidence",
+      "before": "Dan kan de gemeente u scholing aanbieden",
+      "after": "om uw kans op werk te vergroten",
+      "reason": "Verbatim in the card."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "questions.explanation",
+      "before": "Wie een uitkering van de gemeente heeft, werkt samen met de gemeente aan werk. De gemeente kan scholing aanbieden om de kans op werk te vergroten. De Belastingdienst en de Kamer van Koophandel doen dat niet.",
+      "after": "De gemeente biedt scholing aan om de kans op werk te vergroten. Scholing maakt de uitkering niet hoger. Een uitkering van de gemeente blijft bij de plicht om werk te zoeken horen.",
+      "reason": "Explains the purpose and why both distractors fail."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "sourceUrl",
+      "before": "https://rijksoverheid.nl/onderwerpen/werken-met-arbeidsbeperking/vraag-en-antwoord/hoe-verloopt-mijn-re-integratietraject-via-de-gemeente",
+      "after": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/werken-met-arbeidsbeperking/hoe-verloopt-mijn-re-integratietraject-via-de-gemeente",
+      "reason": "Canonical URL after redirect."
+    },
+    {
+      "id": "A2:knm:batch117-scholing-gemeente:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Hoe verloopt mijn re-integratietraject via de gemeente?', opened 2026-11-22: 'Dan zijn u en uw gemeente samen verantwoordelijk voor uw re-integratie (terugkeer naar werk).' and 'De gemeente kan u scholing aanbieden om uw kans op werk te vergroten.' The page sits under 'werken met arbeidsbeperking'; the sentence is general for a gemeente uitkering. The page fetch did not show the sentence that opens the condition; the item says bijstand, which is the gemeente uitkering. The fact card shortens 'om uw kans op werk te vergroten' to the result sentence.",
+      "after": "Rijksoverheid, 'Hoe verloopt mijn re-integratietraject via de gemeente?', opened 2026-11-22: 'Krijgt u een uitkering van de gemeente? Dan zijn u en uw gemeente samen verantwoordelijk voor uw re-integratie (terugkeer naar werk). De gemeente biedt u voorzieningen aan zoals scholing, werk of begeleiding.' and 'De gemeente kan u scholing aanbieden om uw kans op werk te vergroten.' The condition and the purpose are both on the page. The page also says 'U bent verplicht gebruik te maken van voorzieningen die de gemeente voor u nodig vindt.'",
+      "reason": "Verbatim, with the opening condition that the author could not read."
+    },
+    {
+      "id": "A2:knm:batch117-taken-functie-horeca:1",
+      "field": "questions.explanation",
+      "before": "Een werkgever mag eisen stellen die bij de taken van de baan horen. Een horecamedewerker moet uren kunnen staan. Vragen over ziektes of kinderwens horen niet bij de taken en mogen niet.",
+      "after": "Een werkgever mag vragen of u de taken van de baan kunt doen. Een horecamedewerker moet uren kunnen staan. Vragen over ziektes of over kinderen krijgen hoort daar niet bij.",
+      "reason": "Plainer words than \"kinderwens\"/\"eisen stellen\"."
+    },
+    {
+      "id": "A2:knm:batch117-taken-functie-horeca:1",
+      "field": "sourceUrl",
+      "before": "https://www.rijksoverheid.nl/onderwerpen/gelijke-behandeling-op-het-werk/vraag-en-antwoord/welke-vragen-mogen-niet-gesteld-worden-tijdens-een-sollicitatiegesprek",
+      "after": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/gelijke-behandeling-op-het-werk/welke-vragen-mogen-niet-gesteld-worden-tijdens-een-sollicitatiegesprek",
+      "reason": "Canonical URL after redirect."
+    },
+    {
+      "id": "A2:knm:batch117-wia-na-twee-jaar:1",
+      "field": "sourceUrl",
+      "before": "https://www.rijksoverheid.nl/onderwerpen/ziekteverzuim-van-het-werk/regels-en-verplichtingen-bij-ziekte",
+      "after": "https://www.rijksoverheid.nl/themas/werk/ziekteverzuim-van-het-werk/regels-en-verplichtingen-bij-ziekte",
+      "reason": "Canonical URL after redirect."
+    },
+    {
+      "id": "A2:knm:batch117-ww-beschikbaar:1",
+      "field": "sourceUrl",
+      "before": "https://www.rijksoverheid.nl/onderwerpen/ww-uitkering/vraag-en-antwoord/wanneer-heb-ik-recht-op-een-ww-uitkering",
+      "after": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/ww-uitkering/wanneer-heb-ik-recht-op-een-ww-uitkering",
+      "reason": "Canonical URL after redirect."
+    },
+    {
+      "id": "A2:knm:batch117-proeftijd-vast:1",
+      "field": "sourceUrl",
+      "before": "https://www.rijksoverheid.nl/onderwerpen/arbeidsovereenkomst-en-cao/vraag-en-antwoord/hoelang-duurt-een-proeftijd",
+      "after": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/arbeidsovereenkomst-en-cao/hoelang-duurt-een-proeftijd",
+      "reason": "Canonical URL after redirect."
+    },
+    {
+      "id": "A2:knm:batch117-proeftijd-vast:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Hoelang duurt mijn proeftijd?', opened 2026-11-22: 'De proeftijd kan maximaal 2 maanden duren bij:' (vast contract; tijdelijk contract van 2 jaar of langer) and 'De proeftijd mag maximaal 1 maand duren bij:' (tijdelijk contract van meer dan 6 maanden en korter dan 2 jaar; tijdelijk contract zonder einddatum). Older cached versions of the page said 1 month for vast; the live page says 2 months.",
+      "after": "Rijksoverheid, 'Hoelang duurt mijn proeftijd?', opened 2026-11-22 (live page, not a cached copy): 'De proeftijd kan maximaal 2 maanden duren bij: een vast dienstverband; een tijdelijk arbeidscontract voor 2 jaar of langer.' and 'De proeftijd mag maximaal 1 maand duren bij: een tijdelijk arbeidscontract van meer dan 6 maanden maar korter dan 2 jaar; een tijdelijk arbeidscontract zonder einddatum.' Confirmed: vast = maximaal 2 maanden.",
+      "reason": "Live page confirmed two months for a permanent contract."
+    },
+    {
+      "id": "A2:knm:batch117-or-voorstellen:1",
+      "field": "questions.explanation",
+      "before": "De OR mag de ondernemer ongevraagd voorstellen doen over werk en bedrijf. Dat heet het initiatiefrecht. De OR neemt geen collega's aan en ontslaat ze niet; dat doet de werkgever.",
+      "after": "De OR mag de directie ongevraagd voorstellen doen over werk en bedrijf. Nieuwe collega's aannemen of collega's ontslaan doet de werkgever, niet de OR.",
+      "reason": "Drops the term \"initiatiefrecht\" and \"ondernemer\", which are harder than A2."
+    },
+    {
+      "id": "A2:knm:batch117-loonheffingskorting-een-werkgever:1",
+      "field": "text",
+      "before": "Met loonheffingskorting betaalt u minder belasting over uw loon. U kunt de korting maar bij één werkgever tegelijk laten toepassen.",
+      "after": "De werkgever houdt loonheffing in op uw loon. Met loonheffingskorting houdt hij minder in. U kunt de korting bij maar één werkgever tegelijk laten toepassen.",
+      "reason": "Ties the fact to the eindterm (inhouding op het salaris) and explains the term."
+    },
+    {
+      "id": "A2:knm:batch117-loonheffingskorting-een-werkgever:1",
+      "field": "questions.evidence",
+      "before": "maar bij één werkgever tegelijk",
+      "after": "bij maar één werkgever tegelijk",
+      "reason": "Verbatim in the new card."
+    },
+    {
+      "id": "A2:knm:batch117-loonheffingskorting-een-werkgever:1",
+      "field": "sourceNote",
+      "before": "Belastingdienst, 'Loonheffingskorting met een bijbaan', opened 2026-11-22: 'Je vraagt deze korting aan bij je werkgever of uitkeringsinstantie.' and 'Vraag dan bij 1 werkgever de loonheffingskorting aan.' and 'Als je bij iedere werkgever loonheffingskorting aanvraagt, krijg je te veel korting op je belasting.' (jongeren page; the rule is the same for everyone). The page says banen na elkaar in één jaar are different, so the prompt says 'tegelijk'.",
+      "after": "Belastingdienst, 'Loonheffingskorting met een bijbaan', opened 2026-11-22: 'Werk je tegelijkertijd bij meer dan 1 werkgever? Of heb je een uitkering en tegelijkertijd een baan? Vraag dan bij 1 werkgever de loonheffingskorting aan. Als je bij iedere werkgever loonheffingskorting aanvraagt, krijg je te veel korting op je belasting.' and 'Je vraagt deze korting aan bij je werkgever of uitkeringsinstantie. Die betaalt dan minder belasting'. The page is in the jongeren section; the Belastingdienst states the same rule for all employees. Maps to 1.2.3 through the inhouding of loonheffing by the werkgever; loose but defensible.",
+      "reason": "Verbatim quotes; mapping noted."
+    },
+    {
+      "id": "A2:knm:batch117-discriminatie-melden-bureau:1",
+      "field": "questions.options",
+      "before": {
+        "A": "Bij het UWV.",
+        "B": "Bij Discriminatie.nl.",
+        "C": "Bij DUO."
+      },
+      "after": {
+        "A": "Bij het UWV.",
+        "B": "Bij Discriminatie.nl.",
+        "C": "Bij de Belastingdienst."
+      },
+      "reason": "DUO is an obscure distractor; the Belastingdienst is a familiar institution that takes no discrimination reports."
+    },
+    {
+      "id": "A2:knm:batch117-discriminatie-melden-bureau:1",
+      "field": "questions.explanation",
+      "before": "U meldt discriminatie op Discriminatie.nl, de website van de antidiscriminatiebureaus. Het UWV en DUO nemen geen meldingen over discriminatie aan.",
+      "after": "U meldt discriminatie op Discriminatie.nl, de website van de antidiscriminatiebureaus. Het UWV en de Belastingdienst nemen geen meldingen over discriminatie aan.",
+      "reason": "Matches the new distractor."
+    },
+    {
+      "id": "A2:knm:batch117-discriminatie-melden-bureau:1",
+      "field": "sourceUrl",
+      "before": "https://www.rijksoverheid.nl/onderwerpen/discriminatie-en-racisme/vraag-en-antwoord/wat-kan-ik-doen-als-ik-gediscrimineerd-word",
+      "after": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/discriminatie-en-racisme/wat-kan-ik-doen-als-ik-gediscrimineerd-word",
+      "reason": "Canonical URL after redirect."
+    },
+    {
+      "id": "A2:knm:batch117-discriminatie-melden-bureau:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Ik ben slachtoffer van discriminatie. Wat kan ik doen?', opened 2026-11-22: 'Bent u gediscrimineerd? Dan kunt u dit melden op Discriminatie.nl.' and 'Discriminatie.nl is de website van antidiscriminatiebureaus.' The page does not mention work specifically; the rule applies to every kind of discrimination. Batch 109 asks where to get advice (vakbond or Juridisch Loket); this item asks where to report.",
+      "after": "Rijksoverheid, 'Ik ben slachtoffer van discriminatie. Wat kan ik doen?', opened 2026-11-22: 'Bent u gediscrimineerd? Dan kunt u dit melden op Discriminatie.nl. U kunt hier ook terecht voor hulp of advies.' and 'Discriminatie.nl is de website van antidiscriminatiebureaus.' The page is general (it also names the politie and the College voor de Rechten van de Mens, neither offered as an option); it does not mention work, which the prompt supplies. Eindterm 1.3.1 names organisations.",
+      "reason": "Verbatim; the page is general and the mapping is recorded."
+    },
+    {
+      "id": "A2:knm:batch117-verplichte-zorgverzekering-zzp:1",
+      "field": "id",
+      "before": "A2:knm:batch117-verplichte-zorgverzekering-zzp:1",
+      "after": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "reason": "The item is replaced: the basiszorgverzekering duty applies to everyone in the Netherlands, not only zzp-ers, and the zzp page announces a pending AOV change. The new fact is stable and fits eindterm 1.4.1 (uitkering, bedrijf starten); the slug now matches."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "title",
+      "before": "Verplichte verzekering voor zzp'ers",
+      "after": "Geld om een bedrijf te starten",
+      "reason": "New fact."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "text",
+      "before": "Een zzp'er moet een basiszorgverzekering hebben. Andere verzekeringen, zoals een bedrijfsverzekering, zijn niet verplicht.",
+      "after": "Start u een bedrijf? Dan kunt u bedrijfskapitaal aanvragen. Dat is geld voor uw bedrijf, meestal een lening. U vraagt het aan bij de sociale dienst van uw gemeente.",
+      "reason": "Fact stated on the Rijksoverheid Bbz page."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "questions.prompt",
+      "before": "Thomas begint als zzp'er. Welke verzekering is voor hem wettelijk verplicht?",
+      "after": "Thomas krijgt bijstand en start een eigen bedrijf. Waar kan hij bedrijfskapitaal aanvragen?",
+      "reason": "Persona sets up the uitkering condition of eindterm 1.4.1."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "questions.options",
+      "before": {
+        "A": "Een basiszorgverzekering.",
+        "B": "Een bedrijfsverzekering.",
+        "C": "Een opstalverzekering."
+      },
+      "after": {
+        "A": "Bij de Kamer van Koophandel.",
+        "B": "Bij de Belastingdienst.",
+        "C": "Bij de gemeente."
+      },
+      "reason": "Two familiar institutions that do not give bedrijfskapitaal; key is the shortest."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "questions.answer",
+      "before": "A",
+      "after": "C",
+      "reason": "New key."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "questions.evidence",
+      "before": "moet een basiszorgverzekering hebben",
+      "after": "bij de sociale dienst van uw gemeente",
+      "reason": "Verbatim in the card."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "questions.explanation",
+      "before": "Wie in Nederland woont of werkt, moet een basiszorgverzekering hebben. Een bedrijfsverzekering en een opstalverzekering zijn niet wettelijk verplicht.",
+      "after": "U vraagt bedrijfskapitaal aan bij de sociale dienst van uw gemeente. Meestal is het een lening. De Kamer van Koophandel en de Belastingdienst geven geen bedrijfskapitaal.",
+      "reason": "Matches the new fact."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "sourceUrl",
+      "before": "https://ondernemersplein.overheid.nl/wetten-en-regels/verzekeringen-voor-zzpers/",
+      "after": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/bijstand-voor-zelfstandigen-bbz/kan-ik-als-startende-zelfstandige-bedrijfskapitaal-lenen-of-krijgen",
+      "reason": "New source."
+    },
+    {
+      "id": "A2:knm:batch117-bbz-bedrijfskapitaal:1",
+      "field": "sourceNote",
+      "before": "Ondernemersplein (RVO), 'Verzekeringen voor zzp'er', opened 2026-11-22: 'Als u in Nederland woont of werkt, moet u een basiszorgverzekering af te sluiten.' and 'Alle andere verzekeringen zijn niet wettelijk verplicht.' The page lists 'een bedrijfsverzekering' and an opstalverzekering as optional. It also announces a pending change ('Zelfstandigen verplicht verzekerd tegen arbeidsongeschiktheid', date 'nog niet bekend'), so no AOV option is used. Check yearly.",
+      "after": "Rijksoverheid, 'Kan ik als (startende) zelfstandige bedrijfskapitaal lenen of krijgen?', opened 2026-11-22: 'U vraagt het bedrijfskapitaal aan bij de sociale dienst van uw gemeente.', 'Meestal ontvangt u bedrijfskapitaal als lening.' and, in the table, 'Startende zelfstandige met bijstandsuitkering'. No amounts are used. Re-check yearly (Bbz rules and amounts change).",
+      "reason": "Verbatim quotes."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "A2:knm:batch118-tandarts-poetstips:1",
+      "reason": "Removed from the proposed file. The fact (the tandarts gives tips on brushing) is trivial, the two distractors (werkgever, zorgverzekeraar) are not plausible misunderstandings, and the source is Thuisarts, not a government page. The only other official tandarts fact (children under 18 are covered by the basic insurance, adults pay for the check themselves) is already tested by 033 tandarts-kind, and the brushing-frequency advice on Thuisarts is health education, not a Dutch-system fact. Eindterm 4.1.3 keeps its two items (019 and 109)."
+    }
+  ],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/118-proposed.json: 12 items, 12 questions, keys A4/B4/C4, three options each, no failures, no warnings",
+    "batch_review_source": "packet_sha256 6414c9c9510f4da3050a7c4afe1a175e306cc5efc19cb42a65d86cf8d7675167 (proposed); original 2cc3c2c0652172341486380929be15e2adf2670736202cb9d3b028c460aafa06",
+    "sources_opened": "All 13 sourceUrl pages were fetched on 2026-11-22 and the keyed sentences found; the ACM page 'aanbod-op-maat' and the Rijksoverheid mantelzorg support page were added as sources for the dynamic tarief and the gemeente sentence",
+    "key_balance": "A4 B4 C4 of 12; no letter three times in a row",
+    "rule_condition_set_up": "huisarts-vol asks 'Wanneer', rekening-apotheek and zorgtoeslag-eenmalig state the condition in the prompt, opzegvergoeding-vast names cancelling before the end date, fysio uses 'meestal' as the source does",
+    "rule_distractors_false_about_NL": "each distractor checked against the source page or a government statement, including 0900-8844 (Dutch police, no emergency) and 999 (UK) for Spain",
+    "rule_options_differ_in_what_is_asked": true,
+    "answer_signals": "key is the longest option in no item (slimme-meter option lengths 56/51/51 after the edit, key not the longest); no prompt word recurs only in the key after the edits to apotheek-controle, consultatiebureau-maand, dossier-logging and slimme-meter; no nooit/altijd options",
+    "word_check": "KNM is outside the word gate; terms kept because they are tested: eigen risico, opzegvergoeding, mantelzorg, meterstanden, verwijsbrief, netbeheerder. Replaced: respijtzorg, wijkverpleging, dynamisch, inzien, gratis (loose). chirurg and fysiotherapeut stay (persona and card explain)",
+    "card_word_counts": [
+      22,
+      22,
+      22,
+      22,
+      24,
+      23,
+      24,
+      22,
+      30,
+      23,
+      22,
+      28
+    ],
+    "prompt_word_counts": [
+      12,
+      12,
+      11,
+      13,
+      12,
+      17,
+      18,
+      11,
+      14,
+      20,
+      13,
+      18
+    ],
+    "names": "Bo, Valerie, Zakaria, Demi and Arjan appear in two items each, Yasmina and Cas once; none is a voice name or older cast name; recurring traits are copied verbatim into both briefs",
+    "level_vs_official_knm": "comparable for 9 items, easier for 3 (alarmnummer-europa, mantelzorger-wie, slimme-meter); no item harder",
+    "duplication": "each new item tests a fact different from the existing items of its eindterm (read in content/catalogue.json); apotheek-controle and rekening-apotheek share a page but test different sections"
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch118-huisarts-vol:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Same kind of rule question as the official KNM fact items (who may refuse); key now parallel with both distractors.",
+      "evidence": {
+        "quote": "of als u te ver weg woont",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'De huisarts die u kiest mag u weigeren als nieuwe patiënt wanneer: u te ver weg woont; de huisartsenpraktijk vol is; ...'. Distractors: no work and coming from another country are not on the list of grounds, and refusing for origin would be discrimination, so both are false. The prompt asks 'Wanneer', which sets up the condition. Different from 006 huisartskeuze (free choice) and 033 beroepsgeheim. Card 22 words, prompt 12."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Bo is searching for a new huisarts from his living-room table with a laptop and a notebook; the question asks in which case a huisarts may turn him down.",
+        "communicative_purpose": "A person new in a town learns the two real grounds on which a GP may refuse a new patient and that his work or origin is no ground.",
+        "contrivance_check": "Looking for a GP on a laptop at home is ordinary. The picture shows only the search, not a refusal, and the prompt itself asks for the condition so no exception is hidden.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch118-apotheek-controle:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "A plain detail question on a page statement; 'recept' and 'medicijnen' are everyday words at A2.",
+      "evidence": {
+        "quote": "Ook kijkt de apotheek of u andere medicijnen gebruikt",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/geneesmiddelen/wat-betaal-ik-voor-medicijnen-op-recept"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'De apotheek rekent kosten voor: de controle of op het recept de juiste sterkte en hoeveelheid ... staat; de controle of u andere medicijnen gebruikt die de werking van het medicijn kunnen veranderen; ...'. Distractors: a verwijsbrief belongs to specialist care and the pharmacy checks a recept instead; the pharmacy does not look at a bank balance. Different from 006 receptmedicijnen (where to get it) and 109 drogist. Card 22 words, prompt 12."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Yasmina stands at a pharmacy counter and the pharmacist hands her a small paper bag; the question asks what the pharmacy checks besides the recept.",
+        "communicative_purpose": "A patient learns that the pharmacy also checks whether her other medicines interact with the new one, which is why she should mention them.",
+        "contrivance_check": "Collecting medicine at a counter is ordinary and the paper bag does not show any check. The prompt now names the recept, which the card states first, so the word 'naast' has a referent.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch118-consultatiebureau-maand:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Time-fact question like the official KNM items on public services; the options no longer form a week/month/year scale.",
+      "evidence": {
+        "quote": "nodigt u uit als uw baby één maand is",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/zwangerschap-en-geboorte/bij-wie-kan-ik-terecht-met-vragen-over-de-gezondheid-en-opvoeding-van-mijn-kind"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'Het consultatiebureau nodigt u uit als uw baby 1 maand is.' and '(gratis jeugdgezondheidszorg)'. Distractors: a one-day-old baby is in kraamzorg and is not invited yet; a child who goes to school is past the 0-4 range of the consultatiebureau. The earlier 'een week' and 'een jaar' options were not clearly false because the consultatiebureau also sees babies at later ages. Different from 006 consultatiebureau (what it does) and 033 kraamzorg. Card 22 words, prompt 11."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Valerie sits on her sofa with a sleeping newborn in a blanket; the question asks when the consultatiebureau invites her.",
+        "communicative_purpose": "A new mother learns when the first invitation of the jeugdgezondheidszorg arrives, so she can expect it.",
+        "contrivance_check": "A mother with a baby asking about the first visit is ordinary. The picture shows a sleeping baby and no age, so it does not give the key away.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch118-fysio-zonder-verwijzing:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Same rule family as the existing 006 verwijsbrief item, with a different tested fact; B and C are both hospital specialists, which is acceptable because both are plainly false.",
+      "evidence": {
+        "quote": "Naar een fysiotherapeut kunt u meestal zonder verwijsbrief.",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/wanneer-heb-ik-een-verwijsbrief-van-mijn-huisarts-nodig-en-wanneer-mag-hij-deze-weigeren"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'U kunt meestal zonder verwijzing naar een: fysiotherapeut; oefentherapeut; mondhygiënist; ...' and 'Voor specialistische zorg, bijvoorbeeld in ziekenhuizen, heeft u een verwijsbrief nodig.' 'Meestal' in prompt and key follows the exception for policies that require a referral. Distractors: a specialist and a chirurg in the hospital both need a verwijsbrief. Card 22 words, prompt 13."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Zakaria sits on a chair with a hand on his lower back; the question asks to whom he can go without a verwijsbrief.",
+        "communicative_purpose": "A person with back pain learns that a physiotherapist is reachable directly while hospital specialists need a letter from the huisarts.",
+        "contrivance_check": "Back pain and a cushion on a chair are ordinary and give no care provider away. 'Meestal' in the prompt matches the source's exception, so no hidden condition exists.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch118-hap-eigen-risico:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Comparable with the official KNM items on zorgverzekering; options are now parallel 'Bij de ...' phrases.",
+      "evidence": {
+        "quote": "Bij de huisartsenpost betaalt u dat niet. Bij de spoedeisende hulp wel.",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/huisartsenpost-spoedeisende-hulp"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'Huisartsenzorg wordt volledig vergoed. De zorg gaat niet ten koste van uw verplichte eigen risico. Dat geldt ook voor de zorg op een huisartsenpost.' and 'Voor deze zorg [spoedeisende hulppost, in een ziekenhuis] geldt wel het verplichte eigen risico.' The same page says that from 1 January 2027 the bill of the spoedeisende hulp is split in two parts (the visit and the care), and that you never pay more than the remaining eigen risico; the rule that eigen risico applies there and not at the huisartsenpost is unchanged, so the card and key stay true after the change. Re-check yearly. Distractors: huisarts and huisartsenpost carry no eigen risico. Card 24 words, prompt 12."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Arjan sits on a sofa in the evening with a phone and a blanket; the question asks for which care he pays eigen risico.",
+        "communicative_purpose": "An insured adult learns that the huisartsenpost is outside the eigen risico but a visit to the spoedeisende hulp falls inside it.",
+        "contrivance_check": "An evening on the sofa with a phone fits a call to the huisartsenpost and hints at that distractor, not at the key. The prompt says 'heeft een zorgverzekering' so the eigen risico is set up without invented events.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch118-alarmnummer-europa:1",
+      "verdict": "pass",
+      "level": "easier",
+      "level_reason": "A one-fact question with a clear persona; easier than the official items because the number 112 is widely known, but the distractors are real numbers.",
+      "evidence": {
+        "quote": "Het alarmnummer 112 werkt in alle landen van de Europese Unie.",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/alarmnummer-112/112-bellen-in-buitenland"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'U kunt het alarmnummer 112 bellen in alle landen van de Europese Unie (EU) en in een aantal andere landen.' and 'U mag het internationale alarmnummer 112 alleen bellen wanneer elke seconde telt.' Distractors, false for Spain: 0900-8844 is the Dutch number for the police when there is no emergency (Rijksoverheid, 'Wanneer kan ik alarmnummer 112 bellen?', confirmed via search 2026-11-22), and 999 is the emergency number of the United Kingdom, not of Spain. Spain is an EU member state. Different from 003 noodnummer (which situations) and 019 alarmnummer (no credit). Card 23 words, prompt 17."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Demi stands on a sunny street with a palm tree and a café, phone in hand, after seeing a serious accident in Spain; the question asks which alarm number works there.",
+        "communicative_purpose": "A holidaymaker learns that the Dutch alarm number 112 is also the number to call anywhere in the EU, and that it is for moments when every second counts.",
+        "contrivance_check": "A holiday abroad and a witnessed accident are a believable trigger for the question, and the sun and palm tree show a holiday setting without a number. The card's second sentence matches the 'ernstig ongeluk' in the prompt.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch118-rekening-apotheek:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "A condition-based rule question like the official KNM items on zorgverzekering; the condition is in the prompt.",
+      "evidence": {
+        "quote": "Dan betaalt u de rekening eerst zelf.",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/geneesmiddelen/wat-betaal-ik-voor-medicijnen-op-recept"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'Heeft uw zorgverzekeraar geen contract met uw apotheek? Dan betaalt u eerst zelf de rekening. Daarna vraagt u de kosten bij uw zorgverzekeraar terug.' The prompt states the no-contract condition, so the zorgverzekeraar distractor is false in this case. The huisarts never pays a pharmacy bill. Same page as apotheek-controle but a different section and fact; 109 huisarts-rekening is about the huisarts bill. Card 24 words, prompt 18."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Valerie sits at a kitchen table with a small pharmacy bag and a paper receipt in front of her and studies the receipt; the question asks who pays the pharmacy bill first when there is no contract.",
+        "communicative_purpose": "A patient learns she must pay the pharmacy herself first and then claim the money back from her insurer.",
+        "contrivance_check": "A receipt and a bag at a kitchen table fit having paid at the counter. The picture shows neither who pays nor the contract, and the no-contract condition is written in the prompt rather than invented.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch118-dossier-logging:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "A rights fact on a government page, comparable with official KNM items on patient rights; no numbers to remember.",
+      "evidence": {
+        "quote": "U heeft het recht om te weten wie er in uw dossier heeft gekeken.",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/rechten-van-patient-en-privacy/uw-medisch-dossier/mag-ik-mijn-medisch-dossier-inzien"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid 'Mag ik mijn medisch dossier inzien?', opened 2026-11-22: 'U kunt uw medisch dossier (online) inzien. U kunt ook een kopie krijgen. Ook heeft u het recht om te weten wie er in uw dossier heeft gekeken (logging).' and 'U krijgt alleen de gegevens te zien die over uzelf gaan.' Distractors: ziektes of other patients fall under the privacy of others, and the income of a huisarts is not part of a patient's dossier. The first card sentence ties the item to 4.4.3 (digital administration). Not the term (one month) the author tested: that is not in the eindterm paraphrase. Card 22 words, prompt 11."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Bo sits on a sofa with a tablet and looks at his own medical data online; the question asks what he may also find out.",
+        "communicative_purpose": "A patient learns that online access to his dossier comes with the right to know who has looked at it.",
+        "contrivance_check": "Checking one's own health data on a tablet at home is ordinary. The prompt says 'ook', which links to the card's first sentence, and the picture shows a tablet but no names or screen content.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch118-zorgtoeslag-eenmalig:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "A condition-based yes/how-often question with the condition in the prompt; comparable with official items on toeslagen, and the one-time application is a known stumbling block.",
+      "evidence": {
+        "quote": "U hoeft dit maar één keer te doen.",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/kan-ik-zorgtoeslag-krijgen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'U kunt zorgtoeslag online aanvragen met Mijn toeslagen. Hiervoor heeft u DigiD nodig. U hoeft zorgtoeslag maar 1 keer aan te vragen. Daarna krijgt u de zorgtoeslag ieder jaar vanzelf. U moet wel aan de voorwaarden blijven voldoen.' Re-check yearly (toeslagen reform). The prompt sets the condition that Demi keeps meeting the conditions, so 'Elk jaar opnieuw' and 'Elke maand' are false. Different from 019 zorgtoeslag (DigiD to log in) and 109 servicepunt. Card 30 words, prompt 14."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Demi sits at a small desk with a laptop and a cup of tea in her living room; the question asks how often she has to apply for zorgtoeslag if she keeps meeting the conditions.",
+        "communicative_purpose": "A person who needs help paying the health insurance learns that one application is enough and that the allowance then continues yearly.",
+        "contrivance_check": "Applying online at a desk is ordinary, and the picture does not hint at once or yearly. The condition about the voorwaarden is in the prompt, so the claim is not misleading.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch118-mantelzorger-wie:1",
+      "verdict": "pass (edited)",
+      "level": "easier",
+      "level_reason": "A term-matching question whose persona nearly repeats the definition; easier than a comparable official definition item, which is acceptable for a term learners need to meet.",
+      "evidence": {
+        "quote": "Mantelzorg is zorg voor iemand die u kent, bijvoorbeeld een familielid, vriend of buur. U doet dat vrijwillig.",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/mantelzorg/wanneer-ben-ik-mantelzorger",
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/mantelzorg/hoe-kan-ik-als-mantelzorger-hulp-bij-de-zorg-krijgen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'U geeft mantelzorg als u voor iemand zorgt in uw omgeving. U doet dat vrijwillig, omdat u een sociale relatie met die persoon heeft.' and 'Een volwassene die zorgt voor een familielid, vriend of buur.' Second page: 'De gemeente is verantwoordelijk voor de ondersteuning van mantelzorgers.' Distractors: thuiszorg is care by paid professionals; hulp van de gemeente is support for the mantelzorger, not the name of the care Arjan gives. The key is not 'de gemeente' as in 006 wmo and 109 schuldhulp. Mapping to 4.5.1 is loose and rests on the third card sentence. Card 23 words, prompt 20."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Arjan stands at an open front door with a pot of soup while an elderly neighbour smiles at him; the question describes his daily care for a sick neighbour and asks what it is called.",
+        "communicative_purpose": "A resident learns the Dutch word for unpaid care for someone you know and that the gemeente can support people who do this.",
+        "contrivance_check": "Bringing soup to a sick neighbour is ordinary and fits 'elke dag zorgen' without any extra event. The question gives the defining features, and the picture shows no word, so it does not print the key.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch118-slimme-meter:1",
+      "verdict": "pass (edited)",
+      "level": "easier",
+      "level_reason": "A one-fact function question, easier than an official KNM item because two distractors are plainly outside what a meter does; options now share 'automatisch'.",
+      "evidence": {
+        "quote": "Een slimme meter geeft uw meterstanden automatisch door aan de netbeheerder.",
+        "sources": [
+          "https://consument.acm.nl/elektriciteit-en-gas/meters-meterstanden-verbruik/de-slimme-meter"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "ACM ConsuWijzer, opened 2026-11-22: 'De slimme meter geeft uw meterstanden automatisch door aan uw netbeheerder.' The page also says the netbeheerder passes the readings to the energieleverancier. Distractors: the meter does not choose a supplier and does not pay the bill. 'Hoeveel energie Cas gebruikt' paraphrases 'meterstanden' (the numbers for stroom and gas on the meter). Different from 006 stroomstoring and 108 meterstanden. Card 22 words, prompt 13."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Cas stands in a hallway next to a small grey box on the wall with his hands in his pockets; the question asks what the smart meter for stroom and gas does.",
+        "communicative_purpose": "A tenant or owner learns that the smart meter sends the readings to the netbeheerder by itself, so no manual reading is needed.",
+        "contrivance_check": "A meter box in a hallway is ordinary and the picture shows no display or number. The prompt gives stroom and gas, matching the card, and the options all use 'automatisch' so the key is not signalled by one word.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch118-opzegvergoeding-vast:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Comparable with official KNM items about contracts; the condition (before the end date) is in the prompt and the three options differ only in the kind of contract.",
+      "evidence": {
+        "quote": "Zegt u eerder op? Dan mag de leverancier geld vragen, een opzegvergoeding.",
+        "sources": [
+          "https://consument.acm.nl/elektriciteit-en-gas/wat-betaal-ik-voor-mijn-energie/vaste-variabele-leveringskosten-energie",
+          "https://consument.acm.nl/vergelijken-en-overstappen/energie/aanbod-op-maat"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "ACM ConsuWijzer, opened 2026-11-22: 'Uw vaste tarief geldt voor bepaalde tijd: bijvoorbeeld 1 of 3 jaar. Zegt u vóór de einddatum op? Dan mag uw energieleverancier een opzegvergoeding vragen.'; variabel: 'Zegt u uw contract op? Dan betaalt u geen opzegvergoeding.'; 'Bij contracten met variabele en dynamische tarieven betaalt u geen opzegvergoeding.' The dynamic contract is described plainly as 'een prijs per uur'. Re-check yearly (energy contract rules). Different from 006 energietarief (what vast means) and 108 voorschot. Card 28 words, prompt 18."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Zakaria sits at a living-room table with a laptop and a blank sheet of paper and looks at the screen; the question asks for which contract type a supplier may charge a fee when he cancels before the end date.",
+        "communicative_purpose": "A customer learns that cancelling a fixed-tariff energy contract early can cost an opzegvergoeding, unlike variable or per-hour contracts.",
+        "contrivance_check": "Comparing or cancelling an energy contract at a laptop with a letter is ordinary. The early-cancellation condition is stated in the prompt, so the keyed fact is not hidden in an exception.",
+        "unsupported_assumptions": []
+      }
+    }
+  ],
+  "media_notes": "Pictures: calm everyday settings, no text, no screen content, no visible answer. Bo appears in two briefs with identical traits; the dossier brief now shows him on a sofa with a tablet so the two pictures differ. The apotheek and kitchen-table scenes (Yasmina, Valerie) differ. alarmnummer-europa shows a holiday street (palm tree, café) and must not draw a sign or a number. slimme-meter shows a plain grey box without a display; dossier-logging shows a tablet with no readable text. Audio is generated later for the question and each option with --keys after integration. Re-check yearly: hap-eigen-risico (the spoedeisende hulp bill is split from 1 January 2027; the rule is unchanged), zorgtoeslag-eenmalig (toeslagen reform), opzegvergoeding-vast (energy contract rules).",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Facts were read on the pages of 2026-11-22 only; the yearly re-check applies to eigen risico, zorgtoeslag and energy contract rules.",
+    "Mapping of mantelzorger-wie to eindterm 4.5.1 rests on the card's third sentence; the coordinator may re-tag if a stricter mapping is wanted.",
+    "The statement that 999 is not an emergency number in Spain was not verified on a Spanish government page; it follows the Rijksoverheid statement that 112 is the number across the EU."
+  ]
+}

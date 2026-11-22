@@ -1,0 +1,620 @@
+{
+  "review_id": "119-a2-knm-batch-h-2026-11-22",
+  "source": "content/batches/119-original.json",
+  "proposed_source": "content/batches/119-proposed.json",
+  "source_sha256": "f09eda913c1009287dfa43e1ff95256c9d5fabbc772be0916f9006aeff86c4a6",
+  "review_type": "independent AI editorial review of 13 new A2 KNM items (theme 6 and 3.3.1), every source page opened on 2026-11-22",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T15:31:40Z",
+  "reviewer": "Independent AI reviewer (Sonnet 5.5), separate from the author agent; AI editorial review, not human validation.",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "48fd3c3adb18d4dab69a055f7c11bdc5f7a7adce992d80f36f33a49f03423281",
+    "independence_note": "The blind packet of the author file (hash 7e634a1b...585d) was read first, with the brief, rubric and blueprint sections and the shared rules, and per-item findings were written to content/reviews/119-review.md before the full batch, notes, assignment or catalogue were opened. After the edits the packet was rebuilt from the proposed bytes (hash recorded here) and the changed cards and prompts were read again. After the coordinator follow-up (new picture for naturalisatie-ceremonie) the packet was rebuilt again from the final bytes."
+  },
+  "tone_balance": {
+    "ordinary": 13,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All 13 are ordinary civic-fact scenes; KNM items are never jokes, so this batch adds no light humour and the program share is kept by the other parts. The coordinator checks the combined count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 4,
+    "edited_by_reviewer": 9,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:knm:batch119-aangiftebrief:1",
+      "field": "text",
+      "before": "Hebt u een aangiftebrief van de Belastingdienst gekregen? Dan moet u aangifte doen. Dat kunt u online doen, met de app of op papier.",
+      "after": "Hebt u een aangiftebrief van de Belastingdienst gekregen? Dan moet u aangifte doen. Hebt u geen brief gehad? Dan moet u soms ook aangifte doen.",
+      "reason": "The ways to file (online, app, paper) were not on the cited page and could not be confirmed today; the card now states only what the source says, and the second sentence sets up why the no-letter rule in option C is a different case."
+    },
+    {
+      "id": "A2:knm:batch119-aangiftebrief:1",
+      "field": "questions.0.explanation",
+      "before": "Met een aangiftebrief van de Belastingdienst moet u aangifte doen. Dat geldt ook als u geld terugkrijgt. Alleen wie geen brief heeft gehad, moet soms zelf kijken of aangifte nodig is.",
+      "after": "Met een aangiftebrief van de Belastingdienst moet u aangifte doen. Hebt u geen brief gehad? Dan hangt het van uw situatie af. Linda heeft wel een brief, dus zij moet aangifte doen.",
+      "reason": "The sentence \"Dat geldt ook als u geld terugkrijgt\" is not on the cited page."
+    },
+    {
+      "id": "A2:knm:batch119-aangiftebrief:1",
+      "field": "sourceNote",
+      "before": "Belastingdienst, 'Aangifte inkomstenbelasting - hoe weet ik of ik aangifte moet doen?' (page 'Moet ik aangifte inkomstenbelasting 2025 doen?'), opened 2026-11-22: 'Als u een aangiftebrief van ons hebt gehad, moet u aangifte doen. Hebt u geen brief gehad? Dan moet u aangifte doen als u meer moet betalen dan de aanslaggrens.' The ways to file (online, app, paper) come from the page 'Aangifte inkomstenbelasting doen: online, met de app of op papier' of the same site, opened the same day. Amounts and deadlines on the page change yearly and are not used (check yearly if the wording changes). Distractor C is the rule for people without a letter.",
+      "after": "Belastingdienst, 'Aangifte inkomstenbelasting - hoe weet ik of ik aangifte moet doen?' (page 'Moet ik aangifte inkomstenbelasting 2025 doen?'), opened 2026-11-22: 'Als u een aangiftebrief van ons hebt gehad, moet u aangifte doen. Hebt u geen brief gehad? Dan moet u aangifte doen als u meer moet betalen dan de aanslaggrens.' Reviewer (2026-11-22): the ways to file (online, app, paper) could not be confirmed on a page that opened today, so the card no longer mentions them. Amounts and deadlines on the page change yearly and are not used (check yearly if the wording changes). Distractor C is the rule for people without a letter.",
+      "reason": "Source note matches the changed card."
+    },
+    {
+      "id": "A2:knm:batch119-hondenbelasting:1",
+      "field": "text",
+      "before": "Een gemeente mag alleen belastingen heffen die in de wet staan. De hondenbelasting staat in de wet. De kattenbelasting staat in geen enkele wet.",
+      "after": "Een gemeente mag alleen belastingen vragen die in de wet staan. De hondenbelasting staat in de wet.",
+      "reason": "The cat-tax sentence read as a joke and KNM items are never jokes; \"heffen\" replaced by the plainer \"vragen\"; the rule stays."
+    },
+    {
+      "id": "A2:knm:batch119-hondenbelasting:1",
+      "field": "questions.0.prompt",
+      "before": "Welke van deze belastingen mag een gemeente heffen?",
+      "after": "Welke van deze belastingen mag een gemeente vragen?",
+      "reason": "Plainer verb, same question."
+    },
+    {
+      "id": "A2:knm:batch119-hondenbelasting:1",
+      "field": "questions.0.options",
+      "before": {
+        "A": "De hondenbelasting",
+        "B": "De kattenbelasting",
+        "C": "De inkomstenbelasting"
+      },
+      "after": {
+        "A": "De hondenbelasting",
+        "B": "De wegenbelasting",
+        "C": "De inkomstenbelasting"
+      },
+      "reason": "Kattenbelasting distractor removed (joke-like and not a tax anyone expects); wegenbelasting is a national tax a learner can really confuse with a local one. Inkomstenbelasting kept. Both are national taxes, false for a gemeente."
+    },
+    {
+      "id": "A2:knm:batch119-hondenbelasting:1",
+      "field": "questions.0.explanation",
+      "before": "Een gemeente mag alleen belastingen heffen die in de wet staan. De hondenbelasting staat in de Gemeentewet. De kattenbelasting staat in geen enkele wet en mag niet. De inkomstenbelasting is geen gemeentelijke belasting; die gaat naar de Belastingdienst.",
+      "after": "Een gemeente mag alleen belastingen vragen die in de wet staan. De hondenbelasting staat in de wet. De wegenbelasting en de inkomstenbelasting zijn landelijke belastingen. Die gaan naar de Belastingdienst, niet naar de gemeente.",
+      "reason": "Matches the new options."
+    },
+    {
+      "id": "A2:knm:batch119-hondenbelasting:1",
+      "field": "imageBrief",
+      "before": "A small town hall with a short clock-less tower on a market square, a few parked bicycles in front, trees and a clear sky. No text.",
+      "after": "A small town hall with a short tower on a market square, a few parked bicycles in front, trees and a clear sky. No text.",
+      "reason": "Brief described what is absent (\"clock-less\"); the local model tends to draw exclusions."
+    },
+    {
+      "id": "A2:knm:batch119-hondenbelasting:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Welke belastingen heft de gemeente?', opened 2026-11-22: 'De gemeente mag alleen die belastingen heffen die zijn genoemd in de wet. Zo mag de gemeente hondenbelasting heffen, omdat deze is opgenomen in de Gemeentewet. Kattenbelasting staat in geen enkele wet vermeld en daarom mag de gemeente deze belasting ook niet heffen.' The page's list of common municipal taxes does not include inkomstenbelasting, which is a national tax paid via the Belastingdienst (same page as the existing 112 afvalheffing and OZB items, different fact). Not every gemeente levies hondenbelasting; the prompt asks what a gemeente is allowed to levy.",
+      "after": "Rijksoverheid, 'Welke belastingen heft de gemeente?', opened 2026-11-22: 'De gemeente mag alleen die belastingen heffen die zijn genoemd in de wet. Zo mag de gemeente hondenbelasting heffen, omdat deze is opgenomen in de Gemeentewet. Kattenbelasting staat in geen enkele wet vermeld en daarom mag de gemeente deze belasting ook niet heffen.' The cat-tax sentence of the page is not used on the card. Wegenbelasting (motorrijtuigenbelasting) and inkomstenbelasting are national taxes and are not in the page list of common municipal taxes (afvalstoffenheffing, OZB, toeristenbelasting, parkeerbelasting, hondenbelasting and others). Not every gemeente levies hondenbelasting; the prompt asks what a gemeente may levy.",
+      "reason": "Source note matches the changed card."
+    },
+    {
+      "id": "A2:knm:batch119-loonstrookjes-bewaren:1",
+      "field": "text",
+      "before": "De Belastingdienst mag tot 5 jaar terug belasting terugvragen die u nog moet betalen. Bewaar daarom uw loonstrookjes en bankafschriften 5 jaar.",
+      "after": "De Belastingdienst mag tot 5 jaar terug extra belasting vragen. Bewaar daarom uw loonstrookjes en bankafschriften minstens 5 jaar.",
+      "reason": "\"belasting terugvragen die u nog moet betalen\" was awkward Dutch; \"extra belasting vragen\" is the plain phrase and matches the question."
+    },
+    {
+      "id": "A2:knm:batch119-loonstrookjes-bewaren:1",
+      "field": "questions.0.evidence",
+      "before": "De Belastingdienst mag tot 5 jaar terug belasting terugvragen die u nog moet betalen.",
+      "after": "De Belastingdienst mag tot 5 jaar terug extra belasting vragen.",
+      "reason": "Evidence follows the changed card text verbatim."
+    },
+    {
+      "id": "A2:knm:batch119-loonstrookjes-bewaren:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Hoelang moet ik mijn financiële administratie bewaren voor de Belastingdienst?', opened 2026-11-22: 'Particulieren hoeven hun administratieve gegevens (zoals bankafschriften en loonstrookjes) niet verplicht te bewaren. Maar de Belastingdienst mag tot 5 jaar terug belasting navorderen. Daarom is het verstandig om uw administratie in ieder geval 5 jaar te bewaren.' and 'Bedrijven en zelfstandigen moeten hun administratie 7 jaar bewaren.' The page speaks of loonstrookjes, not the jaaropgave, so the item uses the loonstrook (6.3.1 'salarisstrook'); the eindterm paraphrase 'jaaropgave 5 jaar bewaren' is only partly matched. 'Navorderen' is replaced by 'extra belasting vragen' on the card.",
+      "after": "Rijksoverheid, 'Hoelang moet ik mijn financiële administratie bewaren voor de Belastingdienst?', opened 2026-11-22: 'Particulieren hoeven hun administratieve gegevens (zoals bankafschriften en loonstrookjes) niet verplicht te bewaren. Maar de Belastingdienst mag tot 5 jaar terug belasting navorderen. Daarom is het verstandig om uw administratie in ieder geval 5 jaar te bewaren.' and 'Bedrijven en zelfstandigen moeten hun administratie 7 jaar bewaren.' The page speaks of loonstrookjes, not the jaaropgave, so the item uses the loonstrook (6.3.1 'salarisstrook'); the eindterm paraphrase 'jaaropgave 5 jaar bewaren' is only partly matched. 'Navorderen' is replaced by 'extra belasting vragen' on the card. Reviewer: the eindterm paraphrase 6.3.1 names \"jaaropgave 5 jaar bewaren\"; the page gives the five-year term for loonstrookjes and bankafschriften, so the \"5 jaar bewaren\" element is covered and the item is kept. Re-check yearly.",
+      "reason": "Records the mapping decision."
+    },
+    {
+      "id": "A2:knm:batch119-huurtoeslag:1",
+      "field": "text",
+      "before": "Huurtoeslag is geld van de overheid om een deel van de huur te betalen. U krijgt het alleen als u niet te veel verdient.",
+      "after": "Huurtoeslag is geld van de overheid om een deel van de huur te betalen. U krijgt het alleen als u niet te veel verdient en niet te veel spaargeld hebt.",
+      "reason": "The page names two conditions (income and vermogen); \"alleen als u niet te veel verdient\" alone was incomplete."
+    },
+    {
+      "id": "A2:knm:batch119-politie-geen-spoed:1",
+      "field": "questions.0.options",
+      "before": {
+        "A": "112",
+        "B": "0800-0543",
+        "C": "0900-8844"
+      },
+      "after": {
+        "A": "112",
+        "B": "0800-8020",
+        "C": "0900-8844"
+      },
+      "reason": "0800-0543 (BelastingTelefoon) was not on the cited page and could not be confirmed today; 0800-8020 is the Juridisch Loket number on a Rijksoverheid page opened today, so the distractor is verifiable and false for the police."
+    },
+    {
+      "id": "A2:knm:batch119-politie-geen-spoed:1",
+      "field": "questions.0.explanation",
+      "before": "Voor zaken zonder spoed belt u de politie op 0900-8844. Het nummer 112 is alleen voor spoed, bijvoorbeeld bij levensgevaar. 0800-0543 is het nummer van de BelastingTelefoon, niet van de politie.",
+      "after": "Voor zaken zonder spoed belt u de politie op 0900-8844. Het nummer 112 is alleen voor spoed, bijvoorbeeld bij levensgevaar. 0800-8020 is het nummer van het Juridisch Loket, niet van de politie.",
+      "reason": "Matches the new distractor."
+    },
+    {
+      "id": "A2:knm:batch119-politie-geen-spoed:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, contactgids 'Nationale Politie', opened 2026-11-22: 'Landelijk telefoonnummer politie: 0900 - 88 44 ... In het hele land is de politie via dit nummer bereikbaar voor vragen en problemen die niet spoedeisend zijn.' and 'Alarmnummer: 112 (spoed). Spoedeisende zaken zijn levensbedreigende situaties en heterdaadmeldingen van misdrijven.' 0800-0543 is the BelastingTelefoon (Belastingdienst, 'Aangifte inkomstenbelasting doen' page, same day). The call tariff is not used. Check yearly that the number is unchanged.",
+      "after": "Rijksoverheid, contactgids 'Nationale Politie', opened 2026-11-22: 'Landelijk telefoonnummer politie: 0900 - 88 44 ... In het hele land is de politie via dit nummer bereikbaar voor vragen en problemen die niet spoedeisend zijn.' and 'Alarmnummer: 112 (spoed). Spoedeisende zaken zijn levensbedreigende situaties en heterdaadmeldingen van misdrijven.' 0800-8020 is the number of the Juridisch Loket (Rijksoverheid, \"Waar vind ik gratis hulp of advies bij een juridisch probleem?\", opened 2026-11-22: \"gratis bellen naar 0800 - 8020\"). The page also states a call tariff of 2 cent per minute; the tariff is not used. Re-check yearly that the number is unchanged. In question audio the preparation step reads the numbers digit by digit (\"nul negen nul nul, acht acht vier vier\"; 112 as \"een een twee\").",
+      "reason": "Source note matches the changed distractor."
+    },
+    {
+      "id": "A2:knm:batch119-beroep-rechter:1",
+      "field": "text",
+      "before": "Bent u het niet eens met de beslissing op uw bezwaar? Dan kunt u in beroep gaan bij de rechter. U doet dit met een beroepschrift.",
+      "after": "Bent u het niet eens met de beslissing op uw bezwaar? Dan kunt u in beroep gaan bij de rechter. Dat doet u met een brief.",
+      "reason": "\"beroepschrift\" is a hard word that no question depends on; \"met een brief\" is the plain wording (the page says the beroepschrift explains why you disagree)."
+    },
+    {
+      "id": "A2:knm:batch119-beroep-rechter:1",
+      "field": "questions.0.explanation",
+      "before": "Is Quinten het niet eens met de beslissing op zijn bezwaar? Dan kan hij in beroep gaan bij de rechter, met een beroepschrift. De burgemeester en de ombudsman nemen die beslissing niet.",
+      "after": "Is Quinten het niet eens met de beslissing op zijn bezwaar? Dan kan hij in beroep gaan bij de rechter. De burgemeester en de ombudsman doen dat niet.",
+      "reason": "Removed \"beroepschrift\"; wording simplified and the verb phrase made to fit the options."
+    },
+    {
+      "id": "A2:knm:batch119-wetswinkel:1",
+      "field": "id",
+      "before": "A2:knm:batch119-wetswinkel:1",
+      "after": "A2:knm:batch119-juridischloket-doorsturen:1",
+      "reason": "Item repaired toward a fact the eindterm paraphrase (6.5.2: advocaat, Juridisch Loket) names; slug renamed. The author wetswinkel premise only partly mapped onto 6.5.2."
+    },
+    {
+      "id": "A2:knm:batch119-juridischloket-doorsturen:1",
+      "field": "title/text/questions/sourceNote",
+      "before": {
+        "title": "Gratis hulp bij de wetswinkel",
+        "text": "Een rechtswinkel of wetswinkel geeft gratis juridische hulp en advies. Daar werken rechtenstudenten en andere vrijwilligers.",
+        "questions": [
+          {
+            "id": "q1",
+            "skill": "person",
+            "prompt": "Quinten gaat voor gratis juridische hulp naar een wetswinkel. Wie werken daar?",
+            "options": {
+              "A": "Politieagenten",
+              "B": "Rechtenstudenten",
+              "C": "Gemeenteambtenaren"
+            },
+            "answer": "B",
+            "evidence": "Daar werken rechtenstudenten en andere vrijwilligers.",
+            "explanation": "In een rechtswinkel of wetswinkel krijgt u gratis juridische hulp en advies. Daar werken rechtenstudenten en andere vrijwilligers. Politieagenten en gemeenteambtenaren horen daar niet bij."
+          }
+        ]
+      },
+      "after": {
+        "title": "Het Juridisch Loket helpt verder",
+        "text": "Het Juridisch Loket geeft gratis advies. Kunnen de medewerkers u niet zelf helpen? Dan sturen zij u soms door naar een advocaat.",
+        "questions": [
+          {
+            "id": "q1",
+            "skill": "detail",
+            "prompt": "Quinten belt het Juridisch Loket. De medewerkers kunnen hem zelf niet verder helpen. Wat doen zij soms?",
+            "options": {
+              "A": "Zij sturen hem door naar de politie.",
+              "B": "Zij sturen hem door naar een advocaat.",
+              "C": "Zij sturen hem door naar de rechter."
+            },
+            "answer": "B",
+            "evidence": "Dan sturen zij u soms door naar een advocaat.",
+            "explanation": "Het Juridisch Loket geeft gratis advies. Kunnen de medewerkers niet helpen? Dan sturen zij u soms door naar een advocaat. Zij sturen u niet door naar de politie of de rechter."
+          }
+        ]
+      },
+      "reason": "Wetswinkel (who works there) is trivia and not named by the 6.5.2 paraphrase (advocaat, Juridisch Loket, eigen bijdrage). Replaced with a plain fact on the Juridisch Loket that the page states today; keeps Quinten, the beroep-item traits and the hallway picture."
+    },
+    {
+      "id": "A2:knm:batch119-milieustation:1",
+      "field": "text",
+      "before": "Elke gemeente moet een grotere verzamelplaats hebben waar u afval naartoe kunt brengen. Dat heet een milieustation of afvalbrengstation.",
+      "after": "Elke gemeente moet een plek hebben waar u afval zelf naartoe kunt brengen. Die plek heet een milieustation of afvalbrengstation.",
+      "reason": "\"een grotere verzamelplaats\" was bureaucratic and not A2 (the page text is the source, the card must be plain)."
+    },
+    {
+      "id": "A2:knm:batch119-milieustation:1",
+      "field": "questions.0.evidence",
+      "before": "Dat heet een milieustation of afvalbrengstation.",
+      "after": "Die plek heet een milieustation of afvalbrengstation.",
+      "reason": "Evidence follows the changed card text verbatim."
+    },
+    {
+      "id": "A2:knm:batch119-milieustation:1",
+      "field": "questions.0.explanation",
+      "before": "Gemeenten moeten een grotere verzamelplaats hebben waar u afval naartoe kunt brengen: het milieustation of afvalbrengstation. Het gemeentehuis en de bibliotheek nemen geen afval aan.",
+      "after": "Elke gemeente moet een plek hebben waar u afval zelf naartoe kunt brengen: het milieustation of afvalbrengstation. Het gemeentehuis en de bibliotheek nemen geen afval aan.",
+      "reason": "Wording follows the card."
+    },
+    {
+      "id": "A2:knm:batch119-naturalisatie-ceremonie:1",
+      "field": "imageBrief/imageAlt",
+      "before": {
+        "imageBrief": "A woman in her thirties with long black hair and a red coat sits at a kitchen table opening an envelope, smiling, with a cup of tea and a window with morning light. No text.",
+        "imageAlt": "Een vrouw met een rode jas zit aan een keukentafel en opent een enveloppe."
+      },
+      "after": {
+        "imageBrief": "A woman in her thirties with long black hair and a red coat walks along a path in a sunny park, with trees, a bench and a few flowers beside the path. No text.",
+        "imageAlt": "Een vrouw in een rode jas loopt over een pad in een zonnig park."
+      },
+      "reason": "The opened envelope pointed at distractor A (after the IND letter); the park walk favours no option and keeps Paula's three traits."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/119-proposed.json: 13 items, keys A5/B4/C4, three options each, no failures, no warnings",
+    "batch_review_source": "packet_sha256 48fd3c3adb18d4dab69a055f7c11bdc5f7a7adce992d80f36f33a49f03423281",
+    "sources_opened": "all 13 sourceUrls opened with curl on 2026-11-22 (HTTP 200); the quoted sentences were found on the pages; the claim about filing online, with an app or on paper (aangiftebrief) and the number 0800-0543 (politie) were not found and were removed",
+    "key_balance": "A 5 (38%), B 4 (31%), C 4 (31%); no letter above 40% or below 20%; no key three times in a row",
+    "card_word_counts": [
+      23,
+      18,
+      21,
+      21,
+      17,
+      19,
+      25,
+      24,
+      25,
+      26,
+      22,
+      21,
+      20
+    ],
+    "prompt_word_counts": [
+      9,
+      17,
+      16,
+      12,
+      8,
+      16,
+      12,
+      13,
+      9,
+      18,
+      17,
+      18,
+      12
+    ],
+    "rule_condition_set_up": "paspoort (age 35), naturalisatie (approved), ggd (adult), beroep (bezwaar made), aangiftebrief (letter), juridisch loket (staff cannot help) and loonstrookjes (private person) state their condition in the prompt",
+    "rule_distractors_false_about_NL": "every distractor re-checked: GGD item (consultatiebureau is for children; gemeente is not an address for adult vaccination), national taxes in hondenbelasting, businesses-only 7 years in loonstrookjes, 112 and 0800-8020 for police, burgemeester and ombudsman for beroep, inboedel and WA for opstal, gemeentehuis and bibliotheek for milieustation",
+    "rule_no_absolutes": "no nooit or altijd option in the batch",
+    "rule_options_differ_in_what_is_asked": "yes in all 13; aangiftebrief options B and C are both about whether she must file",
+    "yes_no_items": "one (aangiftebrief)",
+    "answer_signals": "key is not the longest option in any item; no prompt word recurs only in the key",
+    "word_gate": "KNM is outside the word gate; terms outside the tested word were reviewed against A2: beroepschrift, heffen, verzamelplaats, navorderen and juristen were replaced on the cards and in prompts",
+    "level_vs_official_knm": "comparable for all 13 as authoring judgment; no validated difficulty",
+    "duplication": "each item tests a fact different from the two existing items of its eindterm (read in content/catalogue.json)",
+    "names": "Paula, Linda and Quinten twice each; Gerben, Pim and Otto once; no voice names and no older cast"
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch119-berichtenbox:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Direct fact about a named service, with options from three different channels; same demand as the existing DigiD item and below the official KNM level of term recognition.",
+      "evidence": {
+        "quote": "De Berichtenbox van MijnOverheid is uw persoonlijke digitale brievenbus.",
+        "sources": [
+          "https://www.mijnoverheid.nl/"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "MijnOverheid homepage opened today: 'De Berichtenbox is uw persoonlijke digitale brievenbus voor post van de overheid. Bijvoorbeeld post over: Belastingaangifte, Kinderbijslag, Paspoortverlenging.' Distractors: a bank app and a health insurer's website are other organisations' channels; neither delivers government post. Key B is the shortest option and its term is not in the prompt. Differs from digid (what DigiD is) and informatiepunt (where to get help)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A man sits at his living-room table with a closed laptop and a mug; the question asks where government post is read online. The picture shows the home setting for digital post and nothing of the answer.",
+        "communicative_purpose": "A resident learns that government letters arrive in the Berichtenbox of MijnOverheid and not in bank or insurer channels.",
+        "contrivance_check": "The card names the service and three post types the page lists; no off-page event is needed. The laptop is closed, so no screen content reveals the key.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch119-ggd-vaccinatie:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Persona fact with one condition (adult), options are three instanties of equal length; comparable to the existing voedselbank and Nibud items of 6.1.2.",
+      "evidence": {
+        "quote": "Een volwassene die een vaccinatie wil inhalen, neemt contact op met de GGD.",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/vaccinaties/kan-ik-vaccinaties-inhalen-die-ik-als-kind-niet-heb-gehad"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid page opened today: 'Wilt u als volwassene zelf een vaccinatie inhalen? Neem dan contact op met de GGD.' and 'Wilt u uw kind een vaccinatie laten inhalen? Neem contact op met het consultatiebureau'. The prompt sets the adult condition. Distractor B is the address for children (false for Gerben). Distractor C (de gemeente) is false for Gerben: the page names only the GGD for adults, and a person does not get a vaccination at the gemeente counter; it is weak but plausible as a general-service confusion. Key A is the shortest option."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Gerben, a grey-haired man in a quiet waiting room, missed some vaccinations as a child and asks where an adult can catch up on them.",
+        "communicative_purpose": "An adult learns that the GGD, not the consultatiebureau, handles catch-up vaccinations for adults.",
+        "contrivance_check": "The prompt states both the age and the missed vaccinations, so the adult condition is set up. The waiting room fits a health service and shows no answer.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch119-paspoort-geldigheid:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "A single number with the condition (age 35) in the prompt; same demand as the official KNM fact \"how long is a document valid\".",
+      "evidence": {
+        "quote": "Een paspoort of identiteitskaart is voor volwassenen 10 jaar geldig.",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/paspoort-en-identiteitskaart/duur-geldigheid-paspoort-of-nederlandse-identiteitskaart"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid page opened today: 'Voor personen vanaf 18 jaar is het paspoort of de Nederlandse identiteitskaart (ID-kaart) 10 jaar geldig. Voor personen jonger dan 18 jaar blijft een paspoort of identiteitskaart 5 jaar geldig.' Distractor A (5 years) is the children's term, false for Paula; distractor B (20 years) does not exist. All options differ only in the number asked for. Different from reisdocument (what to take abroad) and paspoort-aanvragen (where to apply). Stable since 2014."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Paula, a woman in a red coat, stands at a municipal counter holding a passport photo and applies for a new passport; the question asks how long it stays valid.",
+        "communicative_purpose": "An adult learns that a passport is valid for ten years, five for a child.",
+        "contrivance_check": "Applying for a passport at the municipal counter with a photo is ordinary; the age is in the prompt, so no off-page fact is needed.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch119-naturalisatie-ceremonie:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One procedural fact with the condition (approved) in the prompt; the misconception in option A is real, which makes it fair rather than harder.",
+      "evidence": {
+        "quote": "U wordt pas Nederlander als u naar de naturalisatieceremonie gaat.",
+        "sources": [
+          "https://ind.nl/nl/nederlanderschap/nederlander-worden-door-naturalisatie"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "IND page opened today: 'Is uw aanvraag goedgekeurd? Dan vraagt de IND aan de koning om u het Nederlanderschap te geven. ... U bent dan nog niet direct Nederlander.' and 'U wordt pas Nederlander als u naar de naturalisatieceremonie gaat.' and 'Doe dit binnen 1 jaar na de positieve beslissing.' Distractor A (right after the IND letter) is the tempting reading and false; distractor C (only with a passport) is false because the passport can be requested after the ceremony. Differs from naturalisatie (condition: inburgeringsexamen) and afstand-nationaliteit. Re-check yearly: the nationality law is under revision."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Paula opens an envelope at her kitchen table after her request to become Dutch was approved; the question asks when she is Dutch.",
+        "communicative_purpose": "A person learns that approval is not the end: the ceremony makes you Dutch.",
+        "contrivance_check": "The approval is stated in the prompt, so no off-page event is needed. After the repair the picture is a park walk with no letter, passport, town hall or ceremony, so it favours no option.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch119-hondenbelasting:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Recognition of one local tax against two national taxes; comparable to ozb-huiseigenaar, whose options also mix local and national taxes.",
+      "evidence": {
+        "quote": "De hondenbelasting staat in de wet.",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/gemeenten/welke-belastingen-heft-de-gemeente"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid page opened today: 'De gemeente mag alleen die belastingen heffen die zijn genoemd in de wet. Zo mag de gemeente hondenbelasting heffen, omdat deze is opgenomen in de Gemeentewet.' and a list of common municipal taxes (afvalstoffenheffing, OZB, toeristenbelasting, parkeerbelasting, hondenbelasting ...). The cat-tax sentence and distractor were removed as joke-like. New distractors wegenbelasting and inkomstenbelasting are national taxes and are not on the municipal list. The prompt asks what a gemeente may levy, so it does not claim that every gemeente does."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A small town hall on a market square with bicycles in front; the question asks which tax a gemeente may levy.",
+        "communicative_purpose": "A resident learns that a gemeente can only charge taxes that the law names and can tell local from national taxes.",
+        "contrivance_check": "The town hall picture shows only the setting. After the edit the card holds one rule and one example, with no invented tax.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch119-loonstrookjes-bewaren:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One number with a short rule; same demand as the official KNM items on duties around money and documents.",
+      "evidence": {
+        "quote": "De Belastingdienst mag tot 5 jaar terug extra belasting vragen.",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/inkomstenbelasting/hoe-lang-moet-ik-mijn-financiele-administratie-bewaren"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid page opened today: 'Particulieren hoeven hun administratieve gegevens (zoals bankafschriften en loonstrookjes) niet verplicht te bewaren. Maar de Belastingdienst mag tot 5 jaar terug belasting navorderen. Daarom is het verstandig om uw administratie in ieder geval 5 jaar te bewaren.' and 'Bedrijven en zelfstandigen moeten hun administratie 7 jaar bewaren.' The eindterm 6.3.1 reads 'jaaropgave 5 jaar bewaren'; the page gives the five-year term for loonstrookjes, so the item is kept. Distractor 7 years is the term for businesses (false for Linda, a private person) and 2 years is too short. Card sentence reworded to plain Dutch. Re-check yearly."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Linda, a woman with a grey bob, sorts papers into a folder at her desk; the question asks how far back the tax office may ask for extra tax.",
+        "communicative_purpose": "A worker learns why pay slips and bank statements are worth keeping for five years.",
+        "contrivance_check": "Sorting paper records at a desk matches the card; the picture shows no number. The question follows from the first card sentence without an off-page event.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch119-aangiftebrief:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One rule with a persona and a qualification (letter or no letter); comparable to the official KNM yes/no with qualification, the one such item in this batch.",
+      "evidence": {
+        "quote": "Dan moet u aangifte doen.",
+        "sources": [
+          "https://www.belastingdienst.nl/wps/wcm/connect/nl/belastingaangifte/content/moet_ik_aangifte_doen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Belastingdienst page opened today: 'Als u een aangiftebrief van ons hebt gehad, moet u aangifte doen. Hebt u geen brief gehad? Dan moet u aangifte doen als u meer moet betalen dan de aanslaggrens.' The author's sentence on filing online, with the app or on paper was not on the page and could not be found on a page that opened today, so it was removed. Distractor B contradicts the page; distractor C is the rule for people without a letter and is false for Linda, who has one. The page is rewritten every tax year but the letter rule is stable."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Linda stands at her front door holding an unopened envelope from the tax office and asks what the letter means for her.",
+        "communicative_purpose": "A taxpayer learns that a letter from the tax office means she must file a return.",
+        "contrivance_check": "The prompt names the letter, so the condition is set up. The unopened envelope shows the setting only. The card states no unverified ways to file.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch119-huurtoeslag:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Purpose question with three toeslagen of similar length; easier than a question on conditions and comparable to the existing kinderbijslag item.",
+      "evidence": {
+        "quote": "Huurtoeslag is geld van de overheid om een deel van de huur te betalen.",
+        "sources": [
+          "https://www.belastingdienst.nl/wps/wcm/connect/nl/huurtoeslag/content/kan-ik-huurtoeslag-krijgen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Dienst Toeslagen page opened today: 'Huurtoeslag is een bijdrage om de huur van uw woning mee te kunnen betalen. ... Zo mag u bijvoorbeeld niet te veel verdienen en niet te veel vermogen hebben.' The card now names both conditions (low income and little savings). Distractors: zorgtoeslag is for the health insurance and kinderopvangtoeslag for childcare; both are false as statements about housing costs. The key repeats no prompt word (the prompt says woning, the key huur). No amounts used. Re-check yearly that toeslagen rules still apply."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "An empty small living room with a sofa, a plant and a window; the question asks which allowance helps people with low income pay for their home.",
+        "communicative_purpose": "A resident learns that huurtoeslag exists for the rent and which allowance covers what.",
+        "contrivance_check": "The empty room shows only the housing setting; the prompt asks for the purpose, so no off-page event is needed.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch119-politie-geen-spoed:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Recall of one number among three; options are plain numbers and the card says them in a clear pair. Slightly harder than a term item because it is rote recall, comparable to the 112 item.",
+      "evidence": {
+        "quote": "Dan belt u de politie op 0900-8844.",
+        "sources": [
+          "https://www.rijksoverheid.nl/service/contact/contactgids/p/politie",
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/bescherming-van-consumenten/waar-kan-ik-terecht-voor-hulp-bij-een-juridisch-probleem-of-conflict"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid contactgids opened today: 'Landelijk telefoonnummer politie Telefoon 0900 - 88 44 (2 cent per minuut ...) In het hele land is de politie via dit nummer bereikbaar voor vragen en problemen die niet spoedeisend zijn.' and 'Alarmnummer 112 (spoed).' The number is stated today. Distractor 0800-0543 (BelastingTelefoon) could not be verified on a page that opened today and was replaced by 0800-8020, the Juridisch Loket number on a Rijksoverheid page opened today. Both distractors are false for the police. The spoken options are read digit by digit by the audio preparation (scripts/audio.ts), and 112 as one-one-two, so they read plainly."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A police car parked on a quiet residential street; the question asks which number the police have for matters that are not urgent.",
+        "communicative_purpose": "A resident learns to call 112 only for an emergency and the other number for ordinary questions.",
+        "contrivance_check": "The police car shows only the setting. The card sets up the urgent versus non-urgent contrast the question needs.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch119-beroep-rechter:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One persona fact with the condition (bezwaar already made) in the prompt; comparable to the official KNM institution questions.",
+      "evidence": {
+        "quote": "Dan kunt u in beroep gaan bij de rechter.",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/bezwaar-en-beroep/in-hoger-beroep-tegen-beslissing-overheid"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid page opened today: 'Bent u het niet eens met een het besluit op uw bezwaar? Dan kunt u in beroep gaan bij de rechter. U doet dit via een beroepschrift.' The hard word beroepschrift was replaced by 'met een brief' on the card. Distractors: the burgemeester and the ombudsman do not hear a beroep; the page names the rechter only. The prompt sets up that a bezwaar was already made, so the order bezwaar then beroep is not tested again (existing bezwaar item tests the six weeks)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Quinten, a man with a short beard, stands in front of a large building holding a folder after a decision on his bezwaar went against him.",
+        "communicative_purpose": "A resident learns that the step after a rejected bezwaar is beroep at the rechter.",
+        "contrivance_check": "The prompt supplies the bezwaar and the disagreement; the building and folder fit the setting and hide the answer, since the building is described as municipal.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch119-juridischloket-doorsturen:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One fact about what a service does, three parallel options of equal length; comparable to the existing juridischloket item and similar in demand.",
+      "evidence": {
+        "quote": "Dan sturen zij u soms door naar een advocaat.",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/bescherming-van-consumenten/waar-kan-ik-terecht-voor-hulp-bij-een-juridisch-probleem-of-conflict"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid page opened today, section Het Juridisch Loket: 'Soms sturen zij u door naar iemand anders die u verder kan helpen, zoals een mediator, advocaat of de gemeente.' Replaces the author's wetswinkel item, which tested who works in a rechtswinkel and mapped only partly onto 6.5.2 (advocaat, Juridisch Loket, eigen bijdrage). The new item uses a fact the eindterm names (Juridisch Loket and advocaat) and differs from 007 (who gets free advice) and 033 (eigen bijdrage). Distractors politie and rechter are not named by the page as places the Juridisch Loket sends people to; gemeente and mediator were left out because the page names them."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Quinten stands in a bright hallway with a folder, looking at a closed door, after phoning the Juridisch Loket without a full answer; the question asks what the staff sometimes do.",
+        "communicative_purpose": "A resident learns that the Juridisch Loket is a first step and may refer a person to a lawyer.",
+        "contrivance_check": "The prompt tells the reader that Quinten called and that the staff could not solve it themselves, so the referral is set up in text. The hallway and door show a waiting place, not the lawyer.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch119-opstalverzekering:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Purpose question with a persona and a clear scenario (storm, roof); the three insurances are named in the eindterm, comparable to wa-verzekering.",
+      "evidence": {
+        "quote": "Een opstalverzekering betaalt schade aan het huis zelf",
+        "sources": [
+          "https://www.nibud.nl/onderwerpen/uitgaven/kosten-verzekering/"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Nibud page opened today: 'Een opstalverzekering is verplicht voor iedereen die een koopwoning met hypotheek heeft en dekt de schade aan de woning zelf, dus niet de schade aan de inboedel. Denk aan schade door brand, inbraak of storm.' and 'inboedelverzekering ... dekken de schade voor bijvoorbeeld brand, storm of diefstal' (contents). The prompt asks which policy covers the house itself, so inboedel (belongings) is false for the roof, and WA covers damage to others. The card does not claim the policy is compulsory. No amounts."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A detached brick house with bending trees under a cloudy sky; Pim owns the house and a storm damages the roof, and the question asks which insurance pays.",
+        "communicative_purpose": "A home owner learns that the opstalverzekering covers the house and the inboedelverzekering covers belongings.",
+        "contrivance_check": "Storm and roof damage in the prompt explain the question. The windy picture matches the prompt and shows no insurer or document.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch119-milieustation:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Place fact with a persona; comparable to gft and afval-verschil.",
+      "evidence": {
+        "quote": "Die plek heet een milieustation of afvalbrengstation.",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/afval/huishoudelijk-afval"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid page opened today: 'Gemeenten moeten ook een grotere verzamelplaats hebben, waar mensen hun afval naar toe kunnen brengen. Dat zijn de afvalbrengstations of milieustations.' The card was rewritten in plain words (a place where you bring waste yourself). Distractors: gemeentehuis and bibliotheek do not accept waste. The card does not say what may be brought, because that differs per gemeente. Different from gft (what goes in the bin) and afval-verschil (collection differs per gemeente)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Otto stands on the pavement in front of his terraced house holding a cardboard box, with two wheelie bins beside the door; the question asks where he can bring waste himself.",
+        "communicative_purpose": "A resident learns that every gemeente has a place such as the milieustation for waste that does not go in the bins.",
+        "contrivance_check": "A box in front of a house with bins is an ordinary reason to bring waste away; the picture does not show the milieustation.",
+        "unsupported_assumptions": []
+      }
+    }
+  ],
+  "media_notes": [
+    "Pictures: briefs show settings only and no answer; the hondenbelasting brief no longer names an absent object. Traits repeat verbatim for Paula (long black hair, red coat, thirties), Linda (grey bob, yellow blouse, fifties) and Quinten (short beard, grey coat, forties). The juridischloket-doorsturen item keeps the author hallway picture of the replaced wetswinkel item, so its brief and alt are unchanged. The naturalisatie picture was changed to a park walk so it favours no option.",
+    "Question audio: the politie options hold phone numbers; scripts/audio.ts reads them digit by digit and 112 as one-one-two, so they sound plain. Generate with --keys for exactly the new clips.",
+    "Pictures not rendered by the reviewer."
+  ],
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Time-sensitive: the 0900-8844 number and its tariff (politie), the naturalisation procedure under the pending law change (naturalisatie), toeslagen rules (huurtoeslag), validity of passports (paspoort) and the 5-year look-back of the Belastingdienst (loonstrookjes) need re-checking yearly.",
+    "The Nibud page is the source for the opstalverzekering item; it is a government-funded institute, not a ministry page.",
+    "Eindterm mapping is taken from docs/research/knm-coverage-2026-11-22.md; the Regeling inburgering was not re-opened.",
+    "The existing catalogue item juridischloket says \"Bellen is ook gratis\"; the Rijksoverheid page confirms a free number (0800-8020), so no conflict, but the phone tariff of other numbers can change."
+  ]
+}

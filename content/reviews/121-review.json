@@ -1,0 +1,497 @@
+{
+  "review_id": "121-a2-knm-batch-j-2026-11-22",
+  "review_contract_version": 2,
+  "source": "content/batches/121-original.json",
+  "proposed_source": "content/batches/121-proposed.json",
+  "source_sha256": "2247c2fe26493dbcc27ba79af994d15c5ef16711533276afed428a5711cb2b2d",
+  "review_type": "independent AI editorial review of 12 new A2 KNM items, sources opened 2026-11-22",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T12:00:00Z",
+  "reviewer": "Independent AI reviewer (Sonnet 5.5), separate from the author agent; AI editorial review, not human validation.",
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "6c47463a4744e766f53d5b05eb24e73d0f98ab1905fcc327b08634b1a4ced585",
+    "independence_note": "The blind packet of the author file (hash a5890f19...afae) was read first and findings were written to content/reviews/121-review.md before the full batch, notes, assignment or catalogue were opened. After repairs the packet was rebuilt from the proposed bytes (hash recorded here) and re-read for the changed titles, cards, prompts and options; all twelve remain coherent."
+  },
+  "tone_balance": {
+    "ordinary": 12,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All twelve are ordinary civic-fact scenes; KNM items carry no humour. The coordinator checks the combined program count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 12,
+    "edited_by_reviewer": 9,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:knm:batch121-basisschool-acht-jaar:1",
+      "field": "title",
+      "before": "Acht jaar basisschool",
+      "after": "Basisschool",
+      "reason": "The title \"Acht jaar basisschool\" gave the key before answering."
+    },
+    {
+      "id": "A2:knm:batch121-eigen-school-beginnen:1",
+      "field": "title",
+      "before": "Een eigen school beginnen",
+      "after": "Een nieuwe school",
+      "reason": "The old title named the topic of the key."
+    },
+    {
+      "id": "A2:knm:batch121-eigen-school-beginnen:1",
+      "field": "text",
+      "before": "In Nederland mag iedereen een school beginnen en daar lesgeven vanuit een eigen overtuiging. Dat heet vrijheid van onderwijs. Het staat in artikel 23 van de Grondwet.",
+      "after": "In Nederland mag iedereen een school beginnen en daar lesgeven volgens eigen ideeën of geloof. Dat heet vrijheid van onderwijs. Het staat in artikel 23 van de Grondwet.",
+      "reason": "\"overtuiging\" is a B1 word; plain A2 wording kept the fact."
+    },
+    {
+      "id": "A2:knm:batch121-eigen-school-beginnen:1",
+      "field": "questions[0].prompt",
+      "before": "Wilma en andere ouders willen een school beginnen met hun eigen visie. Mag dat in Nederland?",
+      "after": "Wilma en andere ouders willen een school beginnen met hun eigen ideeën. Wie mag in Nederland een school beginnen?",
+      "reason": "The yes/no form made the key the only \"Ja\"; a Wie-question gives parallel options."
+    },
+    {
+      "id": "A2:knm:batch121-eigen-school-beginnen:1",
+      "field": "questions[0].options",
+      "before": "{\"A\": \"Ja, iedereen mag een school beginnen.\", \"B\": \"Nee, alleen de gemeente mag een school beginnen.\", \"C\": \"Nee, alleen een kerk mag een school beginnen.\"}",
+      "after": "{\"A\": \"Iedereen mag dat.\", \"B\": \"Alleen de gemeente.\", \"C\": \"Alleen een kerk.\"}",
+      "reason": "Parallel options that differ in exactly what is asked."
+    },
+    {
+      "id": "A2:knm:batch121-eigen-school-beginnen:1",
+      "field": "questions[0].explanation",
+      "before": "Artikel 23 van de Grondwet geeft vrijheid van onderwijs: iedereen mag een school beginnen en die naar eigen overtuiging inrichten. Dat geldt niet alleen voor de gemeente of een kerk. Voor betaling door de overheid moet de school wel aan regels voldoen.",
+      "after": "Artikel 23 van de Grondwet geeft vrijheid van onderwijs: iedereen mag een school beginnen. Het hoeft dus niet de gemeente of een kerk te zijn. Wil een school geld van de overheid, dan moet zij wel aan regels voldoen.",
+      "reason": "Matches the new options; keeps the funding nuance in plain words."
+    },
+    {
+      "id": "A2:knm:batch121-vve-aanmelden:1",
+      "field": "questions[0].explanation",
+      "before": "De aanmelding voor VVE gaat meestal via het consultatiebureau. Het consultatiebureau geeft het kind een indicatie. De basisschool of de huisarts regelt dat niet: een peuter van drie zit nog niet op de basisschool.",
+      "after": "De aanmelding voor VVE gaat meestal via het consultatiebureau. Daar kijken ze of een kind VVE nodig heeft. De basisschool of de huisarts is niet de gewone route: een peuter van drie zit nog niet op de basisschool.",
+      "reason": "\"indicatie\" replaced by plain wording."
+    },
+    {
+      "id": "A2:knm:batch121-boete-kind-zestien:1",
+      "field": "questions[0].explanation",
+      "before": "Is een kind jonger dan 16 jaar? Dan betalen de ouders de boete voor een lichte verkeersovertreding. Een kind van 16 jaar of ouder betaalt de hele boete zelf. Met 14 jaar betalen de ouders dus nog, en met 18 jaar betaalt het kind al sinds zijn zestiende zelf.",
+      "after": "Is een kind jonger dan 16 jaar? Dan betalen de ouders de boete voor een lichte verkeersovertreding. Is een kind 16 jaar of ouder, dan betaalt het kind de hele boete zelf. Met 14 jaar betalen de ouders dus nog.",
+      "reason": "Awkward last sentence about 18 removed; the tempting 14 is addressed."
+    },
+    {
+      "id": "A2:knm:batch121-boete-kind-zestien:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Schulden van kinderen', section 'Boete voor lichte verkeersovertreding', opened 2026-11-22: 'Is uw kind jonger dan 16 jaar en krijgt hij of zij een bekeuring? Dan moet u deze betalen. Het gaat dan bijvoorbeeld om een boete voor een lichte verkeersovertreding. ... Is uw kind 16 jaar of ouder, dan moet hij of zij de gehele boete zelf betalen.' Vanaf 14 and vanaf 18 are false (14 is the damage rule; 18 is majority). Different fact from the two existing 8.2.1 items (schade door een kind, ages 14 and 16). Fietsen zonder licht is an ordinary light traffic fine.",
+      "after": "Rijksoverheid, 'Ben ik aansprakelijk voor de schulden van mijn minderjarige kinderen?', section 'Boete voor lichte verkeersovertreding' (page adds: the fine is then half as high), opened 2026-11-22: 'Is uw kind jonger dan 16 jaar en krijgt hij of zij een bekeuring? Dan moet u deze betalen. Het gaat dan bijvoorbeeld om een boete voor een lichte verkeersovertreding. ... Is uw kind 16 jaar of ouder, dan moet hij of zij de gehele boete zelf betalen.' Vanaf 14 and vanaf 18 are false (14 is the damage rule; 18 is majority). Different fact from the two existing 8.2.1 items (schade door een kind, ages 14 and 16). Fietsen zonder licht is an ordinary light traffic fine.",
+      "reason": "Page title corrected to the live page title."
+    },
+    {
+      "id": "A2:knm:batch121-mr-lid-worden:1",
+      "field": "text",
+      "before": "Elke school heeft een medezeggenschapsraad (MR). Ouders kunnen daarin meepraten over het schoolbeleid. Om lid te worden van de MR moet u gekozen worden.",
+      "after": "Elke basisschool en middelbare school heeft een medezeggenschapsraad (MR). Ouders kunnen daarin meepraten over het schoolbeleid. Om lid te worden van de MR moet u gekozen worden.",
+      "reason": "The page limits the MR rule to primary and secondary education."
+    },
+    {
+      "id": "A2:knm:batch121-mr-lid-worden:1",
+      "field": "questions[0].options",
+      "before": "{\"A\": \"De directeur wijst de leden aan.\", \"B\": \"Alleen leraren zitten in de MR.\", \"C\": \"De leden worden gekozen.\"}",
+      "after": "{\"A\": \"De directeur wijst de leden aan.\", \"B\": \"De gemeente wijst de leden aan.\", \"C\": \"De leden worden gekozen.\"}",
+      "reason": "\"Alleen leraren zitten in de MR\" did not answer \"Hoe\" and contradicted the persona; options now differ only in how members are chosen."
+    },
+    {
+      "id": "A2:knm:batch121-mr-lid-worden:1",
+      "field": "questions[0].explanation",
+      "before": "In de MR zitten gekozen leden. Wie lid wil worden, moet gekozen worden; in het reglement van de school staat hoe de verkiezing gaat. De directeur wijst de leden niet aan, en ouders kunnen ook in de MR zitten.",
+      "after": "Wie lid wil worden van de MR, moet gekozen worden. In het reglement van de school staat hoe de verkiezing gaat. De directeur en de gemeente wijzen de leden niet aan.",
+      "reason": "Matches the new options."
+    },
+    {
+      "id": "A2:knm:batch121-sociaal-wijkteam-opvoeden:1",
+      "field": "questions[0].prompt",
+      "before": "Hanan vindt opvoeden moeilijk en wil hulp van een team in haar buurt. Waar kan zij naartoe?",
+      "after": "Hanan vindt opvoeden moeilijk. Waar kan zij in haar buurt hulp vragen?",
+      "reason": "The prompt \"team in haar buurt\" repeated \"team\" only in the key."
+    },
+    {
+      "id": "A2:knm:batch121-ouderbijdrage-fietsenstalling:1",
+      "field": "title",
+      "before": "Geen ouderbijdrage voor standaardkosten",
+      "after": "Fietsen naar school",
+      "reason": "The old title gave the key."
+    },
+    {
+      "id": "A2:knm:batch121-ouderbijdrage-fietsenstalling:1",
+      "field": "questions[0].prompt",
+      "before": "Ercans dochter fietst naar de middelbare school. Waarvoor mag de school geen ouderbijdrage vragen?",
+      "after": "Ercans dochter zet haar fiets in de fietsenstalling van school. Welke ouderbijdrage mag de school daarvoor vragen?",
+      "reason": "Negative question \"waarvoor geen\" rephrased positively; tests the same standard-costs fact (not the batch 007 schoolreis fact)."
+    },
+    {
+      "id": "A2:knm:batch121-ouderbijdrage-fietsenstalling:1",
+      "field": "questions[0].options",
+      "before": "{\"A\": \"Voor extra lessen Spaans.\", \"B\": \"Voor de fietsenstalling.\", \"C\": \"Voor een schoolreis.\"}",
+      "after": "{\"A\": \"Een vrijwillige ouderbijdrage.\", \"B\": \"Geen ouderbijdrage.\", \"C\": \"Een verplichte ouderbijdrage.\"}",
+      "reason": "Parallel options matching the new question; key letter unchanged."
+    },
+    {
+      "id": "A2:knm:batch121-ouderbijdrage-fietsenstalling:1",
+      "field": "questions[0].evidence",
+      "before": "Denk aan de fietsenstalling of een kluisje",
+      "after": "Een school mag geen ouderbijdrage vragen voor kosten die elke leerling heeft. Denk aan de fietsenstalling of een kluisje.",
+      "reason": "The old quote did not entail the key alone."
+    },
+    {
+      "id": "A2:knm:batch121-ouderbijdrage-fietsenstalling:1",
+      "field": "questions[0].explanation",
+      "before": "Voor kosten die elke leerling heeft, zoals de fietsenstalling, het huren van een kluisje of de schoolgids, mag de school geen ouderbijdrage vragen. Voor extra's mag de school wel een vrijwillige bijdrage vragen: een schoolreis of extra lessen Spaans.",
+      "after": "Voor kosten die elke leerling heeft, zoals de fietsenstalling, mag de school geen ouderbijdrage vragen. Ook niet een vrijwillige: alleen voor extra's, zoals een schoolreis, mag dat wel.",
+      "reason": "Matches the new question."
+    },
+    {
+      "id": "A2:knm:batch121-ouderbijdrage-fietsenstalling:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Is de vrijwillige ouderbijdrage op de basisschool en middelbare school verplicht?', section 'Bijdragen die scholen niet mogen vragen', opened 2026-11-22: 'Voor sommige kostenposten mogen scholen geen vrijwillige ouderbijdrage vragen. ... Het gaat om kostenposten of activiteiten die standaard nodig zijn om naar school te kunnen gaan. ... het huren van kluisjes, de schoolgids, gebruik van de fietsenstalling, een leerlingenpas.' Extra activiteiten 'zoals schoolreizen, sportdagen' and 'lessen in een extra vreemde taal zoals Spaans' are on the 'wel vragen' list, so both distractors are false as answers to 'waarvoor geen'. Different fact from batch 007 ouderbijdrage (voluntary) and batch 112 schoolboeken. The question is negative ('geen'); the stem puts it plainly. Check yearly: the list of examples may change.",
+      "after": "Rijksoverheid, 'Is de vrijwillige ouderbijdrage voor extra activiteiten op school verplicht?', section 'Bijdragen die scholen niet mogen vragen', opened 2026-11-22: 'Voor sommige kostenposten mogen scholen geen vrijwillige ouderbijdrage vragen. ... Het gaat om kostenposten of activiteiten die standaard nodig zijn om naar school te kunnen gaan. ... het huren van kluisjes, de schoolgids, gebruik van de fietsenstalling, een leerlingenpas.' Extra activiteiten 'zoals schoolreizen, sportdagen' and 'lessen in een extra vreemde taal zoals Spaans' are on the 'wel vragen' list, so both distractors are false as answers to 'waarvoor geen'. Different fact from batch 007 ouderbijdrage (voluntary) and batch 112 schoolboeken. The question is negative ('geen'); the stem puts it plainly. Check yearly: the list of examples may change.",
+      "reason": "Page title corrected to the live page title."
+    },
+    {
+      "id": "A2:knm:batch121-fries-in-friesland:1",
+      "field": "title",
+      "before": "Fries in Friesland",
+      "after": "Verhuizen naar Friesland",
+      "reason": "The old title gave the key."
+    },
+    {
+      "id": "A2:knm:batch121-fries-in-friesland:1",
+      "field": "text",
+      "before": "In de provincie Friesland (Fryslân) is Fries naast Nederlands een officiële taal. U mag Fries gebruiken bij de gemeente, op school en in de rechtbank. Gewoonten verschillen per regio.",
+      "after": "In de provincie Friesland (Fryslân) is Fries naast Nederlands een officiële taal. U mag Fries gebruiken bij de gemeente, op school en in de rechtbank. Zo verschilt de taal per regio.",
+      "reason": "The old last sentence (\"Gewoonten verschillen per regio\") is not on the source page and was loose; the new one follows from the fact and keeps the 2.1.1 link."
+    },
+    {
+      "id": "A2:knm:batch121-fries-in-friesland:1",
+      "field": "questions[0].explanation",
+      "before": "In Friesland is Fries, naast het Nederlands, een officiële taal. Zo verschilt de taal per regio. Duits en Engels zijn nergens in Nederland een officiële taal van een provincie.",
+      "after": "In Friesland is Fries, naast het Nederlands, een officiële taal. Zo verschilt de taal per regio. In Friesland is het Duits of het Engels geen officiële taal.",
+      "reason": "Overclaim \"nergens in Nederland\" removed."
+    },
+    {
+      "id": "A2:knm:batch121-kosten-koper-notaris:1",
+      "field": "questions[0].prompt",
+      "before": "Babette koopt een bestaand huis. Wie betaalt meestal de notaris voor de overdracht?",
+      "after": "Babette heeft een bestaand huis gevonden. Wie betaalt meestal de notaris voor de overdracht?",
+      "reason": "\"koopt\" in the prompt echoed \"koper\" in the key."
+    },
+    {
+      "id": "A2:knm:batch121-kosten-koper-notaris:1",
+      "field": "questions[0].explanation",
+      "before": "Een bestaand huis koopt u meestal 'kosten koper'. De koper betaalt dan de notaris en de overdrachtsbelasting. De verkoper en de gemeente betalen dat niet. Bij een nieuwbouwhuis 'vrij op naam' zit de notaris in de koopsom.",
+      "after": "Een bestaand huis koopt u meestal 'kosten koper'. De koper betaalt dan de notaris en de overdrachtsbelasting. De verkoper en de gemeente betalen dat niet. Bij een nieuw huis zit dit vaak al in de prijs.",
+      "reason": "Hard term \"vrij op naam\" removed."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/121-proposed.json: 12 items, 12 questions, keys A4/B4/C4, no failures, no warnings",
+    "batch_review_source": "packet_sha256 6c47463a4744e766f53d5b05eb24e73d0f98ab1905fcc327b08634b1a4ced585",
+    "sources_opened": "All twelve sourceUrls fetched with curl on 2026-11-22 (HTTP 200) and the quoted sentences found on the pages",
+    "rule_distractors_false_about_NL": true,
+    "rule_options_differ_in_what_is_asked": true,
+    "answer_signals": "No key is the longest or odd one out after repairs; titles no longer give keys; no prompt word recurs only in the key; no nooit/altijd options",
+    "duplication": "Each item tests a different fact from the existing items of its eindterm (read in content/catalogue.json)",
+    "yes_no_items": 0
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch121-basisschool-acht-jaar:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One direct number from one sentence; options are three durations; easier than a causal fact but in line with other short KNM quantity items.",
+      "evidence": {
+        "quote": "De meeste kinderen zitten acht jaar op de basisschool",
+        "sources": [
+          "https://www.government.nl/topics/primary-education"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "government.nl, opened 2026-11-22 (English page; the Dutch pages do not state the length plainly): 'Most children go to primary school for 8 years.' 6 and 10 are false: groep 1-8, then secondary school. Stable fact; no earlier 8.1.1 item (vmbo, schooladvies) tests it."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Babette walks her four-year-old to a brick primary school; the question asks how long the girl will stay there.",
+        "communicative_purpose": "A parent of a child who is about to start learns that primary school lasts eight years.",
+        "contrivance_check": "The age four in the prompt matches the age in the fact card; the picture shows only a school path, not a number.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch121-eigen-school-beginnen:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One rule from art. 23; a Wie-question with three parallel options; plain A2 wording after replacing overtuiging.",
+      "evidence": {
+        "quote": "In Nederland mag iedereen een school beginnen",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/onderwijs/vrijheid-van-onderwijs/openbaar-en-bijzonder-onderwijs"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'mag iedereen een school oprichten en deze naar eigen overtuiging inrichten' (art. 23 Grondwet); the same page notes funded schools must meet conditions. 'Alleen de gemeente' and 'alleen een kerk' are false: the page lists bijzondere scholen of many kinds. Stable. Differs from 007 (what bijzonder is) and 111 (who pays)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Wilma and two other parents sit in a classroom and want to start a school with their own ideas; the question asks who may do that.",
+        "communicative_purpose": "Learners see that founding a school is a constitutional freedom, not reserved to gemeente or church.",
+        "contrivance_check": "Parents wanting a school of their own is a real situation; the classroom picture shows the setting and not the answer.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch121-vve-aanmelden:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One route fact (consultatiebureau) with two clearly wrong routes; easier than a rule exception.",
+      "evidence": {
+        "quote": "Aanmelden gaat meestal via het consultatiebureau",
+        "sources": [
+          "https://www.rijksoverheid.nl/onderwerpen/voorschoolse-en-vroegschoolse-educatie/voorschoolse-educatie"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'De aanmelding voor voorschoolse educatie gaat meestal via het consultatiebureau.' and 'Gemeenten bepalen welke kinderen in aanmerking komen.' Basisschool and huisarts are not the route; a 3-year-old is not at primary school. Different from 111 vve-peuters (target group). Check yearly: municipal rules differ and are being reformed."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Nadir sits next to his three-year-old son, who stacks blocks; the boy needs extra help with language and Nadir wants to sign him up for VVE.",
+        "communicative_purpose": "A parent learns where to start the VVE application.",
+        "contrivance_check": "The boy's age and the language need are in the prompt, so no off-page need is invented; the playroom picture does not show the consultatiebureau.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch121-seksuele-vorming-inspectie:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "One supervising body named in one sentence; options are three bodies; calm tone.",
+      "evidence": {
+        "quote": "De Inspectie van het Onderwijs controleert of scholen dit doen",
+        "sources": [
+          "https://www.rijksoverheid.nl/onderwerpen/gezondheid-en-preventie/seksuele-gezondheid/relationele-en-seksuele-vorming/veelgestelde-vragen-over-relationele-en-seksuele-vorming"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid FAQ, opened 2026-11-22: 'Elke school moet wel altijd aan de kerndoelen voldoen. De Inspectie van het Onderwijs controleert hierop.' Burgemeester and ouders do not supervise. Third 8.1.5 item; 007 and 111 ask whether schools must, this asks who checks. Stable."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Renske walks her seven-year-old son to a primary school; the question asks who checks whether the school teaches about relationships and sexuality.",
+        "communicative_purpose": "A parent learns who supervises this subject at school.",
+        "contrivance_check": "The mother with a child at school has an ordinary reason to ask; the picture shows only a school entrance and no lesson.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch121-boete-kind-zestien:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One age threshold from one sentence; the tempting 14 comes from the damage rule, which makes it a real but fair confusion.",
+      "evidence": {
+        "quote": "Vanaf 16 jaar betaalt het kind de hele boete zelf",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/schulden/schulden-van-kinderen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22 (page title: 'Ben ik aansprakelijk voor de schulden van mijn minderjarige kinderen?'): 'Is uw kind jonger dan 16 jaar en krijgt hij of zij een bekeuring? Dan moet u deze betalen ... Het boetebedrag wordt dan de helft lager. Is uw kind 16 jaar of ouder, dan moet hij of zij de gehele boete zelf betalen.' So below 16 parents pay; 14 and 18 are false as the age. Different from 007/111 (schade). Check yearly."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Ercan stands with his fourteen-year-old son and a bicycle at dusk; the boy got a fine for cycling without light, and the question asks from what age a child pays such a fine alone.",
+        "communicative_purpose": "A parent learns that parents pay a light traffic fine for under-16s and the child pays from 16.",
+        "contrivance_check": "Cycling without light at dusk is an ordinary light offence named by the page's own category; the picture shows no fine or age.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch121-mr-lid-worden:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One procedural fact, three parallel statements after repair; comparable to other KNM institution items.",
+      "evidence": {
+        "quote": "Om lid te worden van de MR moet u gekozen worden",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/basisonderwijs/hoe-kan-ik-als-ouder-bij-de-school-betrokken-zijn"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'In het basisonderwijs en voortgezet onderwijs heeft elke school een medezeggenschapsraad (MR) ... Om lid te worden van de MR moet u gekozen worden. In het MR-reglement van de school staat hoe de verkiezing verloopt.' Director and gemeente do not appoint members. Differs from 007 (which body a parent joins). Stable."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Wilma sits at a table with three other adults in a school meeting room and wants to join the MR; the question asks how a person becomes a member.",
+        "communicative_purpose": "A parent learns that MR members are elected, not appointed.",
+        "contrivance_check": "Wanting to take part in school decisions is the very purpose of the MR; the meeting-room picture is generic and does not show an election.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch121-sociaal-wijkteam-opvoeden:1",
+      "verdict": "pass (edited)",
+      "level": "easier",
+      "level_reason": "Distractors (woningcorporatie, Belastingdienst) are clearly outside the topic, so the item is easier than a same-field confusion; acceptable as a routing fact.",
+      "evidence": {
+        "quote": "Dan kunt u terecht bij het sociaal wijkteam (jeugdteam) in uw buurt",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/jeugdhulp/hulp-vinden-voor-kind-4-18-jaar"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'Vragen bij opvoed-, gedrags- en psychische problemen: sociaal wijkteam/jeugdteam ... Dan kunt u naar een sociaal wijkteam (of jeugdteam) in uw buurt ... Vraag uw gemeente naar welk sociaal wijkteam u toe kunt.' The page also names the CJG for upbringing questions, which is not among the options. Different body from 111 cjg-opvoedvragen."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Hanan sits with a woman at a small table with tea in a community room; she finds parenting difficult and asks where to get help nearby.",
+        "communicative_purpose": "A parent learns that the sociaal wijkteam is the neighbourhood place for help with raising a child.",
+        "contrivance_check": "Finding parenting hard is stated in the prompt; the tea-table picture suggests a talk and does not reveal the team.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch121-ouderbijdrage-fietsenstalling:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Now a positive question with three kinds of contribution; one fact from two sentences; slightly more abstract than a named object but still plain.",
+      "evidence": {
+        "quote": "Een school mag geen ouderbijdrage vragen voor kosten die elke leerling heeft. Denk aan de fietsenstalling of een kluisje.",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/financiering-onderwijs/is-de-vrijwillige-ouderbijdrage-op-de-basisschool-en-middelbare-school-verplicht"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'Voor sommige kostenposten mogen scholen geen vrijwillige ouderbijdrage vragen ... het huren van kluisjes, de schoolgids, gebruik van de fietsenstalling, een leerlingenpas.' So a verplichte and a vrijwillige bijdrage for the fietsenstalling are both false. Different from 007 (schoolreis is voluntary) and 112. Check yearly: example list may change."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Ercan and his thirteen-year-old daughter talk in front of a secondary school; she parks her bike in the school's bike shed.",
+        "communicative_purpose": "A parent learns that the school may not ask any ouderbijdrage for standard costs such as bike parking.",
+        "contrivance_check": "A cyclist daughter and the bike shed are connected in the prompt itself; the door-of-the-school picture shows no money or fee.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch121-kinderopvangtoeslag-voorwaarde:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "One condition (werken of studeren) from one sentence; persona makes the partner condition irrelevant; comparable to other persona rule items.",
+      "evidence": {
+        "quote": "moet u werken, studeren of een traject naar werk volgen",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/kinderopvangtoeslag/wanneer-heb-ik-recht-op-kinderopvangtoeslag"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'U werkt, studeert of volgt een traject om werk te vinden. Of u volgt verplicht een inburgeringscursus ... ' and the childcare must be registered in the LRK. Thuis zorgen is not a condition; a huurhuis is irrelevant (confusable with huurtoeslag). Single parent so the toeslagpartner condition does not arise; every distractor is false for him. Different fact from 007 (which regeling). Check yearly: childcare funding is being reformed."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Nadir hands his two-year-old daughter to a day-care worker at the door; as a single father he asks when he can get kinderopvangtoeslag.",
+        "communicative_purpose": "A single parent learns that work, study or a work trajectory is the condition for childcare benefit.",
+        "contrivance_check": "Single father and day-care scene fit the question; the picture shows no work or study.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch121-aanvullende-beurs:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "One dependency from one sentence; options are three plausible but wrong criteria; comparable to existing DUO items.",
+      "evidence": {
+        "quote": "hangt af van het inkomen van de ouders",
+        "sources": [
+          "https://duo.nl/particulier/studiefinanciering/aanvullende-beurs.jsp"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "DUO, page last updated 9 November 2026, opened 2026-11-22: 'Of u een aanvullende beurs krijgt hangt af van het inkomen van uw ouders.' Cijfers and aantal vakken are not criteria. Different from 007 (where to apply) and 033 basisbeurs (repayment). Check yearly: beurs rules change."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Feline sits at a desk in a student room with a laptop; she starts a mbo course and applies for student finance.",
+        "communicative_purpose": "A student learns that the extra grant depends on parental income and not on results.",
+        "contrivance_check": "Applying for studiefinanciering at the start of a mbo course is the natural moment to ask; the desk picture shows no figures.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch121-fries-in-friesland:1",
+      "verdict": "pass (edited)",
+      "level": "easier",
+      "level_reason": "Friesland and Fries share a word stem and the other options (Duits, Engels) are far off, so the item is easy; the mapping to 2.1.1 (regional differences) is loose but covered by the paraphrase.",
+      "evidence": {
+        "quote": "is Fries naast Nederlands een officiële taal",
+        "sources": [
+          "https://www.rijksoverheid.nl/onderwerpen/erkende-talen/vraag-en-antwoord/wanneer-fries-gebruiken"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'Het Fries is naast het Nederlands een officiële taal in de provincie Fryslân ... bij de gemeente of politie ... Ook mag u in de rechtbank de Friese taal gebruiken.' Duits and Engels are not official provincial languages. The old card sentence on gewoonten was not on the page and was replaced. Stable."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Hanan carries a moving box towards a farmhouse beside a canal in a flat green landscape; she is moving to Friesland and the question asks which language is official there.",
+        "communicative_purpose": "A newcomer learns that Friesland has a second official language.",
+        "contrivance_check": "Moving to a province and asking about its language is natural; the canal picture does not show a language.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch121-kosten-koper-notaris:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One payer fact; options are three parties; overdrachtsbelasting is explained on the card and not needed for the answer.",
+      "evidence": {
+        "quote": "Dan betaalt de koper de notaris",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/huis-kopen/met-welke-kosten-krijg-ik-te-maken-als-ik-een-huis-koop"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: 'Bestaande woningen koopt u meestal voor kosten koper (k.k.). Dat houdt in dat de koper de overdrachtsbelasting en de kosten van de transportakte betaalt bij de notaris.' Verkoper and gemeente do not pay. No amounts or the starters' exemption are tested. Different from 006 (woningcorporatie, hypotheek). Check yearly: tax rules."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Babette stands with keys in front of a narrow brick house with a blue door; she has found an existing house and asks who pays the notary.",
+        "communicative_purpose": "A house hunter learns that the buyer usually pays the notary for an existing home.",
+        "contrivance_check": "A house, keys and a notary question belong together; the picture shows no payment.",
+        "unsupported_assumptions": []
+      }
+    }
+  ],
+  "media_notes": "Pictures follow the briefs unchanged and show only settings; none shows a number, fine, language or payment. Recurring characters (Babette, Wilma, Nadir, Ercan, Hanan) appear in two items each with identical descriptions; the coordinator should keep their looks consistent across draws. Fries picture: canal and farmhouse only, no text.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Check yearly: 8.1.4 VVE (municipal rules, reform), 8.1.5 kerndoelen renewal, 8.3.1 example list, 8.3.2 childcare funding reform, 8.3.3 DUO beurs rules, 3.1.3 overdrachtsbelasting rules.",
+    "basisschool-acht-jaar rests on the English government.nl page because the Dutch pages do not state the eight years plainly.",
+    "The boete rule: parents pay the (halved) fine below 16; the item tests only the age threshold."
+  ]
+}

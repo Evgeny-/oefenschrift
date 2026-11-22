@@ -1,0 +1,725 @@
+{
+  "review_id": "116-a2-speaking-2026-11-22",
+  "source": "content/batches/116-original.json",
+  "proposed_source": "content/batches/116-proposed.json",
+  "source_sha256": "62ae2a93757e49504646fb8ddd452a2ce59a72a9d87919e9cb2e915178429e49",
+  "starters_source": "content/batches/116-starters.json",
+  "starters_sha256": "d65449eaf6587f647a8184f83db25bba2847453bdb7348493dbf9b7f4fac348f",
+  "starters_verdict": "pass",
+  "review_type": "independent AI editorial review of twelve new A2 speaking items",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T15:53:01Z",
+  "reviewer": "Independent AI reviewer (Sonnet), separate context from the author",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "d94f02d4953ae132b72c13a9918eb417accdd26e87e7f86d3c482445beb24079",
+    "initial_packet_sha256": "fbba4c545c4e14563dd28e33a90ce2c523b0864c08217e76b964a40f76bea3bf",
+    "independence_note": "Blind findings per item were written to content/reviews/116-review.md from the source-only packet of the original (hash fbba4c54...) before the full batch, starters, notes or plan assignment were opened. After the edits the packet was rebuilt from the proposed bytes; the changed items are apotheek-ophalen (prompt), werk-dag-nacht, markt-supermarkt, telefoon-kapot, huisarts-apotheek and zwemdiploma (briefs, alts, models, samples or title)."
+  },
+  "tone_balance": {
+    "ordinary": 12,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All twelve tasks are ordinary everyday scenes (the plan marks none as humorous); the gate allows rounding for a batch this size, so the coordinator checks the combined A2 speaking count (bank of 83 plus this batch)."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 6,
+    "edited_by_reviewer": 6,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:speaking:batch116-apotheek-ophalen:1",
+      "field": "prompt",
+      "before": "De assistente van de apotheek zegt iets tegen u. U bent daar voor een nieuw medicijn. Zij stelt u een vraag. U hoort de vraag. Geef antwoord. Vraag ook hoe vaak u het medicijn moet nemen.",
+      "after": "De assistente werkt in de apotheek. U staat bij de balie. U hebt een nieuw medicijn nodig. Zij stelt u een vraag. U hoort de vraag. Geef antwoord. Vraag ook hoe vaak u het medicijn moet nemen.",
+      "reason": "Original said the learner is at the counter and the assistant 'says something', but the cue then speaks of a medicine that is ready tomorrow; the learner now has a stated reason (needs a new medicine) so tomorrow's pick-up follows, the speaker is named first, and asking about the dose today is natural."
+    },
+    {
+      "id": "A2:speaking:batch116-werk-dag-nacht:1",
+      "field": "images.0.brief",
+      "before": "In a bright factory hall with large windows and yellow sunlight, a factory worker (man of about 40, short black hair, dark blue overalls) packs boxes at a long table. No text.",
+      "after": "In a bright factory hall with large windows that show a blue sky and a yellow sun, a factory worker (man of about 40, short black hair, dark blue overalls) packs boxes at a long table. No text.",
+      "reason": "Local image model draws 'black windows' unreliably; a sky with a sun states the day plainly."
+    },
+    {
+      "id": "A2:speaking:batch116-werk-dag-nacht:1",
+      "field": "images.1.brief",
+      "before": "In the same factory hall at night, with black windows and bright lamps hanging from the ceiling, a factory worker (man of about 40, short black hair, dark blue overalls) packs boxes at a long table. No text.",
+      "after": "In the same factory hall at night, large windows show a dark blue sky with a white moon and stars, and bright lamps hang from the ceiling; a factory worker (man of about 40, short black hair, dark blue overalls) packs boxes at a long table. No text.",
+      "reason": "Night shown by moon and stars in the windows plus lamps, so the pair differs unmistakably only in time of day."
+    },
+    {
+      "id": "A2:speaking:batch116-werk-dag-nacht:1",
+      "field": "images.0.alt",
+      "before": "Een man pakt dozen in een fabriek. Het is dag en het is licht in de hal.",
+      "after": "Een man pakt dozen in een fabriek. Het is dag: de lucht buiten is blauw en het is licht in de hal.",
+      "reason": "Alt matches the new brief."
+    },
+    {
+      "id": "A2:speaking:batch116-werk-dag-nacht:1",
+      "field": "images.1.alt",
+      "before": "Een man pakt dozen in een fabriek. Het is nacht en de lampen zijn aan.",
+      "after": "Een man pakt dozen in een fabriek. Het is nacht: buiten is het donker en de lampen zijn aan.",
+      "reason": "Alt matches the new brief."
+    },
+    {
+      "id": "A2:speaking:batch116-markt-supermarkt:1",
+      "field": "sample",
+      "before": "Ik kies de markt, plaatje een. Ik vind de groente daar lekker en vers. Het tweede plaatje is een supermarkt.",
+      "after": "Ik kies de markt, plaatje een. Ik vind de groente daar lekker en vers. Ik koop daar ook vaak fruit.",
+      "reason": "The original third sentence ('Het tweede plaatje is een supermarkt.') already said something about the other picture, so the sample did not miss criterion 3 as the null quote claims."
+    },
+    {
+      "id": "A2:speaking:batch116-markt-supermarkt:1",
+      "field": "model",
+      "before": "Ik kies het tweede plaatje, de supermarkt. Daar vind ik alles op één plek. De winkel is ook open in de avond. Op het eerste plaatje staat een kraam met mooie groente. Dat is gezellig, maar ik heb daar geen tijd voor.",
+      "after": "Ik kies het tweede plaatje, de supermarkt. Daar vind ik alles op één plek. De winkel is ook open in de avond. Op het eerste plaatje koopt de vrouw groente op de markt. Dat is gezellig, maar ik heb daar geen tijd voor.",
+      "reason": "'kraam' is a stall word an A2 learner may not know; the plain phrase says the same."
+    },
+    {
+      "id": "A2:speaking:batch116-markt-supermarkt:1",
+      "field": "images.0.alt",
+      "before": "Een vrouw met een mand staat op de markt bij een kraam met groente. De verkoper staat achter de kraam.",
+      "after": "Een vrouw met een mand staat op de markt en kijkt naar de groente. De verkoper staat achter de groente.",
+      "reason": "Same word, kept in step with the model."
+    },
+    {
+      "id": "A2:speaking:batch116-telefoon-kapot:1",
+      "field": "images.0.brief",
+      "before": "On a pavement, Derya (woman of about 28, long wavy brown hair, red jacket) bends down to pick up her phone, which lies on the stones with a dark zigzag crack across the blank screen. No text.",
+      "after": "On a grey pavement, Derya (woman of about 28, long wavy brown hair, red jacket) bends down to pick up her phone. The phone lies face up on the stones, large and clear, and a long dark zigzag crack runs across its blank screen. No text.",
+      "reason": "Plain, positive description of the broken phone, large enough to read at display size."
+    },
+    {
+      "id": "A2:speaking:batch116-telefoon-kapot:1",
+      "field": "model",
+      "before": "Op het eerste plaatje laat Derya haar telefoon vallen. Het scherm is kapot. Op het tweede plaatje geeft ze de telefoon aan een man in een winkel. Op het derde plaatje is het scherm weer heel. Derya is blij.",
+      "after": "Op het eerste plaatje pakt Derya haar telefoon van de straat. Het scherm is kapot. Op het tweede plaatje geeft ze de telefoon aan een man in een winkel. Op het derde plaatje is het scherm weer heel. Derya is blij.",
+      "reason": "The first picture shows her picking the phone up, not dropping it; the model now says what is drawn."
+    },
+    {
+      "id": "A2:speaking:batch116-huisarts-apotheek:1",
+      "field": "images.2.brief",
+      "before": "At a pharmacy counter, Guus (man of about 50, thin brown hair, blue pullover) takes a small white paper bag from the pharmacy assistant, a woman of about 30 with a dark ponytail and a white coat. No text.",
+      "after": "At a pharmacy counter, Guus (man of about 50, thin brown hair, blue pullover) reaches out his hand to take a small white paper bag with a folded top, which the pharmacy assistant, a woman of about 30 with a dark ponytail and a white coat, holds out to him across the counter. No text.",
+      "reason": "Says plainly what is there (a small white paper bag held out), so the local model draws a bag, not a box."
+    },
+    {
+      "id": "A2:speaking:batch116-huisarts-apotheek:1",
+      "field": "sample",
+      "before": "Guus zit thuis op de bank. Hij voelt zich niet goed. Daarna gaat hij naar de huisarts. Op het derde plaatje hij krijgt medicijn.",
+      "after": "Guus zit thuis op de bank. Hij voelt zich niet goed. Daarna hij gaat naar de huisarts. Hij praat met de dokter.",
+      "reason": "The original last sentence ('Op het derde plaatje hij krijgt medicijn') covered picture 3 although its quote is null; the sample now truly omits picture 3."
+    },
+    {
+      "id": "A2:speaking:batch116-huisarts-apotheek:1",
+      "field": "quotes.1",
+      "before": "Daarna gaat hij naar de huisarts.",
+      "after": "Daarna hij gaat naar de huisarts. Hij praat met de dokter.",
+      "reason": "Quote kept verbatim in the changed sample."
+    },
+    {
+      "id": "A2:speaking:batch116-zwemdiploma:1",
+      "field": "title",
+      "before": "Het zwemdiploma",
+      "after": "Een dag in het zwembad",
+      "reason": "'Het zwemdiploma' states what pictures 2 and 3 should supply (the exam result); neutral title instead."
+    },
+    {
+      "id": "A2:speaking:batch116-zwemdiploma:1",
+      "field": "images.1.brief",
+      "before": "In the same swimming pool, the girl (about 8, black hair in two braids, yellow swimsuit) swims in front of three other children, who swim behind her in a row; the swimming teacher, a woman of about 35 with short red hair and a white shirt, walks along the pool edge. No text.",
+      "after": "In the same swimming pool, the girl (about 8, black hair in two braids, yellow swimsuit) swims in front, and three other children swim in a row behind her, each in a different colour swimsuit; the swimming teacher, a woman of about 35 with short red hair and a white shirt, walks along the pool edge. No text.",
+      "reason": "Countable row of children, described positively; the girl's traits stay verbatim."
+    },
+    {
+      "id": "A2:speaking:batch116-zwemdiploma:1",
+      "field": "images.1.alt",
+      "before": "Het meisje zwemt in het zwembad voor drie andere kinderen. De zwemlerares loopt langs het zwembad.",
+      "after": "Het meisje zwemt als eerste. Andere kinderen zwemmen achter haar. De zwemlerares loopt langs het zwembad.",
+      "reason": "'voor drie andere kinderen' was ambiguous; no criterion needs the count."
+    },
+    {
+      "id": "A2:speaking:batch116-zwemdiploma:1",
+      "field": "model",
+      "before": "Op het eerste plaatje heeft het meisje zwemles. Op het tweede plaatje zwemt ze met drie andere kinderen. Dat is haar examen. Op het derde plaatje heeft ze haar diploma. Haar vader en moeder zijn blij. Er is taart.",
+      "after": "Op het eerste plaatje heeft het meisje zwemles. Op het tweede plaatje zwemt ze met andere kinderen. Dat is haar examen. Op het derde plaatje heeft ze haar diploma. Haar vader en moeder zijn blij. Er is taart.",
+      "reason": "Model no longer depends on the count of children."
+    },
+    {
+      "id": "A2:speaking:batch116-kinderboerderij:1",
+      "field": "starters.2",
+      "before": "Ik ga …, want …",
+      "after": "Ik ga … naar een kinderboerderij, want …",
+      "reason": "The old starter implied a yes; the new one lets a learner fill wel, niet, vaak or nooit (in 116-proposed-starters.json)."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npx tsx scripts/batch-check.ts content/batches/116-proposed.json",
+      "result": "Checked 12 items, 0 questions. No failures; 3 warnings judged: ziekenhuiskamer and zwemlerares are transparent compounds that appear only in alts; the kinderboerderij slug also exists as a reading item (different part, different task)."
+    },
+    "open_task_contract": "pass: every criterion is asked for in the prompt or cue in its own words; the count in 'twee dingen/dieren' appears in the prompt; picture-describe prompts say 'Vertel wat u ziet.' first; picture-choose prompts end 'Zeg ook iets over het andere plaatje.'; sequence prompts end 'Vertel iets over alle plaatjes.'; models 34-42 words, no sentence over 14 words; one null quote per sample and quotes verbatim.",
+    "leak_check": "pass after one change: the title 'Het zwemdiploma' named what panels 2 and 3 should supply and was replaced; other titles, situations and starters leak no pictured fact.",
+    "word_gate": "pass; hard-word judgement: 'kraam' replaced in model and alt (an A2 learner may not know it), the other listed words (balie, apparaten, muts, sjaal, druiven, schaal, zwemlerares) are common or occur only in alts.",
+    "names": "Anouk in two items (different women, bibliotheek-boek and kinderboerderij), Carmen in two briefs (apotheek still and boek-papier-tablet, different women), other names once; no voice names or older cast; no organisation named, so no web check needed.",
+    "cast_traits": "Hester, Derya, the repairer, Guus, the factory worker and the swimming girl and teacher keep their traits verbatim across briefs; Carmen and Anouk differ per item on purpose."
+  },
+  "diversity": {
+    "within_batch": "Twelve topics over library, gym, pharmacy, hospital visit, winter street, children's farm, shift work, grocery places, reading habit, phone repair, doctor route and swimming. Two items (apotheek-ophalen and huisarts-apotheek) both end at a pharmacy but differ in task type and purpose.",
+    "set_assembly": "Domains: gezondheid 4, vrije-tijd-familie 4, winkels-diensten 2, werk 1, wonen-buurt 1; vervoer, opleiding and instanties are not covered by this batch. Keep apotheek-ophalen out of a set with the older picture-describe apotheek and huisarts-apotheek out of a set with tandartsbezoek. Two bibliotheek topics exist already (reading kinderboerderij is unrelated; bibliotheek-lid sequence is picture-sequence): do not put bibliotheek-boek in a set with 095-bibliotheek-lid."
+  },
+  "media_notes": {
+    "audio": "Cues: Anouk f-mature, Marco m-young, de assistente f-adult, all different roles; promptAudio narrator. Check the round trip on 'Goedemiddag' and 'medicijn'.",
+    "pictures": [
+      "telefoon-kapot panel 1: phone must lie face up with a visible dark zigzag crack; panels 2-3 keep the same crack and repairer; expect a second try (local model draws broken things poorly)",
+      "werk-dag-nacht pair: day = blue sky with a sun in the windows, night = dark blue sky with moon and stars plus lamps; the man must be identical",
+      "zwemdiploma panel 2: a row of three children behind the girl (no criterion needs the count); panel 3 is the most crowded picture and may need a redraw",
+      "huisarts-apotheek panel 3: a small white paper bag held out across the counter, not a box",
+      "ziekenhuis-bezoek: flowers in hand and a bowl of green grapes on the table; kinderboerderij: goat plus chickens; markt-supermarkt and boek-papier-tablet: same woman and same setting traits within each pair"
+    ],
+    "scope": "No media generated or reviewed."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Level verdicts compare with existing A2 speaking items of the catalogue, not with official DUO items, which were not re-opened.",
+    "Rendered pictures and audio need their own review; the word gate cannot tell whether a listed word is still hard in context, so the reviewer judged this by reading each learner-facing field."
+  ],
+  "items": [
+    {
+      "id": "A2:speaking:batch116-bibliotheek-boek:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing video-answers (bushalte, baliemedewerker): cue of two linked parts plus one prompt detail; model has one question at the end, no subordinate clause beyond 'dan'",
+        "targetLevelValidated": false,
+        "prompt_words": 30,
+        "model_words": 34,
+        "reason": "Prompt and cue use listed words only; the model is 25-45 words in main clauses, no sentence over 14 words."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "At the library desk the librarian Anouk asks what kind of book you want and whether it is for you or a child; you also say how long you want to borrow it.",
+        "communicative_purpose": "Answer a librarian's two questions and add the loan period, as one does when taking out a book.",
+        "coherence_explanation": "A librarian really asks what book and for whom (adult or children's shelf); the loan period is a normal third detail and the prompt asks for it, so the cue does not need to.",
+        "contrivance_check": "Request comes from the cue (what book, for whom) and the prompt (how long); nothing is invented beyond a visit to the library. Name Anouk is reused for a different woman in kinderboerderij, in a separate item.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken answer to the librarian standing across the desk, shown on the still; a real exchange.",
+        "tone": "ordinary",
+        "tone_reason": "Daily library visit."
+      },
+      "evidence": {
+        "prompt": "Anouk werkt in de bibliotheek. U staat bij de balie. Zij stelt u een vraag. U hoort de vraag. Geef antwoord. Zeg ook hoe lang u het boek wilt lenen.",
+        "criteria": [
+          "Zeg wat voor boek u zoekt.",
+          "Zeg voor wie het boek is.",
+          "Zeg hoe lang u het boek wilt lenen."
+        ],
+        "model": "Goedemiddag. Ik zoek een mooi boek in makkelijk Nederlands. Het is voor mij. Ik wil het drie weken lenen. Dan heb ik genoeg tijd om het te lezen. Hebt u ook boeken met plaatjes?",
+        "sample": {
+          "text": "Goedemiddag. Ik zoek een boek over koken. Het is voor mijn dochter, zij is tien jaar. Ze houdt veel van de koken.",
+          "missing_content_goal": 3,
+          "quotes": [
+            "Ik zoek een boek over koken.",
+            "Het is voor mijn dochter, zij is tien jaar.",
+            null
+          ],
+          "quote_check": "One null quote for the omitted criterion; every other quote is a verbatim substring of the sample."
+        },
+        "starters": "pass: partial fragments with an ellipsis, aligned with the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch116-sportschool-intake:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing video-answers (huisarts-afspraak, cursuskeuze): two cue questions plus one prompt detail; model 37 words with one 'en' sentence of 14 words",
+        "targetLevelValidated": false,
+        "prompt_words": 31,
+        "model_words": 37,
+        "reason": "Prompt and cue use listed words only; the model is 25-45 words in main clauses, no sentence over 14 words."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "On a first visit the trainer Marco welcomes you and asks how often you want to exercise and why; you also name the day you want to come.",
+        "communicative_purpose": "Tell the gym how often, why and on which day, as in a first-visit chat.",
+        "coherence_explanation": "Frequency and motive are what a trainer asks a new member; the day follows when planning the first session, and the prompt asks for it.",
+        "contrivance_check": "Cue and prompt together supply the three goals; the first-visit premise is stated in the prompt (U komt daar voor het eerst).",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken answer to the trainer in front of the learner; ordinary reception chat.",
+        "tone": "ordinary",
+        "tone_reason": "Joining a gym."
+      },
+      "evidence": {
+        "prompt": "Marco is trainer bij een sportschool. U komt daar voor het eerst. Hij stelt u een vraag. U hoort de vraag. Geef antwoord. Zeg ook op welke dag u wilt komen.",
+        "criteria": [
+          "Zeg hoe vaak u wilt sporten.",
+          "Zeg waarom u wilt gaan sporten.",
+          "Zeg op welke dag u wilt komen."
+        ],
+        "model": "Dag Marco. Ik wil twee keer per week sporten. Ik zit de hele dag achter een bureau en mijn rug doet soms pijn. Ik wil sterker worden. Ik kan op dinsdag en vrijdag komen, na mijn werk.",
+        "sample": {
+          "text": "Goedemiddag. Ik wil sport twee keer in de week. Ik kan komen op dinsdag, want dan ik werk niet.",
+          "missing_content_goal": 2,
+          "quotes": [
+            "Ik wil sport twee keer in de week.",
+            null,
+            "Ik kan komen op dinsdag, want dan ik werk niet."
+          ],
+          "quote_check": "One null quote for the omitted criterion; every other quote is a verbatim substring of the sample."
+        },
+        "starters": "pass: partial fragments with an ellipsis, aligned with the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch116-apotheek-ophalen:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing video-answers (bushalte, abonnement): two cue questions and a question the learner must ask; the 'vraag ook' form is new for the pool but equal in load",
+        "targetLevelValidated": false,
+        "prompt_words": 37,
+        "model_words": 37,
+        "reason": "Prompt and cue use listed words only; the model is 25-45 words in main clauses, no sentence over 14 words."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "At the pharmacy counter you need a new medicine; the assistant says it is ready tomorrow and asks what time you will collect it and whether you or someone else comes; you ask how often to take it.",
+        "communicative_purpose": "Agree a pick-up time and person and ask the dose, as a patient would at the counter.",
+        "coherence_explanation": "After the prompt edit the counter visit has a reason (you need a new medicine) and the cue follows from it (ready tomorrow, when and who collects); asking how often is a normal patient question.",
+        "contrivance_check": "Premise is stated in the prompt (nieuw medicijn nodig); the original wording contradicted the cue by saying you were there for the medicine yet it was only ready tomorrow.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken exchange with the pharmacy assistant at the balie, shown on the still.",
+        "tone": "ordinary",
+        "tone_reason": "Pharmacy pick-up arrangement."
+      },
+      "evidence": {
+        "prompt": "De assistente werkt in de apotheek. U staat bij de balie. U hebt een nieuw medicijn nodig. Zij stelt u een vraag. U hoort de vraag. Geef antwoord. Vraag ook hoe vaak u het medicijn moet nemen.",
+        "criteria": [
+          "Zeg hoe laat u het medicijn komt ophalen.",
+          "Zeg of u zelf komt of iemand anders.",
+          "Vraag hoe vaak u het medicijn moet nemen."
+        ],
+        "model": "Goedemorgen. Ik kom morgen om twee uur. Ik kom zelf, want mijn man werkt dan. Mag ik nog iets vragen? Hoe vaak moet ik het medicijn nemen? En moet ik het voor of na het eten nemen?",
+        "sample": {
+          "text": "Goedemorgen. Ik kom morgen op twee uur. Ik kom zelf, want mijn man hij werkt dan.",
+          "missing_content_goal": 3,
+          "quotes": [
+            "Ik kom morgen op twee uur.",
+            "Ik kom zelf, want mijn man hij werkt dan.",
+            null
+          ],
+          "quote_check": "One null quote for the omitted criterion; every other quote is a verbatim substring of the sample."
+        },
+        "starters": "pass: partial fragments with an ellipsis, aligned with the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch116-ziekenhuis-bezoek:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing picture-describe items (verjaardag, wachtkamer): scene, two named things, personal answer; the two things are pictured (flowers, grapes) so the load is low",
+        "targetLevelValidated": false,
+        "prompt_words": 35,
+        "model_words": 40,
+        "reason": "Prompt and cue use listed words only; the model is 25-45 words in main clauses, no sentence over 14 words."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "Leyla stands by her father's hospital bed holding flowers; a bowl of grapes stands on the table and he smiles.",
+        "communicative_purpose": "Describe a hospital visit, name two things visitors bring and say what you bring yourself.",
+        "coherence_explanation": "A daughter visiting her father with flowers and fruit is a familiar social scene; the questions go from the pictured gifts to the learner's own habit.",
+        "contrivance_check": "Everything asked is visible or general knowledge; no illness is pictured, only a smiling man in pyjamas.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken description of a picture; no recipient.",
+        "tone": "ordinary",
+        "tone_reason": "Hospital visit with gifts."
+      },
+      "evidence": {
+        "prompt": "Leyla bezoekt haar vader in het ziekenhuis. Vertel wat u ziet. Noem twee dingen die mensen vaak meenemen als ze op bezoek gaan. Vertel ook wat u zelf meeneemt bij zo'n bezoek. Gebruik het plaatje.",
+        "criteria": [
+          "Vertel wat u op het plaatje ziet.",
+          "Noem twee dingen die mensen vaak meenemen als ze op bezoek gaan.",
+          "Zeg wat u zelf meeneemt bij zo'n bezoek."
+        ],
+        "model": "Ik zie Leyla bij haar vader in het ziekenhuis. Hij zit in bed en lacht. Mensen nemen vaak bloemen en fruit mee. Leyla heeft bloemen en druiven bij zich. Zelf neem ik een boek en koekjes mee. Dat is gezellig.",
+        "sample": {
+          "text": "Leyla is in het ziekenhuis bij haar vader. Hij zit in de bed en hij lacht. Ik neem zelf een boek mee, want dan heeft hij iets te doen.",
+          "missing_content_goal": 2,
+          "quotes": [
+            "Leyla is in het ziekenhuis bij haar vader. Hij zit in de bed en hij lacht.",
+            null,
+            "Ik neem zelf een boek mee, want dan heeft hij iets te doen."
+          ],
+          "quote_check": "One null quote for the omitted criterion; every other quote is a verbatim substring of the sample."
+        },
+        "starters": "pass: partial fragments with an ellipsis, aligned with the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch116-sneeuw-straat:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing picture-describe items (regen, schoolplein): scene, two named things, personal habit; the clothing words are common",
+        "targetLevelValidated": false,
+        "prompt_words": 33,
+        "model_words": 35,
+        "reason": "Prompt and cue use listed words only; the model is 25-45 words in main clauses, no sentence over 14 words."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "In a snowy street Tijmen clears the pavement while two children in hats and scarves pull a sledge.",
+        "communicative_purpose": "Describe a winter street, name two things you wear in winter and say what you like to do in winter.",
+        "coherence_explanation": "A snowy street with a neighbour clearing the pavement and children playing is an ordinary winter scene; the clothing criterion links to the children's hats and scarves.",
+        "contrivance_check": "Winter is stated in the prompt; hats, scarves and snow are pictured, so a learner can both describe and generalise to their own winter.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken description of a picture; no recipient.",
+        "tone": "ordinary",
+        "tone_reason": "Winter street scene."
+      },
+      "evidence": {
+        "prompt": "Het is winter in de straat van Tijmen. Vertel wat u ziet. Noem twee dingen die u in de winter draagt. Vertel ook wat u in de winter graag doet. Gebruik het plaatje.",
+        "criteria": [
+          "Vertel wat u op het plaatje ziet.",
+          "Noem twee dingen die u in de winter draagt.",
+          "Zeg wat u in de winter graag doet."
+        ],
+        "model": "Ik zie een straat met veel sneeuw. Een man maakt de straat schoon. Twee kinderen spelen buiten. In de winter draag ik een dikke jas en een muts. Ik ga graag lopen in de sneeuw.",
+        "sample": {
+          "text": "Ik zie een man en twee kinderen. Het is koud en er ligt sneeuw. In de winter ik draag een muts en een sjaal.",
+          "missing_content_goal": 3,
+          "quotes": [
+            "Ik zie een man en twee kinderen. Het is koud en er ligt sneeuw.",
+            "In de winter ik draag een muts en een sjaal.",
+            null
+          ],
+          "quote_check": "One null quote for the omitted criterion; every other quote is a verbatim substring of the sample."
+        },
+        "starters": "pass: partial fragments with an ellipsis, aligned with the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch116-kinderboerderij:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing picture-describe items (speeltuin, marktkraam): scene, two named things (goat, chickens), personal yes or no with reason",
+        "targetLevelValidated": false,
+        "prompt_words": 34,
+        "model_words": 37,
+        "reason": "Prompt and cue use listed words only; the model is 25-45 words in main clauses, no sentence over 14 words."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "Anouk and her small son feed a brown goat through a low fence at a children's farm; chickens walk behind them.",
+        "communicative_purpose": "Describe a children's farm, name two animals and say whether you go to such a place and why.",
+        "coherence_explanation": "A mother and toddler at a children's farm is a common family outing; two animals are pictured and the opinion question allows yes or no.",
+        "contrivance_check": "Animals and activity are drawn; the last question needs only the learner's own habit.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken description of a picture; no recipient.",
+        "tone": "ordinary",
+        "tone_reason": "Family outing."
+      },
+      "evidence": {
+        "prompt": "Anouk gaat met haar zoon naar de kinderboerderij. Vertel wat u ziet. Noem twee dieren die u ziet. Gaat u ook wel eens naar een kinderboerderij? Vertel waarom wel of niet. Gebruik het plaatje.",
+        "criteria": [
+          "Vertel wat u op het plaatje ziet.",
+          "Noem twee dieren die u ziet.",
+          "Zeg of u zelf ook naar een kinderboerderij gaat en waarom wel of niet."
+        ],
+        "model": "Ik zie Anouk met haar zoontje bij een hek. Het kind geeft eten aan een geit. Achter hen lopen kippen. Ik ga niet vaak naar een kinderboerderij, want ik heb geen kinderen. Maar het lijkt me gezellig.",
+        "sample": {
+          "text": "Anouk is met haar zoon op een boerderij. De jongen geeft eten aan een geit. Ik zie ook een geit en veel kip.",
+          "missing_content_goal": 3,
+          "quotes": [
+            "Anouk is met haar zoon op een boerderij.",
+            "Ik zie ook een geit en veel kip.",
+            null
+          ],
+          "quote_check": "One null quote for the omitted criterion; every other quote is a verbatim substring of the sample."
+        },
+        "starters": "pass (edited): third starter now allows both wel and niet"
+      }
+    },
+    {
+      "id": "A2:speaking:batch116-werk-dag-nacht:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing picture-choose items (bakkerij ochtend- of avonddienst, alleen-samen): same worker, only the time of day differs; reasons are easy to find",
+        "targetLevelValidated": false,
+        "prompt_words": 35,
+        "model_words": 40,
+        "reason": "Prompt and cue use listed words only; the model is 25-45 words in main clauses, no sentence over 14 words."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "You look for factory work and can work by day or at night; two pictures show the same worker packing boxes in a sunny hall and in a lit hall at night.",
+        "communicative_purpose": "Choose a shift, give a reason and say something about the other picture, as when weighing a job offer.",
+        "coherence_explanation": "Factories do run day and night shifts; the prompt states the choice, and the pair differs only in the thing asked about.",
+        "contrivance_check": "The choice is stated in the prompt and the pictures show exactly the two options; no invented context.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken answer, no recipient beyond the exam; the choice is the learner's own.",
+        "tone": "ordinary",
+        "tone_reason": "Day or night shift."
+      },
+      "evidence": {
+        "prompt": "U zoekt werk in een fabriek. U kunt overdag of 's nachts werken. Werkt u liever overdag of 's nachts? Kies een van de plaatjes. Vertel ook waarom. Zeg ook iets over het andere plaatje.",
+        "criteria": [
+          "Zeg welk plaatje u kiest: overdag of 's nachts werken.",
+          "Geef een reden.",
+          "Zeg ook iets over het andere plaatje."
+        ],
+        "model": "Ik kies het eerste plaatje, werken overdag. Dan ben ik 's avonds thuis bij mijn kinderen. Ik slaap 's nachts ook beter. Op het tweede plaatje werkt de man 's nachts. Dat is rustig, maar ik word dan snel moe.",
+        "sample": {
+          "text": "Ik kies plaatje twee, dus werken in de nacht. Op het eerste plaatje ik zie de man in de dag. Hij werkt ook hard.",
+          "missing_content_goal": 2,
+          "quotes": [
+            "Ik kies plaatje twee, dus werken in de nacht.",
+            null,
+            "Op het eerste plaatje ik zie de man in de dag."
+          ],
+          "quote_check": "One null quote for the omitted criterion; every other quote is a verbatim substring of the sample."
+        },
+        "starters": "pass: partial fragments with an ellipsis, aligned with the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch116-markt-supermarkt:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing picture-choose items (online-winkel, contant-pinnen): two familiar places, reason easy to give",
+        "targetLevelValidated": false,
+        "prompt_words": 32,
+        "model_words": 43,
+        "reason": "Prompt and cue use listed words only; the model is 25-45 words in main clauses, no sentence over 14 words."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "You want vegetables for dinner; one picture shows Hester at a market stall with a basket, the other the same woman with a trolley in a supermarket aisle.",
+        "communicative_purpose": "Choose where to buy vegetables, give a reason and say something about the other place.",
+        "coherence_explanation": "Market against supermarket is a real weekly choice; the same woman is in both pictures so only the place differs.",
+        "contrivance_check": "Choice stated in the prompt, both options drawn.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken answer, no recipient.",
+        "tone": "ordinary",
+        "tone_reason": "Grocery habit."
+      },
+      "evidence": {
+        "prompt": "U wilt groente kopen voor het eten. Gaat u liever naar de markt of naar de supermarkt? Kies een van de plaatjes. Vertel ook waarom. Zeg ook iets over het andere plaatje.",
+        "criteria": [
+          "Zeg welk plaatje u kiest: de markt of de supermarkt.",
+          "Geef een reden.",
+          "Zeg ook iets over het andere plaatje."
+        ],
+        "model": "Ik kies het tweede plaatje, de supermarkt. Daar vind ik alles op één plek. De winkel is ook open in de avond. Op het eerste plaatje koopt de vrouw groente op de markt. Dat is gezellig, maar ik heb daar geen tijd voor.",
+        "sample": {
+          "text": "Ik kies de markt, plaatje een. Ik vind de groente daar lekker en vers. Ik koop daar ook vaak fruit.",
+          "missing_content_goal": 3,
+          "quotes": [
+            "Ik kies de markt, plaatje een.",
+            "Ik vind de groente daar lekker en vers.",
+            null
+          ],
+          "quote_check": "One null quote for the omitted criterion; every other quote is a verbatim substring of the sample."
+        },
+        "starters": "pass: partial fragments with an ellipsis, aligned with the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch116-boek-papier-tablet:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing picture-choose items (gym-park, bus-fiets): two familiar options, reasons are easy",
+        "targetLevelValidated": false,
+        "prompt_words": 32,
+        "model_words": 37,
+        "reason": "Prompt and cue use listed words only; the model is 25-45 words in main clauses, no sentence over 14 words."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "You like to read in the evening; two pictures show Carmen on the same sofa by the same lamp, reading a paper book or a tablet.",
+        "communicative_purpose": "Choose a reading medium, give a reason and say something about the other picture.",
+        "coherence_explanation": "Paper or tablet is a real habit question; the pictures differ only in the book versus tablet.",
+        "contrivance_check": "Choice stated in the prompt, both options drawn; no invented context.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken answer, no recipient.",
+        "tone": "ordinary",
+        "tone_reason": "Reading preference."
+      },
+      "evidence": {
+        "prompt": "U leest graag in de avond. Leest u liever een boek van papier of op een tablet? Kies een van de plaatjes. Vertel ook waarom. Zeg ook iets over het andere plaatje.",
+        "criteria": [
+          "Zeg welk plaatje u kiest: een boek van papier of een tablet.",
+          "Geef een reden.",
+          "Zeg ook iets over het andere plaatje."
+        ],
+        "model": "Ik kies het eerste plaatje, het boek van papier. Ik vind een echt boek mooier. En mijn ogen worden niet moe. Op het tweede plaatje leest de vrouw op een tablet. Dat is handig in de trein.",
+        "sample": {
+          "text": "Ik kies plaatje twee, de tablet. Mijn tablet is licht en ik neem hem overal mee. Ik lees veel in de trein.",
+          "missing_content_goal": 3,
+          "quotes": [
+            "Ik kies plaatje twee, de tablet.",
+            "Mijn tablet is licht en ik neem hem overal mee.",
+            null
+          ],
+          "quote_check": "One null quote for the omitted criterion; every other quote is a verbatim substring of the sample."
+        },
+        "starters": "pass: partial fragments with an ellipsis, aligned with the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch116-telefoon-kapot:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing picture-sequence items (kapper, fiets-lek): one person, three steps, one criterion per picture; a three-step cause-and-effect chain",
+        "targetLevelValidated": false,
+        "prompt_words": 20,
+        "model_words": 41,
+        "reason": "Prompt and cue use listed words only; the model is 25-45 words in main clauses, no sentence over 14 words."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "Derya picks up her phone, which lies on the pavement with a cracked screen; she hands it to a repairer in a shop; she smiles with the phone whole again.",
+        "communicative_purpose": "Tell a three-step story about getting a phone repaired.",
+        "coherence_explanation": "Phone damaged, handed in, repaired is one practical chain with one protagonist; the first picture shows the break and the prompt sets the street.",
+        "contrivance_check": "Each panel adds one step; the repairer wears the same traits in panels 2 and 3; the prompt does not state any step.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken narration of pictures; no recipient.",
+        "tone": "ordinary",
+        "tone_reason": "Phone repair."
+      },
+      "evidence": {
+        "prompt": "Derya loopt over straat met haar telefoon. Kijk naar de plaatjes. Vertel wat Derya doet. Vertel iets over alle plaatjes.",
+        "criteria": [
+          "Vertel wat Derya op het eerste plaatje doet.",
+          "Vertel wat Derya op het tweede plaatje doet.",
+          "Vertel wat Derya op het derde plaatje doet."
+        ],
+        "model": "Op het eerste plaatje pakt Derya haar telefoon van de straat. Het scherm is kapot. Op het tweede plaatje geeft ze de telefoon aan een man in een winkel. Op het derde plaatje is het scherm weer heel. Derya is blij.",
+        "sample": {
+          "text": "Derya laat haar telefoon vallen. Het scherm is kapot. Op het laatste plaatje ze is blij, want de telefoon is weer heel.",
+          "missing_content_goal": 2,
+          "quotes": [
+            "Derya laat haar telefoon vallen. Het scherm is kapot.",
+            null,
+            "Op het laatste plaatje ze is blij, want de telefoon is weer heel."
+          ],
+          "quote_check": "One null quote for the omitted criterion; every other quote is a verbatim substring of the sample."
+        },
+        "starters": "pass: partial fragments with an ellipsis, aligned with the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch116-huisarts-apotheek:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing picture-sequence items (tandartsbezoek, wasmachine-kapot): one person, three steps at three places",
+        "targetLevelValidated": false,
+        "prompt_words": 18,
+        "model_words": 39,
+        "reason": "Prompt and cue use listed words only; the model is 25-45 words in main clauses, no sentence over 14 words."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "situation_summary": "Guus feels ill on his sofa, sees the doctor at her desk and receives a small white bag at the pharmacy counter.",
+        "communicative_purpose": "Tell the sequence of feeling ill, seeing the GP and collecting medicine.",
+        "coherence_explanation": "Home, doctor and pharmacy is the ordinary route of a patient; the prompt states only that he feels unwell.",
+        "contrivance_check": "Three places, one person, clear order; calm pictures, no graphic illness.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken narration of pictures; no recipient.",
+        "tone": "ordinary",
+        "tone_reason": "Illness, doctor, pharmacy."
+      },
+      "evidence": {
+        "prompt": "Guus voelt zich niet lekker. Kijk naar de plaatjes. Vertel wat Guus doet. Vertel iets over alle plaatjes.",
+        "criteria": [
+          "Vertel wat Guus op het eerste plaatje doet.",
+          "Vertel wat Guus op het tweede plaatje doet.",
+          "Vertel wat Guus op het derde plaatje doet."
+        ],
+        "model": "Op het eerste plaatje zit Guus thuis op de bank. Hij voelt zich niet goed. Op het tweede plaatje praat hij met de huisarts. Op het derde plaatje haalt hij medicijnen bij de apotheek. Daarna voelt hij zich beter.",
+        "sample": {
+          "text": "Guus zit thuis op de bank. Hij voelt zich niet goed. Daarna hij gaat naar de huisarts. Hij praat met de dokter.",
+          "missing_content_goal": 3,
+          "quotes": [
+            "Guus zit thuis op de bank. Hij voelt zich niet goed.",
+            "Daarna hij gaat naar de huisarts. Hij praat met de dokter.",
+            null
+          ],
+          "quote_check": "One null quote for the omitted criterion; every other quote is a verbatim substring of the sample."
+        },
+        "starters": "pass: partial fragments with an ellipsis, aligned with the criteria in order"
+      }
+    },
+    {
+      "id": "A2:speaking:batch116-zwemdiploma:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Spreken (DUO), authoring target only",
+        "verdict": "comparable to existing picture-sequence items (verjaardag-voorbereiden, rijbewijs): one child through three steps; the last panel is the most crowded",
+        "targetLevelValidated": false,
+        "prompt_words": 23,
+        "model_words": 38,
+        "reason": "Prompt and cue use listed words only; the model is 25-45 words in main clauses, no sentence over 14 words."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "situation_summary": "A girl has a swimming lesson with a float and a teacher, swims in front of other children and holds up a paper at a table by the pool while her parents clap and a cake stands there.",
+        "communicative_purpose": "Tell the story of a girl who learns to swim and is celebrated.",
+        "coherence_explanation": "A lesson, a test swim and a family celebration with cake fit a child finishing swimming lessons; the prompt places the family at the pool.",
+        "contrivance_check": "The prompt names the father, family and pool, and asks about the daughter; the last panel shows both parents and the cake, so the celebration is visible. The title was neutralised so it no longer names the diploma.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Spoken narration of pictures; no recipient.",
+        "tone": "ordinary",
+        "tone_reason": "Swimming progress."
+      },
+      "evidence": {
+        "prompt": "Een vader gaat met zijn gezin naar het zwembad. Kijk naar de plaatjes. Vertel wat zijn dochter doet. Vertel iets over alle plaatjes.",
+        "criteria": [
+          "Vertel wat het meisje op het eerste plaatje doet.",
+          "Vertel wat het meisje op het tweede plaatje doet.",
+          "Vertel wat het meisje op het derde plaatje doet."
+        ],
+        "model": "Op het eerste plaatje heeft het meisje zwemles. Op het tweede plaatje zwemt ze met andere kinderen. Dat is haar examen. Op het derde plaatje heeft ze haar diploma. Haar vader en moeder zijn blij. Er is taart.",
+        "sample": {
+          "text": "Het meisje heeft zwemles. Zij leert zwemmen met een plank. Op het laatste plaatje zij krijgt een diploma en haar ouders zijn blij.",
+          "missing_content_goal": 2,
+          "quotes": [
+            "Het meisje heeft zwemles. Zij leert zwemmen met een plank.",
+            null,
+            "Op het laatste plaatje zij krijgt een diploma en haar ouders zijn blij."
+          ],
+          "quote_check": "One null quote for the omitted criterion; every other quote is a verbatim substring of the sample."
+        },
+        "starters": "pass: partial fragments with an ellipsis, aligned with the criteria in order"
+      }
+    }
+  ]
+}
