@@ -1,0 +1,587 @@
+{
+  "review_id": "112-a2-knm-themes-6-8-2026-11-22",
+  "source": "content/batches/112-original.json",
+  "proposed_source": "content/batches/112-proposed.json",
+  "source_sha256": "be9e5f2aa3e655b53b98bfc4b75003610cf984e893bc3ba4e81547a9f8b899ec",
+  "review_type": "independent AI editorial review of 13 new A2 KNM items, with facts checked against pages opened on 2026-11-22",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T12:50:00Z",
+  "reviewer": "Independent AI reviewer (Sonnet 5.5), separate from the author agent; AI editorial review, not human validation.",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "80f0cbb11a322743a2c166db7230be50a708ed8e1ea095237644dd6fb832ea19",
+    "independence_note": "The blind packet of the author file (hash c1919dbafbce39aea9b998dc2a16a43953e27946878b7aadb9c90fc2b93dc1db) was read first and findings were written to content/reviews/112-review.md before the questions, notes or plan were opened. The packet was then rebuilt from the proposed bytes (hash 80f0cbb1...ea19) and the changed card, prompt and picture wording was re-read."
+  },
+  "tone_balance": {
+    "ordinary": 13,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All 13 are ordinary civic-fact scenes; KNM items are never jokes, so the program share is the coordinator's to check."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 2,
+    "edited_by_reviewer": 11,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:knm:batch112-nibud-geldzaken:1",
+      "field": "text",
+      "before": "Het Nibud is een onafhankelijk instituut. Het geeft voorlichting over geld en uitgaven van huishoudens, bijvoorbeeld van gezinnen. Nibud betekent: Nationaal Instituut voor Budgetvoorlichting.",
+      "after": "Het Nibud is een instituut. Het geeft informatie en advies over geld en uitgaven, ook aan gezinnen. Nibud betekent: Nationaal Instituut voor Budgetvoorlichting.",
+      "reason": "Replace B1 words (onafhankelijk, voorlichting, huishoudens) around the tested term with A2 wording."
+    },
+    {
+      "id": "A2:knm:batch112-nibud-geldzaken:1",
+      "field": "questions.0.prompt",
+      "before": "Rana zoekt onafhankelijke voorlichting over geld en uitgaven van gezinnen. Welk instituut geeft die?",
+      "after": "Rana wil informatie en advies over geld en uitgaven van gezinnen. Welk instituut geeft die?",
+      "reason": "Same: plain A2 prompt."
+    },
+    {
+      "id": "A2:knm:batch112-nibud-geldzaken:1",
+      "field": "questions.0.evidence",
+      "before": "Het Nibud is een onafhankelijk instituut",
+      "after": "Het Nibud is een instituut",
+      "reason": "Evidence follows the changed card."
+    },
+    {
+      "id": "A2:knm:batch112-nibud-geldzaken:1",
+      "field": "questions.0.explanation",
+      "before": "Het Nibud is een onafhankelijk instituut voor huishoudfinanciën. De Sociale Verzekeringsbank betaalt onder andere kinderbijslag en AOW. De Kamer van Koophandel schrijft bedrijven in. Geen van die twee geeft voorlichting over de uitgaven van gezinnen.",
+      "after": "Het Nibud geeft informatie en advies over geld. De Sociale Verzekeringsbank betaalt onder andere kinderbijslag en AOW. De Kamer van Koophandel schrijft bedrijven in. Geen van die twee geeft advies over de uitgaven van gezinnen.",
+      "reason": "Follows the changed card."
+    },
+    {
+      "id": "A2:knm:batch112-gemeente-afvalheffing:1",
+      "field": "text",
+      "before": "Gemeenten vragen eigen belastingen en heffingen, bijvoorbeeld de afvalstoffenheffing. De hoogte verschilt per gemeente.",
+      "after": "Gemeenten vragen eigen belastingen en heffingen. Een voorbeeld is de afvalstoffenheffing, voor het ophalen van afval. De hoogte verschilt per gemeente.",
+      "reason": "Explain the hard tested term in plain words."
+    },
+    {
+      "id": "A2:knm:batch112-gemeente-afvalheffing:1",
+      "field": "questions.0.explanation",
+      "before": "De afvalstoffenheffing is een gemeentelijke heffing. De gemeente stelt de hoogte vast. De Belastingdienst int de landelijke belastingen, zoals de inkomstenbelasting. De provincie heft deze heffing niet.",
+      "after": "De afvalstoffenheffing is een gemeentelijke belasting voor afval. De gemeente bepaalt de hoogte. De Belastingdienst vraagt landelijke belastingen, zoals de inkomstenbelasting. De provincie vraagt deze belasting niet.",
+      "reason": "Replace 'heft/int/stelt vast' with A2 wording."
+    },
+    {
+      "id": "A2:knm:batch112-ozb-huiseigenaar:1",
+      "field": "questions.0.options",
+      "before": {
+        "A": "De inkomstenbelasting",
+        "B": "De onroerendezaakbelasting",
+        "C": "De btw"
+      },
+      "after": {
+        "A": "De inkomstenbelasting",
+        "B": "De OZB",
+        "C": "De btw"
+      },
+      "reason": "Key was the longest and most specific option (26 characters against 21 and 7); acronym options are parallel and the key is no longer the longest."
+    },
+    {
+      "id": "A2:knm:batch112-netto-loon:1",
+      "field": "text",
+      "before": "Het brutoloon is uw totale loon. De werkgever houdt daarvan belasting en premies in. Wat overblijft, is het nettoloon. Dat krijgt u op uw rekening.",
+      "after": "Het brutoloon is uw totale loon. De werkgever neemt daar belasting en premies van af. Wat over is, is het nettoloon. Dat krijgt u op uw rekening.",
+      "reason": "Replace 'houdt in / overblijft' (B1) with plain words."
+    },
+    {
+      "id": "A2:knm:batch112-netto-loon:1",
+      "field": "questions.0.options.B",
+      "before": "Het loon voordat de werkgever iets inhoudt.",
+      "after": "Het loon voordat er belasting af gaat.",
+      "reason": "Remove 'inhoudt'."
+    },
+    {
+      "id": "A2:knm:batch112-netto-loon:1",
+      "field": "questions.0.evidence",
+      "before": "Wat overblijft, is het nettoloon. Dat krijgt u op uw rekening",
+      "after": "Wat over is, is het nettoloon. Dat krijgt u op uw rekening",
+      "reason": "Follows the changed card."
+    },
+    {
+      "id": "A2:knm:batch112-netto-loon:1",
+      "field": "questions.0.explanation",
+      "before": "Het nettoloon is wat er na de inhoudingen overblijft: dat krijgt Oscar op zijn rekening. Het loon voordat de werkgever iets inhoudt is het brutoloon. Belasting en premies gaan naar de overheid, maar dat is niet het nettoloon.",
+      "after": "Het nettoloon is wat over is na belasting en premies. Dat krijgt Oscar op zijn rekening. Het loon voordat er belasting af gaat, is het brutoloon. Belasting en premies gaan naar de overheid, maar dat is niet het nettoloon.",
+      "reason": "Follows the changed card."
+    },
+    {
+      "id": "A2:knm:batch112-belastinggeld:1",
+      "field": "questions.0.prompt",
+      "before": "Mensen in Nederland betalen belasting. Waarvoor gebruikt de overheid belastinggeld?",
+      "after": "Mensen in Nederland betalen belasting. Wat betaalt de overheid daarmee?",
+      "reason": "Old options (two 'Alleen ...' distractors against one plain key) made the key the odd one out."
+    },
+    {
+      "id": "A2:knm:batch112-belastinggeld:1",
+      "field": "questions.0.options",
+      "before": {
+        "A": "Alleen voor het leger en de politie.",
+        "B": "Voor zorg, onderwijs en veiligheid.",
+        "C": "Alleen voor wegen, bruggen en stations."
+      },
+      "after": {
+        "A": "Een baan voor iedereen",
+        "B": "Zorg en onderwijs voor iedereen",
+        "C": "Een woning voor iedereen"
+      },
+      "reason": "Parallel options, each false except the key; no 'alleen' pattern."
+    },
+    {
+      "id": "A2:knm:batch112-belastinggeld:1",
+      "field": "questions.0.evidence",
+      "before": "belastinggeld voor zorg, uitkeringen, onderwijs en veiligheid",
+      "after": "zorg, uitkeringen, onderwijs en veiligheid voor iedereen",
+      "reason": "Quote the fuller phrase in the card (shortened to a verbatim substring)."
+    },
+    {
+      "id": "A2:knm:batch112-belastinggeld:1",
+      "field": "questions.0.explanation",
+      "before": "De overheid gebruikt belastinggeld voor veel dingen: zorg, uitkeringen, onderwijs en veiligheid. Leger en politie horen bij veiligheid, en wegen en bruggen worden ook betaald, maar belastinggeld is er niet alleen daarvoor.",
+      "after": "De overheid betaalt met belastinggeld onder andere zorg, uitkeringen, onderwijs en veiligheid. De overheid geeft niet aan iedereen een baan of een woning.",
+      "reason": "Matches the new options."
+    },
+    {
+      "id": "A2:knm:batch112-inkomen-doorgeven:1",
+      "field": "text",
+      "before": "Krijgt u een toeslag? Dan geeft u een verandering van uw inkomen door aan de Belastingdienst. Zo voorkomt u dat u moet terugbetalen. Of dat u te weinig krijgt.",
+      "after": "Krijgt u een toeslag? Dan geeft u een verandering van uw inkomen door aan de Belastingdienst. Zo hoeft u later niets terug te betalen. U krijgt ook niet te weinig.",
+      "reason": "Remove fragment sentences and 'voorkomt'."
+    },
+    {
+      "id": "A2:knm:batch112-inkomen-doorgeven:1",
+      "field": "questions.0.options",
+      "before": {
+        "A": "Zij moet misschien geld terugbetalen.",
+        "B": "Zij krijgt later meer toeslag.",
+        "C": "Zij raakt haar zorgverzekering kwijt."
+      },
+      "after": {
+        "A": "Zij moet toeslag terugbetalen.",
+        "B": "Zij krijgt een hogere toeslag.",
+        "C": "Zij verliest haar zorgverzekering."
+      },
+      "reason": "Key was the only hedged option ('misschien'); the prompt already says 'kan'. Options now parallel."
+    },
+    {
+      "id": "A2:knm:batch112-inkomen-doorgeven:1",
+      "field": "questions.0.evidence",
+      "before": "Zo voorkomt u dat u moet terugbetalen",
+      "after": "Zo hoeft u later niets terug te betalen",
+      "reason": "Follows the changed card."
+    },
+    {
+      "id": "A2:knm:batch112-inkomen-doorgeven:1",
+      "field": "questions.0.explanation",
+      "before": "Wie een toeslag heeft, geeft een hoger inkomen door. Doet Ines dat niet, dan kan zij te veel toeslag krijgen en moet zij die misschien terugbetalen. Meer toeslag krijgt zij niet. Haar zorgverzekering blijft gewoon bestaan.",
+      "after": "Wie een toeslag heeft, geeft een hoger inkomen door. Doet Ines dat niet, dan krijgt zij te veel toeslag en moet zij die terugbetalen. Een hogere toeslag krijgt zij niet. Haar zorgverzekering blijft gewoon bestaan.",
+      "reason": "Follows the new options."
+    },
+    {
+      "id": "A2:knm:batch112-aangifte-diefstal:1",
+      "field": "text",
+      "before": "Is uw fiets gestolen? Doe aangifte bij de politie, bijvoorbeeld telefonisch of met een online formulier. Uw fiets komt dan in het fietsdiefstalregister.",
+      "after": "Is uw fiets gestolen? Doe aangifte bij de politie. U kunt bellen of een online formulier invullen. Uw fiets komt dan op een lijst van gestolen fietsen.",
+      "reason": "Replace telefonisch and fietsdiefstalregister with plain words."
+    },
+    {
+      "id": "A2:knm:batch112-ombudsman-gemeente:1",
+      "field": "text",
+      "before": "De Nationale ombudsman bekijkt klachten over de overheid. Ook een klacht over een gemeente, als die gemeente is aangesloten. Andere gemeenten hebben een eigen klachtenloket.",
+      "after": "De Nationale ombudsman bekijkt klachten over de overheid. Ook een klacht over een gemeente, als die gemeente meedoet. Andere gemeenten hebben een eigen klachtenloket.",
+      "reason": "'aangesloten' is B1."
+    },
+    {
+      "id": "A2:knm:batch112-ombudsman-gemeente:1",
+      "field": "questions.0.explanation",
+      "before": "De Nationale ombudsman kan een klacht over een gemeente bekijken, als de gemeente is aangesloten. Heeft de gemeente een eigen klachtenloket, dan gaat u daarheen. De Huurcommissie beoordeelt alleen huurzaken. De Belastingdienst onderzoekt geen klachten over gemeenten.",
+      "after": "De Nationale ombudsman kan een klacht over een gemeente bekijken, als de gemeente meedoet. Heeft de gemeente een eigen klachtenloket, dan gaat u daarheen. De Huurcommissie beoordeelt alleen huurzaken. De Belastingdienst onderzoekt geen klachten over gemeenten.",
+      "reason": "Same."
+    },
+    {
+      "id": "A2:knm:batch112-avp-niet-verplicht:1",
+      "field": "text",
+      "before": "Een aansprakelijkheidsverzekering betaalt schade die u aan anderen toebrengt. Die verzekering is niet verplicht, maar wel verstandig.",
+      "after": "Een aansprakelijkheidsverzekering betaalt schade die u bij een ander maakt. Die verzekering is niet verplicht, maar wel verstandig.",
+      "reason": "'toebrengt' is B2."
+    },
+    {
+      "id": "A2:knm:batch112-avp-niet-verplicht:1",
+      "field": "sourceUrl",
+      "before": "https://www.nibud.nl/consumenten/aansprakelijkheidsverzekering/",
+      "after": "https://www.nibud.nl/onderwerpen/uitgaven/kosten-verzekering/",
+      "reason": "The recorded URL redirects; cite the live page."
+    },
+    {
+      "id": "A2:knm:batch112-avp-niet-verplicht:1",
+      "field": "questions.0.options.B",
+      "before": "Die is wettelijk verplicht voor elk gezin.",
+      "after": "Die is verplicht voor elk gezin.",
+      "reason": "Drop 'wettelijk' (B1)."
+    },
+    {
+      "id": "A2:knm:batch112-schoolboeken-gratis:1",
+      "field": "questions.0.prompt",
+      "before": "De dochter van Rana zit in de brugklas van een middelbare school. Wie zorgt voor haar leerboeken en werkboeken?",
+      "after": "De dochter van Rana is twaalf en zit in de brugklas. Wie zorgt voor haar leerboeken en werkboeken?",
+      "reason": "Prompt word 'school' recurred only in the key 'De school'."
+    },
+    {
+      "id": "A2:knm:batch112-kindpakket:1",
+      "field": "text",
+      "before": "Elke gemeente helpt huishoudens met een laag inkomen. Bijvoorbeeld met een kindpakket. Daarin zitten tegoedbonnen voor kleding en zwemles.",
+      "after": "Elke gemeente helpt mensen met een laag inkomen, bijvoorbeeld met een kindpakket. Daarin zitten tegoedbonnen voor kleding en zwemles. Zo kunnen kinderen meedoen.",
+      "reason": "'huishoudens' is B1; explain purpose."
+    },
+    {
+      "id": "A2:knm:batch112-kindpakket:1",
+      "field": "questions.0.options.B",
+      "before": "Tegoedbonnen voor bijvoorbeeld kleding en zwemles.",
+      "after": "Een pakket tegoedbonnen voor kleding en zwemles.",
+      "reason": "Key was the only hedged option ('bijvoorbeeld'); now parallel with C."
+    },
+    {
+      "id": "A2:knm:batch112-kindpakket:1",
+      "field": "imageBrief",
+      "before": "Hiba (woman in her thirties, dark headscarf, teal coat) sits on a bench at the edge of a swimming pool and watches a girl in a swimsuit at the water. No text.",
+      "after": "Hiba (woman in her thirties, dark headscarf, teal coat) walks along a quiet street and holds the hand of a girl of about eight with two ponytails and a green coat. No text.",
+      "reason": "The swimming-pool scene showed 'zwemles', part of the key."
+    },
+    {
+      "id": "A2:knm:batch112-kindpakket:1",
+      "field": "imageAlt",
+      "before": "Hiba zit op een bankje bij een zwembad en kijkt naar een meisje in een badpak.",
+      "after": "Hiba loopt door een rustige straat en houdt een meisje met twee staartjes bij de hand.",
+      "reason": "Follows the brief."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/112-proposed.json: 13 items, keys B5/C4/A4, no failures, no warnings",
+    "source_urls": "all 13 opened with curl on 2026-11-22; each states the keyed fact; avp URL updated to the redirect target",
+    "key_balance": "A 4 (31%), B 5 (38%), C 4 (31%)",
+    "rule_distractors_false_about_NL": true,
+    "rule_options_differ_in_what_is_asked": true,
+    "answer_signals": "after edits no key is the longest, hedged or the odd one out, and no prompt word recurs only in the key",
+    "card_and_question_length": "cards at most 30 words, questions at most 20 words, three options",
+    "duplication": "no fact repeats a catalogue KNM item or batches 108-111"
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch112-voedselbank:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Direct fact with a persona; the card gives the plain definition and the other options are two familiar bodies. Same depth as batch 006 wmo.",
+      "evidence": {
+        "quote": "De voedselbank geeft gratis voedsel aan mensen die extra hulp goed kunnen gebruiken",
+        "sources": [
+          "https://voedselbankennederland.nl/"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "voedselbankennederland.nl, opened 2026-11-22: 'Wij zorgen voor gezond en gratis voedsel voor iedereen die extra hulp goed kan gebruiken.' UWV pays benefits and a woningcorporatie rents homes; neither gives food."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Stijn has too little money for food and stands at an almost empty fridge; the question asks which organisation gives free food.",
+        "communicative_purpose": "Learner links a practical money shortage to the right body.",
+        "contrivance_check": "The empty fridge shows the need, not the answer; no off-page event is used.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch112-nibud-geldzaken:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Name-of-institution fact; card defines Nibud in plain words after the edit.",
+      "evidence": {
+        "quote": "Het Nibud is een instituut",
+        "sources": [
+          "https://www.nibud.nl/over-het-nibud/missie-en-impact/"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "nibud.nl 'Onze missie en impact', opened 2026-11-22: 'Het Nibud ... is een onafhankelijk kennis en voorlichtingsinstituut op het gebied van huishoudfinanciën.' SVB pays kinderbijslag and AOW; Kamer van Koophandel registers businesses."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Rana sits with notebook, pen and coin jar and wants information and advice on household spending.",
+        "communicative_purpose": "Learner learns which institute advises families on money.",
+        "contrivance_check": "Notebook and coins match a household budget; nothing is invented.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch112-gemeente-afvalheffing:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Same shape as batch 006 wmo (key de gemeente) but a different fact (a municipal levy).",
+      "evidence": {
+        "quote": "Gemeenten vragen eigen belastingen en heffingen",
+        "sources": [
+          "https://www.rijksoverheid.nl/onderwerpen/gemeenten/vraag-en-antwoord/welke-belastingen-heft-de-gemeente"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "rijksoverheid.nl 'Welke belastingen heft de gemeente?', opened 2026-11-22: 'Voorbeelden van heffingen zijn de rioolheffing en de afvalstoffenheffing.' The Belastingdienst collects national taxes; the provincie does not levy it."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Lieve stands by a green wheelie bin holding an envelope; the envelope is the bill for the afvalstoffenheffing.",
+        "communicative_purpose": "Learner learns that waste charges come from the municipality.",
+        "contrivance_check": "Bin and envelope fit a bill about waste; the picture does not name the sender.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch112-ozb-huiseigenaar:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Term recognition for a house owner; acronym options keep the key short.",
+      "evidence": {
+        "quote": "betaalt elk jaar onroerendezaakbelasting (OZB) aan de gemeente",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/huis-kopen/met-welke-kosten-krijg-ik-te-maken-als-ik-een-huis-koop"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "rijksoverheid.nl 'Met welke kosten krijg ik te maken als ik een huis koop?', opened 2026-11-22: 'Als huiseigenaar moet u elk jaar Onroerendezaakbelasting (OZB) betalen aan uw gemeente.' Inkomstenbelasting and btw go to the Belastingdienst."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Willem owns a small row house and waters his garden; the question asks which tax an owner pays yearly to the municipality.",
+        "communicative_purpose": "Learner learns that owners pay OZB to the gemeente.",
+        "contrivance_check": "Ownership of the house is stated in the prompt; the garden scene does not show the answer.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch112-afstand-nationaliteit:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "General rule asked with 'in principe', exceptions on the card only; comparable to batch 007 naturalisatie.",
+      "evidence": {
+        "quote": "Bij naturalisatie moet u in principe uw oude nationaliteit opgeven",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/migratie-en-reizen/nederlandse-nationaliteit/dubbele-nationaliteit"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "rijksoverheid.nl 'Dubbele nationaliteit', opened 2026-11-22: 'Daarom moet u bij naturalisatie verplicht afstand doen van uw oorspronkelijke nationaliteit, als dat kan.' Exceptions: married to a Dutch person, recognised refugees. No five-year term exists."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Hiba holds a passport at a table with tea while she becomes Dutch by naturalisation; the question asks the general rule for her old nationality.",
+        "communicative_purpose": "Learner learns the principle of giving up the old nationality.",
+        "contrivance_check": "The prompt sets up 'in principe', so the exception is not the key; the passport matches the topic.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch112-netto-loon:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Definition item; plain wording after the edit; overlaps loonheffing (006) only in setting.",
+      "evidence": {
+        "quote": "Wat over is, is het nettoloon. Dat krijgt u op uw rekening",
+        "sources": [
+          "https://www.belastingdienst.nl/wps/wcm/connect/nl/jongeren/content/brutoloon-en-nettoloon"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "belastingdienst.nl 'Brutoloon en nettoloon', opened 2026-11-22: 'Nettoloon is het bedrag dat je op je rekening ontvangt.' and 'Wat resteert is je nettoloon.'"
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Oscar reads his payslip at the kitchen table; the question asks what nettoloon is.",
+        "communicative_purpose": "Learner learns to read bruto and netto on a payslip.",
+        "contrivance_check": "A payslip with two lines is a real document; no invented context.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch112-belastinggeld:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "General civic fact; options rebuilt as parallel 'voor iedereen' phrases.",
+      "evidence": {
+        "quote": "zorg, uitkeringen, onderwijs en veiligheid voor iedereen",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/belastingen-uitkeringen-en-toeslagen/belastingplan/achtergrond-belastingen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "rijksoverheid.nl 'De achtergrond van belastingen', opened 2026-11-22: 'Dankzij belastinggeld is er geld voor zorg, uitkeringen, onderwijs en veiligheid voor iedereen.' The state gives no guaranteed job or home to everyone."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A piggy bank and coins in front of a window stand for money paid and collected; no person is involved.",
+        "communicative_purpose": "Learner learns what tax money pays for.",
+        "contrivance_check": "The piggy bank is a loose symbol of money, not of the key.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch112-inkomen-doorgeven:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Consequence question instead of yes/no; plain wording after the edit.",
+      "evidence": {
+        "quote": "Zo hoeft u later niets terug te betalen",
+        "sources": [
+          "https://www.belastingdienst.nl/wps/wcm/connect/nl/werk-en-inkomen/content/mijn-inkomen-verandert-moet-ik-dat-doorgeven"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "belastingdienst.nl 'Mijn inkomen verandert - moet ik dat doorgeven?', opened 2026-11-22: 'Hebt u een toeslag? Geef dan aan ons door dat uw inkomen verandert.' and 'Zo voorkomt u dat u moet terugbetalen.' A higher income lowers the toeslag, so unreported income means too much toeslag."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Ines has a laptop and tea; her income rises while she gets zorgtoeslag, and the question asks the result of not reporting it.",
+        "communicative_purpose": "Learner learns to report income changes to avoid repaying.",
+        "contrivance_check": "Laptop suits the online Toeslagen channel; the consequence follows from the card.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch112-aangifte-diefstal:1",
+      "verdict": "pass (edited)",
+      "level": "easier",
+      "level_reason": "Single obvious body; easy end of the bank, as planned.",
+      "evidence": {
+        "quote": "Doe aangifte bij de politie",
+        "sources": [
+          "https://www.rijksoverheid.nl/onderwerpen/fiets/vraag-en-antwoord/fiets-gestolen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "rijksoverheid.nl 'Wat kan ik doen als mijn fiets is gestolen?', opened 2026-11-22: 'Doe aangifte bij de politie als uw fiets gestolen is.' The gemeente only removes weesfietsen; a shop takes no aangifte."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Mustafa stands at an empty bike rack with an open lock; his bike is stolen and he asks where to report it.",
+        "communicative_purpose": "Learner learns where to report a theft.",
+        "contrivance_check": "Empty rack and open lock show a theft; the picture does not name the police.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch112-ombudsman-gemeente:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Conditional key set up by 'kan'; no distractor offers the municipality's own desk.",
+      "evidence": {
+        "quote": "De Nationale ombudsman bekijkt klachten over de overheid",
+        "sources": [
+          "https://www.nationaleombudsman.nl/vraag-en-antwoord/ik-heb-een-klacht-over-een-gemeente"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "nationaleombudsman.nl 'Ik heb een klacht over een gemeente', opened 2026-11-22: 'Staat uw gemeente er bij? Schrijf ons dan een brief of gebruik het klachtformulier.' Otherwise the gemeente has its own klachtvoorziening. Huurcommissie only judges rent; the Belastingdienst does not handle complaints about gemeenten."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Lieve writes a letter at a desk because she has a complaint about her gemeente; the question asks who can investigate it.",
+        "communicative_purpose": "Learner learns that the Nationale ombudsman can look at municipal complaints.",
+        "contrivance_check": "Writing a letter fits the complaint procedure; no invented event.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch112-avp-niet-verplicht:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Rule item (verplicht or not); source is the Nibud, not a ministry.",
+      "evidence": {
+        "quote": "Die verzekering is niet verplicht, maar wel verstandig",
+        "sources": [
+          "https://www.nibud.nl/onderwerpen/uitgaven/kosten-verzekering/"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "nibud.nl 'Kosten voor verzekeringen', opened 2026-11-22: 'Een aansprakelijkheidsverzekering is niet verplicht, maar wel verstandig om af te sluiten.' The same page says zorgverzekering, WA and (for homeowners) opstal are verplicht; homeowners do not need AVP."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A toppled vase and a ball in a living room show the kind of accident the insurance pays for.",
+        "communicative_purpose": "Learner learns that this insurance is advised but not compulsory.",
+        "contrivance_check": "The accident picture is a plausible household setting and does not state the rule.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch112-schoolboeken-gratis:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Persona fact on school costs; only the brugklas is asked.",
+      "evidence": {
+        "quote": "De school zorgt hiervoor",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/voortgezet-onderwijs/gratis-schoolboeken-voortgezet-onderwijs"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "rijksoverheid.nl 'Wanneer zijn schoolboeken en lesmaterialen in het voortgezet onderwijs gratis?', opened 2026-11-22: 'De middelbare school zorgt hier voor.' The list of free items includes leerboeken and werkboeken; atlas and rekenmachine are not free."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A twelve-year-old with a backpack stands by lockers in a school corridor; she is in the first year of secondary school.",
+        "communicative_purpose": "Learner learns that the school supplies course and work books.",
+        "contrivance_check": "Age and brugklas are stated in the prompt; lockers match a school.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch112-kindpakket:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Definition item; options are three kinds of help.",
+      "evidence": {
+        "quote": "Daarin zitten tegoedbonnen voor kleding en zwemles",
+        "sources": [
+          "https://www.rijksoverheid.nl/onderwerpen/armoedebestrijding/vraag-en-antwoord/kan-ik-ondersteuning-voor-mijn-kinderen-krijgen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "rijksoverheid.nl 'Kan ik ondersteuning krijgen voor mijn kind(eren)?', opened 2026-11-22: 'Elke gemeente ondersteunt huishoudens met een laag inkomen. Bijvoorbeeld met een kindpakket.' 'Er zitten bijvoorbeeld tegoedbonnen in voor kleding en zwemlessen.' Local offers differ."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Hiba, with a low income, walks with her daughter; the municipality offers a kindpakket and the question asks what it is.",
+        "communicative_purpose": "Learner learns what a kindpakket contains.",
+        "contrivance_check": "The street scene no longer shows swimming, so the key is not in the picture.",
+        "unsupported_assumptions": []
+      }
+    }
+  ],
+  "media_notes": "Question text changed in several items, so question audio is generated fresh with exact job keys. kindpakket picture brief changed (no swimming pool). Other briefs show only settings. Pictures not inspected. Hiba traits (woman in her thirties, dark headscarf, teal coat) and Lieve traits are copied verbatim across items.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Check yearly: afstand-nationaliteit (new Rijkswet op het Nederlanderschap pending), ombudsman-gemeente (list of affiliated gemeenten), kindpakket (local offer), inkomen-doorgeven (channels).",
+    "avp-niet-verplicht rests on the Nibud, an independent institute and not a regulator; no government page states it plainly. The fact is stable and plain.",
+    "Eindterm mapping checked against docs/research/knm-coverage-2026-11-22.md, not re-read in the Regeling.",
+    "Pictures not inspected."
+  ]
+}

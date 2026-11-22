@@ -1,0 +1,629 @@
+{
+  "review_id": "108-a2-knm-batch-a-themes-1-3-2026-11-22",
+  "source": "content/batches/108-original.json",
+  "proposed_source": "content/batches/108-proposed.json",
+  "source_sha256": "7a02e2e94b145a62cc86084e17d96f0a89e9914bcc438f8c2bf951e3b92ebb7e",
+  "review_type": "independent AI editorial review of 14 new A2 KNM items (themes 1 and 3), with every sourceUrl opened on 2026-11-22",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T12:52:09Z",
+  "reviewer": "Independent AI reviewer (Sonnet 5.5), separate from the author agent; AI editorial review, not human validation.",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "c42078cd9c9b0c4b74b18b6dff6941325d6fc531e55d463f1781dba4a2ebf69b",
+    "independence_note": "The blind packet of the author file (hash 7c1d49ac3403e103f5de89dc30f10dd60dee518f724ed64caae4a41c8dc3e49a) was read first, with the brief, rubric, blueprint and round brief, and per-item findings were written to content/reviews/108-review.md before the full batch, notes, assignment or catalogue were opened. After the edits the packet was rebuilt from the proposed bytes (hash above) and the meaning check repeated for the five items whose visible source changed; nothing there needs invented context."
+  },
+  "tone_balance": {
+    "ordinary": 13,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All 13 items are ordinary civic-fact scenes; KNM items are never jokes (round brief), so the batch adds no light humour. The coordinator checks the combined program count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 3,
+    "edited_by_reviewer": 10,
+    "revise": 0,
+    "reject": 1
+  },
+  "edits": [
+    {
+      "id": "A2:knm:batch108-map-module:1",
+      "field": "questions[0].explanation",
+      "before": "De MAP gaat over werken en werk zoeken in Nederland. Lina leert dus over de arbeidsmarkt. Over wonen en huren of over de zorgverzekering gaat de MAP niet.",
+      "after": "De MAP gaat over werken en werk zoeken in Nederland. Over wonen en huren of over de zorgverzekering gaat de MAP niet."
+    },
+    {
+      "id": "A2:knm:batch108-participatiewet-werk:1",
+      "field": "questions[0].prompt",
+      "before": "Wouter kan werken, maar hij vindt zonder hulp geen baan. Onder welke wet valt hij?",
+      "after": "Wouter kan werken, maar hij vindt zonder hulp geen baan. Welke wet geldt voor hem?"
+    },
+    {
+      "id": "A2:knm:batch108-participatiewet-werk:1",
+      "field": "questions[0].explanation",
+      "before": "Wouter kan werken, maar vindt zonder ondersteuning geen werk. Dan valt hij onder de Participatiewet. De Leerplichtwet gaat over kinderen en school. De Zorgverzekeringswet gaat over de zorgverzekering.",
+      "after": "Wouter kan werken, maar vindt zonder hulp geen werk. Dan geldt de Participatiewet voor hem. De Leerplichtwet gaat over kinderen en school. De Zorgverzekeringswet gaat over de zorgverzekering."
+    },
+    {
+      "id": "A2:knm:batch108-kansrijke-beroepen:1",
+      "field": "title",
+      "before": "Kansrijke beroepen",
+      "after": "Een lijst met kansrijke beroepen"
+    },
+    {
+      "id": "A2:knm:batch108-kansrijke-beroepen:1",
+      "field": "text",
+      "before": "Een kansrijk beroep is een beroep met veel kans op werk. Het UWV heeft hulp om zulke banen te zoeken. De lijst verandert elk jaar.",
+      "after": "Het UWV heeft een lijst met kansrijke beroepen. Dat zijn beroepen met veel kans op werk. De lijst verandert elk jaar."
+    },
+    {
+      "id": "A2:knm:batch108-kansrijke-beroepen:1",
+      "field": "questions[0].prompt",
+      "before": "Fenna leest bij het UWV over kansrijke beroepen. Wat is een kansrijk beroep?",
+      "after": "Fenna zoekt een beroep met veel kans op werk. Waar vindt zij een lijst met zulke beroepen?"
+    },
+    {
+      "id": "A2:knm:batch108-kansrijke-beroepen:1",
+      "field": "questions[0].options",
+      "before": {
+        "A": "Een beroep waarin u veel geld verdient",
+        "B": "Een beroep met veel kans op werk",
+        "C": "Een beroep waarvoor u geen diploma nodig hebt"
+      },
+      "after": {
+        "A": "Bij de SVB",
+        "B": "Bij de Belastingdienst",
+        "C": "Bij het UWV"
+      }
+    },
+    {
+      "id": "A2:knm:batch108-kansrijke-beroepen:1",
+      "field": "questions[0].answer",
+      "before": "B",
+      "after": "C"
+    },
+    {
+      "id": "A2:knm:batch108-kansrijke-beroepen:1",
+      "field": "questions[0].evidence",
+      "before": "Een kansrijk beroep is een beroep met veel kans op werk.",
+      "after": "Het UWV heeft een lijst met kansrijke beroepen."
+    },
+    {
+      "id": "A2:knm:batch108-kansrijke-beroepen:1",
+      "field": "questions[0].explanation",
+      "before": "Een kansrijk beroep is een beroep met veel kans op werk. Het gaat dus niet om het salaris. Ook hebt u voor veel kansrijke beroepen wel een diploma nodig.",
+      "after": "Het UWV heeft een lijst met kansrijke beroepen. Dat zijn beroepen met veel kans op werk. De SVB betaalt onder andere de AOW. De Belastingdienst regelt belasting en toeslagen."
+    },
+    {
+      "id": "A2:knm:batch108-kansrijke-beroepen:1",
+      "field": "sourceNote",
+      "before": "UWV, 'Kansrijke beroepen: beroepen met goede kansen op werk', opened 2026-11-22: 'De meeste functies op de lijst met kansrijke beroepen bieden al jarenlang veel kans op werk.'; 'Ieder jaar verdwijnen er ook beroepen van de lijst met kansrijke beroepen.'; 'Met de beroepskeuzehulp kunnen mensen binnen hun regio zoeken naar banen met veel kans op werk.' (The page is rendered partly by JavaScript; the text above was in the static HTML.) No professions are named, because the list changes yearly: check yearly. Distractors: kansrijk says nothing about salary, and the page does not tie the list to jobs without a diploma (the 2026 additions include hbo and wo jobs).",
+      "after": "UWV, 'Kansrijke beroepen: beroepen met goede kansen op werk', opened 2026-11-22 (reviewer re-read): 'De meeste functies op de lijst met kansrijke beroepen bieden al jarenlang veel kans op werk.'; 'In 2026 kwamen er ook kansrijke beroepen bij.'; 'Ieder jaar verdwijnen er ook beroepen van de lijst met kansrijke beroepen.'; 'UWV ondersteunt werkzoekenden en professionals bij het zoeken naar geschikt werk.' The page is UWV's own page about its list, so the card says the UWV has the list and that it changes every year. Reviewer replaced the author's definition question ('Wat is een kansrijk beroep?'), which the word 'kansrijk' answered by itself. No professions are named, because the list changes yearly: check yearly. Distractors: the SVB (AOW, kinderbijslag) and the Belastingdienst (tax) publish no lists of jobs."
+    },
+    {
+      "id": "A2:knm:batch108-taal-doorgroeien:1",
+      "field": "text",
+      "before": "Weinig Nederlands op het werk kan gevolgen hebben voor de veiligheid. Het kan ook uw kansen om door te groeien kleiner maken.",
+      "after": "Weinig Nederlands op het werk kan gevolgen hebben voor de veiligheid. Het kan ook uw kans op een betere functie kleiner maken."
+    },
+    {
+      "id": "A2:knm:batch108-taal-doorgroeien:1",
+      "field": "questions[0].options",
+      "before": {
+        "A": "Minder kansen om door te groeien",
+        "B": "Minder vakantiedagen dan zijn collega's",
+        "C": "Een hogere belasting over zijn loon"
+      },
+      "after": {
+        "A": "Minder kans op een betere functie",
+        "B": "Minder vakantiedagen dan collega's",
+        "C": "Meer belasting over zijn loon"
+      }
+    },
+    {
+      "id": "A2:knm:batch108-taal-doorgroeien:1",
+      "field": "questions[0].evidence",
+      "before": "Het kan ook uw kansen om door te groeien kleiner maken.",
+      "after": "Het kan ook uw kans op een betere functie kleiner maken."
+    },
+    {
+      "id": "A2:knm:batch108-taal-doorgroeien:1",
+      "field": "questions[0].explanation",
+      "before": "Onvoldoende Nederlands op het werk kan gevolgen hebben voor de veiligheid en voor doorgroeimogelijkheden. Rachid heeft dus minder kans om door te groeien. Vakantiedagen en belasting hangen niet af van zijn taal.",
+      "after": "Weinig Nederlands kan gevolgen hebben voor de veiligheid en voor de kans op een betere functie. Vakantiedagen en belasting hangen niet af van zijn taal."
+    },
+    {
+      "id": "A2:knm:batch108-taal-doorgroeien:1",
+      "field": "sourceNote",
+      "before": "Rijksoverheid, 'Taalakkoord: taalvaardigheid werknemers verbeteren', opened 2026-11-22: 'Onvoldoende taalbeheersing ... Dan kan dat bijvoorbeeld gevolgen hebben voor de veiligheid en duurzame inzetbaarheid op de werkvloer. En voor doorgroeimogelijkheden.' The mapping to 1.1.3 (factors that influence chances, including Dutch) is loose; the reviewer decides. The prompt says 'kan', as the source does. Distractors: holiday days follow the contract and the law, not language; tax on wages follows the wage, not language. No figures used.",
+      "after": "Rijksoverheid, 'Taalakkoord: taalvaardigheid werknemers verbeteren', opened 2026-11-22: 'Onvoldoende taalbeheersing ... Dan kan dat bijvoorbeeld gevolgen hebben voor de veiligheid en duurzame inzetbaarheid op de werkvloer. En voor doorgroeimogelijkheden.' Reviewer: the mapping to 1.1.3 holds, because the eindterm text lists 'beheersing van de Nederlandse taal' among the factors that influence chances on the labour market. 'Doorgroeimogelijkheden' is paraphrased as 'een betere functie' for A2. The prompt says 'kan', as the source does. Distractors: holiday days follow the contract and the law, not language; tax on wages follows the wage, not language. No figures used."
+    },
+    {
+      "id": "A2:knm:batch108-taaleis-leraar:1",
+      "field": "questions[0].prompt",
+      "before": "Een school zoekt een leraar Nederlands. Wat mag de school van een sollicitant eisen?",
+      "after": "Een school zoekt een leraar Nederlands. Wat mag de school van de nieuwe leraar eisen?"
+    },
+    {
+      "id": "A2:knm:batch108-taaleis-leraar:1",
+      "field": "questions[0].options",
+      "before": {
+        "A": "Dat hij in Nederland is geboren",
+        "B": "Dat hij een Nederlands paspoort heeft",
+        "C": "Dat hij perfect Nederlands spreekt"
+      },
+      "after": {
+        "A": "Dat de leraar in Nederland is geboren",
+        "B": "Dat de leraar een Nederlands paspoort heeft",
+        "C": "Dat de leraar perfect Nederlands spreekt"
+      }
+    },
+    {
+      "id": "A2:knm:batch108-taaleis-leraar:1",
+      "field": "questions[0].explanation",
+      "before": "Een werkgever mag eisen stellen als dat nodig is voor de functie. Een leraar Nederlands moet perfect Nederlands spreken. Waar iemand is geboren of welk paspoort hij heeft, zegt niets over zijn werk. Zulke eisen zijn discriminatie.",
+      "after": "Een werkgever mag eisen stellen als dat nodig is voor het werk. Een leraar Nederlands moet perfect Nederlands spreken. Waar iemand is geboren of welk paspoort hij heeft, is voor dit werk niet nodig. Dat mag een school niet eisen."
+    },
+    {
+      "id": "A2:knm:batch108-vog-gastouder:1",
+      "field": "text",
+      "before": "Voor sommige beroepen is een VOG verplicht, bijvoorbeeld voor gastouders, onderwijzers en taxichauffeurs. VOG betekent Verklaring Omtrent het Gedrag.",
+      "after": "Voor sommige beroepen is een VOG verplicht door de wet, bijvoorbeeld voor gastouders, leraren en taxichauffeurs. VOG betekent Verklaring Omtrent het Gedrag."
+    },
+    {
+      "id": "A2:knm:batch108-vog-gastouder:1",
+      "field": "questions[0].prompt",
+      "before": "Ana wil gastouder worden. Welk document is voor dat werk wettelijk verplicht?",
+      "after": "Ana wil gastouder worden. Welk document moet zij volgens de wet hebben?"
+    },
+    {
+      "id": "A2:knm:batch108-vog-gastouder:1",
+      "field": "questions[0].evidence",
+      "before": "Voor sommige beroepen is een VOG verplicht, bijvoorbeeld voor gastouders",
+      "after": "Voor sommige beroepen is een VOG verplicht door de wet, bijvoorbeeld voor gastouders"
+    },
+    {
+      "id": "A2:knm:batch108-vog-gastouder:1",
+      "field": "questions[0].explanation",
+      "before": "Voor sommige beroepen is een VOG wettelijk verplicht, bijvoorbeeld voor gastouders. Ana heeft dus een VOG nodig. Een rijbewijs of een medische verklaring is voor dit werk niet wettelijk verplicht.",
+      "after": "Voor sommige beroepen moet u volgens de wet een VOG hebben, bijvoorbeeld voor gastouders. Ana heeft dus een VOG nodig. Een rijbewijs of een medische verklaring is voor dit werk niet verplicht."
+    },
+    {
+      "id": "A2:knm:batch108-vog-gastouder:1",
+      "field": "sourceNote",
+      "before": "Justis, 'Waarom heb ik een VOG nodig?', opened 2026-11-22: 'Voor sommige functies is een VOG wettelijk verplicht, bijvoorbeeld voor onderwijzers, gastouders en taxichauffeurs.' and 'Als er geen wettelijke verplichting is voor het overleggen van een VOG, mag een werkgever zelf bepalen of hij een VOG verplicht stelt.' Loose mapping to 1.1.6 (an employer or the law may set requirements): reviewer decides. Distractors: neither a rijbewijs nor a medical declaration is a legal requirement for gastouders (the page names only the VOG). The card explains the abbreviation but not the content, which the source page does not state in the quoted sentence.",
+      "after": "Justis, 'Waarom heb ik een VOG nodig?', opened 2026-11-22: 'Voor sommige functies is een VOG wettelijk verplicht, bijvoorbeeld voor onderwijzers, gastouders en taxichauffeurs.' and 'Als er geen wettelijke verplichting is voor het overleggen van een VOG, mag een werkgever zelf bepalen of hij een VOG verplicht stelt.' Reviewer: partial fit with 1.1.6, whose heading is that an employer can set demands on an applicant; the VOG is a demand of the law or the employer, not a competency. Kept as the nearest eindterm; no better one exists in themes 1-8. The card says 'leraren' for the page's 'onderwijzers' (A2). Distractors: neither a rijbewijs nor a medical declaration is a legal requirement for gastouders (the page names only the VOG). The card explains the abbreviation but not the content, which the source page does not state in the quoted sentence."
+    },
+    {
+      "id": "A2:knm:batch108-diplomawaardering-idw:1",
+      "field": "questions[0].prompt",
+      "before": "Daniel heeft een diploma uit het buitenland. Welke organisaties maken daarvoor een diplomawaardering?",
+      "after": "Daniel heeft een diploma uit het buitenland. Welke organisatie maakt daarvoor een diplomawaardering?"
+    },
+    {
+      "id": "A2:knm:batch108-diplomawaardering-idw:1",
+      "field": "questions[0].options",
+      "before": {
+        "A": "Nuffic en SBB",
+        "B": "Het UWV en de gemeente",
+        "C": "DUO en de Belastingdienst"
+      },
+      "after": {
+        "A": "DUO",
+        "B": "Nuffic",
+        "C": "Het CBS"
+      }
+    },
+    {
+      "id": "A2:knm:batch108-diplomawaardering-idw:1",
+      "field": "questions[0].answer",
+      "before": "A",
+      "after": "B"
+    },
+    {
+      "id": "A2:knm:batch108-diplomawaardering-idw:1",
+      "field": "questions[0].explanation",
+      "before": "De overheid heeft Nuffic en SBB aangewezen om diplomawaarderingen te maken. U vraagt die aan bij het loket IDW. Het UWV, de gemeente, DUO en de Belastingdienst maken geen diplomawaarderingen.",
+      "after": "Nuffic maakt diplomawaarderingen voor de overheid. SBB doet dat ook. DUO regelt onder meer studiefinanciering en inburgering. Het CBS maakt cijfers over Nederland."
+    },
+    {
+      "id": "A2:knm:batch108-diplomawaardering-idw:1",
+      "field": "sourceNote",
+      "before": "Nuffic, 'Diplomawaardering aanvragen', opened 2026-11-22: 'De overheid heeft Nuffic en SBB aangewezen om diplomawaarderingen te maken. IDW is het loket voor onze diplomawaarderingen.' and 'Een diplomawaardering is een vergelijking van een buitenlands diploma met een Nederlands diploma.' The acronym IDW is explained on the card but kept out of the options (A2). Distractors: UWV, gemeente, DUO and Belastingdienst are real public bodies that do not make diploma valuations; the page names only Nuffic and SBB as designated. Different fact from batch 006 (what a waardering is). Check yearly (organisation names).",
+      "after": "Nuffic, 'Diplomawaardering aanvragen', opened 2026-11-22: 'De overheid heeft Nuffic en SBB aangewezen om diplomawaarderingen te maken. IDW is het loket voor onze diplomawaarderingen.' and 'Een diplomawaardering is een vergelijking van een buitenlands diploma met een Nederlands diploma.' The acronym IDW is explained on the card but kept out of the options (A2). Reviewer: options changed to one organisation each (DUO, Nuffic, CBS), so the key is not the only pair of unfamiliar names. Regeling inburgering 2021 art. 3.20 (wetten.overheid.nl, 2026-04-18) also designates only Stichting Nuffic and SBB. Distractors: DUO (studiefinanciering, inburgering) and the CBS (statistics) do not make diploma valuations; SBB is not offered as an option. Different fact from batch 006 (what a waardering is). Check yearly (organisation names)."
+    },
+    {
+      "id": "A2:knm:batch108-eerste-woning:1",
+      "field": "text",
+      "before": "Een vluchteling met een verblijfsvergunning krijgt een woning via de gemeente. De gemeente heeft daarvoor een wettelijke taak.",
+      "after": "Een vluchteling met een verblijfsvergunning krijgt een woning via de gemeente. Dat staat in de wet."
+    },
+    {
+      "id": "A2:knm:batch108-eerste-woning:1",
+      "field": "questions[0].explanation",
+      "before": "De gemeente heeft de wettelijke taak om te zorgen voor een woning voor iemand met een verblijfsvergunning als vluchteling. De IND geeft de verblijfsvergunning, maar regelt geen woning. Het UWV regelt geen woning.",
+      "after": "De gemeente moet volgens de wet zorgen voor een woning voor iemand met een verblijfsvergunning als vluchteling. De IND geeft de verblijfsvergunning, maar regelt geen woning. Het UWV regelt geen woning."
+    },
+    {
+      "id": "A2:knm:batch108-meterstanden-verhuizen:1",
+      "field": "questions[0].options",
+      "before": {
+        "A": "Zijn salarisstrook",
+        "B": "Zijn huurcontract",
+        "C": "Zijn meterstanden"
+      },
+      "after": {
+        "A": "Zijn huurcontract",
+        "B": "Zijn paspoort",
+        "C": "Zijn meterstanden"
+      }
+    },
+    {
+      "id": "A2:knm:batch108-meterstanden-verhuizen:1",
+      "field": "questions[0].explanation",
+      "before": "Bij een verhuizing geeft u uw meterstanden binnen vijf werkdagen door aan uw energieleverancier. Een salarisstrook of een huurcontract hoeft u niet aan uw leverancier te geven.",
+      "after": "Bij een verhuizing geeft u uw meterstanden binnen vijf werkdagen door aan uw energieleverancier. Een huurcontract of een paspoort hoeft u daarvoor niet te geven."
+    },
+    {
+      "id": "A2:knm:batch108-afval-verschil:1",
+      "field": "text",
+      "before": "Elke gemeente mag zelf bepalen hoe zij het afval inzamelt. Het ophalen kan in uw nieuwe gemeente dus anders zijn.",
+      "after": "Elke gemeente mag zelf bepalen hoe zij het afval ophaalt. Het ophalen kan in uw nieuwe gemeente dus anders zijn."
+    },
+    {
+      "id": "A2:knm:batch108-afval-verschil:1",
+      "field": "questions[0].evidence",
+      "before": "Elke gemeente mag zelf bepalen hoe zij het afval inzamelt.",
+      "after": "Elke gemeente mag zelf bepalen hoe zij het afval ophaalt."
+    },
+    {
+      "id": "A2:knm:batch108-afval-verschil:1",
+      "field": "questions[0].explanation",
+      "before": "Elke gemeente mag zelf bepalen hoe zij het afval inzamelt. Het ophalen kan dus anders zijn. Het minimumloon en de leerplicht zijn landelijke regels. Die zijn in elke gemeente hetzelfde.",
+      "after": "Elke gemeente mag zelf bepalen hoe zij het afval ophaalt. Het ophalen kan dus anders zijn. Het minimumloon en de leerplicht zijn landelijke regels. Die zijn in elke gemeente hetzelfde."
+    },
+    {
+      "id": "A2:knm:batch108-afval-verschil:1",
+      "field": "imageBrief",
+      "before": "Marieke (woman in her fifties, short grey hair, teal blazer) walks along a quiet street carrying a small bag, towards a row of large grey and green containers by the pavement; houses with bicycles are behind her. No text.",
+      "after": "Marieke (woman in her fifties, short grey hair, teal blazer) stands on the pavement of a quiet street with terraced houses, one hand on a bicycle with a basket; a small removal van is parked behind her. No text."
+    },
+    {
+      "id": "A2:knm:batch108-afval-verschil:1",
+      "field": "imageAlt",
+      "before": "Marieke loopt met een tas naar een rij afvalcontainers langs de stoep.",
+      "after": "Marieke staat op de stoep van een rustige straat met rijtjeshuizen, naast een fiets met een mand; achter haar staat een verhuiswagen."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "A2:knm:batch108-herplaatsing-bijscholing:1",
+      "reason": "The key ('een andere passende functie zoeken') tests the employer's duty to look for another job before dismissal, not the importance of (bij)scholing that eindterm 1.1.5 names. Scholing appears only in the explanation. No other eindterm in themes 1-8 covers dismissal rules, and a rewrite to test scholing needs a new premise (its distractors would be arbitrary). The prompt also reads as a 'what must the employer do' question. The author listed it as the first item to cut. Eindterm 1.1.5 stays at one item; a later batch can add a scholing fact from UWV or werk.nl."
+    }
+  ],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/108-proposed.json: 13 items, keys A4/B5/C4, 3 options each, no failures, no warnings",
+    "sources_opened": "All 14 sourceUrls returned HTTP 200 on 2026-11-22 and the keyed quotes were found in the page text; werk.nl was cited through Rijksoverheid, which states the same sentence. Eindterm texts read in Regeling inburgering 2021 bijlage 2 (wetten.overheid.nl, geldend 2026-04-18).",
+    "eindterm_mapping": "1.1.1 map-module and participatiewet-werk: fit (MAP, regelingen voor werk en inkomen). 1.1.2 werknl-vacatures: fit (online vacaturebanken). 1.1.3 taal-doorgroeien: fit after all (the eindterm lists Dutch among the factors); kansrijke-beroepen: fit (relevante beroepen). 1.1.4 diplomawaardering-idw: fit. 1.1.6 taaleis-leraar: fit; vog-gastouder: partial fit, kept. 1.1.5 herplaatsing-bijscholing: does not fit, rejected. 1.1.7 bijstand-gemeente, 3.1.1 eerste-woning, 3.2.1 meterstanden-verhuizen, 3.2.2 energie-voorschot, 3.3.1 afval-verschil: fit.",
+    "distractors_false_about_NL": "Verified per item against the sources and, for law items, general knowledge of Dutch rules; no nooit/altijd options; the only exception key (taaleis-leraar) is set up by the prompt.",
+    "options_differ_in_what_is_asked": "Yes in all 13; no two options answer the prompt the same way.",
+    "answer_signals": "Key is not the longest option in any item; no prompt word recurs only in the key.",
+    "word_lengths": "Cards 16-27 words (limit 30); prompts 11-17 words (limit 20); three options each.",
+    "key_balance": "A4 (31%), B5 (38%), C4 (31%): within 20-40%.",
+    "duplication": "No other KNM item in content/catalogue.json tests these facts; related ones (006 diplomawaardering, ww-uitkering, gft, energietarief) test other facts.",
+    "words": "KNM is outside the word gate; the reviewer replaced doorgroeien, sollicitant, wettelijk, onderwijzers, wettelijke taak, inzamelt, arbeidsmarkt in prompts, options, cards and explanations. Remaining terms are the tested ones (Participatiewet, VOG, Nuffic, termijnbedrag, jaarafrekening, meterstanden, verblijfsvergunning, diplomawaardering).",
+    "level_vs_existing_knm": "comparable overall; werknl-vacatures, bijstand-gemeente and meterstanden-verhuizen are easier; taaleis-leraar is slightly harder."
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch108-map-module:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Plain direct fact about one module; options are other KNM themes. Comparable to older theme-1 items.",
+      "evidence": {
+        "quote": "U leert over werken en werk zoeken in Nederland.",
+        "sources": [
+          "https://www.inburgeren.nl/examen-doen/inhoud-kennisexamens.jsp"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "inburgeren.nl (opened 2026-11-22): 'De MAP gaat over werken en werk zoeken in Nederland.' and 'U doet de MAP bij uw gemeente.' Distractors (wonen/huren, zorgverzekering) are other KNM themes and are false for the MAP. Key is the shortest option, no prompt word recurs only in the key. Explanation edited: 'arbeidsmarkt' removed (hard word)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Lina sits at a desk in a municipal office with a woman, a laptop and a folder; the prompt says she does the MAP at her gemeente and asks what it is about.",
+        "communicative_purpose": "A newcomer learns that the MAP prepares for work and job-seeking, not for housing or healthcare.",
+        "contrivance_check": "Office, laptop and folder fit an intake at the gemeente and show no topic. The MAP and the gemeente come from the page; no off-page event is needed.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch108-participatiewet-werk:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Persona fact naming a law; distractors are laws on other subjects. Comparable to older law-name items.",
+      "evidence": {
+        "quote": "De Participatiewet is voor mensen die kunnen werken.",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/belastingen-uitkeringen-en-toeslagen/participatiewet"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid (opened 2026-11-22): 'Iedereen die kan werken maar het op de arbeidsmarkt zonder ondersteuning niet redt, valt onder de Participatiewet.' Leerplichtwet (school attendance) and Zorgverzekeringswet (health insurance) are real laws on other subjects, so false for Wouter. Prompt edited to 'Welke wet geldt voor hem?' (A2); explanation uses 'hulp'. Check yearly: the law is being reformed 2026-2027; only the name and target group are tested."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Wouter sits at his kitchen table with a laptop and notebook. He can work but finds no job without help; the question asks which law applies.",
+        "communicative_purpose": "A job-seeker learns that the Participatiewet is the law for people who can work but need support to find it.",
+        "contrivance_check": "Kitchen table, laptop and notebook are an ordinary job search at home; the picture shows no law. The prompt gives the target group, so no hidden condition.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch108-werknl-vacatures:1",
+      "verdict": "pass",
+      "level": "easier",
+      "level_reason": "One site name against two unrelated sites; shorter than most existing items.",
+      "evidence": {
+        "quote": "Op werk.nl van het UWV kunt u vacatures zoeken en solliciteren.",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/ww-uitkering/hoe-helpt-uwv-mij-bij-het-vinden-van-werk"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid (opened 2026-11-22), section Werk.nl: 'Op werk.nl kunt u vacatures zoeken, solliciteren en een uitkering aanvragen.' duo.nl (education, inburgering) and belastingdienst.nl (tax) offer no vacancies. werk.nl itself blocks automated fetching, so the Rijksoverheid page is the source. Key is the shortest option. Unchanged by the reviewer. Check yearly (site names)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Yusuf sits on a sofa with a laptop on his knees and wants vacancies online; the question asks which website offers them.",
+        "communicative_purpose": "A job-seeker learns that vacancies and applications are on the UWV site werk.nl.",
+        "contrivance_check": "A laptop on a sofa fits job-seeking from home; the picture shows no website. The card's extra sentence about benefits is true and does not compete with any option.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch108-kansrijke-beroepen:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Institution lookup in the style of the existing ww-uitkering item; replaces the author's definition question, which 'kansrijk' answered by itself.",
+      "evidence": {
+        "quote": "Het UWV heeft een lijst met kansrijke beroepen.",
+        "sources": [
+          "https://www.uwv.nl/nl/arbeidsmarktinformatie/kansen-beroep/kansrijke-beroepen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "UWV page (opened 2026-11-22, text in static HTML): 'De meeste functies op de lijst met kansrijke beroepen bieden al jarenlang veel kans op werk.'; 'In 2026 kwamen er ook kansrijke beroepen bij.'; 'Ieder jaar verdwijnen er ook beroepen van de lijst.' The SVB (AOW, kinderbijslag) and the Belastingdienst publish no job lists. Key is the shortest option, and the prompt names no organisation. Check yearly (list changes every year; no professions named)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Fenna sits in a library with a laptop and a notebook and wants a job with good chances of work; the question asks where she finds a list of such jobs.",
+        "communicative_purpose": "A job-seeker learns that the UWV keeps a yearly list of jobs with many vacancies.",
+        "contrivance_check": "A library table with laptop and notebook is an ordinary place to research a career; the picture shows no list or organisation.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch108-taal-doorgroeien:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Consequence of weak Dutch at work; distractors are unrelated rules. Comparable to older theme-1 items.",
+      "evidence": {
+        "quote": "Het kan ook uw kans op een betere functie kleiner maken.",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/werk/arbeidsovereenkomst-en-cao/taalakkoord-taalvaardigheid-werknemers-verbeteren"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid (opened 2026-11-22): 'Onvoldoende taalbeheersing ... Dan kan dat bijvoorbeeld gevolgen hebben voor de veiligheid en duurzame inzetbaarheid op de werkvloer. En voor doorgroeimogelijkheden.' Eindterm 1.1.3 names 'beheersing van de Nederlandse taal' among the factors for chances on the labour market, so the mapping holds. Edited: 'doorgroeien' became 'een betere functie' (A2); distractors made parallel ('Meer belasting over zijn loon'). Vacation days follow law and contract, tax follows the wage: both false."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Rachid stacks boxes on a high shelf in a warehouse and speaks little Dutch; the question asks what that can mean for him.",
+        "communicative_purpose": "A worker learns that little Dutch at work can reduce the chance of a better position.",
+        "contrivance_check": "Warehouse work is a common job for newcomers and the picture shows no consequence. The prompt says 'kan', as the source does, so no certainty is claimed.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch108-taaleis-leraar:1",
+      "verdict": "pass (edited)",
+      "level": "slightly harder",
+      "level_reason": "The key is a condition (a job requirement) and the options are three plausible demands; the prompt sets up the job, so the rule is not hidden.",
+      "evidence": {
+        "quote": "Een school mag perfect Nederlands eisen van een leraar Nederlands.",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/gelijke-behandeling-op-het-werk/mag-een-werkgever-onderscheid-maken-tussen-sollicitanten"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid (opened 2026-11-22): 'Een werkgever mag bijvoorbeeld van een leraar Nederlands verlangen dat deze perfect Nederlands spreekt.' Requiring birth in the Netherlands or a Dutch passport of a teacher is not needed for the job and would be discrimination on origin. No nooit/altijd option. Key is not the longest (40 against 43). Edited: 'sollicitant' removed from the prompt, options made parallel ('Dat de leraar ...'), explanation in A2. Eindterm 1.1.6 fits directly (language demands)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A school looks for a teacher of Dutch; the picture shows an empty classroom. The question asks what the school may demand.",
+        "communicative_purpose": "An applicant learns that an employer may set demands that the job needs, here perfect Dutch for a Dutch teacher.",
+        "contrivance_check": "The job itself (teacher of Dutch) sets up the condition; the empty classroom shows no demand. Birth and passport are real demands people fear, so the distractors are grounded.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch108-vog-gastouder:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Document lookup with two everyday distractors; comparable to older institution items.",
+      "evidence": {
+        "quote": "Voor sommige beroepen is een VOG verplicht door de wet, bijvoorbeeld voor gastouders",
+        "sources": [
+          "https://www.justis.nl/service-contact/veelgestelde-vragen/vog/waarom-heb-ik-een-vog-nodig"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Justis (opened 2026-11-22): 'Voor sommige functies is een VOG wettelijk verplicht, bijvoorbeeld voor onderwijzers, gastouders en taxichauffeurs.' A rijbewijs and a medical declaration are not legal requirements for gastouders (the page names only the VOG). Edited: 'wettelijk verplicht' became 'verplicht door de wet' and 'onderwijzers' became 'leraren' (A2). Mapping to 1.1.6 is a partial fit (the heading says an employer can set demands on an applicant; a VOG is a demand of the law or employer, not a competency); no better eindterm exists. Key is the shortest option."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Ana sits on the floor of a living room with two toddlers and wooden blocks and wants to become a gastouder; the question asks which document the law requires.",
+        "communicative_purpose": "A future childminder learns that a VOG is required by law for this work.",
+        "contrivance_check": "Toddlers and blocks fit childminding and show no document. A rijbewijs and a medical declaration are documents people really associate with jobs, so the distractors are grounded.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch108-diplomawaardering-idw:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Organisation lookup; options now one organisation each, so the key is not the only pair of unfamiliar names. Comparable to 006 diplomawaardering.",
+      "evidence": {
+        "quote": "Nuffic en SBB maken diplomawaarderingen voor de overheid.",
+        "sources": [
+          "https://www.nuffic.nl/studeren-en-werken-in-nederland/diplomawaardering-aanvragen",
+          "https://wetten.overheid.nl/BWBR0045574/2026-04-18"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Nuffic (opened 2026-11-22): 'De overheid heeft Nuffic en SBB aangewezen om diplomawaarderingen te maken. IDW is het loket voor onze diplomawaarderingen.' Regeling inburgering 2021 art. 3.20 names Stichting Nuffic and SBB. DUO (study finance, inburgering) and the CBS (statistics) make no valuations, so both are false. Edited: author options 'Nuffic en SBB / UWV en gemeente / DUO en Belastingdienst' allowed the key to be found by elimination (only unfamiliar pair); now DUO / Nuffic / Het CBS with key B. Check yearly (organisation names)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Daniel sits at a desk with a laptop and a rolled certificate and has a foreign diploma; the question asks which organisation makes a diplomawaardering.",
+        "communicative_purpose": "A person with a foreign diploma learns which body values it for the Dutch labour market.",
+        "contrivance_check": "A certificate and a laptop fit applying for a valuation and show no organisation. The card keeps IDW, the application desk, out of the options.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch108-bijstand-gemeente:1",
+      "verdict": "pass",
+      "level": "easier",
+      "level_reason": "One institution against two unrelated bodies; same shape as 006 ww-uitkering with a different key.",
+      "evidence": {
+        "quote": "Dan kunt u bijstand aanvragen bij uw gemeente.",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/bijstand/waar-kan-ik-mijn-bijstand-regelen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid (opened 2026-11-22): 'U kunt algemene bijstand aanvragen bij uw gemeente of via werk.nl.' Werk.nl and the UWV are not distractors because the page names werk.nl as a route; DUO and the Belastingdienst give no bijstand. Eindterm 1.1.7 (no work history: contact the gemeente) fits. Unchanged by the reviewer. Key is the shortest-but-one option. Check yearly (Participatiewet reform)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Lina unpacks a box in an almost empty room next to a mattress and a lamp; she is new in the country and has no income. The question asks where she applies for bijstand.",
+        "communicative_purpose": "A newcomer without income learns that bijstand is applied for at the gemeente.",
+        "contrivance_check": "The empty room with a mattress fits a recent arrival without income and shows no organisation. 'Nieuw in Nederland' is only the setting; the card does not claim that every newcomer is entitled.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch108-eerste-woning:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Persona fact with an institution key; terms (vergunning, vluchteling) are the topic. Comparable to older housing items.",
+      "evidence": {
+        "quote": "Een vluchteling met een verblijfsvergunning krijgt een woning via de gemeente.",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/asielbeleid/zijn-gemeenten-verplicht-vergunninghouders-aan-een-woning-te-helpen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid (opened 2026-11-22): 'Gemeenten hebben de wettelijke taak om asielzoekers die een verblijfsvergunning krijgen een plek te geven om te wonen.' and 'Daarna moet de gemeente zorgen voor een woning'. The IND gives the permit and the UWV does neither; the COA is not an option because the page says it puts people in touch with gemeenten. Edited: 'wettelijke taak' replaced by 'Dat staat in de wet' (A2). No numbers or waiting times. Check yearly (housing law is changing)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Rachid stands with a bag at the front door of a small apartment building and looks up at the windows; the question asks who must arrange his first home.",
+        "communicative_purpose": "A refugee with a residence permit learns that the gemeente arranges the first home.",
+        "contrivance_check": "A man with a bag at a door fits arrival at a first home and shows no organisation. Written calmly, with no distress shown.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch108-meterstanden-verhuizen:1",
+      "verdict": "pass (edited)",
+      "level": "easier",
+      "level_reason": "Everyday moving task; the key is the only energy-related option. Easier than older fact items.",
+      "evidence": {
+        "quote": "Geef dan binnen vijf werkdagen uw meterstanden door aan uw energieleverancier.",
+        "sources": [
+          "https://consument.acm.nl/elektriciteit-en-gas/meters-meterstanden-verbruik/meterstanden-energierekening"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "ACM ConsuWijzer (opened 2026-11-22): 'Gaat u verhuizen? Of overstappen? Dan moet u uw meterstanden binnen 5 werkdagen na uw overstap of verhuizing doorgeven.' Edited: author distractor 'salarisstrook' was implausible for an energy supplier; options are now huurcontract, paspoort and meterstanden, all documents or data around a move; the supplier needs neither the first nor the second for this. Key is not the longest (17/13/17). Check yearly (energy rules; smart meters send readings automatically)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Daniel carries a moving box through the front door of a terraced house with a bicycle against the wall; the question asks what he tells his energy supplier within five working days.",
+        "communicative_purpose": "A person moving house learns to pass on the meter readings within five working days.",
+        "contrivance_check": "A box and an open front door show a move and no meter reading. The prompt states the five working days, so no deadline is hidden.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch108-energie-voorschot:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Term definition with plain wrong glosses; comparable to older term items.",
+      "evidence": {
+        "quote": "Het termijnbedrag is een voorschot op uw jaarafrekening.",
+        "sources": [
+          "https://consument.acm.nl/elektriciteit-en-gas/wat-betaal-ik-voor-mijn-energie/termijnbedrag"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "ACM ConsuWijzer (opened 2026-11-22): 'Het termijnbedrag is een voorschot op uw jaarafrekening.' and 'Pas als u die jaarafrekening krijgt, weet u of u geld moet bijbetalen of u geld terugkrijgt.' It is no fine and no tax (energiebelasting is a separate part of the bill). Unchanged by the reviewer. Key is the shortest option (34/36/36). No amounts."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Fenna sits at a kitchen table with a laptop, a calculator and a mug and pays a termijnbedrag for electricity and gas every month; the question asks what that is.",
+        "communicative_purpose": "A tenant learns that the monthly termijnbedrag is an advance on the yearly bill, so a final settlement follows.",
+        "contrivance_check": "Calculator and laptop fit checking a household bill and show no explanation. The prompt gives the monthly payment, which is the usual place a newcomer first meets the term.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch108-afval-verschil:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Local versus national rules; options come from three different domains. Comparable to 006 gft.",
+      "evidence": {
+        "quote": "Elke gemeente mag zelf bepalen hoe zij het afval ophaalt.",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/afval/huishoudelijk-afval"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid (opened 2026-11-22): 'De gemeente moet uw huishoudelijk afval inzamelen. Dat staat in de Wet milieubeheer. Elke gemeente mag zelf bepalen hoe zij dit doet.' The minimum wage and the school attendance age are national rules, the same in every gemeente, so both distractors are false. Edited: 'inzamelt' became 'ophaalt' (A2); the author's picture showed waste containers, which showed the key, so it now shows Marieke on a street with a bicycle and a removal van. Check yearly (national harmonisation under study)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Marieke stands on a quiet street of terraced houses next to a bicycle with a removal van behind her; the prompt says she moves to another gemeente and asks what can be different there.",
+        "communicative_purpose": "A person who moves learns that waste collection is decided per gemeente, unlike wages or school age.",
+        "contrivance_check": "A removal van and a bicycle show a move and no waste. The question names no waste, so the picture and the prompt do not give the key away; the card is read after answering.",
+        "unsupported_assumptions": []
+      }
+    }
+  ],
+  "media_notes": "Pictures not rendered. The briefs follow the picture rule and show settings, never the fact. Only afval-verschil changed (new imageBrief and imageAlt: street with bicycle and removal van instead of waste containers, which gave the key away). Recurring people keep their three traits: Lina (items 1 and 9), Rachid (5 and 10), Daniel (8 and 11), Fenna (4 and 13). Alts reveal no key. Question audio is needed for every item; the card is shown after answering. Regenerate with exact job keys (audio --keys).",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Check yearly: Participatiewet reform (2026-2027), werk.nl and organisation names, UWV kansrijke-beroepenlijst, housing law for vergunninghouders, ACM energy rules (five working days), national waste harmonisation.",
+    "vog-gastouder maps only partly to eindterm 1.1.6 and herplaatsing-bijscholing was rejected; 1.1.5 therefore keeps one item.",
+    "Eindterm texts were read from wetten.overheid.nl; pictures were not inspected; gastouder rules beyond the Justis page were not checked."
+  ]
+}

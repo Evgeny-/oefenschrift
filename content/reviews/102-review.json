@@ -1,0 +1,479 @@
+{
+  "review_id": "102-a1-step2-listening-2026-11-22",
+  "source": "content/batches/102-original.json",
+  "proposed_source": "content/batches/102-proposed.json",
+  "source_sha256": "19507e10900eae006882902d6259aea4f0b739e468adea6db8cf9026a2659621",
+  "review_type": "independent AI editorial review of six new A1 step 2 listening conversations",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T12:45:12Z",
+  "reviewer": "Independent AI reviewer (Claude Sonnet), separate from the author agent; edits proposed in 102-proposed.json only.",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "146a29c9c13d88b30f485e8229d84a7e974efb54a8012defcceb4bdf2f5fc522",
+    "independence_note": "Fresh reviewer context, separate from the author. The blind packet of the original (hash 90be0d9c34dd8c671fdcc8adbed85293d5adeb37fda686f417b9986f4cc10a79) was read first and item findings were written to content/reviews/102-review.md before the questions, notes or plan were opened. After the repairs the packet was rebuilt from the exact proposed bytes and the meaning pass repeated for the five changed items; the hash recorded here is that final packet.",
+    "initial_packet_sha256": "90be0d9c34dd8c671fdcc8adbed85293d5adeb37fda686f417b9986f4cc10a79"
+  },
+  "tone_balance": {
+    "ordinary": 5,
+    "light_humor": 1,
+    "target_share": 0.15,
+    "scope_note": "One of six items is lightly funny (pauze-werk, the free but bad coffee); the small-batch rounded cap is ceil(6 x 0.15) = 1. The coordinator checks the combined A1 count across batches."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 0,
+    "edited_by_reviewer": 6,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A1:listening:batch102-kapper-bellen:1",
+      "field": "script[5].text",
+      "before": "Dat kost twintig euro. U kunt met uw pinpas betalen.",
+      "after": "Dat kost twintig euro. U betaalt dan bij ons.",
+      "reason": "\"pinpas\" is a compound a first-weeks learner will not know and the payment sentence tests nothing; plain words keep the real salon detail and the turn stays natural."
+    },
+    {
+      "id": "A1:listening:batch102-fiets-klaar:1",
+      "field": "script[3] and script[4], script[6]",
+      "before": "Aylin: Dat is goed. Is er veel kapot? / De verkoper: Nee. De fiets heeft nu een nieuwe lamp. / Het kost vijftien euro. Dat is niet duur.",
+      "after": "Aylin: Dat is goed. Wat doet u met de fiets? / De verkoper: De fiets krijgt een nieuwe lamp. De oude lamp is kapot. / Dat kost vijftien euro.",
+      "reason": "The original said the bike was not ready yet but then spoke as if the work was done (\"heeft nu\", \"Nee\" to a question she could not ask about work not yet finished), and the seller praised his own price. Now the repair is consistent with the day it is ready and the price follows from it."
+    },
+    {
+      "id": "A1:listening:batch102-fiets-klaar:1",
+      "field": "questions[1] (prompt, evidence)",
+      "before": "Wat is nieuw? / De fiets heeft nu een nieuwe lamp.",
+      "after": "Wat krijgt de fiets? / De fiets krijgt een nieuwe lamp.",
+      "reason": "Follows the repaired turn; the options stay A/B/C with the same key."
+    },
+    {
+      "id": "A1:listening:batch102-fiets-klaar:1",
+      "field": "questions[2].evidence",
+      "before": "Het kost vijftien euro. Dat is niet duur.",
+      "after": "Dat kost vijftien euro.",
+      "reason": "Follows the repaired turn."
+    },
+    {
+      "id": "A1:listening:batch102-juf-bos:1",
+      "field": "questions[0] (prompt, options)",
+      "before": "Waar gaat de klas naartoe? / Naar het park. / Naar het strand. / Naar het bos.",
+      "after": "Waar is de klas vrijdag? / In het park. / Op het strand. / In het bos.",
+      "reason": "\"naartoe\" is a function word beginners meet late and the prompt could be read as the route; the plain location question tests the same fact and the key stays C."
+    },
+    {
+      "id": "A1:listening:batch102-nieuwe-buren:1",
+      "field": "script[2..4]",
+      "before": "Ik werk in het ziekenhuis. Het werk is druk. / Mooi! Heb je ook kinderen? / Ja, twee. Kom je zondag koffie drinken?",
+      "after": "Ik werk in het ziekenhuis. Ik werk veel. / Mooi! Dan ben je niet vaak thuis. / Ja, maar zondag ben ik thuis. Kom je koffie drinken?",
+      "reason": "The question about children came from nowhere (\"ook\" with no earlier mention) and the invitation did not follow from it. Now work leads to being away from home, which leads to Sunday and the invitation. \"druk\" is also replaced by \"veel\"."
+    },
+    {
+      "id": "A1:listening:batch102-nieuwe-buren:1",
+      "field": "questions[2].evidence/explanation",
+      "before": "Kom je zondag koffie drinken? / Saar vraagt: kom je zondag koffie drinken?",
+      "after": "Ja, maar zondag ben ik thuis. / Saar zegt: zondag ben ik thuis.",
+      "reason": "Follows the repaired turn."
+    },
+    {
+      "id": "A1:listening:batch102-pauze-werk:1",
+      "field": "script[3..5]",
+      "before": "En de koffie? / De koffie is gratis, maar niet lekker. / Leuk! Tot hoe laat werken we vrijdag?",
+      "after": "Moet ik koffie kopen? / Nee, de koffie is gratis, maar niet lekker. / Oké. Tot hoe laat werken we vrijdag?",
+      "reason": "\"En de koffie?\" is elliptical (what about it?) and \"Leuk!\" is a strange reaction to the joke. The new question gives the gratis answer a real reason and keeps the one light joke."
+    },
+    {
+      "id": "A1:listening:batch102-pauze-werk:1",
+      "field": "questions[0].prompt",
+      "before": "Hoe laat is de lunch?",
+      "after": "Hoe laat is de pauze?",
+      "reason": "Matches Timo's own question and the word in the situation; \"eten\" in the answer still has to be understood."
+    },
+    {
+      "id": "A1:listening:batch102-oma-jarig:1",
+      "field": "script[2].text",
+      "before": "Ik breng een grote taart mee. Ik maak hem zelf.",
+      "after": "Ik neem een grote taart mee. Ik maak hem zelf.",
+      "reason": "\"meebrengen\" is a separable verb that is not on the word list; \"meenemen\" is."
+    },
+    {
+      "id": "A1:listening:batch102-oma-jarig:1",
+      "field": "questions[2].options.B",
+      "before": "Hun moeder.",
+      "after": "Oma.",
+      "reason": "The source never says Nora and Mert are siblings, so \"Hun moeder\" assumed an off-page relationship; \"Oma\" is anchored (oma wordt blij) and clearly false."
+    },
+    {
+      "id": "A1:listening:batch102-nieuwe-buren:1",
+      "field": "questions[1].evidence",
+      "before": "Ik werk in het ziekenhuis. Het werk is druk.",
+      "after": "Ik werk in het ziekenhuis.",
+      "reason": "Follows the repaired turn."
+    },
+    {
+      "id": "A1:listening:batch102-pauze-werk:1",
+      "field": "questions[1].evidence",
+      "before": "De koffie is gratis",
+      "after": "de koffie is gratis",
+      "reason": "Follows the repaired turn (verbatim, lower case after \"Nee,\")."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/102-proposed.json: 6 items, 18 questions, keys A/B/C 6 each, no failures, no warnings.",
+    "word_gate": "All learner-visible words are on config/a1-vocabulary.json. Removed as too hard or off-list for a first-weeks learner: pinpas, druk, naartoe, meebrengen (separable, not listed), and the unconnected \"ook kinderen\" turn. Kept as listed and plausible: afspraak, ziekenhuis, gratis, pauze, jarig, kapot, bos.",
+    "step2_limits": "Spoken words 49, 49, 54, 52, 53, 48 (45-65); 6 or 7 turns; no turn above 12 words (max 12), no sentence above 9; three questions each; each tested fact in a different turn; numbers and times in words.",
+    "voices": "Pairs: f-adult/m-young, f-young/m-shop, m-adult/f-mature, f-young/m-casual, f-young/m-young, f-young/m-young. No m-adult with f-adult; two different roles in every item.",
+    "keys": "A/B/C six each; no key is the longest option; no prompt word recurs only in the key; the three printed questions of an item do not answer each other.",
+    "full_final_source_read": "pass: all fields of the proposed file read after the last edit."
+  },
+  "media_notes": {
+    "audio": "All six scripts need audio (use --keys with exactly these job keys). Roles: m-young Mert in kapper-bellen and oma-jarig is the same character at the same age; he is a young father in one and a young cousin or brother in the other, which is acceptable because the voice is only a role.",
+    "pictures": "Briefs show only setting and people, no tested fact. kapper-bellen: Mert alone on the phone, no child or salon. fiets-klaar: shop and a row of bikes, no lamp (checking that the generated bikes carry no visible lamp emphasis). juf-bos: school door, no trees or bags. nieuwe-buren: front door, no number. pauze-werk: two cups, no clock or food. oma-jarig: sofa and a phone, no cake or flowers. Mert's traits are identical in both briefs (short curly dark hair, olive green jacket). Alts are neutral and reveal no key.",
+    "regenerate": "Script text changed in kapper-bellen, fiets-klaar, nieuwe-buren, pauze-werk and oma-jarig; question text changed in fiets-klaar, juf-bos, pauze-werk. No audio exists yet."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "The word gate is list-based; whether \"afspraak\", \"ziekenhuis\" or \"bos\" is known in the first weeks is an editorial judgment.",
+    "Natural-sounding speech and pace need a listening check after the audio is generated."
+  ],
+  "items": [
+    {
+      "id": "A1:listening:batch102-kapper-bellen:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 step 2 listening (authoring target, unvalidated)",
+        "verdict": "comparable to the step-1 conversations but longer; inside step 2 limits",
+        "reason": "6 turns, 49 spoken words, longest turn 11 words, longest sentence 8. One competing detail (Saturday full, Friday free) before the tested hour; three facts in turns 2, 3 and 5.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "6 turns, 49 spoken words, longest turn 11 words, longest sentence 8. One competing detail (Saturday full, Friday free) before the tested hour; three facts in turns 2, 3 and 5.",
+      "evidence": "q1 A from \"Mijn zoon wil graag een afspraak\" (turn 2); q2 C from \"Vrijdag om vier uur is nog vrij.\" (turn 3), three and five are not said; q3 B from \"Dat kost twintig euro.\" (turn 5), fifteen and thirty are not said. Keys A, C, B; no key is the longest or the odd one out.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Mert phones the hairdresser to book a haircut for his son. Saturday is full, so he takes Friday at four, hears the price and says goodbye.",
+        "communicative_purpose": "Book a slot and learn the price before going; the call ends with a fixed day, hour and cost.",
+        "contrivance_check": "A parent booking for a child by phone is an everyday call; Saturday full then Friday free is the natural reason for the day change and no off-page event is needed. The payment sentence now says only that payment happens at the salon.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag, met de kapper.",
+            "response_function": "The hairdresser answers the phone with the usual greeting."
+          },
+          {
+            "turn": 2,
+            "quote": "Hallo, met Mert. Mijn zoon wil graag een afspraak voor zaterdag.",
+            "response_function": "Mert names himself and states the request: an appointment for his son on Saturday."
+          },
+          {
+            "turn": 3,
+            "quote": "Zaterdag is vol. Vrijdag om vier uur is nog vrij.",
+            "response_function": "She refuses Saturday as full and offers Friday at four, answering the request directly."
+          },
+          {
+            "turn": 4,
+            "quote": "Vrijdag is goed. Wat kost het voor mijn zoon?",
+            "response_function": "He accepts Friday and asks the price, the next thing a caller wants to know."
+          },
+          {
+            "turn": 5,
+            "quote": "Dat kost twintig euro. U betaalt dan bij ons.",
+            "response_function": "She gives the price and says where to pay, answering his question."
+          },
+          {
+            "turn": 6,
+            "quote": "Goed, dank u wel. Tot ziens!",
+            "response_function": "He thanks her and ends the call."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch102-fiets-klaar:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 step 2 listening (authoring target, unvalidated)",
+        "verdict": "comparable; slightly harder than step 1 by length only",
+        "reason": "7 turns, 49 spoken words, longest turn 11, longest sentence 6. Thursday, new lamp and fifteen euro are in three different turns (2, 4, 6).",
+        "targetLevelValidated": false
+      },
+      "level_reason": "7 turns, 49 spoken words, longest turn 11, longest sentence 6. Thursday, new lamp and fifteen euro are in three different turns (2, 4, 6).",
+      "evidence": "q1 B from \"De fiets is donderdag klaar.\" (turn 2), the days on either side are not said; q2 A from \"De fiets krijgt een nieuwe lamp.\" (turn 4), tas and band are not said; q3 C from \"Dat kost vijftien euro.\" (turn 6), twenty and fifty are not said. Keys B, A, C.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Aylin comes to collect her bicycle; it is not ready until Thursday. She asks what is being done, hears about a new lamp for the old broken one and the price.",
+        "communicative_purpose": "Find out when the repair is done, what is being done and what it will cost.",
+        "contrivance_check": "Collecting a repaired bike and learning it is not ready is common; the lamp work and the price follow from the repair. The original muddle (work done but bike not ready) and the seller praising his own price were removed.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag. Ik kom voor mijn fiets. Is hij al klaar?",
+            "response_function": "Aylin greets the seller and asks if her bike is ready, the reason she came."
+          },
+          {
+            "turn": 2,
+            "quote": "Nog niet. De fiets is donderdag klaar.",
+            "response_function": "The seller says not yet and gives the day it will be ready."
+          },
+          {
+            "turn": 3,
+            "quote": "Dat is goed. Wat doet u met de fiets?",
+            "response_function": "Aylin accepts and asks what is being done to the bike."
+          },
+          {
+            "turn": 4,
+            "quote": "De fiets krijgt een nieuwe lamp. De oude lamp is kapot.",
+            "response_function": "The seller says it gets a new lamp because the old lamp is broken."
+          },
+          {
+            "turn": 5,
+            "quote": "Fijn. Wat kost dat?",
+            "response_function": "Aylin reacts and asks the price of that work."
+          },
+          {
+            "turn": 6,
+            "quote": "Dat kost vijftien euro.",
+            "response_function": "The seller gives the price, answering her question."
+          },
+          {
+            "turn": 7,
+            "quote": "Goed, dank u wel.",
+            "response_function": "Aylin accepts and thanks him."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch102-juf-bos:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 step 2 listening (authoring target, unvalidated)",
+        "verdict": "comparable; slightly harder than step 1 by length only",
+        "reason": "7 turns, 54 spoken words, longest turn 11, longest sentence 6. Location, lunch and return hour are in turns 2, 4 and 6.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "7 turns, 54 spoken words, longest turn 11, longest sentence 6. Location, lunch and return hour are in turns 2, 4 and 6.",
+      "evidence": "q1 C from \"Vrijdag gaan we naar het bos.\" (turn 2), park and strand are not said; q2 B from \"De kinderen nemen hun lunch mee.\" (turn 4), jas and bal are not said; q3 A from \"We zijn om drie uur terug.\" (turn 6), two and four are not said. Keys C, B, A.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A father asks his daughter's teacher at the school door what the class does on Friday, what to pack and when the children are back.",
+        "communicative_purpose": "Prepare his daughter for the school trip and know when to collect her.",
+        "contrivance_check": "Parents ask the teacher such practical questions at the door; each question follows from the previous answer (outing, then what to bring, then the return time). No off-page fact is needed.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen, juf. Wat doet de klas vrijdag?",
+            "response_function": "Jonas greets the teacher and asks what the class does on Friday."
+          },
+          {
+            "turn": 2,
+            "quote": "Vrijdag gaan we naar het bos. Het wordt leuk!",
+            "response_function": "The teacher answers: a trip to the woods, with a friendly comment."
+          },
+          {
+            "turn": 3,
+            "quote": "Wat moet mijn dochter meenemen?",
+            "response_function": "Jonas asks what his daughter has to bring for it."
+          },
+          {
+            "turn": 4,
+            "quote": "De kinderen nemen hun lunch mee. Het is een lange dag.",
+            "response_function": "The teacher says lunch and explains why: a long day."
+          },
+          {
+            "turn": 5,
+            "quote": "Hoe laat is ze weer thuis?",
+            "response_function": "Jonas asks when his daughter is home again."
+          },
+          {
+            "turn": 6,
+            "quote": "We zijn om drie uur terug. Dan kunt u haar halen.",
+            "response_function": "The teacher gives the return hour and says he can collect her."
+          },
+          {
+            "turn": 7,
+            "quote": "Dank u, juf. Fijne dag!",
+            "response_function": "Jonas thanks her and says goodbye."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch102-nieuwe-buren:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 step 2 listening (authoring target, unvalidated)",
+        "verdict": "comparable; slightly harder than step 1 by length only",
+        "reason": "6 turns, 52 spoken words, longest turn 12, longest sentence 6. Number twelve, hospital and Sunday are in turns 1, 3 and 5 and no other number competes.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "6 turns, 52 spoken words, longest turn 12, longest sentence 6. Number twelve, hospital and Sunday are in turns 1, 3 and 5 and no other number competes.",
+      "evidence": "q1 A from \"Ik woon op nummer twaalf.\" (turn 1), eleven and thirteen are not said; q2 B from \"Ik werk in het ziekenhuis.\" (turn 3), school and winkel are not said; q3 C from \"Ja, maar zondag ben ik thuis.\" (turn 5), maandag and zaterdag are not said. Keys A, B, C.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Saar, new in the street, introduces herself to Joep, says she works a lot in the hospital, and invites him for coffee on Sunday when she is home.",
+        "communicative_purpose": "Meet a neighbour and start contact through a coffee invitation.",
+        "contrivance_check": "Neighbours do introduce themselves at the door and invite each other for coffee. Joep's remark that she is rarely home leads to her naming Sunday, so the invitation follows from the exchange; the author's unconnected question about children is gone.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hallo, ik ben Saar. Ik ben nieuw. Ik woon op nummer twaalf.",
+            "response_function": "Saar introduces herself as new and says her house number."
+          },
+          {
+            "turn": 2,
+            "quote": "Welkom! Ik ben Joep. Wat doe je voor werk?",
+            "response_function": "Joep welcomes her, gives his name and asks what she does."
+          },
+          {
+            "turn": 3,
+            "quote": "Ik werk in het ziekenhuis. Ik werk veel.",
+            "response_function": "Saar says where she works and that she works a lot."
+          },
+          {
+            "turn": 4,
+            "quote": "Mooi! Dan ben je niet vaak thuis.",
+            "response_function": "Joep reacts and concludes she is not often home."
+          },
+          {
+            "turn": 5,
+            "quote": "Ja, maar zondag ben ik thuis. Kom je koffie drinken?",
+            "response_function": "Saar agrees, names Sunday as the day she is home and invites him for coffee."
+          },
+          {
+            "turn": 6,
+            "quote": "Graag! Wat leuk, dank je wel.",
+            "response_function": "Joep accepts gladly and thanks her."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch102-pauze-werk:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 step 2 listening (authoring target, unvalidated)",
+        "verdict": "comparable; slightly harder than step 1 by length only",
+        "reason": "7 turns, 53 spoken words, longest turn 11, longest sentence 8. Half past twelve, free coffee and four o'clock are in turns 3, 5 and 7. \"half één\" is the one clock expression to listen for.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "7 turns, 53 spoken words, longest turn 11, longest sentence 8. Half past twelve, free coffee and four o'clock are in turns 3, 5 and 7. \"half één\" is the one clock expression to listen for.",
+      "evidence": "q1 C from \"We eten om half één in de keuken.\" (turn 3), twaalf and één are not said; q2 A from \"de koffie is gratis\" (turn 5), thee is not said and the lunch is not called free; q3 B from \"Op vrijdag werken we tot vier uur.\" (turn 7), drie and vijf are not said. Keys C, A, B.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "light-humor",
+        "situation_summary": "On his first day Timo asks Lena when the break is, whether he must buy coffee and until when they work on Friday; Lena tells him the coffee is free but not good.",
+        "communicative_purpose": "Learn the workplace routine on a first day.",
+        "contrivance_check": "A new colleague asking about the break, the coffee and the Friday finishing time is exactly what a first day sounds like. The only joke is the bad free coffee; it uses plain words and adds no tested fact beyond gratis.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hoi Timo, welkom bij ons team. Ik ben Lena.",
+            "response_function": "Lena welcomes the new colleague and gives her name."
+          },
+          {
+            "turn": 2,
+            "quote": "Dank je. Wanneer is de pauze?",
+            "response_function": "Timo thanks her and asks when the break is."
+          },
+          {
+            "turn": 3,
+            "quote": "We eten om half één in de keuken.",
+            "response_function": "Lena gives the time and place for eating."
+          },
+          {
+            "turn": 4,
+            "quote": "Moet ik koffie kopen?",
+            "response_function": "Timo asks if he must buy coffee, a normal first-day question."
+          },
+          {
+            "turn": 5,
+            "quote": "Nee, de koffie is gratis, maar niet lekker.",
+            "response_function": "Lena says no, the coffee is free, with the joke that it is not good."
+          },
+          {
+            "turn": 6,
+            "quote": "Oké. Tot hoe laat werken we vrijdag?",
+            "response_function": "Timo accepts and asks until when they work on Friday."
+          },
+          {
+            "turn": 7,
+            "quote": "Op vrijdag werken we tot vier uur. Dan is het weekend!",
+            "response_function": "Lena gives the Friday finishing time and looks forward to the weekend."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch102-oma-jarig:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 step 2 listening (authoring target, unvalidated)",
+        "verdict": "comparable; slightly harder than step 1 by length only",
+        "reason": "6 turns, 48 spoken words, longest turn 10, longest sentence 9. Sunday, two o'clock and who buys flowers are in turns 1, 2 and 4; Nora's cake is a possible mix-up for q3, but the verb \"koop ik\" is Mert's.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "6 turns, 48 spoken words, longest turn 10, longest sentence 9. Sunday, two o'clock and who buys flowers are in turns 1, 2 and 4; Nora's cake is a possible mix-up for q3, but the verb \"koop ik\" is Mert's.",
+      "evidence": "q1 B from \"oma is zondag jarig\" (turn 1), zaterdag and maandag are not said; q2 C from \"het feest is om twee uur\" (turn 2), drie and vier are not said; q3 A from \"Dan koop ik bloemen voor oma.\" (turn 4), Nora brings the cake and oma is the receiver. Keys B, C, A.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Nora and Mert plan their grandmother's birthday on Sunday: the party is at two, Nora makes a cake and Mert buys flowers.",
+        "communicative_purpose": "Divide what each brings to the party.",
+        "contrivance_check": "Two relatives dividing a cake and flowers for a grandmother's party is an ordinary plan. \"Dan\" in turn 4 links his flowers to her cake. Nothing off-page is needed; the relationship between the speakers is not stated and no question depends on it.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hoi Mert, oma is zondag jarig.",
+            "response_function": "Nora starts the plan by naming the birthday and the day."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, het feest is om twee uur bij oma.",
+            "response_function": "Mert agrees and gives the party time and place."
+          },
+          {
+            "turn": 3,
+            "quote": "Ik neem een grote taart mee. Ik maak hem zelf.",
+            "response_function": "Nora says she brings a big cake she makes herself."
+          },
+          {
+            "turn": 4,
+            "quote": "Dan koop ik bloemen voor oma.",
+            "response_function": "Mert answers with his contribution: flowers for oma."
+          },
+          {
+            "turn": 5,
+            "quote": "Goed. Oma wordt heel blij. Ze houdt van bloemen.",
+            "response_function": "Nora approves and gives the reason, that oma likes flowers."
+          },
+          {
+            "turn": 6,
+            "quote": "Ja, de familie komt allemaal. Dat is leuk.",
+            "response_function": "Mert closes by saying the whole family comes, which is nice."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,726 @@
+{
+ "review_id": "106-a2-reading-2026-11-22",
+ "source": "content/batches/106-original.json",
+ "proposed_source": "content/batches/106-proposed.json",
+ "source_sha256": "258a219d89f4ea726208ade39acb7247ca3f0bf8f17379946a1e2a7ef2caa7dd",
+ "review_type": "independent AI editorial review of 12 new A2 reading items (krant, rooster, folder, advertentie, brief)",
+ "rubric": "content/reviews/rubric.md",
+ "reviewed_at": "2026-11-22T12:46:35Z",
+ "review_contract_version": 2,
+ "reviewer": "Independent AI reviewer (Sonnet) working in a separate context from the batch author; blind packet findings were written before any answer material was opened.",
+ "meaning_first": {
+  "verdict": "pass",
+  "review_order": "source-before-questions",
+  "packet_sha256": "da5056f832c3b7cf6bf6172c9c4d98cd50eabc7797de42c96370a12118a92a2f",
+  "independence_note": "Blind findings per item were written to content/reviews/106-review.md from the source-only packet (initial packet hash fd08fd1c0cf104c258debc9131c7a1754c377759df7f73cf6a49f4b05c4ad069) before questions, options, keys, notes or the plan assignment were opened. After the repairs the packet was rebuilt from the proposed bytes and the changed items were re-read.",
+  "initial_packet_sha256": "fd08fd1c0cf104c258debc9131c7a1754c377759df7f73cf6a49f4b05c4ad069"
+ },
+ "tone_balance": {
+  "ordinary": 11,
+  "light_humor": 1,
+  "target_share": 0.15,
+  "scope_note": "One lightly humorous item (klusjes-huis, the lamp on the cupboard) and eleven ordinary ones; small-batch cap ceil(12 x 0.15) = 2. The coordinator checks the combined A2 count."
+ },
+ "batch_verdict": "pass",
+ "ready_for_integration": true,
+ "counts": {
+  "pass": 12,
+  "edited_by_reviewer": 10,
+  "revise": 0,
+  "reject": 0
+ },
+ "edits": [
+  {
+   "id": "A2:reading:batch106-parkeren-centrum:1",
+   "field": "text",
+   "before": "Er zijn meer winkels en restaurants die laat open zijn.",
+   "after": "Veel winkels en restaurants zijn 's avonds lang open.",
+   "reason": "Relative clause with 'die' is outside the A2 subordinate-clause list; plain main clause."
+  },
+  {
+   "id": "A2:reading:batch106-parkeren-centrum:1",
+   "field": "questions.q1.prompt",
+   "before": "Dmitri parkeert op zaterdag om half acht",
+   "after": "Dmitri parkeert op zaterdag 6 maart om half acht",
+   "reason": "Without a date the question is ambiguous: before 1 March the evening was already free after six. 6 March 2027 is a Saturday."
+  },
+  {
+   "id": "A2:reading:batch106-parkeren-centrum:1",
+   "field": "questions.q2.options",
+   "before": "{\"A\": \"7 euro.\", \"B\": \"9 euro.\", \"C\": \"14 euro.\", \"D\": \"21 euro.\"}",
+   "after": "{\"A\": \"3 euro.\", \"B\": \"9 euro.\", \"C\": \"14 euro.\", \"D\": \"21 euro.\"}",
+   "reason": "'7 euro' was not anchored in the text; '3 euro' is the street hourly price misread as a day price."
+  },
+  {
+   "id": "A2:reading:batch106-parkeren-centrum:1",
+   "field": "questions.q2.explanation",
+   "before": "21 euro is de prijs als hij zeven uur op straat parkeert.",
+   "after": "3 euro is de prijs per uur op straat, en 21 euro is zeven uur op straat.",
+   "reason": "Old explanation named 21 euro as the street price; the free first half hour makes that inexact. Explanation now covers the new option."
+  },
+  {
+   "id": "A2:reading:batch106-ijsbaan:1",
+   "field": "text",
+   "before": "sluiten wij al om 17.00 uur",
+   "after": "sluit de ijsbaan al om 17.00 uur",
+   "reason": "A newspaper item does not speak as 'wij'; keeps register consistent."
+  },
+  {
+   "id": "A2:reading:batch106-ijsbaan:1",
+   "field": "questions.q2.evidence",
+   "before": "sluiten wij al om 17.00 uur",
+   "after": "sluit de ijsbaan al om 17.00 uur",
+   "reason": "Evidence follows the text."
+  },
+  {
+   "id": "A2:reading:batch106-tweedehandswinkel:1",
+   "field": "text",
+   "before": "Hebt u zelf spullen die u niet meer wilt? Breng ze dan naar onze winkel.",
+   "after": "Wilt u spullen weggeven? Breng ze dan naar onze winkel.",
+   "reason": "Relative clause outside the A2 list; plain question."
+  },
+  {
+   "id": "A2:reading:batch106-tweedehandswinkel:1",
+   "field": "questions.q1.options",
+   "before": "{\"A\": \"Op zaterdag voor 16.00 uur komen.\", \"B\": \"Op zondag naar de winkel komen.\", \"C\": \"Op vrijdag na 15.00 uur komen.\", \"D\": \"Bellen voor een afspraak op donderdag.\"}",
+   "after": "{\"A\": \"Op zaterdag voor 16.00 uur naar de winkel komen.\", \"B\": \"Bellen voor een afspraak op zaterdag.\", \"C\": \"Op vrijdag na 15.00 uur naar de winkel komen.\", \"D\": \"Bellen voor een afspraak op donderdag.\"}",
+   "reason": "Key was the only 'bellen' option and the longest. Now two 'komen' and two 'bellen' options; the wrong 'bellen' day (Saturday) is anchored in the pick-up rule."
+  },
+  {
+   "id": "A2:reading:batch106-tweedehandswinkel:1",
+   "field": "questions.q1.explanation",
+   "before": "Spullen brengen kan niet op zaterdag en niet op zondag, en op vrijdag alleen tot 15.00 uur.",
+   "after": "Spullen brengen kan niet op zaterdag, en op vrijdag alleen tot 15.00 uur. Een afspraak voor ophalen kan alleen voor donderdag.",
+   "reason": "Explanation covers the new distractors."
+  },
+  {
+   "id": "A2:reading:batch106-open-dag-college:1",
+   "field": "text",
+   "before": "Techniek – 10.30 en 13.30 uur – B 12",
+   "after": "Auto's – 10.30 en 13.30 uur – B 12",
+   "reason": "'techniek' was the one unlisted word; 'auto's' is plain A1."
+  },
+  {
+   "id": "A2:reading:batch106-open-dag-college:1",
+   "field": "questions.q1.evidence",
+   "before": "Techniek – 10.30 en 13.30 uur – B 12",
+   "after": "Auto's – 10.30 en 13.30 uur – B 12",
+   "reason": "Evidence follows the table."
+  },
+  {
+   "id": "A2:reading:batch106-open-dag-college:1",
+   "field": "text",
+   "before": "Kom met bus 12.",
+   "after": "Kom met bus 7.",
+   "reason": "Bus 12 is the line of the buslijn-weekend item; avoids a false link inside a set."
+  },
+  {
+   "id": "A2:reading:batch106-open-dag-college:1",
+   "field": "questions.q2.options",
+   "before": "{\"A\": \"Mensen kunnen zich op 6 februari aanmelden voor de opleiding.\", \"B\": \"Mensen kunnen soep eten in de kantine van de school.\", \"C\": \"Mensen kunnen op zaterdag kijken en een les proberen.\"}",
+   "after": "{\"A\": \"Mensen moeten zich aanmelden voor de open dag.\", \"B\": \"Mensen kunnen soep eten in de kantine van de school.\", \"C\": \"Mensen kunnen op zaterdag kijken en een les proberen.\"}",
+   "reason": "Old A (aanmelden voor de opleiding op 6 februari) was not clearly false. New A reverses 'U hoeft zich niet aan te melden'."
+  },
+  {
+   "id": "A2:reading:batch106-open-dag-college:1",
+   "field": "questions.q2.explanation",
+   "before": "De folder nodigt mensen uit voor een open dag.",
+   "after": "De folder nodigt mensen uit voor een open dag. Zij moeten zich niet aanmelden voor de open dag.",
+   "reason": "Explanation covers the new distractor A; old text 'U hoeft zich niet aan te melden' kept."
+  },
+  {
+   "id": "A2:reading:batch106-werk-via-bureau:1",
+   "field": "text",
+   "before": "1 – U meldt u aan op onze website.",
+   "after": "1 – U meldt zich aan op onze website.",
+   "reason": "Correct reflexive form for the polite 'u'."
+  },
+  {
+   "id": "A2:reading:batch106-energie-besparen:1",
+   "field": "text",
+   "before": "De bedragen zijn ongeveer.",
+   "after": "De bedragen zijn niet precies.",
+   "reason": "'De bedragen zijn ongeveer.' is not a Dutch sentence."
+  },
+  {
+   "id": "A2:reading:batch106-energie-besparen:1",
+   "field": "text",
+   "before": "Een vrijwilliger komt gratis bij u thuis. Hij of zij kijkt met u wat u kunt doen.",
+   "after": "Een vrijwilliger komt gratis bij u thuis en geeft u tips.",
+   "reason": "Embedded question and 'hij of zij' removed; plain sentence."
+  },
+  {
+   "id": "A2:reading:batch106-energie-besparen:1",
+   "field": "questions.q1.prompt",
+   "before": "Henrik wil ongeveer 50 euro per jaar minder betalen. Hij wil niet korter douchen en de verwarming niet lager zetten. Wat kan hij samen doen?",
+   "after": "Henrik doet twee tips uit de folder. Samen betaalt hij daarmee ongeveer 50 euro per jaar minder. Welke twee tips zijn dat?",
+   "reason": "The forced refusals ('wil niet korter douchen') are removed; the question now asks for the one pair that adds up to 50."
+  },
+  {
+   "id": "A2:reading:batch106-energie-besparen:1",
+   "field": "questions.q1.options",
+   "before": "{\"A\": \"De verwarming lager zetten en LED-lampen gebruiken.\", \"B\": \"De gordijnen dicht doen en korter douchen.\", \"C\": \"Alleen de gordijnen dicht doen.\", \"D\": \"LED-lampen gebruiken en de gordijnen dicht doen.\"}",
+   "after": "{\"A\": \"Korter douchen en de gordijnen dicht doen.\", \"B\": \"De verwarming lager zetten en korter douchen.\", \"C\": \"De verwarming lager zetten en LED-lampen gebruiken.\", \"D\": \"LED-lampen gebruiken en de gordijnen dicht doen.\"}",
+   "reason": "Four pairs with sums 70, 150, 130 and 50; only the key adds up to 50."
+  },
+  {
+   "id": "A2:reading:batch106-energie-besparen:1",
+   "field": "questions.q1.explanation",
+   "before": "De andere keuzes hebben korter douchen of een lagere verwarming nodig, of zijn te weinig.",
+   "after": "De andere paren zijn samen ongeveer 70, 150 en 130 euro.",
+   "reason": "Explanation matches the new options."
+  },
+  {
+   "id": "A2:reading:batch106-energie-besparen:1",
+   "field": "questions.q2.options",
+   "before": "{\"A\": \"De gemeente verkoopt LED-lampen aan inwoners.\", \"B\": \"De gemeente zoekt vrijwilligers voor hulp thuis.\", \"C\": \"De gemeente laat zien hoe inwoners minder energie gebruiken.\"}",
+   "after": "{\"A\": \"Inwoners kunnen LED-lampen kopen bij de gemeente.\", \"B\": \"Inwoners kunnen vrijwilliger worden voor hulp thuis.\", \"C\": \"Inwoners lezen hoe zij minder voor energie betalen.\"}",
+   "reason": "Key was the longest option and echoed the title; options now parallel in form and length."
+  },
+  {
+   "id": "A2:reading:batch106-huiswerkklas:1",
+   "field": "text",
+   "before": "Wilt u uw kind opgeven?",
+   "after": "Wilt u uw kind aanmelden?",
+   "reason": "'opgeven' also means 'give up'; 'aanmelden' is the clear A2 verb."
+  },
+  {
+   "id": "A2:reading:batch106-huiswerkklas:1",
+   "field": "questions.q2.prompt",
+   "before": "Hoe geeft Marit haar zoon op?",
+   "after": "Hoe meldt Marit haar zoon aan?",
+   "reason": "Follows the text."
+  },
+  {
+   "id": "A2:reading:batch106-klusjes-huis:1",
+   "field": "text",
+   "before": "De lamp die al een jaar op de kast staat...",
+   "after": "Staat uw lamp al een jaar op de kast?",
+   "reason": "Relative clause in the headline; a question keeps the light joke."
+  },
+  {
+   "id": "A2:reading:batch106-klusjes-huis:1",
+   "field": "text",
+   "before": "Hangt de lamp nog steeds niet? Staat de kast nog in de doos?",
+   "after": "Staat de kast nog in de doos?",
+   "reason": "Avoids repeating the headline."
+  },
+  {
+   "id": "A2:reading:batch106-klusjes-huis:1",
+   "field": "text",
+   "before": "Blijft er een schroef over? Die is gratis.",
+   "after": "Klaar? Dan nemen wij ook de doos mee.",
+   "reason": "'schroef' and 'overblijven' are B1 words and only a side joke; plain A2 line with the same light tone."
+  },
+  {
+   "id": "A2:reading:batch106-digid-brief:1",
+   "field": "situation",
+   "before": "Kwame heeft een DigiD aangevraagd en krijgt nu een brief.",
+   "after": "Kwame krijgt een brief van DigiD.",
+   "reason": "The situation gave away the key of q2 (Waarom krijgt Kwame deze brief?)."
+  },
+  {
+   "id": "A2:reading:batch106-digid-brief:1",
+   "field": "text",
+   "before": "In deze brief staat uw code. Uw code staat hieronder.",
+   "after": "In deze brief staat uw code.",
+   "reason": "Redundant: nothing follows below."
+  },
+  {
+   "id": "A2:reading:batch106-digid-brief:1",
+   "field": "text",
+   "before": "Ook niet aan iemand die belt en zegt dat hij van DigiD is.",
+   "after": "Ook niet als iemand belt en zegt dat hij van DigiD is.",
+   "reason": "Relative clause replaced by 'als'."
+  },
+  {
+   "id": "A2:reading:batch106-digid-brief:1",
+   "field": "questions.q3.evidence",
+   "before": "Ook niet aan iemand die belt en zegt dat hij van DigiD is.",
+   "after": "Ook niet als iemand belt en zegt dat hij van DigiD is.",
+   "reason": "Evidence follows the text."
+  },
+  {
+   "id": "A2:reading:batch106-digid-brief:1",
+   "field": "questions.q1.options",
+   "before": "{\"A\": \"Op de website één keer een nieuwe code vragen.\", \"B\": \"Iemand van DigiD bellen en de code vragen.\", \"C\": \"Niets doen, want de code werkt altijd.\"}",
+   "after": "{\"A\": \"Een nieuwe code vragen op de website.\", \"B\": \"Iemand van DigiD bellen en de code vragen.\", \"C\": \"Niets doen, want de code werkt altijd.\"}",
+   "reason": "Key copied the text's wording ('één keer', 'nieuwe code vragen') and was the longest; now a paraphrase of equal length."
+  },
+  {
+   "id": "A2:reading:batch106-digid-brief:1",
+   "field": "questions.q3.options",
+   "before": "{\"A\": \"De code vertellen, want het is DigiD.\", \"B\": \"De code vertellen als de man zijn naam zegt.\", \"C\": \"Een deel van de code vertellen.\", \"D\": \"De code aan niemand geven.\"}",
+   "after": "{\"A\": \"De code vertellen, want de man werkt bij DigiD.\", \"B\": \"De code vertellen als de man zijn naam zegt.\", \"C\": \"Een deel van de code vertellen.\", \"D\": \"De code aan niemand vertellen.\"}",
+   "reason": "The key was the only option with 'geven' instead of 'vertellen'; all four options are now parallel."
+  },
+  {
+   "id": "A2:reading:batch106-digid-brief:1",
+   "field": "questions.q3.explanation",
+   "before": "In de brief staat dat u de code aan niemand geeft, ook niet aan iemand die zegt dat hij van DigiD is.",
+   "after": "In de brief staat dat u de code aan niemand geeft, ook niet als iemand zegt dat hij van DigiD is.",
+   "reason": "Matches the text."
+  },
+  {
+   "id": "A2:reading:batch106-huiswerkklas:1",
+   "field": "questions.q2.explanation",
+   "before": "die al zijn opgegeven",
+   "after": "die al zijn aangemeld",
+   "reason": "Matches the verb used in the text."
+  },
+  {
+   "id": "A2:reading:batch106-klusjes-huis:1",
+   "field": "questions.q2.explanation",
+   "before": "Lucas werkt doordeweeks tot 21.00 uur",
+   "after": "Lucas werkt van maandag tot en met vrijdag tot 21.00 uur",
+   "reason": "Plain wording instead of the compound 'doordeweeks'."
+  },
+  {
+   "id": "A2:reading:batch106-werkrooster-winkel:1",
+   "field": "questions.q1.prompt",
+   "before": "een verjaardagsfeest",
+   "after": "een feest",
+   "reason": "Plain word; 'verjaardagsfeest' is only a compound of A1 words, but the party reason does not need it."
+  }
+ ],
+ "rejected": [],
+ "checks": {
+  "batch_check": {
+   "command": "npx tsx scripts/batch-check.ts content/batches/106-proposed.json",
+   "result": "Checked 12 items, 30 questions. Keys A8 B8 C8 D6; 18 three-option and 12 four-option questions; no failures; warnings reviewed (compounds judged transparent; sentence-length warnings are table or heading merges)."
+  },
+  "word_gate": "Zero unlisted words in the proposed texts. 'techniek' (now 'auto's'), 'schroef/overblijven' (now 'de doos meenemen') and 'opgeven' (now 'aanmelden') were replaced; 'verjaardagsfeest' left the prompts; 'weggeven', 'banenmarkt', 'proefles', 'prikbord', 'toegang', 'speelhoek', 'bankrekeningnummer' are transparent compounds. Hardest remaining listed words in context: loonstrook (item 8, explained by 'uw loonstrook staat online'), cv (item 2), bankrekeningnummer; no key depends on them.",
+  "subordinate_clauses": "Relative clauses with 'die' were removed from items 1, 6, 9, 11 and 12 (outside the A2 list omdat/als/dat/wanneer/toen).",
+  "calendar": "Mon 1 Mar 2027, Sat 6 Mar, Sat 20 Mar, Sat 12 Dec 2026, Sat 19 Dec, Thu 24 Dec, Fri 25 Dec, Sat 26 Dec, Sun 3 Jan 2027, Sat 6 Feb, Mon 22 Feb, Fri 12 Mar all verified by calendar arithmetic.",
+  "digid_fact_check": "digid.nl/en/apply-and-activate/activate-your-digid opened 22 Nov 2026: code valid 21 days; new code only once, by post within 5 working days; expired code means a new DigiD application. The letter text matches. The page does not mention phone fraud; the warning is generic safety advice and makes no claim about DigiD staff.",
+  "invented_names": "WebSearch found nothing for Werkbrug, De Kersenhof, Vakcollege Oosterkade, Zolderkamer or Schroef en Plug; parklaanklas.nl does not resolve (NXDOMAIN).",
+  "key_balance": "A 8, B 8, C 8, D 6 (27/27/27/20%); no key three times in a row; persona question in every text; purpose questions in five texts."
+ },
+ "diversity": {
+  "within_batch": "Five task types and seven domains; two housing-free money items (ijsbaan, klusjes-huis) differ in structure (age price sum versus discount); parkeren-centrum and buslijn-weekend are both transport but price rule versus timetable.",
+  "catalogue": "No slug or premise clash with the 60 existing A2 reading titles; nearest are batch004-stadsbus (tickets) and batch087-stagedagen (rota with sick-call rule)."
+ },
+ "items": [
+  {
+   "id": "A2:reading:batch106-parkeren-centrum:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, krant",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Krant item, about 120 words, average sentence about 9 words; combines a day rule, an hour rule and a day maximum, like batch021-weekmarkt and batch087-schoolstraat.",
+   "evidence": {
+    "questions": {
+     "q1": "Key C: 'Straks is dat tot negen uur 's avonds. Dat geldt van maandag tot en met zaterdag.' The date 6 March (Saturday after 1 March) now puts the question under the new rule; A is the old six-o'clock rule, B confuses Saturday with free Sunday.",
+     "q2": "Key B: 'U betaalt nooit meer dan 9 euro per dag.' Seven hours at 2 euro is 14 (C); 3 euro is the street hourly price (A); 21 is seven hours at 3 euro (D).",
+     "q3": "Key A: opening sentence of the item; B reverses 'Op zondag parkeert u nog steeds gratis', C reverses the unchanged garage price."
+    },
+    "option_counts": [
+     3,
+     4,
+     3
+    ],
+    "keys": [
+     "C",
+     "B",
+     "A"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "The council tells drivers that from Monday 1 March 2027 street parking in the centre is paid until nine in the evening instead of six, Monday to Saturday, with first half hour free, 3 euro an hour, and a cheaper garage with a 9 euro day maximum.",
+    "communicative_purpose": "Drivers learn when and how much they pay and that the garage is cheaper for a long stay.",
+    "contrivance_check": "The reason (busier evenings, shops open late) comes from the text; both price systems serve the choice between street and garage.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch106-banenmarkt:1",
+   "verdict": "pass",
+   "level": {
+    "target": "A2 reading, krant",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Krant item, 109 words, mostly short main clauses; the inference question needs one time window (11-13) against half past one, as in official-style A2 time questions.",
+   "evidence": {
+    "questions": {
+     "q1": "Key D: 'Van 11.00 tot 13.00 uur zit er een vrijwilliger aan een tafel bij de ingang.' At 13.30 that help is over; the market runs to 15.00, coffee and play corner have no hours, talks are not limited to a window.",
+     "q2": "Key B: 'Neem uw cv drie keer mee, op papier.' A is the ten-minute talk, C the 25 employers.",
+     "q3": "Key C: 'Zoekt u werk? Kom dan naar de banenmarkt op zaterdag 20 maart.' A is one of the 25 employers (hotel), B is not stated."
+    },
+    "option_counts": [
+     4,
+     3,
+     3
+    ],
+    "keys": [
+     "D",
+     "B",
+     "C"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A neighbourhood paper invites job seekers to a job fair in the community centre De Kersenhof on Saturday 20 March 2027: free entry, 25 employers, ten-minute talks, three paper CVs, CV help from 11.00 to 13.00, coffee and a play corner.",
+    "communicative_purpose": "Job seekers know when to come, what to bring and when CV help is available.",
+    "contrivance_check": "Each detail (copies, ten minutes, help hours, play corner) is something a visitor must prepare for; no stocktaking.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch106-ijsbaan:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, krant",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Krant item, 122 words; q1 adds four small prices (6+4+0+3) with an age exception, q2 an exception date; like batch004-stadsbus prices but with one extra step.",
+   "evidence": {
+    "questions": {
+     "q1": "Key B: 6 (adult) + 4 (daughter of 8) + 0 (son of 3, 'jonger dan 4 ... gratis') + 3 skates for one pair = 13. 10 forgets the skates, 15 charges the daughter the adult price, 17 charges the son 4.",
+     "q2": "Key A: 'Op 24 en 31 december sluit de ijsbaan al om 17.00 uur.' B is the normal 21.00 closing, C reverses 'sluit om 17.00' into closed all day."
+    },
+    "option_counts": [
+     4,
+     3
+    ],
+    "keys": [
+     "B",
+     "A"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A town newspaper announces an open-air ice rink on the market square from Saturday 12 December 2026 to Sunday 3 January 2027, with opening hours, shorter days on 24 and 31 December, prices by age, skate hire and a Wednesday-afternoon child price.",
+    "communicative_purpose": "Families decide when to go and what it costs.",
+    "contrivance_check": "Prices, hours and the gloves tip all concern a visit; the soup and chocolate milk line closes the message naturally.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch106-werkrooster-winkel:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, rooster",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Rooster, table as lines plus four rule sentences; q1 combines the Saturday row, the same-day swap rule and the two-people rule; like batch020-dienstwissel but easier to find.",
+   "evidence": {
+    "questions": {
+     "q1": "Key C: row 'zaterdag – 12.00-20.00 – 8.00-16.00 – vrij': Dilan works Saturday early, so he is the colleague on the same day; Samira is free that day, 'niemand' contradicts the two-people rule (a swap keeps two people).",
+     "q2": "Key A: 'Praat dan vóór donderdag met de teamleider.' B and C are later days.",
+     "q3": "Key D: row 'woensdag – vrij – 8.00-16.00 – 12.00-20.00' gives Samira the late shift to 20.00; 19.00 is the closing time of the shop, 16.00 the early end, 12.00 the start."
+    },
+    "option_counts": [
+     3,
+     3,
+     4
+    ],
+    "keys": [
+     "C",
+     "A",
+     "D"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A week schedule for a shop lists early and late shifts for three colleagues, explains the shop hours and the extra hour after closing, and tells staff to ask the team leader before Thursday if they want to swap shifts with a colleague on the same day.",
+    "communicative_purpose": "Staff read their shifts and know how to change one.",
+    "contrivance_check": "Shift times fit the shop hours (early opens at 9, late closes at 19 plus one hour); the Saturday two-person rule matches the table row.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch106-buslijn-weekend:1",
+   "verdict": "pass",
+   "level": {
+    "target": "A2 reading, rooster",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Rooster with stop table; q1 needs the 30-minute rhythm and the Station-to-hospital offset (15 minutes), so it is a two-step item, slightly harder than batch004-bloedprikken; q2 and q3 are direct lookups.",
+   "evidence": {
+    "questions": {
+     "q1": "Key C: the first Sunday bus leaves 9.10 and 'Daarna rijdt er elke 30 minuten een bus', so 9.40 reaches the hospital at 9.55; 10.10 arrives 10.25, 9.10 is earlier, 9.25 is the hospital time of the first bus.",
+     "q2": "Key B: 'Op feestdagen rijdt de bus zoals op zondag.' with Sunday first bus 9.10; 7.40 is Saturday, 9.40 the second bus.",
+     "q3": "Key A: 'Op zaterdag rijdt de laatste bus om 23.10 uur van het Station.' B is the Sunday last bus, C the first Saturday bus."
+    },
+    "option_counts": [
+     4,
+     3,
+     3
+    ],
+    "keys": [
+     "C",
+     "B",
+     "A"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A weekend timetable for bus line 12 shows first-bus times at four stops, a bus every 30 minutes after, the last bus from the Station on Saturday and Sunday and the rule that holidays run like Sunday.",
+    "communicative_purpose": "Passengers plan a trip to a stop at a set time.",
+    "contrivance_check": "The table, the rhythm and the last-bus lines all serve trip planning; website pointer closes the text.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch106-tweedehandswinkel:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, rooster",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Rooster with a two-column hours table plus rules; q1 combines bringing hours, the Thursday pick-up and a phone appointment, like batch021-zwemrooster; 120 words.",
+   "evidence": {
+    "questions": {
+     "q1": "Key D: 'Dan komen wij die bij u thuis halen. Dat kan alleen op donderdag.' with the phone number; A and C use bring times that are impossible (Saturday 'niet mogelijk', Friday only until 15.00), B uses the wrong pick-up day.",
+     "q2": "Key A: 'Op 24, 25 en 26 december zijn wij dicht.' B is the normal Saturday, C pairs bank-card payment with an open shop."
+    },
+    "option_counts": [
+     4,
+     3
+    ],
+    "keys": [
+     "D",
+     "A"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A second-hand shop publishes opening hours and drop-off hours, a Thursday-only home pick-up of large furniture for 15 euro, the Christmas closing days and its card-only payment rule.",
+    "communicative_purpose": "Customers know when to shop, when to bring things and how to arrange pick-up of a large item.",
+    "contrivance_check": "Opening versus drop-off hours, pick-up day and payment are all separate things a customer needs; nothing is added for distractors.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch106-open-dag-college:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, folder",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Folder with a four-row table; q1 requires fitting two lessons of thirty minutes into one morning, q3 multiplies a per-person price; 116 words.",
+   "evidence": {
+    "questions": {
+     "q1": "Key B: 'Zorg – 10.30 en 13.30 uur' and 'Computers – 11.30 en 14.30 uur' give care at 10.30 and computers at 11.30; computers does not start at 10.30 (A) and 14.30 is afternoon (C).",
+     "q2": "Key C: 'Kom kijken op onze school! ... Probeer dan een korte proefles van dertig minuten.' A reverses 'U hoeft zich niet aan te melden'; B is the side detail of the soup.",
+     "q3": "Key C: 'Soep met brood kost 3 euro per persoon.' for two people is 6; the entrance is free, 9 is three people."
+    },
+    "option_counts": [
+     3,
+     3,
+     4
+    ],
+    "keys": [
+     "B",
+     "C",
+     "C"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A vocational college folder invites visitors to an open day on Saturday 6 February 2027 with thirty-minute trial lessons at fixed times per programme, soup at 12.30 for 3 euro, a bus tip and a warning that there is no parking.",
+    "communicative_purpose": "Prospective students pick which lessons to try and know the cost and travel.",
+    "contrivance_check": "The table, soup lunch and parking line are what a visitor needs on the day.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch106-werk-via-bureau:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, folder",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Folder with a five-step table, 129 words; both questions find one step; q1 combines a time and two phone calls.",
+   "evidence": {
+    "questions": {
+     "q1": "Key D: 'Bel vóór 9.00 uur naar ons bureau en naar het bedrijf.' at 8.00 she calls both now; A and B drop one call, C waits until after 9.00.",
+     "q2": "Key A: step 2 'U komt voor een gesprek van dertig minuten naar ons kantoor.' follows the online registration of step 1; B is step 3, C step 4."
+    },
+    "option_counts": [
+     4,
+     3
+    ],
+    "keys": [
+     "D",
+     "A"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A temporary-work agency explains in five steps how its service works: online sign-up, a thirty-minute talk, a contract per job, weekly Friday pay with an online payslip, and phoning the agency and the employer before 9.00 when ill.",
+    "communicative_purpose": "Job seekers learn the procedure and what to prepare.",
+    "contrivance_check": "Each step is something a new agency worker needs; the ID and bank details are real requirements of sign-up.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch106-energie-besparen:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, folder",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Folder with a four-row table of approximate savings; q1 adds two amounts to one sum, as in A2 price questions; 116 words.",
+   "evidence": {
+    "questions": {
+     "q1": "Key D: 'LED-lampen gebruiken – ongeveer 30 euro minder' plus ''s Avonds de gordijnen dicht doen – ongeveer 20 euro minder' is about 50; the other pairs add up to 70, 150 and 130.",
+     "q2": "Key C: 'Met kleine dingen betaalt u al minder.' A and B are details of the free visit and are not what the folder is for."
+    },
+    "option_counts": [
+     4,
+     3
+    ],
+    "keys": [
+     "D",
+     "C"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 4,
+    "tone": "ordinary",
+    "situation_summary": "A council folder lists four small energy-saving habits with approximate yearly savings and offers a free home visit by a volunteer, who brings a free pack of LED lamps; a phone number is given for an appointment.",
+    "communicative_purpose": "Residents see which habits save most and how to get free help.",
+    "contrivance_check": "Amounts are labelled 'niet precies', so the table makes no national claim; the free visit follows from the saving theme. Remaining risk: the amounts are invented.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch106-huiswerkklas:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, advertentie",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Advertentie, 119 words in short question-and-answer lines; q1 needs the one-day price, q2 finds the contact route; like batch002-speelgoed.",
+   "evidence": {
+    "questions": {
+     "q1": "Key B: 'Komt uw kind maar één dag? Dan betaalt u 20 euro per maand.' The son comes only on Wednesday; 30 euro is two days, 'Niets' misreads the free first lesson.",
+     "q2": "Key A: 'Stuur een e-mail aan huiswerk@parklaanklas.nl.' No phone number appears, the library only holds the notice board, the first lesson is after registration."
+    },
+    "option_counts": [
+     3,
+     4
+    ],
+    "keys": [
+     "B",
+     "A"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A notice at the library announces a homework class for children aged 10 to 14 on Monday and Wednesday afternoons in the community centre, with group size, monthly prices for one or two days, a free first lesson, laptop loan and e-mail registration.",
+    "communicative_purpose": "Parents decide whether the class fits and how to register.",
+    "contrivance_check": "Days, price per number of days and registration route are the questions a parent asks; the library notice board is only where the notice hangs.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch106-klusjes-huis:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, advertentie",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Advertentie with a price list and a 10 percent rule, 118 words; q1 needs sum then discount, comparable to batch020-tweedehandsfiets but with one more step.",
+   "evidence": {
+    "questions": {
+     "q1": "Key B: 25 + 35 + 20 = 80 euro, three jobs earn 10 procent korting, so 72; 70 subtracts 10 euro, 80 skips the discount, 88 adds 10 percent.",
+     "q2": "Key B: 'Wij zijn open van maandag tot en met zaterdag, van 8.00 tot 20.00 uur.' Lucas works to 21.00 on weekdays, so only Saturday works; Sunday is closed, Friday evening is after closing."
+    },
+    "option_counts": [
+     4,
+     3
+    ],
+    "keys": [
+     "B",
+     "B"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "light-humor",
+    "situation_summary": "A handyman service advertises small jobs at home in a light tone (the lamp that stands on the cupboard for a year, the cupboard still in its box), with prices per job, ten percent off from three jobs, free travel in the city and opening hours.",
+    "communicative_purpose": "Customers see what small jobs cost and when the firm works.",
+    "contrivance_check": "The joke is only the opening question and one friendly line; prices, discount and hours are real information.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch106-digid-brief:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, brief",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Brief, 113 words in short sentences; q1 and q3 apply rules, q2 asks the purpose; matches the A2 brief type like batch003-lift and batch020-identiteitskaart.",
+   "evidence": {
+    "questions": {
+     "q1": "Key A: 'Dan kunt u op de website één keer een nieuwe code vragen.' B is the reverse of the phone warning, C the reverse of 'binnen 21 dagen'. digid.nl (checked 22 Nov 2026): 'The activation code is valid for 21 days'; a lost letter allows a new code only once; an expired code means applying for a new DigiD.",
+     "q2": "Key C: 'U hebt een DigiD aangevraagd. In deze brief staat uw code.' The situation line no longer says this. A is not stated, B reverses the warning.",
+     "q3": "Key D: 'Geef uw code aan niemand. Ook niet als iemand belt en zegt dat hij van DigiD is.' A, B and C give the code or part of it."
+    },
+    "option_counts": [
+     3,
+     3,
+     4
+    ],
+    "keys": [
+     "A",
+     "C",
+     "D"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "After applying for a DigiD, Kwame gets a letter with his activation code: use it within 21 days, ask once for a new code on the website if the letter is lost, apply again if too late, and never give the code to anyone, also not a caller who claims to be DigiD.",
+    "communicative_purpose": "Kwame knows what to do with the code and how to avoid fraud.",
+    "contrivance_check": "Each rule matches digid.nl as checked on the review day; the letter says nothing about what DigiD staff do beyond the warning.",
+    "unsupported_assumptions": []
+   }
+  }
+ ],
+ "media_notes": {
+  "scope": "Reading items only; no audio or pictures. None of the items carries an image."
+ },
+ "limitations": [
+  "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+  "Prices, hours and organisations are invented; the DigiD facts were checked on digid.nl on 22 November 2026 and may change."
+ ]
+}

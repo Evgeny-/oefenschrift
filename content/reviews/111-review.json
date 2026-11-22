@@ -1,0 +1,614 @@
+{
+  "review_id": "111-knm-themes-7-8-2026-11-22",
+  "source": "content/batches/111-original.json",
+  "proposed_source": "content/batches/111-proposed.json",
+  "source_sha256": "90ba7e977c8460447fc4b51082d87c8362365924847a7543fbac887ba8e69230",
+  "review_type": "independent AI editorial review of 13 new KNM items (themes 7 and 8), with facts checked against the primary pages opened on 2026-11-22",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T12:49:50Z",
+  "reviewer": "Independent AI reviewer (Sonnet 5.5), separate from the author agent; AI editorial review, not human validation.",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "bb6d8ef99b00611a122c3d0df8135c986e7d7c25259708aa88a692568fa17404",
+    "independence_note": "The blind packet of the author file (hash 6db5d6cc3d07abed828770bad33d03f04953ae774068b46b673affabc4942f49) was read first and item findings were written to content/reviews/111-review.md before the full batch, notes or plan assignment were opened. After repairs the packet was rebuilt from the proposed bytes (hash above) and the changed items (kinderrechter picture, aansprakelijk-12, texts of vve, mening, geweld, zelfbeschikking) were read again."
+  },
+  "tone_balance": {
+    "ordinary": 13,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "KNM items are never jokes, so all 13 are ordinary civic-fact scenes and the batch contributes no light humour; the coordinator checks the combined program count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 2,
+    "edited_by_reviewer": 11,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:knm:batch112-nibud-geldzaken:1",
+      "field": "text",
+      "before": "Het Nibud is een onafhankelijk instituut. Het geeft voorlichting over geld en uitgaven van huishoudens, bijvoorbeeld van gezinnen. Nibud betekent: Nationaal Instituut voor Budgetvoorlichting.",
+      "after": "Het Nibud is een instituut. Het geeft informatie en advies over geld en uitgaven, ook aan gezinnen. Nibud betekent: Nationaal Instituut voor Budgetvoorlichting.",
+      "reason": "Replace B1 words (onafhankelijk, voorlichting, huishoudens) around the tested term with A2 wording."
+    },
+    {
+      "id": "A2:knm:batch112-nibud-geldzaken:1",
+      "field": "questions.0.prompt",
+      "before": "Rana zoekt onafhankelijke voorlichting over geld en uitgaven van gezinnen. Welk instituut geeft die?",
+      "after": "Rana wil informatie en advies over geld en uitgaven van gezinnen. Welk instituut geeft die?",
+      "reason": "Same: plain A2 prompt."
+    },
+    {
+      "id": "A2:knm:batch112-nibud-geldzaken:1",
+      "field": "questions.0.evidence",
+      "before": "Het Nibud is een onafhankelijk instituut",
+      "after": "Het Nibud is een instituut",
+      "reason": "Evidence follows the changed card."
+    },
+    {
+      "id": "A2:knm:batch112-nibud-geldzaken:1",
+      "field": "questions.0.explanation",
+      "before": "Het Nibud is een onafhankelijk instituut voor huishoudfinanciën. De Sociale Verzekeringsbank betaalt onder andere kinderbijslag en AOW. De Kamer van Koophandel schrijft bedrijven in. Geen van die twee geeft voorlichting over de uitgaven van gezinnen.",
+      "after": "Het Nibud geeft informatie en advies over geld. De Sociale Verzekeringsbank betaalt onder andere kinderbijslag en AOW. De Kamer van Koophandel schrijft bedrijven in. Geen van die twee geeft advies over de uitgaven van gezinnen.",
+      "reason": "Follows the changed card."
+    },
+    {
+      "id": "A2:knm:batch112-gemeente-afvalheffing:1",
+      "field": "text",
+      "before": "Gemeenten vragen eigen belastingen en heffingen, bijvoorbeeld de afvalstoffenheffing. De hoogte verschilt per gemeente.",
+      "after": "Gemeenten vragen eigen belastingen en heffingen. Een voorbeeld is de afvalstoffenheffing, voor het ophalen van afval. De hoogte verschilt per gemeente.",
+      "reason": "Explain the hard tested term in plain words."
+    },
+    {
+      "id": "A2:knm:batch112-gemeente-afvalheffing:1",
+      "field": "questions.0.explanation",
+      "before": "De afvalstoffenheffing is een gemeentelijke heffing. De gemeente stelt de hoogte vast. De Belastingdienst int de landelijke belastingen, zoals de inkomstenbelasting. De provincie heft deze heffing niet.",
+      "after": "De afvalstoffenheffing is een gemeentelijke belasting voor afval. De gemeente bepaalt de hoogte. De Belastingdienst vraagt landelijke belastingen, zoals de inkomstenbelasting. De provincie vraagt deze belasting niet.",
+      "reason": "Replace 'heft/int/stelt vast' with A2 wording."
+    },
+    {
+      "id": "A2:knm:batch112-ozb-huiseigenaar:1",
+      "field": "questions.0.options",
+      "before": {
+        "A": "De inkomstenbelasting",
+        "B": "De onroerendezaakbelasting",
+        "C": "De btw"
+      },
+      "after": {
+        "A": "De inkomstenbelasting",
+        "B": "De OZB",
+        "C": "De btw"
+      },
+      "reason": "Key was the longest and most specific option (26 characters against 21 and 7); acronym options are parallel and the key is no longer the longest."
+    },
+    {
+      "id": "A2:knm:batch112-netto-loon:1",
+      "field": "text",
+      "before": "Het brutoloon is uw totale loon. De werkgever houdt daarvan belasting en premies in. Wat overblijft, is het nettoloon. Dat krijgt u op uw rekening.",
+      "after": "Het brutoloon is uw totale loon. De werkgever neemt daar belasting en premies van af. Wat over is, is het nettoloon. Dat krijgt u op uw rekening.",
+      "reason": "Replace 'houdt in / overblijft' (B1) with plain words."
+    },
+    {
+      "id": "A2:knm:batch112-netto-loon:1",
+      "field": "questions.0.options.B",
+      "before": "Het loon voordat de werkgever iets inhoudt.",
+      "after": "Het loon voordat er belasting af gaat.",
+      "reason": "Remove 'inhoudt'."
+    },
+    {
+      "id": "A2:knm:batch112-netto-loon:1",
+      "field": "questions.0.evidence",
+      "before": "Wat overblijft, is het nettoloon. Dat krijgt u op uw rekening",
+      "after": "Wat over is, is het nettoloon. Dat krijgt u op uw rekening",
+      "reason": "Follows the changed card."
+    },
+    {
+      "id": "A2:knm:batch112-netto-loon:1",
+      "field": "questions.0.explanation",
+      "before": "Het nettoloon is wat er na de inhoudingen overblijft: dat krijgt Oscar op zijn rekening. Het loon voordat de werkgever iets inhoudt is het brutoloon. Belasting en premies gaan naar de overheid, maar dat is niet het nettoloon.",
+      "after": "Het nettoloon is wat over is na belasting en premies. Dat krijgt Oscar op zijn rekening. Het loon voordat er belasting af gaat, is het brutoloon. Belasting en premies gaan naar de overheid, maar dat is niet het nettoloon.",
+      "reason": "Follows the changed card."
+    },
+    {
+      "id": "A2:knm:batch112-belastinggeld:1",
+      "field": "questions.0.prompt",
+      "before": "Mensen in Nederland betalen belasting. Waarvoor gebruikt de overheid belastinggeld?",
+      "after": "Mensen in Nederland betalen belasting. Wat betaalt de overheid daarmee?",
+      "reason": "Old options (two 'Alleen ...' distractors against one plain key) made the key the odd one out."
+    },
+    {
+      "id": "A2:knm:batch112-belastinggeld:1",
+      "field": "questions.0.options",
+      "before": {
+        "A": "Alleen voor het leger en de politie.",
+        "B": "Voor zorg, onderwijs en veiligheid.",
+        "C": "Alleen voor wegen, bruggen en stations."
+      },
+      "after": {
+        "A": "Een baan voor iedereen",
+        "B": "Zorg en onderwijs voor iedereen",
+        "C": "Een woning voor iedereen"
+      },
+      "reason": "Parallel options, each false except the key; no 'alleen' pattern."
+    },
+    {
+      "id": "A2:knm:batch112-belastinggeld:1",
+      "field": "questions.0.evidence",
+      "before": "belastinggeld voor zorg, uitkeringen, onderwijs en veiligheid",
+      "after": "zorg, uitkeringen, onderwijs en veiligheid voor iedereen",
+      "reason": "Quote the fuller phrase in the card (shortened to a verbatim substring)."
+    },
+    {
+      "id": "A2:knm:batch112-belastinggeld:1",
+      "field": "questions.0.explanation",
+      "before": "De overheid gebruikt belastinggeld voor veel dingen: zorg, uitkeringen, onderwijs en veiligheid. Leger en politie horen bij veiligheid, en wegen en bruggen worden ook betaald, maar belastinggeld is er niet alleen daarvoor.",
+      "after": "De overheid betaalt met belastinggeld onder andere zorg, uitkeringen, onderwijs en veiligheid. De overheid geeft niet aan iedereen een baan of een woning.",
+      "reason": "Matches the new options."
+    },
+    {
+      "id": "A2:knm:batch112-inkomen-doorgeven:1",
+      "field": "text",
+      "before": "Krijgt u een toeslag? Dan geeft u een verandering van uw inkomen door aan de Belastingdienst. Zo voorkomt u dat u moet terugbetalen. Of dat u te weinig krijgt.",
+      "after": "Krijgt u een toeslag? Dan geeft u een verandering van uw inkomen door aan de Belastingdienst. Zo hoeft u later niets terug te betalen. U krijgt ook niet te weinig.",
+      "reason": "Remove fragment sentences and 'voorkomt'."
+    },
+    {
+      "id": "A2:knm:batch112-inkomen-doorgeven:1",
+      "field": "questions.0.options",
+      "before": {
+        "A": "Zij moet misschien geld terugbetalen.",
+        "B": "Zij krijgt later meer toeslag.",
+        "C": "Zij raakt haar zorgverzekering kwijt."
+      },
+      "after": {
+        "A": "Zij moet toeslag terugbetalen.",
+        "B": "Zij krijgt een hogere toeslag.",
+        "C": "Zij verliest haar zorgverzekering."
+      },
+      "reason": "Key was the only hedged option ('misschien'); the prompt already says 'kan'. Options now parallel."
+    },
+    {
+      "id": "A2:knm:batch112-inkomen-doorgeven:1",
+      "field": "questions.0.evidence",
+      "before": "Zo voorkomt u dat u moet terugbetalen",
+      "after": "Zo hoeft u later niets terug te betalen",
+      "reason": "Follows the changed card."
+    },
+    {
+      "id": "A2:knm:batch112-inkomen-doorgeven:1",
+      "field": "questions.0.explanation",
+      "before": "Wie een toeslag heeft, geeft een hoger inkomen door. Doet Ines dat niet, dan kan zij te veel toeslag krijgen en moet zij die misschien terugbetalen. Meer toeslag krijgt zij niet. Haar zorgverzekering blijft gewoon bestaan.",
+      "after": "Wie een toeslag heeft, geeft een hoger inkomen door. Doet Ines dat niet, dan krijgt zij te veel toeslag en moet zij die terugbetalen. Een hogere toeslag krijgt zij niet. Haar zorgverzekering blijft gewoon bestaan.",
+      "reason": "Follows the new options."
+    },
+    {
+      "id": "A2:knm:batch112-aangifte-diefstal:1",
+      "field": "text",
+      "before": "Is uw fiets gestolen? Doe aangifte bij de politie, bijvoorbeeld telefonisch of met een online formulier. Uw fiets komt dan in het fietsdiefstalregister.",
+      "after": "Is uw fiets gestolen? Doe aangifte bij de politie. U kunt bellen of een online formulier invullen. Uw fiets komt dan op een lijst van gestolen fietsen.",
+      "reason": "Replace telefonisch and fietsdiefstalregister with plain words."
+    },
+    {
+      "id": "A2:knm:batch112-ombudsman-gemeente:1",
+      "field": "text",
+      "before": "De Nationale ombudsman bekijkt klachten over de overheid. Ook een klacht over een gemeente, als die gemeente is aangesloten. Andere gemeenten hebben een eigen klachtenloket.",
+      "after": "De Nationale ombudsman bekijkt klachten over de overheid. Ook een klacht over een gemeente, als die gemeente meedoet. Andere gemeenten hebben een eigen klachtenloket.",
+      "reason": "'aangesloten' is B1."
+    },
+    {
+      "id": "A2:knm:batch112-ombudsman-gemeente:1",
+      "field": "questions.0.explanation",
+      "before": "De Nationale ombudsman kan een klacht over een gemeente bekijken, als de gemeente is aangesloten. Heeft de gemeente een eigen klachtenloket, dan gaat u daarheen. De Huurcommissie beoordeelt alleen huurzaken. De Belastingdienst onderzoekt geen klachten over gemeenten.",
+      "after": "De Nationale ombudsman kan een klacht over een gemeente bekijken, als de gemeente meedoet. Heeft de gemeente een eigen klachtenloket, dan gaat u daarheen. De Huurcommissie beoordeelt alleen huurzaken. De Belastingdienst onderzoekt geen klachten over gemeenten.",
+      "reason": "Same."
+    },
+    {
+      "id": "A2:knm:batch112-avp-niet-verplicht:1",
+      "field": "text",
+      "before": "Een aansprakelijkheidsverzekering betaalt schade die u aan anderen toebrengt. Die verzekering is niet verplicht, maar wel verstandig.",
+      "after": "Een aansprakelijkheidsverzekering betaalt schade die u bij een ander maakt. Die verzekering is niet verplicht, maar wel verstandig.",
+      "reason": "'toebrengt' is B2."
+    },
+    {
+      "id": "A2:knm:batch112-avp-niet-verplicht:1",
+      "field": "sourceUrl",
+      "before": "https://www.nibud.nl/consumenten/aansprakelijkheidsverzekering/",
+      "after": "https://www.nibud.nl/onderwerpen/uitgaven/kosten-verzekering/",
+      "reason": "The recorded URL redirects; cite the live page."
+    },
+    {
+      "id": "A2:knm:batch112-avp-niet-verplicht:1",
+      "field": "questions.0.options.B",
+      "before": "Die is wettelijk verplicht voor elk gezin.",
+      "after": "Die is verplicht voor elk gezin.",
+      "reason": "Drop 'wettelijk' (B1)."
+    },
+    {
+      "id": "A2:knm:batch112-schoolboeken-gratis:1",
+      "field": "questions.0.prompt",
+      "before": "De dochter van Rana zit in de brugklas van een middelbare school. Wie zorgt voor haar leerboeken en werkboeken?",
+      "after": "De dochter van Rana is twaalf en zit in de brugklas. Wie zorgt voor haar leerboeken en werkboeken?",
+      "reason": "Prompt word 'school' recurred only in the key 'De school'."
+    },
+    {
+      "id": "A2:knm:batch112-kindpakket:1",
+      "field": "text",
+      "before": "Elke gemeente helpt huishoudens met een laag inkomen. Bijvoorbeeld met een kindpakket. Daarin zitten tegoedbonnen voor kleding en zwemles.",
+      "after": "Elke gemeente helpt mensen met een laag inkomen, bijvoorbeeld met een kindpakket. Daarin zitten tegoedbonnen voor kleding en zwemles. Zo kunnen kinderen meedoen.",
+      "reason": "'huishoudens' is B1; explain purpose."
+    },
+    {
+      "id": "A2:knm:batch112-kindpakket:1",
+      "field": "questions.0.options.B",
+      "before": "Tegoedbonnen voor bijvoorbeeld kleding en zwemles.",
+      "after": "Een pakket tegoedbonnen voor kleding en zwemles.",
+      "reason": "Key was the only hedged option ('bijvoorbeeld'); now parallel with C."
+    },
+    {
+      "id": "A2:knm:batch112-kindpakket:1",
+      "field": "imageBrief",
+      "before": "Hiba (woman in her thirties, dark headscarf, teal coat) sits on a bench at the edge of a swimming pool and watches a girl in a swimsuit at the water. No text.",
+      "after": "Hiba (woman in her thirties, dark headscarf, teal coat) walks along a quiet street and holds the hand of a girl of about eight with two ponytails and a green coat. No text.",
+      "reason": "The swimming-pool scene showed 'zwemles', part of the key."
+    },
+    {
+      "id": "A2:knm:batch112-kindpakket:1",
+      "field": "imageAlt",
+      "before": "Hiba zit op een bankje bij een zwembad en kijkt naar een meisje in een badpak.",
+      "after": "Hiba loopt door een rustige straat en houdt een meisje met twee staartjes bij de hand.",
+      "reason": "Follows the brief."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/111-proposed.json: 13 items, keys A5/B4/C4, three options each, no failures, no warnings",
+    "batch_review_source": "packet_sha256 bb6d8ef99b00611a122c3d0df8135c986e7d7c25259708aa88a692568fa17404 (proposed); original 6db5d6cc3d07abed828770bad33d03f04953ae774068b46b673affabc4942f49",
+    "source_urls_opened": "All 13 sourceUrls opened on 2026-11-22 (HTTP 200) and the quoted sentences found; the page for diversiteit-les is about basisonderwijs.",
+    "card_word_counts": [
+      27,
+      27,
+      22,
+      23,
+      22,
+      20,
+      28,
+      25,
+      26,
+      21,
+      29,
+      26,
+      21
+    ],
+    "prompt_word_counts": [
+      20,
+      19,
+      17,
+      14,
+      17,
+      13,
+      16,
+      17,
+      13,
+      14,
+      14,
+      13,
+      16
+    ],
+    "answer_signals": "key not the longest option in any item after edits; no prompt word recurs only in the key (names removed from keys); no nooit/altijd options",
+    "duplication": "Closest older items: 007 aansprakelijkheid (under 14; the batch item now tests the 16-plus rule), 007 seksuele-vorming (relaties; this one asks diversiteit), 007 zelfbeschikking (forced marriage; this one asks work), 007 meningsuiting (what is forbidden; this one asks the condition). No CJG, VVE, BSO, kinderrechter or geweld-thuis items exist."
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch111-schoolreisje-ouders:1",
+      "verdict": "pass",
+      "level": "easier",
+      "level_reason": "Plain persona question; one directly stated fact; both distractors are institutions that obviously do not go on a primary school trip. Easier than official KNM items on school involvement.",
+      "evidence": {
+        "quote": "Ouders gaan bijvoorbeeld mee op schoolreisje",
+        "sources": [
+          "https://www.rijksoverheid.nl/onderwerpen/basisonderwijs/vraag-en-antwoord/hoe-kan-ik-als-ouder-bij-de-school-betrokken-zijn"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid page: 'De scholen doen vaak een beroep op de ouders. Bijvoorbeeld bij buitenschoolse activiteiten als schoolreisjes, of als leesouder.' Key B (ouders) follows; medewerkers van de gemeente and middelbare-school teachers are not mentioned and are false. The page does not call it voluntary, so the item does not ask that."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A father's daughter is going on a school trip and the question asks who usually helps on such a trip; the card names parents as helpers on trips and as leesouder (reading helper).",
+        "communicative_purpose": "The learner leaves knowing that primary schools commonly ask parents to help, so a parent who is asked is behaving normally.",
+        "contrivance_check": "The trip is stated in the prompt, the card gives the two usual tasks; the drawing of a class on a park path shows the setting and no parents, so it does not show the key. Nothing off-page is needed.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch111-vve-peuters:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "One fact (age range plus extra help) applied to a persona; the learner must connect 'praat nog weinig' with extra help. Comparable to official 'wie/welke voorziening' KNM items.",
+      "evidence": {
+        "quote": "Voorschoolse educatie (VVE) is voor peuters van 2,5 tot 4 jaar.",
+        "sources": [
+          "https://www.rijksoverheid.nl/onderwerpen/voorschoolse-en-vroegschoolse-educatie/voorschoolse-educatie"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid 'Voorschoolse educatie': 'Voorschoolse educatie is voor peuters van 2,5 tot 4 jaar die baat hebben bij extra ondersteuning'; the page lists taal among the skills and says the child goes to a kinderopvang. Distractors: a course for parents is no programme for toddlers; groep 1 starts at 4, so not for a 3-year-old. Hours (16 per week) left out; re-check yearly."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A mother's 3-year-old speaks little; the question asks which programme at the childcare fits her.",
+        "communicative_purpose": "The learner leaves knowing that VVE exists for toddlers aged 2.5 to 4 who need extra help, for example with language.",
+        "contrivance_check": "Age 3 and little speech are in the prompt and match the card's age range and 'taal'; the rug-and-blocks picture shows toddlers at play and no programme name. Remaining risk: the gemeente decides which children qualify; the question says 'kan', not 'moet'.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch111-bso:1",
+      "verdict": "pass",
+      "level": "easier",
+      "level_reason": "Direct match between 'zit op school' and the card sentence; the two distractors are clearly other things. Easier than the official items on kinderopvang.",
+      "evidence": {
+        "quote": "Buitenschoolse opvang (BSO) is opvang voor kinderen die naar school gaan.",
+        "sources": [
+          "https://www.rijksoverheid.nl/onderwerpen/kinderopvang/vraag-en-antwoord/soorten-kinderopvang"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid 'Soorten kinderopvang': 'Buitenschoolse opvang (bso) is opvang voor schoolgaande kinderen.' and 'Dagopvang is voor kinderen die nog niet naar de basisschool gaan.' Key C. Dagopvang is false for a schoolgoing boy; the consultatiebureau is a health check service, not childcare. 'Kinderdagverblijf' is not used because the page says bso can be at one."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A father's son of 6 goes to school; the question asks which childcare exists for him.",
+        "communicative_purpose": "The learner leaves with the difference between dagopvang (before school age) and bso (school age).",
+        "contrivance_check": "Age and school are in the prompt; the boy at a school gate with a bag shows the setting, not a care type. No off-page premise.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch111-cjg-opvoedvragen:1",
+      "verdict": "pass",
+      "level": "easier",
+      "level_reason": "One fact; distractors are national bodies for other tasks. Easier than official institution items, but the CJG name is new to many learners, which is the point.",
+      "evidence": {
+        "quote": "Het helpt ouders bij vragen over opvoeden",
+        "sources": [
+          "https://www.rijksoverheid.nl/vraag-en-antwoord/jeugdhulp/hulp-vinden-voor-kind-4-18-jaar"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid 'Hulp vinden voor kind 4-18 jaar': 'Het CJG helpt u bij vragen over opvoeden en ontwikkeling van uw kind.' Key A. UWV (work and benefits) and DUO (education funding) do not answer upbringing questions. Local names differ (sociaal wijkteam), so no local option is offered."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A mother has questions about raising her son; the question asks where she can get help.",
+        "communicative_purpose": "The learner leaves knowing the CJG as the first place for questions about raising children.",
+        "contrivance_check": "The mother and son at a kitchen table with paper is an ordinary home scene and does not show the CJG. The prompt is a knowledge question ('Waar kan zij hulp krijgen?'), not advice on behaviour.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch111-kinderrechter:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Single institution fact with a rare word (kinderrechter); the prompt sets up the situation. Comparable to official 'welke instantie' items; the wording is heavier than the others in the batch.",
+      "evidence": {
+        "quote": "De kinderrechter beslist of die maatregel nodig is.",
+        "sources": [
+          "https://www.rijksoverheid.nl/onderwerpen/jeugdbescherming/maatregelen-jeugdbescherming"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid 'Maatregelen jeugdbescherming': 'De raad onderzoekt of de ontwikkeling van uw kind ernstig in gevaar is. [...] De kinderrechter beslist of een kinderbeschermingsmaatregel nodig is.' Key B. A huisarts does not decide; the burgemeester imposes a huisverbod for domestic violence, a different measure and not a kinderbeschermingsmaatregel. Staatscommissie studying the topic since 1 April 2026: no law change yet; re-check yearly."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "There are serious worries about a child at home; the question asks who decides on a protection measure.",
+        "communicative_purpose": "The learner leaves knowing that a court (the kinderrechter) decides, not a doctor or mayor.",
+        "contrivance_check": "No persona and no child in the picture: an empty child's room, replacing the courthouse that would cue 'rechter'. Written calmly; remaining risk is the heavy word beschermingsmaatregel, glossed by the card.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch111-bijzondere-school-betaalt:1",
+      "verdict": "pass",
+      "level": "easier",
+      "level_reason": "Single fact, distractors parallel and obviously not the main payer. Easier than the official items on school choice.",
+      "evidence": {
+        "quote": "De overheid betaalt voor openbare en bijzondere scholen.",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/onderwijs/vrijheid-van-onderwijs/openbaar-en-bijzonder-onderwijs"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid 'Openbaar en bijzonder onderwijs': 'De overheid betaalt voor beide soorten onderwijs. Daarvoor moeten scholen voldoen aan voorwaarden.' Key C. The kerk and the ouders do not pay the lessons; parents may pay a voluntary contribution (existing item 007 ouderbijdrage)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A father picks a Catholic primary school and the question asks who pays the lessons at a bijzondere school.",
+        "communicative_purpose": "The learner leaves knowing that the government pays for both kinds of school.",
+        "contrivance_check": "The Catholic school in the prompt matches the term bijzondere school; the drawing of two schools of different brick shows no payer. 007 bijzondere-school asks what such a school is, not who pays.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch111-diversiteit-les:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Yes/no with qualification as in official items; the key is the general rule, so no exception trap. Comparable; the terms kerndoelen and seksuele diversiteit are the hard part.",
+      "evidence": {
+        "quote": "Elke basisschool moet aandacht besteden aan seksualiteit en seksuele diversiteit.",
+        "sources": [
+          "https://www.rijksoverheid.nl/onderwerpen/gezondheid-en-preventie/seksuele-gezondheid/relationele-en-seksuele-vorming/veelgestelde-vragen-over-relationele-en-seksuele-vorming"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid FAQ on relationele en seksuele vorming: 'Het is wel verplicht om aandacht te besteden aan de thema's seksualiteit en seksuele diversiteit, omdat dit in de landelijke kerndoelen staat. Elke school doet dit op een eigen manier.' Key A. B (only openbare scholen) and C (a school does not have to) contradict 'verplicht' for every school. The page is about basisonderwijs. Kerndoelen are being revised: re-check yearly."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A mother's daughter attends a primary school and the question asks whether the school must pay attention to sexual diversity.",
+        "communicative_purpose": "The learner leaves knowing the topic is compulsory for primary schools, though each school chooses how.",
+        "contrivance_check": "A plain persona question; the picture of a teacher in a circle with children shows a lesson setting with no topic. Written calmly. Overlap with 007 seksuele-vorming is partial (relaties en seksualiteit); this one asks for diversiteit.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch111-aansprakelijk-12:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Persona with a stated age that sets up the rule; the learner must apply the 16-plus rule. Comparable to the official items on responsibility of parents; the 14-15 grey area is deliberately not asked.",
+      "evidence": {
+        "quote": "Een kind van 16 jaar of ouder is zelf aansprakelijk.",
+        "sources": [
+          "https://www.rijksoverheid.nl/onderwerpen/schulden/vraag-en-antwoord/schulden-van-kinderen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid 'Schulden van kinderen', section Schuld door schade: 'Is uw kind 16 jaar of ouder, dan is het zelf aansprakelijk.' and 'Is uw kind jonger dan 14 jaar, dan ligt de aansprakelijkheid bij u.' Key B (zij zelf); A (buren) is false, C (the father) is false for a 17-year-old. The rule for 14-15 (child liable, parents too if they could have stopped it) is not asked."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A father's 17-year-old daughter kicks a ball through the neighbours' window; the question asks who is liable.",
+        "communicative_purpose": "The learner leaves knowing that from 16 a young person is liable for damage, whereas below 14 the parents are.",
+        "contrivance_check": "The age is in the prompt, so the exception to the general parent rule is set up; the girl with a football in a garden next to a neighbour's window shows the setting, not the answer. The id still says 12 (historic).",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch111-mening-voorwaarde:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "One rule asked as a condition ('Wat is de voorwaarde?') as blueprint section 5 requires; all options are rules. Comparable to the official freedom-of-speech items.",
+      "evidence": {
+        "quote": "De voorwaarde is dat het niet tegen de wet is.",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/overheid-en-democratie/media-en-publieke-omroep/persvrijheid-bewaken"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid 'Persvrijheid bewaken': 'Iedereen mag zeggen en schrijven wat hij wil. [...] Voorwaarde is dat het niet in strijd is met de wet. Belediging, smaad en aanzetten tot haat en discriminatie zijn bijvoorbeeld verboden.' Key A. Prior reading by the gemeente would be censorship, which the page excludes; there is no 'useful topic' requirement. Different from 007 meningsuiting (what is forbidden)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A woman wants to post her opinion online and the question asks the one condition in the Netherlands.",
+        "communicative_purpose": "The learner leaves knowing that anyone may say or write anything, as long as it is not against the law.",
+        "contrivance_check": "A woman typing at a kitchen table fits posting an opinion; the picture shows no content. The prompt itself asks for the condition, so nothing is hidden.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch111-geloof-kiezen:1",
+      "verdict": "pass",
+      "level": "easier",
+      "level_reason": "One 'wie bepaalt' question with three clearly different deciders; easier than the official items on religious freedom.",
+      "evidence": {
+        "quote": "U mag ook van godsdienst veranderen of geen godsdienst hebben.",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/videos/2023/10/13/uitlegvideo-artikel-6-grondwet"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid/BZK video transcript on artikel 6: 'Hiernaast houdt dit grondrecht ook in dat je van godsdienst mag veranderen en dat je het recht hebt geen godsdienst aan te hangen.' Key C (Hijzelf). The family and the gemeente do not decide for an adult of 25. 007 godsdienstvrijheid asks whether law or religious rule comes first."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A 25-year-old man wants to change religion and the question asks who decides.",
+        "communicative_purpose": "The learner leaves knowing that article 6 lets a person choose and change religion, or have none.",
+        "contrivance_check": "Age 25 makes him an adult, so no question about minors arises; the man alone on a bench with a notebook shows a quiet decision, not a religion. No invented conflict is needed.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch111-geweld-thuis:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Institution question where the burgemeester is a tempting wrong option; comparable to the official items on rights and police or court. Wording is heavier than average (Openbaar Ministerie).",
+      "evidence": {
+        "quote": "Het Openbaar Ministerie kan de dader voor de rechter brengen",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/huiselijk-geweld/huisverbod-en-straf"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid 'Tijdelijk huisverbod en straf huiselijk geweld': 'Het Openbaar Ministerie (OM) kan plegers van huiselijk geweld strafrechtelijk vervolgen en berechten.' and 'Wanneer er geen aangifte is gedaan, wordt er zoveel mogelijk bewijs verzameld om de zaak ambtshalve te vervolgen.' Key C. The burgemeester imposes a huisverbod but does not take anyone to court; a huisarts does not either."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A man uses violence against his partner and the question asks who can take him to court.",
+        "communicative_purpose": "The learner leaves knowing that domestic violence is a crime and the OM can prosecute even without a report by the victim.",
+        "contrivance_check": "No people in the drawing, only a house at dusk; the question is factual and the card is calm. Remaining risk: the term Openbaar Ministerie is unknown to many learners, which is the tested term.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch111-donor-vanaf-12:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Direct number question with one stated threshold; options are three ages. Comparable to official 'vanaf welke leeftijd' items.",
+      "evidence": {
+        "quote": "Vanaf 12 jaar kunnen kinderen zelf een keuze invullen in het Donorregister.",
+        "sources": [
+          "https://www.donorregister.nl/uitleg-over-het-donorregister"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "donorregister.nl: 'Kinderen jonger dan 12 jaar mogen niet kiezen over orgaan- en weefseldonatie. Dat doen hun ouders. Vanaf 12 jaar kunnen kinderen een keuze invullen.' Key B (12). 10 and 21 are not thresholds; 18 is real (everyone in the register) and is deliberately not offered. Re-check yearly."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "No persona: a direct question about the age from which a child can fill in the Donorregister.",
+        "communicative_purpose": "The learner leaves knowing that children choose themselves from 12 and parents choose for younger ones.",
+        "contrivance_check": "The picture of a girl with glasses and a woman with blank paper is a neutral family scene; the reviewer removed the age from the brief so it does not cue 12.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch111-zelfbeschikking-werk:1",
+      "verdict": "pass",
+      "level": "easier",
+      "level_reason": "Plain persona question on a general principle; the family and partner options are clearly not the decider. Easier than the official zelfbeschikking items, which also concern forced marriage.",
+      "evidence": {
+        "quote": "Een vrouw in Nederland mag werken",
+        "sources": [
+          "https://www.rijksoverheid.nl/actueel/nieuws/2025/06/30/inburgeringsexamen-vernieuwd-extra-aandacht-voor-zelfbeschikking-vrouwen-en-kennis-holocaust"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid news 30-06-2025, staatssecretaris Nobel: 'Het is noodzakelijk dat nieuwkomers leren dat je in Nederland als vrouw mag werken en je eigen leven mag inrichten.' and 'het zelfbeschikkingsrecht van vrouwen'. Key A (zijzelf). Family and partner do not decide for an adult woman. The source is a news item with a quote of the minister, the page that names the fact most plainly."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A 24-year-old woman wants to start work and the question asks who decides.",
+        "communicative_purpose": "The learner leaves knowing that a woman in the Netherlands decides herself about working.",
+        "contrivance_check": "Age 24 makes her an adult; the woman walking past a bicycle shop with a bag shows the setting. The question does not mention coercion, so it differs from 007 zelfbeschikking (forced marriage).",
+        "unsupported_assumptions": []
+      }
+    }
+  ],
+  "media_notes": "Pictures not drawn yet. One brief changed: kinderrechter now an empty child's room (a courthouse cued the key). donor-vanaf-12 brief no longer names an age. aansprakelijk-12 brief shows a girl of seventeen; the id still says 12. Alts reveal no key. No question audio exists yet; generate it with --keys for the 13 items.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Check yearly: VVE age range and hours (hours not used), Donorregister ages, kerndoelen (being revised), kinderbescherming (Staatscommissie since 1 April 2026), zelfbeschikking source is a 2025 news item.",
+    "The 14-15 liability rule is deliberately not asked; the card names only the under-14 and 16-plus rules.",
+    "Eindterm mappings checked against docs/research/knm-coverage-2026-11-22.md, not re-read in the Regeling inburgering 2021.",
+    "Pictures not inspected; sources outside rijksoverheid.nl and donorregister.nl not needed."
+  ]
+}

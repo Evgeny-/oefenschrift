@@ -1,0 +1,671 @@
+{
+ "review_id": "113-a2-reading-2026-11-22",
+ "source": "content/batches/113-original.json",
+ "proposed_source": "content/batches/113-proposed.json",
+ "source_sha256": "c8a2acd03e6ce6116a04b93637ec80a8ba0a6558370d24f54ba6ebdc25d8352e",
+ "review_type": "independent AI editorial review of 12 new A2 reading items (bericht, email, brief, regels, krant, folder)",
+ "rubric": "content/reviews/rubric.md",
+ "reviewed_at": "2026-11-22T13:15:57Z",
+ "review_contract_version": 2,
+ "reviewer": "Independent AI reviewer (Sonnet) working in a separate context from the batch author; blind packet findings were written before any answer material was opened.",
+ "meaning_first": {
+  "verdict": "pass",
+  "review_order": "source-before-questions",
+  "packet_sha256": "712cc2c3219964f62258abad07513977484960bbc108992c772f5fb0ab52a2c6",
+  "independence_note": "Blind findings per item were written to content/reviews/113-review.md from the source-only packet (initial packet hash 85dbafa9be7aef64b55eb2094b6a5535d8b7b77e02461074f4f4bedeab011de7) before questions, options, keys, notes or the plan assignment were opened. After the repairs the packet was rebuilt from the proposed bytes and the changed items were re-read.",
+  "initial_packet_sha256": "85dbafa9be7aef64b55eb2094b6a5535d8b7b77e02461074f4f4bedeab011de7"
+ },
+ "tone_balance": {
+  "ordinary": 11,
+  "light_humor": 1,
+  "target_share": 0.15,
+  "scope_note": "One lightly humorous item (luizen-controle) and eleven ordinary ones; small-batch cap ceil(12 x 0.15) = 2. The coordinator checks the combined A2 count."
+ },
+ "batch_verdict": "pass",
+ "ready_for_integration": true,
+ "counts": {
+  "pass": 12,
+  "edited_by_reviewer": 10,
+  "revise": 0,
+  "reject": 0
+ },
+ "edits": [
+  {
+   "id": "A2:reading:batch113-salaris-later:1",
+   "field": "text",
+   "before": "Wij halen die 400 euro later van uw salaris af.",
+   "after": "Uw salaris van maart is dan 400 euro lager.",
+   "reason": "Idiom 'van het salaris afhalen' is above A2; plain statement of the consequence."
+  },
+  {
+   "id": "A2:reading:batch113-luizen-controle:1",
+   "field": "text",
+   "before": "Dan belt de juf dezelfde dag met de ouder van het kind. Koop dan shampoo bij de drogist.",
+   "after": "Dan belt de juf dezelfde dag met de ouder van het kind. Het kind gaat naar huis. Koop dan een speciale shampoo bij de drogist.",
+   "reason": "The text never said the child is sent home, yet the key relies on 'weer naar school de volgende dag'; shampoo type made clear."
+  },
+  {
+   "id": "A2:reading:batch113-kinderkaart:1",
+   "field": "q1.evidence",
+   "before": "Daarna betaalt uw kind de gewone prijs.",
+   "after": "De kaart is geldig tot de twaalfde verjaardag van uw kind. Daarna betaalt uw kind de gewone prijs.",
+   "reason": "Evidence must entail the key: 'Daarna' needs the preceding sentence."
+  },
+  {
+   "id": "A2:reading:batch113-garantie-koffiemachine:1",
+   "field": "text",
+   "before": "U schrijft ook dat het glas van de machine een keer is gevallen en kapot is.",
+   "after": "U schrijft ook dat u het glas van de machine een keer hebt laten vallen. Het glas is nu kapot.",
+   "reason": "Natural wording; matches question q3 ('laten vallen')."
+  },
+  {
+   "id": "A2:reading:batch113-garantie-koffiemachine:1",
+   "field": "q1.evidence",
+   "before": "Kom naar onze winkel op het Kerkplein.",
+   "after": "Wat moet u doen? Kom naar onze winkel op het Kerkplein.",
+   "reason": "Purpose key needs the 'what must you do' sentence, not only the address."
+  },
+  {
+   "id": "A2:reading:batch113-garantie-koffiemachine:1",
+   "field": "q1.optC",
+   "before": "Zij vraagt geld voor een nieuw glas.",
+   "after": "Zij zegt dat een nieuw glas gratis is.",
+   "reason": "The original C is partly true (Aisha pays for the glass), so it was defensible; the new C is clearly false."
+  },
+  {
+   "id": "A2:reading:batch113-werkplein-afspraak:1",
+   "field": "title, situation, text, q2.evidence, q2.explanation",
+   "before": "Werkplein Zuid",
+   "after": "Werkplein Zandhoek",
+   "reason": "'Werkplein Zuid' is a real name (DWI Werkplein Zuid in Amsterdam, Werkplein Zuid-Oost Drenthe in Emmen). 'Werkplein Zandhoek' returned no organisation."
+  },
+  {
+   "id": "A2:reading:batch113-werkplein-afspraak:1",
+   "field": "q3.optA",
+   "before": "Hij praat nog met de adviseur.",
+   "after": "Hij praat nog een uur met de adviseur.",
+   "reason": "Anchored in 'duurt ongeveer een uur'; clearly false for a late arrival."
+  },
+  {
+   "id": "A2:reading:batch113-werkplein-afspraak:1",
+   "field": "q3.optC",
+   "before": "Hij praat tien minuten met de adviseur.",
+   "after": "Hij praat korter met de adviseur.",
+   "reason": "Option C was weakly anchored (coordinator doubt); now a plausible misreading of the lateness rule."
+  },
+  {
+   "id": "A2:reading:batch113-werkplein-afspraak:1",
+   "field": "q3.explanation",
+   "before": "Dat is meer dan vijftien minuten, dus krijgt hij een nieuwe afspraak.",
+   "after": "Dat is meer dan vijftien minuten, dus krijgt hij een nieuwe afspraak. Hij praat dan niet korter en ook niet een uur.",
+   "reason": "Explain the new distractors."
+  },
+  {
+   "id": "A2:reading:batch113-geluid-klacht:1",
+   "field": "text",
+   "before": "Wij hebben een melding van uw buren gekregen. Zij horen",
+   "after": "Uw buren hebben ons gebeld. Zij horen",
+   "reason": "'melding' is B1; plain verb."
+  },
+  {
+   "id": "A2:reading:batch113-geluid-klacht:1",
+   "field": "text",
+   "before": "Gaat de muziek door? Dan krijgt u een tweede brief.",
+   "after": "Is er weer harde muziek? Dan krijgt u een tweede brief.",
+   "reason": "'doorgaan' idiom replaced by plain wording."
+  },
+  {
+   "id": "A2:reading:batch113-geluid-klacht:1",
+   "field": "q2.optA",
+   "before": "Hij heeft al een tweede brief gehad.",
+   "after": "Hij krijgt een boete voor de harde muziek.",
+   "reason": "Option B (Anton heard the neighbours' music) was not a reason for the letter and not anchored; A now anchored in 'nog geen boete'."
+  },
+  {
+   "id": "A2:reading:batch113-geluid-klacht:1",
+   "field": "q2.optB",
+   "before": "Hij heeft muziek van de buren gehoord.",
+   "after": "Hij heeft al een tweede brief gehad.",
+   "reason": "Anchored in 'tweede brief' and clearly false."
+  },
+  {
+   "id": "A2:reading:batch113-geluid-klacht:1",
+   "field": "q2.explanation",
+   "before": "De verhuurder heeft een melding van de buren gekregen en wil met Anton praten. De tweede brief komt alleen als de muziek doorgaat. De buren horen de muziek, Anton hoort die niet van hen.",
+   "after": "De verhuurder heeft van de buren gehoord over harde muziek en wil met Anton praten. Het is nog geen boete. De tweede brief komt alleen als er weer harde muziek is.",
+   "reason": "Matches new options and text."
+  },
+  {
+   "id": "A2:reading:batch113-school-geld:1",
+   "field": "text",
+   "before": "Maak het geld over op de rekening van de school.",
+   "after": "Betaal op de rekening van de school.",
+   "reason": "'overmaken' avoided."
+  },
+  {
+   "id": "A2:reading:batch113-school-geld:1",
+   "field": "q2.optC",
+   "before": "Kinderen zonder geld blijven thuis.",
+   "after": "De school vraagt elke maand geld.",
+   "reason": "Old C was the negation of q3's key and leaked it; new C is anchored in 'elk jaar'."
+  },
+  {
+   "id": "A2:reading:batch113-school-geld:1",
+   "field": "q3.prompt",
+   "before": "Mirela betaalt de 40 euro niet.",
+   "after": "Mirela betaalt het geld niet.",
+   "reason": "'de 40 euro' is per child; avoids ambiguity."
+  },
+  {
+   "id": "A2:reading:batch113-fietsenschuur-regels:1",
+   "field": "text",
+   "before": "Bedankt voor uw hulp!\nDe huismeester",
+   "after": "Bedankt voor uw hulp!\nDe verhuurder",
+   "reason": "The text refers to 'de huismeester' in the third person, so he cannot sign it."
+  },
+  {
+   "id": "A2:reading:batch113-fietsenschuur-regels:1",
+   "field": "q2.optC",
+   "before": "Liam moet de fiets repareren.",
+   "after": "De huismeester doet er een kaartje op.",
+   "reason": "Old C was implausible; new C is a plausible misreading of the caretaker's role."
+  },
+  {
+   "id": "A2:reading:batch113-fietsenschuur-regels:1",
+   "field": "q2.explanation",
+   "before": "Na maandag 29 maart nemen zij fietsen zonder kaartje mee. Dinsdag 30 maart is na maandag 29 maart. Van repareren staat alleen dat het niet in de schuur mag.",
+   "after": "Na maandag 29 maart nemen zij fietsen zonder kaartje mee. Dinsdag 30 maart is na maandag 29 maart. De huismeester geeft de kaartjes aan de bewoners. Hij doet ze niet zelf op de fiets.",
+   "reason": "Matches new C."
+  },
+  {
+   "id": "A2:reading:batch113-griepprik:1",
+   "field": "text",
+   "before": "Mensen met een longziekte of een hartziekte krijgen ook een uitnodiging.",
+   "after": "Sommige mensen met een ziekte krijgen ook een uitnodiging, bijvoorbeeld mensen met een hartziekte.",
+   "reason": "'longziekte' is not A2; the statement stays true to the RIVM groups and does not claim the list is complete."
+  },
+  {
+   "id": "A2:reading:batch113-griepprik:1",
+   "field": "q1.prompt",
+   "before": "Liam is 63 jaar. Hij werkt op dinsdagochtend en op donderdagmiddag. Welke tijd past bij hem voor de prik?",
+   "after": "Liam is 63 jaar. Hij werkt op dinsdag de hele dag. Op donderdag werkt hij tot 12.00 uur. Welke tijd past bij hem voor de prik?",
+   "reason": "Coordinator note: the old persona also fitted Tuesday 14.00-16.00. Now exactly one stated slot (Thursday 14.00-16.00) fits."
+  },
+  {
+   "id": "A2:reading:batch113-griepprik:1",
+   "field": "q1.options/answer/explanation",
+   "before": "A Di 10.00, B Di 13.00, C Do 10.00 (key), D Do 15.00",
+   "after": "A Di 10.00, B Di 15.00, C Do 10.00, D Do 15.00 (key)",
+   "reason": "Matches the new persona; key moves from C to D."
+  },
+  {
+   "id": "A2:reading:batch113-griepprik:1",
+   "field": "q2 prompt/options/explanation",
+   "before": "Liam krijgt om half tien de prik. Wanneer mag hij weg? (Na een kwartier / Meteen na de prik / Om 12.00 uur)",
+   "after": "Liam krijgt om 14.30 uur de prik. Hoe laat mag hij weg?",
+   "reason": "'Half tien' clashed with the new persona and added nothing; the time sum makes the question more than a copy of the sentence."
+  },
+  {
+   "id": "A2:reading:batch113-wijkteam:1",
+   "field": "text",
+   "before": "Bellen kan ook. Wij zijn bereikbaar op werkdagen van 9.00 tot 17.00 uur: 0345 27 61 00.",
+   "after": "Bellen kan ook. U kunt ons bellen op werkdagen van 9.00 tot 17.00 uur: 0345 27 61 00.",
+   "reason": "'bereikbaar' is B1."
+  },
+  {
+   "id": "A2:reading:batch113-wijkteam:1",
+   "field": "text",
+   "before": "Bel ons dan.",
+   "after": "Zeg dat dan aan de telefoon.",
+   "reason": "Avoids repeating 'bel ons'."
+  },
+  {
+   "id": "A2:reading:batch113-school-geld:1",
+   "field": "text",
+   "before": "(99 words)",
+   "after": "added 'Hebt u een vraag? Vraag het dan aan de juf van uw kind.'",
+   "reason": "Text had 99 words; blueprint asks 100-250."
+  }
+ ],
+ "rejected": [],
+ "checks": {
+  "batch_check": {
+   "command": "npx tsx scripts/batch-check.ts content/batches/113-proposed.json",
+   "result": "Checked 12 items, 30 questions. Keys A8 B8 C7 D7; 18 three-option and 12 four-option questions; no failures; 19 warnings reviewed (compounds judged transparent; sentence-length warnings are table, list or heading merges)."
+  },
+  "word_gate": "Replaced B1 words and idioms: 'melding', 'doorgaan', 'bereikbaar', 'longziekte', 'van het salaris afhalen', 'overmaken'. Remaining unlisted words in texts: afvalpunt (explained by 'oude spullen ... naar het afvalpunt'), betaalsysteem (explained by 'probleem ... daarom later'), luizen and shampoo (explained by 'kleine beestjes in het haar' and 'na het wassen'), woonstichting (sender name only). Hardest listed words in context: garantie and 'onder de garantie vallen' (explained by the following sentence), verwarming, loonstrook, uitjes; no key depends on an unlisted word.",
+  "calendar": "25 Dec 2026 Friday, 24 and 31 Dec Thursday, 30 Dec Wednesday; 1 Jan 2027 Friday; 3 and 17 Mar Wednesday; 25 Mar Thursday, 26 Mar Friday, 1 Apr Thursday; 22 Feb and 8 Mar Monday, 9 Mar Tuesday; 23 Jan, 30 Jan, 6 Feb Saturday; 29 Mar Monday, 30 Mar Tuesday; 5 Jul and 2 Aug Monday (four weeks apart); 5 Oct Tuesday, 7 Oct Thursday 2027; all verified.",
+  "invented_names": "WebSearch found nothing for Woonstichting Beukenhof, Huisartsenpraktijk Wilgenhof, Wijkteam Berkenhof, Huisgoed Hoekstee, Lindehoek Streekvervoer or Werkplein Zandhoek. 'Werkplein Zuid' was real (DWI Werkplein Zuid in Amsterdam, Werkplein Zuid-Oost Drenthe in Emmen) and was replaced.",
+  "griepprik_fact_check": "RIVM, rivm.nl/griep-griepprik/griepprik/voor-wie-is-griepprik, opened 22 Nov 2026: invited via the GP are people aged 60 and older (also those who turn 60 before 1 May) and people with a lung disease or a heart condition; the shot is free. The text says 60 and older, some people with an illness such as a heart disease, free, invitation; the walk-in days and documents are the practice's own.",
+  "coordinator_doubts": "Item 11 q1: persona now makes exactly one stated slot fit (Thursday 15.00). Item 6 q3: weak option C replaced. Item 1 q2: 'oude spullen wegbrengen' links directly to 'Hebt u oude spullen? Die brengt u naar het afvalpunt.', so no change. Item 6: name replaced as above.",
+  "key_balance": "A 8, B 8, C 7, D 7 (27/27/23/23%); no key three times in a row; persona question in every text; purpose questions in five texts (items 2, 5, 6, 7, 8)."
+ },
+ "diversity": {
+  "within_batch": "Six task types, seven domains; three money/date notices (salaris, school-geld, kinderkaart) differ in structure (delay with advance, voluntary payment, age rule); two regels items differ in domain.",
+  "catalogue": "No slug or premise clash found in the proposal; the afval item (holiday collection days) and the other items are new premises."
+ },
+ "items": [
+  {
+   "id": "A2:reading:batch113-afval-feestdagen:1",
+   "verdict": "pass",
+   "level": {
+    "target": "A2 reading, bericht",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Bericht of about 140 words in short lines; the persona question needs a holiday shift (Friday to Saturday) and the second a closed-days list; comparable to batch021-weekmarkt.",
+   "evidence": {
+    "questions": {
+     "q1": "Key B: 'Wij halen het papier dan op zaterdag 26 december op.' A is the normal Friday that is a holiday, C is the plastic replacement day.",
+     "q2": "Key C: 'Op woensdag 30 december is het afvalpunt open van 9.00 tot 16.00 uur.' A and B are listed as closed, D (31 December) is closed although the green container is collected."
+    },
+    "option_counts": [
+     3,
+     4
+    ],
+    "keys": [
+     "B",
+     "C"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "The council moves paper and plastic pick-up to the Saturday after the Friday holidays 25 December and 1 January, keeps the green container on Thursdays, and says the drop-off point is open only on Wednesday 30 December.",
+    "communicative_purpose": "Residents learn on which day each container is emptied and when old things can be taken to the drop-off point.",
+    "contrivance_check": "Holiday shifts and closed days are the real content of such a municipal notice; the drop-off point sentence explains the one harder word.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch113-salaris-later:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, bericht",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Bericht of about 115 words; three questions each find one date among four (25 March, 26 March, 1 April); similar load to batch088 work notices.",
+   "evidence": {
+    "questions": {
+     "q1": "Key C: 'Dat kan tot en met vrijdag 26 maart.' A and B are the new and the old pay day.",
+     "q2": "Key D: 'Daarom betalen wij het salaris van maart later.' A reverses the month, B the payslip (which is fine), C the optional advance.",
+     "q3": "Key A: 'Uw loonstrook staat wel op donderdag 25 maart in de app.' B contradicts 'niet op donderdag 25 maart', C is the April pay."
+    },
+    "option_counts": [
+     3,
+     4,
+     3
+    ],
+    "keys": [
+     "C",
+     "D",
+     "A"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "An employer tells all staff that a payment-system fault delays the March salary from Thursday 25 March to Thursday 1 April, that the payslip is still online on the 25th, and that an advance of 400 euro can be requested until Friday 26 March and is taken off the March salary.",
+    "communicative_purpose": "Employees know when the money arrives and what to do if the rent is due earlier.",
+    "contrivance_check": "The delay has a stated cause, the advance serves the rent problem it creates, and the April reassurance closes the loop.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch113-luizen-controle:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, bericht",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Bericht of about 135 words with a rule per sentence; the learner applies two rules (hair loose and dry; back to school the next day). 'luizen' and 'shampoo' are explained by 'kleine beestjes in het haar' and 'na het wassen'. Comparable to school-letter items.",
+   "evidence": {
+    "questions": {
+     "q1": "Key B: 'Het haar moet los en droog zijn.' A is the habit stated in the prompt, C the forbidden gel, D contradicts 'droog'.",
+     "q2": "Key A: 'Na het wassen mag het kind de volgende dag weer naar school.' B is the phone call day, C the second check two weeks later."
+    },
+    "option_counts": [
+     4,
+     3
+    ],
+    "keys": [
+     "B",
+     "A"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 4,
+    "tone": "light-humor",
+    "situation_summary": "A teacher announces a head-lice check on 3 March in the hall and again on 17 March, asks for loose dry hair without gel, and explains that if lice are found the parent is called, the child goes home, is washed with special shampoo and may return the next day.",
+    "communicative_purpose": "Parents prepare their children's hair and know what happens if lice are found.",
+    "contrivance_check": "The reassurance 'luizen komen op elke school' is the stated reason for the calm tone; the second check follows from lice spreading.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch113-kinderkaart:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, email",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Email of about 135 words with an age range, a free group and a validity rule; both persona questions need the age boundaries. Comparable to existing fare items.",
+   "evidence": {
+    "questions": {
+     "q1": "Key D: 'De kaart is geldig tot de twaalfde verjaardag van uw kind. Daarna betaalt uw kind de gewone prijs.' A is the under-4 rule, B the half price, C the card price.",
+     "q2": "Key B: ages 4 to 11 need a card, under 4 travel free without one; so only the 8-year-old daughter. A is the free 3-year-old, C both."
+    },
+    "option_counts": [
+     4,
+     3
+    ],
+    "keys": [
+     "D",
+     "B"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A regional bus company answers a parent's question: children aged 4 to 11 pay half price with a 5-euro kinderkaart applied for online with a photo, under 4 travel free, and the card ends at the twelfth birthday.",
+    "communicative_purpose": "A parent learns which child needs a card, what it costs and when it stops.",
+    "contrivance_check": "The email answers a question the parent asked, and every price and age is needed for the two persona questions.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch113-garantie-koffiemachine:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, email",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Email of about 160 words; the learner separates what the guarantee covers (heating) from what it does not (dropped glass, wet machine) and what happens if repair fails. Slightly more dense than average but keeps main clauses.",
+   "evidence": {
+    "questions": {
+     "q1": "Key A: 'Wat moet u doen? Kom naar onze winkel op het Kerkplein.' B is false (eight months), C now says the glass is free which the text denies, D is not offered.",
+     "q2": "Key C: 'Kunnen wij de machine niet repareren? Dan krijgt u meteen een nieuwe machine.' A and B use the ten-day repair time.",
+     "q3": "Key B: 'De verwarming valt wel onder de garantie.' A is the broken glass, C the wet machine."
+    },
+    "option_counts": [
+     4,
+     3,
+     3
+    ],
+    "keys": [
+     "A",
+     "C",
+     "B"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A shop's customer service answers Aisha: her coffee machine bought eight months ago no longer heats, the two-year guarantee covers repair or replacement of the heating, but a dropped glass and water damage are excluded; she must bring machine and receipt Tuesday to Saturday.",
+    "communicative_purpose": "Aisha knows she can get a free repair, what is excluded and what to bring.",
+    "contrivance_check": "The text replies to what Aisha wrote (broken heating, dropped glass), so every rule answers a real doubt.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch113-werkplein-afspraak:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, brief",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Brief of about 110 words in short lines; one time-limit question and one lateness rule with a small calculation (10.40 versus 10.20 plus fifteen minutes). Comparable to appointment letters in the bank.",
+   "evidence": {
+    "questions": {
+     "q1": "Key D: 'Bel dan vóór maandag 8 maart om 12.00 uur.' A and B are the appointment times, C reverses 'vóór'.",
+     "q2": "Key A: 'U hebt een afspraak met een adviseur van Werkplein Zandhoek.' B reverses (the cv is brought), C belongs to the lateness rule.",
+     "q3": "Key B: 'Bent u meer dan vijftien minuten te laat? Dan krijgt u een nieuwe afspraak.' 10.40 is twenty minutes after 10.20. A and C describe a conversation that does not take place."
+    },
+    "option_counts": [
+     4,
+     3,
+     3
+    ],
+    "keys": [
+     "D",
+     "A",
+     "B"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A job-service desk writes to Oumar with an appointment on Tuesday 9 March at 10.20 with an adviser about work and cv, asks him to come ten minutes early with ID and cv, to phone before Monday noon if he cannot come, and says that more than fifteen minutes late means a new appointment.",
+    "communicative_purpose": "Oumar knows when and where to be, what to bring and what to do if he cannot come or is late.",
+    "contrivance_check": "Each rule in the letter (early arrival, cancellation deadline, lateness) is a normal instruction of an appointment letter.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch113-geluid-klacht:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, brief",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Brief of about 130 words with a reassuring tone; the rule question needs the right day group (Sunday falls under Sunday to Thursday), a trap for A2 readers. Comparable to batch087 housing letters.",
+   "evidence": {
+    "questions": {
+     "q1": "Key A: 'van zondag tot en met donderdag is het stil na 22.00 uur.' B is the Friday-Saturday time, C the time the music was heard.",
+     "q2": "Key C: 'Wij willen graag met u praten.' A: 'Dit is nog geen boete', B: the second letter only follows 'Is er weer harde muziek?'.",
+     "q3": "Key D: 'Bel op werkdagen tussen 9.00 en 12.00 uur'. A Saturday is no work day, B and C fall outside 9-12."
+    },
+    "option_counts": [
+     3,
+     3,
+     4
+    ],
+    "keys": [
+     "A",
+     "C",
+     "D"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A landlord tells Anton that neighbours phoned about loud music after midnight on three Saturdays, says this is not yet a fine, quotes the house rules for quiet hours, offers a free talk with a volunteer from the neighbourhood and announces a second letter if it happens again.",
+    "communicative_purpose": "Anton learns what is wrong, what the rules are and how to solve it without penalty.",
+    "contrivance_check": "Dates, house rules and the mediation offer all serve one purpose: settle the noise without a fine.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch113-school-geld:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, brief",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Brief of about 105 words; q1 needs a two-step sum (2 x 20), q3 a negation ('betaalt niet, doet toch mee'). Comparable to batch090 school letters.",
+   "evidence": {
+    "questions": {
+     "q1": "Key B: '2. In twee delen: 20 euro vóór 1 oktober en 20 euro vóór 1 februari.' Two children give 40; A is one child, C the whole year for two.",
+     "q2": "Key A: 'Daarvoor vragen wij elk jaar geld.' with feesten and uitjes; B contradicts the free books, C the monthly payment the text does not make.",
+     "q3": "Key D: 'Betaalt u niet? Dan doet uw kind overal gewoon mee.' A, B and C reverse it."
+    },
+    "option_counts": [
+     3,
+     3,
+     4
+    ],
+    "keys": [
+     "B",
+     "A",
+     "D"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A school writes to parents that it asks 40 euro per child per year for parties, trips and extra material, that paying is voluntary and children join everything anyway, that payment can be in one or two parts, and that books are free.",
+    "communicative_purpose": "Parents learn what the contribution is for, how to pay and that not paying has no consequence for the child.",
+    "contrivance_check": "The voluntary nature is a real national fact and the payment options give the sum question a concrete base.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch113-vakantie-regels:1",
+   "verdict": "pass",
+   "level": {
+    "target": "A2 reading, regels",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Regels of about 115 words, six numbered rules; q2 needs a date count of four weeks, otherwise rule lookups. Comparable to existing regels items.",
+   "evidence": {
+    "questions": {
+     "q1": "Key C: 'In juli en augustus mag u niet meer dan twee weken achter elkaar vrij zijn.' A and B add true conditions that do not change the limit.",
+     "q2": "Key A: 'Vraag uw vakantie minstens vier weken voor de eerste vakantiedag aan' and four weeks before Monday 2 August is Monday 5 July. B, C, D are three, two and one week before.",
+     "q3": "Key B: 'Zeg dat dan dezelfde dag tegen de teamleider.' A and C are other timings in the rules."
+    },
+    "option_counts": [
+     3,
+     4,
+     3
+    ],
+    "keys": [
+     "C",
+     "A",
+     "B"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A company sets out how staff request holiday: four weeks ahead in the staff app, answer within five working days, at most two weeks in a row in July and August, at least two colleagues at work, one-day requests a week ahead, and illness during holiday reported the same day.",
+    "communicative_purpose": "Employees plan holiday within the company's limits.",
+    "contrivance_check": "The opening sentence gives the reason (many want summer holiday) and each rule restricts that demand.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch113-fietsenschuur-regels:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, regels",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Regels of about 110 words, two questions; both are direct rule applications with a date (30 March after 29 March). Slightly easier than average, as intended.",
+   "evidence": {
+    "questions": {
+     "q1": "Key C: 'Hebt u meer fietsen? Zet die dan buiten op het fietsenrek.' A would need a third place, B is where the caretaker sits.",
+     "q2": "Key D: 'Fietsen zonder kaartje nemen wij mee na maandag 29 maart.' 30 March is after that day. A reverses, B and C misread the rack and the caretaker's role."
+    },
+    "option_counts": [
+     3,
+     4
+    ],
+    "keys": [
+     "C",
+     "D"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A landlord sets new rules for the bike shed of a flat: two places per home, extra bikes on the outside rack, a tag with the house number from the caretaker on Tuesday 9 to 11, no scooters, no repairs, and bikes without a tag are removed after Monday 29 March.",
+    "communicative_purpose": "Residents keep their bikes in the shed in the right way before the deadline.",
+    "contrivance_check": "Crowding in the shed is the stated reason, and each rule limits it; the caretaker has a fixed hour to hand out tags.",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch113-griepprik:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, krant",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Krant of about 115 words with a two-day, two-slot schedule in prose; q1 now requires combining the persona's work hours with the slots, a common A2 task; q2 is a time sum with a quarter of an hour. Comparable to batch090 medical notices.",
+   "evidence": {
+    "questions": {
+     "q1": "Key D: 'U kunt komen van 9.00 tot 12.00 uur en van 14.00 tot 16.00 uur.' Liam works all Tuesday and Thursday until 12.00, so only Thursday 15.00 fits; Tuesday 15.00 is a work time.",
+     "q2": "Key A: 'Na de prik blijft u nog een kwartier zitten.' 14.30 plus 15 minutes is 14.45; B ignores the wait, C is the end of the session."
+    },
+    "option_counts": [
+     4,
+     3
+    ],
+    "keys": [
+     "D",
+     "A"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A local-paper notice says a GP practice gives the free flu shot in the community centre on Tuesday 5 and Thursday 7 October in two daily slots without appointment, for people aged 60 or over and some people with an illness, who bring their invitation and ID and stay a quarter of an hour.",
+    "communicative_purpose": "Readers who got an invitation learn when to come and what to bring.",
+    "contrivance_check": "Free shot, invitation groups and the waiting time are the usual content of such a notice; the national facts agree with RIVM (checked 22 November 2026).",
+    "unsupported_assumptions": []
+   }
+  },
+  {
+   "id": "A2:reading:batch113-wijkteam:1",
+   "verdict": "pass (edited)",
+   "level": {
+    "target": "A2 reading, folder",
+    "verdict": "comparable",
+    "targetLevelValidated": false
+   },
+   "level_reason": "Folder of about 105 words with a three-row table written as lines; q1 combines work hours with the table, q2 a rule check. Comparable to batch088 folders.",
+   "evidence": {
+    "questions": {
+     "q1": "Key C: 'Donderdag – 18.00 tot 20.00 uur – bibliotheek' is the only walk-in time after 17.00 on a weekday; A and B fall in her work hours, D is before Wednesday 14.00.",
+     "q2": "Key B: 'U hebt geen brief van de huisarts nodig.' A reverses, C turns the optional friend into a condition."
+    },
+    "option_counts": [
+     4,
+     3
+    ],
+    "keys": [
+     "C",
+     "B"
+    ]
+   },
+   "meaning": {
+    "verdict": "pass",
+    "coherence_rating": 5,
+    "tone": "ordinary",
+    "situation_summary": "A neighbourhood team's folder offers free help with money, work, children and housing, a drop-in on Monday, Wednesday and Thursday at two places, phone hours on weekdays and home visits on request, with no doctor's letter needed.",
+    "communicative_purpose": "Residents find out what help exists and when they can walk in or call.",
+    "contrivance_check": "The table of walk-in hours and the phone line are the practical means of reaching the team, so the persona question follows directly.",
+    "unsupported_assumptions": []
+   }
+  }
+ ],
+ "media_notes": {
+  "scope": "Reading items only; no audio or pictures. None of the items carries an image."
+ },
+ "limitations": [
+  "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+  "Prices, hours and organisations are invented; the griepprik national rule was checked on rivm.nl on 22 November 2026 and may change each year.",
+  "Absence of a web result for an invented name is not proof that no such organisation exists."
+ ]
+}

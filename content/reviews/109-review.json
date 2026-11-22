@@ -1,0 +1,648 @@
+{
+  "review_id": "109-a2-knm-batch-b-2026-11-22",
+  "source": "content/batches/109-original.json",
+  "proposed_source": "content/batches/109-proposed.json",
+  "source_sha256": "50245a23639172a84ad109f5dca68e1be39b0af0ebfbbc7dc27951b69509870f",
+  "review_type": "independent AI editorial review of 13 new A2 KNM items (themes 1 and 4), every source page opened on 2026-11-22",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T12:52:47Z",
+  "reviewer": "Independent AI reviewer (Sonnet 5.5), separate from the author agent; AI editorial review, not human validation.",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "3ee0bc54574f100e84277a82737fa1bb921754ff1f115ca065bb86eaf3fc9d20",
+    "independence_note": "The blind packet of the author file (hash 755f0685...7c8) was read first, with the brief, rubric and blueprint sections, and per-item findings were written to content/reviews/109-review.md before the options, keys, notes or plan assignment were opened. After the repairs the packet was rebuilt from the proposed bytes (hash 3ee0bc54...d20) and the changed cards and prompts were read again as plain messages; all thirteen still pass."
+  },
+  "tone_balance": {
+    "ordinary": 13,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All thirteen are ordinary civic-fact scenes (work, health care, debt help); KNM items are never jokes, so the batch adds no light humour and the coordinator checks the combined program count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 1,
+    "edited_by_reviewer": 12,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:knm:batch109-vakbond-cao:1",
+      "field": "text",
+      "before": "Een cao sluiten werkgevers of hun organisaties af met werknemersorganisaties. Dat zijn meestal vakbonden. Vakbonden praten dus namens de werknemers mee over loon en andere afspraken.",
+      "after": "Werkgevers of hun organisaties sluiten een cao af met werknemersorganisaties. Dat zijn meestal vakbonden. Vakbonden praten dus voor de werknemers mee over loon en andere afspraken.",
+      "reason": "Normal word order instead of the object-first 'Een cao sluiten ... af'; 'namens' replaced by 'voor'. Evidence kept."
+    },
+    {
+      "id": "A2:knm:batch109-vakbond-cao:1",
+      "field": "explanation",
+      "before": "Een cao wordt afgesloten door werkgevers of werkgeversorganisaties en werknemersorganisaties. Dat zijn meestal vakbonden. De ondernemingsraad praat mee binnen één bedrijf, maar sluit geen cao af. Het UWV regelt uitkeringen en is geen partij bij een cao.",
+      "after": "Een cao wordt afgesloten door werkgevers of hun organisaties en door werknemersorganisaties. Dat zijn meestal vakbonden. De ondernemingsraad praat mee binnen één bedrijf, maar sluit geen cao af. Het UWV regelt uitkeringen en sluit geen cao af.",
+      "reason": "Plainer wording; the UWV rationale now says why it is false in the same words as the OR line."
+    },
+    {
+      "id": "A2:knm:batch109-ww-premie-werkgever:1",
+      "field": "prompt",
+      "before": "Mohammed werkt in loondienst. Wie betaalt volgens de regel de WW-premie voor hem aan de Belastingdienst?",
+      "after": "Mohammed heeft een baan bij een bouwbedrijf. Wie betaalt volgens de regel de WW-premie voor hem aan de Belastingdienst?",
+      "reason": "'In loondienst' is B1 and 'werkt' echoed the key 'werkgever'; the picture shows a building site, so the sentence now matches it."
+    },
+    {
+      "id": "A2:knm:batch109-ww-premie-werkgever:1",
+      "field": "explanation",
+      "before": "Mohammed werkt in loondienst. De regel is dat zijn werkgever de premies voor de werknemersverzekeringen, zoals de WW, aan de Belastingdienst betaalt. Mohammed betaalt deze premie volgens de regel niet zelf. Het UWV betaalt de WW-uitkering aan mensen die werkloos zijn, maar niet de premie voor een werknemer.",
+      "after": "Mohammed heeft een baan bij een bouwbedrijf. De regel is dat zijn werkgever de WW-premie aan de Belastingdienst betaalt. Mohammed betaalt deze premie volgens de regel niet zelf. Het UWV betaalt de WW-uitkering aan mensen zonder werk, maar niet de premie voor een werknemer.",
+      "reason": "Follows the new prompt; plain words."
+    },
+    {
+      "id": "A2:knm:batch109-discriminatie-vakbond:1",
+      "field": "text",
+      "before": "Voelt u zich gediscrimineerd op het werk? Dan kunt u juridisch advies vragen, bijvoorbeeld bij het Juridisch Loket of bij uw vakbond.",
+      "after": "Voelt u zich gediscrimineerd op het werk? Dan kunt u advies over uw rechten vragen, bijvoorbeeld bij het Juridisch Loket of bij uw vakbond.",
+      "reason": "'Juridisch advies' is a B1 phrase; 'advies over uw rechten' says the same. Evidence quote unchanged."
+    },
+    {
+      "id": "A2:knm:batch109-discriminatie-vakbond:1",
+      "field": "prompt",
+      "before": "Bilal denkt dat hij op zijn werk wordt gediscrimineerd. Bij wie kan hij juridisch advies vragen?",
+      "after": "Bilal denkt dat hij op zijn werk wordt gediscrimineerd. Bij wie kan hij advies over zijn rechten vragen?",
+      "reason": "Matches the card."
+    },
+    {
+      "id": "A2:knm:batch109-discriminatie-vakbond:1",
+      "field": "optionC",
+      "before": "Bij zijn vakbond.",
+      "after": "Bij een vakbond.",
+      "reason": "The key was the only option with a possessive ('zijn vakbond') that echoed the prompt ('zijn werk'); all options now start 'Bij de/een' without a possessive."
+    },
+    {
+      "id": "A2:knm:batch109-discriminatie-vakbond:1",
+      "field": "explanation",
+      "before": "Bij discriminatie op het werk kunt u juridisch advies vragen bij het Juridisch Loket of bij uw vakbond. De Belastingdienst int belasting en de Kamer van Koophandel schrijft bedrijven in. Zij geven geen juridisch advies over discriminatie.",
+      "after": "Bij discriminatie op het werk kunt u advies over uw rechten vragen bij het Juridisch Loket of bij uw vakbond. De Belastingdienst int belasting en de Kamer van Koophandel schrijft bedrijven in. Zij geven geen advies over discriminatie.",
+      "reason": "Plain words; follows the card."
+    },
+    {
+      "id": "A2:knm:batch109-zzp-pensioen:1",
+      "field": "text",
+      "before": "Een zzp'er werkt voor zichzelf en heeft recht op AOW. Extra pensioen naast de AOW kan een zzp'er zelf regelen, bijvoorbeeld met een lijfrente.",
+      "after": "Een zzp'er werkt voor zichzelf en heeft recht op AOW. Extra pensioen naast de AOW kan een zzp'er zelf regelen. Bijvoorbeeld bij een bank.",
+      "reason": "'Lijfrente' is a hard word that no question needs; the page also names a bank or insurer. Evidence quote unchanged."
+    },
+    {
+      "id": "A2:knm:batch109-zzp-pensioen:1",
+      "field": "optionB",
+      "before": "Haar opdrachtgever.",
+      "after": "Haar klant.",
+      "reason": "'Opdrachtgever' is above A2; 'klant' is the plain word and is equally false (a client is not an employer)."
+    },
+    {
+      "id": "A2:knm:batch109-zzp-pensioen:1",
+      "field": "explanation",
+      "before": "Een zzp'er heeft recht op AOW. Voor extra pensioen daarnaast kiest de zzp'er zelf een regeling, bijvoorbeeld een lijfrente. Een opdrachtgever is geen werkgever en hoeft dat pensioen niet te regelen. De gemeente heeft hier geen taak.",
+      "after": "Een zzp'er heeft recht op AOW. Voor extra pensioen daarnaast kiest de zzp'er zelf een regeling, bijvoorbeeld bij een bank. Een klant is geen werkgever en hoeft dat pensioen niet te regelen. De gemeente heeft hier geen taak.",
+      "reason": "Follows the card and option B."
+    },
+    {
+      "id": "A2:knm:batch109-huisarts-rekening:1",
+      "field": "text",
+      "before": "De huisarts stuurt de rekening rechtstreeks naar uw zorgverzekeraar. Uw zorgverzekeraar betaalt rechtstreeks de rekening van uw huisarts.",
+      "after": "De huisarts stuurt de rekening direct naar uw zorgverzekeraar. Uw zorgverzekeraar betaalt de rekening van uw huisarts.",
+      "reason": "'Rechtstreeks' (B1) replaced by 'direct', the word the page uses elsewhere; the first sentence now carries the tested fact."
+    },
+    {
+      "id": "A2:knm:batch109-huisarts-rekening:1",
+      "field": "evidence",
+      "before": "Uw zorgverzekeraar betaalt rechtstreeks de rekening van uw huisarts",
+      "after": "De huisarts stuurt de rekening direct naar uw zorgverzekeraar",
+      "reason": "The question asks where the bill goes, so the evidence is the sentence that says it."
+    },
+    {
+      "id": "A2:knm:batch109-huisarts-rekening:1",
+      "field": "explanation",
+      "before": "De huisarts stuurt de rekening naar de zorgverzekeraar. De zorgverzekeraar betaalt de rekening van de huisarts rechtstreeks. Kofi krijgt voor dit bezoek dus geen rekening thuis. De gemeente betaalt geen zorg van de huisarts.",
+      "after": "De huisarts stuurt de rekening direct naar de zorgverzekeraar. De zorgverzekeraar betaalt de rekening van de huisarts. Kofi krijgt voor dit bezoek dus geen rekening thuis. De gemeente betaalt geen zorg van de huisarts.",
+      "reason": "Follows the card."
+    },
+    {
+      "id": "A2:knm:batch109-nota-zorgverlener:1",
+      "field": "text",
+      "before": "Een rekening rechtstreeks van een zorgverlener, zoals een fysiotherapeut? Stel uw vraag dan aan die zorgverlener. Een rekening in 'mijn omgeving' van uw verzekeraar? Vraag het dan aan de verzekeraar.",
+      "after": "Krijgt u een rekening direct van een zorgverlener, zoals een fysiotherapeut? Stel uw vraag dan aan die zorgverlener. Staat de rekening online bij uw verzekeraar? Vraag het aan de verzekeraar.",
+      "reason": "'Mijn omgeving' is a portal name no A2 learner knows; replaced by 'online bij uw verzekeraar'. 30 words. Evidence quote unchanged."
+    },
+    {
+      "id": "A2:knm:batch109-nota-zorgverlener:1",
+      "field": "prompt",
+      "before": "Mariam krijgt een rekening rechtstreeks van haar fysiotherapeut. Zij begrijpt een bedrag niet. Bij wie kan zij daarmee terecht?",
+      "after": "Mariam krijgt een rekening direct van haar fysiotherapeut. Zij begrijpt een bedrag niet. Aan wie stelt zij haar vraag?",
+      "reason": "'Rechtstreeks' replaced by 'direct'; the question now mirrors the card ('Stel uw vraag ... aan')."
+    },
+    {
+      "id": "A2:knm:batch109-nota-zorgverlener:1",
+      "field": "optionA",
+      "before": "Bij de gemeente.",
+      "after": "Aan de zorgverzekeraar.",
+      "reason": "Replaces 'Bij de gemeente'. The key repeated 'fysiotherapeut' from the prompt and the two other options were absurd, so the key was found by repetition. The insurer is the real confusion (the card contrasts the two kinds of bill) and is false for a bill that comes directly from the provider."
+    },
+    {
+      "id": "A2:knm:batch109-nota-zorgverlener:1",
+      "field": "optionB",
+      "before": "Bij de Belastingdienst.",
+      "after": "Aan haar huisarts.",
+      "reason": "Replaces 'Bij de Belastingdienst' with a plausible care provider who did not send the bill; false."
+    },
+    {
+      "id": "A2:knm:batch109-nota-zorgverlener:1",
+      "field": "optionC",
+      "before": "Bij de fysiotherapeut.",
+      "after": "Aan de fysiotherapeut.",
+      "reason": "Key moved to C to keep the letters balanced; wording follows the new prompt."
+    },
+    {
+      "id": "A2:knm:batch109-nota-zorgverlener:1",
+      "field": "explanation",
+      "before": "Mariam heeft de rekening rechtstreeks van haar fysiotherapeut gekregen. Dan stelt zij haar vraag aan de fysiotherapeut. Alleen bij een rekening in 'mijn omgeving' van de zorgverzekeraar gaat de vraag naar de verzekeraar. De gemeente en de Belastingdienst kennen de rekening niet.",
+      "after": "Mariam heeft de rekening direct van haar fysiotherapeut gekregen. Dan stelt zij haar vraag aan de fysiotherapeut. Alleen een rekening die online bij de verzekeraar staat, bespreekt zij met de verzekeraar. Haar huisarts heeft de rekening niet gestuurd.",
+      "reason": "Follows the new options."
+    },
+    {
+      "id": "A2:knm:batch109-drogist-zonder-recept:1",
+      "field": "optionB",
+      "before": "Bij het consultatiebureau.",
+      "after": "Bij de tandarts.",
+      "reason": "'Consultatiebureau' is a hard word that is not the subject of the question; replaced by a plain health place."
+    },
+    {
+      "id": "A2:knm:batch109-drogist-zonder-recept:1",
+      "field": "optionC",
+      "before": "Bij de tandarts.",
+      "after": "Bij de fysiotherapeut.",
+      "reason": "Second plain health place; both are false (neither sells medicines)."
+    },
+    {
+      "id": "A2:knm:batch109-drogist-zonder-recept:1",
+      "field": "explanation",
+      "before": "Medicijnen die u zonder recept mag kopen, heten zelfzorgmedicijnen. Die zijn ook bij de drogist of in andere winkels te koop. Het consultatiebureau is er voor jonge kinderen en de tandarts is voor de tanden. Zij verkopen geen medicijnen.",
+      "after": "Medicijnen die u zonder recept mag kopen, heten zelfzorgmedicijnen. Die zijn ook bij de drogist of in andere winkels te koop. De tandarts en de fysiotherapeut verkopen geen medicijnen.",
+      "reason": "Follows the new options."
+    },
+    {
+      "id": "A2:knm:batch109-tandarts-controle:1",
+      "field": "text",
+      "before": "Thuisarts is de website van de huisartsen. Het advies is: Ga elk jaar 1 of 2 keer naar de tandarts voor controle. Ook als u een kunstgebit hebt.",
+      "after": "Thuisarts is de website van de huisartsen. Het advies is: ga elk jaar 1 of 2 keer naar de tandarts voor controle.",
+      "reason": "The source name is now explained on the card, not asked in the question; 'kunstgebit' sentence dropped (hard word, not needed). 21 words."
+    },
+    {
+      "id": "A2:knm:batch109-tandarts-controle:1",
+      "field": "evidence",
+      "before": "Ga elk jaar 1 of 2 keer naar de tandarts voor controle",
+      "after": "ga elk jaar 1 of 2 keer naar de tandarts voor controle",
+      "reason": "Matches the new card text."
+    },
+    {
+      "id": "A2:knm:batch109-tandarts-controle:1",
+      "field": "prompt",
+      "before": "Kofi wil zijn tanden gezond houden. Hoe vaak adviseert Thuisarts een controle bij de tandarts?",
+      "after": "Kofi wil zijn tanden gezond houden. Hoe vaak adviseren huisartsen een controle bij de tandarts?",
+      "reason": "A learner cannot know the website 'Thuisarts' before answering; the advice is by the huisartsen (NHG), so the question says so."
+    },
+    {
+      "id": "A2:knm:batch109-tandarts-controle:1",
+      "field": "optionA",
+      "before": "Iedere maand van het jaar.",
+      "after": "Elke maand van het jaar.",
+      "reason": "Shorter, parallel with the other two options."
+    },
+    {
+      "id": "A2:knm:batch109-tandarts-controle:1",
+      "field": "optionB",
+      "before": "Een keer in de vijf jaar.",
+      "after": "Eén keer in de vijf jaar.",
+      "reason": "Parallel wording."
+    },
+    {
+      "id": "A2:knm:batch109-tandarts-controle:1",
+      "field": "optionC",
+      "before": "1 of 2 keer per jaar.",
+      "after": "Eén of twee keer per jaar.",
+      "reason": "Numbers spelled out for the audio and parallel with B."
+    },
+    {
+      "id": "A2:knm:batch109-tandarts-controle:1",
+      "field": "explanation",
+      "before": "Thuisarts adviseert: ga elk jaar 1 of 2 keer naar de tandarts voor controle, ook als u een kunstgebit hebt. Elke maand is veel te vaak, en een keer in de vijf jaar is te weinig om gaatjes op tijd te vinden.",
+      "after": "Thuisarts is de website van de huisartsen. Het advies is: ga elk jaar 1 of 2 keer naar de tandarts voor controle. Elke maand is veel te vaak. Eén keer in de vijf jaar is te weinig om gaatjes op tijd te vinden.",
+      "reason": "Follows the card."
+    },
+    {
+      "id": "A2:knm:batch109-ggz-doorverwijzing:1",
+      "field": "text",
+      "before": "De ggz is geestelijke gezondheidszorg. Heeft iemand matige tot zware psychische problemen? Dan kan de huisarts hem doorverwijzen naar een zorgaanbieder in de ggz.",
+      "after": "De ggz (geestelijke gezondheidszorg) helpt bij psychische problemen, zoals angst. Heeft iemand zware psychische problemen? Dan kan de huisarts hem doorverwijzen naar de ggz.",
+      "reason": "'Matige tot zware' and 'zorgaanbieder' are above A2; the card now glosses the ggz with a plain example. 26 words."
+    },
+    {
+      "id": "A2:knm:batch109-ggz-doorverwijzing:1",
+      "field": "evidence",
+      "before": "Dan kan de huisarts hem doorverwijzen naar een zorgaanbieder in de ggz",
+      "after": "Dan kan de huisarts hem doorverwijzen naar de ggz",
+      "reason": "Matches the new card text."
+    },
+    {
+      "id": "A2:knm:batch109-ggz-doorverwijzing:1",
+      "field": "explanation",
+      "before": "Bij matige tot zware psychische problemen kan de huisarts doorverwijzen naar een zorgaanbieder in de ggz. Een werkgever of een zorgverzekeraar kan dat niet. De huisarts behandelt lichte klachten zelf.",
+      "after": "Bij zware psychische problemen kan de huisarts doorverwijzen naar de ggz. Een werkgever of een zorgverzekeraar kan dat niet. De huisarts helpt zelf bij lichte klachten.",
+      "reason": "Plain words."
+    },
+    {
+      "id": "A2:knm:batch109-dossier-online:1",
+      "field": "text",
+      "before": "U mag uw medisch dossier inzien. Dat kan online in uw persoonlijke gezondheidsomgeving (PGO), een eigen website of app voor uw gezondheidsgegevens. Of bij uw arts of zorginstelling.",
+      "after": "U mag uw medisch dossier bekijken. Dat kan online in uw persoonlijke gezondheidsomgeving (PGO), een eigen website of app voor uw gezondheidsgegevens. Of bij uw arts of het ziekenhuis.",
+      "reason": "'Inzien' and 'zorginstelling' replaced by 'bekijken' and 'het ziekenhuis'. The PGO is explained in the card; the term stays because it is the tested fact. Evidence quote unchanged."
+    },
+    {
+      "id": "A2:knm:batch109-toeslagen-servicepunt:1",
+      "field": "text",
+      "before": "Is het moeilijk om toeslagen met DigiD te regelen? Dan kunt u terecht bij een toeslagenservicepunt. Daar helpen ze bij het aanvragen, wijzigen en terugbetalen van toeslagen.",
+      "after": "Is het moeilijk om toeslagen met DigiD te regelen? Dan kunt u terecht bij een toeslagenservicepunt. Daar helpen ze met aanvragen, veranderen en terugbetalen van toeslagen.",
+      "reason": "'Wijzigen' replaced by 'veranderen'."
+    },
+    {
+      "id": "A2:knm:batch109-toeslagen-servicepunt:1",
+      "field": "prompt",
+      "before": "Iris vindt het moeilijk om toeslagen met DigiD te regelen. Waar kan zij hulp krijgen?",
+      "after": "Iris vindt het moeilijk om haar zorgtoeslag met DigiD te regelen. Waar kan zij hulp krijgen?",
+      "reason": "Ties the question to the health theme and to the page (zorgtoeslag is named there); 'toeslagen' no longer recurs only in the key."
+    },
+    {
+      "id": "A2:knm:batch109-schuldhulp-gemeente:1",
+      "field": "prompt",
+      "before": "Bilal heeft veel schulden. Bij welke organisatie kan hij zich melden voor hulp bij zijn schulden?",
+      "after": "Bilal heeft veel schulden. Bij welke organisatie kan hij zich melden voor hulp?",
+      "reason": "'Hulp bij zijn schulden' repeated the card; the shorter prompt asks the same thing."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/109-proposed.json: 13 items, keys B5/A5/C3 (38%/38%/23%), 3 options each, no failures, no warnings",
+    "batch_review_source": "packet_sha256 3ee0bc54574f100e84277a82737fa1bb921754ff1f115ca065bb86eaf3fc9d20",
+    "sources_opened": "All 13 sourceUrls returned HTTP 200 on 2026-11-22 and each page states the keyed fact; the WW item also uses the Belastingdienst page 'Werknemersverzekeringen' for the WW list, and the tandarts item uses Thuisarts (NHG).",
+    "card_word_counts": [
+      26,
+      26,
+      24,
+      24,
+      17,
+      30,
+      25,
+      22,
+      24,
+      28,
+      29,
+      26,
+      26
+    ],
+    "prompt_word_counts": [
+      17,
+      19,
+      18,
+      13,
+      17,
+      19,
+      15,
+      15,
+      12,
+      17,
+      10,
+      16,
+      13
+    ],
+    "options_per_question": 3,
+    "rule_condition_set_up": "spoed-huisartsenpost-eerst states the condition (Saturday, no danger) and asks who comes first; ww-premie-werkgever says 'volgens de regel'; no other key is an exception.",
+    "rule_distractors_false_about_NL": "each distractor tested against the page and the Netherlands today; no nooit/altijd option exists; the insurer option in nota-zorgverlener is false for a bill received directly from the provider.",
+    "rule_options_differ_in_what_is_asked": true,
+    "answer_signals": "key is the longest option in no item; prompt echoes were removed in ww-premie-werkgever ('werkt' vs 'werkgever') and discriminatie-vakbond ('zijn' vs 'zijn vakbond'); nota-zorgverlener keeps 'fysiotherapeut' in prompt and key but the insurer is now a real alternative; toeslagen-servicepunt: 'toeslag' appears in prompt and key only as the topic word (accepted).",
+    "doubts_resolved": "nota-zorgverlener: key repeat fixed by replacing absurd distractors with the insurer and the huisarts; dossier-online: PGO kept as the tested term, card simplified and explained, judged answerable at A2 because it is built from plain parts and the card explains it; tandarts-controle: Thuisarts (NHG) accepted as the responsible body for GP advice, now named on the card and not in the question.",
+    "duplication": "no existing KNM item tests these facts (006 cao, loonheffing, zorgnota, eigenrisico, receptmedicijnen, huisartsenpost, verwijsbrief; 019 tandartskeuze, zorgtoeslag; 033 tandarts-kind checked). No item of batches 108, 110-112 overlaps.",
+    "theme_eindterm_domain": "checked against docs/research/knm-coverage-2026-11-22.md: 1.2.2, 1.2.3, 1.3.1, 1.4.1 (theme 1, werk); 4.1.2, 4.1.3, 4.2.1, 4.3.1, 4.4.2 (two items), 4.4.3, 4.4.4, 4.5.1 (theme 4, gezondheid). 4.4.4 and 4.5.1 map loosely (toeslagen help, debt help) but follow the plan.",
+    "word_gate": "KNM outside the gate; manual check of everything around the tested term, see edits (loondienst, juridisch, rechtstreeks, lijfrente, opdrachtgever, consultatiebureau, kunstgebit, zorgaanbieder, mijn omgeving, inzien, zorginstelling, wijzigen replaced)."
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch109-vakbond-cao:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Same shape as the official one-fact KNM questions on work: a body is named and the learner picks it from three institutions. The key is a well-known word.",
+      "evidence": {
+        "quote": "Dat zijn meestal vakbonden",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/arbeidsovereenkomst-en-cao/wat-is-een-cao"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, 'Wat is een cao?' (opened 2026-11-22), section 'Wie sluit een cao af': 'Een cao wordt afgesloten door 1 of meer werkgevers, 1 of meer werkgeversorganisaties en 1 of meer werknemersorganisaties (meestal vakbonden).' Distractors: an ondernemingsraad exists inside one company and is not a cao party; the UWV pays benefits. Both false. Key (B) is neither the longest nor the only plural; the prompt says 'organisaties' and the card 'werknemersorganisaties', which both options do not echo."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Sanne stacks boxes in a warehouse and works under a cao; the question asks who concludes that cao for employees like her.",
+        "communicative_purpose": "A working person learns that unions, not the works council or the UWV, agree the cao with employers.",
+        "contrivance_check": "The picture is a warehouse and shows no organisation, so no option is revealed. Mentioning a cao in the prompt is a natural work fact; no off-page event is needed.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch109-ww-premie-werkgever:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Persona fact with one rule; slightly harder than the official 'who pays' items because three institutions are plausible, but each is clearly distinguishable.",
+      "evidence": {
+        "quote": "De regel is dat de werkgever de WW-premie betaalt aan de Belastingdienst",
+        "sources": [
+          "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/werk_en_inkomen/sociale_verzekeringen/premies_volks_en_werknemersverzekeringen/werknemersverzekeringen/hoe_betaalt_u_mee_aan_de_premies_werknemersverzekeringen",
+          "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/werk_en_inkomen/sociale_verzekeringen/premies_volks_en_werknemersverzekeringen/werknemersverzekeringen/werknemersverzekeringen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Belastingdienst, 'Hoe betaalt u mee aan de premies werknemersverzekeringen?' (opened 2026-11-22): 'De regel is dat uw werkgever of uitkeringsinstantie de premies werknemersverzekeringen betaalt. Hierop is 1 uitzondering: ... Werkhervattingkas (Whk).' Same site, 'Werknemersverzekeringen' (opened 2026-11-22) lists the Werkloosheidswet (WW). The Whk premium is not the WW premium, so no distractor is true. Distractors: 'Mohammed zelf' is false; the UWV pays the WW benefit, not an employee's premium. Prompt no longer contains 'werkt', so 'werkgever' is not echoed."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Mohammed has a job at a building company and the question asks who pays the WW premium to the Belastingdienst for him.",
+        "communicative_purpose": "A worker learns that his employer, not he himself, pays the WW premium.",
+        "contrivance_check": "The prompt states the job in a plain clause and the picture shows a building site with a helmet, which does not show who pays. 'Volgens de regel' covers the one Whk exception on the page.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch109-discriminatie-vakbond:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One of two named bodies on the page is keyed; the other two options are agencies with obviously different jobs, so the item is comparable to the official 'where to get help' questions.",
+      "evidence": {
+        "quote": "bijvoorbeeld bij het Juridisch Loket of bij uw vakbond",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/gelijke-behandeling-op-het-werk/wat-kan-ik-doen-als-ik-ongelijk-behandeld-word-bij-een-sollicitatie-of-op-het-werk"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, 'Wat kan ik doen als ik ongelijk behandeld word bij een sollicitatie of op het werk?' (opened 2026-11-22): 'juridisch advies inwinnen, bijvoorbeeld bij het Juridisch Loket of bij uw vakbond'. The Juridisch Loket is not an option, so only one option is true. Belastingdienst (taxes) and Kamer van Koophandel (company register) give no advice on discrimination; both false."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Bilal sits at an office desk looking at papers because he thinks he is discriminated against at work; the question asks where he can get advice about his rights.",
+        "communicative_purpose": "A person who feels discriminated against learns that a union can give advice.",
+        "contrivance_check": "The question says only that he thinks he is discriminated against; the picture of papers shows no organisation. The key is a body that exists for employees, so no invented event is needed.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch109-zzp-pensioen:1",
+      "verdict": "pass (edited)",
+      "level": "easier",
+      "level_reason": "The key 'Zij zelf' follows from the word zzp'er (self-employed), so it is easier than an official institution question; accepted as a fact item.",
+      "evidence": {
+        "quote": "Extra pensioen naast de AOW kan een zzp'er zelf regelen",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/zelfstandigen-zonder-personeel-zzp/zzp-pensioen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, 'Hoe regel ik mijn pensioen als zzp'er?' (opened 2026-11-22): 'Als zzp'er heeft u recht op AOW als u de AOW-leeftijd bereikt. U kunt daarnaast zelf uw oudedagsvoorziening aanvullen.' The page names a lijfrente at a bank, insurer or investment firm. Distractors: a client (klant) has no duty; the gemeente has no role. A few professions have a compulsory pension fund, but even then no client arranges it. CHECK YEARLY (mandatory AOV and Zelfstandigenwet in progress; not tested)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Iris works as a self-employed person at a laptop at home and asks who arranges her extra pension next to the AOW.",
+        "communicative_purpose": "A self-employed person learns that she arranges extra pension herself, because no employer does it.",
+        "contrivance_check": "The prompt names the status (zzp'er), the AOW is the stated baseline, and a home desk shows no pension provider, so the scene supports the fact without an off-page event.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch109-huisarts-rekening:1",
+      "verdict": "pass (edited)",
+      "level": "easier",
+      "level_reason": "Closer to an A1/A2 common-knowledge fact than most KNM items; the bill going to the insurer is stated in the card and the distractors are clearly false, so easier than the official health questions.",
+      "evidence": {
+        "quote": "De huisarts stuurt de rekening direct naar uw zorgverzekeraar",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/huisartskosten-op-zorgnota",
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/zorgverzekering/zorgnota-controleren"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, 'Moet ik de huisartskosten zelf betalen?' (opened 2026-11-22): 'Uw zorgverzekeraar betaalt rechtstreeks de rekening van uw huisarts.' Second page 'Zorgnota controleren' (same day): 'Een zorgverlener stuurt een rekening meestal rechtstreeks naar uw zorgverzekeraar.' Distractors: a bill sent to Kofi at home and to the gemeente are both false for a huisarts visit. Not the eigen-risico fact of batch 006."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Kofi waits in a calm waiting room before a GP appointment; the question asks where the GP sends the bill for this visit.",
+        "communicative_purpose": "A patient learns that the GP bills the health insurer and he gets no bill at home.",
+        "contrivance_check": "A waiting room with a plant and a door shows no bill or insurer. Asking about the bill before a visit is natural for someone new to the system.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch109-nota-zorgverlener:1",
+      "verdict": "pass (edited)",
+      "level": "harder",
+      "level_reason": "The learner must tell a bill sent directly by the provider from a bill that stands online at the insurer; the insurer is a real confusion, so harder than a plain institution question.",
+      "evidence": {
+        "quote": "Stel uw vraag dan aan die zorgverlener",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/zorgverzekering/zorgnota-controleren"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, 'Hoe kan ik mijn zorgnota controleren?' (opened 2026-11-22): 'Heeft u een vraag over een rekening die u direct ontvangen heeft van de zorgverlener? Dan kunt u met uw vragen terecht bij de zorgverlener.' and, for a zorgnota in 'mijn omgeving' of the insurer, 'terecht bij uw zorgverzekeraar'. Distractors: the zorgverzekeraar is false because the prompt says the bill came directly from the provider; the huisarts did not send the bill. The key repeating 'fysiotherapeut' no longer stands alone because the insurer is a real alternative. Not a repeat of 006 zorgnota."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Mariam sits at a kitchen table with an opened envelope and does not understand an amount on a bill from her physiotherapist; the question asks to whom she puts her question.",
+        "communicative_purpose": "A patient learns to ask the provider that sent the bill, and the insurer only when the bill is online there.",
+        "contrivance_check": "The envelope and sheet in the picture show a bill but no sender. The prompt states the sender and the doubt, so no off-page event is needed.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch109-drogist-zonder-recept:1",
+      "verdict": "pass (edited)",
+      "level": "easier",
+      "level_reason": "A single everyday fact with an obvious shop for the key; easier than the official medication questions, which tend to involve the apotheek and a recept.",
+      "evidence": {
+        "quote": "Deze zijn ook bij de drogist of andere winkels te koop",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/geneesmiddelen/waar-kan-ik-medicijnen-kopen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, 'Waar kan ik medicijnen kopen?' (opened 2026-11-22): 'Receptmedicijnen kunt u alleen bij een apotheek kopen. Voor zelfzorgmedicijnen heeft u geen recept nodig. Deze zijn ook bij de drogist of andere winkels te koop.' The apotheek is not offered, so no option is also true. Some zelfzorgmedicijnen (UA) are only at the apotheek; the card says 'ook', so nothing conflicts. Distractors: the tandarts and the fysiotherapeut do not sell medicines; both false."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Thijs has a cold, sits under a blanket with tea and a tissue and wants a medicine without prescription; the question asks where he buys it.",
+        "communicative_purpose": "A person with a cold learns that no prescription is needed for self-care medicines and that a drogist sells them.",
+        "contrivance_check": "The sofa scene shows illness but no shop, so the key is not pictured. Wanting a cold remedy without seeing a doctor is an ordinary reason to ask.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch109-tandarts-controle:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "A numeric advice item with three clearly different frequencies; comparable to the official 'how often' questions. The advice is stated as advice by the huisartsen, not as a rule.",
+      "evidence": {
+        "quote": "ga elk jaar 1 of 2 keer naar de tandarts voor controle",
+        "sources": [
+          "https://www.thuisarts.nl/mond-verzorgen/ik-wil-mijn-tanden-goed-verzorgen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Thuisarts (Nederlands Huisartsen Genootschap), 'Ik wil mijn tanden goed verzorgen' (opened 2026-11-22; revised 14 April 2026): 'Ga elk jaar 1 of 2 keer naar de tandarts voor controle.' Acceptable source: NHG is the professional body of the huisartsen and runs Thuisarts; the page is the standard public advice. No government page states the frequency (rijksoverheid.nl pages on tandartszorg returned 404). Distractors: every month and once in five years are not the advice. Key is not the longest option."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Kofi sits in a dentist's chair and wants to keep his teeth healthy; the question asks how often huisartsen advise a dental check.",
+        "communicative_purpose": "A person learns the usual advice of one or two dental checks a year.",
+        "contrivance_check": "The dentist chair does not show a number. The question names the advising body (huisartsen), so the card can say who gives the advice without an invented rule.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch109-ggz-doorverwijzing:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Persona fact on referral, equal in demand to the official health-care institution questions; the term ggz is explained on the card.",
+      "evidence": {
+        "quote": "Dan kan de huisarts hem doorverwijzen naar de ggz",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/geestelijke-gezondheidszorg/psychische-hulp-huisarts-of-ggz"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, 'Psychische hulp: huisarts of ggz' (opened 2026-11-22): 'De huisarts is verantwoordelijk voor de behandeling van lichte psychische klachten. En kan mensen met matige tot zware psychische problemen doorverwijzen naar zorgaanbieders binnen de ggz.' Other professionals (bedrijfsarts, specialist) can refer too; neither is an option. Distractors: a werkgever and a zorgverzekeraar cannot refer; both false."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Esther sits calmly across a doctor at a desk and has heavy psychological complaints; the question asks who can refer her to the ggz.",
+        "communicative_purpose": "A patient with serious problems learns that the huisarts is the door to specialised mental health care.",
+        "contrivance_check": "Two people listening calmly shows a consultation with no distress and no answer. The prompt gives the complaint and the card the rule, so nothing off-page is needed.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch109-spoed-huisartsenpost-eerst:1",
+      "verdict": "pass",
+      "level": "comparable",
+      "level_reason": "Matches the official emergency-care questions: the prompt sets up the condition (Saturday, no danger) and asks for the first contact.",
+      "evidence": {
+        "quote": "Neem dan altijd eerst contact op met de huisartsenpost",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/huisartsenpost-spoedeisende-hulp"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, 'Huisartsenpost en spoedeisende hulp' (opened 2026-11-22): 'Neem altijd eerst contact op met uw huisartsenpost voordat u naar de spoedeisende hulppost gaat. Behalve bij een levensbedreigende situatie. Dan kunt u het beste direct 112 bellen.' The condition rule holds: the prompt states 'niet in gevaar'. Distractors: 112 is for danger to life; the spoedeisende hulp is not the first contact. The 1 January 2027 billing change is not used."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Thijs sits on the sofa on a Saturday with stomach pain, his life is not in danger and the practice is closed; the question asks whom he contacts first.",
+        "communicative_purpose": "A person with an urgent but not life-threatening problem outside office hours learns to call the huisartsenpost first.",
+        "contrivance_check": "Saturday explains why the practice is closed and the prompt excludes danger, which is the only exception on the page. The picture shows daylight and a phone but no clinic.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch109-dossier-online:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One term to recognise (PGO); the card explains it and the term is built from plain parts (persoonlijk, gezondheid, omgeving), so the item is comparable to official term items though the term is new.",
+      "evidence": {
+        "quote": "Dat kan online in uw persoonlijke gezondheidsomgeving (PGO)",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/rechten-van-patient-en-privacy/uw-medisch-dossier/mag-ik-mijn-medisch-dossier-inzien"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, 'Mag ik mijn medisch dossier inzien?' (opened 2026-11-22): 'online in uw persoonlijke gezondheidsomgeving (PGO); bij uw arts of zorginstelling.' Distractors: the Belastingdienst and the gemeente hold no medical file, so their online portals are false. The key contains 'gezondheid', which makes the key guessable from the topic, but the PGO is the tested term and all three options are named places 'in de online omgeving'."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Sanne sits on the sofa with a tablet and wants to look at her medical file online; the question asks where that is possible.",
+        "communicative_purpose": "A patient learns that she may see her own medical file in a personal health environment (PGO).",
+        "contrivance_check": "A tablet on the sofa shows the wish to look online without revealing the PGO. Wanting to see one's own file is an everyday reason and the right is stated on the card.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch109-toeslagen-servicepunt:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Institution item with plausible distractors (UWV, SVB are real benefit bodies); comparable to the official 'where to get help' questions. DigiD help is a current practical need.",
+      "evidence": {
+        "quote": "Dan kunt u terecht bij een toeslagenservicepunt",
+        "sources": [
+          "https://www.belastingdienst.nl/wps/wcm/connect/nl/contact-met-dienst-toeslagen/content/hulpmiddel-adressen-toeslagenservicepunten"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Dienst Toeslagen (Belastingdienst), 'Hulp bij toeslagen zoeken' (opened 2026-11-22): 'U kunt ook bij de hulppunten terecht als u het bijvoorbeeld moeilijk vindt om uw toeslagen met DigiD te regelen.' and 'Al deze plekken kunnen u helpen met het aanvragen, wijzigen en terugbetalen van zorgtoeslag, huurtoeslag ...'. The term toeslagenservicepunt appears in the page link and URL; the card uses it as the name of these hulppunten. Distractors: UWV (uitkeringen) and SVB (AOW, kinderbijslag) do not help with toeslagen; both false."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Iris sits at a kitchen table with a phone and a puzzled look because DigiD makes her zorgtoeslag hard to arrange; the question asks where she can get help.",
+        "communicative_purpose": "A person who struggles with the online allowance process learns that a service point helps in person.",
+        "contrivance_check": "The puzzled face over a phone shows the difficulty, not the place. Naming zorgtoeslag and DigiD in the prompt matches the official page, so no off-page event is needed.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch109-schuldhulp-gemeente:1",
+      "verdict": "pass (edited)",
+      "level": "easier",
+      "level_reason": "The key 'de gemeente' is the commonest KNM key; the distractors (huisarts, woningcorporatie) are clearly unrelated, so easier than the official institution questions.",
+      "evidence": {
+        "quote": "Voor hulp bij uw schulden kunt u zich melden bij uw gemeente",
+        "sources": [
+          "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/schulden/schuldhulpverlening-aanvragen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, 'Waar moet ik schuldhulpverlening aanvragen?' (opened 2026-11-22): 'Voor hulp bij uw schulden kunt u zich melden bij uw gemeente. U kunt daar terecht voor een advies of een aanvraag voor schuldbemiddeling of schuldsanering. De gemeente kijkt of ze u kan helpen bij uw schulden.' Distractors: a huisarts and a woningcorporatie do not offer debt help (a corporation may refer a tenant, but is not where one reports for debt help); both false."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Bilal sits at a kitchen table with a stack of envelopes and has many debts; the question asks with which organisation he can report for help.",
+        "communicative_purpose": "A person in debt learns that he reports to the gemeente and is not left alone with the letters.",
+        "contrivance_check": "The envelopes show the debts without any organisation. The tone stays calm: no distress is shown and the card states only where to go.",
+        "unsupported_assumptions": []
+      }
+    }
+  ],
+  "media_notes": "New batch, no media yet. Pictures are plain drawings in the house style; briefs and alts were not changed. Recurring people keep their three traits in both pictures (Sanne, Thijs, Kofi, Iris, Bilal). No alt reveals a key (the dentist, kitchen and waiting-room alts show the setting only). Question audio is needed for every question and option; numbers in the tandarts options are spelled out. Pictures were not rendered by the reviewer.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Time-sensitive: zzp-pensioen (mandatory AOV and Zelfstandigenwet in progress, check yearly); ww-premie-werkgever (Whk rules); spoed-huisartsenpost-eerst (billing change from 1 January 2027, not tested); toeslagen-servicepunt (service point network).",
+    "tandarts-controle rests on Thuisarts (NHG), a professional-body source; no government page with the frequency was found. nota-zorgverlener keeps the insurer as a distractor on the strength of the Rijksoverheid page's contrast between the two kinds of bill.",
+    "Eindterm mapping follows the plan and the author's reading of Regeling inburgering 2021, bijlage 2; 4.4.4 and 4.5.1 are loose fits.",
+    "Pictures not inspected."
+  ]
+}

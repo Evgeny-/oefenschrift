@@ -1,0 +1,901 @@
+{
+  "review_id": "101-a1-step2-reading-2026-11-22",
+  "source": "content/batches/101-original.json",
+  "proposed_source": "content/batches/101-proposed.json",
+  "source_sha256": "2de02f46e80f71a099de5b4c991173435ce8175ad48dc66d263084b2bd6123df",
+  "review_type": "independent AI editorial review of six new A1 step 2 reading messages",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T12:45:48Z",
+  "reviewer": "Independent AI reviewer (Sonnet) in a fresh context, separate from the author.",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "37189ebe4892f3af030f8cfa5987148570b3445224d094c45d90726108261441",
+    "initial_packet_sha256": "644a789eb31ac8f1b99cf79731581c754dcca3afc464b0f83f1571743d0173c2",
+    "independence_note": "Fresh reviewer context. Blind findings per item were written to content/reviews/101-review.md from the source-only packet (hash 644a789e...) before questions, keys, notes or the plan assignment were opened. After the repairs the packet was rebuilt from the proposed bytes and the meaning pass repeated on every changed text and brief."
+  },
+  "tone_balance": {
+    "ordinary": 5,
+    "light_humor": 1,
+    "target_share": 0.15,
+    "scope_note": "This six-item batch has one lightly funny item (markt-buurvrouw: the dog eats an apple every day) and five ordinary items; the small-batch rounded cap is ceil(6 x 0.15) = 1. The coordinator checks the combined A1 count across batches."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 6,
+    "edited_by_reviewer": 6,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A1:reading:batch101-zwemles-donderdag:1",
+      "field": "questions[q3].prompt",
+      "before": "Waar wacht u?",
+      "after": "Waar kunt u wachten?",
+      "reason": "The text says u kunt wachten (a possibility); the prompt now matches it."
+    },
+    {
+      "id": "A1:reading:batch101-bieb-tijden:1",
+      "field": "text",
+      "before": "Bibliotheek: wij zijn open.\n\nMaandag tot en met woensdag: van negen tot zes uur.\nDonderdag: van negen tot negen uur.\nVrijdag en zaterdag: van tien tot vijf uur.\nZondag: dicht.\n\nNieuw: boeken voor kinderen. Ze liggen op de tafel bij de deur.\nNieuw: de kaart voor kinderen is gratis.\nU kunt boeken lenen met uw pas.",
+      "after": "Bibliotheek: wij zijn open.\n\nMaandag tot en met woensdag: van negen tot zes uur.\nDonderdag: van negen tot acht uur.\nVrijdag en zaterdag: van tien tot vijf uur.\nZondag: dicht.\n\nNieuw: boeken voor kinderen. De boeken liggen op de tafel bij de deur.\nNieuw: de kaart voor kinderen is gratis.\nU kunt boeken lenen met uw kaart.",
+      "reason": "Thursday 'van negen tot negen uur' reads as a zero-length day for a beginner; it now closes at eight. 'Ze' made explicit. 'pas' and 'kaart' named the same thing with two words; now one word."
+    },
+    {
+      "id": "A1:reading:batch101-bieb-tijden:1",
+      "field": "questions[q2].prompt",
+      "before": "Welke dag is de bibliotheek laat open?",
+      "after": "Welke dag is het open tot acht uur?",
+      "reason": "'Laat open' needed a comparison of all lines; the prompt now asks for one stated hour."
+    },
+    {
+      "id": "A1:reading:batch101-bieb-tijden:1",
+      "field": "questions[q2].evidence",
+      "before": "Donderdag: van negen tot negen uur.",
+      "after": "Donderdag: van negen tot acht uur.",
+      "reason": "Follows the text edit."
+    },
+    {
+      "id": "A1:reading:batch101-bieb-tijden:1",
+      "field": "questions[q2].explanation",
+      "before": "De bibliotheek is op donderdag open tot negen uur.",
+      "after": "De bibliotheek is op donderdag open tot acht uur.",
+      "reason": "Follows the text edit."
+    },
+    {
+      "id": "A1:reading:batch101-bieb-tijden:1",
+      "field": "questions[q3].options.A",
+      "before": "Niets.",
+      "after": "Nul euro.",
+      "reason": "'Niets' was the only option that is not an amount, so it stood out as the key; all options are now prices."
+    },
+    {
+      "id": "A1:reading:batch101-bieb-tijden:1",
+      "field": "questions[q3].evidence",
+      "before": "Nieuw: de kaart voor kinderen is gratis.\nU kunt boeken lenen met uw pas.",
+      "after": "Nieuw: de kaart voor kinderen is gratis.",
+      "reason": "The second evidence line (pas) is no longer needed; one line proves the key."
+    },
+    {
+      "id": "A1:reading:batch101-nieuwe-collega:1",
+      "field": "text",
+      "before": "Hoi allemaal,\n\nOp maandag komt er een nieuwe collega. Zij is Rosa. Zij begint om negen uur. Ivo gaat met haar naar de keuken en de kasten. Zij werkt in ons team. Zij komt van een ander kantoor. Op vrijdag is er taart. Dat is om twaalf uur. Komen jullie ook?\n\nGroetjes,\nOmar",
+      "after": "Hoi allemaal,\n\nOp maandag komt er een nieuwe collega. Zij is Rosa. Zij begint om negen uur. Ivo gaat met haar naar de keuken. Zij zit naast Ivo. Zij werkt in ons team. Zij komt van een ander kantoor. Op vrijdag om twaalf uur is er taart. Komen jullie ook?\n\nGroetjes,\nOmar",
+      "reason": "'de kasten' (lockers) is odd for a beginner and unexplained; 'Dat is om twaalf uur' had an implicit reference; 'Zij zit naast Ivo' keeps the text at 50+ words and matches the picture."
+    },
+    {
+      "id": "A1:reading:batch101-nieuwe-collega:1",
+      "field": "questions[q2].evidence",
+      "before": "Ivo gaat met haar naar de keuken en de kasten.",
+      "after": "Ivo gaat met haar naar de keuken.",
+      "reason": "Follows the text edit."
+    },
+    {
+      "id": "A1:reading:batch101-nieuwe-collega:1",
+      "field": "questions[q3].evidence",
+      "before": "Op vrijdag is er taart.",
+      "after": "Op vrijdag om twaalf uur is er taart.",
+      "reason": "Follows the text edit."
+    },
+    {
+      "id": "A1:reading:batch101-markt-buurvrouw:1",
+      "field": "text",
+      "before": "Hoi!\n\nIk ga zaterdag naar de markt. Wat heb je nodig? Ik koop fruit en brood. Ik heb twee tassen. De markt is dichtbij. Ik koop ook appels voor mijn hond. Hij eet ze elke dag. Wil je mee? Ik wacht om tien uur bij de deur. Of stuur me een bericht voor vrijdag.\n\nGroetjes,\nDina",
+      "after": "Hoi!\n\nIk ga zaterdag naar de markt. Ik koop brood en kaas. De markt is dichtbij. Ik koop ook appels voor mijn hond. Hij eet elke dag een appel. Wil je mee? Ik wacht om tien uur bij je deur. Heb je iets nodig? Stuur me een bericht voor vrijdag.\n\nGroetjes,\nDina",
+      "reason": "'bij de deur' had no owner (whose door?); 'Ik heb twee tassen' was stocktaking; 'fruit' overlapped with 'appels'; 'Of stuur me een bericht' had no clear first option. Now the neighbour waits at the reader's door and asks once what the reader needs."
+    },
+    {
+      "id": "A1:reading:batch101-markt-buurvrouw:1",
+      "field": "questions[q2].evidence",
+      "before": "Ik heb twee tassen. De markt is dichtbij. Ik koop ook appels voor mijn hond.",
+      "after": "Ik koop ook appels voor mijn hond.",
+      "reason": "Evidence was three sentences; one sentence proves the key."
+    },
+    {
+      "id": "A1:reading:batch101-markt-buurvrouw:1",
+      "field": "questions[q3].prompt",
+      "before": "Hoe laat wacht Dina bij de deur?",
+      "after": "Hoe laat wacht Dina bij uw deur?",
+      "reason": "Follows the text edit."
+    },
+    {
+      "id": "A1:reading:batch101-markt-buurvrouw:1",
+      "field": "questions[q3].evidence",
+      "before": "Ik wacht om tien uur bij de deur.",
+      "after": "Ik wacht om tien uur bij je deur.",
+      "reason": "Follows the text edit."
+    },
+    {
+      "id": "A1:reading:batch101-markt-buurvrouw:1",
+      "field": "questions[q3].explanation",
+      "before": "Dina schrijft: ik wacht om tien uur bij de deur.",
+      "after": "Dina schrijft: ik wacht om tien uur bij je deur.",
+      "reason": "Follows the text edit."
+    },
+    {
+      "id": "A1:reading:batch101-nieuwe-dokter:1",
+      "field": "text",
+      "before": "Beste meneer, mevrouw,\n\nOp 1 december begint er een nieuwe huisarts. Zij is dokter Sara. Wij zitten op hetzelfde adres. De oude huisarts gaat weg. Wilt u een afspraak? Bel dan in de ochtend. Op woensdag in de middag zijn wij gesloten. U kunt ook een bericht sturen.\n\nMet vriendelijke groet,\nde huisarts",
+      "after": "Beste meneer, mevrouw,\n\nOp 1 december begint er een nieuwe huisarts. Zij is dokter Sara. Het adres is hetzelfde. De oude huisarts gaat weg. Wilt u een afspraak? Bel dan in de ochtend. Op woensdag in de middag zijn wij gesloten. U kunt ook een bericht sturen.\n\nMet vriendelijke groet,\nhet team van de huisarts",
+      "reason": "'Wij zitten op hetzelfde adres' is awkward for a beginner; the signature 'de huisarts' clashed with the new GP being a different person."
+    },
+    {
+      "id": "A1:reading:batch101-nieuwe-dokter:1",
+      "field": "questions[q3].prompt",
+      "before": "Welke dag is de huisarts gesloten?",
+      "after": "Wie gaat weg?",
+      "reason": "'Welke dag is de huisarts gesloten?' had two defensible readings (the practice is closed only on Wednesday afternoon) and q2 already tests ochtend/middag; replaced by a different explicit fact."
+    },
+    {
+      "id": "A1:reading:batch101-nieuwe-dokter:1",
+      "field": "questions[q3].options",
+      "before": "Woensdag. / Vrijdag. / Maandag.",
+      "after": "De oude dokter. / De nieuwe dokter. / De assistent.",
+      "reason": "Options for the new question; the key stays A."
+    },
+    {
+      "id": "A1:reading:batch101-nieuwe-dokter:1",
+      "field": "questions[q3].skill",
+      "before": "time-place",
+      "after": "person",
+      "reason": "New question asks for a person."
+    },
+    {
+      "id": "A1:reading:batch101-nieuwe-dokter:1",
+      "field": "questions[q3].evidence",
+      "before": "Op woensdag in de middag zijn wij gesloten.",
+      "after": "De oude huisarts gaat weg.",
+      "reason": "New question."
+    },
+    {
+      "id": "A1:reading:batch101-nieuwe-dokter:1",
+      "field": "questions[q3].explanation",
+      "before": "De huisarts is op woensdag in de middag gesloten.",
+      "after": "De oude huisarts gaat weg. Dokter Sara begint.",
+      "reason": "New question."
+    },
+    {
+      "id": "A1:reading:batch101-menu-week:1",
+      "field": "text",
+      "before": "Eten op school: het menu van de week.\n\nMaandag: pasta met tomaat, 4 euro.\nDinsdag: rijst met kip, 5 euro.\nWoensdag: pizza, 3 euro.\nDonderdag: broodje kaas, 2 euro.\nVrijdag: soep, 2 euro.\n\nKoffie en thee: 1 euro.\nBij elk menu is er een toetje.\nOpen: van twaalf tot twee uur.\nBetalen met pinpas.",
+      "after": "Eten op school: het menu van de week.\n\nMaandag: pasta met tomaat, 4 euro.\nDinsdag: rijst met kip, 5 euro.\nWoensdag: pizza, 3 euro.\nDonderdag: broodje kaas, 2 euro.\nVrijdag: soep, 2 euro.\nZaterdag en zondag: dicht.\n\nKoffie en thee: 1 euro.\nOpen: van twaalf tot twee uur.\nBetalen met pinpas.",
+      "reason": "'toetje' is a hard word that no question needs; replaced by a weekend line so the notice stays at 50+ words."
+    },
+    {
+      "id": "A1:reading:batch101-zwemles-donderdag:1",
+      "field": "images[0].brief",
+      "before": "A plain indoor swimming pool with calm blue water and a white tiled edge. A child of about seven with short dark hair and a red swimsuit stands at the edge, seen from behind. No other people, no towel, no bottle, no cafe. No text, letters, numerals, signs, clock faces or logos.",
+      "after": "A plain indoor swimming pool with calm blue water and a white tiled edge. A child of about seven with short dark hair and a red swimsuit stands at the edge, seen from behind. No text.",
+      "reason": "Round brief: describe only what is there; the closing 'No text.' is the only exclusion (a list of excluded objects makes the local model draw them)."
+    },
+    {
+      "id": "A1:reading:batch101-bieb-tijden:1",
+      "field": "images[0].brief",
+      "before": "A tidy library room with tall wooden shelves full of colourful books and one reading chair. A girl of about eight with brown braids and a yellow jumper chooses a book from a shelf. No tables, no doors, no counter. No text, letters, numerals, signs, clock faces or logos.",
+      "after": "A tidy library room with tall wooden shelves full of colourful books and one reading chair. A girl of about eight with brown braids and a yellow jumper chooses a book from a shelf. No text.",
+      "reason": "Round brief: describe only what is there; the closing 'No text.' is the only exclusion (a list of excluded objects makes the local model draw them)."
+    },
+    {
+      "id": "A1:reading:batch101-nieuwe-collega:1",
+      "field": "images[0].brief",
+      "before": "A bright plain office with four desks, laptops and a plant. A woman of about thirty with curly dark hair and an orange jumper stands at an empty desk holding a bag. A man at the next desk waves at her. No kitchen, no cake, no cupboards. No text, letters, numerals, signs, clock faces or logos.",
+      "after": "A bright plain office with four desks, laptops and a plant. A woman of about thirty with curly dark hair and an orange jumper stands at an empty desk holding a bag. A man at the next desk waves at her. No text.",
+      "reason": "Round brief: describe only what is there; the closing 'No text.' is the only exclusion (a list of excluded objects makes the local model draw them)."
+    },
+    {
+      "id": "A1:reading:batch101-markt-buurvrouw:1",
+      "field": "images[0].brief",
+      "before": "A sunny outdoor street market with wooden stalls selling vegetables, flowers and cheese. A woman of about sixty with short grey hair and a green coat stands between the stalls with an empty cloth bag. No dog, no fruit, no bread. No text, letters, numerals, signs, clock faces or logos.",
+      "after": "A sunny outdoor street market with wooden stalls selling vegetables and flowers. A woman of about sixty with short grey hair and a green coat stands between the stalls with an empty cloth bag. No text.",
+      "reason": "Round brief: describe only what is there; the closing 'No text.' is the only exclusion (a list of excluded objects makes the local model draw them)."
+    },
+    {
+      "id": "A1:reading:batch101-nieuwe-dokter:1",
+      "field": "images[0].brief",
+      "before": "A plain quiet waiting room at a doctor with four empty wooden chairs, a small table with a plant and a closed door. No people, no desk, no posters. No text, letters, numerals, signs, clock faces or logos.",
+      "after": "A plain quiet waiting room at a doctor with four empty wooden chairs, a small table with a plant and a closed door. No text.",
+      "reason": "Round brief: describe only what is there; the closing 'No text.' is the only exclusion (a list of excluded objects makes the local model draw them)."
+    },
+    {
+      "id": "A1:reading:batch101-menu-week:1",
+      "field": "images[0].brief",
+      "before": "A plain school canteen with long tables and chairs. Three adults of different ages sit together at one table with plates and cups and talk. A serving counter is in the background. No menu board. No text, letters, numerals, signs, clock faces or logos.",
+      "after": "A plain school canteen with long tables and chairs. Three adults of different ages sit together at one table with plates and cups and talk. A serving counter is in the background. No text.",
+      "reason": "Round brief: describe only what is there; the closing 'No text.' is the only exclusion (a list of excluded objects makes the local model draw them)."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npx tsx scripts/batch-check.ts content/batches/101-proposed.json",
+      "result": "Checked 6 items, 18 questions. Keys A6 B6 C6. No failures; one warning (item 1: the greeting joined to the first sentence counts 13 words, the sentence itself has 10)."
+    },
+    "word_gate": "Every word passes config/a1-vocabulary.json, including after the edits. Listed but moderately hard words are flagged per item (handdoek, gratis, huisarts, pinpas, tomaat); toetje and the pas/kaart double term were removed.",
+    "step2_limits": "Texts 51-57 words (50-80), longest sentence 10 words, exactly three questions per item on facts from three different sentences or lines, prompts at most eight words, options at most four words, explanations at most fourteen words.",
+    "key_distribution": {
+      "A": 6,
+      "B": 6,
+      "C": 6
+    },
+    "every_distractor_audited": true,
+    "full_final_source_read": true,
+    "names": "Femke, Omar, Rosa, Ivo, Dina and Sara each appear in one item; none is drawn in two pictures, so no trait lists apply."
+  },
+  "diversity": "Six information structures: a changed day with things to bring, opening hours as lines with news, a team introduction with schedule, an invitation with a deadline, a letter about a new GP, a canteen menu with prices. Set 1 (items 1-3) and set 2 (items 4-6) mix vrije-tijd, werk, wonen-buurt, gezondheid and opleiding.",
+  "media_notes": {
+    "approval": "Sources and briefs only; no image approved.",
+    "briefs": "All six briefs were cut to the scene plus \"No text.\" (the round rule; excluded-object lists make the local model draw them). No named person appears in two pictures.",
+    "risks": [
+      "markt-buurvrouw: keep the market free of dogs, apples and bread",
+      "nieuwe-collega: the waving man must not hold or point at anything that reads as a kitchen or cake",
+      "menu-week: no board or readable prices"
+    ],
+    "voices": "No audio in this batch."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Rendered pictures need their own review.",
+    "Listed words such as handdoek, gratis, huisarts and pinpas are still the hardest words; learners in the first weeks may not know them without a picture or a course."
+  ],
+  "items": [
+    {
+      "id": "A1:reading:batch101-zwemles-donderdag:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 stap 2 (foundation practice)",
+        "verdict": "A1 stap 2: 55 woorden, langste zin 10 woorden, drie feiten uit drie verschillende zinnen. Moeilijker dan stap 1 (gemiddeld 27 woorden), zoals bedoeld.",
+        "validated": false,
+        "word_count": 55,
+        "hard_words": "handdoek, fles en wachten staan op de lijst maar zijn gemiddeld; de vragen vragen om het herkennen van deze woorden in de opties. Zin 1 (aanhef plus eerste zin) is 13 woorden, de zin zelf 10."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Een zwembad meldt een ouder dat de les van het kind deze week op donderdag is in plaats van woensdag, op dezelfde tijd, met wat het kind meeneemt en waar de ouder wacht.",
+        "communicative_purpose": "De ouder weet na het lezen op welke dag de les is, wat het kind meeneemt en dat wachten in het café kan.",
+        "contrivance_check": "Een lesverschuiving brengt een zwembad echt per bericht naar ouders; de tekst noemt zelf het verschil (donderdag, niet woensdag), de spullen en de wachtplek. Geen lijst voor distractors: elke zin is een instructie aan de ouder. Het plaatje toont alleen een kind aan de rand van het bad, geen handdoek, fles of café.",
+        "unsupported_assumptions": [],
+        "image_text_link": "Kind op de rug gezien bij een bad; geen handdoek, fles, café of dag in beeld, dus geen sleutel zichtbaar."
+      },
+      "evidence": {
+        "item_specific": "Een zwembad meldt een ouder dat de les van het kind deze week op donderdag is in plaats van woensdag, op dezelfde tijd, met wat het kind meeneemt en waar de ouder wacht.",
+        "key_quotes": [
+          "De les van uw kind is deze week op donderdag.",
+          "Neem een handdoek en een fles water mee.",
+          "U kunt wachten in het café."
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "B",
+          "answer_text": "Op donderdag.",
+          "evidence_quote": "De les van uw kind is deze week op donderdag.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "Op donderdag is genoemd als de weekdag van de les.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Op woensdag.",
+              "rationale": "Woensdag is de oude dag; de tekst zegt \"Niet op woensdag\"."
+            },
+            {
+              "option": "C",
+              "text": "Op vrijdag.",
+              "rationale": "Vrijdag staat niet in het bericht."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "A",
+          "answer_text": "Handdoek en water.",
+          "evidence_quote": "Neem een handdoek en een fles water mee.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "De zin noemt precies handdoek en water.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Jas en pet.",
+              "rationale": "Jas en pet zijn gewone spullen voor een kind, maar staan niet in het bericht."
+            },
+            {
+              "option": "C",
+              "text": "Bal en tas.",
+              "rationale": "Bal en tas passen bij sport, maar het bericht noemt ze niet."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        },
+        {
+          "id": "q3",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "C",
+          "answer_text": "In het café.",
+          "evidence_quote": "U kunt wachten in het café.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "De tekst noemt het café als plek om te wachten.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Bij de deur.",
+              "rationale": "De deur is een gewone plek om te wachten, maar het bericht noemt haar niet."
+            },
+            {
+              "option": "B",
+              "text": "In de auto.",
+              "rationale": "De auto is een gewone plek om te wachten, maar het bericht noemt hem niet."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        }
+      ],
+      "cross_question_cue_audit": "Alle drie de vragen samen gelezen; geen vraag, optie of titel noemt het antwoord van een andere vraag.",
+      "learner_visible_cue_audit": "Titel, situatie en alt noemen geen sleutel.",
+      "record_contract": "taskType bericht, a1Step 2, exam a1-practice, geen retired type, geen media of afgeleide velden."
+    },
+    {
+      "id": "A1:reading:batch101-bieb-tijden:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 stap 2 (foundation practice)",
+        "verdict": "A1 stap 2 in lijnenvorm: 57 woorden, langste zin 9 woorden. Iets moeilijker dan stap 1 door de tijdsregels; drie feiten komen uit drie verschillende regels.",
+        "validated": false,
+        "word_count": 57,
+        "hard_words": "gratis, lenen en kaart zijn A1-lijstwoorden met gemiddelde moeilijkheid; \"van negen tot zes uur\" lijkt een kort tijdvak voor wie 24-uurstijden niet kent (alle regels hebben dat, dus de vergelijking blijft eerlijk)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Een bibliotheek hangt haar openingstijden per dag op, met zondag dicht en donderdag tot acht uur, plus twee nieuwtjes voor kinderen: boeken op de tafel bij de deur en een gratis kaart.",
+        "communicative_purpose": "De lezer ziet wanneer de bibliotheek open is en wat nieuw is voor kinderen, en weet dat lenen met de kaart kan.",
+        "contrivance_check": "Een prikbord van de bibliotheek met tijden en \"Nieuw:\"-regels is een gewone mededeling; elke regel geeft een eigen feit en niets is toegevoegd voor opties. Het plaatje toont een meisje bij een boekenkast zonder tafel, deur of kaart.",
+        "unsupported_assumptions": [],
+        "image_text_link": "Meisje kiest een boek uit een kast; geen tafel, deur, balie of tijden in beeld."
+      },
+      "evidence": {
+        "item_specific": "Een bibliotheek hangt haar openingstijden per dag op, met zondag dicht en donderdag tot acht uur, plus twee nieuwtjes voor kinderen: boeken op de tafel bij de deur en een gratis kaart.",
+        "key_quotes": [
+          "Zondag: dicht.",
+          "Donderdag: van negen tot acht uur.",
+          "Nieuw: de kaart voor kinderen is gratis."
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "C",
+          "answer_text": "Op zondag.",
+          "evidence_quote": "Zondag: dicht.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "Alleen zondag heeft de regel dicht.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Op zaterdag.",
+              "rationale": "Zaterdag is open van tien tot vijf uur."
+            },
+            {
+              "option": "B",
+              "text": "Op vrijdag.",
+              "rationale": "Vrijdag is open van tien tot vijf uur."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "B",
+          "answer_text": "Op donderdag.",
+          "evidence_quote": "Donderdag: van negen tot acht uur.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "Alleen donderdag staat open tot acht uur.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Op maandag.",
+              "rationale": "Maandag sluit om zes uur."
+            },
+            {
+              "option": "C",
+              "text": "Op woensdag.",
+              "rationale": "Woensdag sluit om zes uur."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        },
+        {
+          "id": "q3",
+          "verdict": "pass",
+          "skill": "quantity",
+          "answer": "A",
+          "answer_text": "Nul euro.",
+          "evidence_quote": "Nieuw: de kaart voor kinderen is gratis.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "Gratis betekent dat de kaart nul euro kost.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Drie euro.",
+              "rationale": "Drie euro is een gewone prijs voor een kaart, maar de tekst noemt hem niet."
+            },
+            {
+              "option": "C",
+              "text": "Vijf euro.",
+              "rationale": "Vijf euro is een gewone prijs voor een kaart, maar de tekst noemt hem niet."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        }
+      ],
+      "cross_question_cue_audit": "Alle drie de vragen samen gelezen; geen vraag, optie of titel noemt het antwoord van een andere vraag.",
+      "learner_visible_cue_audit": "Titel, situatie en alt noemen geen sleutel.",
+      "record_contract": "taskType bericht, a1Step 2, exam a1-practice, geen retired type, geen media of afgeleide velden."
+    },
+    {
+      "id": "A1:reading:batch101-nieuwe-collega:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 stap 2 (foundation practice)",
+        "verdict": "A1 stap 2: 52 woorden, langste zin 8 woorden. Vergelijkbaar met de andere stap-2-teksten; moeilijker dan stap 1 door lengte en drie feiten.",
+        "validated": false,
+        "word_count": 52,
+        "hard_words": "collega, kantoor en team zijn bekende woorden uit een cursus rond werk; geen moeilijk woord blijft over."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Omar mailt zijn team dat er maandag om negen uur een nieuwe collega, Rosa, begint, dat Ivo haar naar de keuken brengt en dat er vrijdag om twaalf uur taart is.",
+        "communicative_purpose": "De teamleden weten wanneer Rosa komt, wie haar rondbrengt en wanneer ze naar de taart kunnen komen.",
+        "contrivance_check": "Een teamleider die het team inlicht over een nieuwe collega is een echte aanleiding; elke zin geeft iets wat het team nog niet weet. Het plaatje toont een vrouw met een tas bij een leeg bureau en een zwaaiende man, maar geen keuken, taart of tijd.",
+        "unsupported_assumptions": [],
+        "image_text_link": "Vrouw met tas bij een leeg bureau, man naast haar zwaait; sluit aan bij \"zij zit naast Ivo\" en toont geen sleutel."
+      },
+      "evidence": {
+        "item_specific": "Omar mailt zijn team dat er maandag om negen uur een nieuwe collega, Rosa, begint, dat Ivo haar naar de keuken brengt en dat er vrijdag om twaalf uur taart is.",
+        "key_quotes": [
+          "Zij begint om negen uur.",
+          "Ivo gaat met haar naar de keuken.",
+          "Op vrijdag om twaalf uur is er taart."
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "A",
+          "answer_text": "Om negen uur.",
+          "evidence_quote": "Zij begint om negen uur.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "Rosa begint om negen uur.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Om tien uur.",
+              "rationale": "Tien uur is een gewone starttijd, maar staat niet in het bericht."
+            },
+            {
+              "option": "C",
+              "text": "Om twaalf uur.",
+              "rationale": "Twaalf uur is de tijd van de taart, niet van de start."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "person",
+          "answer": "C",
+          "answer_text": "Ivo.",
+          "evidence_quote": "Ivo gaat met haar naar de keuken.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "Ivo gaat met Rosa naar de keuken.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Omar.",
+              "rationale": "Omar schrijft het bericht en gaat niet mee."
+            },
+            {
+              "option": "B",
+              "text": "De baas.",
+              "rationale": "De baas wordt niet genoemd."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        },
+        {
+          "id": "q3",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "B",
+          "answer_text": "Op vrijdag.",
+          "evidence_quote": "Op vrijdag om twaalf uur is er taart.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "De taart is op vrijdag om twaalf uur.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Op maandag.",
+              "rationale": "Maandag is de dag waarop Rosa begint, niet de taartdag."
+            },
+            {
+              "option": "C",
+              "text": "Op donderdag.",
+              "rationale": "Donderdag staat niet in het bericht."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        }
+      ],
+      "cross_question_cue_audit": "Alle drie de vragen samen gelezen; geen vraag, optie of titel noemt het antwoord van een andere vraag.",
+      "learner_visible_cue_audit": "Titel, situatie en alt noemen geen sleutel.",
+      "record_contract": "taskType bericht, a1Step 2, exam a1-practice, geen retired type, geen media of afgeleide velden."
+    },
+    {
+      "id": "A1:reading:batch101-markt-buurvrouw:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 stap 2 (foundation practice)",
+        "verdict": "A1 stap 2: 52 woorden, langste zin 8 woorden. Vergelijkbaar met de andere stap-2-teksten. Een beetje moeilijker door de uitnodiging plus de vraag.",
+        "validated": false,
+        "word_count": 52,
+        "hard_words": "dichtbij en iets zijn gemiddeld; \"Wil je mee?\" gebruikt mee zonder werkwoord, gewoon in het A1-begin."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "light-humor",
+        "situation_summary": "Buurvrouw Dina gaat zaterdag naar de markt, koopt brood, kaas en appels voor haar hond, nodigt de lezer uit om mee te gaan om tien uur en vraagt om een bericht voor vrijdag als de lezer iets nodig heeft.",
+        "communicative_purpose": "De lezer kan meegaan of een boodschap laten halen en weet wanneer Dina bij de deur staat en wanneer het bericht klaar moet zijn.",
+        "contrivance_check": "Een buurvrouw die vraagt of je iets nodig hebt van de markt is dagelijks leven; de hond die elke dag een appel eet is de ene luchtige grap en geen verklaring voor een andere vraag. Er is geen opsomming van spullen, alleen wat zij koopt.",
+        "unsupported_assumptions": [],
+        "image_text_link": "Vrouw met lege doek tas tussen kraampjes met groente en bloemen; geen hond, appel, brood of kaas in beeld."
+      },
+      "evidence": {
+        "item_specific": "Buurvrouw Dina gaat zaterdag naar de markt, koopt brood, kaas en appels voor haar hond, nodigt de lezer uit om mee te gaan om tien uur en vraagt om een bericht voor vrijdag als de lezer iets nodig heeft.",
+        "key_quotes": [
+          "Ik ga zaterdag naar de markt.",
+          "Ik koop ook appels voor mijn hond.",
+          "Ik wacht om tien uur bij je deur."
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "B",
+          "answer_text": "Op zaterdag.",
+          "evidence_quote": "Ik ga zaterdag naar de markt.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "Dina gaat op zaterdag naar de markt.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Op vrijdag.",
+              "rationale": "Vrijdag is de dag waarvoor u een bericht stuurt, niet de marktdag."
+            },
+            {
+              "option": "C",
+              "text": "Op zondag.",
+              "rationale": "Zondag staat niet in het bericht."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "A",
+          "answer_text": "Appels.",
+          "evidence_quote": "Ik koop ook appels voor mijn hond.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "De appels zijn voor de hond.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Brood.",
+              "rationale": "Brood koopt Dina voor zichzelf, niet voor de hond."
+            },
+            {
+              "option": "C",
+              "text": "Een bal.",
+              "rationale": "Een bal is een bekend hondenspeeltje, maar staat niet in het bericht."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        },
+        {
+          "id": "q3",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "C",
+          "answer_text": "Om tien uur.",
+          "evidence_quote": "Ik wacht om tien uur bij je deur.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "Dina wacht om tien uur bij de deur.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Om negen uur.",
+              "rationale": "Negen uur staat niet in het bericht."
+            },
+            {
+              "option": "B",
+              "text": "Om elf uur.",
+              "rationale": "Elf uur staat niet in het bericht."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        }
+      ],
+      "cross_question_cue_audit": "Alle drie de vragen samen gelezen; geen vraag, optie of titel noemt het antwoord van een andere vraag.",
+      "learner_visible_cue_audit": "Titel, situatie en alt noemen geen sleutel.",
+      "record_contract": "taskType bericht, a1Step 2, exam a1-practice, geen retired type, geen media of afgeleide velden."
+    },
+    {
+      "id": "A1:reading:batch101-nieuwe-dokter:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 stap 2 (foundation practice)",
+        "verdict": "A1 stap 2: 55 woorden, langste zin 8 woorden. Vergelijkbaar met de andere stap-2-teksten; de brief is wel een formeler register met u.",
+        "validated": false,
+        "word_count": 55,
+        "hard_words": "huisarts, afspraak en gesloten zijn lijstwoorden met gemiddelde moeilijkheid; \"Op 1 december\" met cijfers is voor een beginner duidelijk."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Het team van de huisarts schrijft de patiënten dat op 1 december een nieuwe huisarts begint, dokter Sara, dat de oude huisarts weggaat, dat bellen in de ochtend kan en dat de praktijk woensdagmiddag dicht is.",
+        "communicative_purpose": "De patiënt weet wanneer de nieuwe huisarts begint, wie weggaat en wanneer hij kan bellen voor een afspraak.",
+        "contrivance_check": "Een huisartsbrief bij een wisseling van arts bevat precies deze informatie; elke zin heeft een praktisch nut voor de patiënt. Het plaatje toont alleen een lege wachtkamer, geen datum, persoon of dokter.",
+        "unsupported_assumptions": [],
+        "image_text_link": "Lege wachtkamer met stoelen, plant en dichte deur; geen persoon of dag zichtbaar."
+      },
+      "evidence": {
+        "item_specific": "Het team van de huisarts schrijft de patiënten dat op 1 december een nieuwe huisarts begint, dokter Sara, dat de oude huisarts weggaat, dat bellen in de ochtend kan en dat de praktijk woensdagmiddag dicht is.",
+        "key_quotes": [
+          "Op 1 december begint er een nieuwe huisarts.",
+          "Bel dan in de ochtend.",
+          "De oude huisarts gaat weg."
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "C",
+          "answer_text": "Op 1 december.",
+          "evidence_quote": "Op 1 december begint er een nieuwe huisarts.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "De nieuwe huisarts begint op 1 december.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Op 1 november.",
+              "rationale": "1 november staat niet in de brief."
+            },
+            {
+              "option": "B",
+              "text": "Op 1 januari.",
+              "rationale": "1 januari staat niet in de brief."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "B",
+          "answer_text": "In de ochtend.",
+          "evidence_quote": "Bel dan in de ochtend.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "Bellen voor een afspraak kan in de ochtend.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "In de avond.",
+              "rationale": "De avond staat niet in de brief."
+            },
+            {
+              "option": "C",
+              "text": "In de middag.",
+              "rationale": "In de middag is de praktijk op woensdag gesloten; de brief zegt bel in de ochtend."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        },
+        {
+          "id": "q3",
+          "verdict": "pass",
+          "skill": "person",
+          "answer": "A",
+          "answer_text": "De oude dokter.",
+          "evidence_quote": "De oude huisarts gaat weg.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "De oude huisarts gaat weg.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "De nieuwe dokter.",
+              "rationale": "De nieuwe huisarts, dokter Sara, begint; zij gaat niet weg."
+            },
+            {
+              "option": "C",
+              "text": "De assistent.",
+              "rationale": "Een assistent wordt niet genoemd."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        }
+      ],
+      "cross_question_cue_audit": "Samen gelezen: q1 noemt dokter Sara, wat de optie \"De nieuwe dokter\" in q3 uitsluit maar de sleutel niet verklapt; q2 en q3 raken ochtend/middag niet meer.",
+      "learner_visible_cue_audit": "Titel, situatie en alt noemen geen sleutel.",
+      "record_contract": "taskType bericht, a1Step 2, exam a1-practice, geen retired type, geen media of afgeleide velden."
+    },
+    {
+      "id": "A1:reading:batch101-menu-week:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 stap 2 (foundation practice)",
+        "verdict": "A1 stap 2 als lijst: 51 woorden, zinnen van 5 woorden. Vergelijkbaar met bieb-tijden; moeilijker dan stap 1 door lengte en prijzen.",
+        "validated": false,
+        "word_count": 51,
+        "hard_words": "tomaat, pasta, kip en pinpas zijn lijstwoorden met gemiddelde moeilijkheid; de vragen vragen om herkenning van de gerechten."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "Een schoolkantine toont het weekmenu met een gerecht en prijs per dag, soep op vrijdag, het weekend dicht, koffie en thee, openingstijden en de betaalwijze.",
+        "communicative_purpose": "De lezer ziet welk gerecht er op welke dag is, wat het kost en wanneer de kantine open is.",
+        "contrivance_check": "Een menu per dag met prijs is een echte mededeling in een kantine; elke regel is een eigen dag en niets is bedacht voor opties. Het plaatje toont volwassenen aan tafel in een kantine zonder bord met menu.",
+        "unsupported_assumptions": [],
+        "image_text_link": "Drie volwassenen eten aan een lange tafel in een kantine; geen menubord, gerecht of prijs in beeld."
+      },
+      "evidence": {
+        "item_specific": "Een schoolkantine toont het weekmenu met een gerecht en prijs per dag, soep op vrijdag, het weekend dicht, koffie en thee, openingstijden en de betaalwijze.",
+        "key_quotes": [
+          "Vrijdag: soep, 2 euro.",
+          "Dinsdag: rijst met kip, 5 euro.",
+          "Woensdag: pizza, 3 euro."
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "verdict": "pass",
+          "skill": "time-place",
+          "answer": "A",
+          "answer_text": "Op vrijdag.",
+          "evidence_quote": "Vrijdag: soep, 2 euro.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "Alleen vrijdag heeft soep.",
+          "distractors": [
+            {
+              "option": "B",
+              "text": "Op donderdag.",
+              "rationale": "Donderdag is broodje kaas."
+            },
+            {
+              "option": "C",
+              "text": "Op maandag.",
+              "rationale": "Maandag is pasta met tomaat."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        },
+        {
+          "id": "q2",
+          "verdict": "pass",
+          "skill": "detail",
+          "answer": "C",
+          "answer_text": "Rijst met kip.",
+          "evidence_quote": "Dinsdag: rijst met kip, 5 euro.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "Dinsdag is rijst met kip.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Pasta met tomaat.",
+              "rationale": "Pasta met tomaat is het menu van maandag."
+            },
+            {
+              "option": "B",
+              "text": "Pizza.",
+              "rationale": "Pizza is het menu van woensdag."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        },
+        {
+          "id": "q3",
+          "verdict": "pass",
+          "skill": "quantity",
+          "answer": "B",
+          "answer_text": "Drie euro.",
+          "evidence_quote": "Woensdag: pizza, 3 euro.",
+          "evidence_verbatim_in_text": true,
+          "key_entailment": "De pizza van woensdag kost 3 euro.",
+          "distractors": [
+            {
+              "option": "A",
+              "text": "Twee euro.",
+              "rationale": "Twee euro is de prijs van het broodje en de soep."
+            },
+            {
+              "option": "C",
+              "text": "Vier euro.",
+              "rationale": "Vier euro is de prijs van de pasta."
+            }
+          ],
+          "option_category_check": "Alle drie de opties zijn van dezelfde soort (dag, spullen, plaats, uur, prijs of persoon); geen overkoepelende optie.",
+          "cue_check": "Opties zijn parallel in vorm; de sleutel is niet de langste of meest specifieke; geen promptwoord komt alleen in de sleutel terug."
+        }
+      ],
+      "cross_question_cue_audit": "Alle drie de vragen samen gelezen; geen vraag, optie of titel noemt het antwoord van een andere vraag.",
+      "learner_visible_cue_audit": "Titel, situatie en alt noemen geen sleutel.",
+      "record_contract": "taskType bericht, a1Step 2, exam a1-practice, geen retired type, geen media of afgeleide velden."
+    }
+  ]
+}

@@ -1,0 +1,772 @@
+{
+  "review_id": "110-a2-knm-themes-5-7-2026-11-22",
+  "source": "content/batches/110-original.json",
+  "proposed_source": "content/batches/110-proposed.json",
+  "source_sha256": "59f1dccdd80836043c1ee8656c3bb5683b458c6e7b560ab944dab5710e0ae803",
+  "review_type": "independent AI editorial review of 13 new A2 KNM items (theme 5 history and geography, theme 7 state and law), with every source page opened on 2026-11-22",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T12:54:33Z",
+  "reviewer": "Independent AI reviewer (Sonnet 5.5), separate from the author agent; AI editorial review, not human validation.",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "b10a246d06280c6bb193a89f18421f9449e5e49003eb03b2aa23a6e072d232f3",
+    "independence_note": "The blind packet of the author file (hash 557d4b29...d8e) was read first, and the per-item findings were written to content/reviews/110-review.md before the options, keys, notes, plan assignment or any source page was opened. The reviewer then changed prompts, cards and picture briefs; the packet was rebuilt from the proposed bytes (hash b10a246d...3f), the changed items were re-read, and the meaning verdicts below refer to that final packet."
+  },
+  "tone_balance": {
+    "ordinary": 13,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "All 13 are ordinary civic and history facts; KNM items are never jokes by rule, so they add no light-humor items and the combined program count is unchanged; the coordinator checks it."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 0,
+    "edited_by_reviewer": 13,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:knm:batch110-deltawerken:1",
+      "field": "text",
+      "before": "De Deltawerken zijn grote dammen en sluizen langs de kust. Ze beschermen Nederland tegen hoogwater van de zee. Zo blijft het land droog.",
+      "after": "De Deltawerken zijn grote dammen langs de kust. Ze houden het water van de zee tegen. Zo blijft het land droog.",
+      "reason": "Plain words: drop \"sluizen\" and \"hoogwater\", say what the dams do."
+    },
+    {
+      "id": "A2:knm:batch110-deltawerken:1",
+      "field": "questions[0].options.A",
+      "before": "Bouwwerken tegen hoogwater",
+      "after": "Grote dammen tegen de zee",
+      "reason": "\"Bouwwerken\" is above A2; the key now names the dams in plain words."
+    },
+    {
+      "id": "A2:knm:batch110-deltawerken:1",
+      "field": "questions[0].options.B",
+      "before": "Snelwegen tussen grote steden",
+      "after": "Snelwegen door het hele land",
+      "reason": "\"steden\" is not an A2 word; \"Snelwegen door het hele land\" stays false and parallel."
+    },
+    {
+      "id": "A2:knm:batch110-deltawerken:1",
+      "field": "questions[0].options.C",
+      "before": "Molens die stroom maken",
+      "after": "Fabrieken die stroom maken",
+      "reason": "\"Molens\" is not an A2 word and a mill also fits water; a factory is clearly wrong."
+    },
+    {
+      "id": "A2:knm:batch110-deltawerken:1",
+      "field": "questions[0].evidence",
+      "before": "Ze beschermen Nederland tegen hoogwater van de zee",
+      "after": "Ze houden het water van de zee tegen",
+      "reason": "Evidence follows the new card text."
+    },
+    {
+      "id": "A2:knm:batch110-deltawerken:1",
+      "field": "questions[0].explanation",
+      "before": "De Deltawerken zijn grote bouwwerken langs de kust. Ze houden het water van de zee tegen. Het zijn geen wegen en geen molens voor stroom.",
+      "after": "De Deltawerken zijn grote dammen langs de kust. Ze houden het water van de zee tegen. Het zijn geen wegen en geen fabrieken.",
+      "reason": "Explanation follows the new options and plain words."
+    },
+    {
+      "id": "A2:knm:batch110-deltawerken:1",
+      "field": "imageBrief",
+      "before": "A long low concrete dam with tall grey piers stands across a calm blue sea, a small red fishing boat in front, a few gulls, flat green land far behind. No text.",
+      "after": "A wide flat sandy beach at low tide under a pale sky, a small red fishing boat on the sand, a few gulls, low green land far behind. No text.",
+      "reason": "The picture of a dam showed the tested fact (the answer is a dam); the picture now shows only the coast setting."
+    },
+    {
+      "id": "A2:knm:batch110-deltawerken:1",
+      "field": "imageAlt",
+      "before": "Een lange dam met hoge pijlers in de zee, met een klein bootje ervoor.",
+      "after": "Een breed strand aan de zee met een klein rood bootje en een paar meeuwen.",
+      "reason": "Alt follows the new picture and reveals no key."
+    },
+    {
+      "id": "A2:knm:batch110-slavernij-afgeschaft:1",
+      "field": "questions[0].prompt",
+      "before": "Elk jaar is er op 1 juli een nationale herdenking. Wat gebeurde er op 1 juli 1863?",
+      "after": "Wat gebeurde er op 1 juli 1863?",
+      "reason": "The old prompt named the national commemoration, so a learner could pick the only option that fits a commemoration without knowing the fact."
+    },
+    {
+      "id": "A2:knm:batch110-slavernij-afgeschaft:1",
+      "field": "questions[0].explanation",
+      "before": "Op 1 juli 1863 werd de slavernij in de koloniën officieel afgeschaft. Daarom herdenkt Nederland dit elk jaar op 1 juli. De eerste trein reed al in 1839 en de Grondwet is niet in 1863 gemaakt.",
+      "after": "Op 1 juli 1863 werd de slavernij in de koloniën officieel afgeschaft. Afgeschaft betekent: het mocht niet meer. Daarom herdenkt Nederland dit elk jaar op 1 juli. De eerste trein reed al in 1839.",
+      "reason": "Explain \"afgeschaft\" in plain words; drop the weak Grondwet remark."
+    },
+    {
+      "id": "A2:knm:batch110-slavernij-afgeschaft:1",
+      "field": "imageAlt",
+      "before": "Een stenen gedenkteken in een rustig park, met bloemen aan de voet.",
+      "after": "Een grote steen in een rustig park, met bloemen ervoor.",
+      "reason": "\"stenen gedenkteken\" is above A2."
+    },
+    {
+      "id": "A2:knm:batch110-holocaust-herdenking:1",
+      "field": "questions[0].options.A",
+      "before": "De afschaffing van de slavernij",
+      "after": "Het einde van de slavernij",
+      "reason": "\"Afschaffing\" is above A2."
+    },
+    {
+      "id": "A2:knm:batch110-gastarbeiders-jaren-zestig:1",
+      "field": "questions[0].options.C",
+      "before": "Zij vluchtten voor een oorlog.",
+      "after": "Zij kwamen vanwege een oorlog.",
+      "reason": "\"vluchtten\" is above A2; option is now parallel with A and B."
+    },
+    {
+      "id": "A2:knm:batch110-gastarbeiders-jaren-zestig:1",
+      "field": "questions[0].explanation",
+      "before": "In de jaren zestig groeide de Nederlandse economie snel en waren er te weinig arbeiders. Daarom kwamen mensen uit onder andere Turkije en Marokko hier werken. Zij kwamen niet om te studeren en niet vanwege een oorlog.",
+      "after": "In de jaren zestig had Nederland veel werknemers nodig. Daarom kwamen mensen uit onder andere Turkije en Marokko hier werken. Zij kwamen niet om te studeren en niet vanwege een oorlog.",
+      "reason": "\"groeide\", \"economie\", \"arbeiders\" replaced by plain words."
+    },
+    {
+      "id": "A2:knm:batch110-regering-den-haag:1",
+      "field": "questions[0].explanation",
+      "before": "De regering van Nederland zit in Den Haag, op het Binnenhof. Amsterdam is de hoofdstad, maar de regering zit daar niet. In Rotterdam zit de regering ook niet.",
+      "after": "De regering van Nederland zit in Den Haag. Amsterdam is de hoofdstad, maar de regering zit daar niet. In Rotterdam zit de regering ook niet.",
+      "reason": "The ministries and the Kamers are temporarily housed in changing buildings during the Binnenhof renovation; only the city is stated."
+    },
+    {
+      "id": "A2:knm:batch110-regering-den-haag:1",
+      "field": "imageAlt",
+      "before": "Een man met een aktetas loopt naar een groot stenen gebouw met een vlag.",
+      "after": "Een man met een tas loopt naar een groot gebouw met een vlag.",
+      "reason": "\"aktetas\" and \"stenen\" are above A2."
+    },
+    {
+      "id": "A2:knm:batch110-twaalf-provincies:1",
+      "field": "text",
+      "before": "Nederland heeft twaalf provincies, zoals Utrecht en Zeeland. Het bestuur van een provincie staat tussen de regering en de gemeenten.",
+      "after": "Nederland heeft twaalf provincies, zoals Utrecht en Zeeland. Een provincie is groter dan een gemeente en kleiner dan het hele land.",
+      "reason": "\"bestuur ... staat tussen de regering en de gemeenten\" is not A2; plain size comparison from the same source."
+    },
+    {
+      "id": "A2:knm:batch110-twaalf-provincies:1",
+      "field": "questions[0].explanation",
+      "before": "Nederland heeft twaalf provincies. Acht is te weinig en zestien is te veel. Een provincie ligt tussen het Rijk en de gemeenten.",
+      "after": "Nederland heeft twaalf provincies. Acht is te weinig en zestien is te veel. Een provincie is groter dan een gemeente.",
+      "reason": "\"het Rijk\" is not A2."
+    },
+    {
+      "id": "A2:knm:batch110-twaalf-provincies:1",
+      "field": "imageBrief",
+      "before": "A woman in her thirties (long dark hair, yellow jacket) stands at a table and looks at a large paper map of a country coloured in several soft shapes; no names or marks on the map. No text.",
+      "after": "A woman in her thirties (long dark hair, yellow jacket) stands at a table and looks at a large folded paper map in pale colours; no names or marks on the map. No text.",
+      "reason": "Several coloured shapes on the map could show a wrong number of provinces and so mislead the count question."
+    },
+    {
+      "id": "A2:knm:batch110-twaalf-provincies:1",
+      "field": "imageAlt",
+      "before": "Een vrouw staat bij een tafel en kijkt naar een grote kaart met gekleurde vlakken.",
+      "after": "Een vrouw staat bij een tafel en kijkt naar een grote kaart.",
+      "reason": "Alt follows the new picture."
+    },
+    {
+      "id": "A2:knm:batch110-ov-uitchecken:1",
+      "field": "questions[0].options.A",
+      "before": "Alleen inchecken; uitchecken hoeft niet.",
+      "after": "Alleen inchecken.",
+      "reason": "Shorter and parallel; the explanation says uitchecken is needed."
+    },
+    {
+      "id": "A2:knm:batch110-ov-uitchecken:1",
+      "field": "questions[0].options.C",
+      "before": "Alleen uitchecken; inchecken hoeft niet.",
+      "after": "Een extra kaartje kopen.",
+      "reason": "\"Alleen uitchecken\" is not a misconception anyone holds; \"an extra ticket\" is a real wrong idea and false for a card traveller."
+    },
+    {
+      "id": "A2:knm:batch110-ov-uitchecken:1",
+      "field": "questions[0].explanation",
+      "before": "In het Nederlandse OV moet u bij elke reis inchecken en uitchecken, met een OV-chipkaart of met OVpay. Alleen inchecken is niet genoeg en alleen uitchecken ook niet.",
+      "after": "In het Nederlandse OV checkt u bij elke reis in en uit, met een OV-chipkaart of met OVpay. Alleen inchecken is niet genoeg. Een extra kaartje is niet nodig.",
+      "reason": "Follows the new options."
+    },
+    {
+      "id": "A2:knm:batch110-ov-uitchecken:1",
+      "field": "imageBrief",
+      "before": "A woman in her thirties (black hair, red scarf) holds a blue card against a card reader post on a station platform, a train waiting beside her. No text.",
+      "after": "A woman in her thirties (black hair, red scarf) stands on a station platform with a blue card in her hand, a train waiting beside her. No text.",
+      "reason": "The picture showed tapping a card at a reader, which is the check-in itself; it now shows only the setting."
+    },
+    {
+      "id": "A2:knm:batch110-ov-uitchecken:1",
+      "field": "imageAlt",
+      "before": "Een vrouw houdt een kaart tegen een paal op een perron, met een trein naast haar.",
+      "after": "Een vrouw staat met een kaart in haar hand op een perron, met een trein naast haar.",
+      "reason": "Alt follows the new picture."
+    },
+    {
+      "id": "A2:knm:batch110-ov-uitchecken:1",
+      "field": "sourceNote",
+      "before": "9292, 'Hoe werkt in- en uitchecken in het ov?': 'In Nederland werkt het hele OV met een systeem waarbij je moet in- en uitchecken bij elke reis. Je checkt in en uit met een OV-chipkaart of met OVpay.' 9292 is run by the Dutch public-transport operators. No balances or fees used. Check yearly (OVpay and e-ticket details change). (opened 2026-11-22)",
+      "after": "9292, 'Hoe werkt in- en uitchecken in het ov?': 'In Nederland werkt het hele OV met een systeem waarbij je moet in- en uitchecken bij elke reis. Je checkt in en uit met een OV-chipkaart of met OVpay.' 9292 is run by the Dutch public-transport operators. No balances or fees used. Check yearly (OVpay and e-ticket details change). (opened 2026-11-22) Reviewer: NS (ns.nl/reizen/inchecken-uitchecken, opened 2026-11-22) says the same for its trains (\"Check altijd uit bij de vervoerder waarmee je bent ingecheckt\"); 9292 is kept because it states the rule for \"het hele OV\". Only the national rule is asked; the price and the forgotten-checkout fee of the A2 listening item batch105-ov-uitchecken are not used.",
+      "reason": "Reviewer corroboration and overlap note."
+    },
+    {
+      "id": "A2:knm:batch110-reisplanner-9292:1",
+      "field": "questions[0].prompt",
+      "before": "Layla wil met bus en trein naar een andere stad. Wat is 9292?",
+      "after": "Wat is 9292 in Nederland?",
+      "reason": "The persona wanting to go by bus and train described the answer in the prompt."
+    },
+    {
+      "id": "A2:knm:batch110-reisplanner-9292:1",
+      "field": "questions[0].options.A",
+      "before": "Een app voor het weer",
+      "after": "Een bankpas voor de bus",
+      "reason": "A weather app is not a plausible mix-up; a pass for the bus is false but tempting next to OV-chipkaart."
+    },
+    {
+      "id": "A2:knm:batch110-reisplanner-9292:1",
+      "field": "questions[0].explanation",
+      "before": "9292 is een reisplanner voor het openbaar vervoer. Layla ziet daar hoe zij met bus en trein reist. Het is geen weerapp en niet het nummer van de politie.",
+      "after": "9292 is een reisplanner voor het openbaar vervoer. U ziet daar hoe u met bus en trein reist. Het is geen pas om te betalen en niet het nummer van de politie.",
+      "reason": "Follows the new options."
+    },
+    {
+      "id": "A2:knm:batch110-reisplanner-9292:1",
+      "field": "imageBrief",
+      "before": "A young woman (curly brown hair, green coat) stands at a bus stop and looks at her phone, a bus coming down the street behind her. No text.",
+      "after": "A young woman (curly brown hair, green coat) stands at a bus stop shelter, a bus coming down the street behind her. No text.",
+      "reason": "She no longer looks at a phone, which hinted at the key."
+    },
+    {
+      "id": "A2:knm:batch110-reisplanner-9292:1",
+      "field": "imageAlt",
+      "before": "Een jonge vrouw staat bij een bushalte en kijkt op haar telefoon.",
+      "after": "Een jonge vrouw staat bij een bushalte, met een bus op de achtergrond.",
+      "reason": "Alt follows the new picture."
+    },
+    {
+      "id": "A2:knm:batch110-gelijk-loon:1",
+      "field": "text",
+      "before": "Doen mensen in één bedrijf werk van gelijke waarde, dan krijgen zij gelijk loon. Dat geldt voor al het loon, ook voor bonussen. Man of vrouw maakt geen verschil.",
+      "after": "Doen mensen in één bedrijf werk dat evenveel waard is, dan krijgen zij hetzelfde loon. Dat geldt ook voor een bonus. Man of vrouw maakt geen verschil.",
+      "reason": "\"werk van gelijke waarde\" and \"bonussen\" are above A2; plain wording of the same rule."
+    },
+    {
+      "id": "A2:knm:batch110-gelijk-loon:1",
+      "field": "questions[0].prompt",
+      "before": "Gerrit en Layla doen in één bedrijf werk van gelijke waarde. Wat is de regel voor hun loon?",
+      "after": "Gerrit en Layla doen in één bedrijf werk dat evenveel waard is. Wat is de regel voor hun loon?",
+      "reason": "Prompt echoed \"gelijke\" only in the key; now follows the card wording."
+    },
+    {
+      "id": "A2:knm:batch110-gelijk-loon:1",
+      "field": "questions[0].options.A",
+      "before": "De baas bepaalt zelf wie meer krijgt.",
+      "after": "De baas kiest zelf wie meer krijgt.",
+      "reason": "\"bepaalt\" is not A2."
+    },
+    {
+      "id": "A2:knm:batch110-gelijk-loon:1",
+      "field": "questions[0].options.B",
+      "before": "Zij krijgen gelijk loon.",
+      "after": "Zij krijgen hetzelfde loon.",
+      "reason": "Follows the card."
+    },
+    {
+      "id": "A2:knm:batch110-gelijk-loon:1",
+      "field": "questions[0].evidence",
+      "before": "dan krijgen zij gelijk loon",
+      "after": "dan krijgen zij hetzelfde loon",
+      "reason": "Evidence follows the new card."
+    },
+    {
+      "id": "A2:knm:batch110-gelijk-loon:1",
+      "field": "questions[0].explanation",
+      "before": "Bij werk van gelijke waarde in één bedrijf hoort gelijk loon, ook voor bonussen en toeslagen. De baas kiest dat niet zelf en een man krijgt niet meer dan een vrouw.",
+      "after": "Bij werk dat evenveel waard is hoort in één bedrijf hetzelfde loon, ook voor een bonus. De baas kiest dat niet zelf en een man krijgt niet meer dan een vrouw.",
+      "reason": "\"toeslagen\" is not A2."
+    },
+    {
+      "id": "A2:knm:batch110-vrouw-directeur:1",
+      "field": "questions[0].prompt",
+      "before": "Priya solliciteert voor directeur. Het bedrijf zegt: een directeur moet een man zijn. Wat is dat volgens de wet?",
+      "after": "Priya solliciteert als directeur. Het bedrijf zegt: een directeur moet een man zijn. Wat is dat volgens de wet?",
+      "reason": "\"solliciteert voor directeur\" is not idiomatic."
+    },
+    {
+      "id": "A2:knm:batch110-vrouw-directeur:1",
+      "field": "questions[0].options.A",
+      "before": "Een keuze van het bedrijf",
+      "after": "Een gewone keuze van het bedrijf",
+      "reason": "\"Een keuze van het bedrijf\" was literally true (the company did choose); \"gewone\" makes it a claim that it is allowed."
+    },
+    {
+      "id": "A2:knm:batch110-vrouw-directeur:1",
+      "field": "questions[0].options.B",
+      "before": "Een regel van de overheid",
+      "after": "Een soort discriminatie",
+      "reason": "The key was the longest and most specific option; it is now short, and parallel with the other options (\"Een ...\"). That it is not allowed is in the card and explanation."
+    },
+    {
+      "id": "A2:knm:batch110-vrouw-directeur:1",
+      "field": "questions[0].options.C",
+      "before": "Discriminatie, en dat mag niet",
+      "after": "Een regel van de wet",
+      "reason": "\"overheid\" is not A2; no law says a director must be a man."
+    },
+    {
+      "id": "A2:knm:batch110-eerste-kamer:1",
+      "field": "text",
+      "before": "Eerst bespreekt de Tweede Kamer een wetsvoorstel. Daarna kijkt de Eerste Kamer ernaar. De Eerste Kamer kan het voorstel alleen goedkeuren of afkeuren, niet veranderen.",
+      "after": "Een wetsvoorstel is een plan voor een nieuwe wet. De Tweede Kamer bespreekt het eerst. Daarna kan de Eerste Kamer het alleen goedkeuren of afkeuren, niet veranderen.",
+      "reason": "\"wetsvoorstel\" was not explained; wording stays within 30 words."
+    },
+    {
+      "id": "A2:knm:batch110-eerste-kamer:1",
+      "field": "questions[0].prompt",
+      "before": "Het wetsvoorstel is al door de Tweede Kamer besproken. Wat doet de Eerste Kamer ermee?",
+      "after": "Een wetsvoorstel gaat van de Tweede Kamer naar de Eerste Kamer. Wat doet de Eerste Kamer ermee?",
+      "reason": "\"Het wetsvoorstel ... besproken\" had no antecedent and \"besproken\" is above A2."
+    },
+    {
+      "id": "A2:knm:batch110-eerste-kamer:1",
+      "field": "questions[0].options.C",
+      "before": "Zij voert het voorstel uit.",
+      "after": "Zij kiest de regering.",
+      "reason": "\"uitvoeren\" is not A2 and carrying out laws is a task of the regering, which can look right; a clear false statement replaces it."
+    },
+    {
+      "id": "A2:knm:batch110-eerste-kamer:1",
+      "field": "questions[0].evidence",
+      "before": "De Eerste Kamer kan het voorstel alleen goedkeuren of afkeuren",
+      "after": "Daarna kan de Eerste Kamer het alleen goedkeuren of afkeuren",
+      "reason": "Verbatim in the new card."
+    },
+    {
+      "id": "A2:knm:batch110-eerste-kamer:1",
+      "field": "questions[0].explanation",
+      "before": "De Eerste Kamer kan een wetsvoorstel alleen goedkeuren of afkeuren. Zij kan het niet veranderen en dus ook niet opnieuw schrijven. Uitvoeren doet de regering.",
+      "after": "De Eerste Kamer kan een wetsvoorstel alleen goedkeuren of afkeuren. Zij kan het niet veranderen en dus ook niet opnieuw schrijven. De regering kiest zij niet.",
+      "reason": "Follows the new options."
+    },
+    {
+      "id": "A2:knm:batch110-eerste-kamer:1",
+      "field": "imageBrief",
+      "before": "A quiet meeting room with rows of green leather benches, a long wooden table in the middle and tall windows letting in light, no people. No text.",
+      "after": "A quiet meeting room with rows of wooden benches, a long wooden table in the middle and tall windows letting in light, no people. No text.",
+      "reason": "Colour of the benches could be read as one particular Kamer; neutral wood."
+    },
+    {
+      "id": "A2:knm:batch110-eerste-kamer:1",
+      "field": "imageAlt",
+      "before": "Een rustige vergaderzaal met groene banken en een lange houten tafel.",
+      "after": "Een rustige zaal met houten banken en een lange houten tafel.",
+      "reason": "\"vergaderzaal\" is above A2."
+    },
+    {
+      "id": "A2:knm:batch110-eu-meebeslissen:1",
+      "field": "questions[0].options.A",
+      "before": "Nederland moet die wetten alleen uitvoeren.",
+      "after": "Nederland moet die wetten alleen volgen.",
+      "reason": "\"uitvoeren\" is not A2."
+    },
+    {
+      "id": "A2:knm:batch110-eu-meebeslissen:1",
+      "field": "questions[0].explanation",
+      "before": "Als lid van de EU beslist Nederland mee over de wetten van de EU, samen met de andere landen. Nederland voert ze dus niet alleen uit en maakt ze ook niet alleen.",
+      "after": "Als lid van de EU beslist Nederland mee over de wetten van de EU, samen met de andere landen. Nederland volgt ze dus niet alleen en maakt ze ook niet alleen.",
+      "reason": "Follows the new option."
+    },
+    {
+      "id": "A2:knm:batch110-rechter-beslist:1",
+      "field": "questions[0].explanation",
+      "before": "Komen twee partijen er niet uit, dan beslist de rechter. De politie let op de regels maar beslist niet wie gelijk heeft. De burgemeester beslist dit ook niet.",
+      "after": "Komen twee mensen er niet uit, dan beslist de rechter. De politie let op de regels maar beslist niet wie gelijk heeft. De burgemeester beslist dit ook niet.",
+      "reason": "\"partijen\" is not A2."
+    },
+    {
+      "id": "A2:knm:batch110-vrouw-directeur:1",
+      "field": "title",
+      "before": "Vrouw weigeren als directeur",
+      "after": "Gelijke kansen op een baan",
+      "reason": "\"weigeren\" is above A2."
+    },
+    {
+      "id": "A2:knm:batch110-vrouw-directeur:1",
+      "field": "questions[0].explanation",
+      "before": "Een bedrijf mag een vrouw niet weigeren alleen omdat zij een vrouw is. Dat is direct onderscheid en dat mag niet. Het is dus geen keuze van het bedrijf en geen regel van de overheid.",
+      "after": "Dat is discriminatie en het mag niet. Een bedrijf mag niet zeggen dat een directeur een man moet zijn. Het is geen gewone keuze en geen regel van de wet.",
+      "reason": "Shorter sentences; follows the new options."
+    },
+    {
+      "id": "A2:knm:batch110-vrouw-directeur:1",
+      "field": "text",
+      "before": "Een bedrijf mag een vrouw niet weigeren alleen omdat zij een vrouw is. Dat is discriminatie. In Nederland hebben vrouwen en mannen gelijke kansen op werk.",
+      "after": "Krijgt een vrouw de baan niet, alleen omdat zij een vrouw is? Dat is discriminatie en dat mag niet. In Nederland hebben vrouwen en mannen gelijke kansen op werk.",
+      "reason": "\"weigeren\" is above A2; the card now holds the situation of the question; no quotation marks inside the sentence."
+    },
+    {
+      "id": "A2:knm:batch110-vrouw-directeur:1",
+      "field": "questions[0].evidence",
+      "before": "Dat is discriminatie",
+      "after": "Dat is discriminatie en dat mag niet",
+      "reason": "Verbatim in the new card."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/110-proposed.json: 13 items, 13 questions, keys A5/B4/C4 (38/31/31 percent), three options each, no failures; one warning only: the slug ov-uitchecken exists as an A2 listening id (different part, different fact, accepted)",
+    "batch_review_source": "packet_sha256 b10a246d06280c6bb193a89f18421f9449e5e49003eb03b2aa23a6e072d232f3",
+    "sources_opened": "all 11 source pages and the Tweede Kamer PDF were fetched on 2026-11-22; every keyed fact is on its page; NS page added as a second source for the OV rule",
+    "card_word_counts": [
+      21,
+      28,
+      27,
+      22,
+      22,
+      21,
+      27,
+      29,
+      27,
+      29,
+      27,
+      28,
+      26
+    ],
+    "prompt_word_counts": [
+      6,
+      7,
+      9,
+      18,
+      12,
+      12,
+      16,
+      5,
+      19,
+      19,
+      17,
+      18,
+      18
+    ],
+    "rule_condition_set_up": "gelijk-loon, vrouw-directeur, eerste-kamer, rechter-beslist state the condition in the prompt; no key is an unannounced exception",
+    "rule_distractors_false_about_NL": "checked per item in evidence.summary; \"nooit/altijd\" options: none",
+    "rule_options_differ_in_what_is_asked": "yes; the old vrouw-directeur A literally true as a description (a company choice) was reworded",
+    "answer_signals": "key is not the longest option in any item (vrouw-directeur key is the shortest); no prompt word recurs only in the key after the edits to slavernij, gelijk-loon and reisplanner",
+    "word_gate": "KNM is outside the gate; every word outside the tested terms was checked against config/a2-vocabulary.json and replaced when unlisted (list in the Markdown review)",
+    "duplication": "no fact duplicates an existing KNM item; nearest: batch006-sollicitatie, batch007-wetten, batch007-europese-unie, batch007-hoger-beroep, batch018-bevrijdingsdag (different facts)",
+    "level_vs_official_knm": "comparable or easier for all 13; no item harder than the published KNM style"
+  },
+  "items": [
+    {
+      "id": "A2:knm:batch110-deltawerken:1",
+      "verdict": "pass (edited)",
+      "level": "easier",
+      "level_reason": "Three short sentences, one concrete idea, and no year or place name asked; plainer than most existing theme 3 and 6 KNM cards. The tested term is explained by what the dams do.",
+      "evidence": {
+        "quote": "Ze houden het water van de zee tegen",
+        "sources": [
+          "https://www.rijkswaterstaat.nl/water/waterbeheer/bescherming-tegen-het-water"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijkswaterstaat, opened 2026-11-22: \"Dijken, sluizen, dammen en andere waterkeringen houden water tegen en beschermen ons land zo tegen overstromingen. De bekendste waterkeringen zijn de 13 Deltawerken.\" Key A (dams against the sea) agrees. B (motorways) and C (power factories) are false statements about the Deltawerken. Key has 5 words, B 5, C 4; the prompt shares no word with the key only. The card stays under 30 words (21)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A coast scene with a beach, a small red fishing boat and gulls introduces the question what the Deltawerken are; the card then says they are big dams along the coast that hold back the sea.",
+        "communicative_purpose": "A newcomer learns what the Deltawerken are, the Dutch flood defence on the coast, a core part of life with water (eindterm 5.1.1).",
+        "contrivance_check": "No persona or invented event is needed; the beach picture shows the sea-and-coast setting and no dam, so the key is not visible in the picture or the alt.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch110-slavernij-afgeschaft:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Date-to-event fact with three events of the same kind; the prompt no longer names the commemoration, so the learner must know the date. Terms koloniën, afgeschaft and Grondwet are the subject of the exam theme and are explained on the card.",
+      "evidence": {
+        "quote": "Op 1 juli 1863 werd de slavernij in de koloniën van Nederland officieel afgeschaft",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/migratie-en-reizen/discriminatie-en-racisme/veelgestelde-vragen-herdenkingsjaar-slavernijverleden"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid FAQ Herdenkingsjaar Slavernijverleden, opened 2026-11-22: \"Op 1 juli 1863 werd de slavernij in de voormalige koloniën formeel afgeschaft. Het is ook de datum waarop de Nationale Herdenking Slavernijverleden plaatsvindt.\" Key C agrees. A: no new Grondwet in 1863 (revisions in 1848 and 1887). B: the first train ran in 1839. The old prompt named the commemoration and so pointed to the only option that fits a commemoration; removed."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A quiet monument in a park with flowers; the card gives the date, the event and the yearly commemoration in a calm, factual way, without people or detail of suffering.",
+        "communicative_purpose": "A newcomer learns the date and the meaning of 1 July 1863 and why Nederland commemorates on 1 July (eindterm 5.1.1, colonies and slavery).",
+        "contrivance_check": "The question needs no off-page context: it asks about a date on the card. The three options are three events of the same kind, so none is stocktaking; the picture shows a memorial without naming the event.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch110-holocaust-herdenking:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "Date-to-event fact; A2 words except the subject terms Holocaust, Joden and slachtoffers. The card defines the Holocaust in one non-graphic sentence.",
+      "evidence": {
+        "quote": "Op de laatste zondag van januari herdenkt Nederland de slachtoffers",
+        "sources": [
+          "https://www.rijksoverheid.nl/onderwerpen/tweede-wereldoorlog/nationale-herdenkingen"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid Nationale herdenkingen, opened 2026-11-22: \"Op de laatste zondag in januari is de herdenking van de slachtoffers van de Holocaust in Amsterdam.\" The same page names the Nationale Holocaust Herdenking \"op de laatste zondag in januari\". Key B agrees. A: slavery is remembered on 1 July. C: the liberation is celebrated on 5 May. The date narrows the question but both distractors are events with a known other date, so a learner needs the fact, not only the word \"herdenkt\"."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Candles in jars on a low wall with a tree and a grey winter sky, no people; the card states what the Holocaust was and when the victims are remembered.",
+        "communicative_purpose": "A newcomer learns what the Holocaust was and that Nederland remembers its victims on the last Sunday of January (eindterm 5.1.2).",
+        "contrivance_check": "No persona is forced in; the date is on the card and in the question. The calm tone follows the plan: no graphic detail, no people in distress, no photographs.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch110-gastarbeiders-jaren-zestig:1",
+      "verdict": "pass (edited)",
+      "level": "easier",
+      "level_reason": "A direct \"why\" question whose key follows from the card in plain words; the distractors are two common wrong ideas. Easier than the theme 6 and 8 rule items.",
+      "evidence": {
+        "quote": "Mensen uit onder andere Spanje, Turkije en Marokko kwamen werken",
+        "sources": [
+          "https://www.canonvannederland.nl/nl/gastarbeiders"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Canon van Nederland (national canon), opened 2026-11-22: \"De Nederlandse economie maakt in de jaren zestig overuren en de vraag naar arbeiders groeit enorm. Mensen uit Spanje, Portugal, Griekenland, voormalig Joegoslavië, Turkije en Marokko moeten het tekort aanvullen.\" The page adds that a recruitment agreement with Turkey followed in 1964. Key A agrees. B (studying) and C (war) are false for the gastarbeiders."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Hatice asks about her grandfather who came from Turkey in the sixties; the picture shows a man with a suitcase on a platform beside an old train.",
+        "communicative_purpose": "A newcomer learns why people from Turkey and Morocco came in the 1960s: Nederland needed workers (eindterm 5.1.2, migration).",
+        "contrivance_check": "A family story (the grandfather) is a normal reason to ask about this period; it needs no invented event. The picture shows arrival, not the reason.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch110-regering-den-haag:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "One city out of three, with Amsterdam as the tempting capital answer; same demand as the direct place facts in the bank, with only A2 words.",
+      "evidence": {
+        "quote": "De regering zit in Den Haag",
+        "sources": [
+          "https://www.tweedekamer.nl/sites/default/files/2023-05/20230510%20uitgeschreven%20tekst%20audiotour%20permanente%20tentoonstelling.pdf",
+          "https://www.denederlandsegrondwet.nl/"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Tweede Kamer audio tour (PDF, 10 May 2023, stop 21), opened 2026-11-22: \"Het Binnenhof in Den Haag is een eigenaardige plek. Het is niet de hoofdstad van het land, en toch is hier de regeringszetel gevestigd.\" The Grondwet states the capital as Amsterdam. Key C agrees; A (Amsterdam) is the capital but not the seat; B (Rotterdam) is neither. Accepted as a responsible-body source because it is the Tweede Kamer itself."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Sven lives in Amsterdam and asks where the government sits; the picture shows a man walking towards a large building with a flag on an avenue.",
+        "communicative_purpose": "A newcomer learns that the capital (Amsterdam) and the seat of government (Den Haag) are different cities (eindterm 5.2.1).",
+        "contrivance_check": "Sven living in Amsterdam is exactly the reason to confuse the two cities; no invented event is needed. The picture shows an official building, not the city.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch110-twaalf-provincies:1",
+      "verdict": "pass (edited)",
+      "level": "easier",
+      "level_reason": "A number out of three with one plain card; the old second sentence (\"bestuur ... staat tussen\") was above A2 and is now a size comparison.",
+      "evidence": {
+        "quote": "Nederland heeft twaalf provincies",
+        "sources": [
+          "https://www.ipo.nl/over-het-ipo/over-provincies/"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "IPO (the provinces' own association), opened 2026-11-22: \"In Nederland vormen de provincies de bestuurslaag tussen het Rijk en de gemeenten. Nederland telt twaalf provincies: Groningen Friesland Drenthe Overijssel Flevoland Gelderland Utrecht Noord-Holland Zuid-Holland Zeeland Noord-Brabant Limburg.\" Key A agrees; eight and sixteen are wrong counts. The key sits in no middle position of a sorted row."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Priya looks at a map of Nederland and wants to know how many provinces there are; the picture shows her at a table with a plain paper map.",
+        "communicative_purpose": "A newcomer learns the number of provinces and that a province lies between a gemeente and the whole country (eindterm 5.2.1).",
+        "contrivance_check": "Looking at a map is a normal reason to ask. The map in the picture is deliberately left plain, because a drawn map could show a wrong number of regions and mislead the count.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch110-ov-uitchecken:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "A rule fact in plain words; the key is the rule the learner needs for every trip. Distractors are one real misconception (only check in) and one wrong idea (an extra ticket). Comparable to the existing practical KNM rules.",
+      "evidence": {
+        "quote": "In het openbaar vervoer checkt u in en uit bij elke reis",
+        "sources": [
+          "https://9292.nl/betalen-in-ov/inchecken-en-uitchecken/",
+          "https://www.ns.nl/reizen/inchecken-uitchecken"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "9292, opened 2026-11-22: \"In Nederland werkt het hele OV met een systeem waarbij je moet in- en uitchecken bij elke reis. Je checkt in en uit met een OV-chipkaart of met OVpay.\" NS says the same for its trains (\"Check altijd uit bij de vervoerder waarmee je bent ingecheckt\"). Key B agrees. A is false (checking out is required; forgetting it costs money); C is false for a card traveller. The item states only the national rule; no price or fee. The A2 listening item batch105-ov-uitchecken tests a different fact (paying by bank pass in one bus company, with its fee)."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Zeynep travels with her OV-chipkaart and asks what she must do on every trip; the picture shows a woman on a platform with a card in her hand and a train beside her.",
+        "communicative_purpose": "A newcomer learns the national OV rule: check in and check out on every trip, with a card or OVpay (eindterm 5.2.2).",
+        "contrivance_check": "Using an OV-chipkaart is an ordinary reason to ask about the rule. The picture shows the platform and the card, not the act of tapping, so it does not decide between the options.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch110-reisplanner-9292:1",
+      "verdict": "pass (edited)",
+      "level": "easier",
+      "level_reason": "A one-line definition question; the persona no longer describes the answer. Distractors are a pass, a number and a planner, all A2 words.",
+      "evidence": {
+        "quote": "9292 is een reisplanner voor het openbaar vervoer",
+        "sources": [
+          "https://9292.nl/app-en-website/download-de-app/"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "9292, opened 2026-11-22: \"Jouw OV reisplanner. Met de 9292 app heb je de reisplanner altijd bij de hand.\" and \"Zie waar de trein, bus, tram of metro is.\" Key C agrees. A (a bankpas for the bus) is false: 9292 plans journeys and does not pay for them. B (a police number) is false; the alarm number is 112. The source is 9292 itself, which is run by the OV sector; accepted because no government page names the planner and it states what the service is."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A young woman waits at a bus stop shelter with a bus coming; the card says what 9292 is and what it shows.",
+        "communicative_purpose": "A newcomer learns which service plans travel by train, bus, tram and metro in Nederland (eindterm 5.2.2).",
+        "contrivance_check": "The prompt asks for the name only; the picture shows a stop and does not show a phone, so neither prompt nor picture gives the key.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch110-gelijk-loon:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "A rule with its condition set up in the prompt (\"werk dat evenveel waard is\"). Plain A2 wording replaces \"werk van gelijke waarde\" and \"bonussen\", so the difficulty is the rule itself.",
+      "evidence": {
+        "quote": "dan krijgen zij hetzelfde loon",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/werk/gelijke-behandeling-op-het-werk/regels-gelijke-behandeling-op-het-werk"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: \"Alle medewerkers binnen een bedrijf moeten bij gelijkwaardig werk een gelijkwaardige beloning krijgen. Het gaat om alle onderdelen van de beloning. Zoals het salaris, bonussen, toeslagen en secundaire arbeidsvoorwaarden.\" Key B agrees. A (the boss chooses freely) and C (a man gets more) are false when the work is equally valuable. The prompt no longer shares \"gelijk\" only with the key. Law on pay transparency is pending; the rule itself is stable, so check yearly."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Gerrit and Layla do work of the same value in one company; the picture shows a man and a woman side by side at a workbench with a yellow toolbox between them.",
+        "communicative_purpose": "A newcomer learns that equal work of equal value must be paid equally, whoever does it (eindterm 7.2.1, equality of women and men at work).",
+        "contrivance_check": "Two colleagues at one company is the minimum setting for the rule. The picture shows two workers doing the same task and no pay, so the key is not visible.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch110-vrouw-directeur:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "A legal classification question with a stated reason in the prompt. The key was the longest option; it is now a short parallel option. Near batch006-sollicitatie in topic (discrimination in hiring) but another ground and eindterm.",
+      "evidence": {
+        "quote": "Dat is discriminatie en dat mag niet",
+        "sources": [
+          "https://www.rijksoverheid.nl/themas/werk/gelijke-behandeling-op-het-werk/regels-gelijke-behandeling-op-het-werk"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: \"Bijvoorbeeld wanneer een vrouw hoort dat zij geen directeur wordt, omdat zij vrouw is. Direct onderscheid mag niet, behalve als de wet een uitzondering maakt.\" Key B agrees; the prompt gives the reason (a man is required), so the narrow legal exceptions do not apply. A is false: not a free choice. C is false: no law requires a male director. Options differ in what the law says, not in a literal reading of what the company did."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Priya applies as a director and the company says a director must be a man; the picture shows a woman and a man across a desk in an office.",
+        "communicative_purpose": "A newcomer learns that refusing a woman a job only because she is a woman is discrimination and not allowed (eindterm 7.2.1).",
+        "contrivance_check": "A company stating the reason out loud is a blunt but clear example, taken from the government page itself. The picture shows an interview-like scene and the closed folder tells nothing.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch110-eerste-kamer:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "A role question with the stage set in the prompt. \"Wetsvoorstel\" is now explained on the card; \"uitvoeren\" and \"besproken\" are replaced. Comparable to batch007-wetten but about the second chamber.",
+      "evidence": {
+        "quote": "Daarna kan de Eerste Kamer het alleen goedkeuren of afkeuren",
+        "sources": [
+          "https://www.tweedekamer.nl/zo-werkt-de-kamer/de-tweede-kamer/staten-generaal"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Tweede Kamer, opened 2026-11-22: \"De Eerste Kamer moet wetsvoorstellen van de Tweede Kamer goedkeuren. Pas als de Eerste Kamer een wetsvoorstel heeft goedgekeurd, mag het wetsvoorstel een wet worden. De Eerste Kamer kan een wet alleen goedkeuren of afkeuren; ze kan het wetsvoorstel niet wijzigen.\" Key A agrees. B (rewrite) is false: it cannot change. C (choose the regering) is false: the regering is not chosen by the Eerste Kamer."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "A bill goes from the Tweede Kamer to the Eerste Kamer; the picture shows an empty meeting room with benches and a long table.",
+        "communicative_purpose": "A newcomer learns how a bill becomes law: the second chamber can only approve or reject (eindterm 7.1.1, two Kamers).",
+        "contrivance_check": "The prompt states the stage (from the Tweede Kamer), so the question needs no outside event. The empty room is a setting and shows no vote.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch110-eu-meebeslissen:1",
+      "verdict": "pass (edited)",
+      "level": "comparable",
+      "level_reason": "A meaning question with three clear statements in plain words; \"uitvoeren\" is replaced by \"volgen\". Comparable to batch007-europese-unie, which tests another fact (free movement of workers).",
+      "evidence": {
+        "quote": "Als lid beslist Nederland mee over de wetten van de EU",
+        "sources": [
+          "https://www.rijksoverheid.nl/onderwerpen/europese-unie/nederland-en-de-europese-unie"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rijksoverheid, opened 2026-11-22: \"Als lidstaat van de EU beslist Nederland mee over wetgeving van de EU.\" Key B agrees. A (only follow) is false because Nederland takes part in the decisions. C (alone, without the other countries) is false because EU laws are decided with the other member states. The key is the shortest option."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Jeroen reads that Nederland is a member of the EU and wants to know what that means for EU laws; the picture shows him at a kitchen table with a newspaper and two small flags on the windowsill.",
+        "communicative_purpose": "A newcomer learns that membership means Nederland takes part in deciding EU laws (eindterm 7.1.2).",
+        "contrivance_check": "Reading the paper is a normal reason to ask. The flags are a setting detail; the card, not the picture, carries the fact.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A2:knm:batch110-rechter-beslist:1",
+      "verdict": "pass (edited)",
+      "level": "easier",
+      "level_reason": "A who-decides question with the condition in the prompt (\"zij komen er samen niet uit\"). Three bodies a learner knows. Plain words except the terms rechter and burgemeester.",
+      "evidence": {
+        "quote": "Dan beslist de rechter",
+        "sources": [
+          "https://www.rechtspraak.nl/organisatie-en-contact/rechtspraak-in-nederland/democratische-rechtsstaat"
+        ],
+        "access_date": "2026-11-22",
+        "summary": "Rechtspraak.nl, opened 2026-11-22: \"Als 2 partijen een conflict hebben over de regels, beslist de rechter.\" Key A agrees. B (politie) is false: the police enforce rules but do not decide who is right. C (burgemeester) is false: the burgemeester does not settle a private dispute between neighbours. Not a repeat of batch007-hoger-beroep, which asks about appeal."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "tone": "ordinary",
+        "coherence_rating": 4,
+        "situation_summary": "Milan and his neighbour disagree about a fence and cannot solve it themselves; the picture shows two men on either side of a low fence with their arms crossed.",
+        "communicative_purpose": "A newcomer learns that when two sides cannot agree, the rechter decides (eindterm 7.1.3, separation of powers).",
+        "contrivance_check": "A fence between neighbours is a typical dispute and the prompt says they could not settle it. The picture shows the dispute and not the decider.",
+        "unsupported_assumptions": []
+      }
+    }
+  ],
+  "media_notes": "Five picture briefs changed (deltawerken, twaalf-provincies, ov-uitchecken, reisplanner-9292, eerste-kamer) and the alts of slavernij-afgeschaft and regering-den-haag changed because the picture showed the tested fact or a hard word stood in the alt; briefs are in English, about 40 words, with no text and no readable signs. No audio exists yet; question audio and option audio must be generated with exact job keys (audio --keys). Pictures were not rendered by the reviewer; review each on a contact sheet. Local-model risks: the map in twaalf-provincies and the small EU flag in eu-meebeslissen may draw badly; redraw or drop the flag. The slavery and Holocaust pictures must keep to empty memorial scenes with no people.",
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Check yearly: OV check-in details (OVpay), the pending pay-transparency law, and the Binnenhof renovation (the Kamers sit elsewhere in Den Haag; only the city is asked).",
+    "regering-den-haag rests on a Tweede Kamer audio-tour PDF and the Grondwet; no government web page states the seat of government plainly. reisplanner-9292 rests on 9292 itself.",
+    "Eindterm mapping follows docs/research/knm-coverage-2026-11-22.md; the Regeling text was not re-opened.",
+    "Pictures and audio not inspected: none exist yet."
+  ]
+}

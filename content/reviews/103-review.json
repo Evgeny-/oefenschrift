@@ -1,0 +1,1045 @@
+{
+  "review_id": "103-a1-word-revision-2026-11-22",
+  "source": "content/batches/103-original.json",
+  "proposed_source": "content/batches/103-proposed.json",
+  "source_sha256": "cf6eb154c90e5d2bd73a4f9d305138fcd221afb47f3e573f1a1e6488f58daa77",
+  "starters_source": "content/batches/103-starters.json",
+  "starters_sha256": "ea384c122b23ca7b4967136bdc6a9ba17c4b607d48de3ffba5b4ffed5c36a7ec",
+  "starters_verdict": "pass",
+  "review_type": "independent AI editorial review of 28 A1 items revised to replace words too hard for the first weeks of Dutch",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T12:00:00Z",
+  "reviewer": "Independent AI reviewer (Claude Sonnet), separate from the author agent; edits proposed in 103-proposed.json only.",
+  "review_contract_version": 2,
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "replaces": [
+    "A1:reading:batch076-geen-water:1",
+    "A1:reading:batch071-winkel-sok:1",
+    "A1:reading:batch075-nieuw-paspoort:1",
+    "A1:reading:batch076-pas-klaar:1",
+    "A1:reading:batch076-medicijn:1",
+    "A1:reading:batch076-kapper-zaterdag:1",
+    "A1:reading:batch071-kat-werkt:1",
+    "A1:listening:batch078-bus-station:1",
+    "A1:listening:batch078-jas-passen:1",
+    "A1:listening:batch078-buren-sleutel:1",
+    "A1:listening:batch078-kind-ziek:1",
+    "A1:listening:batch078-twee-schoenen:1",
+    "A1:listening:batch070-foto-werk:1",
+    "A1:listening:batch072-banaan-telefoon:1",
+    "A1:listening:batch072-eend-reis:1",
+    "A1:listening:batch072-bezem-feest:1",
+    "A1:listening:batch072-doos-oren:1",
+    "A1:listening:batch072-paraplu-werk:1",
+    "A1:listening:batch072-bloem-beker:1",
+    "A1:listening:batch072-kat-boeken:1",
+    "A1:listening:batch078-dokter-bellen:1",
+    "A1:writing:batch074-reuzenbox:1",
+    "A1:writing:batch074-fietsfeest:1",
+    "A1:writing:batch082-ziek-les:1",
+    "A1:writing:batch074-lepelmuziek:1",
+    "A1:writing:batch074-tuinfilm:1",
+    "A1:writing:batch081-hond-hoed:1",
+    "A1:speaking:batch080-docent-bord:1"
+  ],
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "503d4fbc52362eea084880272f872bcd65a9ae4776f5be90bc79411ee15ec9dd",
+    "independence_note": "Fresh reviewer context, separate from the author. The blind packet built from the author's original (hash 1ef8e614f5ec81880bbfe35c6c87fa5315720738485c389abbdc0e57ee3158ed) was read first and the findings were written into content/reviews/103-review.md before questions, keys, notes or sources were compared. After the two reviewer edits the packet was rebuilt from the exact proposed bytes; the hash recorded here is that final packet and the meaning findings are unchanged."
+  },
+  "tone_balance": {
+    "ordinary": 24,
+    "light_humor": 4,
+    "target_share": 0.15,
+    "scope_note": "These items replace published items with unchanged tone, so the program count does not change; four items keep their light humour (spoon music, odd shoes, dancing with a broom, dog with a hat). The coordinator checks the combined count."
+  },
+  "counts": {
+    "pass": 26,
+    "edited_by_reviewer": 2,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A1:listening:batch078-buren-sleutel:1",
+      "field": "script[2].text, text, q1 evidence, q1 explanation",
+      "before": "Ja. Wilt u mijn sleutel hebben? En mijn planten water geven?",
+      "after": "Ja. U krijgt mijn sleutel. Wilt u mijn planten water geven?",
+      "reason": "\"Wilt u mijn sleutel hebben?\" asks whether the neighbour wants the key and reads oddly; \"U krijgt mijn sleutel\" states the hand-over and matches the q1 prompt \"Wat krijgt de buurman van Ellen?\" (kept as the author wrote it). The second request becomes its own question. Transcript rebuilt from the script; evidence verbatim. Same media as the author's version."
+    },
+    {
+      "id": "A1:writing:batch081-hond-hoed:1",
+      "field": "sample",
+      "before": "Hoi Ravi! Mijn hond draagt mij hoed. Zo grappig!",
+      "after": "Hoi Ravi! Mijn hond draagt mij hoed. Zo leuk!",
+      "reason": "The word grappig was removed from the listening items but stayed in this learner-visible sample. Quotes are unaffected (the quote is the second sentence). No media."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": "npx tsx scripts/batch-check.ts content/batches/103-proposed.json: 28 items, 42 questions, no failures, no warnings (info only: all 28 ids are in the catalogue). Keys A 17, B 12, C 13; the author's earlier 40% key warning no longer appears.",
+    "diff_against_sources": "Each item was diffed field by field against the highest-numbered *-original.json that holds its id (083, 076, 075, 084, 078, 077, 086, 082, 081, 080). Only the planned words changed, plus the two reviewer edits. Question ids, keys and option shapes are unchanged; every images[].brief is byte-identical; changed alts (fietsfeest, docent-bord) describe the same picture.",
+    "hard_words_gone": "huismeester, ophalen, pinnen, rooster, bewaren, lekke band, beterschap, griep, studenten, passen, rit, grappig and every \"noemt ... niet\" no longer appear in any learner-visible field of the proposed file (the remaining \"noemt\" is the unrelated criterion \"U noemt een andere dag\" and \"Noem een andere dag\" in fietsfeest, plain A1 verbs).",
+    "listening_text": "Every listening transcript equals the script joined as Speaker: text lines; every evidence quote is verbatim in the final transcript.",
+    "vocabulary": "gek, hebben, krijgen, halen, leeg, band, koorts, mensen, zegt, kost, ziens are on config/a1-vocabulary.json (knownWord true).",
+    "starters": "The seven starters are unchanged, partial and aligned with the revised prompts (for example \"Kom je ...?\" and \"Neem je ... mee?\").",
+    "answer_keys": "Unchanged; each key is proven by verbatim evidence in the final text. Questions read together give no key away.",
+    "spoken_naturalness": "pass: Wat kost hij? / U krijgt mijn sleutel. Wilt u mijn planten water geven? / Goed. Tot ziens! / Wat gek! / Hoe betaalt Zara in de bus? read naturally aloud.",
+    "full_final_source_read": "pass: all fields of the proposed file were read after the edits."
+  },
+  "media_notes": {
+    "script_audio_to_regenerate": [
+      "A1:listening:batch078-jas-passen:1",
+      "A1:listening:batch078-buren-sleutel:1",
+      "A1:listening:batch078-kind-ziek:1",
+      "A1:listening:batch078-twee-schoenen:1"
+    ],
+    "question_audio_to_regenerate": [
+      "A1:listening:batch078-bus-station:1 q2 (prompt)",
+      "A1:listening:batch078-buren-sleutel:1 q1 (prompt; options unchanged)"
+    ],
+    "prompt_audio_to_regenerate": [
+      "A1:speaking:batch080-docent-bord:1"
+    ],
+    "no_audio_change": "22 items: the 7 reading items, the 9 listening items with an explanation-only change (foto-werk, banaan-telefoon, eend-reis, bezem-feest, doos-oren, paraplu-werk, bloem-beker, kat-boeken, dokter-bellen) and the 6 writing items.",
+    "pictures": "all pictures kept, every brief byte-identical; alts changed for fietsfeest and docent-bord only.",
+    "voices": "Roles unchanged from the sources. Use --keys with exactly the clips above."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "The A1 word gate is list-based; whether a plain word such as halen or gek is easy for every learner is an editorial judgment.",
+    "Regenerated audio needs its own transcription round trip."
+  ],
+  "items": [
+    {
+      "id": "A1:reading:batch076-geen-water:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "situation and signature: huismeester replaced by \"Leo van de flat\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A building contact writes to residents that the water is off in the flat on Monday from eight to twelve and asks them to put a bottle of water ready.",
+        "communicative_purpose": "Residents know when the water stops and prepare a bottle.",
+        "contrivance_check": "The reason to write is the water cut itself; the sender is now named by the plain phrase Leo van de flat, so no job title is needed.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A1:reading:batch071-winkel-sok:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "text: ophalen replaced by halen.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A shop tells a customer that the new coat is in the shop on Friday, that they may come and get it, the shop hours and the price.",
+        "communicative_purpose": "The customer knows when to come, until what time and what to pay.",
+        "contrivance_check": "A coat ordered earlier is ready; every sentence (day, hours, price) is a pickup detail.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A1:reading:batch075-nieuw-paspoort:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "text: ophalen replaced by halen.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The municipality writes that the new passport is ready and gives the Tuesday appointment at three and what to bring.",
+        "communicative_purpose": "The resident knows where and when to collect the passport and to bring the old one.",
+        "contrivance_check": "The appointment and the old passport follow from the new passport being ready.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A1:reading:batch076-pas-klaar:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "text: ophalen replaced by halen.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The library writes that the new card is ready, to collect it with a passport, and gives opening hours.",
+        "communicative_purpose": "The member knows what to bring and when the library is open.",
+        "contrivance_check": "The ID request follows from collecting a personal card.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A1:reading:batch076-medicijn:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "text: ophalen replaced by halen.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A pharmacy tells a customer the medicine is there from Thursday and that it can be collected until five.",
+        "communicative_purpose": "The customer knows from which day and until which hour to collect the medicine.",
+        "contrivance_check": "Medicine ordered earlier arrives on a stated day; the closing time is the only other fact.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A1:reading:batch076-kapper-zaterdag:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "text: pinnen replaced by \"met uw pinpas betalen\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A hairdresser confirms a Saturday appointment at eleven, the price of twenty euros and that the customer may pay with a bank card.",
+        "communicative_purpose": "The customer knows the time, the price and the way to pay.",
+        "contrivance_check": "Confirmation, price and payment method are the usual content of such a reminder; the sentence now says the plain way, met uw pinpas betalen.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A1:reading:batch071-kat-werkt:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "text: \"het rooster\" replaced by \"mijn werk\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A colleague writes that he works at home today, has a question about his work and asks to be called at four.",
+        "communicative_purpose": "The reader knows Jan works at home and when to phone him.",
+        "contrivance_check": "Working at home explains why he writes and asks for a call instead of speaking in person.",
+        "unsupported_assumptions": []
+      }
+    },
+    {
+      "id": "A1:listening:batch078-bus-station:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "q2 prompt: \"de rit\" replaced by \"in de bus\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Zara asks the driver whether the bus goes to the station and how she pays; the driver says by bank card and she has one.",
+        "communicative_purpose": "Zara checks the bus is right and learns the way to pay.",
+        "contrivance_check": "The payment question follows from boarding; the driver answers each question in turn.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hallo. Ik moet naar het station.",
+            "response_function": "Zara states where she wants to go."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, dat kan met deze bus.",
+            "response_function": "The driver confirms that this bus goes there."
+          },
+          {
+            "turn": 3,
+            "quote": "Fijn, dank u. Hoe betaal ik?",
+            "response_function": "Zara thanks him and asks how to pay."
+          },
+          {
+            "turn": 4,
+            "quote": "U betaalt met uw pinpas, mevrouw.",
+            "response_function": "The driver answers: with the bank card."
+          },
+          {
+            "turn": 5,
+            "quote": "Goed, die heb ik.",
+            "response_function": "Zara confirms she has the card."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch078-jas-passen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "script turn 4: \"Mag ik hem passen?\" replaced by \"Wat kost hij?\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Jamal looks for a coat in size fifty at a shop; the assistant asks the colour and he chooses green and asks the price.",
+        "communicative_purpose": "Jamal tells the assistant size and colour, and asks the price.",
+        "contrivance_check": "Size, colour and price are what a customer gives and asks when buying a coat; the assistant's questions lead to each answer.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag. Kan ik u helpen?",
+            "response_function": "The assistant offers help."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, graag. Ik zoek een jas in maat vijftig.",
+            "response_function": "Jamal says what he wants: a coat in size fifty."
+          },
+          {
+            "turn": 3,
+            "quote": "Goed. Welke kleur wilt u?",
+            "response_function": "The assistant asks which colour."
+          },
+          {
+            "turn": 4,
+            "quote": "Een groene jas, graag. Wat kost hij?",
+            "response_function": "Jamal chooses green and asks the price."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch078-buren-sleutel:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "script turn 3, q1 evidence and explanation: bewaren replaced by \"U krijgt mijn sleutel\" (reviewer edit; author had \"Wilt u mijn sleutel hebben?\"); q1 prompt \"Wat krijgt de buurman van Ellen?\" kept.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Ellen is going on holiday; the neighbour offers help and she says he gets her key and asks him to water the plants, then says she is back on Sunday.",
+        "communicative_purpose": "Ellen arranges plant care while away and says when she returns.",
+        "contrivance_check": "The neighbour's offer to help leads to the key and the plants; his question about the return follows.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hallo buurman. Ik ga op vakantie.",
+            "response_function": "Ellen greets the neighbour and says she goes on holiday."
+          },
+          {
+            "turn": 2,
+            "quote": "Leuk! Kan ik iets voor u doen?",
+            "response_function": "The neighbour offers to help."
+          },
+          {
+            "turn": 3,
+            "quote": "Ja. U krijgt mijn sleutel. Wilt u mijn planten water geven?",
+            "response_function": "Ellen says he gets her key and asks him to water the plants."
+          },
+          {
+            "turn": 4,
+            "quote": "Ja, natuurlijk. Wanneer komt u terug?",
+            "response_function": "The neighbour agrees and asks when she returns."
+          },
+          {
+            "turn": 5,
+            "quote": "Ik kom zondag terug.",
+            "response_function": "Ellen says she returns on Sunday."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch078-kind-ziek:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "script turn 5: \"Beterschap voor Lotte!\" replaced by \"Tot ziens!\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Yusuf phones the school: his daughter is ill, he gives her name and says she is home today and tomorrow; the teacher ends the call.",
+        "communicative_purpose": "The school knows who is ill and for how long.",
+        "contrivance_check": "A parent reports an illness by phone and the teacher asks the name; every turn follows.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen, met de school.",
+            "response_function": "The teacher answers the phone for the school."
+          },
+          {
+            "turn": 2,
+            "quote": "Hallo, met Yusuf. Mijn dochter is ziek.",
+            "response_function": "Yusuf says his daughter is ill."
+          },
+          {
+            "turn": 3,
+            "quote": "Wat jammer. Wat is haar naam?",
+            "response_function": "The teacher shows sympathy and asks the name."
+          },
+          {
+            "turn": 4,
+            "quote": "Haar naam is Lotte. Ze is vandaag en morgen thuis.",
+            "response_function": "Yusuf gives the name and the two days at home."
+          },
+          {
+            "turn": 5,
+            "quote": "Goed. Tot ziens!",
+            "response_function": "The teacher accepts and closes the call."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch078-twee-schoenen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "script turn 4: \"grappig\" replaced by \"gek\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "light-humor",
+        "situation_summary": "At work Iris tells Luuk to look at his shoes: one is black and one brown; he laughs about it.",
+        "communicative_purpose": "Iris points out the odd shoes; Luuk reacts.",
+        "contrivance_check": "Iris is a colleague who sees the odd shoes; Luuk's question and reaction follow; the odd pair is the joke.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen, Luuk. Kijk naar je schoenen!",
+            "response_function": "Iris greets Luuk and tells him to look at his shoes."
+          },
+          {
+            "turn": 2,
+            "quote": "Mijn schoenen? Wat is er met mijn schoenen?",
+            "response_function": "Luuk asks what is wrong with them."
+          },
+          {
+            "turn": 3,
+            "quote": "Eén schoen is zwart, de andere is bruin.",
+            "response_function": "Iris says one shoe is black and the other brown."
+          },
+          {
+            "turn": 4,
+            "quote": "Echt? Wat gek! Ik lach om mijn schoenen.",
+            "response_function": "Luuk is surprised and laughs about his shoes."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch070-foto-werk:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "explanation: \"Niemand noemt de deur.\" replaced by \"Niemand zegt iets over de deur.\"",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A colleague tells Emma that the team takes a photo outside by the big tree today; the boss takes it.",
+        "communicative_purpose": "Emma learns where the photo is taken and who takes it.",
+        "contrivance_check": "Her two questions get direct answers and the last turn invites her to go out.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hoi Emma. We maken vandaag een foto met het team.",
+            "response_function": "The colleague says there is a team photo today."
+          },
+          {
+            "turn": 2,
+            "quote": "Leuk! Waar staan we?",
+            "response_function": "Emma asks where they stand."
+          },
+          {
+            "turn": 3,
+            "quote": "Buiten, bij de grote boom.",
+            "response_function": "The colleague says outside, by the big tree."
+          },
+          {
+            "turn": 4,
+            "quote": "Goed. Wie maakt de foto?",
+            "response_function": "Emma asks who takes the photo."
+          },
+          {
+            "turn": 5,
+            "quote": "De baas. Kom, we gaan naar buiten.",
+            "response_function": "The colleague says the boss and calls her to go out."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch072-banaan-telefoon:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "explanation: \"noemt geen\" replaced by \"zegt niet: buik of rug\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Pedro phones the doctor's assistant for an appointment because his throat hurts; she offers tomorrow at ten and he agrees.",
+        "communicative_purpose": "Pedro gets an appointment for his throat.",
+        "contrivance_check": "The sore throat is the reason for calling; the offered time is a direct answer.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen, met de assistent van de dokter.",
+            "response_function": "The assistant answers the phone."
+          },
+          {
+            "turn": 2,
+            "quote": "Goedemorgen. Ik wil graag een afspraak. Mijn keel doet pijn.",
+            "response_function": "Pedro asks for an appointment and gives the pain."
+          },
+          {
+            "turn": 3,
+            "quote": "Kunt u morgen om tien uur komen?",
+            "response_function": "The assistant offers tomorrow at ten."
+          },
+          {
+            "turn": 4,
+            "quote": "Ja, dat is goed. Dank u wel.",
+            "response_function": "Pedro agrees and thanks her."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch072-eend-reis:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "explanation: \"noemt ze niet\" replaced by \"zegt niet: bus of auto\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Sofie and her brother plan the trip to grandmother tomorrow: by train, and she buys a cake today.",
+        "communicative_purpose": "They decide how to go and what to bring.",
+        "contrivance_check": "The brother's questions about travel and gift get one answer each.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Sofie, hoe gaan we morgen naar oma?",
+            "response_function": "The brother asks how they go to grandmother tomorrow."
+          },
+          {
+            "turn": 2,
+            "quote": "Met de trein. Dat is makkelijk.",
+            "response_function": "Sofie says by train and that it is easy."
+          },
+          {
+            "turn": 3,
+            "quote": "Goed. Wat nemen we mee voor oma?",
+            "response_function": "The brother agrees and asks what to bring."
+          },
+          {
+            "turn": 4,
+            "quote": "Een taart. Ik koop hem vandaag.",
+            "response_function": "Sofie says a cake and that she buys it today."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch072-bezem-feest:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "explanation: \"De tv noemt ze niet\" replaced by \"Ze zegt niet: de tv\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "light-humor",
+        "situation_summary": "Pedro sees Emma dancing with a broom while they clean for a party; she asks him to switch on the radio and says the party begins at eight.",
+        "communicative_purpose": "They finish preparing the house and fix the party time.",
+        "contrivance_check": "Cleaning for a party explains the broom; Pedro's time question follows from the party.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Emma, je danst met de bezem!",
+            "response_function": "Pedro comments that Emma dances with the broom."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja! Het huis is schoon. Zet jij de radio aan?",
+            "response_function": "Emma says the house is clean and asks him to switch on the radio."
+          },
+          {
+            "turn": 3,
+            "quote": "Goed. Hoe laat begint het feest?",
+            "response_function": "Pedro agrees and asks when the party begins."
+          },
+          {
+            "turn": 4,
+            "quote": "Om acht uur. Kom, we dansen samen!",
+            "response_function": "Emma says at eight and invites him to dance."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch072-doos-oren:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "explanation: \"noemt hij niet\" replaced by \"Hij zegt niet: een sjaal\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A neighbour asks about the nice box; the man says it is for his son's birthday tomorrow and holds a jumper for winter.",
+        "communicative_purpose": "The neighbour learns whom the gift is for and what is in it.",
+        "contrivance_check": "The box is visible, so the neighbour's questions follow; the answers give recipient and content.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hallo buurman! Voor wie is die mooie doos?",
+            "response_function": "The neighbour asks whom the nice box is for."
+          },
+          {
+            "turn": 2,
+            "quote": "Voor mijn zoon. Hij is morgen jarig.",
+            "response_function": "The man says for his son, whose birthday is tomorrow."
+          },
+          {
+            "turn": 3,
+            "quote": "Leuk! Wat zit er in de doos?",
+            "response_function": "The neighbour asks what is in the box."
+          },
+          {
+            "turn": 4,
+            "quote": "Een trui voor de winter.",
+            "response_function": "The man says a jumper for the winter."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch072-paraplu-werk:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "explanation: \"noemt ze niet\" replaced by \"Ze zegt niet: trein of fiets\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A colleague sees that it rains and lends Sofie his umbrella because she goes home by bus without one; she thanks him.",
+        "communicative_purpose": "Sofie gets home dry and promises to return the umbrella tomorrow.",
+        "contrivance_check": "Rain and the missing umbrella explain the offer; the return tomorrow follows.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Het regent. Hoe ga je naar huis?",
+            "response_function": "The colleague says it rains and asks how she goes home."
+          },
+          {
+            "turn": 2,
+            "quote": "Met de bus. Ik heb geen paraplu.",
+            "response_function": "Sofie says by bus and that she has no umbrella."
+          },
+          {
+            "turn": 3,
+            "quote": "Neem mijn paraplu. Breng hem morgen terug.",
+            "response_function": "The colleague lends his umbrella and asks her to bring it back tomorrow."
+          },
+          {
+            "turn": 4,
+            "quote": "Dank je wel!",
+            "response_function": "Sofie thanks him."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch072-bloem-beker:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "explanation: \"Koffie noemt ze niet\" replaced by \"Ze zegt niet: koffie\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "In a cafe Bas takes the order of a lady: tea and soup; she admires the flower and he says it is from his garden.",
+        "communicative_purpose": "The lady orders a drink and food and compliments the flower.",
+        "contrivance_check": "A waiter's two questions lead to the order; the flower compliment is a natural remark by a guest.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag, mevrouw. Wat wilt u drinken?",
+            "response_function": "Bas welcomes the lady and asks what she wants to drink."
+          },
+          {
+            "turn": 2,
+            "quote": "Een kop thee, graag.",
+            "response_function": "The lady orders a cup of tea."
+          },
+          {
+            "turn": 3,
+            "quote": "Goed. Wilt u ook iets eten?",
+            "response_function": "Bas asks whether she also wants to eat."
+          },
+          {
+            "turn": 4,
+            "quote": "Ja, graag. Ik neem de soep. Wat een mooie bloem!",
+            "response_function": "The lady orders soup and admires the flower."
+          },
+          {
+            "turn": 5,
+            "quote": "Dank u! Hij komt uit mijn tuin.",
+            "response_function": "Bas thanks her and says the flower is from his garden."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch072-kat-boeken:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "explanation: \"noemt ze niet\" replaced by \"Ze zegt niet: vanochtend of vanavond\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Aya asks a friend to come along to the library this afternoon to return films; he agrees and will come to her house.",
+        "communicative_purpose": "They agree to go together and when.",
+        "contrivance_check": "The invitation, time and meeting place follow one another; films are what she returns.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hoi! Ga je mee naar de bibliotheek?",
+            "response_function": "Aya asks the friend to come along to the library."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, leuk. Wanneer ga je?",
+            "response_function": "The friend agrees and asks when."
+          },
+          {
+            "turn": 3,
+            "quote": "Vanmiddag. Ik breng mijn films terug.",
+            "response_function": "Aya says this afternoon and that she returns her films."
+          },
+          {
+            "turn": 4,
+            "quote": "Goed. Ik kom naar jouw huis. Tot straks!",
+            "response_function": "The friend agrees and says he comes to her house."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:listening:batch078-dokter-bellen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "explanation: \"Hoest of pijn noemt ze niet\" replaced by \"Ze zegt niet: hoest of pijn\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Nadia phones the doctor's assistant because her son is ill with a fever; she gets an appointment today at eleven.",
+        "communicative_purpose": "Nadia gets a same-day appointment for her son.",
+        "contrivance_check": "The fever is the reason for calling; the time offered is the practical result.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen, met de assistent van de dokter.",
+            "response_function": "The assistant answers the phone."
+          },
+          {
+            "turn": 2,
+            "quote": "Hallo. Mijn zoon is ziek. Hij heeft koorts.",
+            "response_function": "Nadia says her son is ill with a fever."
+          },
+          {
+            "turn": 3,
+            "quote": "U kunt vandaag om elf uur komen.",
+            "response_function": "The assistant offers today at eleven."
+          },
+          {
+            "turn": 4,
+            "quote": "Ja, dat is goed. Dank u wel.",
+            "response_function": "Nadia agrees and thanks her."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1:writing:batch074-reuzenbox:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "prompt: bewaart replaced by heeft.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A neighbour has a big parcel for the learner and asks what is in the box; the learner opens it and describes the picture.",
+        "communicative_purpose": "The learner tells the neighbour what is in the box, and says something about the box.",
+        "contrivance_check": "The neighbour asks a direct question in the prompt and the parcel is physically present, so a spoken-style reply to her is natural.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "The learner writes a short message to a named friend, relative or teacher; the prompt gives the reason to write to this person."
+      }
+    },
+    {
+      "id": "A1:writing:batch074-fietsfeest:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "criteria and alt: lekke band replaced by \"de band is leeg\" (same picture: flat tyre).",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The learner's brother Hugo wants to cycle tomorrow; the learner writes that the bicycle is not usable and suggests another day.",
+        "communicative_purpose": "The learner declines for tomorrow, gives the reason and names another day.",
+        "contrivance_check": "A broken bicycle is a practical reason to move a cycling plan; the picture shows the problem.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "The learner writes a short message to a named friend, relative or teacher; the prompt gives the reason to write to this person."
+      }
+    },
+    {
+      "id": "A1:writing:batch082-ziek-les:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "criterion: griep dropped, koorts kept.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The learner is ill and tells the Dutch teacher Saskia that they will not come today and when they come again.",
+        "communicative_purpose": "Saskia knows that the learner is absent and when to expect them back.",
+        "contrivance_check": "A pupil who cannot attend a lesson tells the teacher; the picture shows the illness and the prompt asks for reason and return day.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "The learner writes a short message to a named friend, relative or teacher; the prompt gives the reason to write to this person."
+      }
+    },
+    {
+      "id": "A1:writing:batch074-lepelmuziek:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "prompt and criterion 2: \"om ... te\" clause replaced by the direct question \"kom je bij mij spelen?\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "light-humor",
+        "situation_summary": "Friend Ravi, who plays guitar, asks what the learner plays; the picture shows a spoon as instrument and the learner answers and invites him over.",
+        "communicative_purpose": "The learner answers a direct question and asks Ravi to come and play at their place.",
+        "contrivance_check": "The question comes from Ravi himself, and the invitation follows from sharing music; the spoon is the visible joke.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "The learner writes a short message to a named friend, relative or teacher; the prompt gives the reason to write to this person."
+      }
+    },
+    {
+      "id": "A1:writing:batch074-tuinfilm:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "prompt and criterion 2: \"om ... te\" clause replaced by the direct question \"neem je iets mee?\".",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Selma comes to the learner this evening to watch a film; the learner tells her where the film is and asks whether she brings something.",
+        "communicative_purpose": "Selma knows where the film is and is asked to bring something.",
+        "contrivance_check": "An evening visit makes both the place and what a guest brings natural questions.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "The learner writes a short message to a named friend, relative or teacher; the prompt gives the reason to write to this person."
+      }
+    },
+    {
+      "id": "A1:writing:batch081-hond-hoed:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "prompt: \"om ... te\" clause replaced by the direct question \"kom je kijken?\"; sample \"Zo grappig!\" replaced by \"Zo leuk!\" (reviewer edit).",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "light-humor",
+        "situation_summary": "The learner's friend Ravi likes the dog; the learner tells him that the dog wears a hat and asks him to come and look.",
+        "communicative_purpose": "Ravi learns what the dog wears and is invited to see it.",
+        "contrivance_check": "The friend already likes the dog, so telling him about the hat and inviting him follows; the hat on the dog is the visible joke.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "The learner writes a short message to a named friend, relative or teacher; the prompt gives the reason to write to this person."
+      }
+    },
+    {
+      "id": "A1:speaking:batch080-docent-bord:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A1 foundation practice (authoring target, unvalidated)",
+        "verdict": "comparable to the source",
+        "reason": "Same sentence length and task as the source; only the listed word changed.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Same sentence length and task as the source; only the listed word changed.",
+      "replacement_change": "prompt, model, criterion and alt: studenten replaced by mensen.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The learner looks at a classroom picture and says how many people sit at the table and what the teacher does.",
+        "communicative_purpose": "The learner counts the people and names the teacher's action in the lesson picture.",
+        "contrivance_check": "Counting and a simple action are the whole task; nothing beyond the picture is needed.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "The learner speaks about a picture to the examiner; no recipient beyond the picture description is needed."
+      }
+    }
+  ]
+}

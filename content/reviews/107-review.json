@@ -1,0 +1,340 @@
+{
+  "review_id": "107-a2-writing-2026-11-22",
+  "source": "content/batches/107-original.json",
+  "proposed_source": "content/batches/107-proposed.json",
+  "source_sha256": "d8b63d32c542a40c88f1a397bd144c6185f6df309a466805eae13c38aef1850c",
+  "starters_source": "content/batches/107-starters.json",
+  "starters_sha256": "7714451c32de0d18ded80081704330607b41505cac8362d8bab94e7f076c538b",
+  "starters_verdict": "pass",
+  "review_type": "independent AI editorial review of eight new A2 writing items",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T12:44:57Z",
+  "review_contract_version": 2,
+  "reviewer": "Independent AI reviewer (fresh context, separate from the author)",
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "0a6fed245e41d00c7a23f5977fb697488fcc58036533cadb7c3ea9cf53b70227",
+    "independence_note": "Blind findings were written to content/reviews/107-review.md from the source-only packet (original hash e174684ff999546ee9bc18d11666469fab8077b8e45dd8244acc18cc72197118) before criteria, samples, starters or notes were opened. The packet was rebuilt from the proposed bytes after edits to four items; the changed items were re-read and passed."
+  },
+  "tone_balance": {
+    "ordinary": 8,
+    "light_humor": 0,
+    "target_share": 0.15,
+    "scope_note": "8 ordinary tasks, no lightly funny item; the plan puts no humour in writing. The coordinator checks the combined A2 count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 8,
+    "edited_by_reviewer": 4,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:writing:batch107-brief-hulp:1",
+      "field": "prompt",
+      "before": "U schrijft haar een e-mail. Schrijf de e-mail.",
+      "after": "U schrijft haar een e-mail en vraagt of zij u wil helpen. Schrijf de e-mail.",
+      "reason": "The e-mail's purpose was only in the subject line; the prompt now states it."
+    },
+    {
+      "id": "A2:writing:batch107-brief-hulp:1",
+      "field": "criteria.1",
+      "before": "Vraag of Nuria donderdagavond na zeven uur bij u thuis kan komen.",
+      "after": "Vraag of Nuria u wil helpen. Stel zelf een dag en een tijd voor.",
+      "reason": "The prompt never named Thursday evening after seven, so a learner who followed the prompt could not meet the criterion."
+    },
+    {
+      "id": "A2:writing:batch107-brief-hulp:1",
+      "field": "model",
+      "before": "over een nieuwe pas voor het afval",
+      "after": "over nieuwe regels voor het afval",
+      "reason": "'Pas voor het afval' is an odd phrase for an A2 learner; 'nieuwe regels' is plain and the model stays at 45 words."
+    },
+    {
+      "id": "A2:writing:batch107-straatfeest-aanvragen:1",
+      "field": "prompt",
+      "before": "Hiervoor vraagt u de gemeente om een ja.",
+      "after": "Hiervoor vraagt u de gemeente of het mag.",
+      "reason": "'Om een ja vragen' is not natural Dutch for asking permission."
+    },
+    {
+      "id": "A2:writing:batch107-straatfeest-aanvragen:1",
+      "field": "formFields.7.label and criteria.2 and model",
+      "before": "Tot hoe laat is er muziek en wat doet u voor de rust?",
+      "after": "Tot hoe laat is er muziek en wat doet u als de muziek te hard is?",
+      "reason": "'Voor de rust' is abstract; the concrete question is clear at A2. Criterion 3 and the model follow: 'Als de muziek te hard is, zet ik hem zachter.'"
+    },
+    {
+      "id": "A2:writing:batch107-fiets-lenen:1",
+      "field": "images.0.brief, images.1 (brief, alt), criteria, sample, quotes, model",
+      "before": "Bike leaning on a fence with a lock and a key on a hook; criteria lock the bike, put it in the shed, air in the tyres",
+      "after": "Picture 1 shows one soft tyre with a pump and a black bike; picture 2 shows the black bike locked to a lamp post in the street; criterion 3 accepts that the bike is in the shed or must be put there; 'band' not 'banden'; the hung key was dropped",
+      "reason": "The old pictures placed the bike in two places and left 'lock' versus 'unlock' and 'take out of' versus 'put into the shed' open; a lock key hung beside the lock is not believable. Sample and model follow the new wording; quotes are verbatim."
+    },
+    {
+      "id": "A2:writing:batch107-huismeester-briefje:1",
+      "field": "prompt",
+      "before": "Schrijf ook wanneer u thuis bent. Schrijf in hele zinnen.",
+      "after": "Schrijf ook wanneer u thuis bent. Bedank de persoon voor de hulp. Schrijf in hele zinnen.",
+      "reason": "Picture-note criteria are hidden, so the thank-you criterion was not asked by the prompt."
+    },
+    {
+      "id": "A2:writing:batch107-huismeester-briefje:1",
+      "field": "criteria.2",
+      "before": "Schrijf dat het deurtje van de brievenbus los hangt.",
+      "after": "Schrijf wat er mis is met de brievenbus, bijvoorbeeld dat het deurtje los hangt.",
+      "reason": "A learner who writes that the letterbox is broken has done what the prompt asked."
+    },
+    {
+      "id": "A2:writing:batch107-huisarts-zoeken:1",
+      "field": "starters.0 (proposed starters)",
+      "before": "Ik wil mij ... voor ...",
+      "after": "Ik wil ... inschrijven voor ...",
+      "reason": "The old starter forced 'mij' although the learner registers two people."
+    },
+    {
+      "id": "A2:writing:batch107-straatfeest-aanvragen:1",
+      "field": "starters.2 (proposed starters)",
+      "before": "De muziek is tot ... en wij ...",
+      "after": "De muziek is tot ... Als ...",
+      "reason": "Follows the reworded last field."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npx tsx scripts/batch-check.ts content/batches/107-proposed.json",
+      "result": "Checked 8 items, no failures; 3 compound warnings (busbedrijf, maandkaart, wijkkrant) judged transparent at A2."
+    },
+    "word_gate": "No unlisted word in strict fields. Listed words that were checked in context: patient, paspoort, openingstijden, afval, regels, halte, schuurtje, slot, plafond, lekt, deurtje are plain for A2. 'Vergunning' and 'toestemming' were avoided; 'of het mag' used instead. Compounds busbedrijf, maandkaart, wijkkrant: transparent.",
+    "names": "Huisartsenpraktijk Wilgenhof and Busbedrijf Hazelaar were searched by the author on 22 Nov 2026 (no match found); not re-searched. Nuria and Emre appear once each; Ioana appears once in a model.",
+    "dates": "4 January 2027 is a Monday; 15 May 2027 is a Saturday.",
+    "open_task_contract": "Models are 27-48 words (checker 20-90; fiets-lenen is a picture note of three one-sentence instructions); every sample has one null quote and verbatim quotes; criteria now fit the prompts."
+  },
+  "diversity": {
+    "within_batch": "Two e-mails (GP, friend with letter), two forms (bus pass, street party), two wijkkrant texts (street, family), two picture notes (bike, flat repairs).",
+    "set_assembly": "Keep straatfeest-aanvragen away from batch092-buurman-feest, and fiets-lenen and huismeester-briefje away from batch092-buurman-vakantie in the same set (all are note or party tasks of a similar shape)."
+  },
+  "media_notes": {
+    "pictures": "Six pictures for fiets-lenen (bike) and huismeester-briefje (flat); no people, so no cast traits. Draw all three fiets-lenen panels with the same plain black bicycle. Picture 3 of fiets-lenen shows only the bike in the open shed. Alts list pictured facts, acceptable for open tasks.",
+    "audio": "None."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Organisation names were not re-searched; the author's web search is relied on.",
+    "Pictures were judged as briefs, not as rendered images."
+  ],
+  "items": [
+    {
+      "id": "A2:writing:batch107-huisarts-zoeken:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch092-raam-kapot and batch003-loonstrook (formal e-mail, four stated points)",
+        "targetLevelValidated": false,
+        "reason": "Four points, formal register, model 48 words in 7 sentences, longest 13; A2 gate clean."
+      },
+      "level_reason": "Four points, formal register, model 48 words in 7 sentences, longest 13; A2 gate clean.",
+      "evidence": {
+        "criteria_vs_prompt": "Prompt gives the move, the six-year-old and the practice; criteria ask registration for whom (answered by the prompt facts), a document or card to bring, days and times, and one more question, each producible by a learner who follows the prompt with the invented parts marked Bedenk zelf.",
+        "sample": "Omits the extra question (null quote 4); errors 'ons inschrijven ... voor mij en mijn dochter' and 'woensdag middag'.",
+        "starters": "Starter 1 changed to 'Ik wil ... inschrijven voor ...' so it fits the reflexive choice (mij/ons) the original 'Ik wil mij ... voor ...' forced wrongly for two people; the other three are partial and name no document, time or question."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A newly arrived parent writes to a GP practice to register herself and her six-year-old and asks what to bring and when they can come.",
+        "communicative_purpose": "Get both people registered with a huisarts and learn what papers are needed.",
+        "contrivance_check": "Moving house is the stated reason for needing a new GP; the practice name was searched (no practice Wilgenhof) and the child is given in the prompt, so nothing off-page is needed.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "A formal first contact with an unknown practice: e-mail to the general address, Geachte heer/mevrouw and u fit; the questions are ordinary for registration."
+      }
+    },
+    {
+      "id": "A2:writing:batch107-brief-hulp:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch008-kast and batch091-verhuizen-helpen (informal e-mail asking a friend for help)",
+        "targetLevelValidated": false,
+        "reason": "Four points; informal je-register; model now 45 words in 6 sentences, longest 12; no unlisted word."
+      },
+      "level_reason": "Four points; informal je-register; model now 45 words in 6 sentences, longest 12; no unlisted word.",
+      "evidence": {
+        "criteria_vs_prompt": "The prompt now says the learner asks Nuria to help; the original criterion demanded 'donderdagavond na zeven uur', a time the prompt never gave. It now asks the learner to ask for help and suggest a day and time themselves. Letter topic, what is ready and the thank-you offer are all Bedenk zelf.",
+        "sample": "Omits the thank-you offer (null quote 4); error 'Ik begrijp niet de brief'.",
+        "starters": "Four fragments in criteria order; 'Kun je ... komen?' does not give a day or time."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A learner has a municipal letter they cannot follow and asks a friend who speaks good Dutch to come and help in the evening.",
+        "communicative_purpose": "Get help reading and understanding an official letter, and arrange when and where.",
+        "contrivance_check": "The friend's language skill is stated in the prompt; the letter topic is invented by the learner; no off-page event is needed. Model changed from 'een nieuwe pas voor het afval' to 'nieuwe regels voor het afval' for plainer words.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "An informal e-mail to a friend about a private problem; Hoi / je / Groetjes fit, and a letter that must be understood is a reason to ask someone in person."
+      }
+    },
+    {
+      "id": "A2:writing:batch107-maandkaart-aanvragen:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch008-sportclub and batch091-zwemles-inschrijven (form with three open fields)",
+        "targetLevelValidated": false,
+        "reason": "Three open fields answered in one short sentence each; model 30 words in 3 sentences, 10 words each; compounds busbedrijf and maandkaart are transparent."
+      },
+      "level_reason": "Three open fields answered in one short sentence each; model 30 words in 3 sentences, 10 words each; compounds busbedrijf and maandkaart are transparent.",
+      "evidence": {
+        "criteria_vs_prompt": "Prompt says the learner travels weekly by bus to work and must fill in the form; criteria ask the two stops, the days and a start date, all invented by the learner and matching the three open labels one to one.",
+        "sample": "Omits the start date (null quote 3); error 'naar halte Ziekenhuis' (missing article).",
+        "starters": "Three fragments, one per open field; they name no stop, day or date."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "An employee who commutes by bus fills in an online pass application with personal data and the route, days and start date.",
+        "communicative_purpose": "Order a monthly pass for a regular commute.",
+        "contrivance_check": "Commuting to work is in the prompt; the company name was searched (no bus operator Hazelaar); no off-page fact is needed.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "A website form of a bus company is the normal way to apply; formal labels with u fit. Model date 4 January 2027 is a Monday."
+      }
+    },
+    {
+      "id": "A2:writing:batch107-straatfeest-aanvragen:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch092-woning-zoeken (form, three open fields); the last field asks two things in one sentence, a little harder",
+        "targetLevelValidated": false,
+        "reason": "Prompt and last field reworded to plain words; model 31 words in 4 sentences, longest 10; compounds none beyond listed words."
+      },
+      "level_reason": "Prompt and last field reworded to plain words; model 31 words in 4 sentences, longest 10; compounds none beyond listed words.",
+      "evidence": {
+        "criteria_vs_prompt": "Criteria match the three open labels: street and Saturday, number of guests, music end and what the learner does if the music is too loud. All invented by the learner. The original 'om een ja vragen' and 'wat doet u voor de rust' were replaced by 'of het mag' and 'wat doet u als de muziek te hard is'.",
+        "sample": "Omits music and loudness (null quote 3); error 'Er komt ongeveer veertig mensen'; 15 May 2027 is a Saturday.",
+        "starters": "Starter 3 changed to 'De muziek is tot ... Als ...' to follow the reworded field; none names a street, number or time."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A resident wants to hold a street party with neighbours on a Saturday and applies on the municipality's website, giving street, guests and music.",
+        "communicative_purpose": "Get the municipality's permission for a street party and show it will not disturb neighbours.",
+        "contrivance_check": "The need for permission is stated in the prompt; municipalities do handle these requests; no off-page motive is needed. The 'music too loud' idea overlaps in spirit with batch092-buurman-feest.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "A website form of the gemeente with formal labels and u fits a permission request."
+      }
+    },
+    {
+      "id": "A2:writing:batch107-mijn-straat:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch092-weekend and batch008-reizen (wijkkrant, three guiding questions)",
+        "targetLevelValidated": false,
+        "reason": "Three plain guiding questions; model 39 words in 5 sentences, longest 13; wijkkrant is the task-type name."
+      },
+      "level_reason": "Three plain guiding questions; model 39 words in 5 sentences, longest 13; wijkkrant is the task-type name.",
+      "evidence": {
+        "criteria_vs_prompt": "Prompt asks for a short text about the street of at least three sentences; the three questions (home and household, what is nice, what is missing) are one sentence each and need no invented context.",
+        "sample": "Omits what is missing or could be better (null quote 3); error 'twee kind'.",
+        "starters": "Three fragments, one per question; 'Er is geen ..., daarom ...' leans towards the missing-branch but supplies no content."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A reader writes a short piece for the neighbourhood paper about their street, its good points and what is missing.",
+        "communicative_purpose": "Describe where and with whom one lives and give an opinion about the street.",
+        "contrivance_check": "The paper's request is stated in the prompt; the learner writes about their own or an invented street; no extra fact is needed.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "A reader contribution to a neighbourhood paper: neutral register, opening line given."
+      }
+    },
+    {
+      "id": "A2:writing:batch107-mijn-familie:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch091-mijn-werk and batch092-weekend (wijkkrant with invented content allowed)",
+        "targetLevelValidated": false,
+        "reason": "Three plain guiding questions; model 40 words in 4 sentences, longest 12; the either/or in question 3 is a choice, not an extra task."
+      },
+      "level_reason": "Three plain guiding questions; model 40 words in 4 sentences, longest 12; the either/or in question 3 is a choice, not an extra task.",
+      "evidence": {
+        "criteria_vs_prompt": "Prompt says the paper has a monthly piece about a family and that the learner may invent; criteria ask who is in the family, what they do on a free day, and a favourite moment or dish, all answerable from the prompt.",
+        "sample": "Omits the free-day activity (null quote 2); error 'Dan wij eten' (no inversion).",
+        "starters": "Three fragments, one per question; none names a person or activity."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A reader writes a short monthly family portrait for the neighbourhood paper: who is in the family, what they do on a free day, a favourite moment or dish.",
+        "communicative_purpose": "Introduce a family and describe shared leisure and a favourite moment.",
+        "contrivance_check": "The paper's monthly family column is stated in the prompt, and invention is allowed, so no real personal data is required.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Neutral reader contribution; opening line given."
+      }
+    },
+    {
+      "id": "A2:writing:batch107-fiets-lenen:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch092-buurman-vakantie (picture note, three pictures, three instructions)",
+        "targetLevelValidated": false,
+        "reason": "Three one-sentence instructions; model 27 words in 3 sentences, longest 10; plain words (band, slot, schuurtje)."
+      },
+      "level_reason": "Three one-sentence instructions; model 27 words in 3 sentences, longest 10; plain words (band, slot, schuurtje).",
+      "evidence": {
+        "criteria_vs_prompt": "The original sequence mixed two bike places (fence with lock, key on a hook, and a shed) and could be read as 'unlock' or 'take the bike out'. Picture 2 now shows one bike locked to a lamp post in the street, so 'op slot doen' is the only sensible instruction; picture 1 shows one soft tyre (criterion now 'band', not 'banden'); criterion 3 accepts that the bike is in the shed or must be put there. The unbelievable lock key on a fence hook was dropped from sample and model.",
+        "sample": "Omits the shed (null quote 3); error 'als je stop'.",
+        "starters": "'Wil je eerst ...?', 'Wil je daarna ...?', 'Wil je ook ...?' follow the criteria order and give no object or place."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The writer lends a bike for the weekend and leaves a note for the friend: pump the soft tyre, lock the bike when parking, use or return it via the shed.",
+        "communicative_purpose": "Give a friend the practical instructions for using the bike without the owner present.",
+        "contrivance_check": "The prompt gives why a note is needed (owner away, friend has the house key); pictures show only objects, no people. The three-picture story no longer needs a fence or a hung key.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Informal note on the table for a friend: Hoi Emre, imperatives or wil je, Groetjes fit."
+      }
+    },
+    {
+      "id": "A2:writing:batch107-huismeester-briefje:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 Schrijven",
+        "verdict": "comparable to batch092-buurman-vakantie and batch008-restaurant (picture note) but with two extra points (time, thanks), slightly longer",
+        "targetLevelValidated": false,
+        "reason": "Five stated points, each one short sentence; model 39 words in 5 sentences, longest 13; no unlisted word."
+      },
+      "level_reason": "Five stated points, each one short sentence; model 39 words in 5 sentences, longest 13; no unlisted word.",
+      "evidence": {
+        "criteria_vs_prompt": "The original thank-you criterion was not in the prompt (picture-note criteria are hidden), so the prompt now says 'Bedank de persoon voor de hulp.' Criterion 3 now accepts any statement of what is wrong with the letterbox, with the loose door as example.",
+        "sample": "Omits the thanks (null quote 5); error 'De kraan van de keuken'.",
+        "starters": "Five fragments, three problem slots, a time, and 'Alvast ...'; none names a pictured fault."
+      },
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A tenant writes to the person who handles repairs in the building about three faults shown in pictures, and says when they are home.",
+        "communicative_purpose": "Report three defects and arrange when the repair person can come in.",
+        "contrivance_check": "Reporting repairs to a flat's caretaker is the stated purpose; three pictured faults are in the pictures; the time is the learner's own.",
+        "unsupported_assumptions": [],
+        "medium_and_recipient_check": "Formal note to an unnamed caretaker: Geachte heer/mevrouw and Met vriendelijke groet fit."
+      }
+    }
+  ]
+}

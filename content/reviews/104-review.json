@@ -1,0 +1,665 @@
+{
+  "review_id": "104-a2-listening-2026-11-22",
+  "source": "content/batches/104-original.json",
+  "proposed_source": "content/batches/104-proposed.json",
+  "source_sha256": "fc293b1897472ad08fcf3bf9e16d15bcf5423b5072e5149a685f700417afc3e9",
+  "review_type": "independent AI editorial review of twelve new A2 listening items (meaning-first, then full item pass)",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T12:47:15Z",
+  "reviewer": "Independent AI reviewer (Claude Sonnet 5.5), separate from the author, working from the blind source packet first.",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "631f8a042ed10cae80c7863e58119a15cf3296218cefc21123d103f637aaaa05",
+    "independence_note": "Blind findings were written to content/reviews/104-review.md from the original source-only packet (hash 7d4bbe1d97721ce08f56e55b4bf21cabe66766e92d0fa7e3f1b95004c45b3920) before questions, keys, notes or the plan assignment were opened; the meaning pass was repeated on the proposed bytes (hash above).",
+    "initial_packet_sha256": "7d4bbe1d97721ce08f56e55b4bf21cabe66766e92d0fa7e3f1b95004c45b3920"
+  },
+  "tone_balance": {
+    "ordinary": 11,
+    "light_humor": 1,
+    "target_share": 0.15,
+    "scope_note": "One of twelve items is lightly funny (bioscoop-later, the popcorn line); 11 are ordinary; the rounded cap for twelve is 2. The coordinator checks the combined A2 count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 1,
+    "edited_by_reviewer": 11,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:listening:batch104-werkgesprek:1",
+      "field": "script[4].text",
+      "before": "Op maandag is de bestellijst niet klaar",
+      "after": "Op maandag is jouw bestellijst niet klaar",
+      "reason": "Ties the late list to Anil, so the earlier start follows."
+    },
+    {
+      "id": "A2:listening:batch104-werkgesprek:1",
+      "field": "questions[0].options.A",
+      "before": "Anil maakt de bestellijst op tijd klaar.",
+      "after": "Anil maakt de bestellijst altijd klaar.",
+      "reason": "The old option echoed \"altijd op tijd\" in the evidence and could be read as true."
+    },
+    {
+      "id": "A2:listening:batch104-werkgesprek:1",
+      "field": "questions[2].options.D",
+      "before": "Op maandagmiddag.",
+      "after": "(removed)",
+      "reason": "Not mentioned in the script; three anchored options remain."
+    },
+    {
+      "id": "A2:listening:batch104-bril-kopen:1",
+      "field": "script",
+      "before": "\"U komt net bij de oogarts vandaan, hoor ik.\" (nothing told him); prices and lenses in three turns",
+      "after": "Khadija says she came from the eye doctor; the employee gives both frames and the lens surcharge in one turn; blue frame sixty euro",
+      "reason": "The employee had no source for his remark; one turn lets a single verbatim quote entail the total."
+    },
+    {
+      "id": "A2:listening:batch104-bril-kopen:1",
+      "field": "questions[0].options",
+      "before": "110 / 150 / 130 / 85",
+      "after": "105 / 130 / 85",
+      "reason": "The 150 option (both frames) was a purchase nobody makes; options now come from the stated prices."
+    },
+    {
+      "id": "A2:listening:batch104-school-inschrijven:1",
+      "field": "questions[2].explanation",
+      "before": "... dan is het ook geen dag voor nieuwe ouders.",
+      "after": "Explanation without the invented claim.",
+      "reason": "Removed an unsupported statement."
+    },
+    {
+      "id": "A2:listening:batch104-ontruimingsoefening:1",
+      "field": "questions[0].explanation",
+      "before": "Twaalf uur is de tijd waarop de koffie ... klaar is.",
+      "after": "Tot twaalf uur is er koffie in de kantine.",
+      "reason": "Explanation contradicted the script."
+    },
+    {
+      "id": "A2:listening:batch104-ontruimingsoefening:1",
+      "field": "questions[1..2].prompt",
+      "before": "Wat doet iedereen / neemt iedereen mee",
+      "after": "Wat doet u / neemt u mee",
+      "reason": "Options say \"uw\"; prompts now match, and q2 evidence covers both stairs and place."
+    },
+    {
+      "id": "A2:listening:batch104-bioscoop-later:1",
+      "field": "script[0].text",
+      "before": "(none)",
+      "after": "U kunt om tien over acht naar binnen.; \"De projector moet opnieuw starten\" became \"Er is een probleem met de film.\"",
+      "reason": "Anchors the third time option; replaces an unlisted word."
+    },
+    {
+      "id": "A2:listening:batch104-bioscoop-later:1",
+      "field": "questions[0].prompt / options",
+      "before": "Hoe laat begint de film in zaal vier? / Om acht uur",
+      "after": "Hoe laat begint de film nu? / Om tien over acht",
+      "reason": "The prompt gave away q3; \"Om acht uur\" was not in the script."
+    },
+    {
+      "id": "A2:listening:batch104-bioscoop-later:1",
+      "field": "questions[2]",
+      "before": "Welke films beginnen later?",
+      "after": "Voor welke zaal is de mededeling?",
+      "reason": "Key and prompts no longer overlap; options are parallel."
+    },
+    {
+      "id": "A2:listening:batch104-bioscoop-later:1",
+      "field": "images[0]",
+      "before": "woman in yellow coat",
+      "after": "man in yellow coat; alt adjusted",
+      "reason": "Chidi is a man."
+    },
+    {
+      "id": "A2:listening:batch104-zelfscan:1",
+      "field": "script[0].text",
+      "before": "een scanner uit het rek",
+      "after": "een apparaat uit het rek",
+      "reason": "The questions say \"het apparaat\"; the script now uses the same word."
+    },
+    {
+      "id": "A2:listening:batch104-rookmelder:1",
+      "field": "questions[0..2].prompt",
+      "before": "het apparaat",
+      "after": "de rookmelder",
+      "reason": "The script says rookmelder; the compound is transparent."
+    },
+    {
+      "id": "A2:listening:batch104-gladde-wegen:1",
+      "field": "script[0].text, q1",
+      "before": "busbanen",
+      "after": "de wegen voor de bussen",
+      "reason": "\"Busbanen\" is not transparent at A2."
+    },
+    {
+      "id": "A2:listening:batch104-werkgesprek:1",
+      "field": "script[8].text",
+      "before": "computersysteem van de voorraad",
+      "after": "de computer van de winkel",
+      "reason": "Two hard words replaced."
+    },
+    {
+      "id": "A2:listening:batch104-gemeente-zaterdag:1",
+      "field": "script[0].text, q2",
+      "before": "zoals verhuizen of parkeren / persona question with yes-no options",
+      "after": "zoals uw nieuwe adres doorgeven of een rijbewijs aanvragen / \"Wat kunt u op zaterdag ... doen?\"",
+      "reason": "The key was the odd polarity out and parkeren was unlisted."
+    },
+    {
+      "id": "A2:listening:batch104-gemeente-zaterdag:1",
+      "field": "questions[0].options",
+      "before": "B was the longest",
+      "after": "All options start \"Eén/Elke zaterdag ...\"; key not longest",
+      "reason": "Length cue removed."
+    },
+    {
+      "id": "A2:listening:batch104-wandelgroep:1",
+      "field": "script[0].text",
+      "before": "De koffie betaalt u zelf, die kost twee euro.",
+      "after": "De koffie betaalt u zelf. Een kop koffie kost twee euro, koffie met een koek kost vier euro.",
+      "reason": "Anchors \"Vier euro\"."
+    },
+    {
+      "id": "A2:listening:batch104-wandelgroep:1",
+      "field": "questions[1]",
+      "before": "Ongeveer twee uur / een half uur / een uur",
+      "after": "Een half uur / vier uur / een uur",
+      "reason": "\"Twee uur\" was not in the script."
+    },
+    {
+      "id": "A2:listening:batch104-radio-vacature:1",
+      "field": "script[0].text, q2",
+      "before": "veertien euro vijftig; Elf euro vijftig",
+      "after": "vijftien euro vijftig; Vijftig euro",
+      "reason": "Pay above the likely 2027 minimum wage; unanchored option replaced."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npx tsx scripts/batch-check.ts content/batches/104-proposed.json",
+      "result": "Checked 12 items, 36 questions. Keys A 12, B 12, C 9, D 3; options 3:26, 4:10. 9 compound warnings, 1 unlisted-word warning (zelfscan), no failures."
+    },
+    "a2_words": "Opaque words replaced (computersysteem, voorraad, projector, busbanen, scanner, parkeren). Remaining reported compounds are transparent: bestellijst, tuinspullen, leesbril, schilderwerk, popcornbalie, betaalmachine, ophangen, rookmelder, hoofdwegen, beweegteam, parkcafe, wandelgroep. 'zelfscan' is explained by the steps that follow.",
+    "facts": "Rookmelder advice confirmed on brandweer.nl/onderwerpen/rookmelders on 22 November 2026 (every floor, ceiling, hall, not in cooker steam, test monthly, minute chirp means battery). Calendar: 5 Jan, 6 Feb, 9 and 11 Mar 2027 are Tue, Sat, Tue, Thu.",
+    "names": "Web search found no Beweegteam Zuidhoek or Hotel Zonnehoek; Zonnehoek exists only as a sale-listed group accommodation in Exloo, so a coordinator may prefer another hotel name."
+  },
+  "diversity": "Three gesprek, one voicemail, two omroep, two uitleg, two nieuws, two reclame; no title repeats the catalogue. Items 4 and 8 (home safety) and 5 and 8 should not share a set.",
+  "media_notes": {
+    "voices": "All conversations pair f-adult+m-young, m-young+f-adult or f-older+m-young, never m-adult with f-adult. Narrator reads the two announcements, presenter the news and adverts.",
+    "pictures": "Two stills (school entrance, cinema foyer): neither shows a tested fact. The cinema still now shows a man to match Chidi.",
+    "audio": "Spell phone numbers digit by digit as in the script."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Level verdicts compare script length and sentence statistics with existing A2 listening items, not learner data.",
+    "Rendered audio and pictures need their own review."
+  ],
+  "items": [
+    {
+      "id": "A2:listening:batch104-werkgesprek:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "149 spoken words, ten turns, average sentence 6; matches the longer existing gesprek items. Difficulty is separating the Monday change from the Thursday course and the old nine o'clock start.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "149 spoken words, ten turns, average sentence 6; matches the longer existing gesprek items. Difficulty is separating the Monday change from the Thursday course and the old nine o'clock start.",
+      "evidence": "q1 B from 'Je bent altijd op tijd en je helpt de klanten goed. Daar ben ik blij mee.' (A now says the list is always ready, contradicted by turn 5; C is the change, not praise). q2 D from 'Daarom begin je vanaf nu op maandag om acht uur.' (B is the old start, C overgeneralises, A is the course hour). q3 A from 'De cursus is op donderdagmiddag, van twee tot vier uur.' (B is the new Monday start, C the next talk; the unanchored fourth option was removed). Keys B, D, A.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A shop manager holds a six-month talk with a gardening-shop employee: praise for customers and punctuality, one change (he now starts at eight on Mondays because his order list is not ready at opening) and an agreed paid computer course.",
+        "communicative_purpose": "Review how work is going, change the Monday start time and agree a course.",
+        "contrivance_check": "The Monday change has a stated cause (the list is not ready when the shop opens at nine) and Anil's own request for a course follows naturally after his question about what can be better.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Anil, fijn dat je er bent. Je werkt nu zes maanden bij ons. Hoe gaat het?",
+            "response_function": "Margot opens the review and asks how work is going."
+          },
+          {
+            "turn": 2,
+            "quote": "Goed. Ik vind het werk leuk en de klanten zijn aardig.",
+            "response_function": "Anil answers positively about the work and customers."
+          },
+          {
+            "turn": 3,
+            "quote": "Dat merk ik. Je bent altijd op tijd en je helpt de klanten goed. Daar ben ik blij mee.",
+            "response_function": "Margot confirms with concrete praise (punctual, helps customers)."
+          },
+          {
+            "turn": 4,
+            "quote": "Fijn om te horen. Kan er ook iets beter?",
+            "response_function": "Anil asks whether anything can be better, inviting the criticism."
+          },
+          {
+            "turn": 5,
+            "quote": "Eén ding moet anders. Op maandag is jouw bestellijst niet klaar als de winkel opent. De winkel is vanaf negen uur open. Daarom begin je vanaf nu op maandag om acht uur.",
+            "response_function": "Margot names the one change: Monday start at eight, with the reason."
+          },
+          {
+            "turn": 6,
+            "quote": "Dat is goed. En op de andere dagen?",
+            "response_function": "Anil accepts and asks about the other days."
+          },
+          {
+            "turn": 7,
+            "quote": "Dan begin je gewoon om negen uur, zoals nu.",
+            "response_function": "Margot answers: nine o'clock as before."
+          },
+          {
+            "turn": 8,
+            "quote": "Mag ik ook iets vragen? Ik wil graag een cursus voor de computer van de winkel.",
+            "response_function": "Anil raises his own request for a course on the stock computer."
+          },
+          {
+            "turn": 9,
+            "quote": "Goed idee. De cursus is op donderdagmiddag, van twee tot vier uur. Hij duurt vier weken. De winkel betaalt de cursus. In september praten we weer.",
+            "response_function": "Margot approves and gives time, length, payment and next talk."
+          },
+          {
+            "turn": 10,
+            "quote": "Dank u wel!",
+            "response_function": "Anil thanks her and closes."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch104-bril-kopen:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "Eight turns, about 105 spoken words, average sentence 7; the difficulty is adding frame and lenses (85 + 45) and holding two prices, as in existing price gesprekken.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "Eight turns, about 105 spoken words, average sentence 7; the difficulty is adding frame and lenses (85 + 45) and holding two prices, as in existing price gesprekken.",
+      "evidence": "q1 B from 'Deze is zwart en kost vijfentachtig euro. De glazen kosten vijfenveertig euro extra, voor elke bril.' (one turn now holds both prices; A is the blue frame plus lenses, C the frame alone). q2 A from 'Donderdag, na twee uur.' (B and D use 'vandaag', refused; C reverses na/voor). q3 B from 'de helft betaalt u nu en de helft bij het ophalen' (A is her own question, C its opposite). Keys B, A, B.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A woman who has just seen the eye doctor buys reading glasses: she hears two frame prices, learns lenses cost extra, chooses the black pair, learns the pick-up time and splits the payment.",
+        "communicative_purpose": "Choose and order reading glasses and agree when to collect and how to pay.",
+        "contrivance_check": "Khadija now says herself that she has just been to the eye doctor, which was the unsupported 'hoor ik' of the original; every later reply answers her last question.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag. Kan ik u helpen?",
+            "response_function": "The employee greets and offers help."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, ik ben net bij de oogarts geweest. Ik heb een leesbril nodig.",
+            "response_function": "Khadija says she came from the eye doctor and needs reading glasses."
+          },
+          {
+            "turn": 3,
+            "quote": "Ik laat u er twee zien. Deze is blauw en kost zestig euro. Deze is zwart en kost vijfentachtig euro. De glazen kosten vijfenveertig euro extra, voor elke bril.",
+            "response_function": "The employee shows two frames and names the lens surcharge."
+          },
+          {
+            "turn": 4,
+            "quote": "Dan neem ik de zwarte. Wanneer is hij klaar?",
+            "response_function": "Khadija chooses the black frame and asks when it is ready."
+          },
+          {
+            "turn": 5,
+            "quote": "Donderdag, na twee uur. Vandaag kan niet, want we maken hem eerst. Dan kunt u hem ophalen.",
+            "response_function": "The employee gives the collection time and why it is not today."
+          },
+          {
+            "turn": 6,
+            "quote": "Moet ik alles nu betalen?",
+            "response_function": "Khadija asks whether everything must be paid now."
+          },
+          {
+            "turn": 7,
+            "quote": "Nee, de helft betaalt u nu en de helft bij het ophalen. Is dat goed?",
+            "response_function": "The employee offers half now, half at collection."
+          },
+          {
+            "turn": 8,
+            "quote": "Ja, dat is prima. Dank u wel.",
+            "response_function": "Khadija agrees and thanks him."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch104-school-inschrijven:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "124 words, ten turns, average sentence 6; comparable to existing school gesprekken (booking, procedure). Competing times (half negen, half drie, kwart over twaalf, negen uur) are the load, each tied to its own question.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "124 words, ten turns, average sentence 6; comparable to existing school gesprekken (booking, procedure). Competing times (half negen, half drie, kwart over twaalf, negen uur) are the load, each tied to its own question.",
+      "evidence": "q1 A from 'Neem het paspoort van uw dochter mee.' (B and C are explicitly excluded in the next sentences). q2 C from 'Op woensdag is ze al om kwart over twaalf klaar.' (A is the normal end, B the start). q3 D from 'op dinsdag om negen uur laten we de school aan nieuwe ouders zien' (A shares the day with the school start time, B and C use Wednesday). Keys A, C, D.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A father enrols his daughter at a primary school; the secretary explains when she can start, what to bring on the first visit, school hours and an open morning for new parents.",
+        "communicative_purpose": "Register a child and learn what to bring, the hours and when to see the school.",
+        "contrivance_check": "Each secretary reply answers the father's immediately preceding question; the open-morning invitation follows his wish to see the school.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen, kan ik u helpen?",
+            "response_function": "The secretary greets and offers help."
+          },
+          {
+            "turn": 2,
+            "quote": "Goedemorgen. Ik wil mijn dochter graag inschrijven. Ze wordt op drie februari vier jaar.",
+            "response_function": "Tobias states the wish to enrol and the daughter's birthday."
+          },
+          {
+            "turn": 3,
+            "quote": "Gefeliciteerd alvast. Op haar vierde verjaardag mag ze beginnen. Eerst komt ze twee ochtenden kijken.",
+            "response_function": "The secretary congratulates, gives the start date and the trial mornings."
+          },
+          {
+            "turn": 4,
+            "quote": "Wat moet ik bij het eerste bezoek meenemen?",
+            "response_function": "Tobias asks what to bring."
+          },
+          {
+            "turn": 5,
+            "quote": "Neem het paspoort van uw dochter mee. Uw eigen paspoort hebt u niet nodig. Een foto hoeft ook niet.",
+            "response_function": "The secretary lists what is needed and what is not."
+          },
+          {
+            "turn": 6,
+            "quote": "En hoe laat is ze dan op school?",
+            "response_function": "Tobias asks about school hours."
+          },
+          {
+            "turn": 7,
+            "quote": "De school begint om half negen en is om half drie uit. Op woensdag is ze al om kwart over twaalf klaar.",
+            "response_function": "The secretary gives the hours and the short Wednesday."
+          },
+          {
+            "turn": 8,
+            "quote": "Is er iets voor nieuwe ouders? Ik wil de school graag zien.",
+            "response_function": "Tobias asks about something for new parents."
+          },
+          {
+            "turn": 9,
+            "quote": "Ja, op dinsdag om negen uur laten we de school aan nieuwe ouders zien. Komt u dan?",
+            "response_function": "The secretary invites him on Tuesday at nine."
+          },
+          {
+            "turn": 10,
+            "quote": "Ja, graag. Tot dinsdag!",
+            "response_function": "Tobias accepts."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch104-schilderwerk-gang:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "104 words, one speaker, average sentence 8; in line with existing voicemails. Load is five day names and dates, each answering a different question.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "104 words, one speaker, average sentence 8; in line with existing voicemails. Load is five day names and dates, each answering a different question.",
+      "evidence": "q1 B from 'Hij werkt van dinsdag negen maart tot en met donderdag elf maart.' (A, C, D shift the range using Monday evening and the Friday cleaner). q2 C from 'Zet ze niet voor de deur, maar achter het gebouw.' (A is excluded, B is the painted hall). q3 A from 'Op vrijdag maakt een schoonmaker de gang schoon.' (B bikes out, C and D first and last painting day). Keys B, C, A. 9 and 11 March 2027 are a Tuesday and a Thursday.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A landlord leaves a voicemail for a tenant: the hall and stairs are painted on three days, the paint is wet, bikes and prams must go out on Monday evening to the back, and a cleaner comes on Friday.",
+        "communicative_purpose": "Warn a tenant about painting work and what she must do before it.",
+        "contrivance_check": "Each instruction follows from the painting: wet paint explains the hands-off warning, work in the hall explains moving bikes, the Friday cleaning closes the job; a phone number invites questions.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag Yvonne, u spreekt met de verhuurder van uw gebouw. Ik bel over het schilderwerk. Er komt een schilder voor de gang en de trap. Hij werkt van dinsdag negen maart tot en met donderdag elf maart. Hij is er elke dag van acht tot vijf uur. De verf is nat. Blijf dus met uw handen van de muur af. Fietsen en kinderwagens moeten maandagavond uit de gang. Zet ze niet voor de deur, maar achter het gebouw. Op vrijdag maakt een schoonmaker de gang schoon. Hebt u vragen? Bel mij op nul zes, één twee, drie vier, vijf zes, zeven acht. Tot ziens.",
+            "response_function": "The landlord names himself, the painting job, the days, the hours, the wet paint, the bikes, the cleaner and a phone number for questions."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch104-ontruimingsoefening:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "94 words, one speaker, average sentence 6; comparable to existing omroep items. The corrected time is the main load.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "94 words, one speaker, average sentence 6; comparable to existing omroep items. The corrected time is the main load.",
+      "evidence": "q1 A from 'Die is om elf uur, niet om kwart over elf.' (B is the wrong time in the e-mail, C the end of the coffee). q2 D from 'Neem de trap, niet de lift' and 'Ga naar de parkeerplaats achter het gebouw' (each other option swaps one detail; evidence now spans both sentences). q3 B from 'Neem uw jas en uw tas mee. Laat uw boeken liggen.' (A and C include the books). Keys A, D, B; prompts now address u, matching the announcement.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "A language school announcer says an evacuation exercise is held today at eleven (not quarter past, as the e-mail wrongly said), explains stairs, what to take, where to stand and that coffee follows.",
+        "communicative_purpose": "Tell students when the exercise is and exactly what to do.",
+        "contrivance_check": "The time correction has a stated cause (an error in the e-mail); each instruction is what a participant needs when the bell rings.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen allemaal. Een mededeling van de taalschool. Vandaag is er een oefening. Die is om elf uur, niet om kwart over elf. Dat stond verkeerd in de e-mail. U hoort een bel. Dan gaat iedereen naar buiten. Neem de trap, niet de lift. Neem uw jas en uw tas mee. Laat uw boeken liggen. Ga naar de parkeerplaats achter het gebouw, niet naar de ingang voor het gebouw. De docenten tellen de groepen. Na ongeveer een kwartier gaan de lessen verder. Daarna is er koffie in de kantine, tot twaalf uur. Dank u wel.",
+            "response_function": "The announcer states the exercise, corrects the time, and gives the steps, the meeting place and the coffee."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch104-bioscoop-later:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "easier",
+        "reason": "About 85 spoken words, one speaker, average sentence 7; easier than most omroep items because the corrected time is the only competing number.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "About 85 spoken words, one speaker, average sentence 7; easier than most omroep items because the corrected time is the only competing number.",
+      "evidence": "q1 C from 'De film begint niet om vijf voor acht, maar om kwart over acht.' (A the old time; B 'tien over acht' is now anchored by the added sentence about going in). q2 A from 'Bij de bar krijgt u gratis een kop koffie of thee.' (B popcorn is two for one, C no new ticket needed). q3 B from 'Goedenavond, bezoekers van zaal vier.' (the others are named as on time). Keys C, A, B.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "light-humor",
+        "situation_summary": "A cinema announcer tells visitors to screen four that the film starts at quarter past eight because of a problem with the film, offers free coffee or tea and cheap popcorn, and says the other screens are on time.",
+        "communicative_purpose": "Explain a delay, say when the film really starts and compensate the wait.",
+        "contrivance_check": "The delay has a cause (a problem with the film), a new time and a compensation; the popcorn offer is the mild joke and needs no off-page context.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedenavond, bezoekers van zaal vier. De film begint niet om vijf voor acht, maar om kwart over acht. U kunt om tien over acht naar binnen. Er is een probleem met de film. Dat duurt even. U hebt geen nieuw kaartje nodig. Bij de bar krijgt u gratis een kop koffie of thee. Popcorn is nu twee voor de prijs van één, tot de film begint. Zo hebt u genoeg te doen. De films in zaal één, twee en drie beginnen op tijd. Onze excuses voor het wachten.",
+            "response_function": "The announcer gives the new time, the cause, the ticket rule, the free drinks, the popcorn offer, the other screens and an apology."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch104-zelfscan:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "About 105 words, one speaker, average sentence 7; comparable to the existing uitleg items. Steps are said in order; the one unlisted word is 'zelfscan' and the device is called 'het apparaat'.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "About 105 words, one speaker, average sentence 7; comparable to the existing uitleg items. Steps are said in order; the one unlisted word is 'zelfscan' and the device is called 'het apparaat'.",
+      "evidence": "q1 A from 'Pak bij de ingang een apparaat uit het rek.' (B the kassa is no longer needed, C the bag check, D fruit goes on the screen). q2 B from 'U betaalt alleen met uw bankpas. Contant geld kan niet.' (A reversed, C half right). q3 C from 'Dan komt een medewerker uw leeftijd controleren.' (A and B are other statements in the script). Keys A, B, C. 'Scanner' was replaced by 'apparaat' so the questions use the script's word.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A supermarket employee explains the new self-scan: take a device at the entrance, scan items into your own bag, choose fruit on the screen, pay by bank card only, have your age checked for wine and beer, and expect an occasional bag check.",
+        "communicative_purpose": "Teach customers how to shop and pay with the new system.",
+        "contrivance_check": "The steps follow the real order of a shop visit, and the age check and bag check are the usual rules; nothing is added just for distractors.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Welkom bij onze nieuwe zelfscan. Zo werkt het. Pak bij de ingang een apparaat uit het rek. Houd het apparaat tegen elke boodschap en doe die in uw eigen tas. Fruit en groente kiest u op het scherm. U hoeft niet meer bij de kassa te staan. Aan het einde houdt u het apparaat tegen de betaalmachine. U betaalt alleen met uw bankpas. Contant geld kan niet. Koopt u wijn of bier? Dan komt een medewerker uw leeftijd controleren. Bij de uitgang kijkt een medewerker soms in uw tas. Dat is normaal en gebeurt bij iedereen. Hebt u een vraag? Dan helpt een medewerker u graag.",
+            "response_function": "The employee introduces the system, the steps, the payment rule, the age check, the bag check and offers help."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch104-rookmelder:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "About 110 words, one speaker, average sentence 8; comparable to existing uitleg items. Questions now say 'de rookmelder' as the script does.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "About 110 words, one speaker, average sentence 8; comparable to existing uitleg items. Questions now say 'de rookmelder' as the script does.",
+      "evidence": "q1 B from 'Hang hem aan het plafond in de gang.' (A and C are named as places to avoid). q2 C from 'Druk één keer per maand op de knop.' (A is rejected in the script, B is the beep interval). q3 A from 'Maakt hij elke minuut een kort geluid? Dan is de batterij bijna leeg.' (B and C are excluded in the next sentence). Keys B, C, A. Checked against brandweer.nl/onderwerpen/rookmelders on 22 November 2026: one on every floor against the ceiling, in the hall and on the landing, not in cooker steam, test monthly with the test button, a chirp every minute usually means a new battery.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A fire brigade speaker tells neighbours where to hang a smoke alarm, how often to press the test button and what a short sound every minute means.",
+        "communicative_purpose": "Give residents practical advice on placing, testing and maintaining a smoke alarm.",
+        "contrivance_check": "The advice matches the fire brigade's own page; the battery price is a plain add-on and no question depends on it.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedenavond allemaal. Ik werk bij de brandweer en vertel u iets over de rookmelder. Hang een rookmelder op elke verdieping. Hang hem aan het plafond in de gang. Hang hem niet in de keuken bij de pannen en niet in de badkamer. Daar maakt hij vaak lawaai als u kookt of doucht. Druk één keer per maand op de knop. Zo weet u dat hij werkt. U hoeft niet elke week op de knop te drukken. Maakt hij elke minuut een kort geluid? Dan is de batterij bijna leeg. Er is geen rook en het apparaat is niet kapot. Een nieuwe batterij kost ongeveer vijf euro. Dek de rookmelder nooit af.",
+            "response_function": "The speaker introduces himself and the alarm, tells where to hang it, how often to test it, what the minute sound means, the battery price and a warning."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch104-gladde-wegen:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "About 95 words, one speaker, average sentence 8; comparable to existing nieuws items. 'Busbanen' was replaced by 'de wegen voor de bussen' because the compound is opaque at A2.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "About 95 words, one speaker, average sentence 8; comparable to existing nieuws items. 'Busbanen' was replaced by 'de wegen voor de bussen' because the compound is opaque at A2.",
+      "evidence": "q1 C from 'De gemeente legt vanaf vier uur 's ochtends zout op de hoofdwegen en de wegen voor de bussen.' (A is the places that get no salt, B swaps in the bike paths, D drops the main roads). q2 B from 'De bussen rijden gewoon, maar ze kunnen een kwartier te laat zijn.' (A and C use other facts). q3 A from 'Nee, ze zijn morgen gewoon open.' (B and C are the possible fears). Keys C, B, A.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A radio newsreader reports hard frost tomorrow: salt on main roads and bus roads from four in the morning, none on small streets, buses possibly a quarter late and schools open as usual.",
+        "communicative_purpose": "Prepare listeners for slippery roads and tell them what runs normally.",
+        "contrivance_check": "The school question is introduced as a common listener worry, and the advice to leave in good time follows from the delays.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Het weer voor morgen. Vannacht wordt het erg koud. Morgenochtend om zeven uur is het vier graden onder nul. De wegen kunnen dan glad zijn. De gemeente legt vanaf vier uur 's ochtends zout op de hoofdwegen en de wegen voor de bussen. Op de kleine straten en op de meeste fietspaden komt geen zout. Fietsers moeten dus goed opletten. De bussen rijden gewoon, maar ze kunnen een kwartier te laat zijn. Veel mensen vragen: zijn de scholen dicht? Nee, ze zijn morgen gewoon open. Ze beginnen op de gewone tijd. Neem dus de tijd voor uw reis.",
+            "response_function": "The newsreader gives the forecast, the salt plan, the effect on cyclists and buses, the school answer and advice."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch104-gemeente-zaterdag:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "About 80 words, one speaker, average sentence 9; comparable to existing nieuws items. Three sentences carry the opening times, which is the intended load.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "About 80 words, one speaker, average sentence 9; comparable to existing nieuws items. Three sentences carry the opening times, which is the intended load.",
+      "evidence": "q1 B from 'Dat is op de eerste zaterdag van elke maand, van negen tot één uur.' (A every Saturday, C the Thursday closing hour, D the wrong weekday; the key is no longer the longest). q2 A from 'U kunt dan een identiteitskaart of een paspoort aanvragen.' (B and C are named in the script as not possible on Saturday). q3 C from 'Op donderdagavond blijven de loketten open tot acht uur.' (A and B are the Saturday hours). Keys B, A, C.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A radio newsreader announces that from 6 February the town hall opens on the first Saturday of each month, only for ID cards and passports by appointment, and that the counters stay open until eight on Thursday evenings.",
+        "communicative_purpose": "Tell working people when they can reach the town hall outside office hours.",
+        "contrivance_check": "The opening hours serve the stated audience (people who work in the daytime); the Thursday evening is a second option for the same group.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goed nieuws voor mensen die overdag werken. Vanaf zaterdag zes februari is het gemeentehuis ook op zaterdag open. Dat is op de eerste zaterdag van elke maand, van negen tot één uur. U kunt dan een identiteitskaart of een paspoort aanvragen. Dat kan alleen met een afspraak. Die maakt u per telefoon of op de website. Andere zaken kunt u op zaterdag niet doen, zoals uw nieuwe adres doorgeven of een rijbewijs aanvragen. Op donderdagavond blijven de loketten open tot acht uur.",
+            "response_function": "The newsreader announces the Saturday opening, its hours, what can be done, the appointment rule, what cannot be done and the Thursday evening hours."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch104-wandelgroep:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "About 110 words, one speaker, average sentence 6; comparable to existing reclame items. Prices are added so the cost question has anchored distractors.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "About 110 words, one speaker, average sentence 6; comparable to existing reclame items. Prices are added so the cost question has anchored distractors.",
+      "evidence": "q1 A from 'We lopen op dinsdag en vrijdag, om half tien.' (B is the coffee time, C reads only the first date). q2 C from 'We lopen ongeveer vier kilometer, in een uur.' (A is a mishearing of half tien, B of vier kilometer). q3 B from 'Meelopen kost niets.' (A and C are the coffee and the coffee with a biscuit). Keys A, C, B. 5 January 2027 is a Tuesday.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A radio advert invites listeners to a walking group in the park: Tuesday and Friday at half past nine, four kilometres in an hour, coffee afterwards, free to join, first walk on 5 January.",
+        "communicative_purpose": "Persuade listeners to join a free walking group for a healthy start of the year.",
+        "contrivance_check": "Each fact is what a newcomer asks: when, where, how far, who may join, what it costs and when it starts.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Zin in een goed begin van het jaar? Beweegteam Zuidhoek nodigt u uit voor de wandelgroep. We lopen op dinsdag en vrijdag, om half tien. We beginnen bij de ingang van het park. We lopen ongeveer vier kilometer, in een uur. We lopen rustig. Een vrijwilliger loopt voor ons uit. Om half elf zitten we in het parkcafé voor een kop koffie. Meelopen kost niets. De koffie betaalt u zelf. Een kop koffie kost twee euro, koffie met een koek kost vier euro. Iedereen mag meedoen, jong of oud. Regent het? Dan lopen we gewoon. De eerste keer is dinsdag vijf januari. Tot dan!",
+            "response_function": "The presenter invites listeners and gives the days, the start, the distance, the coffee and prices, who may join, the rain rule and the first date."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch104-radio-vacature:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "About 90 words, one speaker, average sentence 9; comparable to existing reclame items. Pay was raised to 15.50 so it stays above the 2027 minimum wage.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "About 90 words, one speaker, average sentence 9; comparable to existing reclame items. Pay was raised to 15.50 so it stays above the 2027 minimum wage.",
+      "evidence": "q1 B from 'U werkt op vrijdag, zaterdag en zondag, van half zeven tot elf uur.' (A and D swap in Wednesday, the reception day; C drops Friday). q2 A from 'U verdient vijftien euro vijftig per uur.' (B drops the cents, C is the cents alone; the unanchored 'elf euro vijftig' was replaced). q3 C from 'Kom op woensdag tussen twee en vier uur naar de receptie.' (A wrong day, B the work hours). Keys B, A, C.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A radio advert for a hotel seeking breakfast helpers on Friday to Sunday mornings: pay, no experience needed, free breakfast, come to reception on Wednesday afternoon with a short CV or call a number.",
+        "communicative_purpose": "Recruit breakfast staff and tell candidates how to apply.",
+        "contrivance_check": "The advert says who is wanted, when and for how much, and how to respond; the free breakfast belongs to the job.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Werkt u graag met mensen en staat u graag vroeg op? Hotel Zonnehoek zoekt hulp bij het ontbijt. U werkt op vrijdag, zaterdag en zondag, van half zeven tot elf uur. U verdient vijftien euro vijftig per uur. Ervaring is niet nodig. Op de dagen dat u werkt, krijgt u zelf ook gratis ontbijt. Wilt u meer weten? Kom op woensdag tussen twee en vier uur naar de receptie. Neem een korte CV mee. U kunt ook bellen: nul drie vier vijf, zes zes, twee één, vier zeven.",
+            "response_function": "The presenter asks who likes early work and names the hotel and the job, the days, pay, the free breakfast, the reception visit and the phone number."
+          }
+        ]
+      }
+    }
+  ]
+}

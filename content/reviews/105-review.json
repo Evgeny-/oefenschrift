@@ -1,0 +1,757 @@
+{
+  "review_id": "105-a2-listening-2026-11-22",
+  "source": "content/batches/105-original.json",
+  "proposed_source": "content/batches/105-proposed.json",
+  "source_sha256": "e8afcc4696e2d883a679a1c4079cd660b4f9bc379bdd1a721a60b43b7d08209e",
+  "review_type": "independent AI editorial review of twelve new A2 listening items (meaning-first, then full item pass)",
+  "rubric": "content/reviews/rubric.md",
+  "reviewed_at": "2026-11-22T12:49:15Z",
+  "reviewer": "Independent AI reviewer (Claude Sonnet 5.5), separate from the author, working from the blind source packet first.",
+  "review_contract_version": 2,
+  "meaning_first": {
+    "verdict": "pass",
+    "review_order": "source-before-questions",
+    "packet_sha256": "e55fecd0eda0b8cf32e62bc2f7c29a5be7decb16de459006e463fe12a7a3e6a3",
+    "initial_packet_sha256": "fee3b9a5891aa6b5be0575653a6a2f1278c0a9856595ccd8d487c2afb2b98ba9",
+    "independence_note": "Fresh reviewer context, separate from the author. The blind findings were written to content/reviews/105-review.md from the original source-only packet (hash fee3b9a5891aa6b5be0575653a6a2f1278c0a9856595ccd8d487c2afb2b98ba9) before questions, keys, notes or the plan assignment were opened. After the repairs the meaning pass was repeated on the changed items and the packet rebuilt from the proposed bytes."
+  },
+  "tone_balance": {
+    "ordinary": 11,
+    "light_humor": 1,
+    "target_share": 0.15,
+    "scope_note": "One of twelve items is lightly funny (verhuisbus, the closing joke about friends); eleven are ordinary. The small-batch rounded cap is ceil(12 x 0.15) = 2. The plan assigns humour to item 11 only; the coordinator checks the combined A2 count."
+  },
+  "batch_verdict": "pass",
+  "ready_for_integration": true,
+  "counts": {
+    "pass": 3,
+    "edited_by_reviewer": 9,
+    "revise": 0,
+    "reject": 0
+  },
+  "edits": [
+    {
+      "id": "A2:listening:batch105-energie-bellen:1",
+      "field": "questions.1.options",
+      "before": {
+        "A": "Vanaf vandaag.",
+        "B": "Vanaf één februari.",
+        "C": "Vanaf één april.",
+        "D": "Vanaf één maart."
+      },
+      "after": {
+        "A": "Vanaf één februari.",
+        "B": "Vanaf één april.",
+        "C": "Vanaf één maart."
+      },
+      "reason": "The distractor \"Vanaf vandaag\" was only implied (she says she will enter the numbers today). All three options are now dates the employee says."
+    },
+    {
+      "id": "A2:listening:batch105-energie-bellen:1",
+      "field": "questions.1.answer",
+      "before": "D",
+      "after": "C",
+      "reason": "Key letter follows the new option order."
+    },
+    {
+      "id": "A2:listening:batch105-internet-kiezen:1",
+      "field": "situation",
+      "before": "Hij is net verhuisd. Vandaag kiest Niels internet voor zijn nieuwe woning in een winkel.",
+      "after": "Niels is net verhuisd. Vandaag kiest hij in een winkel internet voor zijn nieuwe woning.",
+      "reason": "The situation started with \"Hij\" before any name."
+    },
+    {
+      "id": "A2:listening:batch105-dienst-eerder:1",
+      "field": "script.0.text",
+      "before": "Hoi Piotr, dit is de teamleider van het magazijn. Morgen, woensdag, begint je dienst niet om zeven uur, maar om zes uur. Er komt een vrachtwagen eerder aan. Je werkt tot drie uur, zoals altijd. Neem je veiligheidsschoenen mee. Je werkjas en je pas liggen al klaar. Eten voor de pauze kun je in de kantine kopen. Kun je morgen niet komen? Bel mij dan vanavond voor acht uur terug. Mijn nummer is nul zes, één twee, drie vier, vijf zes, zeven acht. Tot morgen!",
+      "after": "Hoi Piotr, dit is de teamleider van het magazijn. Morgen, woensdag, begint je dienst niet om zeven uur, maar om zes uur. Er komt een vrachtwagen eerder aan. Je werkt tot drie uur, zoals altijd. Neem je werkschoenen mee. Je werkjas en je pas liggen al klaar. Eten voor de pauze kun je in de kantine kopen. Kun je morgen niet komen? Bel mij dan vanavond voor acht uur terug. Mijn nummer is nul zes, één twee, drie vier, vijf zes, zeven acht. Tot morgen!",
+      "reason": "Plainer word for A2: werkschoenen (werk + schoenen) instead of veiligheidsschoenen; the key no longer depends on a long compound."
+    },
+    {
+      "id": "A2:listening:batch105-dienst-eerder:1",
+      "field": "questions.2.options.B",
+      "before": "Zijn veiligheidsschoenen.",
+      "after": "Zijn werkschoenen.",
+      "reason": "Follows the script wording."
+    },
+    {
+      "id": "A2:listening:batch105-dienst-eerder:1",
+      "field": "questions.2.evidence",
+      "before": "Neem je veiligheidsschoenen mee.",
+      "after": "Neem je werkschoenen mee.",
+      "reason": "Verbatim evidence for the new wording."
+    },
+    {
+      "id": "A2:listening:batch105-dienst-eerder:1",
+      "field": "questions.2.explanation",
+      "before": "Piotr neemt zijn veiligheidsschoenen mee. Zijn werkjas en zijn pas liggen al klaar. Eten kan hij in de kantine kopen.",
+      "after": "Piotr neemt zijn werkschoenen mee. Zijn werkjas en zijn pas liggen al klaar. Eten kan hij in de kantine kopen.",
+      "reason": "Follows the script wording."
+    },
+    {
+      "id": "A2:listening:batch105-ziekenhuis-lift:1",
+      "field": "questions.0.prompt",
+      "before": "Welke liften kunt u tot en met vrijdag gebruiken?",
+      "after": "Welke liften kunt u nu gebruiken?",
+      "reason": "The old prompt tied the working side lifts to \"tot en met vrijdag\", which is the period of the broken lifts; now neutral."
+    },
+    {
+      "id": "A2:listening:batch105-ziekenhuis-lift:1",
+      "field": "questions.0.skill",
+      "before": "time-place",
+      "after": "detail",
+      "reason": "Tests which lifts, not a time; also varies the skill tags of the item."
+    },
+    {
+      "id": "A2:listening:batch105-ziekenhuis-lift:1",
+      "field": "images.0.brief",
+      "before": "The entrance hall of a hospital. Gloria (woman of about 70, short white hair, green coat) sits on a bench with her handbag on her knees. A wheelchair stands near a wide empty desk. No text.",
+      "after": "The entrance hall of a hospital. Gloria (woman of about 55, short grey hair, green coat) sits on a bench with her handbag on her knees. A wheelchair stands near a wide empty desk. No text.",
+      "reason": "Gloria also looks for work in item 9; a woman of about 70 looking for care work is odd, so the picture age is lowered to about 55."
+    },
+    {
+      "id": "A2:listening:batch105-ventileren:1",
+      "field": "script.0.speaker",
+      "before": "Medewerker woningcorporatie",
+      "after": "Medewerker verhuurder",
+      "reason": "\"woningcorporatie\" is a hard word shown in the transcript; the speaker is the landlord."
+    },
+    {
+      "id": "A2:listening:batch105-ventileren:1",
+      "field": "script.0.text",
+      "before": "Welkom allemaal in uw nieuwe woning. Vanavond vertel ik hoe u de muren droog houdt. Natte muren zijn slecht voor uw huis. Zet elke ochtend alle ramen wijd open, tien minuten lang. Doe dat 's avonds nog een keer. Een half uur is niet nodig, want dan wordt het huis te koud. Zet de ramen ook open als u kookt en na het douchen. Droog uw was niet in de slaapkamer. Hang de was liever buiten of in de woonkamer bij een open raam. Houd de deuren van koude kamers dicht. Zwarte plekken op de muur? Veeg de plekken weg met een natte doek. Doe er geen verf op. Bel daarna uw verhuurder.",
+      "after": "Welkom allemaal. Vanavond vertel ik hoe u de muren droog houdt. Natte muren zijn slecht voor uw huis. Zet elke ochtend alle ramen wijd open, tien minuten lang. Doe dat 's avonds nog een keer. Een half uur is niet nodig, want dan wordt het huis te koud. Zet de ramen ook open als u kookt en na het douchen. Droog uw was niet in de slaapkamer. Hang de was liever buiten of in de woonkamer bij een open raam. Houd de deuren van koude kamers dicht. Zwarte plekken op de muur? Veeg de plekken weg met een natte doek. Doe er geen verf op. Bel daarna uw verhuurder.",
+      "reason": "The meeting is held on an evening for new tenants, not inside their homes."
+    },
+    {
+      "id": "A2:listening:batch105-ventileren:1",
+      "field": "script.0.text",
+      "before": "Welkom allemaal. Vanavond vertel ik hoe u de muren droog houdt. Natte muren zijn slecht voor uw huis. Zet elke ochtend alle ramen wijd open, tien minuten lang. Doe dat 's avonds nog een keer. Een half uur is niet nodig, want dan wordt het huis te koud. Zet de ramen ook open als u kookt en na het douchen. Droog uw was niet in de slaapkamer. Hang de was liever buiten of in de woonkamer bij een open raam. Houd de deuren van koude kamers dicht. Zwarte plekken op de muur? Veeg de plekken weg met een natte doek. Doe er geen verf op. Bel daarna uw verhuurder.",
+      "after": "Welkom allemaal. Vanavond vertel ik hoe u de muren droog houdt. Natte muren zijn slecht voor uw huis. Zet elke ochtend alle ramen wijd open, tien minuten lang. Doe dat 's avonds nog een keer. Een half uur is niet nodig, want dan wordt het huis te koud. Laat ook de roosters boven de ramen dag en nacht open. Zet de ramen ook open als u kookt en na het douchen. Droog uw was niet in de slaapkamer. Hang de was liever buiten of in de woonkamer bij een open raam. Houd de deuren van koude kamers dicht. Zwarte plekken op de muur? Veeg de plekken weg met een natte doek. Doe er geen verf op. Bel daarna uw verhuurder.",
+      "reason": "Rijksoverheid (\"Hoe kan ik mijn huis ventileren\"): keep ventilation grilles open day and night; airing alone is not enough. The talk would otherwise suggest that twenty minutes a day is the whole advice."
+    },
+    {
+      "id": "A2:listening:batch105-ventileren:1",
+      "field": "script.0.text",
+      "before": "Welkom allemaal. Vanavond vertel ik hoe u de muren droog houdt. Natte muren zijn slecht voor uw huis. Zet elke ochtend alle ramen wijd open, tien minuten lang. Doe dat 's avonds nog een keer. Een half uur is niet nodig, want dan wordt het huis te koud. Laat ook de roosters boven de ramen dag en nacht open. Zet de ramen ook open als u kookt en na het douchen. Droog uw was niet in de slaapkamer. Hang de was liever buiten of in de woonkamer bij een open raam. Houd de deuren van koude kamers dicht. Zwarte plekken op de muur? Veeg de plekken weg met een natte doek. Doe er geen verf op. Bel daarna uw verhuurder.",
+      "after": "Welkom allemaal. Vanavond vertel ik hoe u de muren droog houdt. Natte muren zijn slecht voor uw huis. Zet elke ochtend alle ramen wijd open, tien minuten lang. Doe dat 's avonds nog een keer. Een half uur is niet nodig, want dan wordt het huis te koud. Laat ook de roosters boven de ramen dag en nacht open. Zet de ramen ook open als u kookt en na het douchen. Droog uw was niet in de slaapkamer. Hang de was liever buiten of in de woonkamer bij een open raam. Houd de deuren van koude kamers dicht. Zwarte plekken op de muur? Veeg de plekken weg met een natte doek. Doe er geen verf op. Bel daarna ons. Wij zijn uw verhuurder.",
+      "reason": "The speaker works for the landlord, so \"bel uw verhuurder\" was odd."
+    },
+    {
+      "id": "A2:listening:batch105-ventileren:1",
+      "field": "questions.2.options",
+      "before": {
+        "A": "Er verf op doen.",
+        "B": "Alleen de ramen langer open zetten.",
+        "C": "De plekken schoonmaken en de verhuurder bellen."
+      },
+      "after": {
+        "A": "Er een laag verf op doen.",
+        "B": "De ramen langer open zetten.",
+        "C": "Wegvegen en de verhuurder bellen."
+      },
+      "reason": "Options made parallel in length so the key is no longer the longest by far; wording follows the new script."
+    },
+    {
+      "id": "A2:listening:batch105-ventileren:1",
+      "field": "questions.2.evidence",
+      "before": "Veeg de plekken weg met een natte doek. Doe er geen verf op. Bel daarna uw verhuurder.",
+      "after": "Veeg de plekken weg met een natte doek. Doe er geen verf op. Bel daarna ons.",
+      "reason": "Verbatim evidence for the new script."
+    },
+    {
+      "id": "A2:listening:batch105-ventileren:1",
+      "field": "questions.2.explanation",
+      "before": "U veegt de plekken weg met een natte doek en u belt daarna de verhuurder. Verf op de plekken doet u niet. Langer ramen open zetten is niet nodig.",
+      "after": "U veegt de plekken weg met een natte doek en u belt daarna de verhuurder. Verf op de plekken doet u niet. Langer ramen open zetten wordt niet gezegd.",
+      "reason": "Follows the new options."
+    },
+    {
+      "id": "A2:listening:batch105-ov-uitchecken:1",
+      "field": "situation",
+      "before": "Een medewerker van het busbedrijf legt uit hoe Teun met zijn bankpas in de bus betaalt.",
+      "after": "Het busbedrijf geeft uitleg over betalen in de bus. Teun luistert, want hij wil met zijn bankpas betalen.",
+      "reason": "The old situation gave no reason why an employee explains this to one man."
+    },
+    {
+      "id": "A2:listening:batch105-ov-uitchecken:1",
+      "field": "script.0.text",
+      "before": "Goedemiddag, ik leg uit hoe u bij Streekbus Holtrijk met uw bankpas betaalt. Houd uw pas tegen het apparaat bij de deur als u instapt. Houd uw pas ook tegen het apparaat als u uitstapt. Gebruik beide keren dezelfde pas. Een rit kost bij ons twee euro vijftig. Vergeet u de tweede keer? Dan betaalt u vijf euro. Kinderen tot vier jaar reizen gratis. Kinderen van vier tot twaalf jaar betalen de halve prijs. Vanaf twaalf jaar betaalt u de volle prijs. Werkt het apparaat niet? Vraag het dan aan de chauffeur.",
+      "after": "Goedemiddag, ik leg uit hoe u bij Streekbus Holtrijk met uw bankpas betaalt. Houd uw pas tegen het apparaat bij de deur als u instapt. Houd uw pas ook tegen het apparaat als u uitstapt. Gebruik beide keren dezelfde pas. Een rit kost bij ons twee euro vijftig. Vergeet u de tweede keer? Dan betaalt u bij ons vijf euro. Kinderen tot vier jaar reizen gratis. Kinderen van vier tot twaalf jaar betalen de halve prijs. Vanaf twaalf jaar betaalt u de volle prijs. Werkt het apparaat niet? Vraag het dan aan de chauffeur.",
+      "reason": "Frames the fee as this company's own rule, not the national OVpay rule."
+    },
+    {
+      "id": "A2:listening:batch105-ov-uitchecken:1",
+      "field": "questions.1.evidence",
+      "before": "Vergeet u de tweede keer? Dan betaalt u vijf euro.",
+      "after": "Vergeet u de tweede keer? Dan betaalt u bij ons vijf euro.",
+      "reason": "Verbatim evidence for the new script."
+    },
+    {
+      "id": "A2:listening:batch105-ov-uitchecken:1",
+      "field": "questions.1.explanation",
+      "before": "Vergeet u de tweede keer? Dan betaalt u vijf euro. Twee euro vijftig is de prijs van een gewone rit.",
+      "after": "Vergeet u de tweede keer? Dan betaalt u bij ons vijf euro. Twee euro vijftig is de prijs van een gewone rit.",
+      "reason": "Follows the new script."
+    },
+    {
+      "id": "A2:listening:batch105-zorg-werkdag:1",
+      "field": "questions.2.options",
+      "before": {
+        "A": "Eerst een diploma halen.",
+        "B": "Gewoon naar binnen gaan.",
+        "C": "Zich eerst aanmelden."
+      },
+      "after": {
+        "A": "Een diploma halen voor de dag.",
+        "B": "Niets, ze loopt gewoon binnen.",
+        "C": "Zich aanmelden voor de dag."
+      },
+      "reason": "The old key \"Gewoon naar binnen gaan\" did not answer \"wat moet zij eerst doen\"; the key is now an answer to the prompt and the options have equal length."
+    },
+    {
+      "id": "A2:listening:batch105-buurtsuper-sluit:1",
+      "field": "script.0.text",
+      "before": "Nieuws uit de stad. De supermarkt in de Kruisstraat sluit op zaterdag dertig januari. Het gebouw wordt afgebroken. Over twee jaar komt op die plek een nieuwe, grotere winkel. Tot die tijd kunt u naar de supermarkt op het Dorpsplein. Die winkel is dan tot negen uur 's avonds open, in plaats van tot acht uur. De winkel in de Kruisstraat sluit op de laatste dag om zes uur. Bent u in de Kruisstraat vijfenzeventig jaar of ouder? Dan brengt de winkel uw boodschappen zes maanden gratis naar huis.",
+      "after": "Nieuws uit de stad. De supermarkt in de Kruisstraat sluit op zaterdag dertig januari. Het oude gebouw is niet meer goed. Over twee jaar komt op die plek een nieuwe, grotere winkel. Tot die tijd kunt u naar de supermarkt op het Dorpsplein. Die winkel is dan tot negen uur 's avonds open, in plaats van tot acht uur. De winkel in de Kruisstraat sluit op de laatste dag om zes uur. Bent u in de Kruisstraat vijfenzeventig jaar of ouder? Dan brengt de winkel uw boodschappen zes maanden gratis naar huis.",
+      "reason": "\"afgebroken\" is a B1 word; the plain sentence says the same for this listener."
+    },
+    {
+      "id": "A2:listening:batch105-buurtsuper-sluit:1",
+      "field": "script.0.text",
+      "before": "Nieuws uit de stad. De supermarkt in de Kruisstraat sluit op zaterdag dertig januari. Het oude gebouw is niet meer goed. Over twee jaar komt op die plek een nieuwe, grotere winkel. Tot die tijd kunt u naar de supermarkt op het Dorpsplein. Die winkel is dan tot negen uur 's avonds open, in plaats van tot acht uur. De winkel in de Kruisstraat sluit op de laatste dag om zes uur. Bent u in de Kruisstraat vijfenzeventig jaar of ouder? Dan brengt de winkel uw boodschappen zes maanden gratis naar huis.",
+      "after": "Nieuws uit de stad. De supermarkt in de Kruisstraat sluit op zaterdag dertig januari. Het oude gebouw is niet meer goed. Over twee jaar komt op die plek een nieuwe, grotere winkel. Tot die tijd kunt u naar de supermarkt op het Dorpsplein. Die winkel is dan tot negen uur 's avonds open, in plaats van tot acht uur. De winkel in de Kruisstraat sluit op de laatste dag om zes uur. Woont u in de Kruisstraat en bent u vijfenzeventig jaar of ouder? Dan brengt de supermarkt op het Dorpsplein uw boodschappen zes maanden gratis naar huis.",
+      "reason": "\"de winkel\" was ambiguous (the closing shop or the Dorpsplein shop); \"Bent u in de Kruisstraat\" was unnatural."
+    },
+    {
+      "id": "A2:listening:batch105-buurtsuper-sluit:1",
+      "field": "questions.2.prompt",
+      "before": "Voor wie brengt de winkel de boodschappen zes maanden gratis naar huis?",
+      "after": "Voor wie brengt de supermarkt op het Dorpsplein de boodschappen zes maanden gratis naar huis?",
+      "reason": "Names the shop."
+    },
+    {
+      "id": "A2:listening:batch105-buurtsuper-sluit:1",
+      "field": "questions.2.options",
+      "before": {
+        "A": "Iedereen die er woont.",
+        "B": "Mensen van vijfenzeventig jaar of ouder.",
+        "C": "Iedereen die op het Dorpsplein winkelt."
+      },
+      "after": {
+        "A": "Iedereen die in de Kruisstraat woont.",
+        "B": "Mensen van vijfenzeventig jaar of ouder.",
+        "C": "Iedereen die op het Dorpsplein winkelt."
+      },
+      "reason": "Option lengths balanced; A follows the new script."
+    },
+    {
+      "id": "A2:listening:batch105-buurtsuper-sluit:1",
+      "field": "questions.2.evidence",
+      "before": "Bent u in de Kruisstraat vijfenzeventig jaar of ouder? Dan brengt de winkel uw boodschappen zes maanden gratis naar huis.",
+      "after": "Woont u in de Kruisstraat en bent u vijfenzeventig jaar of ouder? Dan brengt de supermarkt op het Dorpsplein uw boodschappen zes maanden gratis naar huis.",
+      "reason": "Verbatim evidence for the new script."
+    },
+    {
+      "id": "A2:listening:batch105-verhuisbus:1",
+      "field": "situation",
+      "before": "Hij gaat verhuizen. Op de radio hoort Niels een reclame.",
+      "after": "Piotr gaat verhuizen. Op de radio hoort hij een reclame.",
+      "reason": "Niels is already \"net verhuisd\" in item 2; a different name avoids a contradiction when both appear in one set."
+    },
+    {
+      "id": "A2:listening:batch105-verhuisbus:1",
+      "field": "questions.0.prompt",
+      "before": "Op dinsdag wil Niels verhuizen. Wat kost de bus per dag?",
+      "after": "Op dinsdag wil Piotr verhuizen. Wat kost de bus per dag?",
+      "reason": "Same reason."
+    }
+  ],
+  "rejected": [],
+  "checks": {
+    "batch_check": {
+      "command": "npx tsx scripts/batch-check.ts content/batches/105-proposed.json",
+      "result": "Checked 12 items, 36 questions. Keys A 11, B 11, C 11, D 3; options 3:29, 4:7. 10 compound warnings (energiebedrijf, aansluiten, stadspas/sportlessen, werkjas/werkschoenen, achteringang, wegvegen, diezelfde, busbedrijf, zorgcentrum, binnenspeeltuin/kinderfeestje), no failures."
+    },
+    "a2_words": "No unlisted word in any script. Compounds judged transparent: energie+bedrijf, aan+sluiten (glossed by \"monteur\"), sport+lessen, stad+pas (explained in the same turn), werk+jas, werk+schoenen, achter+ingang (paired with hoofdingang), weg+vegen (glossed by \"natte doek\"), bus+bedrijf, zorg+centrum, binnen+speeltuin (title and opening line say \"als het regent\"), kinderfeestje. Replaced: veiligheidsschoenen -> werkschoenen, afgebroken -> a plain sentence, woningcorporatie (speaker label) -> verhuurder. Listed words still demanding in context but not carrying a question alone: loonstrook, identiteitskaart, monteur, mededeling, tijdelijk, rolstoelen, inleveren.",
+    "key_balance": "A 11 (31%), B 11 (31%), C 11 (31%), D 3 (8%, of 7 four-option questions; D exists only in four-option questions). Keys never repeat three times in a row.",
+    "option_shape": "After the edits the key is the longest option only by a few characters where figures force it; ventileren q3 and buurtsuper q3 options were rebalanced; zorg q3 now keys \"Niets, ze loopt gewoon binnen\" against two equally long actions. No prompt word recurs only in the key; no question prompt gives away another question.",
+    "official_sources": "Item 6: rijksoverheid.nl \"Hoe kan ik mijn huis ventileren\" opened 22 November 2026: grilles and vents open day and night; extra ventilation after cooking, showering, painting; \"Alleen luchten ... is niet genoeg\". The script now says to keep the grilles open; the ten-minute, twice-a-day airing is consistent with RIVM and landlord advice (10 to 15 minutes; not stated on the Rijksoverheid page), and laundry and wiping black spots are common landlord advice not on that page. Item 8: connexxion.nl \"OVpay: checking in and out with your debit card\" (always check in and out with the same card; the same system for all operators) and ns.nl \"Inchecken of uitchecken vergeten\" (a standard amount is charged; no figure on the page) opened 22 November 2026. The item is framed as one company's own rule (\"bij Streekbus Holtrijk\", \"bij ons\"); the 2.50 and 5 euro figures are invented and not the national forgotten-check-out amount. Item 1: no national rule; amounts invented.",
+    "dates": "Saturday 6 March 2027 and Saturday 30 January 2027 verified as Saturdays."
+  },
+  "diversity": "Three gesprek (energy call, internet shop, municipal desk), one voicemail, one omroep, three uitleg (damp, school app, bus payment), two nieuws, two reclame. No title repeats an existing A2 listening title; closest are batch090-ziekenhuis-parkeren (item 5), batch090-afvalpas-uitleg (item 3, stadspas), batch005-bus (item 8) and batch005-werkdag (item 4); the purposes differ. Keep items 1 and 6 (both housing and cost of living) and items 9 and 5 (Gloria) in different practice sets.",
+  "media_notes": {
+    "voices": "Two different roles per conversation: item 1 m-young + f-adult, item 2 f-adult + m-young, item 3 f-adult + m-young; no m-adult with f-adult. Single speakers: m-adult (voicemail, bus company), narrator (hospital), f-adult (landlord employee), f-older (teacher, Hanneke with the spectral-v1 preset), presenter (news and adverts). Audio must be generated with --keys for exactly the 12 new clips and the question audio, from the proposed bytes only.",
+    "pictures": "Four stills (internet shop, municipal desk, hospital hall, classroom), none shows a tested fact. Gloria's brief now says a woman of about 55, short grey hair, green coat; the alt is unchanged. Niels, Amara, Sanjay keep three traits. Rendered pictures need a contact-sheet review."
+  },
+  "limitations": [
+    "AI editorial review does not validate CEFR difficulty or official exam equivalence.",
+    "Level verdicts compare script length and sentence statistics with existing A2 listening items of the same type, not learner data.",
+    "Organisation names were not independently searched in this review; the author recorded web checks, none was repeated.",
+    "The invented bus fares in item 8 do not match the national OVpay amount for a forgotten check-out; the framing \"bij ons\" mitigates but the item should not be used to teach OVpay fees.",
+    "Rendered audio and pictures need their own review."
+  ],
+  "items": [
+    {
+      "id": "A2:listening:batch105-energie-bellen:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "138 words in ten turns, average sentence 5.5 words, the longest 10; comparable to the longer existing A2 gesprek items. The load is keeping 95, 118 and 23 apart, and the March and April dates; vocabulary stays on the list.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "138 words in ten turns, average sentence 5.5 words, the longest 10; comparable to the longer existing A2 gesprek items. The load is keeping 95, 118 and 23 apart, and the March and April dates; vocabulary stays on the list.",
+      "evidence": "q1 B from \"Vanaf één maart betaalt u honderdachttien euro\" (95 is the old amount, 23 the difference, both said); q2 C from the same sentence (februari is the last month of the old amount, april the start of a lower amount, both said; the unsaid \"vandaag\" distractor was replaced); q3 A from \"Dat doet u in onze app\" (the phone is refused in the line before, the letter is what she received). Keys B C A.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Selin has a letter that her monthly energy payment goes up and phones the energy company: she learns old and new amount, the reason, that the meter readings can lower it from April, and that she must enter them in the app.",
+        "communicative_purpose": "Find out whether the increase is right, whether it can be lowered, and how to give the meter readings; the call ends with her plan to do it today.",
+        "contrivance_check": "The employee gives a reason (more gas in the cold months) and Selin answers it with a reason of her own (she kept the heating low); the lower amount depends on meter numbers, which is how a real advance payment is corrected; nothing off-page is needed.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag, u spreekt met de klantenservice van Energie Duinwind. Waarmee kan ik u helpen?",
+            "response_function": "The employee opens the call as a customer service line and asks what the caller needs."
+          },
+          {
+            "turn": 2,
+            "quote": "Goedemiddag. Ik heb een brief gekregen. Mijn bedrag gaat omhoog. Klopt dat?",
+            "response_function": "Selin names her letter and asks whether the rise is correct."
+          },
+          {
+            "turn": 3,
+            "quote": "Ja, dat klopt. Tot en met februari betaalt u vijfennegentig euro per maand. Vanaf één maart betaalt u honderdachttien euro. Dat is drieëntwintig euro meer.",
+            "response_function": "The employee confirms and gives the old amount, the new amount from 1 March and the difference."
+          },
+          {
+            "turn": 4,
+            "quote": "Dat is veel. Waarom is dat?",
+            "response_function": "Selin reacts to the size of the rise and asks for the reason."
+          },
+          {
+            "turn": 5,
+            "quote": "U hebt in de koude maanden meer gas gebruikt. Daarom gaat het bedrag omhoog.",
+            "response_function": "The employee gives the reason: more gas used in the cold months."
+          },
+          {
+            "turn": 6,
+            "quote": "Ik heb de verwarming vaak laag gezet. Kan het ook lager?",
+            "response_function": "Selin objects that she kept the heating low and asks whether the amount can be lower."
+          },
+          {
+            "turn": 7,
+            "quote": "Dat kan. U geeft de cijfers van uw meter aan ons door. Dan rekenen wij het opnieuw uit. Dat nieuwe bedrag betaalt u dan vanaf april.",
+            "response_function": "The employee says yes, explains the meter readings and the April start of the new amount."
+          },
+          {
+            "turn": 8,
+            "quote": "Kan ik die cijfers nu aan u doorgeven?",
+            "response_function": "Selin asks whether she can give the readings now, on the phone."
+          },
+          {
+            "turn": 9,
+            "quote": "Nee, aan de telefoon kan dat niet. Dat doet u in onze app.",
+            "response_function": "The employee refuses the phone and points to the app."
+          },
+          {
+            "turn": 10,
+            "quote": "Goed, dat doe ik vandaag nog. Dank u wel.",
+            "response_function": "Selin agrees to do it today and thanks him."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch105-internet-kiezen:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "141 words in nine turns, average sentence 6.4 words; comparable to the existing shop conversations. Two prices, a fee and two appointment slots are said once each; the questions combine two details.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "141 words in nine turns, average sentence 6.4 words; comparable to the existing shop conversations. Two prices, a fee and two appointment slots are said once each; the questions combine two details.",
+      "evidence": "q1 C from \"Normaal internet kost tweeëndertig euro per maand\" (A fast internet, B the fee without contract); q2 B from \"Dan sluit de monteur uw internet gratis aan\" (A is the fee without contract, C and D are the monthly prices); q3 D from \"donderdag komen, tussen acht en twaalf uur\" and \"Donderdag past goed\" (Thursday afternoon and the Friday slots are not offered or are the other day). Keys C B D.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Niels has just moved and chooses an internet plan in a shop: he asks whether the cheaper plan is enough, hears the connection cost depends on a one-year contract, chooses, and books a technician.",
+        "communicative_purpose": "Choose a plan and book the connection for the new home; the call ends with a booked Thursday morning.",
+        "contrivance_check": "His question about enough speed is answered with his own use (films, e-mail), the contract decision follows from \"ik blijf zeker een jaar\", and the appointment is offered in two slots so that his choice has a reason (\"dan ben ik thuis\").",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag, welkom bij Lichtlijn Internet. Kan ik u helpen?",
+            "response_function": "The employee greets the customer and offers help."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, ik ben net verhuisd. Ik wil internet in mijn nieuwe woning.",
+            "response_function": "Niels says he has moved and wants internet."
+          },
+          {
+            "turn": 3,
+            "quote": "Dan hebt u twee soorten. Normaal internet kost tweeëndertig euro per maand. Snel internet kost tweeënveertig euro per maand.",
+            "response_function": "The employee names the two plans with their monthly prices."
+          },
+          {
+            "turn": 4,
+            "quote": "Ik kijk soms een film en ik werk weinig thuis. Is normaal internet genoeg?",
+            "response_function": "Niels describes his use and asks whether the normal plan is enough."
+          },
+          {
+            "turn": 5,
+            "quote": "Ja, voor films en e-mail is normaal internet genoeg. Wilt u een contract voor één jaar? Dan sluit de monteur uw internet gratis aan. Zonder contract betaalt u veertig euro voor het aansluiten.",
+            "response_function": "The employee confirms and explains the connection cost with and without a one-year contract."
+          },
+          {
+            "turn": 6,
+            "quote": "Ik blijf zeker een jaar in deze woning. Dan neem ik normaal internet, met een contract voor één jaar.",
+            "response_function": "Niels decides: normal internet with a one-year contract."
+          },
+          {
+            "turn": 7,
+            "quote": "Prima. Een monteur kan donderdag komen, tussen acht en twaalf uur. Of vrijdag, tussen twee en vier uur.",
+            "response_function": "The employee offers a technician on Thursday morning or Friday afternoon."
+          },
+          {
+            "turn": 8,
+            "quote": "Donderdag past goed. Dan ben ik thuis.",
+            "response_function": "Niels picks Thursday and gives his reason."
+          },
+          {
+            "turn": 9,
+            "quote": "Dan maak ik de afspraak nu voor u. Tot ziens!",
+            "response_function": "The employee books the appointment and closes."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch105-stadspas:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "116 words in nine turns, average sentence 6.1 words; comparable to the existing municipal desk conversations. The benefits, the papers and the delivery are each said once.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "116 words in nine turns, average sentence 6.1 words; comparable to the existing municipal desk conversations. The benefits, the papers and the delivery are each said once.",
+      "evidence": "q1 A from \"Alleen uw loonstrook en uw identiteitskaart\" (B and C add the children's papers, which the employee refuses); q2 C from \"de pas komt per post, binnen tien werkdagen\" (A is refused, B is the end of the validity); q3 B from \"zwemmen twee euro in plaats van zes euro\" (A is the free pass itself, C the normal price, D the sports lessons). Keys A C B.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "Amara applies for a city pass at the municipality desk because she has two children; the employee explains the benefits, the papers, the delivery by post and the validity.",
+        "communicative_purpose": "Apply for the pass: she learns what it gives, what to show, and that it arrives later by post.",
+        "contrivance_check": "\"Ik heb ze bij me\" refers to the payslip and identity card just named; the question about the children's papers is a real one for a parent and is answered \"dat hoeft niet\"; the pass is said to be \"voor mensen met weinig geld\" without judgement.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemorgen. Ik wil graag een stadspas aanvragen. Kan dat hier?",
+            "response_function": "Amara greets and asks to apply for a city pass at this desk."
+          },
+          {
+            "turn": 2,
+            "quote": "Ja, dat kan. De stadspas is voor mensen met weinig geld. Met de pas kost zwemmen twee euro in plaats van zes euro. Sportlessen voor kinderen kosten de helft. De pas zelf is gratis.",
+            "response_function": "The employee confirms and explains who it is for, the swimming and sport prices and that the pass is free."
+          },
+          {
+            "turn": 3,
+            "quote": "Dat is fijn, ik heb twee kinderen. Wat moet ik laten zien?",
+            "response_function": "Amara reacts to the offer, mentions her two children and asks what to show."
+          },
+          {
+            "turn": 4,
+            "quote": "Uw laatste loonstrook en uw paspoort of uw identiteitskaart.",
+            "response_function": "The employee names the payslip and passport or identity card."
+          },
+          {
+            "turn": 5,
+            "quote": "Moet ik ook papieren van mijn kinderen laten zien?",
+            "response_function": "Amara asks whether the children's papers are needed."
+          },
+          {
+            "turn": 6,
+            "quote": "Nee, dat hoeft niet. Alleen uw loonstrook en uw identiteitskaart.",
+            "response_function": "The employee says no and repeats the two documents."
+          },
+          {
+            "turn": 7,
+            "quote": "Ik heb ze bij me. Krijg ik de pas nu meteen mee?",
+            "response_function": "Amara says she has them and asks whether she gets the pass now."
+          },
+          {
+            "turn": 8,
+            "quote": "Nee, de pas komt per post, binnen tien werkdagen. De pas is geldig tot eenendertig december.",
+            "response_function": "The employee says it comes by post within ten working days and gives the validity."
+          },
+          {
+            "turn": 9,
+            "quote": "Goed, dank u wel.",
+            "response_function": "Amara accepts and thanks him."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch105-dienst-eerder:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "85 words, one speaker, average sentence 7.7; comparable to the existing voicemail items. Three times (start, end, call-back deadline) and the phone number are said once each; the replaced word werkschoenen is easier than veiligheidsschoenen.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "85 words, one speaker, average sentence 7.7; comparable to the existing voicemail items. Three times (start, end, call-back deadline) and the phone number are said once each; the replaced word werkschoenen is easier than veiligheidsschoenen.",
+      "evidence": "q1 C from \"begint je dienst niet om zeven uur, maar om zes uur\" (seven is the normal start, eight the call-back deadline, three the end); q2 A from \"Je werkt tot drie uur, zoals altijd\"; q3 B from \"Neem je werkschoenen mee\" (jacket and pass \"liggen al klaar\", food is bought in the canteen). Keys C A B.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "The team leader leaves a voicemail for Piotr: tomorrow's shift starts at six because a lorry arrives early, ends at three as usual, he brings work shoes, and he calls back before eight tonight if he cannot come.",
+        "communicative_purpose": "Tell the employee about the changed start, what to bring and what to do if he cannot make it.",
+        "contrivance_check": "The early start has a reason (a lorry comes early), the end time \"zoals altijd\" separates the changed and unchanged facts, and the phone number is read out in digits for a call-back that has a deadline.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Hoi Piotr, dit is de teamleider van het magazijn. Morgen, woensdag, begint je dienst niet om zeven uur, maar om zes uur. Er komt een vrachtwagen eerder aan. Je werkt tot drie uur, zoals altijd. Neem je werkschoenen mee. Je werkjas en je pas liggen al klaar. Eten voor de pauze kun je in de kantine kopen. Kun je morgen niet komen? Bel mij dan vanavond voor acht uur terug. Mijn nummer is nul zes, één twee, drie vier, vijf zes, zeven acht. Tot morgen!",
+            "response_function": "The team leader greets Piotr, announces the earlier start tomorrow with the reason, the unchanged end time, what to bring, what is ready, the canteen, the call-back request with the deadline and the spoken number."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch105-ziekenhuis-lift:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "97 words, one speaker, average sentence 8.8, longest 14; comparable to the existing hospital announcements. Six facts but the questions ask three that are contrasted inside the announcement (entrances, floors, closing times).",
+        "targetLevelValidated": false
+      },
+      "level_reason": "97 words, one speaker, average sentence 8.8, longest 14; comparable to the existing hospital announcements. Six facts but the questions ask three that are contrasted inside the announcement (entrances, floors, closing times).",
+      "evidence": "q1 A from \"Gebruik de liften bij de ingang aan de zijkant, naast het café\" (B and C are the two entrances where the lifts do not work); q2 C from \"niet op de eerste verdieping, maar op de tweede verdieping\" (beneden is where blood tests stay); q3 B from \"om vijf uur in plaats van zeven uur\" (four is the end of blood tests). Keys A C B.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "In the hospital hall Gloria hears that the lifts at two entrances do not work until Friday, which lifts to use, that the eye doctor sits on the second floor for now, that blood tests stay downstairs, and the early café closing.",
+        "communicative_purpose": "Help visitors to reach their appointment while the lifts are out; Gloria needs the eye doctor's floor.",
+        "contrivance_check": "The café is both the landmark for the working lifts and a short closing notice; the eye doctor fact matches Gloria's appointment; the picture shows only a woman on a bench with a wheelchair near an empty desk.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag, dit is een mededeling voor patiënten en bezoekers. Er is werk aan de liften. Daarom werken de liften bij de hoofdingang en bij de achteringang niet. Dat duurt tot en met vrijdag. Gebruik de liften bij de ingang aan de zijkant, naast het café. De oogarts zit tijdelijk niet op de eerste verdieping, maar op de tweede verdieping. Bloed laten prikken kan gewoon beneden, tot vier uur. Rolstoelen staan bij de balie. Vraag daar gerust om hulp. Het café sluit vandaag eerder: om vijf uur in plaats van zeven uur. Wij wensen u een goed bezoek.",
+            "response_function": "The announcer addresses patients and visitors, explains the lift works until Friday, names the working lifts, the eye doctor's new floor, blood tests, wheelchairs, help and the café closing time."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch105-ventileren:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "125 words, one speaker, average sentence about 8; comparable to the existing uitleg items. The talk lists several rules but each question asks one directly said rule; the hard words schimmel and ventileren are avoided.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "125 words, one speaker, average sentence about 8; comparable to the existing uitleg items. The talk lists several rules but each question asks one directly said rule; the hard words schimmel and ventileren are avoided.",
+      "evidence": "q1 B from \"Zet elke ochtend alle ramen wijd open, tien minuten lang. Doe dat 's avonds nog een keer\" (a half hour is said to be unnecessary, once a day misses the evening); q2 A from \"Droog uw was niet in de slaapkamer\" (living room and outside are the recommended places); q3 C from \"Veeg de plekken weg met een natte doek. Doe er geen verf op. Bel daarna ons\" (paint is forbidden, longer airing is not the advice). Keys B A C.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "At an evening for new tenants a landlord's employee explains how to keep walls dry: air twice a day for ten minutes, keep the grilles open, air while cooking and showering, dry laundry elsewhere than the bedroom, keep cold rooms closed, wipe black spots and phone the landlord.",
+        "communicative_purpose": "Give new tenants practical rules against damp walls and black spots.",
+        "contrivance_check": "Each rule has a short reason or a location; the speaker is the landlord, so \"Bel daarna ons. Wij zijn uw verhuurder\" fits (the original \"bel uw verhuurder\" did not). The advice agrees with Rijksoverheid, \"Hoe kan ik mijn huis ventileren\" (grilles open day and night, extra ventilation after cooking and showering); the page is silent on laundry and mould removal, which follow common landlord advice.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Welkom allemaal. Vanavond vertel ik hoe u de muren droog houdt. Natte muren zijn slecht voor uw huis. Zet elke ochtend alle ramen wijd open, tien minuten lang. Doe dat 's avonds nog een keer. Een half uur is niet nodig, want dan wordt het huis te koud. Laat ook de roosters boven de ramen dag en nacht open. Zet de ramen ook open als u kookt en na het douchen. Droog uw was niet in de slaapkamer. Hang de was liever buiten of in de woonkamer bij een open raam. Houd de deuren van koude kamers dicht. Zwarte plekken op de muur? Veeg de plekken weg met een natte doek. Doe er geen verf op. Bel daarna ons. Wij zijn uw verhuurder.",
+            "response_function": "The landlord's employee welcomes the tenants and gives the whole talk: damp walls, ten minutes of airing twice a day, the grilles, cooking and showering, laundry, closed doors, black spots and the phone call to the landlord."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch105-school-app:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "106 words, one speaker, average sentence 7.6; comparable to the existing school explanations. Four rules (sick notice, homework, questions, reply time) and three time points, each said once.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "106 words, one speaker, average sentence 7.6; comparable to the existing school explanations. Four rules (sick notice, homework, questions, reply time) and three time points, each said once.",
+      "evidence": "q1 D from \"Meld dat dan voor kwart over acht in de app\" (phone only without the app, notes no longer exist, after eight she reads nothing); q2 B from \"Het huiswerk voor de hele week staat op maandag in de app\" (Friday is the hand-in day); q3 A from \"altijd binnen twee dagen\". Keys D B A.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 5,
+        "tone": "ordinary",
+        "situation_summary": "On the first parents' evening of group three the teacher explains the school app: messages replace notes in the bag, sick notices go in before a quarter past eight, homework is posted on Monday and handed in on Friday, questions are answered within two days.",
+        "communicative_purpose": "Teach parents how to communicate with the school through the app.",
+        "contrivance_check": "Each rule answers a parent's likely question; the app replaces the paper note (\"geen briefje meer in de tas\"); the phone is the exception for parents without the app, and q1 states Sanjay has the app so the key is unique.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedenavond allemaal en welkom. Ik vertel u over de app van onze school. Berichten van mij komen in de app. Er gaat dus geen briefje meer mee in de tas. Is uw kind ziek? Meld dat dan voor kwart over acht in de app. Hebt u geen app? Dan mag u de school bellen. Het huiswerk voor de hele week staat op maandag in de app. Op vrijdag moeten de kinderen hun werk inleveren. Hebt u een vraag voor mij? Stuur dan een bericht in de app. Ik antwoord niet meteen, maar altijd binnen twee dagen. Na acht uur 's avonds lees ik geen berichten meer.",
+            "response_function": "The teacher welcomes the parents and explains the app: messages, the sick notice and its time, the phone exception, homework on Monday and hand-in on Friday, questions, the reply time and the evening limit."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch105-ov-uitchecken:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "95 words, one speaker, average sentence 7.7; comparable to the existing uitleg items. Two prices and three age groups each said once.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "95 words, one speaker, average sentence 7.7; comparable to the existing uitleg items. Two prices and three age groups each said once.",
+      "evidence": "q1 B from \"Houd uw pas ook tegen het apparaat als u uitstapt\" (the driver is only for a broken device); q2 C from \"Dan betaalt u bij ons vijf euro\" (two euro fifty is the normal ride); q3 A from \"Kinderen tot vier jaar reizen gratis\" (half price for four to twelve, full from twelve). Keys B C A.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A bus company explains how to pay with a bank card: tap in and out with the same card, the ride costs 2.50 euro, a forgotten second tap costs 5 euro, child prices, and ask the driver when the device does not work. Teun listens because he wants to pay by card.",
+        "communicative_purpose": "Teach the passenger how to check in and out with the bank card and what a mistake costs at this company.",
+        "contrivance_check": "\"Bij Streekbus Holtrijk\" and \"bij ons\" mark the fare and the fee as this company's own; checked on 22 November 2026: Connexxion and NS say that check-in and out with the same card is the national OVpay rule, and that a forgotten check-out is charged a standard amount, so the same-card and tap-out rules are accurate, while the 2.50 and 5 euro figures are invented and not the national amount (see limitations).",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Goedemiddag, ik leg uit hoe u bij Streekbus Holtrijk met uw bankpas betaalt. Houd uw pas tegen het apparaat bij de deur als u instapt. Houd uw pas ook tegen het apparaat als u uitstapt. Gebruik beide keren dezelfde pas. Een rit kost bij ons twee euro vijftig. Vergeet u de tweede keer? Dan betaalt u bij ons vijf euro. Kinderen tot vier jaar reizen gratis. Kinderen van vier tot twaalf jaar betalen de halve prijs. Vanaf twaalf jaar betaalt u de volle prijs. Werkt het apparaat niet? Vraag het dan aan de chauffeur.",
+            "response_function": "The bus company employee greets listeners and explains tapping in, tapping out with the same card, the ride fare, the fee at this company, the child prices and what to do if the device fails."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch105-zorg-werkdag:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "90 words, one speaker, average sentence 8.2; comparable to the existing news items. The question about registration uses a negative in the script (\"U hoeft zich niet aan te melden\") but the key is now phrased positively.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "90 words, one speaker, average sentence 8.2; comparable to the existing news items. The question about registration uses a negative in the script (\"U hoeft zich niet aan te melden\") but the key is now phrased positively.",
+      "evidence": "q1 C from \"U kunt komen van tien tot twee uur\" (twelve is the lunch time); q2 A from \"Om twaalf uur is er een gratis lunch voor alle bezoekers\" (the course is for people who start, the bus is not said to be free); q3 B from \"U hoeft zich niet aan te melden. Loop gewoon binnen\" (a diploma is not needed for some jobs). Keys C A B.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The regional radio news announces an open day on Saturday 6 March (2027) at a care centre for people who want to work in care: ten to two, talk to staff, no diploma for some jobs, a paid course, a free lunch at twelve, no registration, bus five stops at the door. Gloria is looking for work.",
+        "communicative_purpose": "Invite people to visit without registering and show that care work is open to people without a diploma.",
+        "contrivance_check": "Each fact serves a would-be visitor (hours, free lunch, no registration, transport); 6 March 2027 is a Saturday; the picture of Gloria in item 5 was changed to a woman of about 55 so that both items fit one person.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Nieuws uit de regio. Zorgcentrum Hazenpad houdt op zaterdag zes maart een open dag. Die dag is voor mensen die in de zorg willen werken. U kunt komen van tien tot twee uur. U praat met medewerkers en u ziet hoe het werk gaat. Voor sommige banen hebt u geen diploma nodig. Wie begint, volgt eerst een cursus en krijgt daarvoor gewoon salaris. Om twaalf uur is er een gratis lunch voor alle bezoekers. U hoeft zich niet aan te melden. Loop gewoon binnen. Bus vijf stopt voor de deur.",
+            "response_function": "The newsreader announces the open day, its purpose, the hours, what visitors can do, the diploma and paid course, the lunch, no registration and the bus."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch105-buurtsuper-sluit:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "95 words, one speaker, average sentence about 9, longest 16; comparable to the existing news items. Three clock times (eight, nine, six) are separated by the shop they belong to.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "95 words, one speaker, average sentence about 9, longest 16; comparable to the existing news items. Three clock times (eight, nine, six) are separated by the shop they belong to.",
+      "evidence": "q1 A from \"sluit op zaterdag dertig januari\" (two years and six months are the new shop and the delivery period); q2 C from \"tot negen uur 's avonds open, in plaats van tot acht uur\" (six is the Kruisstraat closing time on the last day); q3 B from \"Woont u in de Kruisstraat en bent u vijfenzeventig jaar of ouder? Dan brengt de supermarkt op het Dorpsplein uw boodschappen zes maanden gratis naar huis\". Keys A C B.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "The local radio news reports that the Kruisstraat supermarket closes on Saturday 30 January, a larger shop comes in two years, the Dorpsplein supermarket stays open until nine in the meantime, and people over 75 in the Kruisstraat get free delivery for six months. Teun lives in the Kruisstraat.",
+        "communicative_purpose": "Tell residents when the shop closes and what replaces it.",
+        "contrivance_check": "The reasons are stated (the old building, a new larger shop) and every offer helps people who lose their shop (longer hours elsewhere, delivery for the oldest); 30 January 2027 is a Saturday; \"de winkel\" is now the Dorpsplein supermarket, removing the ambiguity.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Nieuws uit de stad. De supermarkt in de Kruisstraat sluit op zaterdag dertig januari. Het oude gebouw is niet meer goed. Over twee jaar komt op die plek een nieuwe, grotere winkel. Tot die tijd kunt u naar de supermarkt op het Dorpsplein. Die winkel is dan tot negen uur 's avonds open, in plaats van tot acht uur. De winkel in de Kruisstraat sluit op de laatste dag om zes uur. Woont u in de Kruisstraat en bent u vijfenzeventig jaar of ouder? Dan brengt de supermarkt op het Dorpsplein uw boodschappen zes maanden gratis naar huis.",
+            "response_function": "The newsreader gives the closing day, the reason, the new shop, the alternative supermarket and its longer hours, the last-day closing time and the free delivery for people over 75 who live in the Kruisstraat."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch105-verhuisbus:1",
+      "verdict": "pass (edited)",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "93 words, one speaker, average sentence 7.2; comparable to the existing reclame items. Two prices, a distance, a free item and a busy-days warning, each said once.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "93 words, one speaker, average sentence 7.2; comparable to the existing reclame items. Two prices, a distance, a free item and a busy-days warning, each said once.",
+      "evidence": "q1 A from \"Van maandag tot en met donderdag kost een bus negenenveertig euro per dag\" (59 is Friday to Sunday, 100 is the kilometres); q2 B from \"Benzine betaalt u zelf\" (boxes are free, the kilometres are in the price); q3 C from \"Op zaterdag en zondag is alles snel vol\". Keys A B C.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "light-humor",
+        "situation_summary": "A radio advert from a van rental company: licence B is enough, 49 euro Monday to Thursday and 59 euro Friday to Sunday, 100 kilometres and ten boxes included, petrol extra, reserve early for weekends, and a joke that the van keeps your friends your friends. Piotr is going to move.",
+        "communicative_purpose": "Persuade listeners who are moving to rent a van and tell them what the price covers.",
+        "contrivance_check": "An advert gives prices, inclusions and a reservation reason for each fact; the closing joke is the only humour and connects to moving with friends; the question name was changed from Niels to Piotr because Niels has already moved in item 2.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Gaat u verhuizen? Huur dan een bus bij Rolwiel Busverhuur. Met rijbewijs B mag u zo wegrijden. Van maandag tot en met donderdag kost een bus negenenveertig euro per dag. Op vrijdag, zaterdag en zondag is het negenenvijftig euro per dag. Honderd kilometer zitten in de prijs. U krijgt ook tien verhuisdozen gratis. Benzine betaalt u zelf. Reserveer per telefoon of online. Op zaterdag en zondag is alles snel vol. Verhuizen met vrienden is gezellig. Maar zonder bus wordt het soms minder gezellig. Met een bus van Rolwiel blijven uw vrienden uw vrienden.",
+            "response_function": "The presenter asks about moving, offers the van, gives the licence, the two day prices, the included kilometres and boxes, petrol, the reservation advice and the closing joke about friends."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A2:listening:batch105-binnenspeeltuin:1",
+      "verdict": "pass",
+      "level": {
+        "target": "A2 listening (authoring target, unvalidated)",
+        "verdict": "comparable",
+        "reason": "104 words, one speaker, average sentence 8.7; comparable to the existing reclame items. Five prices and a rule on socks, each said once; q1 combines the day, the time and the age.",
+        "targetLevelValidated": false
+      },
+      "level_reason": "104 words, one speaker, average sentence 8.7; comparable to the existing reclame items. Five prices and a rule on socks, each said once; q1 combines the day, the time and the age.",
+      "evidence": "q1 D from \"Op woensdagmiddag, vanaf twee uur, betalen kinderen maar vier euro\" (6.50 is the normal price, twelve the party, nothing the under-ones); q2 C from \"Volwassenen komen ook gratis binnen\"; q3 A from \"sokken moet u zelf meenemen\" (toys need not be brought, food and drink are bought in the café). Keys D C A.",
+      "meaning": {
+        "verdict": "pass",
+        "coherence_rating": 4,
+        "tone": "ordinary",
+        "situation_summary": "A radio advert for an indoor playground: open daily ten to six, 6.50 euro for ages one to twelve, free under one and for adults, 4 euro on Wednesday afternoons, parties 12 euro a child, toys provided, café, socks required. Karolina wants to go with her son.",
+        "communicative_purpose": "Persuade families to visit on rainy days and tell them prices and what to bring.",
+        "contrivance_check": "The rainy-day opening gives the reason for the advert; each price answers what a parent pays; the sock rule gives the single mild joke and does not make the scene odd.",
+        "unsupported_assumptions": [],
+        "turn_links": [
+          {
+            "turn": 1,
+            "quote": "Regent het en weten de kinderen niet wat ze moeten doen? Kom dan naar Speelhal Dikke Wolk, de binnenspeeltuin voor het hele gezin. Wij zijn elke dag open, van tien tot zes uur. Kinderen van één tot twaalf jaar betalen zes euro vijftig. Kinderen jonger dan één jaar zijn gratis. Volwassenen komen ook gratis binnen. Op woensdagmiddag, vanaf twee uur, betalen kinderen maar vier euro. Wilt u een kinderfeestje? Dat kost twaalf euro per kind, met pannenkoeken. Speelgoed hoeft u niet mee te nemen. Eten en drinken koopt u in ons café. Maar sokken moet u zelf meenemen, want zonder sokken mag niemand spelen.",
+            "response_function": "The presenter opens with the rainy day, names the playground, the opening hours, the prices by age, the Wednesday afternoon price, the party price, toys, café and the sock rule."
+          }
+        ]
+      }
+    }
+  ]
+}
