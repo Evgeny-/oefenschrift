@@ -228,6 +228,43 @@
   --subject-paper: #2c3e30;
   --subject-accent: #abd6aa;
 }
+/* The word lists under the subjects: the same card anatomy in three colours of their own
+   (peach, sand, mint), so they never read as more exam parts. */
+.home-words {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: minmax(12rem, auto);
+  gap: 0.875rem;
+  margin-top: 1rem;
+}
+.home-word--practice {
+  --subject-paper: #ffe6d5;
+  --subject-accent: #a3511f;
+}
+.home-word--top {
+  --subject-paper: #f3ecdd;
+  --subject-accent: #7a5b2e;
+}
+.home-word--themes {
+  --subject-paper: #d9f0eb;
+  --subject-accent: #2b6e66;
+}
+.home-subject .word-icon {
+  flex: none;
+  color: var(--subject-accent);
+}
+[data-theme='dark'] .home-word--practice {
+  --subject-paper: #4a3326;
+  --subject-accent: #f6b98f;
+}
+[data-theme='dark'] .home-word--top {
+  --subject-paper: #3d3628;
+  --subject-accent: #e2c48e;
+}
+[data-theme='dark'] .home-word--themes {
+  --subject-paper: #253f3b;
+  --subject-accent: #93d6cc;
+}
 .home-more {
   margin-top: 2.5rem;
 }
@@ -332,10 +369,12 @@
 }
 @media (max-width: 44rem) {
   .home-why,
-  .home-subjects {
+  .home-subjects,
+  .home-words {
     grid-template-columns: minmax(0, 1fr);
   }
-  .home-subjects {
+  .home-subjects,
+  .home-words {
     grid-auto-rows: minmax(11rem, auto);
   }
   .home-subject--reading {

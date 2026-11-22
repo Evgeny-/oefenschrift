@@ -14,6 +14,23 @@ const parts: [string, string, string][] = [
   ['speaking', 'Vertel het in het Nederlands', 'Say it in Dutch'],
   ['knm', 'Leven in Nederland', 'Life in the Netherlands'],
 ];
+// The round arrow at the foot of a start-page card.
+export function SubjectArrow() {
+  return (
+    <span className="home-subject-arrow" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M5 12h14m-6-6 6 6-6 6" />
+      </svg>
+    </span>
+  );
+}
 export default function Subjects() {
   const { state, t, name, itemsFor, practiceSets } = useStudyContext(),
     level = state.settings.level;
@@ -44,18 +61,7 @@ export default function Subjects() {
                 decoding="async"
               />
               <span className="home-subject-footer">
-                <span className="home-subject-arrow" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.7"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14m-6-6 6 6-6 6" />
-                  </svg>
-                </span>
+                <SubjectArrow />
                 <small>
                   {items.length
                     ? `${sets.length} ${sets.length === 1 ? t('oefenset', 'practice set') : t('oefensets', 'practice sets')}${fresh ? ` · ${fresh} ${t('nieuw', 'new')}` : ''}`

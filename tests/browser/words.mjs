@@ -207,6 +207,14 @@ try {
     'Unmarking keeps the row until the list is opened again',
   );
 
+  // The start page offers the word lists under the subjects.
+  await navigate('/');
+  await wait(`document.querySelectorAll('.home-words a').length===3`);
+  await check(
+    `[...document.querySelectorAll('.home-words a')].map((a)=>a.getAttribute('href')).join()==='/words/practice,/words/top,/words'&&[...document.querySelectorAll('.home-words img')].every((img)=>img.getAttribute('alt')==='')`,
+    'The start page links to practice, the most common words and the theme lists',
+  );
+
   // Practice: the index card opens the choice (recovering from a failed load), a round
   // turns cards with Space and the number keys, a miss comes back at the end of the round
   // and every answer is kept in this browser.
