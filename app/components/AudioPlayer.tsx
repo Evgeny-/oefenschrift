@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Dialogue } from './TextEvidence';
 import { Segments, PlayIcon } from './Controls';
+import VolumeControl from './VolumeControl';
+import { useAudioVolume } from '../useVolume';
 import { formatTime } from '../domain/study';
 import { mediaUrl } from '../domain/base';
 export function AudioPlayback({
@@ -18,6 +20,7 @@ export function AudioPlayback({
     [mediaDuration, setMediaDuration] = useState(0),
     [rate, setRate] = useState(1),
     [error, setError] = useState(false);
+  useAudioVolume(audio);
   // Some MediaRecorder containers have no duration metadata. The decoded audio
   // supplies a finite duration without changing the recording used for playback.
   const duration =
@@ -110,6 +113,7 @@ export function AudioPlayback({
         <span className="audio-time">
           {formatTime(time)} / {duration ? formatTime(duration) : '—:—'}
         </span>
+        <VolumeControl t={t} />
         <Segments
           id="audio-speed"
           compact

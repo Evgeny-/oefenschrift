@@ -7,6 +7,7 @@ import useSelectionIndicator from './useSelectionIndicator';
 import { useStudyContext } from '../StudyContext';
 import { mediaUrl, withBase } from '../domain/base';
 import { routePath } from '../domain/routes';
+import { useAudioVolume } from '../useVolume';
 
 export function Segments({
   label,
@@ -451,6 +452,7 @@ export function ReasonIcon({ kind }) {
 export function ClipButton({ src, playLabel, pauseLabel }) {
   const audio = useRef<HTMLAudioElement>(null),
     [playing, setPlaying] = useState(false);
+  useAudioVolume(audio);
   useEffect(() => {
     const el = audio.current;
     return () => el?.pause();

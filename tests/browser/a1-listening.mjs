@@ -73,6 +73,17 @@ async function click(selector) {
   });
   await evaluate('new Promise(r=>setTimeout(r,240))');
 }
+async function press(key, times = 1) {
+  const keys = Array.from({ length: times }, () => [
+    { type: 'keyDown', value: key },
+    { type: 'keyUp', value: key },
+  ]).flat();
+  await send('input.performActions', {
+    context,
+    actions: [{ type: 'key', id: 'keys', actions: keys }],
+  });
+  await evaluate('new Promise(r=>setTimeout(r,150))');
+}
 async function shot(name, selector) {
   await evaluate(
     selector
@@ -150,6 +161,36 @@ try {
   );
   await click('.audio-player .play-button');
   await check(`document.querySelector('.audio-player audio').paused`, 'A1 audio pauses');
+  // One remembered volume serves the player and the question clips.
+  const everyClip = (condition) => `[...document.querySelectorAll('audio')].every(a=>${condition})`;
+  await check(
+    `getComputedStyle(document.querySelector('.audio-volume')).display!=='none'&&document.querySelector('.volume-thumb input').getAttribute('aria-valuetext')==='100%'`,
+    'The desktop player shows the volume at 100%',
+  );
+  await evaluate(`document.querySelector('.volume-thumb input').focus();true`);
+  await press('\uE012', 6);
+  await check(
+    everyClip('Math.abs(a.volume-0.7)<0.001&&!a.muted'),
+    'The volume slider sets the player and every question clip',
+  );
+  await click('.volume-button');
+  await check(
+    everyClip('a.muted') +
+      `&&document.querySelector('.volume-button').getAttribute('aria-label')==='Unmute'&&document.querySelector('.volume-thumb input').value==='0'`,
+    'The speaker button mutes every clip',
+  );
+  await click('.volume-button');
+  await check(everyClip('!a.muted&&Math.abs(a.volume-0.7)<0.001'), 'Unmuting restores the level');
+  await evaluate(
+    `window.a1SetItem=Storage.prototype.setItem;Storage.prototype.setItem=()=>{throw new DOMException('full','QuotaExceededError')};document.querySelector('.volume-thumb input').focus();true`,
+  );
+  await press('\uE014', 2);
+  await check(
+    everyClip('Math.abs(a.volume-0.8)<0.001') +
+      `&&localStorage.getItem('oefenschrift.volume')==='{"level":0.7,"muted":false}'`,
+    'Refused storage keeps the new volume for this page and the last saved one',
+  );
+  await evaluate(`Storage.prototype.setItem=window.a1SetItem;true`);
   await check(
     `!!document.querySelector('.question legend audio')`,
     'Each A1 question has its own read-aloud recording',
@@ -165,11 +206,20 @@ try {
     `document.documentElement.scrollWidth<=innerWidth`,
     'Illustration and audio controls fit at320px',
   );
+  await check(
+    `getComputedStyle(document.querySelector('.audio-volume')).display==='none'&&Math.abs(document.querySelector('#audio-speed').getBoundingClientRect().bottom-document.querySelector('.audio-meta').getBoundingClientRect().bottom)<1&&document.querySelector('.audio-meta').getBoundingClientRect().height<48`,
+    'A narrow player leaves volume to the device and keeps time and speed on one line',
+  );
   await shot('listening-320');
   await navigate('/en/sets/' + set.id);
   await check(
     `document.querySelector('.question input:checked')?.value===${JSON.stringify(questions[0].q.answer)}`,
     'Reload preserves the A1 listening answer',
+  );
+  await wait(`document.querySelector('.audio-player audio')?.readyState>=1`);
+  await check(
+    `[...document.querySelectorAll('audio')].every(a=>Math.abs(a.volume-0.7)<0.001&&!a.muted)`,
+    'Reload restores the saved volume',
   );
   for (let i = 0; i < questions.length; i++) {
     const { item, q } = questions[i];

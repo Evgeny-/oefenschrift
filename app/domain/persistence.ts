@@ -2,6 +2,7 @@
 export const STORAGE_KEY = 'oefenschrift.study.v2';
 export const VISITOR_KEY = 'oefenschrift.visitor';
 export const SESSION_KEY = 'oefenschrift.visited';
+export const VOLUME_KEY = 'oefenschrift.volume';
 export const PREFERENCES_COOKIE = 'oefenschrift_preferences';
 export const POSITION_COOKIE = 'oefenschrift_position';
 export const PASS_COOKIE = 'oefenschrift_pass';

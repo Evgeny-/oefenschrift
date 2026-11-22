@@ -12,6 +12,7 @@ import {
   STORAGE_KEY,
   VISITOR_KEY,
   SESSION_KEY,
+  VOLUME_KEY,
 } from '../domain/persistence';
 import { PROFILES_KEY } from '../domain/profiles';
 // The privacy notice for the public service. Facts that belong to the operator (name,
@@ -64,6 +65,14 @@ const storage = [
         '@.',
     ],
     life: ['Tot je ze wist', 'Until you clear it'],
+  },
+  {
+    name: VOLUME_KEY,
+    what: [
+      'Het geluidsvolume van de spelers en of het geluid uit staat',
+      'The playback volume and whether sound is muted',
+    ],
+    life: ['Tot je het wist', 'Until you clear it'],
   },
   {
     name: VISITOR_KEY,
