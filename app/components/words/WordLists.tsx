@@ -4,11 +4,15 @@ import { useStudyContext } from '../../StudyContext';
 import { Chevron, Segments, Toggle } from '../Controls';
 import AppLink from '../AppLink';
 import WordRows, { MarkIcon } from './WordRows';
+import Practice from './Practice';
+import { WordIcon } from './WordIcons';
 import useWordPrefs, { useDictionary, type WordPrefsApi } from './useWordPrefs';
+import { practiceStats, today } from '../../domain/word-practice';
 import {
   groupBySlug,
   MY_LIST,
   PAGE_SIZE,
+  PRACTICE,
   searchEntries,
   WORD_GROUPS,
   wordPath,
@@ -24,10 +28,13 @@ const dutch = { lang: 'nl', translate: 'no' } as const;
 export default function WordLists({ route, data }: { route: string; data?: WordsPage }) {
   const { profile, t } = useStudyContext(),
     prefs = useWordPrefs(profile),
+    practice = route === wordPath(PRACTICE),
     group = route.startsWith('words/') ? groupBySlug(route.slice(6)) : undefined;
   return (
     <div className="words">
-      {group ? (
+      {practice ? (
+        <Practice prefs={prefs} />
+      ) : group ? (
         <GroupPage key={group.slug} group={group} entries={data?.entries || []} prefs={prefs} />
       ) : (
         <WordIndex summaries={data?.summaries || []} prefs={prefs} />
@@ -40,7 +47,7 @@ export default function WordLists({ route, data }: { route: string; data?: Words
           )}
         </p>
       )}
-      {group?.slug !== MY_LIST && <Sources />}
+      {group?.slug !== MY_LIST && !practice && <Sources />}
     </div>
   );
 }
@@ -117,6 +124,9 @@ function ListLink({
     group = groupBySlug(slug)!;
   return (
     <AppLink className={`words-group ${className}`} to={wordPath(slug)}>
+      <span className="words-icon" data-icon={slug}>
+        <WordIcon name={slug} />
+      </span>
       <span className="words-group-copy">
         <Heading>{t(group.nl, group.en)}</Heading>
         <span className="words-group-detail">{detail}</span>
@@ -172,7 +182,8 @@ function WordIndex({ summaries, prefs }: { summaries: GroupSummary[]; prefs: Wor
     dictionary = useDictionary(wanted || searching),
     summary = new Map(summaries.map((s) => [s.slug, s])),
     top = summary.get('top'),
-    marked = prefs.prefs.marked.length;
+    marked = prefs.prefs.marked.length,
+    due = prefs.loaded ? practiceStats(prefs.prefs.cards, today()).due : 0;
   const section = (kind: WordGroup['section']) =>
     WORD_GROUPS.filter((group) => group.section === kind && summary.get(group.slug)?.count);
   return (
@@ -200,6 +211,21 @@ function WordIndex({ summaries, prefs }: { summaries: GroupSummary[]; prefs: Wor
       ) : (
         <>
           <div className="words-start">
+            <AppLink className="words-group words-card words-practise" to={wordPath(PRACTICE)}>
+              <span className="words-icon" data-icon="practice">
+                <WordIcon name="practice" />
+              </span>
+              <span className="words-group-copy">
+                <h2>{t('Oefenen', 'Practise')}</h2>
+                <span className="words-group-detail">
+                  {due
+                    ? `${countLabel(due, t)} ${t('te herhalen', 'to review')}`
+                    : t('Kaartjes: elke dag een paar woorden', 'Flashcards: a few words a day')}
+                </span>
+              </span>
+              <span />
+              <Chevron />
+            </AppLink>
             {top && (
               <ListLink
                 slug="top"
@@ -355,6 +381,15 @@ function GroupPage({
           />
         )}
         <ViewToggles prefs={prefs} />
+        <AppLink
+          className="secondary words-practise-list"
+          to={wordPath(PRACTICE)}
+          search={`?list=${group.slug}`}
+        >
+          {mine
+            ? t('Oefen mijn lijst', 'Practise my list')
+            : t('Oefen deze lijst', 'Practise this list')}
+        </AppLink>
       </div>
       {paged && <Pages slug={group.slug} page={page} pages={pages} total={shown.length} />}
       {mine && dictionary.failed ? (

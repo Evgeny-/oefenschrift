@@ -2,16 +2,18 @@ import { useCallback, useEffect, useState } from 'react';
 import { wordsSlot } from '../../domain/profiles';
 import { withBase } from '../../domain/base';
 import type { WordEntry } from '../../domain/words';
+import { rate, readCards, type Cards, type Rating } from '../../domain/word-practice';
 
 // What a learner keeps for the word lists in this browser: the words they marked as not
-// known yet, and whether translations and examples are shown. Each teacher-mode profile
-// has its own copy beside its study key.
+// known yet, whether translations and examples are shown, and the practice cards. Each
+// teacher-mode profile has its own copy beside its study key.
 export interface WordPrefs {
   marked: string[];
   hideEnglish: boolean;
   examples: boolean;
+  cards: Cards;
 }
-const defaults: WordPrefs = { marked: [], hideEnglish: false, examples: true };
+const defaults: WordPrefs = { marked: [], hideEnglish: false, examples: true, cards: {} };
 function storage() {
   try {
     return window.localStorage;
@@ -29,6 +31,7 @@ function read(profile: string): WordPrefs {
         : [],
       hideEnglish: saved.hideEnglish === true,
       examples: saved.examples !== false,
+      cards: readCards(saved.cards),
     };
   } catch {
     return defaults;
@@ -67,6 +70,8 @@ export default function useWordPrefs(profile: string) {
       })),
     setHideEnglish: (hideEnglish: boolean) => update(() => ({ hideEnglish })),
     setExamples: (examples: boolean) => update(() => ({ examples })),
+    rateWord: (id: string, rating: Rating, day: string) =>
+      update((p) => ({ cards: { ...p.cards, [id]: rate(p.cards[id], rating, day) } })),
   };
 }
 export type WordPrefsApi = ReturnType<typeof useWordPrefs>;

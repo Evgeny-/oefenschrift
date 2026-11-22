@@ -1,0 +1,263 @@
+/* Word practice (/words/practice): the choice of what to practise as the word-list cards and
+   rows, then one card at a time in the exercise sheet style: the Dutch word, Show, and on the
+   back the meaning, the forms and the example, with three answers under the card. */
+.words-group-name {
+  font-size: var(--text-reading);
+  font-weight: 600;
+  line-height: 1.35;
+}
+.practice-yours {
+  margin-left: 0.5rem;
+  padding: 0.0625rem 0.4375rem;
+  border-radius: 999px;
+  background: var(--tab-selected);
+  color: var(--tab-ink);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  vertical-align: 0.125rem;
+}
+.practice-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.practice-stats strong {
+  color: var(--ink);
+  font-size: var(--text-reading);
+  font-variant-numeric: tabular-nums;
+}
+.practice-hardest {
+  display: grid;
+  max-width: 40rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.practice-hardest li {
+  display: grid;
+  grid-template-columns: minmax(0, 12rem) minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.625rem 0;
+  border-top: 1px solid var(--line);
+}
+.practice-misses {
+  color: var(--muted);
+  font-size: var(--text-small);
+  font-variant-numeric: tabular-nums;
+}
+
+/* A round. */
+.practice-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  max-width: 40rem;
+}
+.practice-stop {
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.practice-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 40rem;
+  margin-bottom: 0.75rem;
+  color: var(--muted);
+  font-size: var(--text-small);
+  font-variant-numeric: tabular-nums;
+}
+.practice-bar {
+  flex: 1;
+  height: 0.25rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--quiet);
+}
+.practice-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--action);
+  transition: width var(--motion);
+}
+.practice-card {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 1.5rem;
+  max-width: 40rem;
+  min-height: 15rem;
+  padding: 2.5rem 1.5rem 2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-surface);
+  text-align: center;
+  align-content: center;
+}
+.practice-mark {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+.practice-word {
+  font-family: 'Nunito', 'Helvetica Neue', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.practice-type {
+  margin-top: -1rem;
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.practice-show {
+  min-width: 10rem;
+}
+.practice-answer {
+  display: grid;
+  gap: 1.25rem;
+  width: 100%;
+}
+.practice-en {
+  font-size: var(--text-reading);
+  font-weight: 600;
+}
+/* The back below the meaning reads left to right: the forms as labelled rows, the example
+   as a quote with the soft yellow rule, then the note. */
+.practice-details {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  max-width: 30rem;
+  justify-self: center;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  text-align: left;
+}
+.practice-forms {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+}
+.practice-forms div {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: baseline;
+}
+.practice-forms dt {
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.practice-forms dd {
+  margin: 0;
+}
+.practice-example {
+  margin: 0;
+  padding-left: 0.875rem;
+  border-left: 3px solid var(--tab-selected);
+}
+.practice-example p {
+  line-height: 1.5;
+}
+.practice-example .word-example-en {
+  margin-top: 0.125rem;
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.practice-note {
+  color: var(--muted);
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+/* One quiet legend of the keys under the card, for devices with a keyboard. */
+.practice-keys {
+  display: none;
+  max-width: 40rem;
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: var(--text-small);
+  text-align: right;
+}
+.practice-keys kbd {
+  display: inline-block;
+  min-width: 1.25rem;
+  padding: 0.0625rem 0.3125rem;
+  border: 1px solid var(--line);
+  border-radius: 0.25rem;
+  font-family: inherit;
+  font-size: 0.6875rem;
+  text-align: center;
+}
+@media (hover: hover) and (pointer: fine) {
+  .practice-keys {
+    display: block;
+  }
+}
+.practice-rating {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-width: 40rem;
+  margin-top: 1rem;
+}
+.practice-rating button {
+  flex-direction: column;
+  gap: 0.125rem;
+  min-height: 3.5rem;
+}
+.practice-rating small {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+.practice-done {
+  max-width: 40rem;
+}
+.practice-done h2 {
+  font-size: 1.5rem;
+}
+.practice-done p {
+  margin-top: 0.5rem;
+}
+.practice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+.words-practise-list {
+  margin-left: auto;
+}
+
+@container words (max-width: 46rem) {
+  .words-practise-list {
+    margin-left: 0;
+  }
+}
+@container words (max-width: 30rem) {
+  .practice-card {
+    padding: 2.25rem 1rem 1.5rem;
+  }
+  .practice-word {
+    font-size: 1.625rem;
+  }
+  .practice-rating {
+    gap: 0.5rem;
+  }
+  .practice-hardest li {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .practice-hardest li > [lang='en'] {
+    grid-column: 1;
+    grid-row: 2;
+    color: var(--muted);
+    font-size: var(--text-small);
+  }
+}

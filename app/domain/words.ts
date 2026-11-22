@@ -37,6 +37,8 @@ export interface WordEntry {
   note?: string;
   themes?: string[];
   tags?: string[];
+  // In the site's own A1 or A2 word list (added by the server, not stored in content/words).
+  level?: 'A1' | 'A2';
 }
 type Pair = [nl: string, en: string];
 export interface WordGroup {
@@ -52,6 +54,24 @@ export interface WordGroup {
   includes: (entry: WordEntry) => boolean;
   // A natural order (numbers, days, pronouns) before frequency.
   order?: string[];
+}
+// The kind of word, shown where one spelling has two entries (zijn: verb and possessive).
+export const WORD_TYPES: Record<WordPos, Pair> = {
+  noun: ['zelfstandig naamwoord', 'noun'],
+  verb: ['werkwoord', 'verb'],
+  adj: ['bijvoeglijk naamwoord', 'adjective'],
+  adv: ['bijwoord', 'adverb'],
+  pron: ['voornaamwoord', 'pronoun'],
+  det: ['lidwoord of aanwijzend woord', 'article or demonstrative'],
+  prep: ['voorzetsel', 'preposition'],
+  conj: ['voegwoord', 'conjunction'],
+  num: ['telwoord', 'number'],
+  interj: ['tussenwerpsel', 'interjection'],
+};
+export function wordType(entry: WordEntry): Pair {
+  if (entry.pos === 'det' && /\b(my|your|his|her|its|our|their)\b/.test(entry.en))
+    return ['bezittelijk voornaamwoord', 'possessive'];
+  return WORD_TYPES[entry.pos];
 }
 export const TOP_SIZE = 1000;
 // Long lists are read a hundred words at a time.
@@ -495,6 +515,8 @@ export function perfect(verb: VerbForms) {
   return `${aux} ${verb.participle}`;
 }
 export const wordPath = (slug?: string) => (slug ? `words/${slug}` : 'words');
+// The practice page, /words/practice, optionally with ?list= naming what to practise.
+export const PRACTICE = 'practice';
 // What a words page receives from its loader: on the index a summary of every list, on a
 // list page that list's entries in reading order (the full dictionary, for search across
 // lists and for My list, comes from /api/words when it is needed).

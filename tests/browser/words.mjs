@@ -207,6 +207,82 @@ try {
     'Unmarking keeps the row until the list is opened again',
   );
 
+  // Practice: the index card opens the choice (recovering from a failed load), a round
+  // turns cards with Space and the number keys, a miss comes back at the end of the round
+  // and every answer is kept in this browser.
+  await navigate('/words');
+  await evaluate(
+    `window.__fetch=window.fetch;window.fetch=(url,...rest)=>String(url).includes('/api/words')?Promise.reject(new TypeError('offline')):window.__fetch(url,...rest);true`,
+  );
+  await click('.words-practise');
+  await wait(
+    `location.pathname==='/words/practice'&&document.querySelector('.words-status button')`,
+  );
+  await evaluate(`window.fetch=window.__fetch;true`);
+  await click('.words-status button');
+  await wait(`document.querySelectorAll('.words-groups .words-group').length>15`);
+  await check(
+    `[...document.querySelectorAll('.words-group')].some(a=>a.getAttribute('href')==='/words/practice?list=a2'&&a.querySelector('.practice-yours'))`,
+    'The practice choice recovers from a failed load and marks the learner’s level',
+  );
+  await navigate('/words/irregular-verbs');
+  await click('.words-practise-list');
+  await wait(`location.search==='?list=irregular-verbs'&&document.querySelector('.practice-show')`);
+  await check(
+    `document.querySelector('.practice-word').textContent==='zijn'&&document.querySelector('.practice-type').textContent==='werkwoord'&&document.querySelector('.practice-progress').textContent.startsWith('1 / 20')`,
+    'A list’s practice starts with its first word in a round of twenty, naming the kind of a word spelled twice',
+  );
+  await evaluate(`document.activeElement.blur();true`);
+  await send('input.performActions', {
+    context,
+    actions: [
+      {
+        type: 'key',
+        id: 'keyboard',
+        actions: [
+          { type: 'keyDown', value: ' ' },
+          { type: 'keyUp', value: ' ' },
+        ],
+      },
+    ],
+  });
+  await wait(`document.querySelector('.practice-answer')`);
+  await check(
+    `document.querySelector('.practice-answer').textContent.includes('to be')&&document.querySelector('.practice-answer').textContent.includes('ik ben · jij bent · hij is')`,
+    'Space turns the card to the meaning and the present tense',
+  );
+  await send('input.performActions', {
+    context,
+    actions: [
+      {
+        type: 'key',
+        id: 'keyboard',
+        actions: [
+          { type: 'keyDown', value: '1' },
+          { type: 'keyUp', value: '1' },
+        ],
+      },
+    ],
+  });
+  await wait(`document.querySelector('.practice-word')?.textContent==='hebben'`);
+  await check(
+    `${saved}.cards.zijn.again===true&&${saved}.cards.zijn.misses===1&&document.querySelector('.practice-progress').textContent.startsWith('2 / 21')`,
+    'Again keeps the miss and brings the word back at the end of the round',
+  );
+  await click('.practice-show');
+  await click('.practice-rating .primary');
+  await wait(`document.querySelector('.practice-word')?.textContent==='kunnen'`);
+  await check(
+    `${saved}.cards.hebben.step===1&&!${saved}.cards.hebben.again`,
+    'Got it spaces the word out',
+  );
+  await navigate('/words/practice');
+  await wait(`document.querySelector('.practice-stats')`);
+  await check(
+    `document.querySelector('.practice-stats').textContent.includes('2')&&[...document.querySelectorAll('.words-card')].find(a=>a.getAttribute('href')==='/words/practice?list=mistakes').textContent.includes('1 woord')&&document.querySelector('.practice-hardest').textContent.includes('zijn')`,
+    'The choice shows the practice so far, the mistake and the hardest word',
+  );
+
   // Search across lists, with the dictionary failing once and loading on retry.
   await navigate('/words');
   await evaluate(

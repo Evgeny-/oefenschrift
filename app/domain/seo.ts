@@ -1,6 +1,6 @@
 import { routePath } from './routes';
 import type { Exercise, PracticeSet, Level, Language } from '../types';
-import { groupBySlug, MY_LIST, WORD_GROUPS } from './words';
+import { groupBySlug, MY_LIST, PRACTICE, WORD_GROUPS } from './words';
 // Titles and descriptions per interface language. The exercises themselves stay Dutch in
 // both; what changes is the page around them, which is what a search result shows.
 export const subjectNames: Record<Language, Record<string, string>> = {
@@ -173,27 +173,31 @@ export function pageSeo(
       ? nl
         ? `${wordGroup.nl}: Nederlandse woordenlijst met Engels`
         : `Dutch ${wordGroup.en.toLowerCase()}: word list with English`
-      : route === 'words'
+      : route === `words/${PRACTICE}`
         ? nl
-          ? 'Nederlandse woorden met Engelse vertaling'
-          : 'Dutch word lists with English translations'
-        : set
+          ? 'Nederlandse woorden oefenen met kaartjes'
+          : 'Practise Dutch words with flashcards'
+        : route === 'words'
           ? nl
-            ? `${set.level} ${names[set.part]} · Oefenset ${set.number}`
-            : `${set.level} ${names[set.part]} · Practice set ${set.number}`
-          : subject
+            ? 'Nederlandse woorden met Engelse vertaling'
+            : 'Dutch word lists with English translations'
+          : set
             ? nl
-              ? `${level} ${names[route]} oefenen`
-              : `${level} ${names[route]} practice`
-            : route === 'check'
+              ? `${set.level} ${names[set.part]} · Oefenset ${set.number}`
+              : `${set.level} ${names[set.part]} · Practice set ${set.number}`
+            : subject
               ? nl
-                ? level === 'A1'
-                  ? 'Niveaucheck A1 niet beschikbaar'
-                  : `Niveaucheck ${level}: tien vragen over lezen en luisteren`
-                : level === 'A1'
-                  ? 'A1 level check unavailable'
-                  : `Level check ${level}: ten questions on reading and listening`
-              : names[route] || (nl ? 'Oefenen' : 'Practice');
+                ? `${level} ${names[route]} oefenen`
+                : `${level} ${names[route]} practice`
+              : route === 'check'
+                ? nl
+                  ? level === 'A1'
+                    ? 'Niveaucheck A1 niet beschikbaar'
+                    : `Niveaucheck ${level}: tien vragen over lezen en luisteren`
+                  : level === 'A1'
+                    ? 'A1 level check unavailable'
+                    : `Level check ${level}: ten questions on reading and listening`
+                : names[route] || (nl ? 'Oefenen' : 'Practice');
   let description = nl
     ? 'Oefen Nederlands met zelfstandige opdrachten voor lezen, luisteren, schrijven en spreken. Onafhankelijke oefenopgaven voor je inburgering.'
     : 'Practise Dutch with self-study tasks for reading, listening, writing and speaking. Independent practice material for your inburgering exam.';
@@ -247,6 +251,7 @@ export function pageSeo(
   const noindex =
     ['progress', 'session', 'privacy', 'terms', 'mock', 'check-result'].includes(route) ||
     route === `words/${MY_LIST}` ||
+    route === `words/${PRACTICE}` ||
     (level === 'A1' && route === 'check') ||
     (subject && !available.length);
   return decorate(title, description, noindex, item, set);

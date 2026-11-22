@@ -1,0 +1,128 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {
+  addDays,
+  buildRound,
+  isDue,
+  practicePool,
+  practiceStats,
+  rate,
+  readCards,
+  today,
+  type Cards,
+} from '../app/domain/word-practice';
+import { wordType, type WordEntry } from '../app/domain/words';
+
+const word = (id: string, rank: number, extra: Partial<WordEntry> = {}): WordEntry =>
+  ({ id, nl: id, pos: 'noun', en: id, rank, ex: '', exEn: '', ...extra }) as WordEntry;
+const day = '2026-11-22';
+
+test('days are local calendar days and cross months and years', () => {
+  assert.equal(today(new Date(2026, 10, 22, 23, 59)), '2026-11-22');
+  assert.equal(addDays('2026-11-30', 1), '2026-12-01');
+  assert.equal(addDays('2026-12-31', 3), '2027-01-03');
+});
+
+test('again comes back tomorrow, got it spaces out, too easy stops', () => {
+  const missed = rate(undefined, 'again', day);
+  assert.deepEqual(missed, { step: 0, due: '2026-11-23', seen: 1, misses: 1, again: true });
+  const first = rate(missed, 'good', '2026-11-23');
+  assert.equal(first.step, 1);
+  assert.equal(first.due, '2026-11-24');
+  assert.equal(first.again, undefined, 'a right answer clears the mistake');
+  let card = first;
+  const dues = [];
+  for (let i = 0; i < 6; i++) {
+    card = rate(card, 'good', card.due);
+    dues.push(card.due);
+  }
+  // 3, 7, 14, 30, 60 and then 60 days again.
+  assert.deepEqual(dues, [
+    '2026-11-27',
+    '2026-12-04',
+    '2026-12-18',
+    '2027-01-17',
+    '2027-03-18',
+    '2027-05-17',
+  ]);
+  const easy = rate(first, 'easy', day);
+  assert.equal(easy.done, true);
+  assert.equal(isDue(easy, '2030-01-01'), false);
+});
+
+test('a round takes due words first, then new ones, and never comes back empty', () => {
+  const pool = [word('a', 1), word('b', 2), word('c', 3), word('d', 4)];
+  const cards: Cards = {
+    c: { step: 1, due: '2026-11-20', seen: 1, misses: 0 },
+    b: { step: 1, due: '2026-11-21', seen: 1, misses: 0 },
+    a: { step: 2, due: '2026-11-30', seen: 2, misses: 0 },
+  };
+  assert.deepEqual(
+    buildRound(pool, cards, day, 3).words.map((e) => e.id),
+    ['c', 'b', 'd'],
+  );
+  const practised: Cards = Object.fromEntries(
+    pool.map((e, i) => [e.id, { step: 1, due: `2026-12-0${4 - i}`, seen: 1, misses: 0 }]),
+  );
+  practised.a.done = true;
+  const early = buildRound(pool, practised, day);
+  assert.equal(early.early, true);
+  assert.deepEqual(
+    early.words.map((e) => e.id),
+    ['d', 'c', 'b'],
+  );
+});
+
+test('pools: review, mistakes, my list, levels and lists', () => {
+  const entries = [
+    word('huis', 5, { level: 'A1' }),
+    word('gemeente', 300, { level: 'A2' }),
+    word('omdat', 200, { pos: 'conj' }),
+    word('zeldzaam', 4000),
+  ];
+  const cards: Cards = {
+    huis: { step: 0, due: '2026-11-22', seen: 2, misses: 2, again: true },
+    omdat: { step: 2, due: '2026-12-01', seen: 2, misses: 1 },
+  };
+  const ids = (key: string, marked: string[] = []) =>
+    practicePool(key, entries, cards, marked, day)?.map((e) => e.id);
+  assert.deepEqual(ids('review'), ['huis']);
+  assert.deepEqual(ids('mistakes'), ['huis']);
+  assert.deepEqual(ids('my-list', ['zeldzaam', 'huis']), ['zeldzaam', 'huis']);
+  assert.deepEqual(ids('a1'), ['huis']);
+  assert.deepEqual(ids('a2'), ['gemeente']);
+  assert.deepEqual(ids('b1'), ['omdat'], 'B1 is the most common words outside both lists');
+  assert.deepEqual(ids('conjunctions'), ['omdat']);
+  assert.equal(practicePool('nonsense', entries, cards, [], day), null);
+  const stats = practiceStats(cards, day);
+  assert.equal(stats.due, 1);
+  assert.equal(stats.mistakes, 1);
+  assert.deepEqual(stats.hardest, ['huis', 'omdat']);
+});
+
+test('saved cards are read defensively', () => {
+  const cards = readCards({
+    good: { step: 2, due: '2026-11-25', seen: 3, misses: 1, again: 'yes', done: true },
+    noDate: { step: 1, due: 'tomorrow', seen: 1, misses: 0 },
+    fraction: { step: 1.5, due: '2026-11-25', seen: 1, misses: 0 },
+    huge: { step: 99, due: '2026-11-25', seen: 1, misses: 0 },
+    nothing: null,
+  });
+  assert.deepEqual(Object.keys(cards), ['good', 'huge']);
+  assert.equal(cards.good.again, undefined);
+  assert.equal(cards.good.done, true);
+  assert.equal(cards.huge.step, 6);
+  assert.deepEqual(readCards('nonsense'), {});
+});
+
+test('a word spelled twice is named by its kind, possessives as possessive', () => {
+  assert.deepEqual(wordType(word('zijn', 1, { pos: 'verb' })), ['werkwoord', 'verb']);
+  assert.deepEqual(wordType(word('zijn-pron', 2, { pos: 'det', en: 'his; its' })), [
+    'bezittelijk voornaamwoord',
+    'possessive',
+  ]);
+  assert.deepEqual(
+    wordType(word('die', 9, { pos: 'det', en: 'that; those' }))[1],
+    'article or demonstrative',
+  );
+});
