@@ -9,10 +9,13 @@ import type { WordEntry } from '../../domain/words';
 import {
   buildMixRound,
   buildRound,
+  MIN_NEW,
   modeEntries,
+  MY_PRACTICE,
   practiceMode,
   practicePool,
   practiceSearch,
+  ROUND_SIZE,
   sameMeaning,
   today,
   type PracticeCard,
@@ -68,7 +71,8 @@ function Round({
   prefs: WordPrefsApi;
   status: React.ReactNode;
 }) {
-  const { t } = useStudyContext(),
+  const { t, state } = useStudyContext(),
+    level = state.settings.level,
     name = usePoolName(),
     modeName = useModeName(),
     day = useMemo(() => today(), []),
@@ -88,14 +92,24 @@ function Round({
   const pool = useMemo(
     () =>
       usable && prefs.loaded
-        ? practicePool(poolKey, usable, cards, prefs.prefs.marked, day)
+        ? practicePool(poolKey, usable, cards, prefs.prefs.marked, day, level)
         : undefined,
     [usable, prefs.loaded, poolKey, round],
   );
   // One mode's round asks every card that way; Mix picks the way per card.
   const draw = (from: WordEntry[]) => {
-    if (mode === 'mix') return buildMixRound(from, allCards(prefs.prefs), poolKey, day);
-    const drawn = buildRound(from, cards, day);
+    const minNew = poolKey === MY_PRACTICE ? MIN_NEW : 0;
+    if (mode === 'mix')
+      return buildMixRound(
+        from,
+        allCards(prefs.prefs),
+        poolKey,
+        day,
+        ROUND_SIZE,
+        Math.random,
+        minNew,
+      );
+    const drawn = buildRound(from, cards, day, ROUND_SIZE, Math.random, minNew);
     return { ...drawn, words: drawn.words.map((entry) => ({ entry, mode })) };
   };
   useEffect(() => {

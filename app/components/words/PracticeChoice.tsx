@@ -17,6 +17,7 @@ import {
   LEVEL_POOLS,
   CARD_MODES,
   modeEntries,
+  MY_PRACTICE,
   practicePool,
   practiceSearch,
   practiceStats,
@@ -33,6 +34,7 @@ export function usePoolName() {
   const { t } = useStudyContext();
   return (key: string) => {
     const names = {
+      'my-practice': t('Mijn oefening', 'My practice'),
       review: t('Herhalen', 'Review'),
       mistakes: t('Mijn fouten', 'My mistakes'),
       a1: t('Woorden van A1', 'A1 words'),
@@ -56,7 +58,7 @@ export function useModeName() {
     })[mode];
 }
 
-function PoolLink({ to, mode, title, detail, aside = undefined, className = '' }) {
+function PoolLink({ to, mode, title, detail, aside = undefined, className = '', icon = to }) {
   return (
     <AppLink
       className={`words-group ${className}`}
@@ -67,7 +69,7 @@ function PoolLink({ to, mode, title, detail, aside = undefined, className = '' }
         {(LEVEL_POOLS as readonly string[]).includes(to) ? (
           <span className="words-level">{to.toUpperCase()}</span>
         ) : (
-          <WordIcon name={to} />
+          <WordIcon name={icon} />
         )}
       </span>
       <span className="words-group-copy">
@@ -104,13 +106,14 @@ export default function Choice({
   );
   const pools = useMemo(() => {
     if (!usable) return null;
-    const pool = (key: string) => practicePool(key, usable, cards, prefs.prefs.marked, day) || [];
+    const pool = (key: string) =>
+      practicePool(key, usable, cards, prefs.prefs.marked, day, state.settings.level) || [];
     const progress = (key: string) => {
       const list = pool(key);
       return { total: list.length, learned: list.filter((e) => isLearned(cards[e.id])).length };
     };
     return { pool, progress };
-  }, [usable, cards, prefs.prefs.marked, day]);
+  }, [usable, cards, prefs.prefs.marked, day, state.settings.level]);
   const stats = known ? practiceStats(cards, day, known) : null,
     byId = useMemo(() => new Map((usable || []).map((e: WordEntry) => [e.id, e])), [usable]);
   const detail = ({ total, learned }) =>
@@ -166,14 +169,25 @@ export default function Choice({
             )}
             <div className="words-start practice-start">
               <PoolLink
-                to="review"
+                to={MY_PRACTICE}
+                icon="practice"
                 mode={mode}
                 className="words-card"
-                title={name('review')}
+                title={name(MY_PRACTICE)}
                 detail={
                   stats.due
-                    ? `${countWords(stats.due, t)} ${t('voor vandaag', 'for today')}`
-                    : t('Niets voor vandaag', 'Nothing for today')
+                    ? t(
+                        `${stats.due} herhalen en nieuwe woorden`,
+                        `${stats.due} to review and new words`,
+                      )
+                    : t(
+                        ...((
+                          {
+                            A1: ['Nieuwe A1-woorden', 'New A1 words'],
+                            B1: ['Nieuwe A2- en B1-woorden', 'New A2 and B1 words'],
+                          } as Record<string, [string, string]>
+                        )[state.settings.level] || ['Nieuwe A2-woorden', 'New A2 words']),
+                      )
                 }
               />
               <PoolLink

@@ -76,15 +76,15 @@ export function buildRound(
   day: string,
   size = ROUND_SIZE,
   random: () => number = Math.random,
+  // Places kept for new words however much is due (My practice keeps a few).
+  minNew = 0,
 ) {
+  const unseen = pool.filter((entry) => !cards[entry.id]).slice(0, NEW_WINDOW);
   const due = pool
     .filter((entry) => isDue(cards[entry.id], day))
     .sort((a, b) => cards[a.id].due.localeCompare(cards[b.id].due))
-    .slice(0, size);
-  const fresh = shuffled(
-    pool.filter((entry) => !cards[entry.id]).slice(0, NEW_WINDOW),
-    random,
-  ).slice(0, size - due.length);
+    .slice(0, size - Math.min(minNew, unseen.length));
+  const fresh = shuffled(unseen, random).slice(0, size - due.length);
   const round = [...due, ...fresh];
   if (round.length) return { words: shuffled(round, random), early: false };
   const waiting = pool
@@ -210,7 +210,7 @@ export function mergeCards(all: ModeCards): Cards {
 }
 // A Mix round: one card per word, due cards first, then new ones from the next hundred. A
 // new word starts by its meaning; English → Dutch and de or het open once it has been seen
-// (or was practised that way before). Review takes only what is due, Mistakes only the
+// (or was practised that way before), and new words and these new ways take turns. Review takes only what is due, Mistakes only the
 // answers that went wrong.
 export function buildMixRound(
   pool: WordEntry[],
@@ -219,6 +219,7 @@ export function buildMixRound(
   day: string,
   size = ROUND_SIZE,
   random: () => number = Math.random,
+  minNew = 0,
 ) {
   const cardOf = (item: PracticeCard) => all[item.mode][item.entry.id];
   let items: PracticeCard[] = [];
@@ -233,34 +234,63 @@ export function buildMixRound(
   if (key === 'mistakes') items = items.filter((item) => cardOf(item)?.again);
   const round: PracticeCard[] = [],
     words = new Set<string>();
-  const add = (list: PracticeCard[]) => {
+  const add = (list: PracticeCard[], limit = size) => {
     for (const item of list) {
-      if (round.length >= size) return;
+      if (round.length >= limit) return;
       if (words.has(item.entry.id)) continue;
       words.add(item.entry.id);
       round.push(item);
     }
   };
   const byDue = (a: PracticeCard, b: PracticeCard) => cardOf(a).due.localeCompare(cardOf(b).due);
-  add(items.filter((item) => isDue(cardOf(item), day)).sort(byDue));
-  add(shuffled(items.filter((item) => !cardOf(item)).slice(0, NEW_WINDOW), random));
+  // New words and new ways of asking seen words take turns, so neither crowds out the other.
+  const unseen = (wanted: (item: PracticeCard) => boolean) =>
+    shuffled(items.filter((item) => !cardOf(item) && wanted(item)).slice(0, NEW_WINDOW), random);
+  const newWords = unseen((item) => item.mode === 'nl-en'),
+    newWays = unseen((item) => item.mode !== 'nl-en');
+  const fresh = Array.from({ length: Math.max(newWords.length, newWays.length) }, (_, i) => [
+    newWords[i],
+    newWays[i],
+  ])
+    .flat()
+    .filter(Boolean);
+  const unseenWords = new Set(fresh.map((item) => item.entry.id)).size;
+  add(
+    items.filter((item) => isDue(cardOf(item), day)).sort(byDue),
+    size - Math.min(minNew, unseenWords),
+  );
+  add(fresh);
   if (round.length) return { words: shuffled(round, random), early: false };
   add(items.filter((item) => cardOf(item) && !cardOf(item).done).sort(byDue));
   return { words: shuffled(round, random), early: true };
 }
 
-// What a round draws from: words due today, the learner's mistakes, My list, the words of a
-// level, or one of the lists.
+// What a round draws from: My practice, the learner's mistakes, My list, the words of a
+// level, or one of the lists (and words due today, for older links).
 export const LEVEL_POOLS = ['a1', 'a2', 'b1'] as const;
+// My practice is the one button for every day: what is due from any list, then new words of
+// the learner's level, most common first (B1 takes the A2 and B1 words together). However
+// much is due, a round keeps a few places for new words.
+export const MY_PRACTICE = 'my-practice';
+export const MIN_NEW = 5;
+export const LEVEL_WORDS: Record<string, string[]> = { A1: ['a1'], A2: ['a2'], B1: ['a2', 'b1'] };
 export function practicePool(
   key: string,
   entries: WordEntry[],
   cards: Cards,
   marked: string[],
   day: string,
+  level = 'A2',
 ): WordEntry[] | null {
   const byRank = (list: WordEntry[]) =>
     [...list].sort((a, b) => (a.rank ?? 1e6) - (b.rank ?? 1e6) || a.nl.localeCompare(b.nl, 'nl'));
+  if (key === MY_PRACTICE) {
+    const due = entries.filter((entry) => isDue(cards[entry.id], day)),
+      fresh = (LEVEL_WORDS[level] || LEVEL_WORDS.A2).flatMap(
+        (pool) => practicePool(pool, entries, cards, marked, day) || [],
+      );
+    return [...new Set([...due, ...byRank(fresh)])];
+  }
   if (key === 'review') return entries.filter((entry) => isDue(cards[entry.id], day));
   if (key === 'mistakes')
     return entries

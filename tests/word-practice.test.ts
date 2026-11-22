@@ -269,3 +269,42 @@ test('a mix round asks each word once, new words by their meaning first', () => 
     ['de-het:huis'],
   );
 });
+
+test('my practice takes what is due from any list, then new words of the level', () => {
+  const entries = [
+    word('huis', 5, { level: 'A1' }),
+    word('gemeente', 300, { level: 'A2' }),
+    word('omdat', 200, { pos: 'conj' }),
+    word('afspraak', 150, { level: 'A2' }),
+    word('zeldzaam', 4000),
+  ];
+  const cards: Cards = { zeldzaam: { step: 1, due: '2026-11-21', seen: 1, misses: 0 } };
+  const ids = (level: string) =>
+    practicePool('my-practice', entries, cards, [], day, level)?.map((e) => e.id);
+  assert.deepEqual(ids('A1'), ['zeldzaam', 'huis']);
+  assert.deepEqual(ids('A2'), ['zeldzaam', 'afspraak', 'gemeente']);
+  assert.deepEqual(ids('B1'), ['zeldzaam', 'afspraak', 'omdat', 'gemeente'], 'B1 adds to A2');
+});
+
+test('my practice keeps places for new words however much is due', () => {
+  const pool = Array.from({ length: 40 }, (_, i) => word(`w${i}`, i + 1));
+  const cards: Cards = Object.fromEntries(
+    pool.slice(0, 30).map((e) => [e.id, { step: 1, due: '2026-11-01', seen: 1, misses: 0 }]),
+  );
+  const plain = buildRound(pool, cards, day, 20, inOrder);
+  assert.equal(plain.words.filter((e) => cards[e.id]).length, 20, 'due words fill a list round');
+  const mine = buildRound(pool, cards, day, 20, inOrder, 5);
+  assert.equal(mine.words.filter((e) => cards[e.id]).length, 15);
+  assert.equal(mine.words.filter((e) => !cards[e.id]).length, 5);
+  const none = { 'nl-en': cards, 'en-nl': {}, 'de-het': {} };
+  const mixed = buildMixRound(pool, none, 'my-practice', day, 20, inOrder, 5);
+  assert.equal(mixed.words.length, 20);
+  assert.equal(new Set(mixed.words.map((card) => card.entry.id)).size, 20, 'one card per word');
+  assert.equal(
+    mixed.words.filter((card) => card.mode === 'nl-en' && isDue(cards[card.entry.id], day)).length,
+    15,
+  );
+  // Thirty seen words could fill every new place with English → Dutch cards; new words still
+  // get their turn.
+  assert.equal(mixed.words.filter((card) => !cards[card.entry.id]).length, 5);
+});

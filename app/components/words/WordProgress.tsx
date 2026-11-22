@@ -9,6 +9,8 @@ import {
   LEVEL_POOLS,
   practicePool,
   practiceStats,
+  MY_PRACTICE,
+  practiceSearch,
   today,
   type PracticeMode,
 } from '../../domain/word-practice';
@@ -132,7 +134,12 @@ export default function WordProgress() {
           )}
         </p>
       )}
-      <AppLink className="secondary" to={wordPath(PRACTICE)}>
+      {/* Words to review go straight to My practice; otherwise to the choice. */}
+      <AppLink
+        className="secondary"
+        to={wordPath(PRACTICE)}
+        search={stats.due ? practiceSearch('mix', MY_PRACTICE) : ''}
+      >
         <WordIcon name="practice" size={18} />
         {stats.due
           ? t(`Herhaal ${stats.due} woorden`, `Review ${stats.due} words`)
