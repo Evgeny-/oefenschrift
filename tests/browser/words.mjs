@@ -401,6 +401,37 @@ try {
     'Voortgang names the other two modes once they are practised',
   );
 
+  // Mix, the default, asks each word once, in a way that is due or new: a word seen by its
+  // meaning opens English → Dutch and de or het, and each answer goes to its own mode.
+  const later = `{step:1,due:'2999-01-01',seen:1,misses:0}`;
+  await evaluate(
+    `(()=>{const p=${saved};p.marked=['dokter','huis'];p.cards={dokter:${later},huis:${later}};p.reverse={huis:${later}};p.articles={};localStorage.setItem('oefenschrift.words.v1',JSON.stringify(p));return true})()`,
+  );
+  await navigate('/words/practice');
+  await wait(`document.querySelector('.practice-modes [data-choice="mix"][data-checked]')`);
+  await evaluate(`window.__random=Math.random;Math.random=()=>0.9999999;true`);
+  await click('.words-card[href$="list=my-list"]');
+  await wait(`document.querySelector('.practice-word')?.textContent==='doctor'`);
+  await evaluate(`Math.random=window.__random;document.activeElement.blur();true`);
+  await check(
+    `location.search==='?list=my-list'&&document.querySelector('.practice-mode-name').textContent==='Mix · Engels → Nederlands'&&document.querySelector('.practice-progress').textContent==='1 / 2'`,
+    'Mix is the default and asks a word already seen from English to Dutch',
+  );
+  await press(' ');
+  await wait(`document.querySelector('.practice-answer-nl')`);
+  await press('2');
+  await wait(`document.querySelector('.practice-article .practice-word')?.textContent==='huis'`);
+  await check(
+    `document.querySelector('.practice-mode-name').textContent==='Mix · De of het'&&${saved}.reverse.dokter.step===1&&${saved}.cards.dokter.step===1`,
+    'Mix asks a seen noun de or het, and keeps the English → Dutch answer apart',
+  );
+  await press('h');
+  await wait(`document.querySelector('.practice-done')`);
+  await check(
+    `${saved}.articles.huis.step===1&&document.querySelector('.practice-done').textContent.includes('2 keer goed')`,
+    'The mixed round ends with both answers kept',
+  );
+
   // Search across lists, with the dictionary failing once and loading on retry.
   await navigate('/words');
   await evaluate(
@@ -433,7 +464,13 @@ try {
 
   for (const width of [360, 390]) {
     await send('browsingContext.setViewport', { context, viewport: { width, height: 800 } });
-    for (const path of ['/words', '/words/top', '/words/irregular-verbs', '/words/nouns']) {
+    for (const path of [
+      '/words',
+      '/words/top',
+      '/words/irregular-verbs',
+      '/words/nouns',
+      '/words/practice',
+    ]) {
       await navigate(path);
       await check(
         `document.documentElement.scrollWidth<=innerWidth`,

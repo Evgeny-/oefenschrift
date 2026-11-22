@@ -142,20 +142,29 @@ export function readCards(value: unknown): Cards {
   return cards;
 }
 
-// Three ways to practise, each with its own cards, so a word known one way is still asked the
-// other: the Dutch word to its meaning, the English to the Dutch word, and de or het for a
-// noun. The mode travels in the address (?mode=en-nl) beside the list.
-export const PRACTICE_MODES = ['nl-en', 'en-nl', 'de-het'] as const;
+// Four ways to practise. Three keep their own cards, so a word known one way is still asked
+// the other way: the Dutch word to its meaning, the English to the Dutch word, and de or het
+// for a noun. Mix, the default, draws from all three in one round. The mode travels in the
+// address (?mode=en-nl) beside the list; Mix needs none.
+export const PRACTICE_MODES = ['mix', 'nl-en', 'en-nl', 'de-het'] as const;
 export type PracticeMode = (typeof PRACTICE_MODES)[number];
+export type CardMode = Exclude<PracticeMode, 'mix'>;
+export const CARD_MODES: CardMode[] = ['nl-en', 'en-nl', 'de-het'];
+export type ModeCards = Record<CardMode, Cards>;
+// One card of a round: the word and the way it is asked.
+export interface PracticeCard {
+  entry: WordEntry;
+  mode: CardMode;
+}
 export function practiceMode(value: string | null | undefined): PracticeMode {
   return (PRACTICE_MODES as readonly string[]).includes(value as string)
     ? (value as PracticeMode)
-    : 'nl-en';
+    : 'mix';
 }
 export function practiceSearch(mode: PracticeMode, list?: string) {
   const params = new URLSearchParams();
   if (list) params.set('list', list);
-  if (mode !== 'nl-en') params.set('mode', mode);
+  if (mode !== 'mix') params.set('mode', mode);
   const query = params.toString();
   return query ? `?${query}` : '';
 }
@@ -174,6 +183,70 @@ export function sameMeaning(entries: WordEntry[]) {
   }
   return (entry: WordEntry) =>
     (byEnglish.get(entry.en.toLowerCase()) || []).filter((other) => other.nl !== entry.nl);
+}
+
+// Mix sees a word through all its cards: practised in any way, a mistake when any last answer
+// was Again, due when any open card is, learned by its meaning (Dutch → English).
+export function mergeCards(all: ModeCards): Cards {
+  const byWord = new Map<string, [CardMode, CardState][]>();
+  for (const mode of CARD_MODES)
+    for (const [id, card] of Object.entries(all[mode]))
+      byWord.set(id, [...(byWord.get(id) || []), [mode, card]]);
+  const merged: Cards = {};
+  for (const [id, list] of byWord) {
+    const cards = list.map(([, card]) => card),
+      meaning = list.find(([mode]) => mode === 'nl-en')?.[1],
+      open = cards.filter((card) => !card.done);
+    merged[id] = {
+      step: meaning?.step || 0,
+      due: (open.length ? open : cards).map((card) => card.due).sort()[0],
+      seen: cards.reduce((sum, card) => sum + card.seen, 0),
+      misses: cards.reduce((sum, card) => sum + card.misses, 0),
+      ...(cards.some((card) => card.again) && { again: true }),
+      ...(!open.length && { done: true }),
+    };
+  }
+  return merged;
+}
+// A Mix round: one card per word, due cards first, then new ones from the next hundred. A
+// new word starts by its meaning; English → Dutch and de or het open once it has been seen
+// (or was practised that way before). Review takes only what is due, Mistakes only the
+// answers that went wrong.
+export function buildMixRound(
+  pool: WordEntry[],
+  all: ModeCards,
+  key: string,
+  day: string,
+  size = ROUND_SIZE,
+  random: () => number = Math.random,
+) {
+  const cardOf = (item: PracticeCard) => all[item.mode][item.entry.id];
+  let items: PracticeCard[] = [];
+  for (const entry of pool) {
+    const seen = !!all['nl-en'][entry.id];
+    items.push({ entry, mode: 'nl-en' });
+    if (seen || all['en-nl'][entry.id]) items.push({ entry, mode: 'en-nl' });
+    if (hasArticle(entry) && (seen || all['de-het'][entry.id]))
+      items.push({ entry, mode: 'de-het' });
+  }
+  if (key === 'review') items = items.filter((item) => isDue(cardOf(item), day));
+  if (key === 'mistakes') items = items.filter((item) => cardOf(item)?.again);
+  const round: PracticeCard[] = [],
+    words = new Set<string>();
+  const add = (list: PracticeCard[]) => {
+    for (const item of list) {
+      if (round.length >= size) return;
+      if (words.has(item.entry.id)) continue;
+      words.add(item.entry.id);
+      round.push(item);
+    }
+  };
+  const byDue = (a: PracticeCard, b: PracticeCard) => cardOf(a).due.localeCompare(cardOf(b).due);
+  add(items.filter((item) => isDue(cardOf(item), day)).sort(byDue));
+  add(shuffled(items.filter((item) => !cardOf(item)).slice(0, NEW_WINDOW), random));
+  if (round.length) return { words: shuffled(round, random), early: false };
+  add(items.filter((item) => cardOf(item) && !cardOf(item).done).sort(byDue));
+  return { words: shuffled(round, random), early: true };
 }
 
 // What a round draws from: words due today, the learner's mistakes, My list, the words of a

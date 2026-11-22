@@ -2,11 +2,12 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router';
 import { useStudyContext } from '../../StudyContext';
 import AppLink from '../AppLink';
-import { modeCards, useDictionary, type WordPrefsApi } from './useWordPrefs';
+import { allCards, modeCards, useDictionary, type WordPrefsApi } from './useWordPrefs';
 import Choice, { practicePath, useModeName, usePoolName } from './PracticeChoice';
 import { ArticleCard, FlashCard } from './PracticeCards';
 import type { WordEntry } from '../../domain/words';
 import {
+  buildMixRound,
   buildRound,
   modeEntries,
   practiceMode,
@@ -14,12 +15,13 @@ import {
   practiceSearch,
   sameMeaning,
   today,
+  type PracticeCard,
   type PracticeMode,
   type Rating,
 } from '../../domain/word-practice';
 
 // /words/practice: a choice of how and what to practise, or with ?list= a round of cards.
-// ?mode= picks Dutch → English (the default), English → Dutch or de or het.
+// ?mode= picks Dutch → English, English → Dutch or de or het; without it the round mixes them.
 export default function Practice({ prefs }: { prefs: WordPrefsApi }) {
   const { t } = useStudyContext(),
     location = useLocation(),
@@ -70,17 +72,17 @@ function Round({
     name = usePoolName(),
     modeName = useModeName(),
     day = useMemo(() => today(), []),
-    cards = modeCards(prefs.prefs, mode),
+    cards = useMemo(() => modeCards(prefs.prefs, mode), [prefs.prefs, mode]),
     back = practiceSearch(mode);
   // The round is drawn once, when the words and the saved cards are both in.
-  const [queue, setQueue] = useState<WordEntry[] | null>(null),
+  const [queue, setQueue] = useState<PracticeCard[] | null>(null),
     // The words drawn; a missed word comes back once after them, so the queue grows.
     [size, setSize] = useState(0),
     [early, setEarly] = useState(false),
     [position, setPosition] = useState(0),
     [tally, setTally] = useState({ again: 0, good: 0, easy: 0 }),
     [repeated, setRepeated] = useState<Set<string>>(() => new Set()),
-    [last, setLast] = useState<{ entry: WordEntry; rating: Rating } | null>(null),
+    [last, setLast] = useState<(PracticeCard & { rating: Rating }) | null>(null),
     [round, setRound] = useState(1);
   const usable = useMemo(() => (entries ? modeEntries(mode, entries) : null), [entries, mode]);
   const pool = useMemo(
@@ -90,9 +92,15 @@ function Round({
         : undefined,
     [usable, prefs.loaded, poolKey, round],
   );
+  // One mode's round asks every card that way; Mix picks the way per card.
+  const draw = (from: WordEntry[]) => {
+    if (mode === 'mix') return buildMixRound(from, allCards(prefs.prefs), poolKey, day);
+    const drawn = buildRound(from, cards, day);
+    return { ...drawn, words: drawn.words.map((entry) => ({ entry, mode })) };
+  };
   useEffect(() => {
     if (!pool) return;
-    const drawn = buildRound(pool, cards, day);
+    const drawn = draw(pool);
     setQueue(drawn.words);
     setSize(drawn.words.length);
     setEarly(drawn.early);
@@ -112,12 +120,13 @@ function Round({
   const card = queue?.[position];
   const answer = (rating: Rating) => {
     if (!card || !queue) return;
-    prefs.rateWord(card.id, rating, day, mode);
+    const id = `${card.mode}:${card.entry.id}`;
+    prefs.rateWord(card.entry.id, rating, day, card.mode);
     setTally((n) => ({ ...n, [rating]: n[rating] + 1 }));
-    setLast({ entry: card, rating });
-    if (rating === 'again' && !repeated.has(card.id)) {
+    setLast({ ...card, rating });
+    if (rating === 'again' && !repeated.has(id)) {
       setQueue([...queue, card]);
-      setRepeated(new Set(repeated).add(card.id));
+      setRepeated(new Set(repeated).add(id));
     }
   };
   const next = () => setPosition((p) => p + 1);
@@ -125,7 +134,9 @@ function Round({
     <div className="heading practice-heading">
       <div>
         <h1 tabIndex={-1}>{name(poolKey)}</h1>
-        <p className="practice-mode-name">{modeName(mode)}</p>
+        <p className="practice-mode-name">
+          {mode === 'mix' && card ? `${modeName('mix')} · ${modeName(card.mode)}` : modeName(mode)}
+        </p>
       </div>
       {card && (
         <AppLink className="practice-stop" to={practicePath} search={back}>
@@ -177,7 +188,7 @@ function Round({
       </>
     );
   if (!card) {
-    const more = pool ? buildRound(pool, cards, day) : null,
+    const more = pool ? draw(pool) : null,
       right = tally.good + tally.easy;
     return (
       <>
@@ -241,23 +252,33 @@ function Round({
           <span style={{ width: `${(step / steps) * 100}%` }} />
         </span>
       </div>
-      {mode === 'de-het' ? (
-        <ArticleCard
-          key={position}
-          entry={card}
-          previous={last?.rating === 'good' ? last.entry : null}
-          onAnswer={answer}
-          onNext={next}
-        />
+      {/* De or het confirms a right answer above the next card; the line keeps its height. */}
+      {mode !== 'nl-en' && mode !== 'en-nl' && (
+        <p className="practice-last" role="status">
+          {last?.mode === 'de-het' && last.rating === 'good' && (
+            <>
+              <span className="practice-last-mark" aria-hidden="true">
+                ✓
+              </span>{' '}
+              {t('Goed:', 'Right:')}{' '}
+              <span lang="nl" translate="no">
+                {last.entry.article} {last.entry.nl}
+              </span>
+            </>
+          )}
+        </p>
+      )}
+      {card.mode === 'de-het' ? (
+        <ArticleCard key={position} entry={card.entry} onAnswer={answer} onNext={next} />
       ) : (
         <FlashCard
           key={position}
-          entry={card}
-          mode={mode}
-          marked={prefs.prefs.marked.includes(card.id)}
-          onMark={() => prefs.toggleMark(card.id)}
-          homograph={homographs.has(card.nl)}
-          also={also(card)}
+          entry={card.entry}
+          mode={card.mode}
+          marked={prefs.prefs.marked.includes(card.entry.id)}
+          onMark={() => prefs.toggleMark(card.entry.id)}
+          homograph={homographs.has(card.entry.nl)}
+          also={also(card.entry)}
           onAnswer={(rating) => {
             answer(rating);
             next();

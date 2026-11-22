@@ -3,9 +3,12 @@ import { wordsSlot } from '../../domain/profiles';
 import { withBase } from '../../domain/base';
 import type { WordEntry } from '../../domain/words';
 import {
+  mergeCards,
   rate,
   readCards,
+  type CardMode,
   type Cards,
+  type ModeCards,
   type PracticeMode,
   type Rating,
 } from '../../domain/word-practice';
@@ -31,7 +34,14 @@ const defaults: WordPrefs = {
   articles: {},
 };
 const CARD_FIELDS = { 'nl-en': 'cards', 'en-nl': 'reverse', 'de-het': 'articles' } as const;
-export const modeCards = (prefs: WordPrefs, mode: PracticeMode): Cards => prefs[CARD_FIELDS[mode]];
+export const allCards = (prefs: WordPrefs): ModeCards => ({
+  'nl-en': prefs.cards,
+  'en-nl': prefs.reverse,
+  'de-het': prefs.articles,
+});
+// Mix has no cards of its own: it reads the three together.
+export const modeCards = (prefs: WordPrefs, mode: PracticeMode): Cards =>
+  mode === 'mix' ? mergeCards(allCards(prefs)) : prefs[CARD_FIELDS[mode]];
 function storage() {
   try {
     return window.localStorage;
@@ -90,7 +100,7 @@ export default function useWordPrefs(profile: string) {
       })),
     setHideEnglish: (hideEnglish: boolean) => update(() => ({ hideEnglish })),
     setExamples: (examples: boolean) => update(() => ({ examples })),
-    rateWord: (id: string, rating: Rating, day: string, mode: PracticeMode = 'nl-en') =>
+    rateWord: (id: string, rating: Rating, day: string, mode: CardMode = 'nl-en') =>
       update((p) => {
         const field = CARD_FIELDS[mode];
         return { [field]: { ...p[field], [id]: rate(p[field][id], rating, day) } };

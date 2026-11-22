@@ -2,8 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   addDays,
+  buildMixRound,
   buildRound,
   isDue,
+  mergeCards,
   modeEntries,
   practiceMode,
   practicePool,
@@ -162,12 +164,13 @@ test('a word spelled twice is named by its kind, possessives as possessive', () 
 });
 
 test('the mode comes from the address, and the address leaves out the default', () => {
-  assert.equal(practiceMode(null), 'nl-en');
+  assert.equal(practiceMode(null), 'mix');
   assert.equal(practiceMode('en-nl'), 'en-nl');
   assert.equal(practiceMode('de-het'), 'de-het');
-  assert.equal(practiceMode('klingon'), 'nl-en');
-  assert.equal(practiceSearch('nl-en'), '');
-  assert.equal(practiceSearch('nl-en', 'a1'), '?list=a1');
+  assert.equal(practiceMode('klingon'), 'mix');
+  assert.equal(practiceSearch('mix'), '');
+  assert.equal(practiceSearch('mix', 'a1'), '?list=a1');
+  assert.equal(practiceSearch('nl-en', 'a1'), '?list=a1&mode=nl-en');
   assert.equal(practiceSearch('en-nl', 'my-list'), '?list=my-list&mode=en-nl');
   assert.equal(practiceSearch('de-het'), '?mode=de-het');
 });
@@ -202,4 +205,67 @@ test('english to dutch accepts words with exactly the same english', () => {
   );
   assert.deepEqual(also(entries[2]), []);
   assert.deepEqual(also(entries[4]), []);
+});
+
+test('mix sees a word through all its cards, learned by its meaning', () => {
+  const learned = { step: 3, due: '2026-12-01', seen: 3, misses: 0 },
+    missed = { step: 0, due: '2026-11-20', seen: 1, misses: 1, again: true };
+  const merged = mergeCards({
+    'nl-en': { huis: learned },
+    'en-nl': { huis: missed, rug: missed },
+    'de-het': {},
+  });
+  assert.deepEqual(merged.huis, {
+    step: 3,
+    due: '2026-11-20',
+    seen: 4,
+    misses: 1,
+    again: true,
+  });
+  assert.equal(merged.rug.step, 0);
+  assert.equal(isDue(merged.huis, day), true);
+});
+
+test('a mix round asks each word once, new words by their meaning first', () => {
+  const tafel = word('tafel', 1, { article: 'de', en: 'table' }),
+    huis = word('huis', 2, { article: 'het', en: 'house' }),
+    lopen = word('lopen', 3, { pos: 'verb', en: 'to walk' }),
+    later = { step: 1, due: '2999-01-01', seen: 1, misses: 0 };
+  const none = { 'nl-en': {}, 'en-nl': {}, 'de-het': {} };
+  const fresh = buildMixRound([tafel, huis, lopen], none, 'a1', day, 20, inOrder);
+  assert.deepEqual(
+    fresh.words.map((card) => `${card.mode}:${card.entry.id}`),
+    ['nl-en:tafel', 'nl-en:huis', 'nl-en:lopen'],
+  );
+  // Seen words open English → Dutch and de or het; one card per word.
+  const seen = buildMixRound(
+    [tafel, huis, lopen],
+    {
+      'nl-en': { tafel: later, huis: later, lopen: later },
+      'en-nl': { tafel: later },
+      'de-het': {},
+    },
+    'a1',
+    day,
+    20,
+    inOrder,
+  );
+  assert.deepEqual(
+    seen.words.map((card) => `${card.mode}:${card.entry.id}`),
+    ['de-het:tafel', 'en-nl:huis', 'en-nl:lopen'],
+  );
+  // Mistakes take the answers that went wrong, in whichever way they were asked.
+  const wrong = { step: 0, due: '2999-01-01', seen: 1, misses: 1, again: true };
+  const mistakes = buildMixRound(
+    [tafel, huis],
+    { 'nl-en': { tafel: later }, 'en-nl': {}, 'de-het': { huis: wrong } },
+    'mistakes',
+    day,
+    20,
+    inOrder,
+  );
+  assert.deepEqual(
+    mistakes.words.map((card) => `${card.mode}:${card.entry.id}`),
+    ['de-het:huis'],
+  );
 });

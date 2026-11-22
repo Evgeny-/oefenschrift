@@ -15,8 +15,8 @@ import {
 import {
   isLearned,
   LEVEL_POOLS,
+  CARD_MODES,
   modeEntries,
-  PRACTICE_MODES,
   practicePool,
   practiceSearch,
   practiceStats,
@@ -49,6 +49,7 @@ export function useModeName() {
   const { t } = useStudyContext();
   return (mode: PracticeMode) =>
     ({
+      mix: t('Mix', 'Mix'),
       'nl-en': t('Nederlands → Engels', 'Dutch → English'),
       'en-nl': t('Engels → Nederlands', 'English → Dutch'),
       'de-het': t('De of het', 'De or het'),
@@ -95,7 +96,7 @@ export default function Choice({
     name = usePoolName(),
     modeName = useModeName(),
     day = today(),
-    cards = modeCards(prefs.prefs, mode);
+    cards = useMemo(() => modeCards(prefs.prefs, mode), [prefs.prefs, mode]);
   const usable = useMemo(() => (entries ? modeEntries(mode, entries) : null), [entries, mode]);
   const known = useMemo(
     () => (usable ? new Set<string>(usable.map((e: WordEntry) => e.id)) : null),
@@ -119,7 +120,7 @@ export default function Choice({
   const level = String(state.settings.level || '').toLowerCase();
   // The figures stay in every mode once anything is practised, with that mode's numbers,
   // so switching never makes the row come and go.
-  const practisedAny = PRACTICE_MODES.some(
+  const practisedAny = CARD_MODES.some(
     (each) => Object.keys(modeCards(prefs.prefs, each)).length > 0,
   );
   return (
@@ -128,8 +129,8 @@ export default function Choice({
         <h1 tabIndex={-1}>{t('Woorden oefenen', 'Practise words')}</h1>
         <p>
           {t(
-            'Oefen met kaartjes: van Nederlands naar Engels, van Engels naar Nederlands, of de en het. Wat je lastig vindt, komt vaker terug.',
-            'Practise with flashcards: Dutch to English, English to Dutch, or de and het. What you find hard comes back more often.',
+            'Oefen met kaartjes: van Nederlands naar Engels, van Engels naar Nederlands en de of het, of alles door elkaar. Wat je lastig vindt, komt vaker terug.',
+            'Practise with flashcards: Dutch to English, English to Dutch and de or het, or all mixed. What you find hard comes back more often.',
           )}
         </p>
       </div>
@@ -140,6 +141,7 @@ export default function Choice({
           value={mode}
           onChange={(next: PracticeMode) => go(practicePath, undefined, practiceSearch(next))}
           options={[
+            { value: 'mix', label: modeName('mix') },
             { value: 'nl-en', label: 'NL → EN', ariaLabel: modeName('nl-en') },
             { value: 'en-nl', label: 'EN → NL', ariaLabel: modeName('en-nl') },
             { value: 'de-het', label: t('De of het', 'De or het') },

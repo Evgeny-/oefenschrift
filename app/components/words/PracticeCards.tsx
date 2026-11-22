@@ -5,7 +5,7 @@ import { MarkIcon } from './WordRows';
 import { dutch } from './PracticeChoice';
 import { perfect, wordType, type WordEntry } from '../../domain/words';
 import { presentTense } from '../../domain/present';
-import type { PracticeMode, Rating } from '../../domain/word-practice';
+import type { CardMode, Rating } from '../../domain/word-practice';
 
 // Keys act unless a control has focus and will handle the key itself.
 const onControl = (event: KeyboardEvent) =>
@@ -23,15 +23,7 @@ function DutchWord({ entry }: { entry: WordEntry }) {
 
 // The back of a card: the answer (the meaning, or the Dutch word), the forms a learner needs
 // and the example.
-function Answer({
-  entry,
-  mode,
-  also,
-}: {
-  entry: WordEntry;
-  mode: PracticeMode;
-  also: WordEntry[];
-}) {
+function Answer({ entry, mode, also }: { entry: WordEntry; mode: CardMode; also: WordEntry[] }) {
   const { t } = useStudyContext();
   const forms: [string, React.ReactNode][] = [];
   if (entry.verb) {
@@ -114,7 +106,7 @@ export function FlashCard({
   onAnswer,
 }: {
   entry: WordEntry;
-  mode: PracticeMode;
+  mode: CardMode;
   marked: boolean;
   onMark: () => void;
   homograph: boolean;
@@ -227,15 +219,13 @@ export function FlashCard({
 }
 
 // De or het: the noun without its article and two buttons. A right answer goes straight on
-// (the line above the card confirms it); a wrong one shows the right article and waits.
+// (the round confirms it above the next card); a wrong one shows the right article and waits.
 export function ArticleCard({
   entry,
-  previous,
   onAnswer,
   onNext,
 }: {
   entry: WordEntry;
-  previous: WordEntry | null;
   onAnswer: (rating: Rating) => void;
   onNext: () => void;
 }) {
@@ -289,19 +279,6 @@ export function ArticleCard({
   );
   return (
     <>
-      <p className="practice-last" role="status">
-        {previous && (
-          <>
-            <span className="practice-last-mark" aria-hidden="true">
-              ✓
-            </span>{' '}
-            {t('Goed:', 'Right:')}{' '}
-            <span {...dutch}>
-              {previous.article} {previous.nl}
-            </span>
-          </>
-        )}
-      </p>
       <section
         className="practice-card practice-article"
         aria-label={t('Kaartje', 'Card')}
