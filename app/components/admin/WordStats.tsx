@@ -12,7 +12,7 @@ const ways = {
   'de-het': 'De or het',
 };
 const lists = {
-  'my-practice': 'My practice',
+  'my-practice': 'Practise words',
   mistakes: 'My mistakes',
   review: 'Review',
   'my-list': 'My list',

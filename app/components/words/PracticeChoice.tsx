@@ -34,7 +34,7 @@ export function usePoolName() {
   const { t } = useStudyContext();
   return (key: string) => {
     const names = {
-      'my-practice': t('Mijn oefening', 'My practice'),
+      'my-practice': t('Woorden oefenen', 'Practise words'),
       review: t('Herhalen', 'Review'),
       mistakes: t('Mijn fouten', 'My mistakes'),
       a1: t('Woorden van A1', 'A1 words'),

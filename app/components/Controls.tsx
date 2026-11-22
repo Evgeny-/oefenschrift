@@ -267,6 +267,14 @@ const navGlyphs = {
       </g>
     </>
   ),
+  // Woorden oefenen: the stack of flashcards the practice cards show (Lucide's
+  // gallery-vertical-end), scaled to the 4.8–19.2 box of the other glyphs.
+  'word-practice': (
+    <>
+      <path d="M8 4h8M6.4 7.2h11.2" />
+      <rect x="4.8" y="10.4" width="14.4" height="9.6" rx="1.6" />
+    </>
+  ),
   // The level check: a gauge with its needle up, for rows that lead to a check.
   check: (
     <>

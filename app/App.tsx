@@ -38,7 +38,7 @@ import useDisclosureMotion from './components/useDisclosureMotion';
 import { withBase } from './domain/base';
 import WordLists from './components/words/WordLists';
 import type { WordsPage } from './domain/words';
-import { practiceMode, practiceSearch } from './domain/word-practice';
+import { MY_PRACTICE, practiceMode, practiceSearch } from './domain/word-practice';
 import { isNewSection } from './domain/new-sets';
 const labels = {
   reading: ['Lezen', 'Reading'],
@@ -263,6 +263,8 @@ export default function App({
     // A round of word cards goes back to the practice choice (and mode) it was started from.
     practiceParams = new URLSearchParams(location.search),
     practiceRound = route === 'words/practice' && practiceParams.has('list'),
+    // The sidebar's Woorden oefenen starts My practice in one click.
+    myPractice = route === 'words/practice' && practiceParams.get('list') === MY_PRACTICE,
     runningCheck =
       route === 'check' && state.settings.level !== 'A1' ? checkInProgress(state) : null;
   // Icon motion follows a real section change, never the initial page load.
@@ -443,21 +445,37 @@ export default function App({
               className="utility-nav"
               aria-label={t('Woorden, oefenen en voortgang', 'Words, practice and progress')}
             >
-              {['words', 'mock', 'progress'].map((part) => (
-                <AppLink
-                  className="nav-link"
-                  key={part}
-                  data-page={part}
-                  to={part}
-                  aria-current={page === part ? 'page' : undefined}
-                >
-                  <NavIcon part={part} motion={motion} />
-                  <span className="nav-label" data-label={name(part)}>
-                    {name(part)}
-                  </span>
-                  {isNewSection(part) && <span className="nav-new">{t('Nieuw', 'New')}</span>}
-                </AppLink>
-              ))}
+              {['words', 'word-practice', 'mock', 'progress'].map((part) =>
+                part === 'word-practice' ? (
+                  <AppLink
+                    className="nav-link"
+                    key={part}
+                    data-page={part}
+                    to="words/practice"
+                    search={practiceSearch('mix', MY_PRACTICE)}
+                    aria-current={myPractice ? 'page' : undefined}
+                  >
+                    <NavIcon part={part} />
+                    <span className="nav-label" data-label={t('Woorden oefenen', 'Practise words')}>
+                      {t('Woorden oefenen', 'Practise words')}
+                    </span>
+                  </AppLink>
+                ) : (
+                  <AppLink
+                    className="nav-link"
+                    key={part}
+                    data-page={part}
+                    to={part}
+                    aria-current={page === part && !myPractice ? 'page' : undefined}
+                  >
+                    <NavIcon part={part} motion={motion} />
+                    <span className="nav-label" data-label={name(part)}>
+                      {name(part)}
+                    </span>
+                    {isNewSection(part) && <span className="nav-new">{t('Nieuw', 'New')}</span>}
+                  </AppLink>
+                ),
+              )}
             </nav>
           </div>
           <Preferences />

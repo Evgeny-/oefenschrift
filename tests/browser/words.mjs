@@ -326,14 +326,22 @@ try {
     'The choice shows the practice so far, the mistake and the hardest word',
   );
   await check(
-    `document.querySelector('.words-card').getAttribute('href')==='/words/practice?list=my-practice'&&document.querySelector('.words-card').textContent.includes('Mijn oefening')&&document.querySelector('.words-card').textContent.includes('Nieuwe A2-woorden')`,
-    'My practice comes first and offers new words of the learner’s level',
+    `document.querySelector('.words-card').getAttribute('href')==='/words/practice?list=my-practice'&&document.querySelector('.words-card').textContent.includes('Woorden oefenen')&&document.querySelector('.words-card').textContent.includes('Nieuwe A2-woorden')`,
+    'Woorden oefenen (My practice) comes first and offers new words of the learner’s level',
   );
   await click('.words-card[href="/words/practice?list=my-practice"]');
   await wait(`document.querySelector('.practice-show')`);
   await check(
-    `document.querySelector('main h1').textContent==='Mijn oefening'&&document.querySelector('.practice-mode-name').textContent==='Mix · Nederlands → Engels'&&document.querySelector('.practice-progress').textContent==='1 / 20'`,
+    `document.querySelector('main h1').textContent==='Woorden oefenen'&&document.querySelector('.practice-mode-name').textContent==='Mix · Nederlands → Engels'&&document.querySelector('.practice-progress').textContent==='1 / 20'`,
     'My practice starts a mixed round of twenty at once',
+  );
+  // The sidebar starts the same round in one click from anywhere.
+  await navigate('/reading');
+  await click('.utility-nav [data-page="word-practice"]');
+  await wait(`location.search==='?list=my-practice'&&document.querySelector('.practice-show')`);
+  await check(
+    `document.querySelector('.utility-nav [data-page="word-practice"]').getAttribute('aria-current')==='page'&&!document.querySelector('.utility-nav [data-page=words]').hasAttribute('aria-current')&&document.querySelector('main h1').textContent==='Woorden oefenen'`,
+    'The sidebar’s Woorden oefenen starts a round at once and is marked as the current page',
   );
   await click('[data-page="progress"]');
   await wait(`document.querySelector('.progress-words .progress-subjects')`);
