@@ -224,6 +224,10 @@ export function pageSeo(
         : nl
           ? `Doe de gratis niveaucheck op ${level}: tien vragen over lezen en luisteren. Je ziet per onderdeel hoe je scoort en waar je het best begint. Geen examenuitslag.`
           : `Take the free level check at ${level}: ten questions on reading and listening. See how you score per subject and where best to begin. Not an exam result.`;
+  else if (wordGroup?.slug === 'top')
+    description = nl
+      ? 'De 1000 meest gebruikte Nederlandse woorden, het vaakst gebruikte eerst. Elk woord met Engelse vertaling en een korte voorbeeldzin.'
+      : 'The 1,000 most common Dutch words, the most frequent first. Every word with its English translation and a short example sentence.';
   else if (wordGroup)
     description = nl
       ? `${wordGroup.about[0]} Elk woord met Engelse vertaling en een korte voorbeeldzin.`

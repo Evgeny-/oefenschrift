@@ -1,18 +1,16 @@
 /* Word lists (/words). The index is rows under the start page's section headings, with the
-   ranked list and My list as two outlined blocks above them. A list is a quiet table: the
+   most common words and My list as two cards above them. A list is a quiet table: the
    Dutch word with its grammar, the English, the example with its translation and a note,
    and a bookmark at the end of the row that turns action yellow once pressed. Narrow
    pages (a container query: the sidebar takes part of the width) stack each row. */
 .words {
   container: words / inline-size;
 }
-.words-heading .words-heading-en {
-  margin-top: 0.375rem;
+.words-heading-count {
   color: var(--ink);
-  font-size: var(--text-body);
 }
-.words-heading .words-heading-en + p {
-  margin-top: 0.25rem;
+.words-controls[hidden] {
+  display: none;
 }
 
 /* Search, the de/het choice and the two view switches share one wrapping row. */
@@ -67,47 +65,47 @@
   white-space: nowrap;
 }
 
-/* Index: the ranked list with its hundreds, and My list. */
+/* Index: the most common words and My list as two outlined cards, then the other lists as
+   rows. Every list carries the catalogue's chevron so it reads as a link. */
 .words-start {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   max-width: 60rem;
   margin-top: 0.5rem;
 }
-.words-top,
-.words-mine {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-surface);
-}
 .words-group {
   display: grid;
-  align-content: start;
-  gap: 0.125rem;
+  grid-template-columns: minmax(0, 1fr) auto 1rem;
+  align-items: center;
+  gap: 1rem;
   padding: 0.875rem 1rem;
   margin-inline: -1rem;
   border-radius: var(--radius-surface);
   color: var(--ink);
   text-decoration: none;
-  transition: background var(--motion);
+  transition:
+    background var(--motion),
+    border-color var(--motion);
 }
 .words-group:hover {
   background: var(--row-hover);
 }
-.words-top .words-group {
-  margin: 0;
-  padding: 1rem 1.25rem 0.625rem;
-  border-radius: var(--radius-surface) var(--radius-surface) 0 0;
+.words-group-copy {
+  display: grid;
+  gap: 0.125rem;
+  min-width: 0;
 }
-.words-start .words-mine {
-  margin: 0;
-  padding: 1rem 1.25rem;
+.words-group .entry-chevron {
+  grid-column: 3;
 }
-.words-group-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
+.words-card {
+  margin: 0;
+  padding: 1.125rem 1.25rem;
+  border: 1px solid var(--line);
+}
+.words-card:hover {
+  border-color: var(--control-border);
 }
 .words-group h2,
 .words-group h3 {
@@ -126,35 +124,8 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.words-mine .words-group-detail {
+.words-card .words-group-detail {
   white-space: normal;
-}
-.words-ranges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.375rem;
-  margin: 0;
-  padding: 0 1.25rem 1.125rem;
-  list-style: none;
-}
-.words-ranges a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2rem;
-  padding: 0 0.75rem;
-  border-radius: 999px;
-  background: var(--quiet);
-  color: var(--ink);
-  font-size: var(--text-small);
-  font-variant-numeric: tabular-nums;
-  text-decoration: none;
-  transition:
-    background var(--motion),
-    color var(--motion);
-}
-.words-ranges a:hover {
-  background: var(--tab-selected);
-  color: var(--tab-ink);
 }
 .words-section {
   margin-top: 2.5rem;
@@ -250,12 +221,18 @@
 .word-table[data-ranked]:not([data-examples]) {
   --word-cols: 2.25rem minmax(9rem, 18rem) minmax(0, 1fr) 2.25rem;
 }
+/* Verbs: the word, the present (ik werk · hij werkt), the past and the perfect side by side,
+   and the example under the forms so four columns of forms leave it room to read. */
 .word-table[data-layout='verbs'] {
-  --word-cols: minmax(8rem, 12rem) minmax(7.5rem, 11rem) minmax(7.5rem, 10rem) minmax(0, 1fr)
-    2.25rem;
+  --word-cols: minmax(8rem, 12rem) minmax(9rem, 14rem) minmax(7rem, 11rem) minmax(7rem, 1fr) 2.25rem;
 }
-.word-table[data-layout='verbs']:not([data-examples]) {
-  --word-cols: minmax(9rem, 16rem) minmax(8rem, 14rem) minmax(0, 1fr) 2.25rem;
+.word-table[data-layout='verbs'] .word-example {
+  grid-column: 2 / -2;
+  margin-top: 0.5rem;
+}
+.word-table[data-layout='verbs'] .word-mark {
+  grid-column: -2;
+  grid-row: 1;
 }
 .word-columns,
 .word-row {
@@ -306,7 +283,11 @@
 .word-grammar abbr {
   text-decoration: none;
 }
+.word-pronoun {
+  color: var(--muted);
+}
 .word-en,
+.word-present,
 .word-past,
 .word-perfect {
   min-width: 0;
@@ -373,6 +354,18 @@
 .word-mark[aria-pressed='true'] path {
   fill: var(--action);
 }
+/* My list before anything is marked: one line with the bookmark it means, and a way there. */
+.words-empty {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  color: var(--muted);
+}
+.words-empty svg {
+  vertical-align: -0.2em;
+  color: var(--ink);
+}
 .words-sources {
   margin-top: 3rem;
   max-width: 46rem;
@@ -416,7 +409,8 @@
     grid-column: -2 / -1;
     grid-row: 1;
   }
-  /* A verb's forms share one line under the word: begon · begonnen · is begonnen. */
+  /* Under a verb: the present on one line (ik begin · hij begint), then the past and the
+     perfect (begon · begonnen · is begonnen). */
   .word-table[data-layout='verbs'] .word-row {
     display: flex;
     flex-wrap: wrap;
@@ -426,17 +420,23 @@
   .word-table[data-layout='verbs'] .word-head {
     flex: 1 1 calc(100% - 3rem);
   }
+  .word-table[data-layout='verbs'] .word-present,
   .word-table[data-layout='verbs'] .word-past,
   .word-table[data-layout='verbs'] .word-perfect {
-    order: 1;
+    order: 2;
     color: var(--muted);
     font-size: var(--text-small);
+  }
+  .word-table[data-layout='verbs'] .word-present {
+    order: 1;
+    flex-basis: 100%;
+    color: var(--ink);
   }
   .word-table[data-layout='verbs'] .word-perfect::before {
     content: '· ';
   }
   .word-table[data-layout='verbs'] .word-example {
-    order: 2;
+    order: 3;
     flex-basis: 100%;
   }
   .word-example {

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useStudyContext } from '../../StudyContext';
 import { perfect, type WordEntry } from '../../domain/words';
+import { presentTense } from '../../domain/present';
 import type { WordPrefsApi } from './useWordPrefs';
 
 // Dutch material keeps the browser's translator away (it would replace the very words to
 // learn); English glosses and notes may be translated into the learner's own language.
 const dutch = { lang: 'nl', translate: 'no' } as const;
 
-function MarkIcon() {
+export function MarkIcon() {
   return (
     <svg
       width="16"
@@ -86,6 +87,14 @@ function Row({
       </div>
       {verbs ? (
         <>
+          <span className="word-present" {...dutch}>
+            {presentTense(entry.nl, entry.verb!).map(([pronoun, form], i) => (
+              <React.Fragment key={pronoun}>
+                {i > 0 && ' · '}
+                <span className="word-pronoun">{pronoun}</span> {form}
+              </React.Fragment>
+            ))}
+          </span>
           <span className="word-past" {...dutch}>
             {entry.verb!.past}
             {entry.verb!.pastPlural !== entry.verb!.past && (
@@ -161,6 +170,7 @@ export default function WordRows({
         {verbs ? (
           <>
             <span>{t('Werkwoord', 'Verb')}</span>
+            <span>{t('Tegenwoordige tijd', 'Present tense')}</span>
             <span>{t('Verleden tijd', 'Past tense')}</span>
             <span>{t('Voltooid deelwoord', 'Past participle')}</span>
           </>
@@ -170,7 +180,7 @@ export default function WordRows({
             <span>{t('Engels', 'English')}</span>
           </>
         )}
-        {examples && <span>{t('Voorbeeld', 'Example')}</span>}
+        {examples && !verbs && <span>{t('Voorbeeld', 'Example')}</span>}
       </div>
       <List className="word-list">
         {entries.map((entry) => (

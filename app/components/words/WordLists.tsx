@@ -1,9 +1,9 @@
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useLocation } from 'react-router';
 import { useStudyContext } from '../../StudyContext';
-import { Segments, Toggle } from '../Controls';
+import { Chevron, Segments, Toggle } from '../Controls';
 import AppLink from '../AppLink';
-import WordRows from './WordRows';
+import WordRows, { MarkIcon } from './WordRows';
 import useWordPrefs, { useDictionary, type WordPrefsApi } from './useWordPrefs';
 import {
   groupBySlug,
@@ -40,7 +40,7 @@ export default function WordLists({ route, data }: { route: string; data?: Words
           )}
         </p>
       )}
-      <Sources />
+      {group?.slug !== MY_LIST && <Sources />}
     </div>
   );
 }
@@ -84,9 +84,9 @@ function ViewToggles({ prefs }: { prefs: WordPrefsApi }) {
   return (
     <div className="words-toggles">
       <Toggle
-        label={t('Engels verbergen', 'Hide English')}
-        checked={prefs.prefs.hideEnglish}
-        onChange={prefs.setHideEnglish}
+        label={t('Engels', 'English')}
+        checked={!prefs.prefs.hideEnglish}
+        onChange={(shown) => prefs.setHideEnglish(!shown)}
       />
       <Toggle
         label={t('Voorbeelden', 'Examples')}
@@ -98,6 +98,34 @@ function ViewToggles({ prefs }: { prefs: WordPrefsApi }) {
 }
 const countLabel = (count: number, t) =>
   `${count} ${count === 1 ? t('woord', 'word') : t('woorden', 'words')}`;
+
+// A list on the index, named in the interface language, with a chevron so it reads as a link.
+function ListLink({
+  slug,
+  detail,
+  count = undefined,
+  heading: Heading = 'h3',
+  className = '',
+}: {
+  slug: string;
+  detail: React.ReactNode;
+  count?: number;
+  heading?: 'h2' | 'h3';
+  className?: string;
+}) {
+  const { t } = useStudyContext(),
+    group = groupBySlug(slug)!;
+  return (
+    <AppLink className={`words-group ${className}`} to={wordPath(slug)}>
+      <span className="words-group-copy">
+        <Heading>{t(group.nl, group.en)}</Heading>
+        <span className="words-group-detail">{detail}</span>
+      </span>
+      {count !== undefined && <span className="words-group-count">{count}</span>}
+      <Chevron />
+    </AppLink>
+  );
+}
 
 // Search results across every list, or the reasons there are none yet.
 function Results({ query, dictionary, prefs }) {
@@ -153,8 +181,8 @@ function WordIndex({ summaries, prefs }: { summaries: GroupSummary[]; prefs: Wor
         <h1 tabIndex={-1}>{t('Woorden', 'Words')}</h1>
         <p>
           {t(
-            'De meest gebruikte Nederlandse woorden met de Engelse vertaling, een korte voorbeeldzin en waar het helpt een uitleg.',
-            'The most common Dutch words with their English translation, a short example sentence and, where it helps, a note.',
+            'Veelgebruikte Nederlandse woorden met Engels en een voorbeeldzin.',
+            'Common Dutch words with English and an example sentence.',
           )}
         </p>
       </div>
@@ -173,43 +201,27 @@ function WordIndex({ summaries, prefs }: { summaries: GroupSummary[]; prefs: Wor
         <>
           <div className="words-start">
             {top && (
-              <section className="words-top">
-                <AppLink className="words-group" to={wordPath('top')}>
-                  <span className="words-group-title">
-                    <h2 {...dutch}>Meest gebruikt</h2>
-                    <span className="words-group-count">{top.count}</span>
-                  </span>
-                  <span className="words-group-detail" lang="en">
-                    Most common words
-                  </span>
-                </AppLink>
-                <nav aria-label={t('Meest gebruikt, per honderd', 'Most common, by the hundred')}>
-                  <ol className="words-ranges">
-                    {Array.from({ length: Math.ceil(top.count / PAGE_SIZE) }, (_, i) => (
-                      <li key={i}>
-                        <AppLink to={wordPath('top')} search={i ? `?page=${i + 1}` : ''}>
-                          {i * PAGE_SIZE + 1}–{Math.min(top.count, (i + 1) * PAGE_SIZE)}
-                        </AppLink>
-                      </li>
-                    ))}
-                  </ol>
-                </nav>
-              </section>
+              <ListLink
+                slug="top"
+                heading="h2"
+                className="words-card words-top"
+                detail={t(
+                  `Begin hier: de ${top.count} woorden die je het vaakst tegenkomt`,
+                  `Start here: the ${top.count.toLocaleString('en')} words you meet most often`,
+                )}
+              />
             )}
-            <AppLink className="words-group words-mine" to={wordPath(MY_LIST)}>
-              <span className="words-group-title">
-                <h2 {...dutch}>Mijn lijst</h2>
-                <span className="words-group-count">{prefs.loaded && marked ? marked : ''}</span>
-              </span>
-              <span className="words-group-detail">
-                {prefs.loaded && marked
-                  ? t('De woorden die je nog niet kent', 'The words you do not know yet')
-                  : t(
-                      'Leeg. Markeer in een lijst de woorden die je nog niet kent.',
-                      'Empty. In any list, mark the words you do not know yet.',
-                    )}
-              </span>
-            </AppLink>
+            <ListLink
+              slug={MY_LIST}
+              heading="h2"
+              className="words-card words-mine"
+              count={prefs.loaded && marked ? marked : undefined}
+              detail={
+                prefs.loaded && marked
+                  ? t('Woorden die je nog niet kent', 'Words you do not know yet')
+                  : t('Nog leeg', 'Empty for now')
+              }
+            />
           </div>
           {(['kinds', 'themes'] as const).map((kind) => (
             <section className="words-section" key={kind}>
@@ -221,16 +233,11 @@ function WordIndex({ summaries, prefs }: { summaries: GroupSummary[]; prefs: Wor
                   const s = summary.get(group.slug)!;
                   return (
                     <li key={group.slug}>
-                      <AppLink className="words-group" to={wordPath(group.slug)}>
-                        <span className="words-group-title">
-                          <h3 {...dutch}>{group.nl}</h3>
-                          <span className="words-group-count">{s.count}</span>
-                        </span>
-                        <span className="words-group-detail">
-                          <span lang="en">{group.en}</span> ·{' '}
-                          <span {...dutch}>{s.sample.join(', ')}</span>
-                        </span>
-                      </AppLink>
+                      <ListLink
+                        slug={group.slug}
+                        count={s.count}
+                        detail={<span {...dutch}>{s.sample.join(', ')}</span>}
+                      />
                     </li>
                   );
                 })}
@@ -306,25 +313,28 @@ function GroupPage({
     page = paged ? Math.min(Math.max(1, requested), pages) : 1,
     visible = paged ? shown.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE) : shown;
   // A new hundred starts at its first word, not wherever the last one was scrolled to.
-  const first = useRef(true);
+  // Opening a list stays at the top with its heading and the way back; comparing with the
+  // page last shown (not a first-run flag) keeps that true when effects run twice.
+  const shownPage = useRef(page);
   useEffect(() => {
-    if (first.current) first.current = false;
-    else top.current?.scrollIntoView({ block: 'start' });
+    if (shownPage.current === page) return;
+    shownPage.current = page;
+    top.current?.scrollIntoView({ block: 'start' });
   }, [page]);
-  const count = mine ? (list ? list.length : prefs.prefs.marked.length) : entries.length;
+  const count = mine ? (list ? list.length : prefs.prefs.marked.length) : entries.length,
+    empty = mine && !!list && !list.length;
   return (
     <>
       <div className="heading words-heading">
-        <h1 tabIndex={-1} {...dutch}>
-          {group.nl}
-        </h1>
-        <p className="words-heading-en">
-          <span lang="en">{group.en}</span>
-          {(!mine || prefs.loaded) && <> · {countLabel(count, t)}</>}
-        </p>
-        <p>{t(...group.about)}</p>
+        <h1 tabIndex={-1}>{t(group.nl, group.en)}</h1>
+        {(!mine || !!list?.length) && (
+          <p>
+            <span className="words-heading-count">{countLabel(count, t)}.</span>
+            {!mine && <> {t(...group.about)}</>}
+          </p>
+        )}
       </div>
-      <div className="words-controls" ref={top}>
+      <div className="words-controls" ref={top} hidden={empty}>
         <SearchField
           value={query}
           onChange={setQuery}
@@ -358,16 +368,16 @@ function GroupPage({
         <p className="words-status" role="status">
           {prefs.loaded ? t('Woorden laden…', 'Loading words…') : ''}
         </p>
-      ) : mine && !list!.length ? (
-        <p className="words-status">
-          {t(
-            'Je lijst is nog leeg. Klik in een lijst op het bladwijzertje naast een woord dat je nog niet kent; het komt dan hier.',
-            'Your list is empty. In any list, click the bookmark beside a word you do not know yet and it appears here.',
-          )}{' '}
-          <AppLink to={wordPath('top')}>
-            {t('Naar Meest gebruikt', 'Go to Most common words')}
+      ) : empty ? (
+        <div className="words-empty">
+          <p>
+            {t('Nog leeg. Klik op', 'Empty for now. Click')} <MarkIcon />{' '}
+            {t('naast een woord dat je nog niet kent.', 'next to a word you do not know yet.')}
+          </p>
+          <AppLink className="secondary" to={wordPath('top')}>
+            {t('Meest gebruikte woorden', 'Most common words')}
           </AppLink>
-        </p>
+        </div>
       ) : searching && !shown.length ? (
         <p className="words-status" role="status">
           {t(`Geen woord gevonden voor “${query.trim()}”.`, `No word found for “${query.trim()}”.`)}
@@ -391,20 +401,20 @@ function Sources() {
   return (
     <p className="note words-sources">
       {t(
-        'De volgorde volgt hoe vaak een woord voorkomt in ondertitels van films en series en in de teksten op deze site. Frequentie: ',
-        'The order follows how often a word occurs in film and TV subtitles and in the texts on this site. Frequencies: ',
+        'Volgorde naar hoe vaak een woord voorkomt in ondertitels en in de teksten op deze site (',
+        'Ordered by how often a word occurs in subtitles and in the texts on this site (',
       )}
       <a href="https://github.com/hermitdave/FrequencyWords" rel="noreferrer">
         FrequencyWords
-      </a>{' '}
-      (OpenSubtitles 2018,{' '}
+      </a>
+      , OpenSubtitles 2018,{' '}
       <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noreferrer">
         CC BY-SA 4.0
       </a>
       ).{' '}
       {t(
-        'Vertalingen en voorbeelden zijn met AI geschreven en apart nagekeken. Zie je een fout? Laat het weten via Contact met de maker.',
-        'Translations and examples were written with AI and checked separately. Spotted a mistake? Use Contact the author below.',
+        'Vertalingen en voorbeelden zijn met AI geschreven en apart nagekeken.',
+        'Translations and examples were written with AI and checked separately.',
       )}
     </p>
   );

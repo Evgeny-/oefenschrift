@@ -71,10 +71,7 @@ export const WORD_GROUPS: WordGroup[] = [
     section: 'frequency',
     nl: 'Meest gebruikt',
     en: 'Most common words',
-    about: [
-      'De duizend woorden die het vaakst voorkomen, het vaakst gebruikte eerst.',
-      'The thousand words that occur most often, the most frequent first.',
-    ],
+    about: ['Het vaakst gebruikte woord eerst.', 'The most frequent first.'],
     ranked: true,
     includes: (entry) => !!entry.rank && entry.rank <= TOP_SIZE,
   },

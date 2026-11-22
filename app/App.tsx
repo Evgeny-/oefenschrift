@@ -38,6 +38,7 @@ import useDisclosureMotion from './components/useDisclosureMotion';
 import { withBase } from './domain/base';
 import WordLists from './components/words/WordLists';
 import type { WordsPage } from './domain/words';
+import { isNewSection } from './domain/new-sets';
 const labels = {
   reading: ['Lezen', 'Reading'],
   listening: ['Luisteren', 'Listening'],
@@ -450,6 +451,7 @@ export default function App({
                   <span className="nav-label" data-label={name(part)}>
                     {name(part)}
                   </span>
+                  {isNewSection(part) && <span className="nav-new">{t('Nieuw', 'New')}</span>}
                 </AppLink>
               ))}
             </nav>

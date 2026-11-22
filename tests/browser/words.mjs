@@ -131,7 +131,7 @@ try {
   );
   await shot('index');
 
-  await click('.words-top .words-group');
+  await click('.words-top');
   await wait(
     `location.pathname==='/words/top'&&document.querySelectorAll('.word-row').length===100`,
   );
@@ -158,6 +158,14 @@ try {
   await check(
     `!document.querySelector('.word-rank')&&!document.querySelector('.words-pages')`,
     'Searching a list shows every match at once',
+  );
+
+  // An empty My list is one line and a way to the most common words, without controls.
+  await navigate('/words/my-list');
+  await wait(`document.querySelector('.words-empty')`);
+  await check(
+    `document.querySelector('.words-controls').hidden&&!document.querySelector('.words-sources')&&document.querySelector('.words-empty a').getAttribute('href')==='/words/top'`,
+    'An empty My list explains the bookmark and links to the most common words',
   );
 
   await navigate('/words/top');
@@ -221,8 +229,12 @@ try {
   await check(`fetch('/words/does-not-exist').then(r=>r.status===404)`, 'An unknown list is a 404');
   await navigate('/en/words/irregular-verbs');
   await check(
-    `document.querySelector('main h1').textContent==='Onregelmatige werkwoorden'&&document.querySelector('.toolbar .back').textContent.includes('Back to')&&document.querySelector('.word-columns').textContent.includes('Past participle')`,
-    'The English interface keeps the Dutch material and translates the page around it',
+    `document.querySelector('main h1').textContent==='Irregular verbs'&&document.querySelector('.word-row [lang=nl]')&&document.querySelector('.toolbar .back').textContent.includes('Back to')&&document.querySelector('.word-columns').textContent.includes('Past participle')`,
+    'The English interface names the list in English and keeps the Dutch words',
+  );
+  await check(
+    `document.querySelector('.word-row[data-word=zijn] .word-present').textContent==='ik ben · jij bent · hij is'&&document.querySelector('.word-columns').textContent.includes('Present tense')&&scrollY===0`,
+    'A verb list shows the present tense first and opens at its heading',
   );
 
   for (const width of [360, 390]) {
