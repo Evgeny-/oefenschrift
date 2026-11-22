@@ -124,6 +124,8 @@ function PracticeSetList({ sets, restart = false }) {
         const types = [
           ...new Set(items.map((item) => typeLabel(item.taskType, lang)).filter(Boolean)),
         ];
+        // A1 step 2 (blueprint §4.0): somewhat longer texts on the same word list, named quietly.
+        const longer = items.length > 0 && items.every((item) => item?.a1Step === 2);
         const scored = items.filter((item) => state.records[item.id]?.kind === 'quiz'),
           correct = scored.reduce((n, item) => n + state.records[item.id].correct, 0),
           total = scored.reduce((n, item) => n + state.records[item.id].total, 0);
@@ -168,6 +170,7 @@ function PracticeSetList({ sets, restart = false }) {
                   {set.ids.length} {unitLabel(set.part, set.ids.length, lang)}
                   {questions ? ` · ${questions} ${t('vragen', 'questions')}` : ''}
                   {types.length ? ` · ${types.join(', ').toLowerCase()}` : ''}
+                  {longer ? ` · ${t('langere teksten', 'longer texts')}` : ''}
                 </small>
               </span>
               <span className="exercise-status">{status}</span>

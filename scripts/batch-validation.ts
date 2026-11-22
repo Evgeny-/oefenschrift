@@ -18,13 +18,15 @@ export function validateBatch(
   const fail = (s: string) => failures.push(s),
     warn = (s: string) => warnings.push(s);
   const words = (s: string) => s.trim().split(/\s+/).filter(Boolean).length;
+  // A1 step 2 (a1Step: 2, blueprint §4.0, 22 November 2026) is a small tier of somewhat longer texts
+  // on the same word list; every other A1 item keeps the strict step-1 limits.
   const LENGTH = {
-    reading: { A1: [20, 45], A2: [100, 250], B1: [400, 700] },
-    listening: { A1: [24, 40], A2: [60, 210], B1: [150, 900] },
+    reading: { A1: [20, 45], A1s2: [50, 80], A2: [100, 250], B1: [400, 700] },
+    listening: { A1: [24, 40], A1s2: [45, 65], A2: [60, 210], B1: [150, 900] },
   };
   const QUESTIONS = {
-    reading: { A1: [2, 2], A2: [2, 3], B1: [5, 7] },
-    listening: { A1: [2, 2], A2: [2, 3], B1: [5, 9] },
+    reading: { A1: [2, 2], A1s2: [3, 3], A2: [2, 3], B1: [5, 7] },
+    listening: { A1: [2, 2], A1s2: [3, 3], A2: [2, 3], B1: [5, 9] },
     knm: { A2: [1, 1] },
   };
 
@@ -82,6 +84,8 @@ export function validateBatch(
       warn(`${tag}: slug "${slug}" already used in the catalogue; make sure the topic differs`);
     const level = item.level,
       part = item.part;
+    const stepTwo = level === 'A1' && item.a1Step === 2,
+      profile = stepTwo ? 'A1s2' : level;
     if (String(item.id).split(':').slice(0, 2).join(':') !== `${level}:${part}`)
       fail(`${tag}: id level and subject must match the exercise`);
     failures.push(...exerciseMetadataErrors(item));
@@ -96,7 +100,7 @@ export function validateBatch(
       const text = item.text;
       if (typeof text !== 'string' || !text.trim()) fail(`${tag}: text missing`);
       else {
-        const [min, max] = (LENGTH as any)[part]?.[level] || [0, Infinity];
+        const [min, max] = (LENGTH as any)[part]?.[profile] || [0, Infinity];
         // A1 lengths describe speech; speaker labels are transcript formatting.
         const source =
           level === 'A1' && part === 'listening' && Array.isArray(item.script)
@@ -178,14 +182,15 @@ export function validateBatch(
             fail(`${tag}: text must equal the script joined as "Speaker: text" lines`);
           const spoken = item.script.map((t: any) => t?.text || '').join(' ');
           const n = words(spoken);
-          const [minimum, maximum] = level === 'A1' ? [24, 40] : [60, 210];
+          const [minimum, maximum] = (LENGTH.listening as any)[profile];
           if (n < minimum || n > maximum)
             fail(
               `${tag}: spoken script has ${n} words; ${level} fragments are ${minimum}–${maximum} words`,
             );
           if (level === 'A1') {
-            if (item.script.length < 4 || item.script.length > 6)
-              fail(`${tag}: A1 conversations need four to six script turns`);
+            const [fewest, most] = stepTwo ? [5, 7] : [4, 6];
+            if (item.script.length < fewest || item.script.length > most)
+              fail(`${tag}: A1 conversations need ${fewest} to ${most} script turns`);
             const voiceIds = new Set(
               [...roles].map((role: string) => voices.roles[role]?.voice_id),
             );
@@ -234,7 +239,7 @@ export function validateBatch(
           );
       }
       const qs = item.questions;
-      const [qmin, qmax] = (QUESTIONS as any)[part]?.[level] || [1, 9];
+      const [qmin, qmax] = (QUESTIONS as any)[part]?.[profile] || [1, 9];
       if (!Array.isArray(qs) || qs.length < qmin || qs.length > qmax)
         fail(`${tag}: needs ${qmin}–${qmax} questions`);
       if (Array.isArray(qs) && new Set(qs.map((q) => q.id)).size !== qs.length)
@@ -494,7 +499,16 @@ export function validateBatch(
     }
   }
 
-  if (totalQuestions && batchChecks) {
+  // A batch that rewrites published items and keeps every published key makes no new key choice;
+  // key balance was judged when those items were written. A changed key is checked as usual.
+  const published = new Map(catalogue.map((entry: any) => [entry.id, entry]));
+  const keysKept = batch.every((item: any) =>
+    (item?.questions || []).every(
+      (q: any) =>
+        published.get(item.id)?.questions?.find((p: any) => p.id === q.id)?.answer === q.answer,
+    ),
+  );
+  if (totalQuestions && batchChecks && !keysKept) {
     // Four three-option questions cannot stay under 40%: one letter is always the key twice.
     // A small batch may reach the most even split its size allows, never more.
     const letters = Math.min(4, ...Object.keys(optionCounts).map(Number));

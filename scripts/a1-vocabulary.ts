@@ -122,13 +122,21 @@ export function simpleA1Failures(item: any): string[] {
   atMost('title', item.title, 4);
   atMost('situation', item.situation, 10);
   for (const image of item.images || []) atMost('picture alt', image.alt, 14);
-  if (item.part === 'reading') longest('message', item.text, 8);
+  // Step 2 (a1Step: 2) allows slightly longer sentences and conversations, never other words.
+  const stepTwo = item.a1Step === 2;
+  if (item.part === 'reading') longest('message', item.text, stepTwo ? 10 : 8);
   for (const turn of item.script || []) {
     atMost('conversation turn', turn.text, 12);
-    longest('conversation', turn.text, 8);
+    longest('conversation', turn.text, stepTwo ? 9 : 8);
   }
-  if (item.part === 'listening' && Array.isArray(item.script) && item.script.length > 5)
-    failures.push(`${tag}: A1 conversations use four or five turns`);
+  if (
+    item.part === 'listening' &&
+    Array.isArray(item.script) &&
+    item.script.length > (stepTwo ? 7 : 5)
+  )
+    failures.push(
+      `${tag}: A1 conversations use ${stepTwo ? 'five to seven' : 'four or five'} turns`,
+    );
   for (const question of item.questions || []) {
     atMost(`${question.id} prompt`, question.prompt, 8);
     atMost(`${question.id} explanation`, question.explanation, 14);

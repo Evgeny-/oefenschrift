@@ -4,14 +4,20 @@ import { rmSync, writeFileSync } from 'node:fs';
 export type AudioSource =
   | { sourceFormat: 'pcm_44100'; sourceSampleRate: 44100 }
   | { sourceFormat: 'pcm_24000'; sourceSampleRate: 24000 }
-  | { sourceFormat: 'mp3_44100_192'; sourceSampleRate: 44100 };
+  | { sourceFormat: 'mp3_44100_192'; sourceSampleRate: 44100 }
+  | { sourceFormat: 'mp3_44100_128'; sourceSampleRate: 44100 };
+
+// Provider MP3 sources: 192 kbps needs the Creator tier; the pay-as-you-go account of
+// 22 November 2026 allows 128 kbps. Each clip records the source it was made from.
+export const isMp3Source = (format?: unknown) =>
+  format === 'mp3_44100_192' || format === 'mp3_44100_128';
 
 export function configuredAudioSource(format?: unknown): AudioSource | undefined {
   if (format === undefined) return undefined;
-  if (format === 'pcm_44100' || format === 'mp3_44100_192')
+  if (format === 'pcm_44100' || format === 'mp3_44100_192' || format === 'mp3_44100_128')
     return { sourceFormat: format, sourceSampleRate: 44100 };
   if (format === 'pcm_24000') return { sourceFormat: format, sourceSampleRate: 24000 };
-  throw Error('Audio source format must be pcm_44100, pcm_24000 or mp3_44100_192.');
+  throw Error('Audio source format must be pcm_44100, pcm_24000, mp3_44100_192 or mp3_44100_128.');
 }
 
 export function sourceDecodeArguments(source: AudioSource, input: string, wav: string): string[] {
@@ -19,7 +25,7 @@ export function sourceDecodeArguments(source: AudioSource, input: string, wav: s
     '-y',
     '-loglevel',
     'error',
-    ...(source.sourceFormat === 'mp3_44100_192'
+    ...(isMp3Source(source.sourceFormat)
       ? ['-f', 'mp3']
       : ['-f', 's16le', '-ar', String(source.sourceSampleRate), '-ac', '1']),
     '-i',

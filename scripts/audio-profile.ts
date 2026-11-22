@@ -1,4 +1,5 @@
 import { audioProcessingFor } from './audio-processing';
+import { isMp3Source } from './audio-source';
 
 export type AudioProfile = {
   name: 'A1';
@@ -92,7 +93,7 @@ export function audioCacheInput({
     loudness: voices.loudness,
     pipeline: `${pipeline}-${rate}`,
     ...(profile ? { profile } : {}),
-    ...(sourceFormat === 'mp3_44100_192' ? { sourceFormat } : {}),
+    ...(isMp3Source(sourceFormat) ? { sourceFormat } : {}),
     ...(processing ? { processing } : {}),
   };
 }

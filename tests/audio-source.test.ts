@@ -120,12 +120,12 @@ test('permission failures abort immediately and exhausted retries fail without a
 
 test('source format selection accepts only explicit supported formats', () => {
   assert.equal(configuredAudioSource(), undefined);
-  for (const sourceFormat of ['pcm_24000', 'pcm_44100', 'mp3_44100_192']) {
+  for (const sourceFormat of ['pcm_24000', 'pcm_44100', 'mp3_44100_192', 'mp3_44100_128']) {
     const source = configuredAudioSource(sourceFormat);
     assert.equal(source.sourceFormat, sourceFormat);
     assert.equal(source.sourceSampleRate, sourceFormat === 'pcm_24000' ? 24000 : 44100);
   }
-  for (const format of ['', null, 44100, 'mp3_44100_128', 'wav_44100', {}])
+  for (const format of ['', null, 44100, 'mp3_44100_64', 'wav_44100', {}])
     assert.throws(() => configuredAudioSource(format), /Audio source format must be/);
   const args = sourceDecodeArguments(
     configuredAudioSource('mp3_44100_192'),
@@ -134,6 +134,12 @@ test('source format selection accepts only explicit supported formats', () => {
   );
   assert.equal(args[args.indexOf('-f') + 1], 'mp3');
   assert.ok(!args.includes('s16le'), 'compressed bytes must never be interpreted as raw PCM');
+  const smaller = sourceDecodeArguments(
+    configuredAudioSource('mp3_44100_128'),
+    'input.mp3',
+    'out.wav',
+  );
+  assert.equal(smaller[smaller.indexOf('-f') + 1], 'mp3');
 });
 
 test('provider MP3 decodes to actual mono PCM WAV and invalid compressed data fails', () => {

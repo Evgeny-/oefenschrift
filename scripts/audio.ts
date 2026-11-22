@@ -3,6 +3,7 @@ import { requireReviewedMedia } from './media-review';
 import {
   configuredAudioSource,
   decodeAudioSource,
+  isMp3Source,
   probePcmSource,
   type AudioSource,
 } from './audio-source';
@@ -563,11 +564,11 @@ export function reusableClip(
   tokenAt: (rate: number) => string,
   sourceFormat?: AudioSource['sourceFormat'],
 ): existing is Clip {
-  const mp3 = sourceFormat === 'mp3_44100_192';
+  const mp3 = isMp3Source(sourceFormat);
   return Boolean(
     existing &&
       existing.script_sha256 === script_sha256 &&
-      (mp3 ? existing.sourceFormat === sourceFormat : existing.sourceFormat !== 'mp3_44100_192') &&
+      (mp3 ? existing.sourceFormat === sourceFormat : !isMp3Source(existing.sourceFormat)) &&
       (mp3 ? [44100] : [44100, 24000]).some(
         (rate) => existing.file === `audio/${tokenAt(rate)}.mp3`,
       ),

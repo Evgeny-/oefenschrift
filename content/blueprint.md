@@ -74,6 +74,19 @@ The user tested the first A1 bank and found it too hard, harder than it should b
 - **People.** Use new, easy names from the batch's assigned pool, plus unnamed roles ("de buurvrouw", "de dokter"). A name appears in at most two exercises of a batch and is not reused across A1 batches; within a set the three exercises use different people. Do not use the voice names (Roos, Lieke, Ruben, Daan, Ruth, Jerry, Robert, Arjen, Hanneke, Peter) or the older recurring cast as A1 characters. A named person who is drawn twice in a batch keeps the same three visual traits in both briefs.
 - **Tone.** About one exercise in six is lightly funny or unusual: one familiar object or animal in a surprising place, size or use, said with list words. The joke never needs an idiom, cultural knowledge or a rare word.
 
+#### A1 step 2 (22 November 2026)
+
+After the rebuild, Evgeny found A1 too short: "primitive little sentences". The editorial measure agrees. A1 reading messages average 27 words and A1 conversations 29, while A2 texts average 165 and 130, so nothing sits in between. Public A1 reading practice for the basisexamen abroad uses texts of roughly 35–95 words. That figure comes from third-party practice material, not an official sample.
+
+The current items stay as step 1. A small trial tier of somewhat longer A1 items carries `a1Step: 2`. The validator applies these limits only to items with that field:
+
+- **Same words.** Every rule of the simplified profile above applies, including the word list, address, names, real premises and tone.
+- **Reading.** 50–80 words including greeting and signature, at most ten words per sentence, exactly three questions. One message in three may be a notice, a list of opening hours or a short schedule written as lines.
+- **Listening.** Five to seven turns, 45–65 spoken words, at most twelve words per turn and nine per sentence, exactly three questions. Each fact is stated once.
+- **Sentences.** Main clauses in the present tense, joined at most once per sentence with en, maar, want, of or dan. Modal verbs on the list are allowed. Avoid separable verbs that are not on the list.
+- **Questions.** Prompts, options and explanations keep the step-1 limits. The three facts tested come from different sentences or turns.
+- **Sets.** Step-2 items go in their own sets, so a learner meets them as a separate set.
+
 #### Reading — `part: reading`
 
 - Task type: `bericht`. One original everyday message of 25–60 words, with a short situation line. A set contains three messages about distinct activities or purposes.
@@ -224,7 +237,7 @@ All listening fragments, question audio, speaking instructions and speaking cues
 - **Round trip.** Every generated clip is transcribed with Scribe (`scribe_v2`, `nld`) and compared with the script after number normalisation ("24" and "vierentwintig" match). A character error rate above 4% or a run of two or more inserted words blocks the clip; regenerate with a different seed or voice, and listen to any clip near the limit. The rate is stored in the manifest.
 - **Manifest.** `content/audio-manifest.json` records each clip's key, file, roles and voice IDs, model, actual settings, script hash, source format and sample rate, duration, waveform and transcription result. The legacy `wer` field stores the normalized character error rate. A changed script invalidates the clip. Inspect concrete additions and fillers even when the numeric threshold passes.
 - **Quota and scope.** Check the current account allowance before a large run. Use `--keys <file>` for exact existing job keys when replacing voices, so unrelated clips stay intact. Keep former assets needed by history. Source files must still pass their existing review hash gate.
-- **Delivery.** Current provider output is `mp3_44100_192` as configured in `config/voices.json`. Decode it to WAV for level matching and stitching, then encode the final mono 44.1 kHz, 192 kbps MP3 into `assets/audio/<hash>.mp3`; preparation copies it to the public audio path. Record both lossy stages. The earlier PCM fallback remains available and must be labelled with its real source rate rather than the final MP3 rate.
+- **Delivery.** Provider output is configured in `config/voices.json`. It was `mp3_44100_192` on the Creator plan until 22 November 2026. Since then the account is pay-as-you-go, which allows `mp3_44100_128` and refuses 192 kbps, so new clips use the 128 kbps source and record it. Decode it to WAV for level matching and stitching, then encode the final mono 44.1 kHz, 192 kbps MP3 into `assets/audio/<hash>.mp3`; preparation copies it to the public audio path. Record both lossy stages. The earlier PCM fallback remains available and must be labelled with its real source rate rather than the final MP3 rate.
 
 Hanneke (`f-older`) uses the user-approved `spectral-v1` noise-reduction preset. Level-match each turn first, apply the preset to Hanneke alone, then enforce the peak/loudness ceiling again. Record the filter and processing stage in the manifest and cache identity. Ruth (`f-mature`) remains available for mature adult roles. Never apply one voice's treatment to the other conversation speaker.
 
@@ -287,7 +300,7 @@ Existing sets keep their IDs and membership; new content goes into new sets. A m
 
 ## 12. Producing a batch with sub-agents
 
-Authors use Opus; reviewers and audits use the cheaper Sonnet model (user decision, 28 October 2026). Roles run in separate contexts so that the reviewer never sees the author's reasoning. Two agents per batch; the briefs they follow live in `docs/briefs/`.
+Authors, reviewers and audits use the cheaper Sonnet model (user decisions of 28 October 2026 for reviews and 22 November 2026 for authors; earlier batches had Opus authors). Roles run in separate contexts so that the reviewer never sees the author's reasoning. Two agents per batch; the briefs they follow live in `docs/briefs/`.
 
 1. **Brief.** The coordinator names the exam part, task types and counts, domains, the batch id and the subjects to avoid (section 9 plus the catalogue titles); `docs/briefs/author.md` carries the rest.
 2. **Author.** Writes `content/batches/<NNN>-original.json`, `<NNN>-notes.md` and, for open tasks, `<NNN>-starters.json`. Runs `npm run batch:check` until it reports no failures; checks invented organisation names on the web; warnings go into the notes.

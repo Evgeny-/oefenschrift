@@ -16,6 +16,12 @@ export function exerciseMetadataErrors(item: any): string[] {
   if (level === 'A1' && !['reading', 'listening', 'writing', 'speaking'].includes(part))
     fail('A1 supports reading, listening, writing and speaking practice');
   if (part === 'knm' && level !== 'A2') fail('KNM uses A2 language');
+  // A1 step 2: a small tier of somewhat longer A1 reading and listening texts (blueprint §4.0).
+  if (
+    Object.hasOwn(item, 'a1Step') &&
+    !(item.a1Step === 2 && level === 'A1' && ['reading', 'listening'].includes(part))
+  )
+    fail('a1Step is only 2, on A1 reading or listening');
   if (Object.hasOwn(item, 'type'))
     fail('use taskType; the legacy type field is no longer accepted');
   const types: string[] | undefined =

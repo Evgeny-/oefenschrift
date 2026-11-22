@@ -49,6 +49,11 @@ test('MP3 source reuse requires MP3 provenance and its own full-bandwidth token'
   );
   assert.equal(reusableClip(clip('mp3_44100_192'), 'script', tokenAt), false);
   assert.equal(reusableClip(clip('pcm_24000', 24000), 'script', tokenAt), true);
+  // The 128 kbps source (pay-as-you-go account, 22 November 2026) is its own provenance.
+  assert.equal(reusableClip(clip('mp3_44100_128'), 'script', tokenAt, 'mp3_44100_128'), true);
+  assert.equal(reusableClip(clip('mp3_44100_192'), 'script', tokenAt, 'mp3_44100_128'), false);
+  assert.equal(reusableClip(clip('mp3_44100_128'), 'script', tokenAt, 'mp3_44100_192'), false);
+  assert.equal(reusableClip(clip('mp3_44100_128'), 'script', tokenAt), false);
 });
 
 test('invalid selections fail before a generation run can contact the provider', () => {

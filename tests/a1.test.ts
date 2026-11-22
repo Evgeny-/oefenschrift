@@ -343,3 +343,88 @@ test('A1 exercises and anonymous visit levels are accepted by the content store'
     store.close();
   }
 });
+
+test('A1 step 2 allows somewhat longer texts with three questions on the same word list', () => {
+  const third = {
+    id: 'q3',
+    prompt: 'Is de tekst kort?',
+    options: { A: 'Ja.', B: 'Nee.', C: 'Soms.' },
+    answer: 'C',
+    evidence: 'De tekst is kort.',
+    explanation: 'In de tekst staat: de tekst is kort.',
+    skill: 'detail',
+  };
+  const longer: Exercise = {
+    ...item,
+    a1Step: 2,
+    text: `${item.text} Lees de tekst goed. Daarna kiest u een antwoord. U heeft tien minuten. Dat is tijd voor de vragen. Tot morgen en dank u!`,
+    questions: [...item.questions, third],
+  };
+  assert.deepEqual(exerciseMetadataErrors(longer), []);
+  assert.deepEqual(failures(longer), []);
+  // Step 1 keeps its limits: the same text is too long and three questions too many.
+  const { a1Step, ...stepOne } = longer;
+  assert.equal(a1Step, 2);
+  assert.ok(failures(stepOne as Exercise).some((f) => f.includes('20–45')));
+  assert.ok(failures({ ...longer, questions: item.questions }).some((f) => f.includes('3–3')));
+  assert.ok(failures({ ...longer, text: item.text }).some((f) => f.includes('50–80')));
+  assert.ok(
+    failures({
+      ...longer,
+      text: longer.text + ' Dit is een heel lange zin met veel te veel woorden erin.',
+    }).some((f) => f.includes('sentence over 10')),
+  );
+  assert.ok(
+    failures({
+      ...longer,
+      text: longer.text.replace('kort.', 'kort en makkelijk.') + ' Wachtkamer.',
+    }).some((f) => f.includes('wachtkamer')),
+  );
+  for (const change of [{ a1Step: 3 }, { a1Step: 1 }, { level: 'A2', exam: 'duo-a2' }])
+    assert.ok(exerciseMetadataErrors({ ...longer, ...change }).length, JSON.stringify(change));
+  assert.ok(
+    exerciseMetadataErrors({ ...item, id: 'A1:writing:batch999-x:1', part: 'writing', a1Step: 2 })
+      .length,
+  );
+  const turns = [
+    ...script,
+    { speaker: 'Tester', role: 'f-adult', text: 'Goed. Dan kiest u nu een antwoord.' },
+    { speaker: 'Recorder', role: 'm-adult', text: 'Dat doe ik. Tot morgen en dank u.' },
+  ];
+  const conversation: Exercise = {
+    ...listening,
+    a1Step: 2,
+    script: turns,
+    text: turns.map((turn) => `${turn.speaker}: ${turn.text}`).join('\n'),
+    questions: [...listening.questions, { ...third, evidence: 'Wij beginnen nu met de toets.' }],
+  };
+  assert.deepEqual(failures(conversation), []);
+  const { a1Step: _, ...shortProfile } = conversation;
+  assert.ok(failures(shortProfile as Exercise).some((f) => f.includes('four or five turns')));
+  const crowded = structuredClone(conversation);
+  crowded.script = [...turns, ...turns.slice(0, 2)];
+  crowded.text = crowded.script.map((turn) => `${turn.speaker}: ${turn.text}`).join('\n');
+  assert.ok(failures(crowded).some((f) => f.includes('five to seven turns')));
+});
+
+test('a batch that only rewrites published items keeps their keys without a balance check', () => {
+  const sameKeys = structuredClone(item);
+  sameKeys.questions[1] = {
+    ...sameKeys.questions[1],
+    options: { A: 'Twee.', B: 'Eén.', C: 'Drie.' },
+    answer: 'A',
+  };
+  assert.ok(
+    validateBatch([sameKeys], [], voices, true).failures.some((f) => f.includes('answer key A')),
+  );
+  // Rewording a published item with the same keys is not a new key choice.
+  const reworded = structuredClone(sameKeys);
+  reworded.questions[1].explanation = 'De tekst zegt: er zijn twee vragen.';
+  assert.deepEqual(validateBatch([reworded], [sameKeys], voices, true).failures, []);
+  // Changing a published key is.
+  assert.ok(
+    validateBatch([sameKeys], [item], voices, true).failures.some((f) =>
+      f.includes('answer key A'),
+    ),
+  );
+});
