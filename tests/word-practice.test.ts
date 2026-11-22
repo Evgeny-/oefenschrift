@@ -4,10 +4,14 @@ import {
   addDays,
   buildRound,
   isDue,
+  modeEntries,
+  practiceMode,
   practicePool,
+  practiceSearch,
   practiceStats,
   rate,
   readCards,
+  sameMeaning,
   today,
   type Cards,
 } from '../app/domain/word-practice';
@@ -155,4 +159,47 @@ test('a word spelled twice is named by its kind, possessives as possessive', () 
     wordType(word('die', 9, { pos: 'det', en: 'that; those' }))[1],
     'article or demonstrative',
   );
+});
+
+test('the mode comes from the address, and the address leaves out the default', () => {
+  assert.equal(practiceMode(null), 'nl-en');
+  assert.equal(practiceMode('en-nl'), 'en-nl');
+  assert.equal(practiceMode('de-het'), 'de-het');
+  assert.equal(practiceMode('klingon'), 'nl-en');
+  assert.equal(practiceSearch('nl-en'), '');
+  assert.equal(practiceSearch('nl-en', 'a1'), '?list=a1');
+  assert.equal(practiceSearch('en-nl', 'my-list'), '?list=my-list&mode=en-nl');
+  assert.equal(practiceSearch('de-het'), '?mode=de-het');
+});
+
+test('de or het asks only nouns with one article', () => {
+  const entries = [
+    word('tafel', 1, { article: 'de' }),
+    word('huis', 2, { article: 'het' }),
+    word('aantal', 3, { article: 'de/het' }),
+    word('lopen', 4, { pos: 'verb' }),
+  ];
+  assert.deepEqual(
+    modeEntries('de-het', entries).map((e) => e.id),
+    ['tafel', 'huis'],
+  );
+  assert.equal(modeEntries('en-nl', entries).length, 4);
+});
+
+test('english to dutch accepts words with exactly the same english', () => {
+  const entries = [
+    word('dokter', 1, { en: 'doctor' }),
+    word('arts', 2, { en: 'Doctor' }),
+    word('kunnen', 3, { pos: 'verb', en: 'can; to be able to' }),
+    word('blik', 4, { en: 'tin; can; look' }),
+    word('geheim', 5, { en: 'secret' }),
+    word('geheim-adj', 6, { nl: 'geheim', pos: 'adj', en: 'secret' }),
+  ];
+  const also = sameMeaning(entries);
+  assert.deepEqual(
+    also(entries[0]).map((e) => e.id),
+    ['arts'],
+  );
+  assert.deepEqual(also(entries[2]), []);
+  assert.deepEqual(also(entries[4]), []);
 });

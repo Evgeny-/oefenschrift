@@ -2,18 +2,36 @@ import { useCallback, useEffect, useState } from 'react';
 import { wordsSlot } from '../../domain/profiles';
 import { withBase } from '../../domain/base';
 import type { WordEntry } from '../../domain/words';
-import { rate, readCards, type Cards, type Rating } from '../../domain/word-practice';
+import {
+  rate,
+  readCards,
+  type Cards,
+  type PracticeMode,
+  type Rating,
+} from '../../domain/word-practice';
 
 // What a learner keeps for the word lists in this browser: the words they marked as not
-// known yet, whether translations and examples are shown, and the practice cards. Each
-// teacher-mode profile has its own copy beside its study key.
+// known yet, whether translations and examples are shown, and the practice cards of each mode
+// (cards: Dutch → English, reverse: English → Dutch, articles: de or het). Each teacher-mode
+// profile has its own copy beside its study key.
 export interface WordPrefs {
   marked: string[];
   hideEnglish: boolean;
   examples: boolean;
   cards: Cards;
+  reverse: Cards;
+  articles: Cards;
 }
-const defaults: WordPrefs = { marked: [], hideEnglish: false, examples: true, cards: {} };
+const defaults: WordPrefs = {
+  marked: [],
+  hideEnglish: false,
+  examples: true,
+  cards: {},
+  reverse: {},
+  articles: {},
+};
+const CARD_FIELDS = { 'nl-en': 'cards', 'en-nl': 'reverse', 'de-het': 'articles' } as const;
+export const modeCards = (prefs: WordPrefs, mode: PracticeMode): Cards => prefs[CARD_FIELDS[mode]];
 function storage() {
   try {
     return window.localStorage;
@@ -32,6 +50,8 @@ function read(profile: string): WordPrefs {
       hideEnglish: saved.hideEnglish === true,
       examples: saved.examples !== false,
       cards: readCards(saved.cards),
+      reverse: readCards(saved.reverse),
+      articles: readCards(saved.articles),
     };
   } catch {
     return defaults;
@@ -70,8 +90,11 @@ export default function useWordPrefs(profile: string) {
       })),
     setHideEnglish: (hideEnglish: boolean) => update(() => ({ hideEnglish })),
     setExamples: (examples: boolean) => update(() => ({ examples })),
-    rateWord: (id: string, rating: Rating, day: string) =>
-      update((p) => ({ cards: { ...p.cards, [id]: rate(p.cards[id], rating, day) } })),
+    rateWord: (id: string, rating: Rating, day: string, mode: PracticeMode = 'nl-en') =>
+      update((p) => {
+        const field = CARD_FIELDS[mode];
+        return { [field]: { ...p[field], [id]: rate(p[field][id], rating, day) } };
+      }),
   };
 }
 export type WordPrefsApi = ReturnType<typeof useWordPrefs>;

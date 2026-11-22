@@ -95,6 +95,21 @@ async function target(expression) {
   );
   return '[data-target="1"]';
 }
+async function press(value) {
+  await send('input.performActions', {
+    context,
+    actions: [
+      {
+        type: 'key',
+        id: 'words-keyboard',
+        actions: [
+          { type: 'keyDown', value },
+          { type: 'keyUp', value },
+        ],
+      },
+    ],
+  });
+}
 async function type(selector, text) {
   await click(selector);
   await evaluate(`document.querySelector(${JSON.stringify(selector)}).select();true`);
@@ -286,8 +301,8 @@ try {
   });
   await wait(`document.querySelector('.practice-word')?.textContent==='hebben'`);
   await check(
-    `${saved}.cards.zijn.again===true&&${saved}.cards.zijn.misses===1&&document.querySelector('.practice-progress').textContent.startsWith('2 / 21')`,
-    'Again keeps the miss and brings the word back at the end of the round',
+    `${saved}.cards.zijn.again===true&&${saved}.cards.zijn.misses===1&&document.querySelector('.practice-progress').textContent.startsWith('2 / 20')`,
+    'Again keeps the miss without growing the count of the round',
   );
   await click('.practice-show');
   await click('.practice-rating .primary');
@@ -305,8 +320,85 @@ try {
   await click('[data-page="progress"]');
   await wait(`document.querySelector('.progress-words .progress-subjects')`);
   await check(
-    `document.querySelector('.progress-words .practice-stats').textContent.includes('2 geoefend')&&document.querySelector('.progress-words .practice-stats').textContent.includes('1 fouten')&&document.querySelectorAll('.progress-words progress').length===3`,
-    'Voortgang shows the word practice and the learned words per level',
+    `document.querySelector('.progress-words .practice-stats').textContent.includes('2 geoefend')&&document.querySelector('.progress-words .practice-stats').textContent.includes('1 fouten')&&document.querySelectorAll('.progress-words .word-bar').length===3&&document.querySelector('.progress-words .word-bar').getAttribute('aria-label').startsWith('A1-woorden: 2 geoefend, 0 geleerd, van ')`,
+    'Voortgang shows the word practice, and each level bar counts practised words before any is learned',
+  );
+
+  // The other two modes keep their own cards. English → Dutch shows the English with the kind
+  // of word and the Dutch on the back, with any word of exactly the same English. A missed
+  // word comes back after the round under its own count. De or het takes D and H: a right
+  // answer goes straight on, a wrong one shows the article and waits.
+  await navigate('/words/practice');
+  await evaluate(`window.__about=document.querySelector('.heading p').textContent;true`);
+  await click('.practice-modes [data-choice="en-nl"]');
+  await wait(
+    `location.search==='?mode=en-nl'&&[...document.querySelectorAll('.practice-stats strong')].map((n)=>n.textContent).join()==='0,0,0'`,
+  );
+  await check(
+    `[...document.querySelectorAll('.words-group')].every(a=>a.getAttribute('href').endsWith('mode=en-nl'))&&document.querySelector('.heading p').textContent===window.__about&&document.querySelector('.practice-modes [data-choice="de-het"]').textContent==='De of het'`,
+    'English → Dutch keeps its mode in every link, the same description and its own figures',
+  );
+  // My list is read when the page loads; a pinned random source keeps its order in the round.
+  await evaluate(
+    `(()=>{const p=${saved};p.marked=['dokter','huis'];localStorage.setItem('oefenschrift.words.v1',JSON.stringify(p));return true})()`,
+  );
+  await navigate('/words/practice?mode=en-nl');
+  await evaluate(`window.__random=Math.random;Math.random=()=>0.9999999;true`);
+  await click('.words-card[href$="list=my-list&mode=en-nl"]');
+  await wait(`document.querySelector('.practice-word')?.textContent==='doctor'`);
+  await evaluate(`Math.random=window.__random;document.activeElement.blur();true`);
+  await check(
+    `document.querySelector('.practice-word').lang==='en'&&document.querySelector('.practice-type').textContent==='zelfstandig naamwoord'&&document.querySelector('.practice-mode-name').textContent==='Engels → Nederlands'&&document.querySelector('.practice-progress').textContent==='1 / 2'&&document.querySelector('.back').getAttribute('href').endsWith('/words/practice?mode=en-nl')`,
+    'An English → Dutch card shows the English, the kind of word and the mode',
+  );
+  await press(' ');
+  await wait(`document.querySelector('.practice-answer-nl')`);
+  await check(
+    `document.querySelector('.practice-answer-nl').textContent==='de dokter'&&document.querySelector('.practice-forms').textContent.includes('Ook goedde arts')`,
+    'The back shows the Dutch word and the other word with the same English',
+  );
+  await press('1');
+  await wait(`document.querySelector('.practice-word')?.textContent==='house; home'`);
+  await press(' ');
+  await wait(`document.querySelector('.practice-answer-nl')`);
+  await press('1');
+  await wait(`document.querySelector('.practice-word')?.textContent==='doctor'`);
+  await check(
+    `document.querySelector('.practice-progress').textContent==='Nog een keer · 1 / 2'&&${saved}.reverse.dokter.again===true&&!${saved}.cards.dokter`,
+    'Missed words come back counted on their own, in the English → Dutch cards only',
+  );
+  await navigate('/words/practice?list=my-list&mode=de-het');
+  await wait(`document.querySelector('.practice-article')`);
+  await check(
+    `!document.querySelector('.practice-article .practice-word .word-article')&&[...document.querySelectorAll('.practice-article-choices .key-hint')].map((hint)=>hint.textContent).join()==='D,H'`,
+    'De or het shows the noun without its article and the D and H keys',
+  );
+  const firstNoun = await evaluate(`document.querySelector('.practice-word').textContent`);
+  const nounArticle = { dokter: 'de', huis: 'het' };
+  const otherNoun = firstNoun === 'dokter' ? 'huis' : 'dokter';
+  await press(nounArticle[firstNoun][0]);
+  await wait(`document.querySelector('.practice-word')?.textContent==='${otherNoun}'`);
+  await check(
+    `document.querySelector('.practice-last').textContent.includes('${nounArticle[firstNoun]} ${firstNoun}')&&${saved}.articles.${firstNoun}.step===1`,
+    'A right article goes straight on and says so above the next card',
+  );
+  await press(nounArticle[otherNoun] === 'de' ? 'h' : 'd');
+  await wait(`document.querySelector('.practice-article-verdict')`);
+  await check(
+    `document.querySelector('.practice-article-choices [data-result=right]').textContent.startsWith('${nounArticle[otherNoun]}')&&document.querySelector('.practice-right-article').textContent==='${nounArticle[otherNoun]}'&&document.activeElement.textContent.startsWith('Volgende')&&${saved}.articles.${otherNoun}.again===true`,
+    'A wrong article shows the right one and waits for Next',
+  );
+  await press('\uE007');
+  await wait(`document.querySelector('.practice-progress')?.textContent==='Nog een keer · 1 / 1'`);
+  await check(
+    `document.querySelector('.practice-word').textContent==='${otherNoun}'`,
+    'The missed noun comes back once',
+  );
+  await click('[data-page="progress"]');
+  await wait(`document.querySelector('.progress-word-modes')`);
+  await check(
+    `document.querySelector('.progress-word-modes').textContent.includes('Engels → Nederlands: 2 geoefend')&&document.querySelector('.progress-word-modes').textContent.includes('De of het: 2 geoefend')`,
+    'Voortgang names the other two modes once they are practised',
   );
 
   // Search across lists, with the dictionary failing once and loading on retry.

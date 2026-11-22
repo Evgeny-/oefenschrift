@@ -1,7 +1,8 @@
-// Word practice: cards like Anki or gracht.app. The learner sees the Dutch word, thinks of
-// the meaning, turns the card and says how it went. Again brings the word back later in the
-// round and tomorrow; Got it spaces it out (1, 3, 7, 14, 30 and then 60 days); Too easy
-// stops it coming back. Everything stays in this browser with the rest of the word lists.
+// Word practice: cards like Anki or gracht.app. The learner sees the Dutch word (or the
+// English, or a noun without its article), thinks of the answer, turns the card and says how
+// it went. Again brings the word back later in the round and tomorrow; Got it spaces it out
+// (1, 3, 7, 14, 30 and then 60 days); Too easy stops it coming back. Everything stays in this
+// browser with the rest of the word lists.
 import { groupBySlug, groupEntries, MY_LIST, TOP_SIZE, type WordEntry } from './words';
 
 export interface CardState {
@@ -139,6 +140,40 @@ export function readCards(value: unknown): Cards {
     };
   }
   return cards;
+}
+
+// Three ways to practise, each with its own cards, so a word known one way is still asked the
+// other: the Dutch word to its meaning, the English to the Dutch word, and de or het for a
+// noun. The mode travels in the address (?mode=en-nl) beside the list.
+export const PRACTICE_MODES = ['nl-en', 'en-nl', 'de-het'] as const;
+export type PracticeMode = (typeof PRACTICE_MODES)[number];
+export function practiceMode(value: string | null | undefined): PracticeMode {
+  return (PRACTICE_MODES as readonly string[]).includes(value as string)
+    ? (value as PracticeMode)
+    : 'nl-en';
+}
+export function practiceSearch(mode: PracticeMode, list?: string) {
+  const params = new URLSearchParams();
+  if (list) params.set('list', list);
+  if (mode !== 'nl-en') params.set('mode', mode);
+  const query = params.toString();
+  return query ? `?${query}` : '';
+}
+// De or het asks only nouns with one article (not the few that take both).
+export const hasArticle = (entry: WordEntry) =>
+  entry.pos === 'noun' && (entry.article === 'de' || entry.article === 'het');
+export const modeEntries = (mode: PracticeMode, entries: WordEntry[]) =>
+  mode === 'de-het' ? entries.filter(hasArticle) : entries;
+// English → Dutch: the other words with exactly the same English are right answers too
+// (doctor: dokter and arts). Partial matches are left out; "can" is not blik.
+export function sameMeaning(entries: WordEntry[]) {
+  const byEnglish = new Map<string, WordEntry[]>();
+  for (const entry of entries) {
+    const key = entry.en.toLowerCase();
+    byEnglish.set(key, [...(byEnglish.get(key) || []), entry]);
+  }
+  return (entry: WordEntry) =>
+    (byEnglish.get(entry.en.toLowerCase()) || []).filter((other) => other.nl !== entry.nl);
 }
 
 // What a round draws from: words due today, the learner's mistakes, My list, the words of a

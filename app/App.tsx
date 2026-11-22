@@ -38,6 +38,7 @@ import useDisclosureMotion from './components/useDisclosureMotion';
 import { withBase } from './domain/base';
 import WordLists from './components/words/WordLists';
 import type { WordsPage } from './domain/words';
+import { practiceMode, practiceSearch } from './domain/word-practice';
 import { isNewSection } from './domain/new-sets';
 const labels = {
   reading: ['Lezen', 'Reading'],
@@ -259,8 +260,9 @@ export default function App({
       practiceSet?.part ||
       opened?.part ||
       (route === 'session' ? 'mock' : wordList ? 'words' : null),
-    // A round of word cards goes back to the practice choice it was started from.
-    practiceRound = route === 'words/practice' && new URLSearchParams(location.search).has('list'),
+    // A round of word cards goes back to the practice choice (and mode) it was started from.
+    practiceParams = new URLSearchParams(location.search),
+    practiceRound = route === 'words/practice' && practiceParams.has('list'),
     runningCheck =
       route === 'check' && state.settings.level !== 'A1' ? checkInProgress(state) : null;
   // Icon motion follows a real section change, never the initial page load.
@@ -463,7 +465,13 @@ export default function App({
         <div className="workspace">
           {backPart ? (
             <div className="toolbar">
-              <AppLink className="back" to={practiceRound ? 'words/practice' : backPart}>
+              <AppLink
+                className="back"
+                to={practiceRound ? 'words/practice' : backPart}
+                search={
+                  practiceRound ? practiceSearch(practiceMode(practiceParams.get('mode'))) : ''
+                }
+              >
                 ← {t('Terug naar', 'Back to')}{' '}
                 {practiceRound ? t('oefenen', 'practice') : name(backPart)}
               </AppLink>

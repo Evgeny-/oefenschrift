@@ -1,6 +1,12 @@
-/* Word practice (/words/practice): the choice of what to practise as the word-list cards and
-   rows, then one card at a time in the exercise sheet style: the Dutch word, Show, and on the
-   back the meaning, the forms and the example, with three answers under the card. */
+/* Word practice (/words/practice): a switch for how to practise (Dutch → English, English →
+   Dutch, de or het), the choice of what to practise as the word-list cards and rows, then one
+   card at a time in the exercise sheet style: the word, Show, and on the back the answer, the
+   forms and the example, with three answers under the card. De or het has two buttons on the
+   card instead, marked like exercise answers: the right one in the soft mark, a wrong one
+   struck through. */
+.practice-modes {
+  margin: -0.5rem 0 1.5rem;
+}
 .words-group-name {
   font-size: var(--text-reading);
   font-weight: 600;
@@ -62,6 +68,11 @@
   color: var(--muted);
   font-size: var(--text-small);
 }
+.practice-mode-name {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: var(--text-small);
+}
 .practice-progress {
   display: flex;
   align-items: center;
@@ -115,6 +126,58 @@
   margin-top: -1rem;
   color: var(--muted);
   font-size: var(--text-small);
+}
+.practice-answer-nl {
+  font-size: 1.625rem;
+}
+/* De or het: the line above the card confirms the last right answer and keeps its height. */
+.practice-last {
+  max-width: 40rem;
+  min-height: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.practice-last-mark {
+  color: var(--ink);
+  font-weight: 700;
+}
+.practice-article-choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 22rem;
+}
+.practice-article-choices button {
+  gap: 0.5rem;
+  min-height: 3.5rem;
+}
+.practice-article-choices strong {
+  font-size: 1.25rem;
+}
+.practice-article-choices button:disabled {
+  opacity: 1;
+  cursor: default;
+}
+.practice-article-choices button[data-result='right'] {
+  border-color: var(--ink);
+  background: var(--mark);
+  color: var(--mark-ink);
+}
+.practice-article-choices button[data-result='wrong'] strong {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+.practice-right-article {
+  padding: 0 0.25rem;
+  border-radius: 0.25rem;
+  background: var(--mark);
+  color: var(--mark-ink);
+}
+.practice-article-verdict {
+  margin-top: -0.5rem;
+  font-size: var(--text-reading);
 }
 .practice-show {
   min-width: 10rem;
