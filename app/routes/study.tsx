@@ -22,6 +22,7 @@ import {
 import { remaining } from '../../server/limits';
 import { pageSeo } from '../domain/seo';
 import { POSITION_COOKIE, readCookie } from '../domain/persistence';
+import { wordsPage } from '../../server/words';
 export function loader({ request, params }) {
   const url = new URL('/' + (params['*'] || ''), request.url),
     route = readRoute(url, null);
@@ -34,6 +35,8 @@ export function loader({ request, params }) {
     (route.startsWith('set/') && !practiceSets.some((set) => set.id === route.slice(4)))
   )
     throw new Response('Exercise not found', { status: 404 });
+  const words = route === 'words' || route.startsWith('words/') ? wordsPage(route) : undefined;
+  if (words === null) throw new Response('Word list not found', { status: 404 });
   const renderedAt = Date.now(),
     cookie = request.headers.get('Cookie') || '';
   const settings = readPreferences(cookie),
@@ -81,6 +84,7 @@ export function loader({ request, params }) {
       ...(legacyNavigation ? { catalogue, practiceSets } : {}),
       initialState,
       renderedAt,
+      words,
       services: {
         ...serviceStatus(renderedAt, store),
         remaining: {
@@ -134,8 +138,11 @@ export function meta({ loaderData: data }: MetaArgs<typeof loader>) {
       ]
     : [{ title: 'Pagina niet gevonden | Oefenschrift' }, { name: 'robots', content: 'noindex' }];
 }
-export function shouldRevalidate({ currentUrl, nextUrl, defaultShouldRevalidate }) {
-  return currentUrl.pathname !== nextUrl.pathname || defaultShouldRevalidate;
+export function shouldRevalidate({ currentUrl, nextUrl, formMethod, defaultShouldRevalidate }) {
+  if (currentUrl.pathname !== nextUrl.pathname) return true;
+  // A word list pages through ?page= in the copy it already has.
+  if (!formMethod && /^(?:.*\/)?words(?:\/[a-z-]+)?$/.test(nextUrl.pathname)) return false;
+  return defaultShouldRevalidate;
 }
 export default function Study() {
   const data = useLoaderData<typeof loader>();

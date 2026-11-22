@@ -180,8 +180,8 @@
   opacity: 1;
 }
 /* Each icon moves once when the learner navigates to its section (not on page load, not on hover): the book opens,
-   the headphones nod, the pen writes, the microphone sounds, the mill turns, the
-   stopwatch sweeps and the bars grow. */
+   the headphones nod, the pen writes, the microphone sounds, the mill turns, the word
+   card comes off the stack, the stopwatch sweeps and the bars grow. */
 .nav-icon[data-animate] .book-left {
   transform-origin: 12px 12px;
   animation: icon-open 560ms cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -219,6 +219,10 @@
   transform-origin: 12px 13px;
   animation: icon-sweep 800ms cubic-bezier(0.3, 0.6, 0.2, 1);
 }
+.nav-icon[data-animate] .card {
+  transform-origin: 10.5px 19.8px;
+  animation: icon-flip 560ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
 .nav-icon[data-animate] .bar {
   transform-origin: 12px 19px;
   animation: icon-grow 520ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
@@ -231,6 +235,17 @@
 }
 .nav-icon[data-animate] .bar:nth-child(4) {
   animation-delay: 180ms;
+}
+@keyframes icon-flip {
+  0% {
+    transform: translate(2px, -2px) rotate(-4deg);
+  }
+  60% {
+    transform: translate(-0.3px, 0.3px) rotate(0.6deg);
+  }
+  100% {
+    transform: none;
+  }
 }
 @keyframes icon-open {
   0% {

@@ -1,0 +1,445 @@
+/* Word lists (/words). The index is rows under the start page's section headings, with the
+   ranked list and My list as two outlined blocks above them. A list is a quiet table: the
+   Dutch word with its grammar, the English, the example with its translation and a note,
+   and a bookmark at the end of the row that turns action yellow once pressed. Narrow
+   pages (a container query: the sidebar takes part of the width) stack each row. */
+.words {
+  container: words / inline-size;
+}
+.words-heading .words-heading-en {
+  margin-top: 0.375rem;
+  color: var(--ink);
+  font-size: var(--text-body);
+}
+.words-heading .words-heading-en + p {
+  margin-top: 0.25rem;
+}
+
+/* Search, the de/het choice and the two view switches share one wrapping row. */
+.words-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 1rem;
+  scroll-margin-top: 1rem;
+}
+.words-search {
+  position: relative;
+  flex: 1 1 16rem;
+  max-width: 26rem;
+}
+.words-search svg {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  translate: 0 -50%;
+  color: var(--muted);
+  pointer-events: none;
+}
+.words-search input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+  border: 1px solid var(--control-hover);
+  border-radius: var(--radius-control);
+  background: var(--paper);
+  font-size: var(--text-body);
+  transition: border-color var(--motion);
+}
+.words-search input:focus {
+  border-color: var(--ink);
+}
+.words-search input::placeholder {
+  color: var(--muted);
+}
+.words-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+}
+.words-status {
+  margin: 1rem 0;
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.words-status a {
+  white-space: nowrap;
+}
+
+/* Index: the ranked list with its hundreds, and My list. */
+.words-start {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 1rem;
+  max-width: 60rem;
+  margin-top: 0.5rem;
+}
+.words-top,
+.words-mine {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-surface);
+}
+.words-group {
+  display: grid;
+  align-content: start;
+  gap: 0.125rem;
+  padding: 0.875rem 1rem;
+  margin-inline: -1rem;
+  border-radius: var(--radius-surface);
+  color: var(--ink);
+  text-decoration: none;
+  transition: background var(--motion);
+}
+.words-group:hover {
+  background: var(--row-hover);
+}
+.words-top .words-group {
+  margin: 0;
+  padding: 1rem 1.25rem 0.625rem;
+  border-radius: var(--radius-surface) var(--radius-surface) 0 0;
+}
+.words-start .words-mine {
+  margin: 0;
+  padding: 1rem 1.25rem;
+}
+.words-group-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+.words-group h2,
+.words-group h3 {
+  font-size: var(--text-reading);
+  line-height: 1.35;
+}
+.words-group-count {
+  color: var(--muted);
+  font-size: var(--text-small);
+  font-variant-numeric: tabular-nums;
+}
+.words-group-detail {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: var(--text-small);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.words-mine .words-group-detail {
+  white-space: normal;
+}
+.words-ranges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin: 0;
+  padding: 0 1.25rem 1.125rem;
+  list-style: none;
+}
+.words-ranges a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0 0.75rem;
+  border-radius: 999px;
+  background: var(--quiet);
+  color: var(--ink);
+  font-size: var(--text-small);
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+  transition:
+    background var(--motion),
+    color var(--motion);
+}
+.words-ranges a:hover {
+  background: var(--tab-selected);
+  color: var(--tab-ink);
+}
+.words-section {
+  margin-top: 2.5rem;
+}
+.words-section > h2 {
+  font-size: var(--text-small);
+  font-weight: 400;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.words-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 2.5rem;
+  max-width: 60rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.words-groups li {
+  border-top: 1px solid var(--line);
+}
+
+/* The hundreds of a long list: underlined like the catalogue filters, each label keeping
+   room for its bold copy so the row never shifts. */
+.words-pages {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 1px solid var(--line);
+}
+.words-pages::-webkit-scrollbar {
+  display: none;
+}
+.word-table + .words-pages {
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 0;
+}
+.words-pages a {
+  position: relative;
+  display: grid;
+  align-content: center;
+  min-height: 2.75rem;
+  color: var(--muted);
+  font-size: var(--text-small);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: color var(--motion);
+}
+.words-pages a::after {
+  content: attr(data-label);
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  font-weight: 600;
+}
+.words-pages a:hover {
+  color: var(--ink);
+}
+.words-pages a[aria-current='page'] {
+  color: var(--ink);
+  font-weight: 600;
+}
+.words-pages a[aria-current='page']::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--action);
+}
+.word-table + .words-pages a[aria-current='page']::before {
+  top: 0;
+  bottom: auto;
+}
+
+/* The list. Column widths follow what the row carries; the bookmark always ends it. */
+.word-table {
+  --word-cols: minmax(9rem, 12.5rem) minmax(8rem, 11.5rem) minmax(0, 1fr) 2.25rem;
+}
+.word-table[data-ranked] {
+  --word-cols: 2.25rem minmax(8.5rem, 11.5rem) minmax(8rem, 11rem) minmax(0, 1fr) 2.25rem;
+}
+.word-table:not([data-examples]) {
+  --word-cols: minmax(9rem, 18rem) minmax(0, 1fr) 2.25rem;
+}
+.word-table[data-ranked]:not([data-examples]) {
+  --word-cols: 2.25rem minmax(9rem, 18rem) minmax(0, 1fr) 2.25rem;
+}
+.word-table[data-layout='verbs'] {
+  --word-cols: minmax(8rem, 12rem) minmax(7.5rem, 11rem) minmax(7.5rem, 10rem) minmax(0, 1fr)
+    2.25rem;
+}
+.word-table[data-layout='verbs']:not([data-examples]) {
+  --word-cols: minmax(9rem, 16rem) minmax(8rem, 14rem) minmax(0, 1fr) 2.25rem;
+}
+.word-columns,
+.word-row {
+  display: grid;
+  grid-template-columns: var(--word-cols);
+  column-gap: 1.25rem;
+}
+.word-columns {
+  padding: 0.75rem 0 0.5rem;
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.word-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.word-row {
+  align-items: baseline;
+  padding: 0.875rem 0;
+  border-top: 1px solid var(--line);
+}
+.word-rank {
+  color: var(--muted);
+  font-size: var(--text-small);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.word-head {
+  display: grid;
+  gap: 0.125rem;
+  min-width: 0;
+}
+.word-nl {
+  font-size: var(--text-reading);
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.word-article {
+  color: var(--muted);
+  font-weight: 400;
+}
+.word-grammar {
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.word-grammar abbr {
+  text-decoration: none;
+}
+.word-en,
+.word-past,
+.word-perfect {
+  min-width: 0;
+  font-size: var(--text-body);
+  overflow-wrap: anywhere;
+}
+.word-head .word-en {
+  font-size: var(--text-small);
+}
+.word-example {
+  min-width: 0;
+}
+.word-example p {
+  font-size: var(--text-body);
+  line-height: 1.5;
+}
+.word-example .word-example-en {
+  margin-top: 0.125rem;
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.word-example .word-note {
+  margin-top: 0.375rem;
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+.word-reveal {
+  font-size: var(--text-small);
+}
+.word-mark {
+  align-self: start;
+  justify-self: end;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-top: -0.375rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--muted);
+  opacity: 0.6;
+  transition:
+    opacity var(--motion),
+    color var(--motion),
+    background var(--motion);
+}
+.word-row:hover .word-mark,
+.word-mark:focus-visible {
+  opacity: 1;
+}
+.word-mark:hover {
+  background: var(--quiet);
+  color: var(--ink);
+}
+.word-mark[aria-pressed='true'] {
+  opacity: 1;
+  color: var(--action-hover);
+}
+.word-mark path {
+  transition: fill var(--motion);
+}
+.word-mark[aria-pressed='true'] path {
+  fill: var(--action);
+}
+.words-sources {
+  margin-top: 3rem;
+  max-width: 46rem;
+}
+
+@container words (max-width: 46rem) {
+  .words-start,
+  .words-groups {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .words-search {
+    flex-basis: 100%;
+    max-width: none;
+  }
+}
+/* A row stacks: the word and its bookmark on the first line, then the English, the forms
+   and the example under the word. */
+@container words (max-width: 40rem) {
+  .word-columns {
+    display: none;
+  }
+  .word-row,
+  .word-table[data-layout='verbs'] .word-row,
+  .word-table:not([data-examples]) .word-row {
+    grid-template-columns: minmax(0, 1fr) 2.25rem;
+    row-gap: 0.25rem;
+  }
+  .word-table[data-ranked] .word-row,
+  .word-table[data-ranked]:not([data-examples]) .word-row {
+    grid-template-columns: 2rem minmax(0, 1fr) 2.25rem;
+    column-gap: 0.75rem;
+  }
+  .word-row > * {
+    grid-column: -3 / -2;
+  }
+  .word-row > .word-rank {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .word-row > .word-mark {
+    grid-column: -2 / -1;
+    grid-row: 1;
+  }
+  /* A verb's forms share one line under the word: begon · begonnen · is begonnen. */
+  .word-table[data-layout='verbs'] .word-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 0.375rem;
+  }
+  .word-table[data-layout='verbs'] .word-head {
+    flex: 1 1 calc(100% - 3rem);
+  }
+  .word-table[data-layout='verbs'] .word-past,
+  .word-table[data-layout='verbs'] .word-perfect {
+    order: 1;
+    color: var(--muted);
+    font-size: var(--text-small);
+  }
+  .word-table[data-layout='verbs'] .word-perfect::before {
+    content: '· ';
+  }
+  .word-table[data-layout='verbs'] .word-example {
+    order: 2;
+    flex-basis: 100%;
+  }
+  .word-example {
+    margin-top: 0.25rem;
+  }
+}

@@ -11,6 +11,7 @@ import {
   disableTeacher,
   enableTeacher,
   profileSlot,
+  wordsSlot,
   readProfiles,
   removeProfile,
   renameProfile,
@@ -116,6 +117,7 @@ test('deleting removes the learner and their saved progress, never the one in us
   const profiles = addProfile(enableTeacher(null, 'Anna'), 'Bram', 'abcdef123456')!;
   writeProfiles(storage, profiles);
   save(storage, defaults(), profileSlot('abcdef123456'));
+  storage.setItem(wordsSlot('abcdef123456'), '{"marked":["huis"]}');
   assert.equal(removeProfile(storage, profiles, MAIN_PROFILE), null);
   const next = removeProfile(storage, profiles, 'abcdef123456')!;
   assert.deepEqual(
@@ -123,6 +125,7 @@ test('deleting removes the learner and their saved progress, never the one in us
     [MAIN_PROFILE],
   );
   assert.equal(storage.getItem(profileSlot('abcdef123456')), null);
+  assert.equal(storage.getItem(wordsSlot('abcdef123456')), null);
   assert.deepEqual(readProfiles(storage), next);
   // The last profile stays.
   assert.equal(removeProfile(storage, next, MAIN_PROFILE), null);

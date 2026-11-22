@@ -256,6 +256,16 @@ const navGlyphs = {
       <path className="bar" d="M18.5 19V5.5" />
     </>
   ),
+  // The word lists: two word cards, the front one with its word and translation lines.
+  words: (
+    <>
+      <path d="M8.6 4.8h9.2a1.6 1.6 0 0 1 1.6 1.6v9.6" />
+      <g className="card">
+        <rect x="4.6" y="7.6" width="11.8" height="12.2" rx="1.6" />
+        <path d="M7.6 12h5.8M7.6 15.4h3.6" />
+      </g>
+    </>
+  ),
   // The level check: a gauge with its needle up, for rows that lead to a check.
   check: (
     <>

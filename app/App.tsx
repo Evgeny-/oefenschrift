@@ -36,6 +36,8 @@ import Wordmark from './components/Wordmark';
 import site from '../content/site.json';
 import useDisclosureMotion from './components/useDisclosureMotion';
 import { withBase } from './domain/base';
+import WordLists from './components/words/WordLists';
+import type { WordsPage } from './domain/words';
 const labels = {
   reading: ['Lezen', 'Reading'],
   listening: ['Luisteren', 'Listening'],
@@ -44,6 +46,7 @@ const labels = {
   knm: ['KNM', 'KNM'],
   mock: ['Proefexamen', 'Practice test'],
   progress: ['Voortgang', 'Progress'],
+  words: ['Woorden', 'Words'],
 };
 export default function App({
   catalogue,
@@ -51,12 +54,14 @@ export default function App({
   initialState,
   services,
   renderedAt,
+  words,
 }: {
   catalogue: Exercise[];
   practiceSets: PracticeSetDefinition[];
   initialState: any;
   services: ServiceStatus;
   renderedAt: number;
+  words?: WordsPage;
 }) {
   const location = useLocation(),
     navigate = useNavigate();
@@ -222,7 +227,11 @@ export default function App({
     ? practiceSets.find((set) => set.id === route.slice(4))
     : null;
   const setReady = practiceSet && matchesSet(state.active, practiceSet);
-  const page = practiceSet?.part || opened?.part || (route === 'session' ? 'mock' : route);
+  const wordList = route.startsWith('words/');
+  const page =
+    practiceSet?.part ||
+    opened?.part ||
+    (route === 'session' ? 'mock' : wordList ? 'words' : route);
   // The page in a given language: the same route, only the /en prefix differs.
   const pathIn = (language) =>
     (route === 'missing'
@@ -245,7 +254,10 @@ export default function App({
       navigate(pathIn(value));
     }
   };
-  const backPart = practiceSet?.part || opened?.part || (route === 'session' ? 'mock' : null),
+  const backPart =
+      practiceSet?.part ||
+      opened?.part ||
+      (route === 'session' ? 'mock' : wordList ? 'words' : null),
     runningCheck =
       route === 'check' && state.settings.level !== 'A1' ? checkInProgress(state) : null;
   // Icon motion follows a real section change, never the initial page load.
@@ -338,6 +350,8 @@ export default function App({
     <Terms />
   ) : route === 'teachers' ? (
     <Teachers />
+  ) : route === 'words' || wordList ? (
+    <WordLists route={route} data={words} />
   ) : route === 'home' ? (
     <Home />
   ) : route === 'check' ? (
@@ -422,9 +436,9 @@ export default function App({
             </nav>
             <nav
               className="utility-nav"
-              aria-label={t('Oefenen en voortgang', 'Practice and progress')}
+              aria-label={t('Woorden, oefenen en voortgang', 'Words, practice and progress')}
             >
-              {['mock', 'progress'].map((part) => (
+              {['words', 'mock', 'progress'].map((part) => (
                 <AppLink
                   className="nav-link"
                   key={part}

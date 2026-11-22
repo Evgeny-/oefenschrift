@@ -1,5 +1,6 @@
 import { routePath } from './routes';
 import type { Exercise, PracticeSet, Level, Language } from '../types';
+import { groupBySlug, MY_LIST, WORD_GROUPS } from './words';
 // Titles and descriptions per interface language. The exercises themselves stay Dutch in
 // both; what changes is the page around them, which is what a search result shows.
 export const subjectNames: Record<Language, Record<string, string>> = {
@@ -17,6 +18,7 @@ export const subjectNames: Record<Language, Record<string, string>> = {
     privacy: 'Privacy',
     terms: 'Gebruiksvoorwaarden',
     teachers: 'Voor docenten',
+    words: 'Woorden',
   },
   en: {
     reading: 'Reading',
@@ -32,6 +34,7 @@ export const subjectNames: Record<Language, Record<string, string>> = {
     privacy: 'Privacy',
     terms: 'Terms of use',
     teachers: 'For teachers',
+    words: 'Words',
   },
 };
 const home = {
@@ -58,7 +61,8 @@ export function pageSeo(
   lang: Language = 'nl',
 ) {
   const names = subjectNames[lang],
-    nl = lang === 'nl';
+    nl = lang === 'nl',
+    wordGroup = route.startsWith('words/') ? groupBySlug(route.slice(6)) : undefined;
   const alternates = {
     nl: root + routePath(route, level, 'nl'),
     en: root + routePath(route, level, 'en'),
@@ -86,17 +90,21 @@ export function pageSeo(
         url: root + routePath(part, partLevel === 'KNM' ? 'A2' : partLevel, lang),
       });
     }
+    if (route.startsWith('words/'))
+      trail.push({ name: names.words, url: root + routePath('words', level, lang) });
     // The last step is the page itself, under its own short name: the trail already says
     // which part and level it belongs to.
     if (route !== 'home')
       trail.push({
         name: item
           ? item.title
-          : set
-            ? nl
-              ? `Oefenset ${set.number}`
-              : `Practice set ${set.number}`
-            : name,
+          : wordGroup
+            ? wordGroup[lang]
+            : set
+              ? nl
+                ? `Oefenset ${set.number}`
+                : `Practice set ${set.number}`
+              : name,
         url: alternates[lang],
       });
     return {
@@ -161,23 +169,31 @@ export function pageSeo(
   );
   const title = item
     ? `${item.title} · ${item.level} ${names[item.part]}`
-    : set
+    : wordGroup
       ? nl
-        ? `${set.level} ${names[set.part]} · Oefenset ${set.number}`
-        : `${set.level} ${names[set.part]} · Practice set ${set.number}`
-      : subject
+        ? `${wordGroup.nl}: Nederlandse woordenlijst met Engels`
+        : `Dutch ${wordGroup.en.toLowerCase()}: word list with English`
+      : route === 'words'
         ? nl
-          ? `${level} ${names[route]} oefenen`
-          : `${level} ${names[route]} practice`
-        : route === 'check'
+          ? 'Nederlandse woorden met Engelse vertaling'
+          : 'Dutch word lists with English translations'
+        : set
           ? nl
-            ? level === 'A1'
-              ? 'Niveaucheck A1 niet beschikbaar'
-              : `Niveaucheck ${level}: tien vragen over lezen en luisteren`
-            : level === 'A1'
-              ? 'A1 level check unavailable'
-              : `Level check ${level}: ten questions on reading and listening`
-          : names[route] || (nl ? 'Oefenen' : 'Practice');
+            ? `${set.level} ${names[set.part]} · Oefenset ${set.number}`
+            : `${set.level} ${names[set.part]} · Practice set ${set.number}`
+          : subject
+            ? nl
+              ? `${level} ${names[route]} oefenen`
+              : `${level} ${names[route]} practice`
+            : route === 'check'
+              ? nl
+                ? level === 'A1'
+                  ? 'Niveaucheck A1 niet beschikbaar'
+                  : `Niveaucheck ${level}: tien vragen over lezen en luisteren`
+                : level === 'A1'
+                  ? 'A1 level check unavailable'
+                  : `Level check ${level}: ten questions on reading and listening`
+              : names[route] || (nl ? 'Oefenen' : 'Practice');
   let description = nl
     ? 'Oefen Nederlands met zelfstandige opdrachten voor lezen, luisteren, schrijven en spreken. Onafhankelijke oefenopgaven voor je inburgering.'
     : 'Practise Dutch with self-study tasks for reading, listening, writing and speaking. Independent practice material for your inburgering exam.';
@@ -208,6 +224,14 @@ export function pageSeo(
         : nl
           ? `Doe de gratis niveaucheck op ${level}: tien vragen over lezen en luisteren. Je ziet per onderdeel hoe je scoort en waar je het best begint. Geen examenuitslag.`
           : `Take the free level check at ${level}: ten questions on reading and listening. See how you score per subject and where best to begin. Not an exam result.`;
+  else if (wordGroup)
+    description = nl
+      ? `${wordGroup.about[0]} Elk woord met Engelse vertaling en een korte voorbeeldzin.`
+      : `${wordGroup.about[1]} Every word with its English translation and a short example sentence.`;
+  else if (route === 'words')
+    description = nl
+      ? 'De meest gebruikte Nederlandse woorden, werkwoorden, zelfstandige naamwoorden en woorden per thema, elk met Engelse vertaling en een korte voorbeeldzin. Gratis, zonder account.'
+      : 'The most common Dutch words, verbs, nouns and words by theme, each with its English translation and a short example sentence. Free, no account needed.';
   else if (route === 'teachers')
     description = nl
       ? 'Docentmodus: laat meerdere leerlingen op één apparaat oefenen, elk met een eigen profiel, en volg per leerling de voortgang. Zonder account; alles blijft in de browser.'
@@ -218,6 +242,7 @@ export function pageSeo(
       : 'Read how our independent inburgering exercises are made and reviewed, what their limitations are and how to report a problem.';
   const noindex =
     ['progress', 'session', 'privacy', 'terms', 'mock', 'check-result'].includes(route) ||
+    route === `words/${MY_LIST}` ||
     (level === 'A1' && route === 'check') ||
     (subject && !available.length);
   return decorate(title, description, noindex, item, set);
@@ -232,6 +257,8 @@ export function sitemapPaths(catalogue: Exercise[], sets: PracticeSet[]) {
   add('home');
   add('about');
   add('teachers');
+  add('words');
+  for (const group of WORD_GROUPS) if (group.slug !== MY_LIST) add('words/' + group.slug);
   for (const item of catalogue) {
     add(item.part, item.level === 'KNM' ? 'A2' : item.level);
     add('exercise/' + item.id);

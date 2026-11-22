@@ -11,6 +11,7 @@ const pages = new Set([
   'privacy',
   'terms',
   'teachers',
+  'words',
 ]);
 export const levelPages = new Set([
   'reading',
@@ -50,6 +51,7 @@ export function localizePath(path: string, lang: Language) {
 function plainPath(route, level: Level) {
   if (route.startsWith('set/')) return `/sets/${encodeURIComponent(route.slice(4))}`;
   if (route.startsWith('exercise/')) return `/exercise/${encodeURIComponent(route.slice(9))}`;
+  if (route.startsWith('words/')) return `/words/${encodeURIComponent(route.slice(6))}`;
   const prefix = `/${level.toLowerCase()}`;
   if (route === 'mock') return prefix + '/practice-test';
   if (route === 'session') return prefix + '/practice-test/session';
@@ -81,6 +83,9 @@ export function readRoute(location, active) {
     } else if (path.startsWith('/exercise/')) {
       const id = decodeURIComponent(path.slice(10));
       if (id && !id.includes('/')) route = `exercise/${id}`;
+    } else if (path.startsWith('/words/')) {
+      const slug = decodeURIComponent(path.slice(7));
+      if (/^[a-z-]+$/.test(slug)) route = `words/${slug}`;
     } else if (path === '/' && !level) route = 'home';
     else if (pages.has(path.slice(1)) && path !== '/home') route = path.slice(1);
     else if (path === '/' || location.protocol === 'file:') route = 'reading';

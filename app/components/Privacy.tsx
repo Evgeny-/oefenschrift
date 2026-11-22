@@ -125,8 +125,8 @@ export default function Privacy() {
         <h2>{t('Op je apparaat', 'On your device')}</h2>
         <p>
           {t(
-            'Je voortgang, resultaten, concepten en transcripties die je als antwoord gebruikt, worden in deze browser bewaard en niet naar de server gestuurd. Op de pagina Voortgang kun je ze exporteren of wissen; het wissen van de sitegegevens in je browser verwijdert alles.',
-            'Your progress, results, drafts and transcripts used as answers are saved in this browser and never sent to the server. The Progress page lets you export or delete them; clearing site data in your browser removes everything.',
+            'Je voortgang, resultaten, concepten en transcripties die je als antwoord gebruikt, worden in deze browser bewaard en niet naar de server gestuurd. Op de pagina Voortgang kun je ze exporteren of wissen; het wissen van de sitegegevens in je browser verwijdert alles. Ook de woorden die je bij Woorden op Mijn lijst zet blijven alleen in deze browser; je haalt ze daar zelf weg.',
+            'Your progress, results, drafts and transcripts used as answers are saved in this browser and never sent to the server. The Progress page lets you export or delete them; clearing site data in your browser removes everything. The words you put on My list under Words also stay only in this browser; you remove them there.',
           )}
         </p>
         <p>
