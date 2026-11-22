@@ -49,4 +49,8 @@ An API run in this round also redrew every picture that was not yet applied to t
 - `batch120-zelfbeschikking-keuzes`: no library steps are visible. The books and the bicycle rack suggest the library.
 - `batch115-schoonmaker-briefje` panel 1: at a glance the smudged glass could pass for frosted glass. The alt text and the task both say the window is dirty.
 
+## Redrawn after publication review
+
+- `batch121-basisschool-acht-jaar`: the first local drawing showed the school as wall pieces floating on the empty page, with no ground or entrance. Four new local drawings (seeds 8 to 11) were made from the same brief. Seed 10 (attempt 4, `images/f5e4aaadfaaae65f.webp`) shows one school with a door, a path and a bicycle rack, and mother and daughter seen from behind walking towards it. A small soft leaf in the lower left corner is accepted.
+
 This is an editorial look by the coordinator, not a specialist accessibility or learner test.
