@@ -176,30 +176,6 @@
   font-size: var(--text-small);
   line-height: 1.5;
 }
-/* One quiet legend of the keys under the card, for devices with a keyboard. */
-.practice-keys {
-  display: none;
-  max-width: 40rem;
-  margin-top: 0.75rem;
-  color: var(--muted);
-  font-size: var(--text-small);
-  text-align: right;
-}
-.practice-keys kbd {
-  display: inline-block;
-  min-width: 1.25rem;
-  padding: 0.0625rem 0.3125rem;
-  border: 1px solid var(--line);
-  border-radius: 0.25rem;
-  font-family: inherit;
-  font-size: 0.6875rem;
-  text-align: center;
-}
-@media (hover: hover) and (pointer: fine) {
-  .practice-keys {
-    display: block;
-  }
-}
 .practice-rating {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -211,6 +187,11 @@
   flex-direction: column;
   gap: 0.125rem;
   min-height: 3.5rem;
+}
+.practice-rating strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
 }
 .practice-rating small {
   font-size: 0.75rem;

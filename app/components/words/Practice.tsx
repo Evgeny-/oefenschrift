@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation } from 'react-router';
 import { useStudyContext } from '../../StudyContext';
-import { Chevron } from '../Controls';
+import { Chevron, KeyHint } from '../Controls';
 import AppLink from '../AppLink';
 import { MarkIcon } from './WordRows';
 import { WordIcon } from './WordIcons';
@@ -78,7 +78,11 @@ function PoolLink({ to, title, detail, aside = undefined, className = '' }) {
   return (
     <AppLink className={`words-group ${className}`} to={practicePath} search={search(to)}>
       <span className="words-icon" data-icon={to}>
-        <WordIcon name={to} />
+        {(LEVEL_POOLS as readonly string[]).includes(to) ? (
+          <span className="words-level">{to.toUpperCase()}</span>
+        ) : (
+          <WordIcon name={to} />
+        )}
       </span>
       <span className="words-group-copy">
         <span className="words-group-name">{title}</span>
@@ -357,9 +361,9 @@ function Round({ poolKey, entries, prefs, status }) {
     const onKey = (event: KeyboardEvent) => {
       if (event.metaKey || event.ctrlKey || event.altKey || !card) return;
       const ratings: Record<string, Rating> = { '1': 'again', '2': 'good', '3': 'easy' };
-      // Space turns the card unless a control has focus and will act on the key itself.
+      // Enter or Space turns the card unless a control has focus and will act on the key itself.
       const onControl = (event.target as HTMLElement)?.closest?.('button, a, input');
-      if (!shown && event.key === ' ' && !onControl) {
+      if (!shown && (event.key === ' ' || event.key === 'Enter') && !onControl) {
         event.preventDefault();
         setShown(true);
       } else if (shown && ratings[event.key]) {
@@ -508,6 +512,7 @@ function Round({ poolKey, entries, prefs, status }) {
             onClick={() => setShown(true)}
           >
             {t('Laat zien', 'Show')}
+            <KeyHint />
           </button>
         )}
       </section>
@@ -518,30 +523,28 @@ function Round({ poolKey, entries, prefs, status }) {
           aria-label={t('Hoe ging het?', 'How did it go?')}
         >
           <button type="button" className="secondary" onClick={() => answer('again')}>
-            <strong>{t('Opnieuw', 'Again')}</strong>
+            <strong>
+              {t('Opnieuw', 'Again')}
+              <KeyHint label="1" />
+            </strong>
             <small>{t('morgen weer', 'tomorrow')}</small>
           </button>
           <button type="button" className="primary" ref={goodButton} onClick={() => answer('good')}>
-            <strong>{t('Ken ik', 'Got it')}</strong>
+            <strong>
+              {t('Ken ik', 'Got it')}
+              <KeyHint label="2" />
+            </strong>
             <small>{t('later weer', 'space it out')}</small>
           </button>
           <button type="button" className="secondary" onClick={() => answer('easy')}>
-            <strong>{t('Te makkelijk', 'Too easy')}</strong>
+            <strong>
+              {t('Te makkelijk', 'Too easy')}
+              <KeyHint label="3" />
+            </strong>
             <small>{t('niet meer', 'don’t repeat')}</small>
           </button>
         </div>
       )}
-      <p className="practice-keys" aria-hidden="true">
-        {shown ? (
-          <>
-            <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> {t('antwoorden', 'answer')}
-          </>
-        ) : (
-          <>
-            <kbd>{t('spatie', 'space')}</kbd> {t('omdraaien', 'turn the card')}
-          </>
-        )}
-      </p>
     </>
   );
 }

@@ -220,7 +220,7 @@ function WordIndex({ summaries, prefs }: { summaries: GroupSummary[]; prefs: Wor
                 <span className="words-group-detail">
                   {due
                     ? `${countLabel(due, t)} ${t('te herhalen', 'to review')}`
-                    : t('Kaartjes: elke dag een paar woorden', 'Flashcards: a few words a day')}
+                    : t('Elke dag een paar kaartjes', 'A few flashcards a day')}
                 </span>
               </span>
               <span />
@@ -232,8 +232,8 @@ function WordIndex({ summaries, prefs }: { summaries: GroupSummary[]; prefs: Wor
                 heading="h2"
                 className="words-card words-top"
                 detail={t(
-                  `Begin hier: de ${top.count} woorden die je het vaakst tegenkomt`,
-                  `Start here: the ${top.count.toLocaleString('en')} words you meet most often`,
+                  `Begin hier: ${top.count} woorden`,
+                  `Start here: ${top.count.toLocaleString('en')} words`,
                 )}
               />
             )}

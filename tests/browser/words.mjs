@@ -251,6 +251,10 @@ try {
     `document.querySelector('.practice-answer').textContent.includes('to be')&&document.querySelector('.practice-answer').textContent.includes('ik ben · jij bent · hij is')`,
     'Space turns the card to the meaning and the present tense',
   );
+  await check(
+    `[...document.querySelectorAll('.practice-rating button .key-hint')].map((hint)=>hint.textContent).join()==='1,2,3'`,
+    'each rating button carries its key, as the exercise buttons do',
+  );
   await send('input.performActions', {
     context,
     actions: [
