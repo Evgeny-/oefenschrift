@@ -462,11 +462,20 @@ try {
     `document.querySelector('h1').textContent==='Terms of use'&&document.body.innerText.includes('not an exam result')&&!!document.querySelector('.privacy-document a[href="/en/privacy"]')`,
     'The terms page explains the AI limits and links back to the privacy notice',
   );
+  // Word practice events through the real endpoint, so the overview shows its word cards filled.
+  await check(
+    `fetch('/api/events',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({visitor:'d'.repeat(32),events:['again','again','good'].map((selected)=>({kind:'word',item:'huis',mode:'de-het',selected,list:'my-practice',lang:'nl',level:'A2'}))})}).then((r)=>r.json()).then((r)=>r.recorded===3)`,
+    'Word practice events are accepted through the events endpoint',
+  );
   await navigate('/ops');
   await wait(`!!document.querySelector('.chart canvas')`);
   await check(
     `document.querySelector('.admin-grid .tile').textContent.includes('Unique visitors')&&document.querySelectorAll('.chart canvas').length>=2&&(()=>{const [a,b]=document.querySelectorAll('.admin-grid > .card');return Math.abs(a.getBoundingClientRect().top-b.getBoundingClientRect().top)<1&&Math.abs(a.getBoundingClientRect().height-b.getBoundingClientRect().height)<1;})()`,
     'The overview renders tiles and charts on one grid with level rows',
+  );
+  await check(
+    `['Word practice per day','Words by way and list','Hardest words'].every((title)=>[...document.querySelectorAll('.admin-grid .card h2')].some((h)=>h.textContent===title))&&[...document.querySelectorAll('.admin-table tr')].some((row)=>row.textContent.startsWith('het huis')&&row.textContent.includes('De or het')&&row.textContent.endsWith('33%'))`,
+    'The overview shows word practice by way and the least-known words',
   );
   await check(
     `(()=>{const tiles=[...document.querySelectorAll('.admin-tiles .tile')];const tops=new Set(tiles.map(t=>Math.round(t.getBoundingClientRect().top)));return tiles.length===7&&tops.size===1&&tiles.every(t=>[...t.querySelectorAll('.tile-label')].every(el=>el.getBoundingClientRect().height<2*parseFloat(getComputedStyle(el).fontSize)))&&tiles.slice(0,5).every(t=>[...t.querySelectorAll('.tile-detail')].every(el=>el.getBoundingClientRect().height<2*parseFloat(getComputedStyle(el).fontSize)));})()`,

@@ -6,6 +6,7 @@ import { createHash } from 'node:crypto';
 import type { Exercise, PracticeSet } from '../app/types';
 import { exerciseMetadataErrors } from '../app/domain/exercise-schema';
 import { initializeReactions, pruneReactions } from './reactions';
+import { wordAnalytics, wordEventRow } from './word-events';
 export class StoreError extends Error {
   constructor(
     message: string,
@@ -397,6 +398,11 @@ export class ContentStore {
         rows.push(['visit', null, null, null, null, lang, level, null]);
         continue;
       }
+      if (event.kind === 'word') {
+        const row = wordEventRow(event, lang, level);
+        if (row) rows.push(row);
+        continue;
+      }
       const item = catalogue.find((i) => i.id === event.item);
       if (!item) continue;
       if (event.kind === 'answer') {
@@ -546,7 +552,7 @@ export class ContentStore {
         since,
       ),
       learners: count(
-        "SELECT COUNT(DISTINCT visitor) n FROM events WHERE day>=? AND kind IN ('answer','review')",
+        "SELECT COUNT(DISTINCT visitor) n FROM events WHERE day>=? AND kind IN ('answer','review','word')",
         since,
       ),
       answers7: count("SELECT COUNT(*) n FROM events WHERE kind='answer' AND day>=?", since7),
@@ -566,6 +572,7 @@ export class ContentStore {
       level: split('level'),
       services: q('SELECT * FROM service_stats WHERE day>=? ORDER BY day', since),
       reportsOpen: count("SELECT COUNT(*) n FROM reports WHERE status='open'"),
+      words: wordAnalytics(q, since),
     };
   }
   questionStats(itemId, days = 90, now = Date.now()) {

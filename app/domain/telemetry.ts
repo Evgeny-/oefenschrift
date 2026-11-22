@@ -1,7 +1,9 @@
 // Anonymous learning events for the operator's statistics. A random browser id
 // (never a name or account) accompanies exercise and question ids, the chosen
-// option letter, the interface language and level. Answer texts, transcripts and
-// recordings are never part of an event. The Privacy page describes this.
+// option letter, the interface language and level; word practice sends the word id,
+// the way it was asked, the learner's own answer (again, good, easy) and the list.
+// Answer texts, transcripts and recordings are never part of an event. The Privacy
+// page describes this.
 import { postJson } from './request';
 import { VISITOR_KEY, SESSION_KEY, readStored, writeStored } from './persistence';
 let queue: any[] = [],

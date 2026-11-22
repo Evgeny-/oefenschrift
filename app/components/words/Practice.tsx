@@ -5,6 +5,7 @@ import AppLink from '../AppLink';
 import { allCards, modeCards, useDictionary, type WordPrefsApi } from './useWordPrefs';
 import Choice, { practicePath, useModeName, usePoolName } from './PracticeChoice';
 import { ArticleCard, FlashCard } from './PracticeCards';
+import { track } from '../../domain/telemetry';
 import type { WordEntry } from '../../domain/words';
 import {
   buildMixRound,
@@ -136,6 +137,16 @@ function Round({
     if (!card || !queue) return;
     const id = `${card.mode}:${card.entry.id}`;
     prefs.rateWord(card.entry.id, rating, day, card.mode);
+    // An anonymous event for the operator's statistics: the word, the way, the answer.
+    track({
+      kind: 'word',
+      item: card.entry.id,
+      mode: card.mode,
+      selected: rating,
+      list: poolKey,
+      lang: state.settings.lang,
+      level,
+    });
     setTally((n) => ({ ...n, [rating]: n[rating] + 1 }));
     setLast({ ...card, rating });
     if (rating === 'again' && !repeated.has(id)) {

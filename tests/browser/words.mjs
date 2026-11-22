@@ -251,7 +251,10 @@ try {
   // Rounds are shuffled; a random source that keeps the list's order pins the cards here
   // (tests/word-practice.test.ts covers the shuffle itself).
   await navigate('/words/irregular-verbs');
-  await evaluate(`window.__random=Math.random;Math.random=()=>0.9999999;true`);
+  // The anonymous events a round sends are kept here to be checked after two answers.
+  await evaluate(
+    `window.__random=Math.random;Math.random=()=>0.9999999;window.__events=[];window.__fetch=window.fetch;window.fetch=(url,init)=>{if(String(url).includes('/api/events'))window.__events.push(...JSON.parse(init.body).events);return window.__fetch(url,init)};true`,
+  );
   await click('.words-practise-list');
   await wait(`location.search==='?list=irregular-verbs'&&document.querySelector('.practice-show')`);
   await evaluate(`Math.random=window.__random;true`);
@@ -310,6 +313,11 @@ try {
   await check(
     `${saved}.cards.hebben.step===1&&!${saved}.cards.hebben.again`,
     'Got it spaces the word out',
+  );
+  await wait(`window.__events.filter((e)=>e.kind==='word').length===2`);
+  await check(
+    `JSON.stringify(window.__events.filter((e)=>e.kind==='word').map((e)=>[e.item,e.mode,e.selected,e.list,e.level]))===JSON.stringify([['zijn','nl-en','again','irregular-verbs','A2'],['hebben','nl-en','good','irregular-verbs','A2']])`,
+    'Each answer sends one anonymous event: the word, the way, the answer and the list',
   );
   await navigate('/words/practice');
   await wait(`document.querySelector('.practice-stats')`);

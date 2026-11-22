@@ -309,6 +309,60 @@ test('anonymous events are validated against the catalogue and aggregate without
   assert.equal(Number(store.stats().find((row) => row.service === 'feedback').input_tokens), 120);
   assert.equal(JSON.stringify(a).includes(visitor), false, 'no visitor value leaves the store');
 });
+test('word practice events are checked against the word lists and add up by way and list', () => {
+  const store = new ContentStore(':memory:', catalogue, sets),
+    visitor = 'c'.repeat(32);
+  const word = (item, mode, selected, list = 'my-practice') => ({
+    kind: 'word',
+    item,
+    mode,
+    selected,
+    list,
+    lang: 'en',
+    level: 'A2',
+  });
+  assert.equal(
+    store.recordEvents(visitor, [
+      word('huis', 'nl-en', 'good'),
+      word('huis', 'en-nl', 'again', 'a2'),
+      word('huis', 'de-het', 'again'),
+      word('huis', 'de-het', 'again'),
+      word('huis', 'de-het', 'good', 'nouns'),
+      word('dokter', 'nl-en', 'easy', '<script>'),
+      word('geen-woord', 'nl-en', 'good'),
+      word('huis', 'mix', 'good'),
+      word('huis', 'de-het', 'easy'),
+      word('huis', 'nl-en', 'perfect'),
+    ]),
+    6,
+    'unknown words, ways and answers are dropped; an unknown list is left out',
+  );
+  const a = store.analytics(30),
+    w = a.words;
+  assert.deepEqual([w.cards, w.known, w.learners, w.words], [6, 3, 1, 2]);
+  assert.equal(a.learners, 1, 'a word learner counts as a learner');
+  assert.deepEqual(
+    w.modes.map((row) => [row.mode, row.cards, row.known]),
+    [
+      ['de-het', 3, 1],
+      ['nl-en', 2, 2],
+      ['en-nl', 1, 0],
+    ],
+  );
+  assert.deepEqual(
+    w.lists.map((row) => [row.list, row.cards]),
+    [
+      ['my-practice', 3],
+      ['a2', 1],
+      ['nouns', 1],
+    ],
+  );
+  assert.deepEqual(w.hardest, [
+    { id: 'huis', nl: 'het huis', en: 'house; home', mode: 'de-het', cards: 3, known: 1 },
+  ]);
+  assert.equal(w.daily.at(-1).cards, 6);
+  assert.equal(JSON.stringify(a).includes(visitor), false, 'no visitor value leaves the store');
+});
 const task = {
   level: 'A2',
   part: 'writing',

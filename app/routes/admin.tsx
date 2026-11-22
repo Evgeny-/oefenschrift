@@ -4,6 +4,7 @@ import { getStore } from '../../server/store';
 import { adminSession } from '../../server/security';
 import { availability, LABELS } from '../../server/availability';
 import Chart, { axes, bar, donut, line, shortDay } from '../components/admin/Chart';
+import WordStats from '../components/admin/WordStats';
 import {
   Card,
   Empty,
@@ -386,6 +387,7 @@ export default function Overview() {
             <Empty>No exercises practised in this period.</Empty>
           )}
         </Card>
+        <WordStats words={a.words} days={a.daily.map((d) => d.day)} />
         <Card
           title="Open reports"
           actions={
