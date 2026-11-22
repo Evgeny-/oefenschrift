@@ -259,6 +259,8 @@ export default function App({
       practiceSet?.part ||
       opened?.part ||
       (route === 'session' ? 'mock' : wordList ? 'words' : null),
+    // A round of word cards goes back to the practice choice it was started from.
+    practiceRound = route === 'words/practice' && new URLSearchParams(location.search).has('list'),
     runningCheck =
       route === 'check' && state.settings.level !== 'A1' ? checkInProgress(state) : null;
   // Icon motion follows a real section change, never the initial page load.
@@ -461,8 +463,9 @@ export default function App({
         <div className="workspace">
           {backPart ? (
             <div className="toolbar">
-              <AppLink className="back" to={backPart}>
-                ← {t('Terug naar', 'Back to')} {name(backPart)}
+              <AppLink className="back" to={practiceRound ? 'words/practice' : backPart}>
+                ← {t('Terug naar', 'Back to')}{' '}
+                {practiceRound ? t('oefenen', 'practice') : name(backPart)}
               </AppLink>
               {position && <span className="set-position">{position}</span>}
             </div>

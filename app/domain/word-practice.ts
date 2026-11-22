@@ -54,20 +54,43 @@ export const isDue = (card: CardState | undefined, day: string) =>
 export const isLearned = (card: CardState | undefined) =>
   !!card && (!!card.done || card.step >= LEARNED_STEP);
 
-// A round from a pool of words: the ones due first (longest waiting first), then words not
-// practised yet in the pool's own order. A pool with nothing due and nothing new gives its
-// words that are furthest from due, so a learner can always practise a list again.
-export function buildRound(pool: WordEntry[], cards: Cards, day: string, size = ROUND_SIZE) {
+// A round from a pool of words: the ones due first (longest waiting first), then new words
+// drawn at random from the next hundred not practised yet in the pool's order, so the most
+// common words still come before rare ones but no two rounds are the same twenty. The round
+// is then shuffled, so a list is never met in its printed order. A pool with nothing due and
+// nothing new gives its words that are furthest from due, so a learner can always practise
+// a list again.
+export const NEW_WINDOW = 100;
+export function shuffled<T>(list: T[], random: () => number = Math.random) {
+  const out = [...list];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
+export function buildRound(
+  pool: WordEntry[],
+  cards: Cards,
+  day: string,
+  size = ROUND_SIZE,
+  random: () => number = Math.random,
+) {
   const due = pool
-      .filter((entry) => isDue(cards[entry.id], day))
-      .sort((a, b) => cards[a.id].due.localeCompare(cards[b.id].due)),
-    fresh = pool.filter((entry) => !cards[entry.id]);
-  const round = [...due, ...fresh].slice(0, size);
-  if (round.length) return { words: round, early: false };
+    .filter((entry) => isDue(cards[entry.id], day))
+    .sort((a, b) => cards[a.id].due.localeCompare(cards[b.id].due))
+    .slice(0, size);
+  const fresh = shuffled(
+    pool.filter((entry) => !cards[entry.id]).slice(0, NEW_WINDOW),
+    random,
+  ).slice(0, size - due.length);
+  const round = [...due, ...fresh];
+  if (round.length) return { words: shuffled(round, random), early: false };
   const waiting = pool
     .filter((entry) => !cards[entry.id]?.done)
-    .sort((a, b) => cards[a.id].due.localeCompare(cards[b.id].due));
-  return { words: waiting.slice(0, size), early: true };
+    .sort((a, b) => cards[a.id].due.localeCompare(cards[b.id].due))
+    .slice(0, size);
+  return { words: shuffled(waiting, random), early: true };
 }
 
 export interface PracticeStats {

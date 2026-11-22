@@ -386,6 +386,7 @@ function GroupPage({
           to={wordPath(PRACTICE)}
           search={`?list=${group.slug}`}
         >
+          <WordIcon name="practice" size={18} />
           {mine
             ? t('Oefen mijn lijst', 'Practise my list')
             : t('Oefen deze lijst', 'Practise this list')}

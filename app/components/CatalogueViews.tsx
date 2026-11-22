@@ -11,6 +11,7 @@ import useSelectionIndicator from './useSelectionIndicator';
 import { mediaUrl } from '../domain/base';
 import A1PracticeOnly from './A1PracticeOnly';
 import { isNewSet } from '../domain/new-sets';
+import WordProgress from './words/WordProgress';
 function ListFilters({ filter, onChange, includeAll = true, includeDrafts = false }) {
   const { t } = useStudyContext(),
     indicator = useSelectionIndicator(filter);
@@ -512,6 +513,7 @@ export function Progress() {
           );
         })}
       </div>
+      <WordProgress />
       <ListFilters filter={filter} onChange={setFilter} includeAll={false} includeDrafts />
       {filter === 'mistakes' && visible.length > 0 && (
         <p className="note review-hint">

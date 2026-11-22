@@ -16,6 +16,15 @@ import { wordType, type WordEntry } from '../app/domain/words';
 const word = (id: string, rank: number, extra: Partial<WordEntry> = {}): WordEntry =>
   ({ id, nl: id, pos: 'noun', en: id, rank, ex: '', exEn: '', ...extra }) as WordEntry;
 const day = '2026-11-22';
+// A random source that leaves a shuffle in its order, to pin which words a round takes.
+const inOrder = () => 0.9999999;
+// A small seeded generator (mulberry32) so a shuffled round is the same on every run.
+const seeded = (seed: number) => () => {
+  seed = (seed + 0x6d2b79f5) | 0;
+  let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+  t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+  return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+};
 
 test('days are local calendar days and cross months and years', () => {
   assert.equal(today(new Date(2026, 10, 22, 23, 59)), '2026-11-22');
@@ -58,19 +67,40 @@ test('a round takes due words first, then new ones, and never comes back empty',
     a: { step: 2, due: '2026-11-30', seen: 2, misses: 0 },
   };
   assert.deepEqual(
-    buildRound(pool, cards, day, 3).words.map((e) => e.id),
+    buildRound(pool, cards, day, 3, inOrder).words.map((e) => e.id),
     ['c', 'b', 'd'],
   );
   const practised: Cards = Object.fromEntries(
     pool.map((e, i) => [e.id, { step: 1, due: `2026-12-0${4 - i}`, seen: 1, misses: 0 }]),
   );
   practised.a.done = true;
-  const early = buildRound(pool, practised, day);
+  const early = buildRound(pool, practised, day, undefined, inOrder);
   assert.equal(early.early, true);
   assert.deepEqual(
     early.words.map((e) => e.id),
     ['d', 'c', 'b'],
   );
+});
+
+test('a round of new words is a shuffled draw from the next hundred', () => {
+  const pool = Array.from({ length: 300 }, (_, i) => word(`w${i}`, i + 1));
+  const cards: Cards = { w0: { step: 1, due: '2026-11-30', seen: 1, misses: 0 } };
+  const ranks = (seed: number) =>
+    buildRound(pool, cards, day, 20, seeded(seed)).words.map((e) => e.rank!);
+  const first = ranks(1),
+    second = ranks(2);
+  assert.equal(new Set(first).size, 20);
+  // Only words not practised yet, and only from the hundred that come next in the list.
+  assert.ok(first.every((rank) => rank > 1 && rank <= 101));
+  assert.notDeepEqual(
+    first,
+    [...first].sort((a, b) => a - b),
+    'the round is not in list order',
+  );
+  assert.notDeepEqual(first, second, 'two rounds are not the same draw');
+  // A word due today always gets in, wherever the shuffle puts it.
+  const due: Cards = { w250: { step: 1, due: day, seen: 1, misses: 0 } };
+  assert.ok(buildRound(pool, due, day, 20, seeded(3)).words.some((e) => e.id === 'w250'));
 });
 
 test('pools: review, mistakes, my list, levels and lists', () => {

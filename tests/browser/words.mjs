@@ -225,12 +225,20 @@ try {
     `[...document.querySelectorAll('.words-group')].some(a=>a.getAttribute('href')==='/words/practice?list=a2'&&a.querySelector('.practice-yours'))`,
     'The practice choice recovers from a failed load and marks the learner’s level',
   );
+  // Rounds are shuffled; a random source that keeps the list's order pins the cards here
+  // (tests/word-practice.test.ts covers the shuffle itself).
   await navigate('/words/irregular-verbs');
+  await evaluate(`window.__random=Math.random;Math.random=()=>0.9999999;true`);
   await click('.words-practise-list');
   await wait(`location.search==='?list=irregular-verbs'&&document.querySelector('.practice-show')`);
+  await evaluate(`Math.random=window.__random;true`);
   await check(
     `document.querySelector('.practice-word').textContent==='zijn'&&document.querySelector('.practice-type').textContent==='werkwoord'&&document.querySelector('.practice-progress').textContent.startsWith('1 / 20')`,
-    'A list’s practice starts with its first word in a round of twenty, naming the kind of a word spelled twice',
+    'A list’s practice is a round of twenty, naming the kind of a word spelled twice',
+  );
+  await check(
+    `document.querySelector('.back').getAttribute('href').endsWith('/words/practice')&&document.querySelector('.back').textContent.includes('Terug naar oefenen')`,
+    'A round goes back to the practice choice, not to the word lists',
   );
   await evaluate(`document.activeElement.blur();true`);
   await send('input.performActions', {
@@ -285,6 +293,12 @@ try {
   await check(
     `document.querySelector('.practice-stats').textContent.includes('2')&&[...document.querySelectorAll('.words-card')].find(a=>a.getAttribute('href')==='/words/practice?list=mistakes').textContent.includes('1 woord')&&document.querySelector('.practice-hardest').textContent.includes('zijn')`,
     'The choice shows the practice so far, the mistake and the hardest word',
+  );
+  await click('[data-page="progress"]');
+  await wait(`document.querySelector('.progress-words .progress-subjects')`);
+  await check(
+    `document.querySelector('.progress-words .practice-stats').textContent.includes('2 geoefend')&&document.querySelector('.progress-words .practice-stats').textContent.includes('1 fouten')&&document.querySelectorAll('.progress-words progress').length===3`,
+    'Voortgang shows the word practice and the learned words per level',
   );
 
   // Search across lists, with the dictionary failing once and loading on retry.
