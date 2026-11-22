@@ -263,6 +263,14 @@
     min-height: 2rem;
     min-width: 3rem;
   }
+  /* In the narrowest player (a 320px phone) the pills give up a little width, still a
+     comfortable touch target, so the time and the speed share one line. */
+  @container audio-player (width < 15rem) {
+    #audio-speed .segment {
+      min-width: 2.625rem;
+      padding: 0 0.25rem;
+    }
+  }
   .nav-link,
   .report-trigger,
   .primary,

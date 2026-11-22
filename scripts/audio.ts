@@ -280,6 +280,7 @@ function spokenTime(h: number, m: number): string {
   return `${dutchNumber(hour)} uur ${dutchNumber(m)}`;
 }
 export function spoken(text: string): string {
+  // Emergency numbers are said digit by digit; 999 and 911 appear only as other countries' numbers.
   return text
     .replace(/\b0\d{1,3}(?:[ -]\d{1,8}){1,5}\b/g, (n) =>
       n
@@ -288,7 +289,6 @@ export function spoken(text: string): string {
         .join(', '),
     )
     .replace(/\b0\d{8,9}\b/g, (n) => [...n].map((d) => DIGITS[+d]).join(' '))
-    // Emergency numbers are said digit by digit; 999 and 911 appear only as other countries' numbers.
     .replace(/\b(?:112|911|999)\b/g, (n) => [...n].map((d) => DIGITS[+d]).join(' '))
     .replace(/\b(\d{1,2})[.:](\d{2})\s*u(?:ur)?\b/g, (_, h, m) => spokenTime(+h, +m))
     .replace(/\b(\d{1,2})[.:](\d{2})\b/g, (_, h, m) => spokenTime(+h, +m));

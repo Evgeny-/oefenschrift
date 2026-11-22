@@ -1,5 +1,6 @@
 /* Audio keeps playback and speed controls at a steady size. */
 .audio-player {
+  container: audio-player / inline-size;
   padding: 1.25rem;
   background: var(--sheet);
   border: 1px solid var(--sheet-line);
@@ -215,9 +216,38 @@
   outline: 2px solid var(--focus);
   outline-offset: 2px;
 }
-/* Phones and tablets have volume keys (and iOS ignores a scripted level), and on a narrow
-   screen the control would push the speed choice onto a second line, so it is left out there. */
+/* Phones and tablets have volume keys (and iOS ignores a scripted level), and a window under
+   30rem is a phone's width, so the control is left out there. */
 @media (pointer: coarse), (max-width: 30rem) {
+  .audio-volume {
+    display: none;
+  }
+  .audio-volume + #audio-speed {
+    margin-left: auto;
+  }
+}
+/* Time, volume and speed stay on one line under the waveform however narrow the player's
+   column is (the cue player beside a speaking task has about 21rem inside): first the speed pills and
+   the slider tighten, then the slider steps aside for the mute button alone, and in the
+   narrowest player volume is left to the device. */
+@container audio-player (width < 22rem) {
+  .audio-meta {
+    gap: 0.625rem;
+  }
+  .volume-slider {
+    width: 3.75rem;
+  }
+  #audio-speed .segment {
+    min-width: 2.25rem;
+    padding: 0 0.4rem;
+  }
+}
+@container audio-player (width < 19rem) {
+  .volume-slider {
+    display: none;
+  }
+}
+@container audio-player (width < 15rem) {
   .audio-volume {
     display: none;
   }
